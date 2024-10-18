@@ -7795,7 +7795,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7915,7 +7915,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -8014,7 +8014,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -8105,7 +8105,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -8113,8 +8113,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -8179,7 +8179,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -8239,7 +8239,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -8319,7 +8319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -8561,7 +8561,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -8723,7 +8723,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -8889,7 +8889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -9071,7 +9071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -9315,7 +9315,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -9463,7 +9463,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -9550,7 +9550,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -9677,7 +9677,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -9800,7 +9800,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -9883,7 +9883,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -10031,7 +10031,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -10532,7 +10532,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10647,7 +10647,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -10746,7 +10746,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -10834,7 +10834,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -10842,8 +10842,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -10908,7 +10908,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -10968,7 +10968,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -11048,7 +11048,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -11278,7 +11278,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -11440,7 +11440,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -11606,7 +11606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -11786,7 +11786,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -12030,7 +12030,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -12178,7 +12178,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -12265,7 +12265,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -12392,7 +12392,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -12515,7 +12515,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -12598,7 +12598,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -12746,7 +12746,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -13136,7 +13136,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13251,7 +13251,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -13350,7 +13350,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -13438,7 +13438,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -13446,8 +13446,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -13512,7 +13512,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -13572,7 +13572,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -13652,7 +13652,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -13882,7 +13882,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -14045,7 +14045,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -14213,7 +14213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -14394,7 +14394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -14638,7 +14638,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -14789,7 +14789,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -14876,7 +14876,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -15001,7 +15001,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -15122,7 +15122,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -15205,7 +15205,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -15356,7 +15356,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -15734,7 +15734,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15849,7 +15849,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -15948,7 +15948,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -16036,7 +16036,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -16044,8 +16044,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -16110,7 +16110,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -16170,7 +16170,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -16250,7 +16250,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -16480,7 +16480,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -16643,7 +16643,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -16811,7 +16811,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -16992,7 +16992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -17236,7 +17236,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -17387,7 +17387,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -17474,7 +17474,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -17599,7 +17599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -17720,7 +17720,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -17803,7 +17803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -17954,7 +17954,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -18376,7 +18376,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18491,7 +18491,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -18590,7 +18590,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -18678,7 +18678,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -18686,8 +18686,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -18752,7 +18752,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -18812,7 +18812,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -18892,7 +18892,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -19122,7 +19122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -19284,7 +19284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -19450,7 +19450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -19630,7 +19630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -19874,7 +19874,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -20022,7 +20022,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -20109,7 +20109,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -20236,7 +20236,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -20359,7 +20359,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -20442,7 +20442,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -20590,7 +20590,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -20998,7 +20998,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -21113,7 +21113,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -21212,7 +21212,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -21300,7 +21300,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -21308,8 +21308,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -21374,7 +21374,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -21434,7 +21434,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -21514,7 +21514,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -21744,7 +21744,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -21907,7 +21907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -22075,7 +22075,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -22256,7 +22256,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -22500,7 +22500,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -22651,7 +22651,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -22738,7 +22738,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -22863,7 +22863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -22984,7 +22984,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -23067,7 +23067,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -23218,7 +23218,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -23612,7 +23612,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -23727,7 +23727,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -23826,7 +23826,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -23914,7 +23914,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -23922,8 +23922,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -23988,7 +23988,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -24048,7 +24048,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -24128,7 +24128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -24358,7 +24358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -24520,7 +24520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -24686,7 +24686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -24866,7 +24866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -25110,7 +25110,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -25258,7 +25258,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -25345,7 +25345,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -25472,7 +25472,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -25595,7 +25595,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -25678,7 +25678,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -25826,7 +25826,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -26224,7 +26224,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -26339,7 +26339,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -26438,7 +26438,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -26526,7 +26526,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -26534,8 +26534,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -26600,7 +26600,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -26660,7 +26660,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -26740,7 +26740,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -26970,7 +26970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -27132,7 +27132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -27298,7 +27298,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -27478,7 +27478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -27722,7 +27722,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -27870,7 +27870,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -27957,7 +27957,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -28084,7 +28084,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -28207,7 +28207,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -28290,7 +28290,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -28438,7 +28438,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -28828,7 +28828,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -28943,7 +28943,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -29042,7 +29042,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -29130,7 +29130,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -29138,8 +29138,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -29204,7 +29204,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -29264,7 +29264,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -29344,7 +29344,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -29574,7 +29574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -29737,7 +29737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -29905,7 +29905,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -30086,7 +30086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -30330,7 +30330,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -30481,7 +30481,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -30568,7 +30568,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -30693,7 +30693,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -30814,7 +30814,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -30897,7 +30897,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -31048,7 +31048,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -31426,7 +31426,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -31541,7 +31541,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -31640,7 +31640,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -31728,7 +31728,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -31736,8 +31736,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -31802,7 +31802,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -31862,7 +31862,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -31942,7 +31942,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -32172,7 +32172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -32334,7 +32334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -32500,7 +32500,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -32680,7 +32680,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -32924,7 +32924,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -33072,7 +33072,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -33159,7 +33159,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -33286,7 +33286,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -33409,7 +33409,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -33492,7 +33492,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -33640,7 +33640,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -34038,7 +34038,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -34153,7 +34153,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -34252,7 +34252,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -34340,7 +34340,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -34348,8 +34348,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -34414,7 +34414,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -34474,7 +34474,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -34554,7 +34554,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -34784,7 +34784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -34946,7 +34946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -35112,7 +35112,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -35292,7 +35292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -35536,7 +35536,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -35684,7 +35684,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -35771,7 +35771,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -35898,7 +35898,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -36021,7 +36021,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -36104,7 +36104,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -36252,7 +36252,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -36642,7 +36642,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -36757,7 +36757,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -36856,7 +36856,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -36944,7 +36944,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -36952,8 +36952,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -37018,7 +37018,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -37078,7 +37078,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -37158,7 +37158,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -37388,7 +37388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -37550,7 +37550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -37716,7 +37716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -37896,7 +37896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -38140,7 +38140,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -38288,7 +38288,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -38375,7 +38375,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -38502,7 +38502,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -38625,7 +38625,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -38708,7 +38708,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -38856,7 +38856,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -39234,7 +39234,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -39349,7 +39349,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -39448,7 +39448,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -39536,7 +39536,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -39544,8 +39544,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -39610,7 +39610,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -39670,7 +39670,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -39750,7 +39750,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -39980,7 +39980,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -40142,7 +40142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -40308,7 +40308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -40488,7 +40488,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -40732,7 +40732,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -40880,7 +40880,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -40967,7 +40967,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -41094,7 +41094,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -41217,7 +41217,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -41300,7 +41300,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -41448,7 +41448,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -41818,7 +41818,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -41933,7 +41933,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -42032,7 +42032,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -42120,7 +42120,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -42128,8 +42128,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -42194,7 +42194,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -42254,7 +42254,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -42334,7 +42334,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -42564,7 +42564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -42726,7 +42726,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -42892,7 +42892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -43072,7 +43072,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -43316,7 +43316,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -43464,7 +43464,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -43551,7 +43551,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -43678,7 +43678,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -43801,7 +43801,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -43884,7 +43884,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -44032,7 +44032,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -44402,7 +44402,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -44517,7 +44517,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -44616,7 +44616,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -44704,7 +44704,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -44712,8 +44712,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -44778,7 +44778,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -44838,7 +44838,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -44918,7 +44918,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -45148,7 +45148,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -45310,7 +45310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -45476,7 +45476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -45656,7 +45656,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -45900,7 +45900,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -46048,7 +46048,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -46135,7 +46135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -46262,7 +46262,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -46385,7 +46385,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -46468,7 +46468,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -46616,7 +46616,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -46986,7 +46986,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -47101,7 +47101,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -47200,7 +47200,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -47288,7 +47288,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -47296,8 +47296,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -47362,7 +47362,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -47422,7 +47422,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -47502,7 +47502,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -47732,7 +47732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -47894,7 +47894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -48060,7 +48060,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -48240,7 +48240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -48484,7 +48484,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -48632,7 +48632,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -48719,7 +48719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -48846,7 +48846,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -48969,7 +48969,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -49052,7 +49052,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -49200,7 +49200,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -49570,7 +49570,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -49685,7 +49685,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -49784,7 +49784,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -49872,7 +49872,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -49880,8 +49880,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -49946,7 +49946,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -50006,7 +50006,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -50086,7 +50086,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -50316,7 +50316,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -50478,7 +50478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -50644,7 +50644,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -50824,7 +50824,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -51068,7 +51068,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -51216,7 +51216,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -51303,7 +51303,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -51430,7 +51430,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -51553,7 +51553,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %95
 
 95:                                               ; preds = %91
-  tail call void %94(ptr noundef nonnull %92)
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %92)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %95, %91, %88, %85, %81
@@ -51636,7 +51636,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -51784,7 +51784,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -52154,7 +52154,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -52269,7 +52269,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -52368,7 +52368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -52456,7 +52456,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -52464,8 +52464,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -52530,7 +52530,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -52590,7 +52590,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatri
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -52670,7 +52670,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -52900,7 +52900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -53062,7 +53062,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -53228,7 +53228,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %64
 
 64:                                               ; preds = %60
-  tail call void %63(ptr noundef nonnull %61)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %64, %60, %57, %54, %50
@@ -53408,7 +53408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -53652,7 +53652,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -53800,7 +53800,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -53887,7 +53887,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -54014,7 +54014,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -54137,7 +54137,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %96
 
 96:                                               ; preds = %92
-  tail call void %95(ptr noundef nonnull %93)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %93)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %96, %92, %89, %86, %82
@@ -54220,7 +54220,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -54368,7 +54368,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %89
 
 89:                                               ; preds = %85
-  tail call void %88(ptr noundef nonnull %86)
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %86)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %89, %85, %82, %79, %75
@@ -54738,7 +54738,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -54853,7 +54853,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -54962,7 +54962,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -55050,7 +55050,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -55058,8 +55058,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -55124,7 +55124,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -55184,7 +55184,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -55264,7 +55264,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -55499,7 +55499,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -55666,7 +55666,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -55837,7 +55837,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -56022,7 +56022,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -56281,7 +56281,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -56439,7 +56439,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -56526,7 +56526,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -56653,7 +56653,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -56780,7 +56780,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %90
 
 90:                                               ; preds = %86
-  tail call void %89(ptr noundef nonnull %87)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %90, %86, %83, %80, %76
@@ -56863,7 +56863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -57021,7 +57021,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -57435,7 +57435,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -57550,7 +57550,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -57659,7 +57659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -57747,7 +57747,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -57755,8 +57755,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -57821,7 +57821,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -57881,7 +57881,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -57961,7 +57961,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -58196,7 +58196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -58363,7 +58363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -58534,7 +58534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -58719,7 +58719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -58978,7 +58978,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -59136,7 +59136,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -59223,7 +59223,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -59350,7 +59350,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -59477,7 +59477,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %90
 
 90:                                               ; preds = %86
-  tail call void %89(ptr noundef nonnull %87)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %90, %86, %83, %80, %76
@@ -59560,7 +59560,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -59718,7 +59718,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -60132,7 +60132,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -60247,7 +60247,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -60352,7 +60352,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -60440,7 +60440,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -60448,8 +60448,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -60514,7 +60514,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -60574,7 +60574,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -60654,7 +60654,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -60889,7 +60889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -61056,7 +61056,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -61227,7 +61227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -61412,7 +61412,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -61667,7 +61667,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -61825,7 +61825,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -61912,7 +61912,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -62039,7 +62039,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -62166,7 +62166,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -62249,7 +62249,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -62407,7 +62407,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -62801,7 +62801,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -62916,7 +62916,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -63021,7 +63021,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -63109,7 +63109,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -63117,8 +63117,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -63183,7 +63183,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -63243,7 +63243,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -63323,7 +63323,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -63558,7 +63558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -63725,7 +63725,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -63896,7 +63896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -64081,7 +64081,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -64336,7 +64336,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -64494,7 +64494,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -64581,7 +64581,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -64708,7 +64708,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -64835,7 +64835,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -64918,7 +64918,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -65076,7 +65076,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -65470,7 +65470,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -65585,7 +65585,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -65686,7 +65686,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -65774,7 +65774,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -65782,8 +65782,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -65848,7 +65848,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -65908,7 +65908,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -65988,7 +65988,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -66224,7 +66224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -66393,7 +66393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %68
 
 68:                                               ; preds = %64
-  tail call void %67(ptr noundef nonnull %65)
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %68, %64, %61, %58, %54
@@ -66567,7 +66567,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %68
 
 68:                                               ; preds = %64
-  tail call void %67(ptr noundef nonnull %65)
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %68, %64, %61, %58, %54
@@ -66754,7 +66754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %35
 
 35:                                               ; preds = %31
-  tail call void %34(ptr noundef nonnull %32)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %35, %31, %28, %25, %21
@@ -67006,7 +67006,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -67169,7 +67169,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %98
 
 98:                                               ; preds = %94
-  tail call void %97(ptr noundef nonnull %95)
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %95)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %98, %94, %91, %88, %84
@@ -67256,7 +67256,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -67381,7 +67381,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -67508,7 +67508,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %90
 
 90:                                               ; preds = %86
-  tail call void %89(ptr noundef nonnull %87)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %90, %86, %83, %80, %76
@@ -67591,7 +67591,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -67754,7 +67754,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %98
 
 98:                                               ; preds = %94
-  tail call void %97(ptr noundef nonnull %95)
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %95)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %98, %94, %91, %88, %84
@@ -68132,7 +68132,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -68247,7 +68247,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -68348,7 +68348,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -68436,7 +68436,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -68444,8 +68444,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -68510,7 +68510,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -68570,7 +68570,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -68650,7 +68650,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -68885,7 +68885,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -69052,7 +69052,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -69223,7 +69223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -69408,7 +69408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -69659,7 +69659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -69817,7 +69817,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKU
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -69904,7 +69904,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -70031,7 +70031,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -70158,7 +70158,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dES2_ET0_T
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -70241,7 +70241,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -70399,7 +70399,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -70777,7 +70777,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -70892,7 +70892,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -70997,7 +70997,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -71085,7 +71085,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -71093,8 +71093,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -71159,7 +71159,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -71219,7 +71219,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfInter
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -71299,7 +71299,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -71534,7 +71534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -71701,7 +71701,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -71872,7 +71872,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -72057,7 +72057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -72312,7 +72312,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -72470,7 +72470,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -72557,7 +72557,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -72684,7 +72684,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -72834,7 +72834,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %108
 
 108:                                              ; preds = %104
-  tail call void %107(ptr noundef nonnull %105)
+  tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %105)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %108, %104, %101, %98, %94
@@ -72917,7 +72917,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -73075,7 +73075,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_EN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -73477,7 +73477,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -73592,7 +73592,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -73697,7 +73697,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -73785,7 +73785,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -73793,8 +73793,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -73859,7 +73859,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -73919,7 +73919,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2i
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -73999,7 +73999,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -74234,7 +74234,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -74401,7 +74401,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -74572,7 +74572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -74757,7 +74757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -75012,7 +75012,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -75170,7 +75170,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUl
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -75257,7 +75257,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -75384,7 +75384,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -75511,7 +75511,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iES2_ET0_T_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -75594,7 +75594,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -75752,7 +75752,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -76146,7 +76146,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -76261,7 +76261,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -76359,7 +76359,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -76447,7 +76447,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -76455,8 +76455,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -76521,7 +76521,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -76581,7 +76581,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -76661,7 +76661,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -76897,7 +76897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -77066,7 +77066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %68
 
 68:                                               ; preds = %64
-  tail call void %67(ptr noundef nonnull %65)
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %68, %64, %61, %58, %54
@@ -77240,7 +77240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %68
 
 68:                                               ; preds = %64
-  tail call void %67(ptr noundef nonnull %65)
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %68, %64, %61, %58, %54
@@ -77427,7 +77427,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %35
 
 35:                                               ; preds = %31
-  tail call void %34(ptr noundef nonnull %32)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %35, %31, %28, %25, %21
@@ -77676,7 +77676,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -77839,7 +77839,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %98
 
 98:                                               ; preds = %94
-  tail call void %97(ptr noundef nonnull %95)
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %95)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %98, %94, %91, %88, %84
@@ -77926,7 +77926,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -78051,7 +78051,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -78178,7 +78178,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfQuathES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %90
 
 90:                                               ; preds = %86
-  tail call void %89(ptr noundef nonnull %87)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %90, %86, %83, %80, %76
@@ -78261,7 +78261,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -78424,7 +78424,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %98
 
 98:                                               ; preds = %94
-  tail call void %97(ptr noundef nonnull %95)
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %95)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %98, %94, %91, %88, %84
@@ -78846,7 +78846,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -78961,7 +78961,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -79059,7 +79059,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -79147,7 +79147,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -79155,8 +79155,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -79221,7 +79221,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -79281,7 +79281,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -79361,7 +79361,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -79596,7 +79596,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -79763,7 +79763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -79934,7 +79934,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -80119,7 +80119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -80367,7 +80367,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -80525,7 +80525,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -80612,7 +80612,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -80739,7 +80739,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -80866,7 +80866,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -80949,7 +80949,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -81107,7 +81107,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -81505,7 +81505,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -81620,7 +81620,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -81718,7 +81718,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -81806,7 +81806,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -81814,8 +81814,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -81880,7 +81880,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -81940,7 +81940,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdE
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -82020,7 +82020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -82255,7 +82255,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -82422,7 +82422,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -82593,7 +82593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -82778,7 +82778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -83026,7 +83026,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -83184,7 +83184,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlP
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -83271,7 +83271,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -83398,7 +83398,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -83525,7 +83525,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdES2_ET0_T_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -83608,7 +83608,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -83766,7 +83766,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_F
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -84164,7 +84164,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuate
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -84279,7 +84279,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuate
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -84377,7 +84377,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -84465,7 +84465,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -84473,8 +84473,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -84539,7 +84539,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -84599,7 +84599,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuate
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -84679,7 +84679,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -84914,7 +84914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -85081,7 +85081,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -85252,7 +85252,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -85437,7 +85437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -85685,7 +85685,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -85843,7 +85843,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -85930,7 +85930,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -86057,7 +86057,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -86184,7 +86184,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES2_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -86267,7 +86267,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -86425,7 +86425,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -86823,7 +86823,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -86938,7 +86938,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -87036,7 +87036,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -87124,7 +87124,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -87132,8 +87132,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -87198,7 +87198,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -87258,7 +87258,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -87338,7 +87338,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -87573,7 +87573,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -87740,7 +87740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -87911,7 +87911,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -88096,7 +88096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -88344,7 +88344,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -88502,7 +88502,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -88589,7 +88589,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -88716,7 +88716,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -88843,7 +88843,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES2_ET
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -88926,7 +88926,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -89084,7 +89084,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -89454,7 +89454,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -89569,7 +89569,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -89667,7 +89667,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -89755,7 +89755,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -89763,8 +89763,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -89829,7 +89829,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -89889,7 +89889,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -89969,7 +89969,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -90204,7 +90204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -90371,7 +90371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -90542,7 +90542,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -90727,7 +90727,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -90975,7 +90975,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -91133,7 +91133,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -91220,7 +91220,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -91347,7 +91347,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -91474,7 +91474,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES2_ET
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -91557,7 +91557,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -91715,7 +91715,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -92145,7 +92145,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -92260,7 +92260,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -92358,7 +92358,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -92446,7 +92446,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -92454,8 +92454,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -92520,7 +92520,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -92580,7 +92580,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQ
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -92660,7 +92660,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -92895,7 +92895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %26, %23, %19
@@ -93062,7 +93062,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -93233,7 +93233,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -93418,7 +93418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %24, %20
@@ -93666,7 +93666,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -93824,7 +93824,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -93911,7 +93911,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -94038,7 +94038,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %42
 
 42:                                               ; preds = %38
-  tail call void %41(ptr noundef nonnull %39)
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %42, %38, %.thread.i, %32, %28
@@ -94165,7 +94165,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES2_ET
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %91
 
 91:                                               ; preds = %87
-  tail call void %90(ptr noundef nonnull %88)
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %91, %87, %84, %81, %77
@@ -94248,7 +94248,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -94406,7 +94406,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -94836,7 +94836,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC2EPNS_25Vt_ArrayForeignDataSourceEPbmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC5EPNS_25Vt_ArrayForeignDataSourceEPbmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -94985,7 +94985,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -95054,7 +95054,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -95153,7 +95153,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -95241,7 +95241,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -95249,8 +95249,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -95315,7 +95315,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -95375,7 +95375,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -95452,7 +95452,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -95683,7 +95683,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -95846,7 +95846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -96015,7 +96015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %66
 
 66:                                               ; preds = %62
-  tail call void %65(ptr noundef nonnull %63)
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %66, %62, %59, %56, %52
@@ -96196,7 +96196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -96436,7 +96436,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -96569,7 +96569,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -96656,7 +96656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -96781,7 +96781,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %40
 
 40:                                               ; preds = %36
-  tail call void %39(ptr noundef nonnull %37)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %37)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %40, %36, %.thread.i, %30, %26
@@ -96896,7 +96896,7 @@ _ZSt18uninitialized_copyIPbS0_ET0_T_S2_S1_.exit41: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -96979,7 +96979,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -97112,7 +97112,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -97478,7 +97478,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcEC2EPNS_25Vt_ArrayForeignDataSourceEPcmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcEC5EPNS_25Vt_ArrayForeignDataSourceEPcmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -97627,7 +97627,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -97696,7 +97696,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -97795,7 +97795,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -97883,7 +97883,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -97891,8 +97891,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -97957,7 +97957,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -98017,7 +98017,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -98094,7 +98094,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -98325,7 +98325,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -98487,7 +98487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -98654,7 +98654,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -98834,7 +98834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -99074,7 +99074,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -99204,7 +99204,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %86
 
 86:                                               ; preds = %82
-  tail call void %85(ptr noundef nonnull %83)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %86, %82, %79, %76, %72
@@ -99291,7 +99291,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -99416,7 +99416,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %40
 
 40:                                               ; preds = %36
-  tail call void %39(ptr noundef nonnull %37)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %37)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %40, %36, %.thread.i, %30, %26
@@ -99531,7 +99531,7 @@ _ZSt18uninitialized_copyIPcS0_ET0_T_S2_S1_.exit41: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -99614,7 +99614,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -99744,7 +99744,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %86
 
 86:                                               ; preds = %82
-  tail call void %85(ptr noundef nonnull %83)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %86, %82, %79, %76, %72
@@ -100110,7 +100110,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEC2EPNS_25Vt_ArrayForeignDataSourceEPhmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEC5EPNS_25Vt_ArrayForeignDataSourceEPhmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -100259,7 +100259,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -100328,7 +100328,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -100427,7 +100427,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -100515,7 +100515,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -100523,8 +100523,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -100589,7 +100589,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -100649,7 +100649,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -100726,7 +100726,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i.i: ;
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i.i: ; preds = %31, %27, %.thread.i.i, %21, %17
@@ -100957,7 +100957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -101119,7 +101119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -101286,7 +101286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -101466,7 +101466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -101706,7 +101706,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -101836,7 +101836,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %86
 
 86:                                               ; preds = %82
-  tail call void %85(ptr noundef nonnull %83)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %86, %82, %79, %76, %72
@@ -101923,7 +101923,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -102048,7 +102048,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %40
 
 40:                                               ; preds = %36
-  tail call void %39(ptr noundef nonnull %37)
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %37)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %40, %36, %.thread.i, %30, %26
@@ -102163,7 +102163,7 @@ _ZSt18uninitialized_copyIPhS0_ET0_T_S2_S1_.exit41: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -102246,7 +102246,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -102376,7 +102376,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %86
 
 86:                                               ; preds = %82
-  tail call void %85(ptr noundef nonnull %83)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %86, %82, %79, %76, %72
@@ -102742,7 +102742,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsEC2EPNS_25Vt_ArrayForeignDataSourceEPsmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsEC5EPNS_25Vt_ArrayForeignDataSourceEPsmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -102857,7 +102857,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -102956,7 +102956,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -103044,7 +103044,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -103052,8 +103052,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -103118,7 +103118,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -103178,7 +103178,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -103258,7 +103258,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -103488,7 +103488,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -103651,7 +103651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -103819,7 +103819,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -104000,7 +104000,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -104244,7 +104244,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -104395,7 +104395,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -104482,7 +104482,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -104607,7 +104607,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -104728,7 +104728,7 @@ _ZSt18uninitialized_copyIPsS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -104811,7 +104811,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -104962,7 +104962,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -105328,7 +105328,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItEC2EPNS_25Vt_ArrayForeignDataSourceEPtmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItEC5EPNS_25Vt_ArrayForeignDataSourceEPtmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -105443,7 +105443,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -105542,7 +105542,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -105630,7 +105630,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -105638,8 +105638,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -105704,7 +105704,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -105764,7 +105764,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -105844,7 +105844,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -106074,7 +106074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -106237,7 +106237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -106405,7 +106405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -106586,7 +106586,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -106830,7 +106830,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -106981,7 +106981,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -107068,7 +107068,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -107193,7 +107193,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -107314,7 +107314,7 @@ _ZSt18uninitialized_copyIPtS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -107397,7 +107397,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -107548,7 +107548,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -107914,7 +107914,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC2EPNS_25Vt_ArrayForeignDataSourceEPimb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC5EPNS_25Vt_ArrayForeignDataSourceEPimb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -108029,7 +108029,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -108128,7 +108128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -108216,7 +108216,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -108224,8 +108224,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -108290,7 +108290,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -108350,7 +108350,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -108430,7 +108430,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -108660,7 +108660,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -108823,7 +108823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -108991,7 +108991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -109172,7 +109172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -109416,7 +109416,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -109567,7 +109567,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -109654,7 +109654,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -109779,7 +109779,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -109900,7 +109900,7 @@ _ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -109983,7 +109983,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -110134,7 +110134,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -110500,7 +110500,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEC2EPNS_25Vt_ArrayForeignDataSourceEPjmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEC5EPNS_25Vt_ArrayForeignDataSourceEPjmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -110615,7 +110615,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -110714,7 +110714,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -110802,7 +110802,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -110810,8 +110810,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -110876,7 +110876,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -110936,7 +110936,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -111016,7 +111016,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -111246,7 +111246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -111409,7 +111409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -111577,7 +111577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -111758,7 +111758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -112002,7 +112002,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -112153,7 +112153,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -112240,7 +112240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -112365,7 +112365,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -112486,7 +112486,7 @@ _ZSt18uninitialized_copyIPjS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -112569,7 +112569,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -112720,7 +112720,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -113086,7 +113086,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC2EPNS_25Vt_ArrayForeignDataSourceEPlmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC5EPNS_25Vt_ArrayForeignDataSourceEPlmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -113201,7 +113201,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -113300,7 +113300,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -113388,7 +113388,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -113396,8 +113396,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -113462,7 +113462,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -113522,7 +113522,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -113602,7 +113602,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -113832,7 +113832,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -113995,7 +113995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -114163,7 +114163,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -114344,7 +114344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -114588,7 +114588,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -114739,7 +114739,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -114826,7 +114826,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -114951,7 +114951,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -115072,7 +115072,7 @@ _ZSt18uninitialized_copyIPlS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -115155,7 +115155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -115306,7 +115306,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -115672,7 +115672,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImEC2EPNS_25Vt_ArrayForeignDataSourceEPmmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImEC5EPNS_25Vt_ArrayForeignDataSourceEPmmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -115787,7 +115787,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -115886,7 +115886,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -115974,7 +115974,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -115982,8 +115982,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -116048,7 +116048,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -116108,7 +116108,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -116188,7 +116188,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -116418,7 +116418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -116581,7 +116581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -116749,7 +116749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -116930,7 +116930,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -117174,7 +117174,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -117325,7 +117325,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -117412,7 +117412,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -117537,7 +117537,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -117658,7 +117658,7 @@ _ZSt18uninitialized_copyIPmS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -117741,7 +117741,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -117892,7 +117892,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -118258,7 +118258,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC2EPNS_25Vt_ArrayForeignDataSourceEPdmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC5EPNS_25Vt_ArrayForeignDataSourceEPdmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -118373,7 +118373,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -118472,7 +118472,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -118560,7 +118560,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -118568,8 +118568,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -118634,7 +118634,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -118694,7 +118694,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -118774,7 +118774,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -119004,7 +119004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -119167,7 +119167,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -119335,7 +119335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -119516,7 +119516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -119760,7 +119760,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -119911,7 +119911,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -119998,7 +119998,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -120123,7 +120123,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -120244,7 +120244,7 @@ _ZSt18uninitialized_copyIPdS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -120327,7 +120327,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -120478,7 +120478,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -120852,7 +120852,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC2Ev(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC2EPNS_25Vt_ArrayForeignDataSourceEPfmb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC5EPNS_25Vt_ArrayForeignDataSourceEPfmb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -120967,7 +120967,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED2Ev(ptr n
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -121066,7 +121066,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -121154,7 +121154,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -121162,8 +121162,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -121228,7 +121228,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -121288,7 +121288,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -121368,7 +121368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -121598,7 +121598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -121761,7 +121761,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -121929,7 +121929,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -122110,7 +122110,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -122354,7 +122354,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -122505,7 +122505,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -122592,7 +122592,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread: ; pre
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -122717,7 +122717,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -122838,7 +122838,7 @@ _ZSt18uninitialized_copyIPfS0_ET0_T_S2_S1_.exit44: ; preds = %_ZSt18uninitialize
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -122921,7 +122921,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -123072,7 +123072,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %92
 
 92:                                               ; preds = %88
-  tail call void %91(ptr noundef nonnull %89)
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %92, %88, %85, %82, %78
@@ -123446,7 +123446,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEEC2EPNS_25Vt_ArrayForeignDataSourceEPS2_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEEC5EPNS_25Vt_ArrayForeignDataSourceEPS2_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -123561,7 +123561,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %21
 
 21:                                               ; preds = %17
-  invoke void %20(ptr noundef nonnull %18)
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %22
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %21, %17, %14, %11, %7
@@ -123660,7 +123660,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %28, %24, %.thread.i, %18, %14
@@ -123748,7 +123748,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %26
 
 26:                                               ; preds = %22
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %29
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %26, %22, %19, %16, %12
@@ -123756,8 +123756,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %7, align 8
@@ -123822,7 +123822,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %24
 
 24:                                               ; preds = %20
-  tail call void %23(ptr noundef nonnull %21)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %24, %20, %17, %14, %10
@@ -123882,7 +123882,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %18)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %21, %17, %14, %7, %11
@@ -123962,7 +123962,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %27)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %.thread.i, %20, %16
@@ -124192,7 +124192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call void %30(ptr noundef nonnull %28)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %31, %27, %24, %21, %17
@@ -124355,7 +124355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -124523,7 +124523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %65
 
 65:                                               ; preds = %61
-  tail call void %64(ptr noundef nonnull %62)
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %65, %61, %58, %55, %51
@@ -124704,7 +124704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %22, %18
@@ -124948,7 +124948,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -125099,7 +125099,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -125186,7 +125186,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %.thread, %15, %11
@@ -125311,7 +125311,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  tail call void %40(ptr noundef nonnull %38)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %41, %37, %.thread.i, %31, %27
@@ -125432,7 +125432,7 @@ _ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %93
 
 93:                                               ; preds = %89
-  tail call void %92(ptr noundef nonnull %90)
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %93, %89, %86, %83, %79
@@ -125515,7 +125515,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -125666,7 +125666,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %87
 
 87:                                               ; preds = %83
-  tail call void %86(ptr noundef nonnull %84)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %87, %83, %80, %77, %73
@@ -126045,7 +126045,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPNS_25Vt_ArrayForeignDataSourceEPS6_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5EPNS_25Vt_ArrayForeignDataSourceEPS6_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -126211,7 +126211,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %25
 
 25:                                               ; preds = %21
-  invoke void %24(ptr noundef nonnull %22)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %26
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %25, %21, %18, %._crit_edge.i, %7
@@ -126364,7 +126364,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %30
 
 30:                                               ; preds = %26
-  invoke void %29(ptr noundef nonnull %27)
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %33
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %30, %26, %23, %._crit_edge.i.i, %12
@@ -126372,8 +126372,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %7, align 8
@@ -126456,7 +126456,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInterna
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %28
 
 28:                                               ; preds = %24
-  tail call void %27(ptr noundef nonnull %25)
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %28, %24, %21, %._crit_edge.i, %10
@@ -126534,7 +126534,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx111
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %25
 
 25:                                               ; preds = %21
-  tail call void %24(ptr noundef nonnull %22)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %22)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %25, %21, %18, %7, %._crit_edge
@@ -126779,7 +126779,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %34
 
 34:                                               ; preds = %30
-  tail call void %33(ptr noundef nonnull %31)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %31)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %34, %30, %27, %._crit_edge.i, %16
@@ -126950,7 +126950,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %67
 
 67:                                               ; preds = %63
-  tail call void %66(ptr noundef nonnull %64)
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %67, %63, %60, %._crit_edge.i, %49
@@ -127125,7 +127125,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %67
 
 67:                                               ; preds = %63
-  tail call void %66(ptr noundef nonnull %64)
+  tail call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %67, %63, %60, %._crit_edge.i, %49
@@ -127323,7 +127323,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %36
 
 36:                                               ; preds = %32
-  tail call void %35(ptr noundef nonnull %33)
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %33)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %36, %32, %29, %._crit_edge.i, %18
@@ -127845,7 +127845,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %103
 
 103:                                              ; preds = %99
-  tail call void %102(ptr noundef nonnull %100)
+  tail call void %102(ptr noundef nonnull align 8 dereferenceable(16) %100)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %103, %99, %96, %._crit_edge.i, %85
@@ -127962,7 +127962,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %33
 
 33:                                               ; preds = %29
-  tail call void %32(ptr noundef nonnull %30)
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %33, %29, %.thread, %._crit_edge.i, %15
@@ -128270,7 +128270,7 @@ _ZSt18uninitialized_copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %102
 
 102:                                              ; preds = %98
-  tail call void %101(ptr noundef nonnull %99)
+  tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %99)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %102, %98, %95, %._crit_edge.i, %84
@@ -128575,7 +128575,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %103
 
 103:                                              ; preds = %99
-  tail call void %102(ptr noundef nonnull %100)
+  tail call void %102(ptr noundef nonnull align 8 dereferenceable(16) %100)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %103, %99, %96, %._crit_edge.i, %85
@@ -128960,7 +128960,7 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC2EPNS_25Vt_ArrayForeignDataSourceEPS1_mb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat($_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC5EPNS_25Vt_ArrayForeignDataSourceEPS1_mb) align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -129138,7 +129138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %18, %.lr.ph
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %32
 
 32:                                               ; preds = %28
-  invoke void %31(ptr noundef nonnull %29)
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i unwind label %33
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %32, %28, %25, %._crit_edge.i, %7
@@ -129321,7 +129321,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %23, %.lr.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %37
 
 37:                                               ; preds = %33
-  invoke void %36(ptr noundef nonnull %34)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %40
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %37, %33, %30, %._crit_edge.i.i, %12
@@ -129329,8 +129329,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBaseaSEOS0_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %7, align 8
@@ -129425,7 +129425,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %21, %.lr.ph
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %35
 
 35:                                               ; preds = %31
-  tail call void %34(ptr noundef nonnull %32)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %35, %31, %28, %._crit_edge.i, %10
@@ -129515,7 +129515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.lr.ph, %18
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %32, %28, %25, %7, %._crit_edge
@@ -129808,7 +129808,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %42, %.lr.ph
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %56
 
 56:                                               ; preds = %52
-  tail call void %55(ptr noundef nonnull %53)
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %53)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %56, %52, %49, %._crit_edge.i, %31
@@ -130049,7 +130049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %87, %.lr.ph
   br i1 %.not.i.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %101
 
 101:                                              ; preds = %97
-  tail call void %100(ptr noundef nonnull %98)
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %98)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %101, %97, %94, %._crit_edge.i, %76
@@ -130293,7 +130293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %76, %.lr.ph
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %90
 
 90:                                               ; preds = %86
-  tail call void %89(ptr noundef nonnull %87)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %90, %86, %83, %._crit_edge.i, %65
@@ -130551,7 +130551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %43, %.lr.ph
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %57
 
 57:                                               ; preds = %53
-  tail call void %56(ptr noundef nonnull %54)
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(16) %54)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %57, %53, %50, %._crit_edge.i, %32
@@ -131119,7 +131119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %136, %.lr.p
   br i1 %.not.i.i76, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %150
 
 150:                                              ; preds = %146
-  tail call void %149(ptr noundef nonnull %147)
+  tail call void %149(ptr noundef nonnull align 8 dereferenceable(16) %147)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %150, %146, %143, %._crit_edge.i, %125
@@ -131260,7 +131260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %33, %.lr.ph
   br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %47
 
 47:                                               ; preds = %43
-  tail call void %46(ptr noundef nonnull %44)
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %44)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %47, %43, %.thread, %._crit_edge.i, %22
@@ -131574,7 +131574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %109, %.lr.p
   br i1 %.not.i.i55, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %123
 
 123:                                              ; preds = %119
-  tail call void %122(ptr noundef nonnull %120)
+  tail call void %122(ptr noundef nonnull align 8 dereferenceable(16) %120)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %123, %119, %116, %._crit_edge.i, %98
@@ -131920,7 +131920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %136, %.lr.p
   br i1 %.not.i.i76, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %150
 
 150:                                              ; preds = %146
-  tail call void %149(ptr noundef nonnull %147)
+  tail call void %149(ptr noundef nonnull align 8 dereferenceable(16) %147)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %150, %146, %143, %._crit_edge.i, %125
@@ -132424,7 +132424,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -132584,7 +132584,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -132677,7 +132677,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -132837,7 +132837,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -132925,7 +132925,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -133085,7 +133085,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -133173,7 +133173,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -133333,7 +133333,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -133421,7 +133421,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -133581,7 +133581,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -133669,7 +133669,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -133829,7 +133829,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -133917,7 +133917,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -134077,7 +134077,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -134165,7 +134165,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -134325,7 +134325,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -134413,7 +134413,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -134573,7 +134573,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -134661,7 +134661,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -134821,7 +134821,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -134909,7 +134909,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -135069,7 +135069,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -135157,7 +135157,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -135317,7 +135317,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -135405,7 +135405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -135565,7 +135565,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -135655,7 +135655,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -135815,7 +135815,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -135905,7 +135905,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -136065,7 +136065,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -136155,7 +136155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -136315,7 +136315,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -136405,7 +136405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -136565,7 +136565,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -136655,7 +136655,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -136815,7 +136815,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -136905,7 +136905,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -137087,7 +137087,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -137179,7 +137179,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -137361,7 +137361,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -137449,7 +137449,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -137631,7 +137631,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -137719,7 +137719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -137901,7 +137901,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -137989,7 +137989,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -138176,7 +138176,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %110
 
 110:                                              ; preds = %106
-  tail call void %109(ptr noundef nonnull %107)
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %107)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %110, %106, %103, %100, %96
@@ -138264,7 +138264,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -138446,7 +138446,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -138534,7 +138534,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -138716,7 +138716,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EEN
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -138804,7 +138804,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.t
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -138986,7 +138986,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -139074,7 +139074,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -139261,7 +139261,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %110
 
 110:                                              ; preds = %106
-  tail call void %109(ptr noundef nonnull %107)
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %107)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %110, %106, %103, %100, %96
@@ -139349,7 +139349,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -139531,7 +139531,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -139619,7 +139619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.th
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -139801,7 +139801,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9e
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -139889,7 +139889,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -140071,7 +140071,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -140159,7 +140159,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -140341,7 +140341,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -140545,7 +140545,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -140727,7 +140727,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -140815,7 +140815,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.ex
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -140997,7 +140997,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EE
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %105
 
 105:                                              ; preds = %101
-  tail call void %104(ptr noundef nonnull %102)
+  tail call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %105, %101, %98, %95, %91
@@ -141085,7 +141085,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -141243,7 +141243,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -141329,7 +141329,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -141487,7 +141487,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -141573,7 +141573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -141731,7 +141731,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -141817,7 +141817,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -141977,7 +141977,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -142065,7 +142065,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -142225,7 +142225,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -142313,7 +142313,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -142473,7 +142473,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -142561,7 +142561,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -142721,7 +142721,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -142809,7 +142809,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -142969,7 +142969,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -143057,7 +143057,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -143217,7 +143217,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -143305,7 +143305,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -143465,7 +143465,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -143551,7 +143551,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i: ; p
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -143711,7 +143711,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXnts
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -143797,7 +143797,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.e
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i, label %32
 
 32:                                               ; preds = %28
-  tail call void %31(ptr noundef nonnull %29)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %29)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %32, %28, %.thread.i, %22, %18
@@ -143957,7 +143957,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_E
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %107
 
 107:                                              ; preds = %103
-  tail call void %106(ptr noundef nonnull %104)
+  tail call void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %107, %103, %100, %97, %93
@@ -144285,7 +144285,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %116
 
 116:                                              ; preds = %112
-  tail call void %115(ptr noundef nonnull %113)
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(16) %113)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %116, %112, %109, %._crit_edge.i, %98
@@ -144673,7 +144673,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %148, %.lr.p
   br i1 %.not.i.i81, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i, label %162
 
 162:                                              ; preds = %158
-  tail call void %161(ptr noundef nonnull %159)
+  tail call void %161(ptr noundef nonnull align 8 dereferenceable(16) %159)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i: ; preds = %162, %158, %155, %._crit_edge.i, %137

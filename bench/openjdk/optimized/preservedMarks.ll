@@ -603,7 +603,7 @@ define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr nocapture noundef nonnu
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef %13) #7
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef %13) #7
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
@@ -630,7 +630,7 @@ _ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i: ; preds
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull %.06.i4.i.i.i.i, i64 noundef %.pre-phi3.i.i.i) #7
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %.06.i4.i.i.i.i, i64 noundef %.pre-phi3.i.i.i) #7
   %.not.i5.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i5.i.i.i.i, label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i, label %.lr.ph.i3.i.i.i.i, !llvm.loop !12
 

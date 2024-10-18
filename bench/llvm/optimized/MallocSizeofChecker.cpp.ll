@@ -575,13 +575,13 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_119MallocSizeofCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_119MallocSizeofCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #17
   ret void
 }
@@ -864,14 +864,14 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread.i.i: ; preds = %_ZNK5clang4T
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i: ; preds = %168, %165, %158
   %.0.i = phi ptr [ %169, %168 ], [ %167, %165 ], [ %164, %158 ]
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %42, i64 noundef 64) #18
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull %42, i64 noundef 64) #18
   store i32 2, ptr %43, align 8
   store i8 0, ptr %44, align 8
   store i32 1, ptr %45, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %8, align 8
   store ptr %7, ptr %47, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #18
   %170 = load ptr, ptr %48, align 8
   %171 = load ptr, ptr %49, align 8
   %172 = ptrtoint ptr %170 to i64
@@ -1105,7 +1105,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit84.i:             ; preds = %282, %280
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit87.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit87.i:             ; preds = %294, %292
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %50, i64 noundef 4) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %50, i64 noundef 4) #18
   %297 = load ptr, ptr %88, align 8
   %298 = load i32, ptr %297, align 8
   %299 = lshr i32 %298, 24
@@ -1221,8 +1221,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %351, %339
   %358 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   store i64 %358, ptr %57, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr nonnull @.str.7, i64 33, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %14, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %15, ptr noundef nonnull byval(%"class.llvm::ArrayRef.661") align 8 %16) #18
-  %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
+  call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull @.str.7, i64 33, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %14, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %15, ptr noundef nonnull byval(%"class.llvm::ArrayRef.661") align 8 %16) #18
+  %359 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #18
   %360 = load ptr, ptr %9, align 8
   %361 = icmp eq ptr %360, %50
   br i1 %361, label %_ZN4llvm11SmallVectorIN5clang11SourceRangeELj4EED2Ev.exit.i, label %362
@@ -1232,8 +1232,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %351, %339
   br label %_ZN4llvm11SmallVectorIN5clang11SourceRangeELj4EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIN5clang11SourceRangeELj4EED2Ev.exit.i: ; preds = %362, %_ZN4llvm9StringRefC2EPKc.exit.i
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #18
-  %363 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #18
+  %363 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #18
   %364 = load ptr, ptr %7, align 8
   %365 = icmp eq ptr %364, %42
   br i1 %365, label %_ZN12_GLOBAL__N_123compatibleWithArrayTypeERN5clang10ASTContextENS0_8QualTypeES3_.exit.thread.i, label %366
@@ -1820,7 +1820,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %common.ret4408
 
 65:                                               ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 66:                                               ; preds = %62
@@ -2141,7 +2141,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %146 = load ptr, ptr %145, align 8
-  %147 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %146)
+  %147 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %146)
   %148 = extractvalue { ptr, ptr } %147, 1
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %144, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %148, 1
@@ -2152,7 +2152,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %153)
+  %154 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %153)
   %155 = extractvalue { ptr, ptr } %154, 1
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %151, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %155, 1
@@ -2163,7 +2163,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %160 = load ptr, ptr %159, align 8
-  %161 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %160)
+  %161 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %160)
   %162 = extractvalue { ptr, ptr } %161, 1
   %.fca.0.insert.i.i2744 = insertvalue { ptr, ptr } poison, ptr %158, 0
   %.fca.1.insert.i.i2745 = insertvalue { ptr, ptr } %.fca.0.insert.i.i2744, ptr %162, 1
@@ -2174,7 +2174,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %167 = load ptr, ptr %166, align 8
-  %168 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %167)
+  %168 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %167)
   %169 = extractvalue { ptr, ptr } %168, 1
   %.fca.0.insert.i.i2746 = insertvalue { ptr, ptr } poison, ptr %165, 0
   %.fca.1.insert.i.i2747 = insertvalue { ptr, ptr } %.fca.0.insert.i.i2746, ptr %169, 1
@@ -2185,7 +2185,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %174 = load ptr, ptr %173, align 8
-  %175 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %174)
+  %175 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %174)
   %176 = extractvalue { ptr, ptr } %175, 1
   %.fca.0.insert.i.i2748 = insertvalue { ptr, ptr } poison, ptr %172, 0
   %.fca.1.insert.i.i2749 = insertvalue { ptr, ptr } %.fca.0.insert.i.i2748, ptr %176, 1
@@ -2196,7 +2196,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %181 = load ptr, ptr %180, align 8
-  %182 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %181)
+  %182 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %181)
   %183 = extractvalue { ptr, ptr } %182, 1
   %.fca.0.insert.i.i2750 = insertvalue { ptr, ptr } poison, ptr %179, 0
   %.fca.1.insert.i.i2751 = insertvalue { ptr, ptr } %.fca.0.insert.i.i2750, ptr %183, 1
@@ -2207,7 +2207,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %188)
+  %189 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %188)
   %190 = extractvalue { ptr, ptr } %189, 1
   %.fca.0.insert.i2752 = insertvalue { ptr, ptr } poison, ptr %186, 0
   %.fca.1.insert.i2753 = insertvalue { ptr, ptr } %.fca.0.insert.i2752, ptr %190, 1
@@ -2218,7 +2218,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %195 = load ptr, ptr %194, align 8
-  %196 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %195)
+  %196 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %195)
   %197 = extractvalue { ptr, ptr } %196, 1
   %.fca.0.insert.i2754 = insertvalue { ptr, ptr } poison, ptr %193, 0
   %.fca.1.insert.i2755 = insertvalue { ptr, ptr } %.fca.0.insert.i2754, ptr %197, 1
@@ -2229,7 +2229,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %.tr1894, i64 16
   %202 = load ptr, ptr %201, align 8
-  %203 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %202)
+  %203 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %202)
   %204 = extractvalue { ptr, ptr } %203, 1
   %.fca.0.insert.i2756 = insertvalue { ptr, ptr } poison, ptr %200, 0
   %.fca.1.insert.i2757 = insertvalue { ptr, ptr } %.fca.0.insert.i2756, ptr %204, 1
@@ -2400,7 +2400,7 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   br label %common.ret4408
 
 251:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 252:                                              ; preds = %62
@@ -2408,11 +2408,11 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   br label %common.ret4408
 
 253:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 254:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 255:                                              ; preds = %62
@@ -2472,107 +2472,107 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   br label %common.ret4408
 
 269:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 270:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 271:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 272:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 273:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 274:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 275:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 276:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 277:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 278:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 279:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 280:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 281:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 282:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 283:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 284:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 285:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 286:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 287:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 288:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 289:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 290:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 291:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 292:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 293:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 294:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 295:                                              ; preds = %62
@@ -2728,47 +2728,47 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   br label %common.ret4408
 
 333:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 334:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 335:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 336:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 337:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 338:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 339:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 340:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 341:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 342:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 343:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 344:                                              ; preds = %62
@@ -2844,11 +2844,11 @@ common.ret4408:                                   ; preds = %364, %363, %362, %3
   br label %common.ret4408
 
 363:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 
 364:                                              ; preds = %62
-  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.tr1894)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CastedAllocFinder13VisitChildrenEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.tr1894)
   br label %common.ret4408
 }
 
@@ -3757,7 +3757,7 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %8, %12
 31:                                               ; preds = %29
   %32 = ptrtoint ptr %23 to i64
   %33 = or i64 %32, 4
-  %34 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %30)
+  %34 = tail call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %30)
   %35 = extractvalue { ptr, ptr } %34, 0
   %36 = extractvalue { ptr, ptr } %34, 1
   %.not.i = icmp eq ptr %36, null
@@ -3899,7 +3899,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   br i1 %.not, label %_ZN12_GLOBAL__N_117CastedAllocFinder10VisitChildEN4llvm12PointerUnionIJPKN5clang4StmtEPKNS3_7VarDeclEEEES6_.exit, label %24
 
 24:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %25 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23)
+  %25 = call fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_117CastedAllocFinderESt4pairIPKNS_14TypeSourceInfoEPKNS_8CallExprEEJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %23)
   %26 = extractvalue { ptr, ptr } %25, 0
   %27 = extractvalue { ptr, ptr } %25, 1
   %.not.i = icmp eq ptr %27, null

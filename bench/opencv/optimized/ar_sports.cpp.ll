@@ -183,7 +183,7 @@ _ZN2cv3PtrINS_8datasets12AR_sportsObjEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_8data
           to label %28 unwind label %84
 
 28:                                               ; preds = %26
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #15
   %29 = getelementptr inbounds i8, ptr %27, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   store ptr %27, ptr %7, align 8
@@ -1789,7 +1789,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv8datasets12AR_sport
   br label %_ZN2cv8datasets12AR_sportsObjD2Ev.exit
 
 _ZN2cv8datasets12AR_sportsObjD2Ev.exit:           ; preds = %5, %8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %9
 

@@ -309,13 +309,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %23, label %9
 
 9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -334,7 +334,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.body, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 3)
           to label %.body unwind label %20
 
 20:                                               ; preds = %18
@@ -492,13 +492,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %23, label %9
 
 9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -517,7 +517,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.body, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 3)
           to label %.body unwind label %20
 
 20:                                               ; preds = %18
@@ -544,13 +544,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %23, label %9
 
 9:                                                ; preds = %3
-  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %11 unwind label %15
 
 11:                                               ; preds = %9
@@ -569,7 +569,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.body, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 3)
           to label %.body unwind label %20
 
 20:                                               ; preds = %18
@@ -640,7 +640,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8SdfLayerEEEEEclES9_.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !7
-  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -737,7 +737,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8UsdStageEEEEEclES9_.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !11
-  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -789,7 +789,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_7UsdPrimEEEclES7_.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !14
-  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8

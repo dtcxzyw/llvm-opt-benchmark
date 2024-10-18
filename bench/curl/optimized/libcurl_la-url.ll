@@ -2024,7 +2024,7 @@ if.then127.i.i:                                   ; preds = %land.lhs.true123.i.
   %call131.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i.i) #12
   %arrayidx132.i.i = getelementptr i8, ptr %78, i64 %call131.i.i
   store i8 0, ptr %arrayidx132.i.i, align 1
-  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %data, ptr noundef %call.i.i)
+  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %data, ptr noundef nonnull %call.i.i)
   br label %if.end133.i.i
 
 if.end133.i.i:                                    ; preds = %if.then127.i.i, %land.lhs.true123.i.i, %if.end118.i.i
@@ -2148,7 +2148,7 @@ if.then219.i.i:                                   ; preds = %land.lhs.true212.i.
 
 if.end225.i.i:                                    ; preds = %if.then219.i.i, %land.lhs.true212.i.i, %if.then157.i.i, %land.lhs.true151.i.i, %if.end149.i.i
   %95 = load ptr, ptr %up1.i.i.i, align 8
-  %call229.i.i = call fastcc i32 @findprotocol(ptr noundef nonnull %data, ptr noundef %call.i.i, ptr noundef %95)
+  %call229.i.i = call fastcc i32 @findprotocol(ptr noundef nonnull %data, ptr noundef nonnull %call.i.i, ptr noundef %95)
   %tobool230.not.i.i = icmp eq i32 %call229.i.i, 0
   br i1 %tobool230.not.i.i, label %if.end232.i.i, label %parseurlandfillconn.exit.thread.i
 
@@ -2722,7 +2722,7 @@ if.then113.i.i:                                   ; preds = %if.then111.i.i, %if
   %http_proxy122.i.i = phi ptr [ %http_proxy114.i.i, %if.end107.thread.i.i ], [ %http_proxy.i.i, %if.then111.i.i ]
   %socksproxy.3111120.i.i = phi ptr [ %socksproxy.2.i.i, %if.end107.thread.i.i ], [ null, %if.then111.i.i ]
   %tobool110113118.i.i = phi i1 [ true, %if.end107.thread.i.i ], [ false, %if.then111.i.i ]
-  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef %call.i.i, ptr noundef %proxy.4.i.i, i32 noundef %conv124.i.i)
+  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef %proxy.4.i.i, i32 noundef %conv124.i.i)
   %156 = load ptr, ptr @Curl_cfree, align 8
   call void %156(ptr noundef nonnull %proxy.4.i.i) #11
   %tobool117.not.i.i = icmp eq i32 %call114.i.i, 0
@@ -2735,7 +2735,7 @@ if.then122.i.i:                                   ; preds = %if.end120.i.i, %if.
   %socksproxy.3111119144.i.i = phi ptr [ %socksproxy.3111120.i.i, %if.end120.i.i ], [ %socksproxy.2.i.i, %if.end107.thread.i.i ]
   %http_proxy121143.i.i = phi ptr [ %http_proxy122.i.i, %if.end120.i.i ], [ %http_proxy114.i.i, %if.end107.thread.i.i ]
   %conv123141.i.i = phi i32 [ %conv124.i.i, %if.end120.i.i ], [ %conv116.i.i, %if.end107.thread.i.i ]
-  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef %call.i.i, ptr noundef %socksproxy.3111119144.i.i, i32 noundef %conv123141.i.i)
+  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef %socksproxy.3111119144.i.i, i32 noundef %conv123141.i.i)
   %157 = load ptr, ptr @Curl_cfree, align 8
   call void %157(ptr noundef nonnull %socksproxy.3111119144.i.i) #11
   %tobool126.not.i.i = icmp eq i32 %call123.i.i, 0

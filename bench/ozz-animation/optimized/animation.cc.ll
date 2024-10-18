@@ -38,9 +38,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation9AnimationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(296) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %2, i8 0, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, i8 0, i64 64, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -51,9 +51,9 @@ define dso_local void @_ZN3ozz9animation9AnimationC2Ev(ptr nocapture noundef non
 define dso_local void @_ZN3ozz9animation9AnimationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %5, i8 0, i64 64, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -925,7 +925,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %206, %.lr.ph.i.i72
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i, %.preheader.i.i70, %223
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %114, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %114, i64 noundef 1)
   %.sroa.03.0.copyload = load ptr, ptr %78, align 8
   %.sroa.24.0.copyload = load i64, ptr %79, align 8
   %230 = mul i64 %.sroa.24.0.copyload, 3
@@ -971,7 +971,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %_ZN3ozz2io
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader.i.i.i.i.i, %244
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %137, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %137, i64 noundef 1)
   %.sroa.01.0.copyload = load ptr, ptr %90, align 8
   %.sroa.22.0.copyload = load i64, ptr %91, align 8
   %251 = mul i64 %.sroa.22.0.copyload, 3
@@ -1017,7 +1017,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRKT_.exit: ; preds = %.lr.ph.i.i.i.i.i78, %.preheader.i.i.i.i.i74, %265
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %160, i64 noundef 1)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4SaveERNS0_8OArchiveEPKS5_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %160, i64 noundef 1)
   %.sroa.0.0.copyload = load ptr, ptr %102, align 8
   %.sroa.2.0.copyload = load i64, ptr %103, align 8
   %272 = mul i64 %.sroa.2.0.copyload, 3
@@ -1497,7 +1497,7 @@ _ZN3ozz2io8IArchiversERf.exit:                    ; preds = %49, %58
   br i1 %268, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !9
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %248
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %195, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %195, i64 noundef 1, i32 noundef 0)
   %.sroa.03.0.copyload = load ptr, ptr %27, align 8
   %.sroa.24.0.copyload = load i64, ptr %214, align 8
   %269 = mul i64 %.sroa.24.0.copyload, 6
@@ -1526,7 +1526,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   br i1 %283, label %.lr.ph.i.i.i.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %25, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %25, i64 noundef 1, i32 noundef 0)
   %.sroa.01.0.copyload = load ptr, ptr %216, align 8
   %.sroa.22.0.copyload = load i64, ptr %217, align 8
   %284 = mul i64 %.sroa.22.0.copyload, 6
@@ -1555,7 +1555,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEE
   br i1 %298, label %.lr.ph.i.i.i.i.i66, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit, !llvm.loop !10
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal13QuaternionKeyEEEEEvRT_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEvRT_.exit
-  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull %26, i64 noundef 1, i32 noundef 0)
+  call void @_ZN3ozz2io6ExternINS_9animation9Animation14TKeyframesCtrlILb0EEEE4LoadERNS0_8IArchiveEPS5_mj(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(68) %26, i64 noundef 1, i32 noundef 0)
   %.sroa.0.0.copyload = load ptr, ptr %219, align 8
   %.sroa.2.0.copyload = load i64, ptr %220, align 8
   %299 = mul i64 %.sroa.2.0.copyload, 6

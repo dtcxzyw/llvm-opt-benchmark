@@ -316,7 +316,7 @@ land.lhs.true:                                    ; preds = %entry
 land.lhs.true7:                                   ; preds = %land.lhs.true
   %escapes = getelementptr inbounds i8, ptr %a, i64 8
   %escapes8 = getelementptr inbounds i8, ptr %b, i64 8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %escapes, ptr noundef nonnull dereferenceable(32) %escapes8, i64 32)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 8 dereferenceable(32) %escapes8, i64 32)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %land.rhs, label %land.end
 
@@ -589,7 +589,7 @@ entry:
   store i8 %frombool.i.i, ptr %is_reset.i.i, align 4
   %slot.i.i = getelementptr inbounds i8, ptr %entry2.i, i64 48
   store i32 0, ptr %slot.i.i, align 8
-  %call.i1.i = invoke ptr @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(52) %entry2.i)
+  %call.i1.i = invoke ptr @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(52) %entry2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -640,7 +640,7 @@ do.end10:                                         ; preds = %_ZN3ue29SlotCache4f
   store i32 %parent_slot, ptr %parent_slot.addr.i, align 4
   store i8 %frombool.i.i, ptr %is_reset.addr.i, align 1
   store i32 %8, ptr %slot.addr.i, align 4
-  %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKNS0_8NGHolderERKNS0_9CharReachERjRbSK_EEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 4 dereferenceable(4) %parent_slot.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %is_reset.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %slot.addr.i)
+  %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKNS0_8NGHolderERKNS0_9CharReachERjRbSK_EEESt4pairINS3_14_Node_iteratorIS1_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 4 dereferenceable(4) %parent_slot.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %is_reset.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %slot.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %parent_slot.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_reset.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %slot.addr.i)
@@ -1336,7 +1336,7 @@ for.end123:                                       ; preds = %for.end123.loopexit
   br i1 %cmp.not.i64, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %78, i8 0, i64 24, i1 false)
   %slot.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 24
   store i32 %77, ptr %slot.i.i.i.i, align 8
   %80 = load ptr, ptr %_M_finish.i63, align 8
@@ -1366,7 +1366,7 @@ found:                                            ; preds = %for.inc112.us, %do.
   br i1 %cmp.not.i71, label %if.else.i75, label %if.then.i72
 
 if.then.i72:                                      ; preds = %found
-  invoke void @_ZNSt15__new_allocatorIN3ue217InitialResetEntryEE9constructIS1_JRSt10shared_ptrIKNS0_8NGHolderEERS4_IS5_ERSt13unordered_mapINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS5_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_jEEERjST_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %ir.0, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %pp, ptr noundef nonnull align 8 dereferenceable(16) %gg, ptr noundef nonnull align 8 dereferenceable(56) %gg_region_map, ptr noundef nonnull align 4 dereferenceable(4) %last_sent_region.addr, ptr noundef nonnull align 4 dereferenceable(4) %first_bad_region)
+  invoke void @_ZNSt15__new_allocatorIN3ue217InitialResetEntryEE9constructIS1_JRSt10shared_ptrIKNS0_8NGHolderEERS4_IS5_ERSt13unordered_mapINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS5_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashISI_ESt8equal_toISI_ESaISt4pairIKSI_jEEERjST_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %ir.0, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %pp, ptr noundef nonnull align 8 dereferenceable(16) %gg, ptr noundef nonnull align 8 dereferenceable(56) %gg_region_map, ptr noundef nonnull align 4 dereferenceable(4) %last_sent_region.addr, ptr noundef nonnull align 4 dereferenceable(4) %first_bad_region)
           to label %.noexc77 unwind label %lpad38.loopexit.split-lp.loopexit.split-lp
 
 .noexc77:                                         ; preds = %if.then.i72
@@ -2241,7 +2241,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true.i.i
   %escapes8.i.i = getelementptr inbounds i8, ptr %__it.sroa.0.041, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes8.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %land.rhs.i.i, label %for.inc
 
@@ -2365,7 +2365,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i
   %escapes8.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i10, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes.i.i10, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %if.end3.i.i
 
@@ -2754,7 +2754,7 @@ land.lhs.true.i.i:                                ; preds = %for.body
 
 land.lhs.true7.i.i:                               ; preds = %land.lhs.true.i.i
   %escapes8.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.014, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes8.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %for.inc
 
@@ -2847,7 +2847,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %land.rhs.i.i.i
 
 land.lhs.true7.i.i.i.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i
   %escapes8.i.i.i.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %escapes.i.i6, ptr noundef nonnull readonly dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes.i.i6, ptr noundef nonnull readonly align 8 dereferenceable(32) %escapes8.i.i.i.i.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %if.end3.i.i
 
@@ -4376,7 +4376,7 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 24
   %0 = load i32, ptr %__args1, align 4
   store i32 %0, ptr %second.i.i.i.i.i, align 8
@@ -4718,7 +4718,7 @@ invoke.cont:                                      ; preds = %cond.true.i, %_ZNKS
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN3ue216InitialResetInfoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.ue2::InitialResetInfo", ptr %cond.i17, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr, i8 0, i64 24, i1 false)
   %slot.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i32 %3, ptr %slot.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -4739,7 +4739,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !43, !noalias !46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
   %slot.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %slot3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %7 = load i32, ptr %slot3.i.i.i.i.i.i.i, align 8, !alias.scope !46, !noalias !43
@@ -4770,7 +4770,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN3ue21
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
   %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !52, !noalias !49
   store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !49, !noalias !52
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !49
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !49
   %slot.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 24
   %slot3.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 24
   %11 = load i32, ptr %slot3.i.i.i.i.i.i.i27, align 8, !alias.scope !52, !noalias !49
@@ -5213,7 +5213,7 @@ lpad.i:                                           ; preds = %_ZNSt10shared_ptrIK
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN3ue28NGHolderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %body.i) #22
-  call void @_ZNSt10shared_ptrIKN3ue28NGHolderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__p) #22
+  call void @_ZNSt10shared_ptrIKN3ue28NGHolderEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %__p) #22
   call void @_ZNSt10shared_ptrIKN3ue28NGHolderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10) #22
   call void @_ZNSt10shared_ptrIKN3ue28NGHolderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #22
   resume { ptr, i32 } %24

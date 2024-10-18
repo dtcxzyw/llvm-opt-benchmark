@@ -560,7 +560,7 @@ lpad.i:                                           ; preds = %entry
           cleanup
   tail call void @_ZN8QuantLib16VanillaVPPOption9argumentsD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %arguments_.i) #24
   tail call void @_ZN8QuantLib8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #24
-  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #24
+  tail call void @_ZN8QuantLib10ObservableD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #24
   resume { ptr, i32 } %6
 
 _ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEEC2Ev.exit: ; preds = %entry
@@ -2170,7 +2170,7 @@ if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN8QuantLib30DynProgVPPIntrinsicValueEngineD2Ev.exit
 
 _ZN8QuantLib30DynProgVPPIntrinsicValueEngineD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %if.then.i.i.i3.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #24
+  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 440) #28
   ret void
 }
@@ -2330,7 +2330,7 @@ if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN8QuantLib30DynProgVPPIntrinsicValueEngineD2Ev.exit
 
 _ZN8QuantLib30DynProgVPPIntrinsicValueEngineD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %if.then.i.i.i3.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #24
+  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #24
   ret void
 }
 
@@ -2409,8 +2409,8 @@ if.then.i.i.i3.i.i:                               ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZN8QuantLib30DynProgVPPIntrinsicValueEngineD0Ev.exit
 
 _ZN8QuantLib30DynProgVPPIntrinsicValueEngineD0Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i, %if.then.i.i.i3.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #24
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #28
+  tail call void @_ZN8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(440) %0, i64 noundef 440) #28
   ret void
 }
 
@@ -2418,7 +2418,7 @@ _ZN8QuantLib30DynProgVPPIntrinsicValueEngineD0Ev.exit: ; preds = %_ZNSt6vectorId
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_16VanillaVPPOption9argumentsENS_16MultiAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(368) %0)
   ret void
 }
 
@@ -2857,7 +2857,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %25 = phi ptr [ %24, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -3186,7 +3186,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib16MultiAssetOption7resultsD0Ev.exit:  ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 136) #28
   ret void
 }
 

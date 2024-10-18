@@ -259,7 +259,7 @@ for.end42.i.i:                                    ; preds = %for.body33.i.i, %if
 if.then.i20.i.i:                                  ; preds = %for.end42.i.i
   %conv43.i.i = sext i32 %26 to i64
   %27 = load ptr, ptr @info, align 8
-  call void @qsort(ptr noundef %27, i64 noundef %conv43.i.i, i64 noundef 8, ptr noundef nonnull @compare_info) #13
+  call void @qsort(ptr noundef %27, i64 noundef range(i64 -2147483647, 2147483648) %conv43.i.i, i64 noundef 8, ptr noundef nonnull @compare_info) #13
   %.pre.i.i = load i32, ptr @num_pack, align 4
   br label %sane_qsort.exit.i.i
 

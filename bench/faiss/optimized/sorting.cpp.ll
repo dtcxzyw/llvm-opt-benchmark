@@ -1202,7 +1202,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EE17_S_check_init_lenEmRKS3_.e
   %96 = getelementptr i8, ptr %95, i64 -8
   store i64 %93, ptr %96, align 8
   call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %68, i32 %60)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8SegmentSES7_iRKNS0_17ArgsortComparatorE.omp_outlined, ptr nonnull %13, ptr nonnull %14, ptr nonnull %65, ptr nonnull %11, ptr nonnull %67, ptr nonnull %8, ptr nonnull %15)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8SegmentSES7_iRKNS0_17ArgsortComparatorE.omp_outlined, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 dereferenceable(16) %65, ptr nonnull %11, ptr nonnull align 8 dereferenceable(16) %67, ptr nonnull align 8 dereferenceable(8) %8, ptr nonnull %15)
   %97 = load i64, ptr %67, align 8
   %98 = load i64, ptr %65, align 8
   %99 = call i64 @llvm.umin.i64(i64 %97, i64 %98)
@@ -1267,7 +1267,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EE17_S_check_init_lenEmRKS3_.e
 
 ._crit_edge.i:                                    ; preds = %124, %.loopexit.i
   call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %68, i32 %103)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8SegmentSES7_iRKNS0_17ArgsortComparatorE.omp_outlined.4, ptr nonnull %13, ptr nonnull %16, ptr nonnull %14, ptr nonnull %15, ptr nonnull %8, ptr nonnull %11, ptr nonnull %12)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 7, ptr nonnull @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8SegmentSES7_iRKNS0_17ArgsortComparatorE.omp_outlined.4, ptr nonnull %13, ptr nonnull %16, ptr nonnull %14, ptr nonnull %15, ptr nonnull align 8 dereferenceable(8) %8, ptr nonnull %11, ptr nonnull %12)
   %.val44.i = load ptr, ptr %16, align 8
   %.not.i.i.i84.i = icmp eq ptr %.val44.i, null
   br i1 %.not.i.i.i84.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_18SegmentSESaIS2_EED2Ev.exit85.i, label %125
@@ -1841,7 +1841,7 @@ _ZN5faiss12_GLOBAL__N_115bucket_sort_refEmPKmmPlS3_.exit: ; preds = %._crit_edge
   %96 = shl i64 %2, 3
   %97 = add i64 %96, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %97, i1 false)
-  tail call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %95, i32 %5)
+  tail call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %95, i32 range(i32 1, 0) %5)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 5, ptr nonnull @_ZN5faiss12_GLOBAL__N_120bucket_sort_parallelEmPKmmPlS3_i.omp_outlined, ptr nonnull %9, ptr nonnull %7, ptr nonnull %8, ptr nonnull %10, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -2650,7 +2650,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i13: ; preds = %.noexc12.
 
 189:                                              ; preds = %186
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #7
-  call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %142, i32 %5)
+  call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %142, i32 range(i32 1, 0) %5)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_128bucket_sort_inplace_parallelIiEEvmmPT_S2_Pli.omp_outlined, ptr nonnull %9, ptr nonnull %13, ptr nonnull %8, ptr nonnull %10, ptr nonnull %12, ptr nonnull %16, ptr nonnull %15, ptr nonnull %11, ptr nonnull %17, ptr nonnull %7)
   %190 = load ptr, ptr %17, align 8
   %.not.i.i.i.i14 = icmp eq ptr %190, null
@@ -2661,7 +2661,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i13: ; preds = %.noexc12.
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %191, %189
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #7
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
   %192 = load ptr, ptr %16, align 8
   %.not.i.i.i13.i = icmp eq ptr %192, null
   br i1 %.not.i.i.i13.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i15, label %193
@@ -2787,7 +2787,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull alig
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #7
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -2804,7 +2804,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 9:                                                ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -4940,7 +4940,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i13: ; preds = %.noexc12.
 
 182:                                              ; preds = %179
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #7
-  call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %138, i32 %5)
+  call void @__kmpc_push_num_threads(ptr nonnull @1, i32 %138, i32 range(i32 1, 0) %5)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @1, i32 10, ptr nonnull @_ZN5faiss12_GLOBAL__N_128bucket_sort_inplace_parallelIlEEvmmPT_S2_Pli.omp_outlined, ptr nonnull %9, ptr nonnull %13, ptr nonnull %8, ptr nonnull %10, ptr nonnull %12, ptr nonnull %16, ptr nonnull %15, ptr nonnull %11, ptr nonnull %17, ptr nonnull %7)
   %183 = load ptr, ptr %17, align 8
   %.not.i.i.i.i14 = icmp eq ptr %183, null
@@ -4951,7 +4951,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i13: ; preds = %.noexc12.
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %184, %182
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #7
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
   %185 = load ptr, ptr %16, align 8
   %.not.i.i.i13.i = icmp eq ptr %185, null
   br i1 %.not.i.i.i13.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i15, label %186

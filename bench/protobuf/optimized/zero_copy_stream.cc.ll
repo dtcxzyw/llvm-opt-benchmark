@@ -708,7 +708,7 @@ if.end:                                           ; preds = %_ZNK4absl12lts_2023
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin2, ptr noundef nonnull %cord)
+  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin2, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 24
   %5 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not14 = icmp eq i64 %5, 0

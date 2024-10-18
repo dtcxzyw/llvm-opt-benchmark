@@ -3759,7 +3759,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont7
-  invoke void %16(ptr noundef nonnull %this, float noundef %timeStep)
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(1056) %this, float noundef %timeStep)
           to label %if.end.i unwind label %lpad.loopexit.split-lp
 
 if.end.i:                                         ; preds = %if.then.i, %invoke.cont7
@@ -3770,7 +3770,7 @@ if.end.i:                                         ; preds = %if.then.i, %invoke.
 
 if.then4.i:                                       ; preds = %if.end.i
   %18 = load float, ptr %m_internalTime.i, align 8
-  invoke void %17(float noundef %18, ptr noundef nonnull %this)
+  invoke void %17(float noundef %18, ptr noundef nonnull align 8 dereferenceable(1056) %this)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %if.end.i, %if.then4.i
@@ -3784,7 +3784,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
 
 if.then.i21:                                      ; preds = %invoke.cont9
   %20 = load float, ptr %m_internalTime.i, align 8
-  invoke void %19(float noundef %20, ptr noundef nonnull %this)
+  invoke void %19(float noundef %20, ptr noundef nonnull align 8 dereferenceable(1056) %this)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont9, %if.then.i21
@@ -4290,7 +4290,7 @@ for.body.i.i.i107:                                ; preds = %for.body.i.i.i107, 
   %arrayidx.i.i.i109 = getelementptr inbounds %class.btMatrix3x3, ptr %retval.0.i.i.i94, i64 %indvars.iv.i.i.i108
   %35 = load ptr, ptr %m_data.i.i.i105, align 8
   %arrayidx3.i.i.i110 = getelementptr inbounds %class.btMatrix3x3, ptr %35, i64 %indvars.iv.i.i.i108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i109, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i110, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i.i109, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx3.i.i.i110, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i110, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i109, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)
@@ -4414,7 +4414,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 216
   %5 = load ptr, ptr %vfn5.i, align 8
-  %call6.i2 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(508) %this)
+  %call6.i2 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(1056) %this)
           to label %call6.i.noexc unwind label %lpad
 
 call6.i.noexc:                                    ; preds = %.noexc1
@@ -4428,7 +4428,7 @@ call6.i.noexc:                                    ; preds = %.noexc1
   %vtable18.i = load ptr, ptr %this, align 8
   %vfn19.i = getelementptr inbounds i8, ptr %vtable18.i, i64 40
   %10 = load ptr, ptr %vfn19.i, align 8
-  %call20.i3 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(121) %this)
+  %call20.i3 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(1056) %this)
           to label %call20.i.noexc unwind label %lpad
 
 call20.i.noexc:                                   ; preds = %call6.i.noexc
@@ -4445,7 +4445,7 @@ call20.i.noexc:                                   ; preds = %call6.i.noexc
   %12 = load ptr, ptr %m_islandManager.i, align 8
   %m_dispatcher1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %13 = load ptr, ptr %m_dispatcher1.i.i, align 8
-  invoke void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105) %12, ptr noundef %13, ptr noundef nonnull %this)
+  invoke void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatcherP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(105) %12, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(1056) %this)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %.noexc4
@@ -5896,7 +5896,7 @@ if.then:                                          ; preds = %for.body
   %10 = load i32, ptr %m_updateRevision.i, align 8
   %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %m_updateRevision.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %newTransform, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %newTransform, i64 16, i1 false)
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
@@ -5998,7 +5998,7 @@ if.end30:                                         ; preds = %if.else, %if.then11
   %mul36 = fmul float %mul35, 5.000000e-01
   %call.i43 = tail call noundef float @cosf(float noundef %mul36) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -6117,7 +6117,7 @@ if.then47:                                        ; preds = %_ZN12btQuaternion13
   br label %if.end50
 
 if.else48:                                        ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(16) %curTrans, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %predictedTransform, ptr noundef nonnull align 4 dereferenceable(48) %curTrans, i64 16, i1 false)
   %arrayidx5.i.i58 = getelementptr inbounds i8, ptr %curTrans, i64 16
   %arrayidx7.i.i59 = getelementptr inbounds i8, ptr %predictedTransform, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i58, i64 16, i1 false)
@@ -6209,7 +6209,7 @@ if.then.i:                                        ; preds = %for.body.i
   %10 = load i32, ptr %m_updateRevision.i.i, align 8
   %inc.i.i = add nsw i32 %10, 1
   store i32 %inc.i.i, ptr %m_updateRevision.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i.i, ptr noundef nonnull align 4 dereferenceable(16) %newTransform.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i.i, ptr noundef nonnull align 4 dereferenceable(64) %newTransform.i, i64 16, i1 false)
   %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i.i, i64 16, i1 false)
   %arrayidx11.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
@@ -6602,7 +6602,7 @@ for.body.i.i.i105:                                ; preds = %for.body.i.i.i105, 
   %arrayidx.i.i.i107 = getelementptr inbounds %class.btMatrix3x3, ptr %retval.0.i.i.i92, i64 %indvars.iv.i.i.i106
   %38 = load ptr, ptr %m_data.i.i.i103, align 8
   %arrayidx3.i.i.i108 = getelementptr inbounds %class.btMatrix3x3, ptr %38, i64 %indvars.iv.i.i.i106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i107, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i108, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i.i107, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx3.i.i.i108, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i108, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i107, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)
@@ -8779,7 +8779,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN41DeformableBodyInplaceSolverIslandCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) #19
+  tail call void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }

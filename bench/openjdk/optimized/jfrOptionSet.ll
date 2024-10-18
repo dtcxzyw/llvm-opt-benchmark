@@ -1664,7 +1664,7 @@ define hidden void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv(
 
 15:                                               ; preds = %._crit_edge.thread
   store i32 0, ptr %11, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
   br label %_ZN13GrowableArrayIPKcED2Ev.exit
 
 _ZN13GrowableArrayIPKcED2Ev.exit:                 ; preds = %._crit_edge.thread, %15

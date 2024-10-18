@@ -710,7 +710,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %_id = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %result, align 8
-  %call.i = tail call noundef ptr @uhash_remove_75(ptr noundef %2, ptr noundef nonnull %_id)
+  %call.i = tail call noundef ptr @uhash_remove_75(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %_id)
   br label %if.end7
 
 if.else:                                          ; preds = %if.then
@@ -731,7 +731,7 @@ lpad.i:                                           ; preds = %new.notnull.i
   resume { ptr, i32 } %4
 
 _ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.else, %new.notnull.i
-  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %3, ptr noundef %call.i3, ptr noundef nonnull %this, ptr noundef nonnull %status)
+  %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %3, ptr noundef %call.i3, ptr noundef nonnull %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then3, %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %entry

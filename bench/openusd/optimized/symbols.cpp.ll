@@ -40,7 +40,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetAddress
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc23 unwind label %25
 
 .noexc23:                                         ; preds = %.noexc
@@ -57,7 +57,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetAddress
 18:                                               ; preds = %20, %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   br label %.body
 
 20:                                               ; preds = %.noexc23

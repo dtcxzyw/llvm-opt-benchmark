@@ -675,7 +675,7 @@ define void @_ZThn192_N8proxygen15AsyncTimeoutSetD0Ev(ptr noundef %this) unnamed
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -192
   tail call void @_ZN8proxygen15AsyncTimeoutSetD1Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(249) %0) #17
   ret void
 }
 
@@ -1356,7 +1356,7 @@ _ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i: ; preds = %i
 
 invoke.cont27:                                    ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i, %if.end24
   %context_ = getelementptr inbounds i8, ptr %4, i64 8
-  invoke void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr nonnull sret(%"class.std::shared_ptr") align 8 %rctxScopeGuard, ptr noundef nonnull align 8 dereferenceable(16) %context_)
+  invoke void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr nonnull sret(%"class.std::shared_ptr") align 8 dereferenceable(16) %rctxScopeGuard, ptr noundef nonnull align 8 dereferenceable(16) %context_)
           to label %invoke.cont28 unwind label %terminate.lpad.loopexit
 
 invoke.cont28:                                    ; preds = %invoke.cont27

@@ -3637,7 +3637,7 @@ if.then:                                          ; preds = %entry
   call void %0(ptr noundef nonnull align 8 dereferenceable(17) %streaminfo)
   %is_reference_.i.i = getelementptr inbounds i8, ptr %streaminfo, i64 16
   store i8 0, ptr %is_reference_.i.i, align 8
-  %call.i.i = call ptr @FLAC__metadata_object_clone(ptr noundef nonnull %object)
+  %call.i.i = call ptr @FLAC__metadata_object_clone(ptr noundef nonnull align 8 dereferenceable(176) %object)
   %object_.i.i = getelementptr inbounds i8, ptr %streaminfo, i64 8
   store ptr %call.i.i, ptr %object_.i.i, align 8
   br label %return

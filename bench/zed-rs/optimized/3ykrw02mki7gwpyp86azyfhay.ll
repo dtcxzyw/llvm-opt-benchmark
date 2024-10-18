@@ -1170,7 +1170,7 @@ _ZN4core3ops8function6FnOnce9call_once17h84ec923fdec92429E.exit.i.i.i: ; preds =
 460:                                              ; preds = %455
   %461 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2c17dd613af21c73E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.43.0..sroa_idx.i.i, i64 noundef 16, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h2c17dd613af21c73E(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %.sroa.43.0..sroa_idx.i.i, i64 noundef 16, i64 noundef 16)
           to label %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$17h3a4b491162f1c641E.exit.i.i" unwind label %462, !noalias !12
 
 462:                                              ; preds = %464, %460
@@ -1259,7 +1259,7 @@ _ZN3std4sync4once4Once9call_once17h5bc0384b9b2a0e5dE.exit: ; preds = %2, %10
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, i64 32, i1 false), !noalias !41
   %20 = load i64, ptr %.sroa.913.0..sroa_idx.i.i.i, align 8, !alias.scope !75, !noalias !41, !noundef !29
   %21 = shl i64 %20, 56
   %22 = getelementptr inbounds i8, ptr %5, i64 56
@@ -1323,7 +1323,7 @@ _ZN3std4sync4once4Once9call_once17h5bc0384b9b2a0e5dE.exit: ; preds = %2, %10
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2b7d46d5b103ae04E.exit.i.i": ; preds = %.lr.ph.i.i
   %57 = getelementptr inbounds i8, ptr %55, i64 -16
   %.val3.i.i.i = load ptr, ptr %57, align 8, !noalias !92, !nonnull !29, !noundef !29
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %.val3.i.i.i, i64 %1), !alias.scope !93, !noalias !100
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %.val3.i.i.i, i64 %1), !alias.scope !93, !noalias !100
   %58 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %58, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hb7ff3ce8cd4a4243E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2b7d46d5b103ae04E.exit.thread.i.i"
 

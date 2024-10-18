@@ -1003,7 +1003,7 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int8(ptr nocapture noundef r
   %20 = ashr exact i64 %sext20, 32
   %21 = sub nsw i64 0, %6
   %spec.select = select i1 %.not, i64 %21, i64 %6
-  %22 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %20, i64 %spec.select)
+  %22 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %20, i64 range(i64 -9223372036854775807, -9223372036854775808) %spec.select)
   %23 = extractvalue { i64, i1 } %22, 1
   %24 = extractvalue { i64, i1 } %22, 0
   br i1 %23, label %25, label %26

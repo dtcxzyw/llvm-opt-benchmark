@@ -282,7 +282,7 @@ switch.hole_check:                                ; preds = %.lr.ph, %.backedge
   br i1 %switch.lobit, label %switch.lookup47, label %spank_plugin_get_fn.exit.thread
 
 spank_plugin_get_fn.exit.thread:                  ; preds = %switch.hole_check
-  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef %1) #19
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef range(i32 0, 13) %1) #19
   br label %.backedge
 
 switch.lookup47:                                  ; preds = %switch.hole_check

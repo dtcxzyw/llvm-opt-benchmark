@@ -32,7 +32,7 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE
 
 19:                                               ; preds = %.lr.ph, %32
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %20 = call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !16
+  %20 = call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !16
   %21 = load i64, ptr %9, align 8, !alias.scope !18, !noalias !16, !noundef !13
   %22 = add i64 %21, -1
   store i64 %22, ptr %9, align 8, !alias.scope !18, !noalias !16
@@ -126,7 +126,7 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE
   br label %11
 
 11:                                               ; preds = %.lr.ph, %24
-  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !41
+  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !41
   %13 = load i64, ptr %5, align 8, !alias.scope !43, !noalias !41, !noundef !13
   %14 = add i64 %13, -1
   store i64 %14, ptr %5, align 8, !alias.scope !43, !noalias !41
@@ -200,7 +200,7 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE
   br label %10
 
 10:                                               ; preds = %.lr.ph, %22
-  %11 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !58
+  %11 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !58
   %12 = load i64, ptr %5, align 8, !alias.scope !60, !noalias !58, !noundef !13
   %13 = add i64 %12, -1
   store i64 %13, ptr %5, align 8, !alias.scope !60, !noalias !58
@@ -313,7 +313,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   br i1 %14, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap11to_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread, label %15
 
 15:                                               ; preds = %2
-  %16 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !82
+  %16 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !82
   %17 = load i64, ptr %12, align 8, !alias.scope !77, !noalias !82, !noundef !13
   %18 = add i64 %17, -1
   store i64 %18, ptr %12, align 8, !alias.scope !77, !noalias !82
@@ -377,7 +377,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %.val = load i64, ptr %12, align 8, !noundef !13
   %34 = call i64 @llvm.uadd.sat.i64(i64 %.val, i64 1)
-  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %34, i64 4)
+  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %34, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringE15try_allocate_inCsgrIngBG6lgl_14regex_automata(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %35 unwind label %31
@@ -449,7 +449,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   br i1 %10, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap18to_secret_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !102
+  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !102
   %13 = load i64, ptr %8, align 8, !alias.scope !95, !noalias !102, !noundef !13
   %14 = add i64 %13, -1
   store i64 %14, ptr %8, align 8, !alias.scope !95, !noalias !102
@@ -488,7 +488,7 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.val = load i64, ptr %8, align 8, !noundef !13
   %26 = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 1)
-  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %26, i64 4)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %26, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringE15try_allocate_inCsgrIngBG6lgl_14regex_automata(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %27 unwind label %23
@@ -560,7 +560,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   br i1 %10, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit.thread, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !111
+  %12 = tail call noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTNtNtCs68wO5nsWeTG_5alloc6string6StringBV_EE9next_implKb0_ECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !111
   %13 = load i64, ptr %8, align 8, !alias.scope !104, !noalias !111, !noundef !13
   %14 = add i64 %13, -1
   store i64 %14, ptr %8, align 8, !alias.scope !104, !noalias !111
@@ -597,7 +597,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %24 = load i64, ptr %8, align 8, !alias.scope !113, !noalias !118, !noundef !13
   %25 = tail call i64 @llvm.uadd.sat.i64(i64 %24, i64 1)
-  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %25, i64 4)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %25, i64 4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringE15try_allocate_inCsgrIngBG6lgl_14regex_automata(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %26 unwind label %21

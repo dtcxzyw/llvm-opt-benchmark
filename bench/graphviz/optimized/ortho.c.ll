@@ -827,13 +827,13 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
   br i1 %383, label %gv_recalloc.exit.i, label %384
 
 384:                                              ; preds = %380
-  %385 = tail call ptr @realloc(ptr noundef %196, i64 noundef %382) #20
+  %385 = tail call ptr @realloc(ptr noundef %196, i64 noundef range(i64 0, -63) %382) #20
   %386 = icmp eq ptr %385, null
   br i1 %386, label %387, label %390
 
 387:                                              ; preds = %384
   %388 = load ptr, ptr @stderr, align 8
-  %389 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.3, i64 noundef %382) #18
+  %389 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.3, i64 noundef range(i64 0, -63) %382) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
@@ -938,7 +938,7 @@ convertSPtoRoute.exit:                            ; preds = %403, %gv_recalloc.e
   br i1 %.not34.i, label %.preheader.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %424, %421, %.preheader.i
-  %427 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #21
+  %427 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 16, 65) 64) #21
   %428 = icmp eq ptr %427, null
   br i1 %428, label %429, label %gv_alloc.exit.i
 
@@ -1064,7 +1064,7 @@ extractHChans.exit:                               ; preds = %461, %._crit_edge25
   br i1 %.not34.i180, label %.preheader.i176, label %.critedge.i181
 
 .critedge.i181:                                   ; preds = %484, %481, %.preheader.i176
-  %487 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #21
+  %487 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 16, 65) 64) #21
   %488 = icmp eq ptr %487, null
   br i1 %488, label %489, label %gv_alloc.exit.i182
 
@@ -2361,7 +2361,7 @@ define internal fastcc void @addChan(ptr noundef %0, ptr noundef %1, double noun
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
+  %8 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 16, 65) 32) #21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %gv_alloc.exit
 

@@ -1037,7 +1037,7 @@ _ZNK2OT10NameRecord5scoreEv.exit:                 ; preds = %130, %129, %126, %1
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %0, i64 32
   %141 = load ptr, ptr %140, align 8
-  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %141, i64 noundef %.sroa.2.8.insert.ext.i.i.i, i64 noundef 16, ptr noundef nonnull readonly @_ZN2OTL21_hb_ot_name_entry_cmpEPKvS1_)
+  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %141, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i, i64 noundef range(i64 0, 4294967296) 16, ptr noundef nonnull readonly @_ZN2OTL21_hb_ot_name_entry_cmpEPKvS1_)
           to label %_ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5qsortEPFiPKvS3_E.exit unwind label %.loopexit.split-lp
 
 _ZN11hb_vector_tI18hb_ot_name_entry_tLb0EE5qsortEPFiPKvS3_E.exit: ; preds = %139

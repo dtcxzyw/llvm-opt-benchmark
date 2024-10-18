@@ -2341,7 +2341,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_mdb_param_data(ptr nound
 168:                                              ; preds = %167
   %169 = load i32, ptr @hf_rdm_pd_device_model_description, align 4
   %170 = zext i8 %4 to i32
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %169, ptr noundef %0, i32 noundef 23, i32 noundef %170, i32 noundef 0) #2
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %169, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %170, i32 noundef 0) #2
   %172 = add nuw nsw i32 %170, 23
   br label %dissect_manufacturer_specific_pid.exit
 
@@ -2393,7 +2393,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_mdb_param_data(ptr nound
 190:                                              ; preds = %189
   %191 = load i32, ptr @hf_rdm_pd_manu_label, align 4
   %192 = zext i8 %4 to i32
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %191, ptr noundef %0, i32 noundef 23, i32 noundef %192, i32 noundef 0) #2
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %191, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %192, i32 noundef 0) #2
   %194 = add nuw nsw i32 %192, 23
   br label %dissect_manufacturer_specific_pid.exit
 
@@ -2483,7 +2483,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_mdb_param_data(ptr nound
 232:                                              ; preds = %231
   %233 = load i32, ptr @hf_rdm_pd_software_version_label, align 4
   %234 = zext i8 %4 to i32
-  %235 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %233, ptr noundef %0, i32 noundef 23, i32 noundef %234, i32 noundef 0) #2
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %233, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %234, i32 noundef 0) #2
   %236 = add nuw nsw i32 %234, 23
   br label %dissect_manufacturer_specific_pid.exit
 
@@ -2503,7 +2503,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_mdb_param_data(ptr nound
 242:                                              ; preds = %241
   %243 = load i32, ptr @hf_rdm_pd_boot_software_version_label, align 4
   %244 = zext i8 %4 to i32
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %243, ptr noundef %0, i32 noundef 23, i32 noundef %244, i32 noundef 0) #2
+  %245 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %243, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %244, i32 noundef 0) #2
   %246 = add nuw nsw i32 %244, 23
   br label %dissect_manufacturer_specific_pid.exit
 
@@ -3063,7 +3063,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_device_label(ptr n
 5:                                                ; preds = %4, %4
   %6 = load i32, ptr @hf_rdm_pd_device_label, align 4
   %7 = zext i8 %3 to i32
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef %7, i32 noundef 0) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %7, i32 noundef 0) #2
   %9 = add nuw nsw i32 %7, 23
   br label %10
 
@@ -3106,7 +3106,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_sensor_definition(
   %27 = load i32, ptr @hf_rdm_pd_sensor_description, align 4
   %28 = zext i8 %3 to i32
   %29 = add nsw i32 %28, -13
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef 36, i32 noundef %29, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef 36, i32 noundef range(i32 -20, 256) %29, i32 noundef 0) #2
   %31 = add nuw nsw i32 %28, 23
   br label %32
 
@@ -3290,7 +3290,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_status_id_descript
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_rdm_pd_status_id_description, align 4
   %10 = zext i8 %3 to i32
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 23, i32 noundef %10, i32 noundef 0) #2
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %10, i32 noundef 0) #2
   %12 = add nuw nsw i32 %10, 23
   br label %13
 
@@ -3388,7 +3388,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_parameter_descript
   %36 = load i32, ptr @hf_rdm_pd_parameter_description, align 4
   %37 = zext i8 %3 to i32
   %38 = add nsw i32 %37, -20
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef 43, i32 noundef %38, i32 noundef 0) #2
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef 43, i32 noundef range(i32 -20, 256) %38, i32 noundef 0) #2
   %40 = add nuw nsw i32 %37, 23
   br label %41
 
@@ -3486,7 +3486,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dmx_personality_de
   %13 = load i32, ptr @hf_rdm_pd_dmx_pers_text, align 4
   %14 = zext i8 %3 to i32
   %15 = add nsw i32 %14, -3
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef 26, i32 noundef %15, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef 26, i32 noundef range(i32 -20, 256) %15, i32 noundef 0) #2
   %17 = add nuw nsw i32 %14, 23
   br label %18
 
@@ -3541,7 +3541,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_slot_description(p
   %11 = load i32, ptr @hf_rdm_pd_slot_description, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -2
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 25, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 25, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -3679,7 +3679,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_record_sensors(ptr
   %27 = load i32, ptr @hf_rdm_pd_sensor_description, align 4
   %28 = zext i8 %3 to i32
   %29 = add nsw i32 %28, -13
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef 36, i32 noundef %29, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef 36, i32 noundef range(i32 -20, 256) %29, i32 noundef 0) #2
   %31 = add nuw nsw i32 %28, 23
   br label %32
 
@@ -3779,7 +3779,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_curve_description(
   %11 = load i32, ptr @hf_rdm_pd_curve_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -3831,7 +3831,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_output_response_ti
   %11 = load i32, ptr @hf_rdm_pd_output_response_time_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -3883,7 +3883,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_modulation_frequen
   %11 = load i32, ptr @hf_rdm_pd_modulation_frequency_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -3988,7 +3988,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_lock_description(p
   %11 = load i32, ptr @hf_rdm_pd_lock_state_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4040,7 +4040,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_interface_label(pt
   %11 = load i32, ptr @hf_rdm_pd_interface_label_label, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 27, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 27, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4232,7 +4232,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_hostname(ptr n
 5:                                                ; preds = %4, %4
   %6 = load i32, ptr @hf_rdm_pd_dns_hostname, align 4
   %7 = zext i8 %3 to i32
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef %7, i32 noundef 0) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %7, i32 noundef 0) #2
   %9 = add nuw nsw i32 %7, 23
   br label %10
 
@@ -4251,7 +4251,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_dns_domain_name(pt
 5:                                                ; preds = %4, %4
   %6 = load i32, ptr @hf_rdm_pd_dns_domain_name, align 4
   %7 = zext i8 %3 to i32
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef %7, i32 noundef 0) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %7, i32 noundef 0) #2
   %9 = add nuw nsw i32 %7, 23
   br label %10
 
@@ -4278,7 +4278,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_self_test_descript
   %11 = load i32, ptr @hf_rdm_pd_selftest_description, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4465,7 +4465,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_background_queued_
   %11 = load i32, ptr @hf_rdm_pd_background_queued_status_policy_description_description, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4514,7 +4514,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_search_domain(ptr 
 5:                                                ; preds = %4, %4
   %6 = load i32, ptr @hf_rdm_pd_search_domain_dns_domain_name, align 4
   %7 = zext i8 %3 to i32
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef %7, i32 noundef 0) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef 23, i32 noundef range(i32 -20, 256) %7, i32 noundef 0) #2
   %9 = add nuw nsw i32 %7, 23
   br label %10
 
@@ -4621,7 +4621,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_label(ptr
   %11 = load i32, ptr @hf_rdm_pd_endpoint_label_label, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -2
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 25, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 25, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4718,7 +4718,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_rdm_pd_endpoint_timing_de
   %11 = load i32, ptr @hf_rdm_pd_endpoint_timing_description_description, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -4989,7 +4989,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_curve_descript
   %11 = load i32, ptr @hf_etc_pd_led_curve_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5016,7 +5016,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_output_mode_de
   %11 = load i32, ptr @hf_etc_pd_led_output_mode_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5043,7 +5043,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_white_point_de
   %11 = load i32, ptr @hf_etc_pd_led_white_point_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5070,7 +5070,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_dmx_data_loss_beha
   %11 = load i32, ptr @hf_etc_pd_dmx_data_loss_behavior_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5097,7 +5097,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_strobe_descrip
   %11 = load i32, ptr @hf_etc_pd_led_strobe_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5124,7 +5124,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_red_shift_descript
   %11 = load i32, ptr @hf_etc_pd_red_shift_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5151,7 +5151,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_plus_seven_descrip
   %11 = load i32, ptr @hf_etc_pd_plus_seven_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5178,7 +5178,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_backlight_timeout_
   %11 = load i32, ptr @hf_etc_pd_backlight_timeout_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5205,7 +5205,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_simple_setup_mode_
   %11 = load i32, ptr @hf_etc_pd_simple_setup_mode_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5232,7 +5232,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_overtemp_mode_desc
   %11 = load i32, ptr @hf_etc_pd_overtemp_mode_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5472,7 +5472,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_low_power_timeout_
   %11 = load i32, ptr @hf_etc_pd_low_power_timeout_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5499,7 +5499,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_led_enum_frequency
   %11 = load i32, ptr @hf_etc_pd_led_enum_frequency_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5602,7 +5602,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_supplementary_devi
   %11 = load i32, ptr @hf_etc_pd_supplementary_device_version_param_description, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5629,7 +5629,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_power_command_desc
   %11 = load i32, ptr @hf_etc_pd_power_command_description_text, align 4
   %12 = zext i8 %3 to i32
   %13 = add nsw i32 %12, -1
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef %13, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 24, i32 noundef range(i32 -20, 256) %13, i32 noundef 0) #2
   %15 = add nuw nsw i32 %12, 23
   br label %16
 
@@ -5684,7 +5684,7 @@ define internal fastcc range(i32 23, 279) i32 @dissect_etc_pd_get_enum_text(ptr 
   %15 = load i32, ptr @hf_etc_pd_get_enum_text_description, align 4
   %16 = zext i8 %3 to i32
   %17 = add nsw i32 %16, -6
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef 29, i32 noundef %17, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef 29, i32 noundef range(i32 -20, 256) %17, i32 noundef 0) #2
   %19 = add nuw nsw i32 %16, 23
   br label %20
 

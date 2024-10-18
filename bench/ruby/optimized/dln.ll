@@ -93,7 +93,7 @@ init_funcname_len.exit:                           ; preds = %.lr.ph.i, %13
   %24 = sub i64 %22, %23
   %25 = add i64 %24, 6
   %26 = alloca i8, i64 %25, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %26, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
   %.not.i.i = icmp eq ptr %21, %.016.lcssa.i
   br i1 %.not.i.i, label %concat_funcname.exit, label %27
 

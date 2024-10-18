@@ -33,12 +33,12 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal7IntegerC2EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %s, i32 noundef %base) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i = tail call i32 @__gmpz_init_set_str(ptr noundef nonnull %this, ptr noundef %s, i32 noundef %base)
+  %call.i = tail call i32 @__gmpz_init_set_str(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %s, i32 noundef %base)
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %_ZN10__gmp_exprIA1_12__mpz_structS1_EC2EPKci.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @__gmpz_clear(ptr noundef nonnull %this)
+  tail call void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
@@ -61,12 +61,12 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_EC2EPKci.exit: ; preds = %entry
 define hidden void @_ZN4cvc58internal7IntegerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, i32 noundef %base) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #13
-  %call3.i = tail call i32 @__gmpz_init_set_str(ptr noundef nonnull %this, ptr noundef %call.i, i32 noundef %base)
+  %call3.i = tail call i32 @__gmpz_init_set_str(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i, i32 noundef %base)
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @__gmpz_clear(ptr noundef nonnull %this)
+  tail call void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #13
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
@@ -92,7 +92,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @__gmpz_set(ptr noundef nonnull %this, ptr noundef nonnull %x)
+  tail call void @__gmpz_set(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %x)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -102,7 +102,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %this, ptr noundef nonnull %y) #15
+  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) #15
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   ret i1 %cmp.i.i
 }
@@ -111,13 +111,13 @@ entry:
 define hidden void @_ZNK4cvc58internal7IntegerngEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #13
-  call void @__gmpz_neg(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %this)
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %ref.tmp)
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
+  call void @__gmpz_neg(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %this)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
@@ -133,7 +133,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -152,7 +152,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %this, ptr noundef nonnull %y) #15
+  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) #15
   %cmp.i.i = icmp ne i32 %call.i.i, 0
   ret i1 %cmp.i.i
 }
@@ -160,7 +160,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %this, ptr noundef nonnull %y) #15
+  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) #15
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   ret i1 %cmp.i.i
 }
@@ -168,7 +168,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %y, ptr noundef nonnull %this) #15
+  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %cmp.i.i.i = icmp sgt i32 %call.i.i.i, -1
   ret i1 %cmp.i.i.i
 }
@@ -176,7 +176,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegergtERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %y, ptr noundef nonnull %this) #15
+  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   ret i1 %cmp.i.i.i
 }
@@ -184,7 +184,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7IntegergeERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull %this, ptr noundef nonnull %y) #15
+  %call.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) #15
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
   ret i1 %cmp.i.i
 }
@@ -193,13 +193,13 @@ entry:
 define hidden void @_ZNK4cvc58internal7IntegerplERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #13
-  call void @__gmpz_add(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %ref.tmp)
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
+  call void @__gmpz_add(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
@@ -215,7 +215,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -232,7 +232,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegerpLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @__gmpz_add(ptr noundef nonnull %this, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  tail call void @__gmpz_add(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y)
   ret ptr %this
 }
 
@@ -240,13 +240,13 @@ entry:
 define hidden void @_ZNK4cvc58internal7IntegermiERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #13
-  call void @__gmpz_sub(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %ref.tmp)
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
+  call void @__gmpz_sub(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
@@ -262,7 +262,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -279,7 +279,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermIERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @__gmpz_sub(ptr noundef nonnull %this, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  tail call void @__gmpz_sub(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y)
   ret ptr %this
 }
 
@@ -287,13 +287,13 @@ entry:
 define hidden void @_ZNK4cvc58internal7IntegermlERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %ref.tmp) #13
-  call void @__gmpz_mul(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %ref.tmp)
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #13
+  call void @__gmpz_mul(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont
@@ -309,7 +309,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -326,7 +326,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegermLERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @__gmpz_mul(ptr noundef nonnull %this, ptr noundef nonnull %this, ptr noundef nonnull %y)
+  tail call void @__gmpz_mul(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y)
   ret ptr %this
 }
 
@@ -334,16 +334,16 @@ entry:
 define hidden void @_ZNK4cvc58internal7Integer9bitwiseOrERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_ior(ptr noundef nonnull %result, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -359,7 +359,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -379,16 +379,16 @@ declare void @__gmpz_ior(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseAndERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_and(ptr noundef nonnull %result, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -404,7 +404,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -424,16 +424,16 @@ declare void @__gmpz_and(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseXorERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_xor(ptr noundef nonnull %result, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -449,7 +449,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -469,16 +469,16 @@ declare void @__gmpz_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10bitwiseNotEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_com(ptr noundef nonnull %result, ptr noundef nonnull %this)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
@@ -494,7 +494,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont5
 lpad:                                             ; preds = %invoke.cont4, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -514,17 +514,17 @@ declare void @__gmpz_com(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @_ZNK4cvc58internal7Integer14multiplyByPow2Ej(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %pow) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   %conv = zext i32 %pow to i64
   invoke void @__gmpz_mul_2exp(ptr noundef nonnull %result, ptr noundef nonnull %this, i64 noundef %conv)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
@@ -540,7 +540,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont5
 lpad:                                             ; preds = %invoke.cont4, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -585,7 +585,7 @@ invoke.cont:
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 1, i32 noundef %i)
   %_mp_size.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
@@ -606,8 +606,8 @@ entry:
   %rem = alloca %class.__gmp_expr, align 8
   %div = alloca %class.__gmp_expr, align 8
   %add = add i32 %low, %bitCount
-  call void @__gmpz_init(ptr noundef nonnull %rem) #13
-  call void @__gmpz_init(ptr noundef nonnull %div) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %rem) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %div) #13
   %conv = zext i32 %add to i64
   invoke void @__gmpz_fdiv_r_2exp(ptr noundef nonnull %rem, ptr noundef nonnull %this, i64 noundef %conv)
           to label %invoke.cont5 unwind label %lpad
@@ -618,11 +618,11 @@ invoke.cont5:                                     ; preds = %entry
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont5
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %div)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %div)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  invoke void @__gmpz_clear(ptr noundef nonnull %div)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %div)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont12
@@ -633,7 +633,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont12
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont12
-  invoke void @__gmpz_clear(ptr noundef nonnull %rem)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %rem)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3 unwind label %terminate.lpad.i2
 
 terminate.lpad.i2:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit
@@ -649,7 +649,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit3:  ; preds = %_ZN10__gmp_exprIA1_
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont5, %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %div)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %div)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit5 unwind label %terminate.lpad.i4
 
 terminate.lpad.i4:                                ; preds = %lpad
@@ -660,7 +660,7 @@ terminate.lpad.i4:                                ; preds = %lpad
   unreachable
 
 _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit5:  ; preds = %lpad
-  invoke void @__gmpz_clear(ptr noundef nonnull %rem)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %rem)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7 unwind label %terminate.lpad.i6
 
 terminate.lpad.i6:                                ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit5
@@ -687,7 +687,7 @@ entry:
 define hidden void @_ZNK4cvc58internal7Integer9oneExtendEjj(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %size, i32 noundef %amount) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init_set(ptr noundef nonnull %res, ptr noundef nonnull %this)
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %res, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %add = add i32 %amount, %size
   %cmp8 = icmp ult i32 %size, %add
   br i1 %cmp8, label %for.body.preheader, label %for.end
@@ -719,7 +719,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit6, %lpad.loopexit ], [ %lpad.loopexit.split-lp7, %lpad.loopexit.split-lp ]
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -733,11 +733,11 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %lpad
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %for.end
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit5 unwind label %terminate.lpad.i4
 
 terminate.lpad.i4:                                ; preds = %invoke.cont3
@@ -770,16 +770,16 @@ declare void @__gmpz_fdiv_q_2exp(ptr noundef, ptr noundef, i64 noundef) local_un
 define hidden void @_ZNK4cvc58internal7Integer19floorDivideQuotientERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %q) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %q) #13
   invoke void @__gmpz_fdiv_q(ptr noundef nonnull %q, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %q)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -795,7 +795,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -815,16 +815,16 @@ declare void @__gmpz_fdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer20floorDivideRemainderERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %r) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %r) #13
   invoke void @__gmpz_fdiv_r(ptr noundef nonnull %r, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %r)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -840,7 +840,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -869,16 +869,16 @@ declare void @__gmpz_fdiv_qr(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 define hidden void @_ZNK4cvc58internal7Integer21ceilingDivideQuotientERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %q) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %q) #13
   invoke void @__gmpz_cdiv_q(ptr noundef nonnull %q, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %q)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -894,7 +894,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -914,16 +914,16 @@ declare void @__gmpz_cdiv_q(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer22ceilingDivideRemainderERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %r) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %r) #13
   invoke void @__gmpz_cdiv_r(ptr noundef nonnull %r, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %r)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -939,7 +939,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -959,19 +959,19 @@ declare void @__gmpz_cdiv_r(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define hidden void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %q, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.cvc5::internal::Integer", align 8
-  tail call void @__gmpz_fdiv_qr(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %x, ptr noundef nonnull %y)
+  tail call void @__gmpz_fdiv_qr(ptr noundef nonnull align 8 dereferenceable(16) %q, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %y)
   %_mp_size.i.i = getelementptr inbounds i8, ptr %r, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.else, label %if.end10
 
 if.else:                                          ; preds = %entry
-  call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp5, i64 noundef 1)
-  invoke void @__gmpz_add(ptr noundef nonnull %q, ptr noundef nonnull %q, ptr noundef nonnull %ref.tmp5)
+  call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, i64 noundef 1)
+  invoke void @__gmpz_add(ptr noundef nonnull align 8 dereferenceable(16) %q, ptr noundef nonnull align 8 dereferenceable(16) %q, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.else
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp5)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %terminate.lpad.i.i12
 
 terminate.lpad.i.i12:                             ; preds = %invoke.cont7
@@ -982,13 +982,13 @@ terminate.lpad.i.i12:                             ; preds = %invoke.cont7
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %invoke.cont7
-  call void @__gmpz_sub(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef nonnull %y)
+  call void @__gmpz_sub(ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %y)
   br label %if.end10
 
 lpad6:                                            ; preds = %if.else
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp5)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
           to label %eh.resume unwind label %terminate.lpad.i.i14
 
 terminate.lpad.i.i14:                             ; preds = %lpad6
@@ -1030,13 +1030,13 @@ entry:
 define hidden void @_ZNK4cvc58internal7Integer23euclidianDivideQuotientERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %r = alloca %"class.cvc5::internal::Integer", align 8
-  tail call void @__gmpz_init(ptr noundef nonnull %agg.result) #13
-  call void @__gmpz_init(ptr noundef nonnull %r) #13
+  tail call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %r) #13
   invoke void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont3
@@ -1052,7 +1052,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont3
 lpad2:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %r)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %ehcleanup unwind label %terminate.lpad.i.i2
 
 terminate.lpad.i.i2:                              ; preds = %lpad2
@@ -1063,7 +1063,7 @@ terminate.lpad.i.i2:                              ; preds = %lpad2
   unreachable
 
 ehcleanup:                                        ; preds = %lpad2
-  invoke void @__gmpz_clear(ptr noundef nonnull %agg.result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit5 unwind label %terminate.lpad.i.i4
 
 terminate.lpad.i.i4:                              ; preds = %ehcleanup
@@ -1081,15 +1081,15 @@ _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %ehcleanup
 define hidden void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %q = alloca %"class.cvc5::internal::Integer", align 8
-  call void @__gmpz_init(ptr noundef nonnull %q) #13
-  call void @__gmpz_init(ptr noundef nonnull %agg.result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %q) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #13
   invoke void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr noundef nonnull align 8 dereferenceable(16) %q, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y)
           to label %nrvo.skipdtor unwind label %lpad2
 
 lpad2:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %agg.result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %ehcleanup unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad2
@@ -1100,7 +1100,7 @@ terminate.lpad.i.i:                               ; preds = %lpad2
   unreachable
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit3 unwind label %terminate.lpad.i.i2
 
 terminate.lpad.i.i2:                              ; preds = %nrvo.skipdtor
@@ -1114,7 +1114,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit3:              ; preds = %nrvo.skipdtor
   ret void
 
 ehcleanup:                                        ; preds = %lpad2
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit5 unwind label %terminate.lpad.i.i4
 
 terminate.lpad.i.i4:                              ; preds = %ehcleanup
@@ -1132,16 +1132,16 @@ _ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %ehcleanup
 define hidden void @_ZNK4cvc58internal7Integer13exactQuotientERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %q) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %q) #13
   invoke void @__gmpz_divexact(ptr noundef nonnull %q, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %q)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -1157,7 +1157,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %q)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1177,17 +1177,17 @@ declare void @__gmpz_divexact(ptr noundef, ptr noundef, ptr noundef) local_unnam
 define hidden void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %exp) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %res) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %res) #13
   %conv = zext i32 %exp to i64
   invoke void @__gmpz_fdiv_r_2exp(ptr noundef nonnull %res, ptr noundef nonnull %this, i64 noundef %conv)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
@@ -1203,7 +1203,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont5
 lpad:                                             ; preds = %invoke.cont4, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1221,17 +1221,17 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %lpad
 define hidden void @_ZNK4cvc58internal7Integer9divByPow2Ej(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %exp) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %res) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %res) #13
   %conv = zext i32 %exp to i64
   invoke void @__gmpz_fdiv_q_2exp(ptr noundef nonnull %res, ptr noundef nonnull %this, i64 noundef %conv)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
@@ -1247,7 +1247,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont5
 lpad:                                             ; preds = %invoke.cont4, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1296,17 +1296,17 @@ declare i32 @__gmpz_cmp_si(ptr noundef, i64 noundef) local_unnamed_addr #4
 define hidden void @_ZNK4cvc58internal7Integer3powEj(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %exp) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   %conv = zext i32 %exp to i64
   invoke void @__gmpz_pow_ui(ptr noundef nonnull %result, ptr noundef nonnull %this, i64 noundef %conv)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont5
@@ -1322,7 +1322,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont5
 lpad:                                             ; preds = %invoke.cont4, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1342,16 +1342,16 @@ declare void @__gmpz_pow_ui(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define hidden void @_ZNK4cvc58internal7Integer3gcdERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_gcd(ptr noundef nonnull %result, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -1367,7 +1367,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1387,16 +1387,16 @@ declare void @__gmpz_gcd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer3lcmERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %result) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %result) #13
   invoke void @__gmpz_lcm(ptr noundef nonnull %result, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %result)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont7
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont8
@@ -1412,7 +1412,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont8
 lpad:                                             ; preds = %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %result)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1432,7 +1432,7 @@ declare void @__gmpz_lcm(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer6modAddERKS1_S3_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %res) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %res) #13
   invoke void @__gmpz_add(ptr noundef nonnull %res, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
@@ -1441,11 +1441,11 @@ invoke.cont7:                                     ; preds = %entry
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont7
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont16
@@ -1461,7 +1461,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont16
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1483,7 +1483,7 @@ declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer11modMultiplyERKS1_S3_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y, ptr noundef nonnull align 8 dereferenceable(16) %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %res) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %res) #13
   invoke void @__gmpz_mul(ptr noundef nonnull %res, ptr noundef nonnull %this, ptr noundef nonnull %y)
           to label %invoke.cont7 unwind label %lpad
 
@@ -1492,11 +1492,11 @@ invoke.cont7:                                     ; preds = %entry
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont7
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont16
@@ -1512,7 +1512,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %invoke.cont16
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont7, %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2 unwind label %terminate.lpad.i1
 
 terminate.lpad.i1:                                ; preds = %lpad
@@ -1532,7 +1532,7 @@ declare void @__gmpz_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define hidden void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %m) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res = alloca %class.__gmp_expr, align 8
-  call void @__gmpz_init(ptr noundef nonnull %res) #13
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %res) #13
   %call8 = invoke i32 @__gmpz_invert(ptr noundef nonnull %res, ptr noundef nonnull %this, ptr noundef nonnull %m)
           to label %invoke.cont7 unwind label %lpad
 
@@ -1541,17 +1541,17 @@ invoke.cont7:                                     ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont7
-  invoke void @__gmpz_init_set_ui(ptr noundef nonnull %agg.result, i64 noundef 1)
+  invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i64 noundef 1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
-  invoke void @__gmpz_neg(ptr noundef nonnull %agg.result, ptr noundef nonnull %agg.result)
+  invoke void @__gmpz_neg(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %if.end, %.noexc, %if.then, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -1565,11 +1565,11 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit:   ; preds = %lpad
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont7
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %res)
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %.noexc
-  invoke void @__gmpz_clear(ptr noundef nonnull %res)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %res)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit4 unwind label %terminate.lpad.i3
 
 terminate.lpad.i3:                                ; preds = %cleanup
@@ -1606,18 +1606,18 @@ entry:
   br i1 %cmp5.i.i, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  tail call void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %this)
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @__gmpz_init(ptr noundef nonnull %ref.tmp.i) #13, !noalias !6
-  call void @__gmpz_neg(ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %this), !noalias !6
-  invoke void @__gmpz_init_set(ptr noundef nonnull %agg.result, ptr noundef nonnull %ref.tmp.i)
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #13, !noalias !6
+  call void @__gmpz_neg(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %this), !noalias !6
+  invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %cond.false
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp.i)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZNK4cvc58internal7IntegerngEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont.i
@@ -1630,7 +1630,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %cond.false
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp.i)
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i unwind label %terminate.lpad.i1.i
 
 terminate.lpad.i1.i:                              ; preds = %lpad.i
@@ -1671,7 +1671,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1688,7 +1688,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -1733,7 +1733,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer13fitsSignedIntEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call i32 @__gmpz_fits_sint_p(ptr noundef nonnull %this) #15
+  %call.i = tail call i32 @__gmpz_fits_sint_p(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %tobool.i = icmp ne i32 %call.i, 0
   ret i1 %tobool.i
 }
@@ -1741,7 +1741,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer15fitsUnsignedIntEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call i32 @__gmpz_fits_uint_p(ptr noundef nonnull %this) #15
+  %call.i = tail call i32 @__gmpz_fits_uint_p(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %tobool.i = icmp ne i32 %call.i, 0
   ret i1 %tobool.i
 }
@@ -1749,7 +1749,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer12getSignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull %this) #15
+  %call.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %conv = trunc i64 %call.i to i32
   ret i32 %conv
 }
@@ -1757,7 +1757,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer14getUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull %this) #15
+  %call.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   %conv = trunc i64 %call.i to i32
   ret i32 %conv
 }
@@ -1765,28 +1765,28 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer7getLongEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull %this) #15
+  %call.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   ret i64 %call.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer15getUnsignedLongEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull %this) #15
+  %call.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   ret i64 %call.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer11getSigned64Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull readonly %this) #15
+  %call.i.i = tail call noundef i64 @__gmpz_get_si(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) #15
   ret i64 %call.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer13getUnsigned64Ev(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull readonly %this) #15
+  %call.i.i = tail call noundef i64 @__gmpz_get_ui(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) #15
   ret i64 %call.i.i
 }
 
@@ -1902,7 +1902,7 @@ declare void @__gmpz_gcdext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3minERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly %b, ptr noundef nonnull readonly %a) #15
+  %call.i.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %b, ptr noundef nonnull readonly align 8 dereferenceable(16) %a) #15
   %cmp.i.i.i.i3 = icmp slt i32 %call.i.i.i.i, 0
   %cond-lvalue = select i1 %cmp.i.i.i.i3, ptr %b, ptr %a
   ret ptr %cond-lvalue
@@ -1911,7 +1911,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7Integer3maxERKS1_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #1 align 2 {
 entry:
-  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly %a, ptr noundef nonnull readonly %b) #15
+  %call.i.i.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull readonly align 8 dereferenceable(16) %b) #15
   %cmp.i.i.i3 = icmp slt i32 %call.i.i.i, 0
   %cond-lvalue = select i1 %cmp.i.i.i3, ptr %b, ptr %a
   ret ptr %cond-lvalue

@@ -1589,7 +1589,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %309, %307
   %314 = load i32, ptr %313, align 4
   %315 = getelementptr inbounds i8, ptr %293, i64 16
   %316 = load i32, ptr %315, align 8
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %293, i32 noundef %314, i32 noundef %316) #7
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %293, i32 noundef %314, i32 noundef %316) #7
   br label %_ZN10ValueStack4copyEv.exit
 
 _ZN10ValueStack4copyEv.exit:                      ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %312
@@ -1639,7 +1639,7 @@ _ZN22CompilationResourceObjnwEm.exit.i66:         ; preds = %337, %335
   %342 = load i32, ptr %341, align 4
   %343 = getelementptr inbounds i8, ptr %321, i64 16
   %344 = load i32, ptr %343, align 8
-  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i67, ptr noundef nonnull %321, i32 noundef %342, i32 noundef %344) #7
+  call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(81) %321, i32 noundef %342, i32 noundef %344) #7
   br label %_ZN10ValueStack4copyEv.exit68
 
 _ZN10ValueStack4copyEv.exit68:                    ; preds = %_ZN22CompilationResourceObjnwEm.exit.i66, %340
@@ -3022,7 +3022,7 @@ _ZN20GlobalValueNumbering10substituteEP11Instruction.exit: ; preds = %.lr.ph186,
   %555 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %555, align 8
-  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4) #7
+  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   br label %556
 
 556:                                              ; preds = %554, %._crit_edge190
@@ -3118,7 +3118,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #7
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18
@@ -3190,7 +3190,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #7
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18

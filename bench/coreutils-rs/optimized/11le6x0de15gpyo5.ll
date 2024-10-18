@@ -318,7 +318,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 
 13:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %.sroa.0.025, align 8, !nonnull !14, !align !113, !noundef !14
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %1, i64 %2), !alias.scope !114
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !114
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %16, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge"
 
@@ -371,7 +371,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
 
 14:                                               ; preds = %.lr.ph.i.i
   %.val.i.i = load ptr, ptr %.sroa.0.025.i.i, align 8, !noalias !133, !nonnull !14, !align !113, !noundef !14
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %2, i64 %3), !alias.scope !134, !noalias !141
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !134, !noalias !141
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i.i"
 
@@ -479,7 +479,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12t
 
 14:                                               ; preds = %.lr.ph.i.i
   %.val.i.i = load ptr, ptr %.sroa.0.025.i.i, align 8, !noalias !165, !nonnull !14, !align !113, !noundef !14
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %2, i64 %3), !alias.scope !166, !noalias !173
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !166, !noalias !173
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i.i"
 
@@ -592,7 +592,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
 
 14:                                               ; preds = %.lr.ph.i
   %.val.i = load ptr, ptr %.sroa.0.025.i, align 8, !noalias !182, !nonnull !14, !align !113, !noundef !14
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %2, i64 %3), !alias.scope !183, !noalias !177
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !183, !noalias !177
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %15, label %17, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hfc223ed45b85f225E.exit.backedge.i"
 

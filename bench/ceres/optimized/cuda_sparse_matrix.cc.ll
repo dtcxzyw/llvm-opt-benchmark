@@ -82,7 +82,7 @@ define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EiONS0_10CudaBufferIiE
   %21 = getelementptr inbounds i8, ptr %2, i64 16
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %0, i64 48
   %24 = load ptr, ptr %3, align 8
   store ptr %24, ptr %23, align 8
@@ -93,11 +93,11 @@ define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EiONS0_10CudaBufferIiE
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 72
   %31 = load i32, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 16, i1 false)
   store ptr %4, ptr %32, align 8
   %33 = sext i32 %31 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %33)
@@ -665,14 +665,14 @@ define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EPNS0_11ContextImplERK
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = add nsw i32 %5, 1
   %19 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 16, i1 false)
   store ptr %1, ptr %19, align 8
   %20 = sext i32 %18 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %20)
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i32, ptr %9, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 16, i1 false)
   store ptr %1, ptr %23, align 8
   %24 = sext i32 %22 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %24)
@@ -682,7 +682,7 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %3
   %25 = getelementptr inbounds i8, ptr %0, i64 72
   %26 = load i32, ptr %9, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 16, i1 false)
   store ptr %1, ptr %27, align 8
   %28 = sext i32 %26 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %28)

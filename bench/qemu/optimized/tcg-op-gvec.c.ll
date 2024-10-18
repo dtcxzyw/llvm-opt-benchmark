@@ -382,10 +382,10 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv4 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv4) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv4) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -445,10 +445,10 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv4 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv4) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv4) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %c, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -503,13 +503,13 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv5 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv5) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv5) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv6 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv6) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv6) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -566,16 +566,16 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call5 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv6 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv6) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv6) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv7 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv7) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv7) #7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv8 = zext i32 %cofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef %conv8) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv8) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -634,19 +634,19 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call6 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv7 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv7) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv7) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv8 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv8) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv8) #7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv9 = zext i32 %cofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef %conv9) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv9) #7
   %7 = load ptr, ptr @tcg_env, align 8
   %conv10 = zext i32 %xofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call6, ptr noundef %7, i64 noundef %conv10) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call6, ptr noundef %7, i64 noundef range(i64 0, 4294967296) %conv10) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %call6, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -703,10 +703,10 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv4 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv4) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv4) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %ptr, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -761,13 +761,13 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call4 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv5 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv5) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv5) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv6 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv6) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv6) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %ptr, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -824,16 +824,16 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call5 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv6 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv6) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv6) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv7 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv7) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv7) #7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv8 = zext i32 %cofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef %conv8) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv8) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %ptr, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -892,19 +892,19 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %call6 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %3 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %conv) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %conv7 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef %conv7) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call3, ptr noundef %4, i64 noundef range(i64 0, 4294967296) %conv7) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %conv8 = zext i32 %bofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef %conv8) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call4, ptr noundef %5, i64 noundef range(i64 0, 4294967296) %conv8) #7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv9 = zext i32 %cofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef %conv9) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call5, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv9) #7
   %7 = load ptr, ptr @tcg_env, align 8
   %conv10 = zext i32 %eofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call6, ptr noundef %7, i64 noundef %conv10) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call6, ptr noundef %7, i64 noundef range(i64 0, 4294967296) %conv10) #7
   tail call void %fn(ptr noundef %call2, ptr noundef %call3, ptr noundef %call4, ptr noundef %call5, ptr noundef %call6, ptr noundef %ptr, ptr noundef %call1) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call2) #7
   tail call void @tcg_temp_free_ptr(ptr noundef %call3) #7
@@ -1316,7 +1316,7 @@ check_size_impl.exit:                             ; preds = %entry
   %and.i = and i32 %size, 7
   %cmp1.i = icmp eq i32 %and.i, 0
   tail call void @llvm.assume(i1 %cmp1.i)
-  %1 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %rem.i)
+  %1 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 range(i32 0, 32) %rem.i)
   %add.i = add nuw nsw i32 %1, %div.i40
   %cmp10.i = icmp samesign ult i32 %add.i, 5
   br i1 %cmp10.i, label %land.lhs.true1, label %if.end
@@ -4042,7 +4042,7 @@ if.end128:                                        ; preds = %if.end108, %if.end7
   %call129 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %6 = load ptr, ptr @tcg_env, align 8
   %conv130 = zext i32 %dofs.tr240362 to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call129, ptr noundef %6, i64 noundef %conv130) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call129, ptr noundef %6, i64 noundef range(i64 0, 4294967296) %conv130) #7
   %cmp131 = icmp eq i32 %oprsz.addr.0169, %maxsz.tr242360
   %cmp134 = icmp eq i32 %vece.addr.0171, 0
   %or.cond4 = and i1 %cmp134, %cmp131
@@ -7930,7 +7930,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %add.i118 = add i32 %aofs, %3
   %conv.i = zext i32 %add.i118 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i, ptr noundef %2, i64 noundef %conv.i) #7
-  tail call void %0(i32 noundef %vece, ptr noundef %call1.i, ptr noundef %call.i, ptr noundef %shift) #7
+  tail call void %0(i32 noundef range(i32 0, 4) %vece, ptr noundef %call1.i, ptr noundef %call.i, ptr noundef %shift) #7
   %4 = load ptr, ptr @tcg_env, align 8
   %add2.i = add i32 %dofs, %3
   %conv3.i = zext i32 %add2.i to i64
@@ -7968,7 +7968,7 @@ for.body.i121:                                    ; preds = %sw.bb6, %for.body.i
   %add.i125 = add i32 %i.08.i122, %aofs.addr.0
   %conv.i126 = zext i32 %add.i125 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i123, ptr noundef %6, i64 noundef %conv.i126) #7
-  tail call void %5(i32 noundef %vece, ptr noundef %call1.i124, ptr noundef %call.i123, ptr noundef %shift) #7
+  tail call void %5(i32 noundef range(i32 0, 4) %vece, ptr noundef %call1.i124, ptr noundef %call.i123, ptr noundef %shift) #7
   %7 = load ptr, ptr @tcg_env, align 8
   %add2.i127 = add i32 %i.08.i122, %dofs.addr.0
   %conv3.i128 = zext i32 %add2.i127 to i64
@@ -7991,7 +7991,7 @@ for.body.i133:                                    ; preds = %sw.bb8, %for.body.i
   %add.i137 = add i32 %i.08.i134, %aofs
   %conv.i138 = zext i32 %add.i137 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i135, ptr noundef %9, i64 noundef %conv.i138) #7
-  tail call void %8(i32 noundef %vece, ptr noundef %call1.i136, ptr noundef %call.i135, ptr noundef %shift) #7
+  tail call void %8(i32 noundef range(i32 0, 4) %vece, ptr noundef %call1.i136, ptr noundef %call.i135, ptr noundef %shift) #7
   %10 = load ptr, ptr @tcg_env, align 8
   %add2.i139 = add i32 %i.08.i134, %dofs
   %conv3.i140 = zext i32 %add2.i139 to i64
@@ -8052,7 +8052,7 @@ for.body.i144:                                    ; preds = %for.body.i144.prehe
   %add.i147 = add i32 %aofs, %14
   %conv.i148 = zext i32 %add.i147 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i145, ptr noundef %13, i64 noundef %conv.i148) #7
-  tail call void %11(i32 noundef %vece, ptr noundef %call1.i146, ptr noundef %call.i145, ptr noundef %call19) #7
+  tail call void %11(i32 noundef range(i32 0, 256) %vece, ptr noundef %call1.i146, ptr noundef %call.i145, ptr noundef %call19) #7
   %15 = load ptr, ptr @tcg_env, align 8
   %add2.i149 = add i32 %dofs, %14
   %conv3.i150 = zext i32 %add2.i149 to i64
@@ -8090,7 +8090,7 @@ for.body.i155:                                    ; preds = %sw.bb34, %for.body.
   %add.i159 = add i32 %i.013.i156, %aofs.addr.1
   %conv.i160 = zext i32 %add.i159 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i157, ptr noundef %17, i64 noundef %conv.i160) #7
-  tail call void %16(i32 noundef %vece, ptr noundef %call1.i158, ptr noundef %call.i157, ptr noundef %call19) #7
+  tail call void %16(i32 noundef range(i32 0, 256) %vece, ptr noundef %call1.i158, ptr noundef %call.i157, ptr noundef %call19) #7
   %18 = load ptr, ptr @tcg_env, align 8
   %add2.i161 = add i32 %i.013.i156, %dofs.addr.3
   %conv3.i162 = zext i32 %add2.i161 to i64
@@ -8113,7 +8113,7 @@ for.body.i168:                                    ; preds = %sw.bb36, %for.body.
   %add.i172 = add i32 %i.013.i169, %aofs
   %conv.i173 = zext i32 %add.i172 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call.i170, ptr noundef %20, i64 noundef %conv.i173) #7
-  tail call void %19(i32 noundef %vece, ptr noundef %call1.i171, ptr noundef %call.i170, ptr noundef %call19) #7
+  tail call void %19(i32 noundef range(i32 0, 256) %vece, ptr noundef %call1.i171, ptr noundef %call.i170, ptr noundef %call19) #7
   %21 = load ptr, ptr @tcg_env, align 8
   %add2.i174 = add i32 %i.013.i169, %dofs
   %conv3.i175 = zext i32 %add2.i174 to i64
@@ -8251,10 +8251,10 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   tail call void @tcg_gen_ori_i32(ptr noundef %call57, ptr noundef %call57, i32 noundef %or.i.i) #7
   %30 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call55, ptr noundef %30, i64 noundef %conv) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call55, ptr noundef %30, i64 noundef range(i64 0, 4294967296) %conv) #7
   %31 = load ptr, ptr @tcg_env, align 8
   %conv59 = zext i32 %aofs to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call56, ptr noundef %31, i64 noundef %conv59) #7
+  tail call void @tcg_gen_addi_i64(ptr noundef %call56, ptr noundef %31, i64 noundef range(i64 0, 4294967296) %conv59) #7
   %fno = getelementptr inbounds i8, ptr %g, i64 32
   %idxprom = zext nneg i32 %vece to i64
   %arrayidx = getelementptr [4 x ptr], ptr %fno, i64 0, i64 %idxprom
@@ -9058,7 +9058,7 @@ for.body.i:                                       ; preds = %if.then23, %for.bod
   %add2.i = add i32 %i.012.i, %bofs
   %conv3.i = zext i32 %add2.i to i64
   tail call void @tcg_gen_ld_i64(ptr noundef %call1.i, ptr noundef %1, i64 noundef %conv3.i) #7
-  tail call void @tcg_gen_negsetcond_i64(i32 noundef %cond, ptr noundef %call.i, ptr noundef %call.i, ptr noundef %call1.i) #7
+  tail call void @tcg_gen_negsetcond_i64(i32 noundef range(i32 2, 0) %cond, ptr noundef %call.i, ptr noundef %call.i, ptr noundef %call1.i) #7
   %2 = load ptr, ptr @tcg_env, align 8
   %add4.i = add i32 %i.012.i, %dofs
   %conv5.i = zext i32 %add4.i to i64
@@ -9100,7 +9100,7 @@ for.body.i95:                                     ; preds = %if.then29, %for.bod
   %add2.i99 = add i32 %i.012.i96, %bofs
   %conv3.i100 = zext i32 %add2.i99 to i64
   tail call void @tcg_gen_ld_i32(ptr noundef %call1.i93, ptr noundef %4, i64 noundef %conv3.i100) #7
-  tail call void @tcg_gen_negsetcond_i32(i32 noundef %cond, ptr noundef %call.i92, ptr noundef %call.i92, ptr noundef %call1.i93) #7
+  tail call void @tcg_gen_negsetcond_i32(i32 noundef range(i32 2, 0) %cond, ptr noundef %call.i92, ptr noundef %call.i92, ptr noundef %call1.i93) #7
   %5 = load ptr, ptr @tcg_env, align 8
   %add4.i101 = add i32 %i.012.i96, %dofs
   %conv5.i102 = zext i32 %add4.i101 to i64
@@ -9695,7 +9695,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %add.i95 = add i32 %aofs, %2
   %conv.i = zext i32 %add.i95 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i, ptr noundef %1, i64 noundef %conv.i) #7
-  tail call void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %call.i, ptr noundef %call1.i, ptr noundef %call10) #7
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %cond, i32 noundef %vece, ptr noundef %call.i, ptr noundef %call1.i, ptr noundef %call10) #7
   %3 = load ptr, ptr @tcg_env, align 8
   %add2.i = add i32 %dofs, %2
   %conv3.i = zext i32 %add2.i to i64
@@ -9733,7 +9733,7 @@ for.body.i100:                                    ; preds = %for.body.i100.prehe
   %add.i102 = add i32 %aofs.addr.0, %6
   %conv.i103 = zext i32 %add.i102 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i98, ptr noundef %5, i64 noundef %conv.i103) #7
-  tail call void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %call.i97, ptr noundef %call1.i98, ptr noundef %call10) #7
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %cond, i32 noundef %vece, ptr noundef %call.i97, ptr noundef %call1.i98, ptr noundef %call10) #7
   %7 = load ptr, ptr @tcg_env, align 8
   %add2.i104 = add i32 %dofs.addr.0, %6
   %conv3.i105 = zext i32 %add2.i104 to i64
@@ -9760,7 +9760,7 @@ for.body.i112:                                    ; preds = %for.body.i112.prehe
   %add.i114 = add i32 %aofs, %10
   %conv.i115 = zext i32 %add.i114 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %call1.i110, ptr noundef %9, i64 noundef %conv.i115) #7
-  tail call void @tcg_gen_cmp_vec(i32 noundef %cond, i32 noundef %vece, ptr noundef %call.i109, ptr noundef %call1.i110, ptr noundef %call10) #7
+  tail call void @tcg_gen_cmp_vec(i32 noundef range(i32 2, 0) %cond, i32 noundef %vece, ptr noundef %call.i109, ptr noundef %call1.i110, ptr noundef %call10) #7
   %11 = load ptr, ptr @tcg_env, align 8
   %add2.i116 = add i32 %dofs, %10
   %conv3.i117 = zext i32 %add2.i116 to i64

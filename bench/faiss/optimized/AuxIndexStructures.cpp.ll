@@ -1408,7 +1408,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1531,7 +1531,7 @@ define noundef zeroext i1 @_ZN5faiss17InterruptCallback14is_interruptedEv() loca
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN5faiss17InterruptCallback4lockE) #16
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5faiss17InterruptCallback4lockE) #16
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
 
@@ -1547,13 +1547,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
           to label %9 unwind label %11
 
 9:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN5faiss17InterruptCallback4lockE) #16
+  %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5faiss17InterruptCallback4lockE) #16
   br label %14
 
 11:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN5faiss17InterruptCallback4lockE) #16
+  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5faiss17InterruptCallback4lockE) #16
   resume { ptr, i32 } %12
 
 14:                                               ; preds = %0, %9

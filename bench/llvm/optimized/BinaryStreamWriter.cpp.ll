@@ -253,7 +253,7 @@ define dso_local void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE
   %12 = add i64 %11, %3
   store i64 %12, ptr %7, align 8, !noalias !13
   store i8 0, ptr %5, align 1
-  call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %12, ptr nonnull %5, i64 1) #8
+  call void @_ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %12, ptr nonnull align 1 dereferenceable(1) %5, i64 1) #8
   %13 = load ptr, ptr %0, align 8
   %.not.i.i10 = icmp eq ptr %13, null
   br i1 %.not.i.i10, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %16

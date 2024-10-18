@@ -6096,7 +6096,7 @@ init_h245_packet_info.exit:                       ; preds = %18, %22
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %1) #10
   %25 = load i32, ptr @hf_h245_pdu_type, align 4
   %26 = load i32, ptr @ett_h245_MultimediaSystemControlMessage, align 4
-  %27 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef %.013, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %25, i32 noundef %26, ptr noundef nonnull @MultimediaSystemControlMessage_choice, ptr noundef null) #10
+  %27 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef range(i32 0, -7) %.013, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %25, i32 noundef %26, ptr noundef nonnull @MultimediaSystemControlMessage_choice, ptr noundef null) #10
   %28 = load i32, ptr @h245dg_tap, align 4
   %29 = load ptr, ptr @h245_pi, align 8
   call void @tap_queue_packet(i32 noundef %28, ptr noundef nonnull %1, ptr noundef %29) #10

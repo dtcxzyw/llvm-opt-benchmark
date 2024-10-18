@@ -4542,7 +4542,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.0..sroa_idx.i59, align 8, !noalias !33
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 240
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !33
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17hf4de09a1b4d21600E(ptr align 8 %1, ptr align 8 %297)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17hf4de09a1b4d21600E(ptr nonnull align 8 %1, ptr align 8 %297)
           to label %1262 unwind label %779, !noalias !33
 
 1262:                                             ; preds = %1260
@@ -4553,7 +4553,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.0..sroa_idx18.i, align 8, !noalias !33
   %.sroa.4.0..sroa_idx20.i = getelementptr inbounds i8, ptr %1, i64 288
   store i64 0, ptr %.sroa.4.0..sroa_idx20.i, align 8, !noalias !33
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17hf4de09a1b4d21600E(ptr align 8 %1, ptr align 8 %296)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17hf4de09a1b4d21600E(ptr nonnull align 8 %1, ptr align 8 %296)
           to label %1264 unwind label %779, !noalias !33
 
 1264:                                             ; preds = %1262
@@ -5026,7 +5026,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1378 unwind label %.loopexit.split-lp394.loopexit.split-lp.i.loopexit, !range !20
 
 1376:                                             ; preds = %1364
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator24define_rust_guest_export17hb1e6d6ca66108150E(ptr align 8 %195, ptr align 8 %2, ptr align 8 null, ptr align 8 %1360)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator24define_rust_guest_export17hb1e6d6ca66108150E(ptr align 8 %195, ptr align 8 %2, ptr align 8 null, ptr nonnull align 8 %1360)
           to label %1744 unwind label %.loopexit.split-lp394.loopexit.split-lp.i.loopexit
 
 1377:                                             ; preds = %1364
@@ -5060,7 +5060,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
 
 1378:                                             ; preds = %1370
   %1379 = load ptr, ptr %658, align 8, !nonnull !4, !align !32, !noundef !4
-  %1380 = invoke fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_interface17h84b054f3ea0122c3E(ptr align 8 %1379, ptr align 8 %2, i64 %1372, i32 %1374, ptr align 8 %1359, i1 zeroext true)
+  %1380 = invoke fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_interface17h84b054f3ea0122c3E(ptr align 8 %1379, ptr align 8 %2, i64 %1372, i32 %1374, ptr nonnull align 8 %1359, i1 zeroext true)
           to label %1381 unwind label %.loopexit.split-lp394.loopexit.split-lp.i.loopexit
 
 1381:                                             ; preds = %1378
@@ -5105,7 +5105,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   %1400 = load i64, ptr %1394, align 8, !noundef !4
   %1401 = getelementptr inbounds i8, ptr %1394, i64 8
   %1402 = load i32, ptr %1401, align 8, !noundef !4
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11define_type17hac2cb17af4b59b5eE(ptr align 8 %195, ptr align 1 %1397, i64 %1399, i64 %1400, i32 %1402)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11define_type17hac2cb17af4b59b5eE(ptr nonnull align 8 %195, ptr align 1 %1397, i64 %1399, i64 %1400, i32 %1402)
           to label %.noexc309.i unwind label %.loopexit.split-lp394.loopexit.i
 
 .noexc309.i:                                      ; preds = %.lr.ph.i.i
@@ -6513,7 +6513,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1745 unwind label %.loopexit.split-lp394.loopexit.split-lp.i.loopexit
 
 1745:                                             ; preds = %1744
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extract_typed_function17hc536619ba7f34f58E(ptr noalias align 8 %189, ptr align 8 %195, ptr align 8 %1360)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extract_typed_function17hc536619ba7f34f58E(ptr noalias align 8 %189, ptr align 8 %195, ptr nonnull align 8 %1360)
           to label %1750 unwind label %.thread361.i
 
 .thread361.i:                                     ; preds = %1745
@@ -6567,7 +6567,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1415 unwind label %.loopexit.split-lp
 
 1758:                                             ; preds = %1756
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen15func_field_name17hec10c2278d854985E(ptr noalias align 8 %187, ptr align 8 %2, ptr align 8 %1360)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen15func_field_name17hec10c2278d854985E(ptr noalias align 8 %187, ptr align 8 %2, ptr nonnull align 8 %1360)
           to label %1759 unwind label %.loopexit
 
 1759:                                             ; preds = %1758
@@ -6828,7 +6828,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
 
 1800:                                             ; preds = %1787
   %1801 = load ptr, ptr %563, align 8, !nonnull !4, !align !32, !noundef !4
-  %1802 = invoke fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_interface17h84b054f3ea0122c3E(ptr align 8 %1801, ptr align 8 %2, i64 %1789, i32 %1791, ptr align 8 %764, i1 zeroext false)
+  %1802 = invoke fastcc zeroext i1 @_ZN20wasmtime_wit_bindgen8Wasmtime14name_interface17h84b054f3ea0122c3E(ptr align 8 %1801, ptr align 8 %2, i64 %1789, i32 %1791, ptr nonnull align 8 %764, i1 zeroext false)
           to label %1803 unwind label %.loopexit.split-lp104.i.loopexit
 
 1803:                                             ; preds = %1800
@@ -6876,7 +6876,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   %1823 = load i64, ptr %1817, align 8, !noundef !4
   %1824 = getelementptr inbounds i8, ptr %1817, i64 8
   %1825 = load i32, ptr %1824, align 8, !noundef !4
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11define_type17hac2cb17af4b59b5eE(ptr align 8 %81, ptr align 1 %1820, i64 %1822, i64 %1823, i32 %1825)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator11define_type17hac2cb17af4b59b5eE(ptr nonnull align 8 %81, ptr align 1 %1820, i64 %1822, i64 %1823, i32 %1825)
           to label %.noexc55.i unwind label %.loopexit103.i
 
 .noexc55.i:                                       ; preds = %.lr.ph.i.i95
@@ -6975,7 +6975,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %580, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %581, align 8
   store i64 0, ptr %582, align 8
-  %1840 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %62)
+  %1840 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %62)
           to label %.noexc59.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 .noexc59.i:                                       ; preds = %1839
@@ -7015,7 +7015,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %576, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %577, align 8
   store i64 0, ptr %578, align 8
-  %1851 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %63)
+  %1851 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %63)
           to label %.noexc64.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 .noexc64.i:                                       ; preds = %1850
@@ -7032,7 +7032,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %595, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %596, align 8
   store i64 0, ptr %597, align 8
-  %1852 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %54)
+  %1852 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %54)
           to label %.noexc66.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.loopexit
 
 .noexc66.i:                                       ; preds = %._crit_edge.i.i
@@ -7203,7 +7203,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %611, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %612, align 8
   store i64 0, ptr %613, align 8
-  %1902 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %31)
+  %1902 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %31)
           to label %1903 unwind label %.loopexit208
 
 1903:                                             ; preds = %1901
@@ -7323,7 +7323,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %1931 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1931:                                             ; preds = %1930
-  %1932 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %24)
+  %1932 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %24)
           to label %1933 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1933:                                             ; preds = %1931
@@ -7346,7 +7346,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %1936 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1936:                                             ; preds = %1935
-  %1937 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %22)
+  %1937 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %22)
           to label %1938 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1938:                                             ; preds = %1936
@@ -7415,7 +7415,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %631, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %632, align 8
   store i64 0, ptr %633, align 8
-  %1966 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %13)
+  %1966 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %13)
           to label %1970 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1967:                                             ; preds = %1962
@@ -7425,7 +7425,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store i64 1, ptr %11, align 8
   store i64 %1789, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store i32 %1791, ptr %.sroa.3.0..sroa_idx.i.i113, align 8
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr align 8 %81, ptr align 8 %11, ptr align 8 %1968, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.394, i64 4)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr nonnull align 8 %81, ptr align 8 %11, ptr align 8 %1968, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.394, i64 4)
           to label %1960 unwind label %.loopexit.i.i114
 
 1970:                                             ; preds = %1965
@@ -7439,7 +7439,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %635, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %636, align 8
   store i64 0, ptr %637, align 8
-  %1972 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %12)
+  %1972 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %12)
           to label %1973 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit
 
 1973:                                             ; preds = %1971
@@ -7486,7 +7486,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store i64 3, ptr %626, align 8
   store ptr %16, ptr %627, align 8
   store i64 2, ptr %628, align 8
-  %1977 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %17)
+  %1977 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %17)
           to label %1979 unwind label %.loopexit149.i.i
 
 .loopexit149.i.i:                                 ; preds = %1976
@@ -7759,7 +7759,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %.body.i.i103 unwind label %1982
 
 2064:                                             ; preds = %2062
-  %2065 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %33)
+  %2065 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %33)
           to label %2066 unwind label %.loopexit167.i.i
 
 2066:                                             ; preds = %2064
@@ -7816,7 +7816,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %.body.i96 unwind label %1982
 
 2080:                                             ; preds = %.lr.ph177.i.i
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr align 8 %81, ptr align 8 %1865)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr nonnull align 8 %81, ptr align 8 %1865)
           to label %.backedge.i.i unwind label %.loopexit.i99
 
 2081:                                             ; preds = %.lr.ph.i57.i
@@ -7825,7 +7825,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %590, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %591, align 8
   store i64 0, ptr %592, align 8
-  %2082 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %59)
+  %2082 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %59)
           to label %.noexc74.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc74.i:                                       ; preds = %2081
@@ -7838,7 +7838,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store ptr null, ptr %586, align 8
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %587, align 8
   store i64 0, ptr %588, align 8
-  %2084 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %58)
+  %2084 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %58)
           to label %.noexc76.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc76.i:                                       ; preds = %2083
@@ -7880,7 +7880,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %.body.i96 unwind label %1982
 
 2087:                                             ; preds = %.noexc78.i
-  %2088 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %57)
+  %2088 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %81, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %57)
           to label %2089 unwind label %.loopexit172.i.i
 
 2089:                                             ; preds = %2087
@@ -8159,7 +8159,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   unreachable
 
 2144:                                             ; preds = %1793
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr align 8 %81, ptr align 8 %765)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr align 8 %81, ptr nonnull align 8 %765)
           to label %2145 unwind label %.loopexit.split-lp104.i.loopexit
 
 2145:                                             ; preds = %2144, %1793
@@ -8174,7 +8174,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   store i64 %3, ptr %565, align 8
   store i32 %4, ptr %566, align 8
   store i64 0, ptr %78, align 8
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr align 8 %81, ptr align 8 %78, ptr align 8 %765, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.44, i64 6)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator31generate_add_function_to_linker17hcd272560ed63c84eE(ptr align 8 %81, ptr align 8 %78, ptr nonnull align 8 %765, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.44, i64 6)
           to label %2147 unwind label %2149
 
 2147:                                             ; preds = %2146
@@ -10279,7 +10279,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   store ptr %87, ptr %319, align 8
   %320 = getelementptr inbounds i8, ptr %88, i64 24
   store i64 1, ptr %320, align 8
-  %321 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %88)
+  %321 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %88)
           to label %322 unwind label %309
 
 322:                                              ; preds = %313
@@ -10394,7 +10394,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   unreachable
 
 365:                                              ; preds = %351
-  %366 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %100)
+  %366 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %100)
           to label %367 unwind label %309
 
 367:                                              ; preds = %365
@@ -10439,7 +10439,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
           to label %.body.i unwind label %485
 
 378:                                              ; preds = %370
-  %379 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %103)
+  %379 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %103)
           to label %380 unwind label %376
 
 380:                                              ; preds = %378
@@ -10487,7 +10487,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %394, align 8
   %395 = getelementptr inbounds i8, ptr %98, i64 24
   store i64 0, ptr %395, align 8
-  %396 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %98)
+  %396 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %98)
           to label %397 unwind label %309
 
 397:                                              ; preds = %391
@@ -10499,7 +10499,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   br label %389
 
 398:                                              ; preds = %389
-  %399 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %97)
+  %399 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %97)
           to label %400 unwind label %309
 
 400:                                              ; preds = %398
@@ -10617,7 +10617,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
           to label %450 unwind label %309
 
 450:                                              ; preds = %448
-  %451 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %91)
+  %451 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %91)
           to label %452 unwind label %309
 
 452:                                              ; preds = %450
@@ -10635,7 +10635,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %456, align 8
   %457 = getelementptr inbounds i8, ptr %89, i64 24
   store i64 0, ptr %457, align 8
-  %458 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %89)
+  %458 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %89)
           to label %459 unwind label %309
 
 459:                                              ; preds = %453
@@ -10667,7 +10667,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
   br i1 %475, label %476, label %.critedge.i.backedge
 
 476:                                              ; preds = %481, %477, %472
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr align 8 %0, ptr align 8 %439)
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator27generate_function_trait_sig17h82cea71b13342291E(ptr nonnull align 8 %0, ptr align 8 %439)
           to label %.critedge.i.backedge unwind label %440
 
 477:                                              ; preds = %464
@@ -10742,7 +10742,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator13type_resource17h8eafbee72f01e351E
           to label %common.resume unwind label %504
 
 494:                                              ; preds = %488
-  %495 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %83)
+  %495 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %83)
           to label %496 unwind label %492
 
 496:                                              ; preds = %494
@@ -10917,7 +10917,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.e
           to label %508 unwind label %553
 
 548:                                              ; preds = %546
-  %549 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %75)
+  %549 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %75)
           to label %550 unwind label %.loopexit27.i
 
 550:                                              ; preds = %548
@@ -12860,7 +12860,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   store ptr %62, ptr %60, align 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %100, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %61, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.482, i64 2, ptr nonnull align 8 %60, i64 1)
-  %107 = call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %61)
+  %107 = call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %61)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   br i1 %107, label %108, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0e485a301f018b8fE.exit144.i"
 
@@ -13021,7 +13021,7 @@ _ZN20wasmtime_wit_bindgen18rust_function_name17h57de32e136bf4577E.exit.i: ; pred
   %179 = getelementptr inbounds i8, ptr %57, i64 24
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h501e2ab095e4e83eE", ptr %179, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %58, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.431, i64 3, ptr nonnull align 8 %57, i64 2)
-  %180 = call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %58)
+  %180 = call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %58)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)
   br i1 %180, label %181, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0e485a301f018b8fE.exit143.i"
 
@@ -13086,7 +13086,7 @@ _ZN20wasmtime_wit_bindgen18rust_function_name17h57de32e136bf4577E.exit.i: ; pred
           to label %186 unwind label %239
 
 199:                                              ; preds = %195
-  %200 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %51)
+  %200 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %51)
           to label %201 unwind label %197
 
 201:                                              ; preds = %199
@@ -13277,7 +13277,7 @@ _ZN20wasmtime_wit_bindgen18rust_function_name17h57de32e136bf4577E.exit.i: ; pred
   br label %267
 
 268:                                              ; preds = %235
-  %269 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %38)
+  %269 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %38)
           to label %270 unwind label %.loopexit.split-lp173.i
 
 270:                                              ; preds = %268
@@ -13348,7 +13348,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %292, align 8
   %293 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 0, ptr %293, align 8
-  %294 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %31)
+  %294 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %31)
           to label %300 unwind label %.loopexit.split-lp173.i
 
 _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit149.thread.i: ; preds = %_ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit149.i, %.noexc147.i, %278
@@ -13361,7 +13361,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %297, align 8
   %298 = getelementptr inbounds i8, ptr %32, i64 24
   store i64 0, ptr %298, align 8
-  %299 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %32)
+  %299 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %32)
           to label %305 unwind label %.loopexit.split-lp173.i
 
 300:                                              ; preds = %_ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit149.thread163.i
@@ -13404,7 +13404,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %315, align 8
   %316 = getelementptr inbounds i8, ptr %30, i64 24
   store i64 0, ptr %316, align 8
-  %317 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %30)
+  %317 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %30)
           to label %318 unwind label %.loopexit.split-lp173.i
 
 318:                                              ; preds = %312
@@ -13445,7 +13445,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %28, i64 24
   store i64 0, ptr %327, align 8
-  %328 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %28)
+  %328 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %28)
           to label %335 unwind label %.loopexit.split-lp173.i
 
 329:                                              ; preds = %321
@@ -13458,7 +13458,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %332, align 8
   %333 = getelementptr inbounds i8, ptr %27, i64 24
   store i64 0, ptr %333, align 8
-  %334 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %27)
+  %334 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %27)
           to label %346 unwind label %.loopexit.split-lp173.i
 
 335:                                              ; preds = %323
@@ -13708,7 +13708,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
           to label %414 unwind label %239
 
 431:                                              ; preds = %427
-  %432 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %12)
+  %432 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %12)
           to label %433 unwind label %429
 
 433:                                              ; preds = %431
@@ -13757,7 +13757,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %445, align 8
   %446 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 0, ptr %446, align 8
-  %447 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %9)
+  %447 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %9)
           to label %454 unwind label %.loopexit.split-lp.i
 
 448:                                              ; preds = %440
@@ -13770,7 +13770,7 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
   store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %451, align 8
   %452 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %452, align 8
-  %453 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %8)
+  %453 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %8)
           to label %455 unwind label %.loopexit.split-lp.i
 
 454:                                              ; preds = %442
@@ -13806,7 +13806,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
           to label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator29generate_guest_import_closure17h771b8b8315f29e02E.exit unwind label %219
 
 460:                                              ; preds = %288
-  %461 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %34)
+  %461 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 8 %0, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %34)
           to label %462 unwind label %.loopexit172.i
 
 462:                                              ; preds = %460

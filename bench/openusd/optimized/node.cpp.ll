@@ -1984,7 +1984,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef16GetChildrenRang
   call void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC1ERKNS_10PcpNodeRefEb(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC1ERKNS_10PcpNodeRefEb(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void
 }
 

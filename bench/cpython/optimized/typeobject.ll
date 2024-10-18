@@ -7525,12 +7525,12 @@ type_new_staticmethod.exit.i.i:                   ; preds = %lookup_tp_dict.exit
   br i1 %tobool.not.i82.not.i.i, label %if.end16.i.i, label %error.i
 
 if.end16.i.i:                                     ; preds = %type_new_staticmethod.exit.i.i, %if.then1.i.i79.i.i, %if.end.i.i76.i.i, %if.end16.i75.i.i, %if.end4.i70.i.i
-  %call17.i.i = call fastcc i32 @type_new_classmethod(ptr noundef %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30232))
+  %call17.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30232))
   %cmp18.i.i = icmp slt i32 %call17.i.i, 0
   br i1 %cmp18.i.i, label %error.i, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.end16.i.i
-  %call21.i.i = call fastcc i32 @type_new_classmethod(ptr noundef %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27664))
+  %call21.i.i = call fastcc i32 @type_new_classmethod(ptr noundef nonnull %call.i25.i.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27664))
   %cmp22.i.i = icmp slt i32 %call21.i.i, 0
   br i1 %cmp22.i.i, label %error.i, label %if.end24.i.i
 
@@ -7760,7 +7760,7 @@ type_new_set_classcell.exit.i.i:                  ; preds = %if.end4.i108.i.i
   br i1 %166, label %error.i, label %type_new_set_attrs.exit.i
 
 type_new_set_attrs.exit.i:                        ; preds = %type_new_set_classcell.exit.i.i, %if.then.i113.i.i
-  %call33.i.i = call fastcc i32 @type_new_set_classdictcell(ptr noundef %call.i25.i.i)
+  %call33.i.i = call fastcc i32 @type_new_set_classdictcell(ptr noundef nonnull %call.i25.i.i)
   %cmp2.i = icmp slt i32 %call33.i.i, 0
   br i1 %cmp2.i, label %error.i, label %if.end4.i
 
@@ -10097,7 +10097,7 @@ for.body.i228:                                    ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i228
-  %call3.i = tail call fastcc i32 @add_subclass(ptr noundef nonnull %173, ptr noundef %type)
+  %call3.i = tail call fastcc i32 @add_subclass(ptr noundef nonnull %173, ptr noundef nonnull %type)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %error, label %for.inc.i
 
@@ -12924,7 +12924,7 @@ if.end.i36.i:                                     ; preds = %if.then17.i
   br i1 %cmp.i38.i, label %while.cond.i.backedge.sink.split, label %while.cond.i.backedge
 
 if.end19.i:                                       ; preds = %if.end15.i, %land.lhs.true.i, %lookup_tp_dict.exit
-  %call20.i = call fastcc i32 @update_subclasses(ptr noundef nonnull %.val.i, ptr noundef %attr_name, ptr noundef %data)
+  %call20.i = call fastcc i32 @update_subclasses(ptr noundef nonnull %.val.i, ptr noundef %attr_name, ptr noundef nonnull %data)
   %cmp21.i = icmp slt i32 %call20.i, 0
   %29 = load i64, ptr %.val.i, align 8
   %30 = and i64 %29, 2147483648

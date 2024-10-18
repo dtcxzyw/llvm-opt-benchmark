@@ -2811,7 +2811,7 @@ define internal fastcc i32 @erf_populate_interface(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i, label %90, label %88
 
 88:                                               ; preds = %70
-  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef %3) #15
+  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef range(i64 0, -1) %3) #15
   br label %90
 
 90:                                               ; preds = %88, %70
@@ -2847,7 +2847,7 @@ erf_set_interface_descr.exit.i:                   ; preds = %97, %95
   br i1 %.not.i.i, label %103, label %101
 
 101:                                              ; preds = %erf_set_interface_descr.exit.i
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef %3) #15
+  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef range(i64 0, -1) %3) #15
   br label %103
 
 103:                                              ; preds = %101, %erf_set_interface_descr.exit.i
@@ -2922,7 +2922,7 @@ erf_set_interface_descr.exit112.i:                ; preds = %110, %108
   br i1 %.not.i.i, label %132, label %130
 
 130:                                              ; preds = %121
-  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef %3) #15
+  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef range(i64 0, -1) %3) #15
   br label %132
 
 132:                                              ; preds = %130, %121
@@ -2960,7 +2960,7 @@ erf_set_interface_descr.exit116.i:                ; preds = %139, %137
   br i1 %.not.i.i, label %147, label %145
 
 145:                                              ; preds = %erf_set_interface_descr.exit116.i
-  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef %3) #15
+  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 24, ptr noundef nonnull @.str.25, i64 noundef range(i64 0, -1) %3) #15
   br label %147
 
 147:                                              ; preds = %145, %erf_set_interface_descr.exit116.i

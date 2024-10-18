@@ -322,7 +322,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnul
   br i1 %23, label %24, label %make_text_key.exit
 
 24:                                               ; preds = %17
-  %25 = tail call i32 @hash_bytes(ptr noundef %20, i32 noundef %22) #8
+  %25 = tail call i32 @hash_bytes(ptr noundef %20, i32 noundef range(i32 126, -2147483648) %22) #8
   %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %25) #8
   br label %make_text_key.exit
 
@@ -355,7 +355,7 @@ make_text_key.exit:                               ; preds = %17, %24
   br i1 %40, label %41, label %make_text_key.exit13
 
 41:                                               ; preds = %34
-  %42 = tail call i32 @hash_bytes(ptr noundef %38, i32 noundef %39) #8
+  %42 = tail call i32 @hash_bytes(ptr noundef %38, i32 noundef range(i32 126, -2147483648) %39) #8
   %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %42) #8
   %44 = or disjoint i8 %35, 16
   br label %make_text_key.exit13
@@ -474,7 +474,7 @@ define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0)
   br i1 %53, label %54, label %make_text_key.exit
 
 54:                                               ; preds = %51
-  %55 = tail call i32 @hash_bytes(ptr noundef nonnull %34, i32 noundef %52) #8
+  %55 = tail call i32 @hash_bytes(ptr noundef nonnull %34, i32 noundef range(i32 126, -2147483648) %52) #8
   %56 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %55) #8
   br label %make_text_key.exit
 
@@ -576,7 +576,7 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   br i1 %113, label %114, label %make_text_key.exit84
 
 114:                                              ; preds = %111
-  %115 = call i32 @hash_bytes(ptr noundef nonnull %92, i32 noundef %112) #8
+  %115 = call i32 @hash_bytes(ptr noundef nonnull %92, i32 noundef range(i32 126, -2147483648) %112) #8
   %116 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %115) #8
   br label %make_text_key.exit84
 
@@ -1458,7 +1458,7 @@ define internal noundef zeroext i1 @jsonb_ops__add_path_item(ptr nocapture nound
   br i1 %9, label %10, label %make_text_key.exit
 
 10:                                               ; preds = %6
-  %11 = call i32 @hash_bytes(ptr noundef %7, i32 noundef %8) #8
+  %11 = call i32 @hash_bytes(ptr noundef %7, i32 noundef range(i32 126, -2147483648) %8) #8
   %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %11) #8
   br label %make_text_key.exit
 
@@ -1563,12 +1563,12 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %38
 
 27:                                               ; preds = %23, %18
-  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext true)
+  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
   %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8
-  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext false)
+  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1585,7 +1585,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %26, %22, %23, %23
   %.ph = phi i1 [ true, %23 ], [ true, %23 ], [ false, %22 ], [ false, %26 ]
-  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext %.ph)
+  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1593,7 +1593,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %46
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef readonly %2, i1 noundef zeroext false)
+  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
@@ -1635,7 +1635,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
 10:                                               ; preds = %8
   call void @jspGetArg(ptr noundef nonnull %.016.i, ptr noundef nonnull %7) #8
   %11 = load ptr, ptr %5, align 8
-  %12 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %11, ptr noundef %7, i1 noundef zeroext false)
+  %12 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %11, ptr noundef %7, i1 noundef zeroext false)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 

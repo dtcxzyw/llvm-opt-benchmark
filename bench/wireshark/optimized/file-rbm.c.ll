@@ -336,12 +336,12 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
 
 39:                                               ; preds = %6
   store ptr @.str.30, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.29, ptr noundef %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 40:                                               ; preds = %6
   store ptr @.str.31, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   tail call fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
@@ -531,12 +531,12 @@ dissect_rbm_double.exit:                          ; preds = %104, %105
 
 126:                                              ; preds = %6
   store ptr @.str.36, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 127:                                              ; preds = %6
   store ptr @.str.37, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef nonnull %16)
   br label %dissect_rbm_basic.exit
 
 128:                                              ; preds = %6
@@ -595,7 +595,7 @@ dissect_rbm_struct_data.exit:                     ; preds = %128, %rbm_set_info.
 
 152:                                              ; preds = %6
   store ptr @.str.38, ptr %15, align 8
-  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.66, ptr noundef %16)
+  call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.66, ptr noundef nonnull %16)
   %153 = load i32, ptr @hf_rbm_regex_param, align 4
   %154 = load i32, ptr %3, align 4
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %153, ptr noundef %0, i32 noundef %154, i32 noundef 1, i32 noundef 0) #4

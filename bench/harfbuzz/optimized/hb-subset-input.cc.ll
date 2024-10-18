@@ -133,7 +133,7 @@ if.end:                                           ; preds = %_ZNK17hb_subset_inp
   br i1 %tobool.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end
-  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(48) %s.i, ptr noundef nonnull %default_drop_tables, i32 noundef 18, i32 noundef 4)
+  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i, ptr noundef nonnull %default_drop_tables, i32 noundef 18, i32 noundef 4)
   br label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit
 
 cond.false.i:                                     ; preds = %if.end
@@ -144,7 +144,7 @@ cond.false.i:                                     ; preds = %if.end
 if.end4.i.i.i:                                    ; preds = %cond.false.i
   %population.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 20
   store i32 -1, ptr %population.i.i.i.i, align 4
-  %call7.us.i3.i.i = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i, i32 noundef 1836020344, i1 noundef zeroext true)
+  %call7.us.i3.i.i = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i, i32 noundef 1836020344, i1 noundef zeroext true)
   %tobool9.us.not.i4.i.i = icmp eq ptr %call7.us.i3.i.i, null
   br i1 %tobool9.us.not.i4.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %if.end11.us.i.i.i
 
@@ -193,7 +193,7 @@ land.rhs.us31.us.i.i.i:                           ; preds = %if.end19.us27.us.i.
   br i1 %11, label %do.body.us23.us.i.i.i, label %do.end.split.split.us.us.i.i.i, !llvm.loop !7
 
 do.end.split.split.us.us.i.i.i:                   ; preds = %land.rhs.us31.us.i.i.i
-  %call7.us.i.i.i = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i, i32 noundef %10, i1 noundef zeroext true)
+  %call7.us.i.i.i = tail call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i, i32 noundef %10, i1 noundef zeroext true)
   %tobool9.us.not.i.i.i = icmp eq ptr %call7.us.i.i.i, null
   br i1 %tobool9.us.not.i.i.i, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit, label %if.end11.us.i.i.i, !llvm.loop !8
 
@@ -208,7 +208,7 @@ _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit: ; preds = %do.end.split.
   br i1 %tobool.i11, label %cond.true.i50, label %cond.false.i12
 
 cond.true.i50:                                    ; preds = %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit
-  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(48) %s.i5, ptr noundef nonnull %default_no_subset_tables, i32 noundef 5, i32 noundef 4)
+  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i5, ptr noundef nonnull %default_no_subset_tables, i32 noundef 5, i32 noundef 4)
   br label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51
 
 cond.false.i12:                                   ; preds = %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit
@@ -219,7 +219,7 @@ cond.false.i12:                                   ; preds = %_ZN23hb_bit_set_inv
 if.end4.i.i.i14:                                  ; preds = %cond.false.i12
   %population.i.i.i.i15 = getelementptr inbounds i8, ptr %12, i64 20
   store i32 -1, ptr %population.i.i.i.i15, align 4
-  %call7.us.i3.i.i16 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i5, i32 noundef 1734439792, i1 noundef zeroext true)
+  %call7.us.i3.i.i16 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i5, i32 noundef 1734439792, i1 noundef zeroext true)
   %tobool9.us.not.i4.i.i17 = icmp eq ptr %call7.us.i3.i.i16, null
   br i1 %tobool9.us.not.i4.i.i17, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51, label %if.end11.us.i.i.i18
 
@@ -268,7 +268,7 @@ land.rhs.us31.us.i.i.i43:                         ; preds = %if.end19.us27.us.i.
   br i1 %17, label %do.body.us23.us.i.i.i26, label %do.end.split.split.us.us.i.i.i47, !llvm.loop !7
 
 do.end.split.split.us.us.i.i.i47:                 ; preds = %land.rhs.us31.us.i.i.i43
-  %call7.us.i.i.i48 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i5, i32 noundef %16, i1 noundef zeroext true)
+  %call7.us.i.i.i48 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i5, i32 noundef %16, i1 noundef zeroext true)
   %tobool9.us.not.i.i.i49 = icmp eq ptr %call7.us.i.i.i48, null
   br i1 %tobool9.us.not.i.i.i49, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51, label %if.end11.us.i.i.i18, !llvm.loop !8
 
@@ -283,7 +283,7 @@ _ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51: ; preds = %do.end.spli
   br i1 %tobool.i53, label %cond.true.i92, label %cond.false.i54
 
 cond.true.i92:                                    ; preds = %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51
-  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(48) %s.i6, ptr noundef nonnull %default_layout_features, i32 noundef 72, i32 noundef 4)
+  call void @_ZN12hb_bit_set_t9del_arrayIjEEvPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %s.i6, ptr noundef nonnull %default_layout_features, i32 noundef 72, i32 noundef 4)
   br label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit93
 
 cond.false.i54:                                   ; preds = %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit51
@@ -294,7 +294,7 @@ cond.false.i54:                                   ; preds = %_ZN23hb_bit_set_inv
 if.end4.i.i.i56:                                  ; preds = %cond.false.i54
   %population.i.i.i.i57 = getelementptr inbounds i8, ptr %18, i64 20
   store i32 -1, ptr %population.i.i.i.i57, align 4
-  %call7.us.i3.i.i58 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i6, i32 noundef 1920365166, i1 noundef zeroext true)
+  %call7.us.i3.i.i58 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i6, i32 noundef 1920365166, i1 noundef zeroext true)
   %tobool9.us.not.i4.i.i59 = icmp eq ptr %call7.us.i3.i.i58, null
   br i1 %tobool9.us.not.i4.i.i59, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit93, label %if.end11.us.i.i.i60
 
@@ -343,7 +343,7 @@ land.rhs.us31.us.i.i.i85:                         ; preds = %if.end19.us27.us.i.
   br i1 %23, label %do.body.us23.us.i.i.i68, label %do.end.split.split.us.us.i.i.i89, !llvm.loop !7
 
 do.end.split.split.us.us.i.i.i89:                 ; preds = %land.rhs.us31.us.i.i.i85
-  %call7.us.i.i.i90 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(48) %s.i6, i32 noundef %22, i1 noundef zeroext true)
+  %call7.us.i.i.i90 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %s.i6, i32 noundef %22, i1 noundef zeroext true)
   %tobool9.us.not.i.i.i91 = icmp eq ptr %call7.us.i.i.i90, null
   br i1 %tobool9.us.not.i.i.i91, label %_ZN23hb_bit_set_invertible_t9add_arrayIjEEvPKT_jj.exit93, label %if.end11.us.i.i.i60, !llvm.loop !8
 
@@ -434,8 +434,8 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %9 = inttoptr i64 %8 to ptr
   %items.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %9)
-  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %9) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
   tail call void @free(ptr noundef nonnull %9) #16
   store atomic i64 0, ptr %user_data.i.i monotonic, align 8
   br label %if.end.i
@@ -477,8 +477,8 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %if.end4.i
   %4 = inttoptr i64 %3 to ptr
   %items.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %4)
-  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4)
+  %call.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   tail call void @free(ptr noundef nonnull %4) #16
   store atomic i64 0, ptr %user_data2.i.i monotonic, align 8
   br label %if.end
@@ -594,7 +594,7 @@ if.then5.i:                                       ; preds = %retry.preheader.i, 
   br i1 %tobool7.not.i, label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i
-  %call.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call6.i, ptr noundef null) #16
+  %call.i.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %call6.i, ptr noundef null) #16
   %items.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, i8 0, i64 16, i1 false)
   %2 = ptrtoint ptr %call6.i to i64
@@ -603,8 +603,8 @@ if.end9.i:                                        ; preds = %if.then5.i
   br i1 %4, label %if.end15.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end9.i
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(40) %call6.i)
-  %call.i.i11.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %call6.i) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i, ptr noundef nonnull align 8 dereferenceable(56) %call6.i)
+  %call.i.i11.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %call6.i) #16
   tail call void @free(ptr noundef nonnull %call6.i) #16
   %5 = load atomic i64, ptr %user_data2.i acquire, align 8
   %tobool4.not.i = icmp eq i64 %5, 0
@@ -645,7 +645,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool4.not.i, label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #16
+  %call.i.i.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %arrayZ.i.i.i.i.i, align 8
   %length.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
@@ -674,7 +674,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %for.inc.i.i.i.i.i.i, %5, %if.end6.i
   %6 = phi ptr [ %item.sroa.2.0.copyload.i.i, %5 ], [ null, %if.end6.i ], [ null, %for.inc.i.i.i.i.i.i ]
-  %call.i4.i3.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #16
+  %call.i4.i3.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %2) #16
   br label %_ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK17hb_subset_input_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %entry, %lor.lhs.false.i, %if.end.i, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -865,8 +865,8 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %9 = inttoptr i64 %8 to ptr
   %items.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %9)
-  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %9) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
   tail call void @free(ptr noundef nonnull %9) #16
   store atomic i64 0, ptr %user_data2.i.i.i monotonic, align 8
   br label %if.end.i
@@ -1457,8 +1457,8 @@ entry:
 if.then.i.i.i.i:                                  ; preds = %entry
   %10 = inttoptr i64 %9 to ptr
   %items.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %call.i.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %10) #16
   tail call void @free(ptr noundef nonnull %10) #16
   store atomic i64 0, ptr %user_data2.i.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIjjLb1EEEvPT_.exit.i.i.i
@@ -1489,8 +1489,8 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 if.then.i.i.i2:                                   ; preds = %_ZN8hb_map_tD2Ev.exit
   %13 = inttoptr i64 %12 to ptr
   %items.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %13)
-  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %13) #16
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %items.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %13)
+  %call.i.i.i.i.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %13) #16
   tail call void @free(ptr noundef nonnull %13) #16
   store atomic i64 0, ptr %user_data2.i.i.i monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIj6TripleLb0EEEvPT_.exit.i.i
@@ -1539,7 +1539,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #16
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   %3 = load i32, ptr %length, align 4
   %tobool5.not21 = icmp eq i32 %3, 0
   br i1 %tobool5.not21, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -1559,7 +1559,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %old.sroa.2.0.retval.0.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0.retval.0.i.i.sroa_idx, align 8
   store i32 %sub.i, ptr %length, align 4, !noalias !13
-  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
+  %call.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   %tobool.not.i10 = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i10, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %if.then.i11
 
@@ -1568,7 +1568,7 @@ if.then.i11:                                      ; preds = %_ZN11hb_vector_tIN2
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %if.then.i11
-  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #16
+  %call.i13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   %6 = load i32, ptr %length, align 4
   %tobool5.not = icmp eq i32 %6, 0
   br i1 %tobool5.not, label %while.end, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !16
@@ -1587,7 +1587,7 @@ if.then.i15:                                      ; preds = %while.end
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19: ; preds = %while.end, %if.then.i15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
+  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   br label %return
 
 return:                                           ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit19, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -1621,7 +1621,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %or.cond, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #16
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   %arrayZ.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %arrayZ.i.i.i, align 8
   %length.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -1663,7 +1663,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %if.end.i.i, %if.then.i
-  %call.i10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+  %call.i10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   %tobool.not.i11.i = icmp eq ptr %old.sroa.2.0.copyload.i, null
   br i1 %tobool.not.i11.i, label %return, label %if.then.i12.i
 
@@ -1672,7 +1672,7 @@ if.then.i12.i:                                    ; preds = %_ZN11hb_vector_tIN2
   br label %return
 
 if.else.i:                                        ; preds = %for.inc.i.i.i.i, %if.then6
-  %call.i14.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #16
+  %call.i14.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
   br label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -1697,7 +1697,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %v, ptr noundef nonnull align 8 dereferenceable(40) %l, i1 noundef zeroext %replace) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %l) #16
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   %arrayZ.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %arrayZ.i.i, align 8
   %length.i.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -1733,7 +1733,7 @@ if.then3:                                         ; preds = %if.then
   %old.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %old.sroa.2.0.copyload = load ptr, ptr %old.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
-  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
+  %call.i7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   %tobool.not.i = icmp eq ptr %old.sroa.2.0.copyload, null
   br i1 %tobool.not.i, label %if.end7, label %if.then.i
 
@@ -1742,7 +1742,7 @@ if.then.i:                                        ; preds = %if.then3
   br label %if.end7
 
 if.else:                                          ; preds = %if.then
-  %call.i8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
+  %call.i8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   br label %if.end7
 
 if.else4:                                         ; preds = %for.inc.i.i.i, %entry
@@ -1814,7 +1814,7 @@ if.end.i:                                         ; preds = %if.then28.i.i.if.en
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %if.then.i9, %if.end.i
   %retval.0.i = phi ptr [ %arrayidx.i, %if.end.i ], [ @_hb_CrapPool, %if.then.i9 ]
-  %call.i10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %l) #16
+  %call.i10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %l) #16
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i, %if.then3, %if.else, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit

@@ -1464,7 +1464,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %25, %27
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef null) #9
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV3Phi, i64 16), ptr %.0.i.i.i, align 8
   %53 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 0, ptr %53, align 8
@@ -1563,7 +1563,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %25, %27
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #9
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(104) %.0.i.i.i, ptr noundef null) #9
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV3Phi, i64 16), ptr %.0.i.i.i, align 8
   %52 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 0, ptr %52, align 8

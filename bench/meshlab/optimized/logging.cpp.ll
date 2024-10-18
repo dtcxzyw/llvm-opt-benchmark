@@ -207,7 +207,7 @@ define void @_ZN7logging6Logger3LogERKNSt7__cxx1112basic_stringIcSt11char_traits
 
 17:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  %18 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %18 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   %.not.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %19
 
@@ -291,13 +291,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %17
   br label %43
 
 ._crit_edge:                                      ; preds = %32, %24
-  %42 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %42 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #18
   ret void
 
 43:                                               ; preds = %.loopexit, %.loopexit.split-lp, %40, %38
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   br label %45
 
 45:                                               ; preds = %43, %36, %34
@@ -756,7 +756,7 @@ define noundef i32 @_ZN7logging6Logger11GetLogLevelEv() local_unnamed_addr #12 a
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7logging6Logger14RegisterStreamEPSo(ptr noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %3
 
@@ -836,13 +836,13 @@ _ZNSt6vectorIPSoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iter
   br label %_ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorIPSoSaIS0_EE9push_backERKS0_.exit:    ; preds = %_ZNSt6vectorIPSoSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %6
-  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   ret void
 
 33:                                               ; preds = %21, %15
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   resume { ptr, i32 } %34
 }
 
@@ -866,7 +866,7 @@ define void @_ZN7logging6Logger12RegisterNameERKNSt7__cxx1112basic_stringIcSt11c
   %2 = alloca %"class.std::tuple", align 8
   %3 = alloca %"class.std::tuple.6", align 1
   %4 = alloca %"class.std::thread::id", align 8
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %6
 
@@ -921,13 +921,13 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
           to label %19 unwind label %21
 
 19:                                               ; preds = %16
-  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   ret void
 
 21:                                               ; preds = %.critedge.i, %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   resume { ptr, i32 } %22
 }
 
@@ -939,7 +939,7 @@ define void @_ZN7logging6Logger7GetNameB5cxx11Ev(ptr dead_on_unwind noalias writ
   %3 = alloca %"class.std::tuple.6", align 1
   %4 = alloca %"class.std::thread::id", align 8
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %7
 
@@ -1055,12 +1055,12 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
   br label %39
 
 37:                                               ; preds = %23, %34
-  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %38 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   ret void
 
 39:                                               ; preds = %35, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %36, %35 ]
-  %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN7logging6Logger12singletonMtxE) #18
+  %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7logging6Logger12singletonMtxE) #18
   resume { ptr, i32 } %.pn
 }
 

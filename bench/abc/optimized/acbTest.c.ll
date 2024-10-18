@@ -1602,7 +1602,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr nocapture noundef readonly %0, ptr nocaptu
   %11 = add nsw i32 %6, %10
   %12 = tail call ptr @Gia_ManStart(i32 noundef %11) #18
   %13 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.10, i64 6, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false) #18
   store ptr %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr null, ptr %14, align 8

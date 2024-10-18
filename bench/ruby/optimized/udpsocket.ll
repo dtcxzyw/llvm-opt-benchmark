@@ -366,7 +366,7 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br label %rb_ll2num_inline.exit
 
 23:                                               ; preds = %18
-  %24 = tail call i64 @rb_ll2inum(i64 noundef %16) #4
+  %24 = tail call i64 @rb_ll2inum(i64 noundef range(i64 0, -9223372036854775808) %16) #4
   br label %rb_ll2num_inline.exit
 
 25:                                               ; preds = %12

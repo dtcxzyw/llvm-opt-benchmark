@@ -47,7 +47,7 @@ define void @_ZN5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) u
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %2, align 8
-  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str)
+  %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull @.str)
           to label %4 unwind label %7
 
 4:                                                ; preds = %1

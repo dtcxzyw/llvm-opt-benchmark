@@ -16933,7 +16933,7 @@ define internal fastcc noundef zeroext i1 @_ZL29CC_X86_32_RegCall_Assign2RegsRjR
   %3 = alloca %"class.llvm::SmallVector.265", align 8
   %4 = alloca %"class.llvm::CCValAssign", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %5, i64 noundef 5) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %5, i64 noundef 5) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %7
 
@@ -17037,7 +17037,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %41, %55
   br i1 %42, label %41, label %.loopexit, !llvm.loop !665
 
 .loopexit:                                        ; preds = %_ZN4llvm7CCState11AllocateRegEt.exit, %29
-  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %3) #8
   %61 = load ptr, ptr %3, align 8
   %62 = icmp eq ptr %61, %5
   br i1 %62, label %_ZN4llvm11SmallVectorIjLj5EED2Ev.exit, label %63

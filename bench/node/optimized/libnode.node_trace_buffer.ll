@@ -49,7 +49,7 @@ $_ZZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC1EvE4args = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %max_chunks, i32 noundef %id, ptr noundef %agent) unnamed_addr #0 align 2 {
 entry:
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %this) #13
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -204,7 +204,7 @@ if.end6:                                          ; preds = %_ZSt8_DestroyIPSt10
 define dso_local noundef ptr @_ZN4node7tracing19InternalTraceBuffer13AddTraceEventEPm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef writeonly %handle) local_unnamed_addr #0 align 2 {
 entry:
   %event_index = alloca i64, align 8
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %total_chunks_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %total_chunks_, align 8
   %cmp = icmp eq i64 %0, 0
@@ -253,7 +253,7 @@ arraydestroy.body.i.i.i.i.i.i:                    ; preds = %if.else, %arraydest
   br i1 %arraydestroy.done.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %_ZNKSt14default_deleteIN2v88platform7tracing16TraceBufferChunkEEclEPS3_.exit.i.i.i.i, %if.then9, %lor.lhs.false
@@ -312,7 +312,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %handle) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %cmp = icmp eq i64 %handle, 0
   br i1 %cmp, label %cleanup, label %if.end
 
@@ -384,7 +384,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing19InternalTraceBuffer5FlushEb(ptr noundef nonnull align 8 dereferenceable(104) %this, i1 noundef zeroext %blocking) local_unnamed_addr #0 align 2 {
 entry:
-  tail call void @uv_mutex_lock(ptr noundef nonnull %this) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   %total_chunks_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %total_chunks_, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -468,7 +468,7 @@ entry:
   %exited_ = getelementptr inbounds i8, ptr %this, i64 272
   store i8 0, ptr %exited_, align 8
   %exit_mutex_ = getelementptr inbounds i8, ptr %this, i64 280
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %exit_mutex_) #13
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %exit_mutex_) #13
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -479,7 +479,7 @@ do.body5.i:                                       ; preds = %entry
 
 _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %exit_cond_ = getelementptr inbounds i8, ptr %this, i64 320
-  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %exit_cond_) #13
+  %call.i.i4 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_) #13
   %cmp.not.i5 = icmp eq i32 %call.i.i4, 0
   br i1 %cmp.not.i5, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i6
 
@@ -490,7 +490,7 @@ do.body5.i6:                                      ; preds = %_ZN4node9MutexBaseI
 
 _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit
   %buffer1_ = getelementptr inbounds i8, ptr %this, i64 376
-  %call.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %buffer1_) #13
+  %call.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %cmp.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.not.i.i, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit, label %do.body5.i.i
 
@@ -514,7 +514,7 @@ _ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit: ; preds = %_ZN4node
   store i32 0, ptr %id_.i, align 4
   tail call void @_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %chunks_.i, i64 noundef %max_chunks)
   %buffer2_ = getelementptr inbounds i8, ptr %this, i64 480
-  %call.i.i.i7 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %buffer2_) #13
+  %call.i.i.i7 = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %cmp.not.i.i8 = icmp eq i32 %call.i.i.i7, 0
   br i1 %cmp.not.i.i8, label %_ZN4node7tracing19InternalTraceBufferC2EmjPNS0_5AgentE.exit16, label %do.body5.i.i9
 
@@ -600,7 +600,7 @@ land.lhs.true:                                    ; preds = %_ZNK4node7tracing19
   br i1 %tobool.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @uv_mutex_lock(ptr noundef nonnull %buffer1_) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %8 = load i64, ptr %total_chunks_.i, align 8
   %cmp.not.i = icmp eq i64 %8, 0
   br i1 %cmp.not.i, label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit, label %for.body.lr.ph.i
@@ -661,7 +661,7 @@ for.end15.i:                                      ; preds = %for.inc13.i
   br label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit
 
 _ZN4node7tracing19InternalTraceBuffer5FlushEb.exit: ; preds = %if.then, %for.end15.i
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %buffer1_) #13
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %agent_19.i = getelementptr inbounds i8, ptr %0, i64 432
   %20 = load ptr, ptr %agent_19.i, align 8
   tail call void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 dereferenceable(1312) %20, i1 noundef zeroext false) #13
@@ -693,7 +693,7 @@ land.lhs.true5:                                   ; preds = %_ZNK4node7tracing19
   br i1 %tobool.i19, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true5
-  tail call void @uv_mutex_lock(ptr noundef nonnull %buffer2_) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %28 = load i64, ptr %total_chunks_.i10, align 8
   %cmp.not.i21 = icmp eq i64 %28, 0
   br i1 %cmp.not.i21, label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit49, label %for.body.lr.ph.i22
@@ -754,7 +754,7 @@ for.end15.i47:                                    ; preds = %for.inc13.i44
   br label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit49
 
 _ZN4node7tracing19InternalTraceBuffer5FlushEb.exit49: ; preds = %if.then8, %for.end15.i47
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %buffer2_) #13
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %agent_19.i48 = getelementptr inbounds i8, ptr %0, i64 536
   %40 = load ptr, ptr %agent_19.i48, align 8
   tail call void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 dereferenceable(1312) %40, i1 noundef zeroext false) #13
@@ -787,7 +787,7 @@ entry:
   %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
   %call = tail call i32 @uv_async_send(ptr noundef nonnull %exit_signal_) #13
   %exit_mutex_ = getelementptr inbounds i8, ptr %this, i64 280
-  tail call void @uv_mutex_lock(ptr noundef nonnull %exit_mutex_) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %exit_mutex_) #13
   %exited_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i8, ptr %exited_, align 8
   %tobool23 = trunc i8 %0 to i1
@@ -798,7 +798,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  tail call void @uv_cond_wait(ptr noundef nonnull %exit_cond_, ptr noundef nonnull %exit_mutex_) #13
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_, ptr noundef nonnull %exit_mutex_) #13
   %1 = load i8, ptr %exited_, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %while.end, label %while.body, !llvm.loop !18
@@ -851,7 +851,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPSt10
   br label %_ZN4node7tracing19InternalTraceBufferD2Ev.exit
 
 _ZN4node7tracing19InternalTraceBufferD2Ev.exit:   ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i, %if.then.i.i.i.i
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %buffer2_) #13
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %chunks_.i1 = getelementptr inbounds i8, ptr %this, i64 440
   %6 = load ptr, ptr %chunks_.i1, align 8
   %_M_finish.i.i2 = getelementptr inbounds i8, ptr %this, i64 448
@@ -898,10 +898,10 @@ if.then.i.i.i.i20:                                ; preds = %_ZSt8_DestroyIPSt10
 
 _ZN4node7tracing19InternalTraceBufferD2Ev.exit21: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i.i18, %if.then.i.i.i.i20
   %buffer1_ = getelementptr inbounds i8, ptr %this, i64 376
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %buffer1_) #13
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %exit_cond_2 = getelementptr inbounds i8, ptr %this, i64 320
-  tail call void @uv_cond_destroy(ptr noundef nonnull %exit_cond_2) #13
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %exit_mutex_) #13
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_2) #13
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %exit_mutex_) #13
   ret void
 }
 
@@ -1048,7 +1048,7 @@ entry:
   %current_buf_ = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load atomic i64, ptr %current_buf_ seq_cst, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  tail call void @uv_mutex_lock(ptr noundef nonnull %atomic-temp.i.0.i) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(104) %atomic-temp.i.0.i) #13
   %cmp.i = icmp eq i64 %handle, 0
   br i1 %cmp.i, label %_ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm.exit, label %if.end.i
 
@@ -1090,7 +1090,7 @@ if.end10.i:                                       ; preds = %if.end5.i
 
 _ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm.exit: ; preds = %entry, %if.end.i, %if.end5.i, %if.end10.i
   %retval.0.i = phi ptr [ %arrayidx.i.i, %if.end10.i ], [ null, %entry ], [ null, %if.end.i ], [ null, %if.end5.i ]
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %atomic-temp.i.0.i) #13
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(104) %atomic-temp.i.0.i) #13
   ret ptr %retval.0.i
 }
 
@@ -1098,7 +1098,7 @@ _ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm.exit: ; preds = %entry
 define dso_local noundef zeroext i1 @_ZN4node7tracing15NodeTraceBuffer5FlushEv(ptr noundef nonnull align 8 dereferenceable(584) %this) unnamed_addr #0 align 2 {
 entry:
   %buffer1_ = getelementptr inbounds i8, ptr %this, i64 376
-  tail call void @uv_mutex_lock(ptr noundef nonnull %buffer1_) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %total_chunks_.i = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load i64, ptr %total_chunks_.i, align 8
   %cmp.not.i = icmp eq i64 %0, 0
@@ -1162,12 +1162,12 @@ for.end15.i:                                      ; preds = %for.inc13.i
   br label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit
 
 _ZN4node7tracing19InternalTraceBuffer5FlushEb.exit: ; preds = %entry, %for.end15.i
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %buffer1_) #13
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(104) %buffer1_) #13
   %agent_19.i = getelementptr inbounds i8, ptr %this, i64 432
   %12 = load ptr, ptr %agent_19.i, align 8
   tail call void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 dereferenceable(1312) %12, i1 noundef zeroext true) #13
   %buffer2_ = getelementptr inbounds i8, ptr %this, i64 480
-  tail call void @uv_mutex_lock(ptr noundef nonnull %buffer2_) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %total_chunks_.i1 = getelementptr inbounds i8, ptr %this, i64 568
   %13 = load i64, ptr %total_chunks_.i1, align 8
   %cmp.not.i2 = icmp eq i64 %13, 0
@@ -1231,7 +1231,7 @@ for.end15.i28:                                    ; preds = %for.inc13.i25
   br label %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit30
 
 _ZN4node7tracing19InternalTraceBuffer5FlushEb.exit30: ; preds = %_ZN4node7tracing19InternalTraceBuffer5FlushEb.exit, %for.end15.i28
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %buffer2_) #13
+  tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(104) %buffer2_) #13
   %agent_19.i29 = getelementptr inbounds i8, ptr %this, i64 536
   %25 = load ptr, ptr %agent_19.i29, align 8
   tail call void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 dereferenceable(1312) %25, i1 noundef zeroext true) #13
@@ -1261,11 +1261,11 @@ entry:
   %sub.i.i.i = add i64 %0, -144
   %1 = inttoptr i64 %sub.i.i.i to ptr
   %exit_mutex_.i = getelementptr inbounds i8, ptr %1, i64 280
-  tail call void @uv_mutex_lock(ptr noundef nonnull %exit_mutex_.i) #13
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %exit_mutex_.i) #13
   %exited_.i = getelementptr inbounds i8, ptr %1, i64 272
   store i8 1, ptr %exited_.i, align 8
   %exit_cond_.i = getelementptr inbounds i8, ptr %1, i64 320
-  tail call void @uv_cond_signal(ptr noundef nonnull %exit_cond_.i) #13
+  tail call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %exit_cond_.i) #13
   tail call void @uv_mutex_unlock(ptr noundef nonnull %exit_mutex_.i) #13
   ret void
 }

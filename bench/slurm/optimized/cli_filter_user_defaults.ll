@@ -496,7 +496,7 @@ sub_0.i:                                          ; preds = %238
   br i1 %246, label %248, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
-  %247 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.9, ptr noundef nonnull %.02768.i, ptr noundef nonnull @.str.2, i32 noundef %24) #13
+  %247 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.9, ptr noundef nonnull %.02768.i, ptr noundef nonnull @.str.2, i32 noundef range(i32 -2147483647, -2147483648) %24) #13
   br label %_set_default.exit
 
 248:                                              ; preds = %.tail.i, %241, %236, %231, %_trim.exit64.i

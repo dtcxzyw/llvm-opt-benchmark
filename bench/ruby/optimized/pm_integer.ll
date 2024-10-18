@@ -511,7 +511,7 @@ pm_integer_copy.exit:                             ; preds = %pm_integer_copy.exi
 
 .lr.ph:                                           ; preds = %pm_integer_copy.exit, %.lr.ph
   %.024 = phi ptr [ %54, %.lr.ph ], [ %45, %pm_integer_copy.exit ]
-  %51 = call fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr noundef %3, ptr noundef %36)
+  %51 = call fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr noundef nonnull %3, ptr noundef %36)
   %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr i8, ptr %.024, i64 -1

@@ -315,7 +315,7 @@ if.end10.i.i:                                     ; preds = %if.end.i.i
   br i1 %tobool12.not.i.i, label %serve_cache_loop.exit.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end10.i.i
-  %call14.i.i = call i32 @accept(i32 noundef %call.i6, ptr null, ptr noundef null) #15
+  %call14.i.i = call i32 @accept(i32 noundef range(i32 0, -2147483648) %call.i6, ptr null, ptr noundef null) #15
   %cmp15.i.i = icmp slt i32 %call14.i.i, 0
   br i1 %cmp15.i.i, label %if.then17.i.i, label %if.end18.i.i
 
@@ -568,7 +568,7 @@ if.then.i35.i.i.i:                                ; preds = %remove_credential.e
   br i1 %cmp.i.i36.i.i.i, label %if.then.i.i.i.i.i, label %st_mult.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i35.i.i.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.33, i64 noundef 136, i64 noundef %conv.i.i.i.i) #16
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.33, i64 noundef 136, i64 noundef range(i64 -2147483648, 2147483648) %conv.i.i.i.i) #16
   unreachable
 
 st_mult.exit.i.i.i.i:                             ; preds = %if.then.i35.i.i.i

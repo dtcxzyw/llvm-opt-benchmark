@@ -1905,7 +1905,7 @@ if.then.i15:                                      ; preds = %entry
   %idx.ext.i = and i64 %0, 63
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext.i
   %conv6.i = zext nneg i32 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 16 dereferenceable(1) @blk_SHA256_Final.pad, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull align 16 dereferenceable(1) @blk_SHA256_Final.pad, i64 %conv6.i, i1 false)
   %add7.i = add i32 %spec.select.i, %.tr
   %and8.i = and i32 %add7.i, 63
   %tobool13.not.i = icmp eq i32 %and8.i, 0

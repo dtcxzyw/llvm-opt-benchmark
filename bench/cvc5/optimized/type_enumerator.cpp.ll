@@ -766,7 +766,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 lpad.i:                                           ; preds = %invoke.cont5
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
@@ -804,7 +804,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   ret void
 }
 
@@ -1025,7 +1025,7 @@ _ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ERKS
 lpad.i:                                           ; preds = %_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ERKS5_.exit.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call) #14
+  tail call void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call) #14
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_2uf18FunctionEnumeratorEEC2ERKS5_.exit.i
@@ -1120,7 +1120,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #14
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }

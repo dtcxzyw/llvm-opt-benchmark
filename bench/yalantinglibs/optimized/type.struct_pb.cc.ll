@@ -2256,7 +2256,7 @@ if.end28:                                         ; preds = %_ZN9struct_pb8inter
 sw.bb30:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %tmp_str, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store i64 0, ptr %_M_string_length.i.i.i576, align 8
@@ -2539,7 +2539,7 @@ if.end41:                                         ; preds = %invoke.cont37
 
 if.then.i.i605:                                   ; preds = %if.end41
   %89 = getelementptr inbounds i8, ptr %87, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %87, ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #15
   store ptr %89, ptr %87, align 8
   %90 = load ptr, ptr %tmp_str, align 8
   %cmp.i.i.i.i.i.i606 = icmp eq ptr %90, %0
@@ -2597,7 +2597,7 @@ if.then.i.i611:                                   ; preds = %cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i611
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %tmp_str) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmp_str) #15
   br i1 %switch, label %return, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.sw.epilog_crit_edge
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.sw.epilog_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2787,7 +2787,7 @@ if.then.i617:                                     ; preds = %if.end52
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   %113 = getelementptr inbounds i8, ptr %111, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %113, ptr %111, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 8
@@ -2865,7 +2865,7 @@ if.then66:                                        ; preds = %sw.bb64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !9
   %124 = getelementptr inbounds i8, ptr %call.i637, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i637, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %call.i637, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
   store ptr %124, ptr %call.i637, align 8, !noalias !9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !9
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i637, i64 8
@@ -2896,7 +2896,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.
   br label %_ZNKSt14default_deleteIN6google8protobuf13SourceContextEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN6google8protobuf13SourceContextEEclEPS2_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %126) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #15
   call void @_ZdlPv(ptr noundef nonnull %126) #13
   br label %if.end69
 
@@ -3339,7 +3339,7 @@ if.then.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   ret void
 }
 
@@ -5775,7 +5775,7 @@ if.then.i912:                                     ; preds = %if.end71
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   %154 = getelementptr inbounds i8, ptr %152, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %154, ptr %152, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %152, i64 8
@@ -8062,7 +8062,7 @@ if.then.i488:                                     ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   %53 = getelementptr inbounds i8, ptr %51, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %53, ptr %51, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
@@ -8171,7 +8171,7 @@ if.then.i.i.i.i.i.i494:                           ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit
 
 _ZNSt6vectorIN6google8protobuf9EnumValueESaIS2_EE8pop_backEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %if.then.i.i.i.i.i.i494
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i492) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i492) #15
   br label %return
 
 if.end28:                                         ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf9EnumValueEEEbRT_PKcm.exit
@@ -8362,7 +8362,7 @@ if.then.i500:                                     ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i496)
   %85 = getelementptr inbounds i8, ptr %83, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %83, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
   store ptr %85, ptr %83, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i496) #15
   %_M_string_length.i.i.i.i.i.i.i501 = getelementptr inbounds i8, ptr %83, i64 8
@@ -8436,7 +8436,7 @@ if.then50:                                        ; preds = %sw.bb48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !15
   %96 = getelementptr inbounds i8, ptr %call.i521, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i521, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %call.i521, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
   store ptr %96, ptr %call.i521, align 8, !noalias !15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !15
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i521, i64 8
@@ -8467,7 +8467,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.
   br label %_ZNKSt14default_deleteIN6google8protobuf13SourceContextEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN6google8protobuf13SourceContextEEclEPS2_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %98) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #15
   call void @_ZdlPv(ptr noundef nonnull %98) #13
   br label %if.end53
 
@@ -9691,7 +9691,7 @@ if.then.i322:                                     ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   %67 = getelementptr inbounds i8, ptr %65, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   store ptr %67, ptr %65, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 8
@@ -10214,7 +10214,7 @@ if.then14:                                        ; preds = %sw.bb12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !20
   %36 = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
   store ptr %36, ptr %call.i, align 8, !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #15, !noalias !20
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -10226,7 +10226,7 @@ if.then14:                                        ; preds = %sw.bb12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i), !noalias !20
   %38 = getelementptr inbounds i8, ptr %call.i, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
   store ptr %38, ptr %value.i.i, align 8, !noalias !20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i) #15, !noalias !20
   %_M_string_length.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -10258,7 +10258,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %delete.notnull.i.i.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i.i.i.i.i) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i) #15
   %44 = load ptr, ptr %40, align 8
   %45 = getelementptr inbounds i8, ptr %40, i64 16
   %cmp.i.i.i1.i.i.i.i.i.i = icmp eq ptr %44, %45
@@ -10276,7 +10276,7 @@ if.then.i.i2.i.i.i.i.i.i:                         ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i.i.i.i: ; preds = %if.then.i.i2.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %40) #15
   call void @_ZdlPv(ptr noundef nonnull %40) #13
   br label %if.end17
 
@@ -10711,7 +10711,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   store ptr %0, ptr %name, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #15
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -10723,7 +10723,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1)
   %2 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
   store ptr %2, ptr %type_url, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #15
   %_M_string_length.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
@@ -10737,7 +10737,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i3)
   %4 = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
   store ptr %4, ptr %json_name, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i3) #15
   %_M_string_length.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 120
@@ -10749,7 +10749,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i5)
   %6 = getelementptr inbounds i8, ptr %this, i64 160
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
   store ptr %6, ptr %default_value, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i5) #15
   %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 152
@@ -10767,7 +10767,7 @@ entry:
   %name = getelementptr inbounds i8, ptr %this, i64 16
   %name3 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name, ptr noundef nonnull align 1 dereferenceable(1) %name3) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %name3) #15
   store ptr %1, ptr %name, align 8
   %2 = load ptr, ptr %name3, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10800,7 +10800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   %type_url = getelementptr inbounds i8, ptr %this, i64 48
   %type_url4 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %type_url, ptr noundef nonnull align 1 dereferenceable(1) %type_url4) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull align 8 dereferenceable(32) %type_url4) #15
   store ptr %7, ptr %type_url, align 8
   %8 = load ptr, ptr %type_url4, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 64
@@ -10849,7 +10849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit15: ; preds = %
   %json_name = getelementptr inbounds i8, ptr %this, i64 112
   %json_name7 = getelementptr inbounds i8, ptr %0, i64 112
   %16 = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %json_name, ptr noundef nonnull align 1 dereferenceable(1) %json_name7) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %json_name, ptr noundef nonnull align 8 dereferenceable(32) %json_name7) #15
   store ptr %16, ptr %json_name, align 8
   %17 = load ptr, ptr %json_name7, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 128
@@ -10882,7 +10882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit24: ; preds = %
   %default_value = getelementptr inbounds i8, ptr %this, i64 144
   %default_value8 = getelementptr inbounds i8, ptr %0, i64 144
   %22 = getelementptr inbounds i8, ptr %this, i64 160
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %default_value, ptr noundef nonnull align 1 dereferenceable(1) %default_value8) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %default_value, ptr noundef nonnull align 8 dereferenceable(32) %default_value8) #15
   store ptr %22, ptr %default_value, align 8
   %23 = load ptr, ptr %default_value8, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 160
@@ -10939,7 +10939,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %default_value) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %default_value) #15
   %json_name = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %json_name, align 8
   %4 = getelementptr inbounds i8, ptr %this, i64 128
@@ -10958,7 +10958,7 @@ if.then.i.i2:                                     ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3, %if.then.i.i2
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %json_name) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %json_name) #15
   %options = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load ptr, ptr %options, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -11005,7 +11005,7 @@ if.then.i.i8:                                     ; preds = %_ZNSt6vectorIN6goog
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, %if.then.i.i8
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %type_url) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_url) #15
   %name = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %name, align 8
   %13 = getelementptr inbounds i8, ptr %this, i64 32
@@ -11024,7 +11024,7 @@ if.then.i.i15:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i17, %if.then.i.i15
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #15
   ret void
 }
 
@@ -11055,7 +11055,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.i.i.i) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i) #15
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %cmp.i.i.i1.i.i.i = icmp eq ptr %4, %5
@@ -11073,7 +11073,7 @@ if.then.i.i2.i.i.i:                               ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf3AnyEEclEPS2_.exit.i: ; preds = %if.then.i.i2.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   br label %_ZNSt10unique_ptrIN6google8protobuf3AnyESt14default_deleteIS2_EED2Ev.exit
 
@@ -11096,7 +11096,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   ret void
 }
 
@@ -11144,7 +11144,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__args) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #15
   store ptr %3, ptr %add.ptr, align 8
   %4 = load ptr, ptr %__args, align 8
   %5 = getelementptr inbounds i8, ptr %__args, i64 16
@@ -11185,7 +11185,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %9 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
   store ptr %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !25, !noalias !28
   %10 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !28, !noalias !25
   %11 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -11217,7 +11217,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store ptr %11, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i, align 8, !alias.scope !28, !noalias !25
   store i8 0, ptr %11, align 1, !alias.scope !28, !noalias !25
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -11235,7 +11235,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
-  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
+  tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #15
   store ptr %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !32, !noalias !35
   %16 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !35, !noalias !32
   %17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
@@ -11267,7 +11267,7 @@ _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
   store ptr %17, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !35, !noalias !32
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i20, align 8, !alias.scope !35, !noalias !32
   store i8 0, ptr %17, align 1, !alias.scope !35, !noalias !32
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #15
   %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
@@ -11336,7 +11336,7 @@ _ZNSt12_Vector_baseIN6google8protobuf6OptionESaIS2_EE11_M_allocateEm.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %3, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -11355,7 +11355,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %5 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i) #15
   store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !38, !noalias !41
   %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !41, !noalias !38
   %7 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -11410,7 +11410,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %12 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i14) #15
   store ptr %12, ptr %__cur.07.i.i.i13, align 8, !alias.scope !45, !noalias !48
   %13 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !48, !noalias !45
   %14 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
@@ -11513,7 +11513,7 @@ _ZNSt12_Vector_baseIN6google8protobuf9EnumValueESaIS2_EE11_M_allocateEm.exit: ; 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   store ptr %3, ptr %add.ptr, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #15
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -11532,7 +11532,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %5 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i) #15
   store ptr %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !51, !noalias !54
   %6 = load ptr, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !54, !noalias !51
   %7 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
@@ -11581,7 +11581,7 @@ _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.ex
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !54, !noalias !51
   store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !51, !noalias !54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !54, !noalias !51
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i) #15
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -11599,7 +11599,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6goog
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %__cur.07.i.i.i13, ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i14) #15
   store ptr %15, ptr %__cur.07.i.i.i13, align 8, !alias.scope !58, !noalias !61
   %16 = load ptr, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !61, !noalias !58
   %17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
@@ -11648,7 +11648,7 @@ _ZSt19__relocate_object_aIN6google8protobuf9EnumValueES2_SaIS2_EEvPT_PT0_RT1_.ex
   %24 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !61, !noalias !58
   store ptr %24, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !58, !noalias !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options4.i.i.i.i.i.i.i25, i8 0, i64 24, i1 false), !alias.scope !61, !noalias !58
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__first.addr.06.i.i.i14) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i14) #15
   %incdec.ptr.i.i.i30 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64
   %incdec.ptr1.i.i.i31 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i30, %0

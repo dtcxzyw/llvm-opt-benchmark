@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm9TarWriterC2EiNS_9StringRefE(ptr noundef nonnull 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 20, i1 false)
   store i32 8, ptr %15, align 4
   ret void
 }
@@ -262,7 +262,7 @@ _ZL15computeChecksumR11UstarHeader.exit.i:        ; preds = %67
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i
-  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %18, i64 noundef 512) #9
+  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %18, i64 noundef 512) #9
   br label %_ZL16writeUstarHeaderRN4llvm14raw_fd_ostreamENS_9StringRefES2_m.exit
 
 84:                                               ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i
@@ -401,7 +401,7 @@ _ZL15computeChecksumR11UstarHeader.exit.i16:      ; preds = %124
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i16
-  %140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %17, i64 noundef 512) #9
+  %140 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %17, i64 noundef 512) #9
   br label %_ZL14writePaxHeaderRN4llvm14raw_fd_ostreamENS_9StringRefE.exit
 
 141:                                              ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i16
@@ -414,11 +414,11 @@ _ZL15computeChecksumR11UstarHeader.exit.i16:      ; preds = %124
 _ZL14writePaxHeaderRN4llvm14raw_fd_ostreamENS_9StringRefE.exit: ; preds = %139, %141
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
   %145 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #9
-  %146 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %144, i64 noundef %145) #9
+  %146 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %144, i64 noundef %145) #9
   %147 = load ptr, ptr %0, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 80
   %149 = load ptr, ptr %148, align 8
-  %150 = call noundef i64 %149(ptr noundef nonnull align 8 dereferenceable(48) %0) #9
+  %150 = call noundef i64 %149(ptr noundef nonnull align 8 dereferenceable(96) %0) #9
   %151 = load ptr, ptr %133, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load ptr, ptr %152, align 8
@@ -472,7 +472,7 @@ _ZL15computeChecksumR11UstarHeader.exit.i20:      ; preds = %169
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i20
-  %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i64 noundef 512) #9
+  %183 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %6, i64 noundef 512) #9
   br label %_ZL16writeUstarHeaderRN4llvm14raw_fd_ostreamENS_9StringRefES2_m.exit21
 
 184:                                              ; preds = %_ZL15computeChecksumR11UstarHeader.exit.i20
@@ -516,7 +516,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %196, %198, %199
   %202 = load ptr, ptr %0, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 80
   %204 = load ptr, ptr %203, align 8
-  %205 = call noundef i64 %204(ptr noundef nonnull align 8 dereferenceable(48) %0) #9
+  %205 = call noundef i64 %204(ptr noundef nonnull align 8 dereferenceable(96) %0) #9
   %206 = load ptr, ptr %190, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %208 = load ptr, ptr %207, align 8
@@ -543,7 +543,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %196, %198, %199
   %227 = sub i64 %226, %225
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #9
   %228 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #9
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %228, ptr noundef nonnull align 1 dereferenceable(1) %23) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %228, ptr noundef nonnull align 1 dereferenceable(1) %23) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef 1024, i8 noundef signext 0) #9
   %229 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #9
   %230 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #9

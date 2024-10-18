@@ -62,8 +62,8 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit.preheader: ; pre
   %25 = sub nsw i32 %.068125, %.062118
   %26 = add nsw i32 %25, -1
   %27 = sub nsw i32 %26, %16
-  %..i = tail call i32 @llvm.smax.i32(i32 %27, i32 %16)
-  %.37.i = tail call i32 @llvm.smin.i32(i32 %27, i32 %16)
+  %..i = tail call i32 @llvm.smax.i32(i32 %27, i32 range(i32 -2147483648, 2147483646) %16)
+  %.37.i = tail call i32 @llvm.smin.i32(i32 %27, i32 range(i32 -2147483648, 2147483646) %16)
   %28 = icmp sgt i32 %26, %..i
   br i1 %28, label %.lr.ph.i, label %.preheader.i
 
@@ -113,8 +113,8 @@ _ZN5ZXing4OneD7DataBarL7combinsEii.exit:          ; preds = %.lr.ph45.i, %.prehe
 40:                                               ; preds = %_ZN5ZXing4OneD7DataBarL7combinsEii.exit
   %41 = add i32 %25, %18
   %42 = sub nsw i32 %41, %16
-  %..i71 = tail call i32 @llvm.smax.i32(i32 %42, i32 %16)
-  %.37.i72 = tail call i32 @llvm.smin.i32(i32 %42, i32 %16)
+  %..i71 = tail call i32 @llvm.smax.i32(i32 %42, i32 range(i32 -2147483648, 2147483646) %16)
+  %.37.i72 = tail call i32 @llvm.smin.i32(i32 %42, i32 range(i32 -2147483648, 2147483646) %16)
   %43 = icmp sgt i32 %41, %..i71
   br i1 %43, label %.lr.ph.i82, label %.preheader.i73
 
@@ -172,8 +172,8 @@ _ZN5ZXing4OneD7DataBarL7combinsEii.exit89:        ; preds = %.lr.ph45.i77, %.pre
   %58 = xor i32 %.0115, -1
   %59 = add i32 %25, %58
   %60 = sub nsw i32 %59, %20
-  %..i90 = tail call i32 @llvm.smax.i32(i32 %60, i32 %20)
-  %.37.i91 = tail call i32 @llvm.smin.i32(i32 %60, i32 %20)
+  %..i90 = tail call i32 @llvm.smax.i32(i32 %60, i32 range(i32 -2147483648, 2147483646) %20)
+  %.37.i91 = tail call i32 @llvm.smin.i32(i32 %60, i32 range(i32 -2147483648, 2147483646) %20)
   %61 = icmp sgt i32 %59, %..i90
   br i1 %61, label %.lr.ph.i101, label %.preheader.i92
 

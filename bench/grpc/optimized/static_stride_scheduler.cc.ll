@@ -284,7 +284,7 @@ do.end:                                           ; preds = %do.body
   store ptr %weights.sroa.24.1, ptr %_M_end_of_storage.i.i.i.i, align 8
   %manager_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 16
   %5 = load ptr, ptr %manager_.i.i.i, align 16
-  call void %5(i1 noundef zeroext false, ptr noundef nonnull %next_sequence_func, ptr noundef nonnull %agg.tmp67) #9
+  call void %5(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %next_sequence_func, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp67) #9
   %6 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp67, i64 16
   store ptr %6, ptr %manager_5.i.i.i, align 16
@@ -300,7 +300,7 @@ do.end:                                           ; preds = %do.body
 invoke.cont69:                                    ; preds = %do.end
   %manager_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i, align 16
-  call void %8(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp65, ptr noundef nonnull %agg.result) #9
+  call void %8(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(56) %ref.tmp65, ptr noundef nonnull align 16 dereferenceable(80) %agg.result) #9
   %9 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i, align 16
   %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %9, ptr %manager_5.i.i.i.i.i.i.i.i.i.i, align 16
@@ -326,7 +326,7 @@ invoke.cont69:                                    ; preds = %do.end
   %_M_engaged.i.i.i.i.i75 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 1, ptr %_M_engaged.i.i.i.i.i75, align 16
   %14 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %14(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull %agg.tmp67) #9
+  call void %14(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp67, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp67) #9
   %15 = load ptr, ptr %agg.tmp66, align 8
   %tobool.not.i.i.i77 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i77, label %return, label %if.then.i.i.i78
@@ -339,7 +339,7 @@ lpad68:                                           ; preds = %do.end
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull %agg.tmp67) #9
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp67, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp67) #9
   %18 = load ptr, ptr %agg.tmp66, align 8
   %tobool.not.i.i.i83 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i83, label %_ZNSt6vectorItSaItEED2Ev.exit88, label %if.then.i.i.i84
@@ -390,7 +390,7 @@ define void @_ZN9grpc_core21StaticStrideSchedulerC2ESt6vectorItSaItEEN4absl12lts
 entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
-  tail call void %0(i1 noundef zeroext false, ptr noundef nonnull %next_sequence_func, ptr noundef nonnull %this) #9
+  tail call void %0(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %next_sequence_func, ptr noundef nonnull align 16 dereferenceable(32) %this) #9
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
@@ -436,7 +436,7 @@ if.then.i.i.i:                                    ; preds = %lpad
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i
   %9 = load ptr, ptr %manager_5.i.i.i, align 16
-  tail call void %9(i1 noundef zeroext true, ptr noundef nonnull %this, ptr noundef nonnull %this) #9
+  tail call void %9(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %this, ptr noundef nonnull align 16 dereferenceable(32) %this) #9
   resume { ptr, i32 } %7
 
 do.end:                                           ; preds = %entry
@@ -453,7 +453,7 @@ entry:
 
 while.body:                                       ; preds = %while.body, %entry
   %0 = load ptr, ptr %invoker_.i.i, align 8
-  %call2.i = tail call noundef i32 %0(ptr noundef nonnull %this)
+  %call2.i = tail call noundef i32 %0(ptr noundef nonnull align 16 dereferenceable(32) %this)
   %conv = zext i32 %call2.i to i64
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %weights_, align 16

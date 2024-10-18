@@ -2643,7 +2643,7 @@ define hidden range(i64 0, 37) i64 @rb_equal_opt(i64 noundef %0, i64 noundef %1)
 5:                                                ; preds = %2
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc ptr @gccct_method_search(ptr noundef %7, i64 noundef %0, i64 noundef 140, i32 noundef 1)
+  %8 = tail call fastcc ptr @gccct_method_search(ptr noundef %7, i64 noundef %0, i64 noundef range(i64 140, 155) 140, i32 noundef 1)
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %opt_equality_by_mid.exit, label %9
 
@@ -2686,7 +2686,7 @@ define hidden range(i64 0, 37) i64 @rb_eql_opt(i64 noundef %0, i64 noundef %1) l
 5:                                                ; preds = %2
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc ptr @gccct_method_search(ptr noundef %7, i64 noundef %0, i64 noundef 154, i32 noundef 1)
+  %8 = tail call fastcc ptr @gccct_method_search(ptr noundef %7, i64 noundef %0, i64 noundef range(i64 140, 155) 154, i32 noundef 1)
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %opt_equality_by_mid.exit, label %9
 
@@ -6183,7 +6183,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %40, %vm_get_ev_cons
   %47 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 1360
   %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @rb_id_table_lookup(ptr noundef %49, i64 noundef %45, ptr noundef nonnull %4) #21
+  %50 = call i32 @rb_id_table_lookup(ptr noundef %49, i64 noundef range(i64 1, 0) %45, ptr noundef nonnull %4) #21
   %.not.i.i18 = icmp eq i32 %50, 0
   br i1 %.not.i.i18, label %54, label %51
 
@@ -6195,7 +6195,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %40, %vm_get_ev_cons
 54:                                               ; preds = %46
   %55 = call ptr @rb_st_init_numtable() #21
   %56 = ptrtoint ptr %55 to i64
-  %57 = call i32 @rb_id_table_insert(ptr noundef %49, i64 noundef %45, i64 noundef %56) #21
+  %57 = call i32 @rb_id_table_insert(ptr noundef %49, i64 noundef range(i64 1, 0) %45, i64 noundef %56) #21
   br label %vm_track_constant_cache.exit.i
 
 vm_track_constant_cache.exit.i:                   ; preds = %54, %51
@@ -10805,7 +10805,7 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %2182
   %2189 = add nsw i64 %.neg.i.i.i, 2
   %2190 = and i64 %2163, -4
   %2191 = or i64 %2189, %2190
-  %2192 = call noundef i64 @llvm.fshl.i64(i64 %2191, i64 %2191, i64 61)
+  %2192 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2191, i64 range(i64 1, 0) %2191, i64 61)
   %2193 = bitcast i64 %2192 to double
   br label %rb_float_value_inline.exit.i
 
@@ -10936,7 +10936,7 @@ vm_case_dispatch.exit.thread:                     ; preds = %.thread.i2381, %217
   %2259 = add nsw i64 %.neg.i.i.i2391, 2
   %2260 = and i64 %2225, -4
   %2261 = or i64 %2259, %2260
-  %2262 = call noundef i64 @llvm.fshl.i64(i64 %2261, i64 %2261, i64 61)
+  %2262 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2261, i64 range(i64 1, 0) %2261, i64 61)
   %2263 = bitcast i64 %2262 to double
   br label %rb_float_value_inline.exit.i2389
 
@@ -10961,7 +10961,7 @@ rb_float_value_inline.exit.i2389:                 ; preds = %2264, %2258, %2257
   %2272 = add nsw i64 %.neg.i.i29.i, 2
   %2273 = and i64 %2226, -4
   %2274 = or i64 %2272, %2273
-  %2275 = call noundef i64 @llvm.fshl.i64(i64 %2274, i64 %2274, i64 61)
+  %2275 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2274, i64 range(i64 1, 0) %2274, i64 61)
   %2276 = bitcast i64 %2275 to double
   br label %rb_float_value_inline.exit30.i
 
@@ -10987,7 +10987,7 @@ rb_float_value_inline.exit30.i:                   ; preds = %2277, %2271, %2270
   br i1 %.not7.i.i, label %2288, label %2292
 
 2288:                                             ; preds = %2283
-  %2289 = call noundef i64 @llvm.fshl.i64(i64 %2282, i64 %2282, i64 3)
+  %2289 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2282, i64 range(i64 3458764513820540929, 3458764513820540928) %2282, i64 3)
   %2290 = and i64 %2289, -4
   %2291 = or disjoint i64 %2290, 2
   br label %vm_opt_plus.exit.thread2611
@@ -11054,7 +11054,7 @@ rb_float_value_inline.exit35.i:                   ; preds = %2317
   br i1 %.not7.i2551, label %2332, label %2336
 
 2332:                                             ; preds = %2327
-  %2333 = call noundef i64 @llvm.fshl.i64(i64 %2326, i64 %2326, i64 3)
+  %2333 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2326, i64 range(i64 3458764513820540929, 3458764513820540928) %2326, i64 3)
   %2334 = and i64 %2333, -4
   %2335 = or disjoint i64 %2334, 2
   br label %vm_opt_plus.exit.thread2611
@@ -11197,7 +11197,7 @@ vm_opt_plus.exit.thread2611:                      ; preds = %vm_opt_plus.exit.vm
   %2411 = add nsw i64 %.neg.i.i.i2399, 2
   %2412 = and i64 %2377, -4
   %2413 = or i64 %2411, %2412
-  %2414 = call noundef i64 @llvm.fshl.i64(i64 %2413, i64 %2413, i64 61)
+  %2414 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2413, i64 range(i64 1, 0) %2413, i64 61)
   %2415 = bitcast i64 %2414 to double
   br label %rb_float_value_inline.exit.i2395
 
@@ -11222,7 +11222,7 @@ rb_float_value_inline.exit.i2395:                 ; preds = %2416, %2410, %2409
   %2424 = add nsw i64 %.neg.i.i19.i, 2
   %2425 = and i64 %2378, -4
   %2426 = or i64 %2424, %2425
-  %2427 = call noundef i64 @llvm.fshl.i64(i64 %2426, i64 %2426, i64 61)
+  %2427 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2426, i64 range(i64 1, 0) %2426, i64 61)
   %2428 = bitcast i64 %2427 to double
   br label %rb_float_value_inline.exit20.i
 
@@ -11248,7 +11248,7 @@ rb_float_value_inline.exit20.i:                   ; preds = %2429, %2423, %2422
   br i1 %.not7.i.i2397, label %2440, label %2444
 
 2440:                                             ; preds = %2435
-  %2441 = call noundef i64 @llvm.fshl.i64(i64 %2434, i64 %2434, i64 3)
+  %2441 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2434, i64 range(i64 3458764513820540929, 3458764513820540928) %2434, i64 3)
   %2442 = and i64 %2441, -4
   %2443 = or disjoint i64 %2442, 2
   br label %vm_opt_minus.exit.thread2616
@@ -11315,7 +11315,7 @@ rb_float_value_inline.exit25.i:                   ; preds = %2469
   br i1 %.not7.i2554, label %2484, label %2488
 
 2484:                                             ; preds = %2479
-  %2485 = call noundef i64 @llvm.fshl.i64(i64 %2478, i64 %2478, i64 3)
+  %2485 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2478, i64 range(i64 3458764513820540929, 3458764513820540928) %2478, i64 3)
   %2486 = and i64 %2485, -4
   %2487 = or disjoint i64 %2486, 2
   br label %vm_opt_minus.exit.thread2616
@@ -11423,7 +11423,7 @@ vm_opt_minus.exit.thread2616:                     ; preds = %vm_opt_minus.exit.v
   %2539 = add nsw i64 %.neg.i.i.i2409, 2
   %2540 = and i64 %2501, -4
   %2541 = or i64 %2539, %2540
-  %2542 = call noundef i64 @llvm.fshl.i64(i64 %2541, i64 %2541, i64 61)
+  %2542 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2541, i64 range(i64 1, 0) %2541, i64 61)
   %2543 = bitcast i64 %2542 to double
   br label %rb_float_value_inline.exit.i2403
 
@@ -11448,7 +11448,7 @@ rb_float_value_inline.exit.i2403:                 ; preds = %2544, %2538, %2537
   %2552 = add nsw i64 %.neg.i.i18.i, 2
   %2553 = and i64 %2502, -4
   %2554 = or i64 %2552, %2553
-  %2555 = call noundef i64 @llvm.fshl.i64(i64 %2554, i64 %2554, i64 61)
+  %2555 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2554, i64 range(i64 1, 0) %2554, i64 61)
   %2556 = bitcast i64 %2555 to double
   br label %rb_float_value_inline.exit19.i
 
@@ -11474,7 +11474,7 @@ rb_float_value_inline.exit19.i:                   ; preds = %2557, %2551, %2550
   br i1 %.not7.i.i2407, label %2568, label %2572
 
 2568:                                             ; preds = %2563
-  %2569 = call noundef i64 @llvm.fshl.i64(i64 %2562, i64 %2562, i64 3)
+  %2569 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2562, i64 range(i64 3458764513820540929, 3458764513820540928) %2562, i64 3)
   %2570 = and i64 %2569, -4
   %2571 = or disjoint i64 %2570, 2
   br label %vm_opt_mult.exit.thread2621
@@ -11541,7 +11541,7 @@ rb_float_value_inline.exit24.i:                   ; preds = %2597
   br i1 %.not7.i2558, label %2612, label %2616
 
 2612:                                             ; preds = %2607
-  %2613 = call noundef i64 @llvm.fshl.i64(i64 %2606, i64 %2606, i64 3)
+  %2613 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2606, i64 range(i64 3458764513820540929, 3458764513820540928) %2606, i64 3)
   %2614 = and i64 %2613, -4
   %2615 = or disjoint i64 %2614, 2
   br label %vm_opt_mult.exit.thread2621
@@ -11804,7 +11804,7 @@ vm_opt_div.exit.thread:                           ; preds = %2682, %2688, %2693,
   %2753 = add nsw i64 %.neg.i.i.i2427, 2
   %2754 = and i64 %2709, -4
   %2755 = or i64 %2753, %2754
-  %2756 = call noundef i64 @llvm.fshl.i64(i64 %2755, i64 %2755, i64 61)
+  %2756 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2755, i64 range(i64 1, 0) %2755, i64 61)
   %2757 = bitcast i64 %2756 to double
   br label %rb_float_value_inline.exit.i2418
 
@@ -11829,7 +11829,7 @@ rb_float_value_inline.exit.i2418:                 ; preds = %2758, %2752, %2751
   %2766 = add nsw i64 %.neg.i.i19.i2425, 2
   %2767 = and i64 %2710, -4
   %2768 = or i64 %2766, %2767
-  %2769 = call noundef i64 @llvm.fshl.i64(i64 %2768, i64 %2768, i64 61)
+  %2769 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2768, i64 range(i64 1, 0) %2768, i64 61)
   %2770 = bitcast i64 %2769 to double
   br label %rb_float_value_inline.exit20.i2420
 
@@ -11855,7 +11855,7 @@ rb_float_value_inline.exit20.i2420:               ; preds = %2771, %2765, %2764
   br i1 %.not7.i.i2423, label %2782, label %2786
 
 2782:                                             ; preds = %2777
-  %2783 = call noundef i64 @llvm.fshl.i64(i64 %2776, i64 %2776, i64 3)
+  %2783 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2776, i64 range(i64 3458764513820540929, 3458764513820540928) %2776, i64 3)
   %2784 = and i64 %2783, -4
   %2785 = or disjoint i64 %2784, 2
   br label %vm_opt_mod.exit.thread2630
@@ -11918,7 +11918,7 @@ rb_float_value_inline.exit25.i2417:               ; preds = %2809
   br i1 %.not7.i2562, label %2824, label %2828
 
 2824:                                             ; preds = %2819
-  %2825 = call noundef i64 @llvm.fshl.i64(i64 %2818, i64 %2818, i64 3)
+  %2825 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2818, i64 range(i64 3458764513820540929, 3458764513820540928) %2818, i64 3)
   %2826 = and i64 %2825, -4
   %2827 = or disjoint i64 %2826, 2
   br label %vm_opt_mod.exit.thread2630
@@ -12100,7 +12100,7 @@ vm_opt_neq.exit.thread:                           ; preds = %2883, %2861
   %2925 = add nsw i64 %.neg.i.i.i2447, 2
   %2926 = and i64 %2898, -4
   %2927 = or i64 %2925, %2926
-  %2928 = call noundef i64 @llvm.fshl.i64(i64 %2927, i64 %2927, i64 61)
+  %2928 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2927, i64 range(i64 1, 0) %2927, i64 61)
   %2929 = bitcast i64 %2928 to double
   br label %rb_float_value_inline.exit.i2440
 
@@ -12125,7 +12125,7 @@ rb_float_value_inline.exit.i2440:                 ; preds = %2930, %2924, %2923
   %2938 = add nsw i64 %.neg.i.i18.i2445, 2
   %2939 = and i64 %2899, -4
   %2940 = or i64 %2938, %2939
-  %2941 = call noundef i64 @llvm.fshl.i64(i64 %2940, i64 %2940, i64 61)
+  %2941 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2940, i64 range(i64 1, 0) %2940, i64 61)
   %2942 = bitcast i64 %2941 to double
   br label %rb_float_value_inline.exit19.i2442
 
@@ -12250,7 +12250,7 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   %3012 = add nsw i64 %.neg.i.i.i2458, 2
   %3013 = and i64 %2985, -4
   %3014 = or i64 %3012, %3013
-  %3015 = call noundef i64 @llvm.fshl.i64(i64 %3014, i64 %3014, i64 61)
+  %3015 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3014, i64 range(i64 1, 0) %3014, i64 61)
   %3016 = bitcast i64 %3015 to double
   br label %rb_float_value_inline.exit.i2451
 
@@ -12275,7 +12275,7 @@ rb_float_value_inline.exit.i2451:                 ; preds = %3017, %3011, %3010
   %3025 = add nsw i64 %.neg.i.i18.i2456, 2
   %3026 = and i64 %2986, -4
   %3027 = or i64 %3025, %3026
-  %3028 = call noundef i64 @llvm.fshl.i64(i64 %3027, i64 %3027, i64 61)
+  %3028 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3027, i64 range(i64 1, 0) %3027, i64 61)
   %3029 = bitcast i64 %3028 to double
   br label %rb_float_value_inline.exit19.i2453
 
@@ -12400,7 +12400,7 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   %3100 = add nsw i64 %.neg.i.i.i2471, 2
   %3101 = and i64 %3073, -4
   %3102 = or i64 %3100, %3101
-  %3103 = call noundef i64 @llvm.fshl.i64(i64 %3102, i64 %3102, i64 61)
+  %3103 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3102, i64 range(i64 1, 0) %3102, i64 61)
   %3104 = bitcast i64 %3103 to double
   br label %rb_float_value_inline.exit.i2464
 
@@ -12425,7 +12425,7 @@ rb_float_value_inline.exit.i2464:                 ; preds = %3105, %3099, %3098
   %3113 = add nsw i64 %.neg.i.i18.i2469, 2
   %3114 = and i64 %3074, -4
   %3115 = or i64 %3113, %3114
-  %3116 = call noundef i64 @llvm.fshl.i64(i64 %3115, i64 %3115, i64 61)
+  %3116 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3115, i64 range(i64 1, 0) %3115, i64 61)
   %3117 = bitcast i64 %3116 to double
   br label %rb_float_value_inline.exit19.i2466
 
@@ -12550,7 +12550,7 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   %3187 = add nsw i64 %.neg.i.i.i2483, 2
   %3188 = and i64 %3160, -4
   %3189 = or i64 %3187, %3188
-  %3190 = call noundef i64 @llvm.fshl.i64(i64 %3189, i64 %3189, i64 61)
+  %3190 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3189, i64 range(i64 1, 0) %3189, i64 61)
   %3191 = bitcast i64 %3190 to double
   br label %rb_float_value_inline.exit.i2476
 
@@ -12575,7 +12575,7 @@ rb_float_value_inline.exit.i2476:                 ; preds = %3192, %3186, %3185
   %3200 = add nsw i64 %.neg.i.i18.i2481, 2
   %3201 = and i64 %3161, -4
   %3202 = or i64 %3200, %3201
-  %3203 = call noundef i64 @llvm.fshl.i64(i64 %3202, i64 %3202, i64 61)
+  %3203 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3202, i64 range(i64 1, 0) %3202, i64 61)
   %3204 = bitcast i64 %3203 to double
   br label %rb_float_value_inline.exit19.i2478
 
@@ -17915,78 +17915,243 @@ define hidden ptr @rb_callable_method_entry_without_refinements(i64 noundef %0, 
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
-  %6 = select i1 %.not, ptr %5, ptr %2
   %.not18.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %.not18.i.i.i.i, label %._crit_edge.i.i.i.i.thread, label %.lr.ph.split.i.i.i.i
+  br i1 %.not18.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.split.i.i.i.i
 
-.lr.ph.split.i.i.i.i:                             ; preds = %3, %12
-  %.01119.i.i.i.i = phi i64 [ %14, %12 ], [ %0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %7 = inttoptr i64 %.01119.i.i.i.i to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = call i32 @rb_id_table_lookup(ptr noundef %9, i64 noundef %1, ptr noundef nonnull %4) #21
-  %.not.i.i.i.i.i = icmp eq i32 %10, 0
-  %11 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not1440.i.i.i.i = icmp eq i64 %11, 0
+.lr.ph.split.i.i.i.i:                             ; preds = %3, %11
+  %.01119.i.i.i.i = phi i64 [ %13, %11 ], [ %0, %3 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  %6 = inttoptr i64 %.01119.i.i.i.i to ptr
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = call i32 @rb_id_table_lookup(ptr noundef %8, i64 noundef %1, ptr noundef nonnull %5) #21
+  %.not.i.i.i.i.i = icmp eq i32 %9, 0
+  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %.not1440.i.i.i.i = icmp eq i64 %10, 0
   %.not14.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not1440.i.i.i.i
-  br i1 %.not14.i.i.i.i, label %12, label %._crit_edge.i.i.i.i
+  br i1 %.not14.i.i.i.i, label %11, label %._crit_edge.loopexit41.split.loop.exit.i.i.i.i
 
-12:                                               ; preds = %.lr.ph.split.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = load i64, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.thread, label %.lr.ph.split.i.i.i.i, !llvm.loop !64
+11:                                               ; preds = %.lr.ph.split.i.i.i.i
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = load i64, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.split.i.i.i.i, !llvm.loop !64
 
-._crit_edge.i.i.i.i.thread:                       ; preds = %12, %3
-  store i64 0, ptr %6, align 8
-  br label %method_entry_resolve_refinement.exit
+._crit_edge.loopexit41.split.loop.exit.i.i.i.i:   ; preds = %.lr.ph.split.i.i.i.i
+  %14 = inttoptr i64 %10 to ptr
+  br label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.split.i.i.i.i
-  %15 = inttoptr i64 %11 to ptr
-  store i64 %.01119.i.i.i.i, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+._crit_edge.i.i.i.i:                              ; preds = %11, %._crit_edge.loopexit41.split.loop.exit.i.i.i.i, %3
+  %.011.lcssa.i.i.i.i = phi i64 [ 0, %3 ], [ %.01119.i.i.i.i, %._crit_edge.loopexit41.split.loop.exit.i.i.i.i ], [ 0, %11 ]
+  %.1.i.i.i.i = phi ptr [ null, %3 ], [ %14, %._crit_edge.loopexit41.split.loop.exit.i.i.i.i ], [ null, %11 ]
+  br i1 %.not, label %._crit_edge.i.i.i.i.cont, label %._crit_edge.i.i.i.i.else
+
+._crit_edge.i.i.i.i.else:                         ; preds = %._crit_edge.i.i.i.i
+  store i64 %.011.lcssa.i.i.i.i, ptr %2, align 8
+  br label %._crit_edge.i.i.i.i.cont
+
+._crit_edge.i.i.i.i.cont:                         ; preds = %._crit_edge.i.i.i.i, %._crit_edge.i.i.i.i.else
+  %.not.i.i = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i, label %method_entry_resolve_refinement.exit, label %15
+
+15:                                               ; preds = %._crit_edge.i.i.i.i.cont
+  %16 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not9.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i, label %method_entry_resolve_refinement.exit, label %18
 
-18:                                               ; preds = %._crit_edge.i.i.i.i
+18:                                               ; preds = %15
   %19 = load i8, ptr %17, align 8
   %20 = and i8 %19, 15
   switch i8 %20, label %search_method_protect.exit.thread.fold.split.i [
     i8 7, label %method_entry_resolve_refinement.exit
-    i8 11, label %21
+    i8 11, label %.lr.ph.split.us.split.i.preheader
   ]
 
-21:                                               ; preds = %18
-  %22 = call fastcc ptr @resolve_refined_method(i64 noundef 4, ptr noundef nonnull %15, ptr noundef nonnull %6)
-  %.not22.i = icmp eq ptr %22, null
-  br i1 %.not22.i, label %30, label %23
+.lr.ph.split.us.split.i.preheader:                ; preds = %18
+  br i1 %.not, label %.lr.ph.split.us.split.i.us, label %.lr.ph.split.us.split.i
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %.not23.i = icmp eq ptr %25, null
-  br i1 %.not23.i, label %30, label %26
+.lr.ph.split.us.split.i.us:                       ; preds = %.lr.ph.split.us.split.i.preheader, %44
+  %21 = phi i8 [ %45, %44 ], [ %19, %.lr.ph.split.us.split.i.preheader ]
+  %22 = phi ptr [ %43, %44 ], [ %17, %.lr.ph.split.us.split.i.preheader ]
+  %.1.us = phi i64 [ %.01119.i.i.i36.us.i.us, %44 ], [ %.011.lcssa.i.i.i.i, %.lr.ph.split.us.split.i.preheader ]
+  %.02361.us.i.us = phi ptr [ %41, %44 ], [ %.1.i.i.i.i, %.lr.ph.split.us.split.i.preheader ]
+  %23 = and i8 %21, 15
+  %24 = icmp eq i8 %23, 11
+  br i1 %24, label %find_refinement.exit.thread.us.i.us, label %resolve_refined_method.exit.thread12.thread
 
-26:                                               ; preds = %23
-  %27 = load i8, ptr %25, align 8
-  %28 = and i8 %27, 15
-  %29 = icmp eq i8 %28, 7
-  br i1 %29, label %30, label %method_entry_resolve_refinement.exit
+find_refinement.exit.thread.us.i.us:              ; preds = %.lr.ph.split.us.split.i.us
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not30.us.i.us = icmp eq ptr %26, null
+  br i1 %.not30.us.i.us, label %27, label %.split.us.thread.i
 
-30:                                               ; preds = %26, %23, %21
+27:                                               ; preds = %find_refinement.exit.thread.us.i.us
+  %28 = getelementptr inbounds i8, ptr %.02361.us.i.us, i64 32
+  %29 = load i64, ptr %28, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8
+  %.not31.us.i.us = icmp eq i64 %32, 0
+  br i1 %.not31.us.i.us, label %method_entry_resolve_refinement.exit, label %33
+
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %.02361.us.i.us, i64 24
+  %35 = load i64, ptr %34, align 8
+  br label %.lr.ph.split.i.i.i35.us.i.us
+
+.lr.ph.split.i.i.i35.us.i.us:                     ; preds = %48, %33
+  %.01119.i.i.i36.us.i.us = phi i64 [ %50, %48 ], [ %32, %33 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  %36 = inttoptr i64 %.01119.i.i.i36.us.i.us to ptr
+  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 @rb_id_table_lookup(ptr noundef %38, i64 noundef %35, ptr noundef nonnull %4) #21
+  %.not.i.i.i.i37.us.i.us = icmp eq i32 %39, 0
+  %40 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.not1440.i.i.i38.us.i.us = icmp eq i64 %40, 0
+  %.not14.i.i.i39.us.i.us = select i1 %.not.i.i.i.i37.us.i.us, i1 true, i1 %.not1440.i.i.i38.us.i.us
+  br i1 %.not14.i.i.i39.us.i.us, label %48, label %._crit_edge.i.i.i41.us.i.us
+
+._crit_edge.i.i.i41.us.i.us:                      ; preds = %.lr.ph.split.i.i.i35.us.i.us
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %.not9.i47.us.i.us = icmp eq ptr %43, null
+  br i1 %.not9.i47.us.i.us, label %method_entry_resolve_refinement.exit, label %44
+
+44:                                               ; preds = %._crit_edge.i.i.i41.us.i.us
+  %45 = load i8, ptr %43, align 8
+  %46 = and i8 %45, 15
+  %47 = icmp eq i8 %46, 7
+  br i1 %47, label %method_entry_resolve_refinement.exit, label %.lr.ph.split.us.split.i.us, !llvm.loop !69
+
+48:                                               ; preds = %.lr.ph.split.i.i.i35.us.i.us
+  %49 = getelementptr inbounds i8, ptr %36, i64 16
+  %50 = load i64, ptr %49, align 8
+  %.not.i.i.i49.us.i.us = icmp eq i64 %50, 0
+  br i1 %.not.i.i.i49.us.i.us, label %.critedge.sink.split.i, label %.lr.ph.split.i.i.i35.us.i.us, !llvm.loop !64
+
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i.preheader, %77
+  %51 = phi i8 [ %78, %77 ], [ %19, %.lr.ph.split.us.split.i.preheader ]
+  %52 = phi ptr [ %76, %77 ], [ %17, %.lr.ph.split.us.split.i.preheader ]
+  %.02361.us.i = phi ptr [ %74, %77 ], [ %.1.i.i.i.i, %.lr.ph.split.us.split.i.preheader ]
+  %53 = and i8 %51, 15
+  %54 = icmp eq i8 %53, 11
+  br i1 %54, label %find_refinement.exit.thread.us.i, label %resolve_refined_method.exit.thread12.thread
+
+find_refinement.exit.thread.us.i:                 ; preds = %.lr.ph.split.us.split.i
+  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not30.us.i = icmp eq ptr %56, null
+  br i1 %.not30.us.i, label %57, label %.split.us.thread.i
+
+57:                                               ; preds = %find_refinement.exit.thread.us.i
+  %58 = getelementptr inbounds i8, ptr %.02361.us.i, i64 32
+  %59 = load i64, ptr %58, align 8
+  %60 = inttoptr i64 %59 to ptr
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load i64, ptr %61, align 8
+  %.not31.us.i = icmp eq i64 %62, 0
+  br i1 %.not31.us.i, label %method_entry_resolve_refinement.exit.else, label %63
+
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds i8, ptr %.02361.us.i, i64 24
+  %65 = load i64, ptr %64, align 8
+  br label %.lr.ph.split.i.i.i35.us.i
+
+.lr.ph.split.i.i.i35.us.i:                        ; preds = %71, %63
+  %.01119.i.i.i36.us.i = phi i64 [ %73, %71 ], [ %62, %63 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  %66 = inttoptr i64 %.01119.i.i.i36.us.i to ptr
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i32 @rb_id_table_lookup(ptr noundef %68, i64 noundef %65, ptr noundef nonnull %4) #21
+  %.not.i.i.i.i37.us.i = icmp eq i32 %69, 0
+  %70 = load i64, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %.not1440.i.i.i38.us.i = icmp eq i64 %70, 0
+  %.not14.i.i.i39.us.i = select i1 %.not.i.i.i.i37.us.i, i1 true, i1 %.not1440.i.i.i38.us.i
+  br i1 %.not14.i.i.i39.us.i, label %71, label %._crit_edge.i.i.i41.us.i
+
+71:                                               ; preds = %.lr.ph.split.i.i.i35.us.i
+  %72 = getelementptr inbounds i8, ptr %66, i64 16
+  %73 = load i64, ptr %72, align 8
+  %.not.i.i.i49.us.i = icmp eq i64 %73, 0
+  br i1 %.not.i.i.i49.us.i, label %.critedge.sink.split.i, label %.lr.ph.split.i.i.i35.us.i, !llvm.loop !64
+
+._crit_edge.i.i.i41.us.i:                         ; preds = %.lr.ph.split.i.i.i35.us.i
+  %74 = inttoptr i64 %70 to ptr
+  store i64 %.01119.i.i.i36.us.i, ptr %2, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %.not9.i47.us.i = icmp eq ptr %76, null
+  br i1 %.not9.i47.us.i, label %method_entry_resolve_refinement.exit.else, label %77
+
+77:                                               ; preds = %._crit_edge.i.i.i41.us.i
+  %78 = load i8, ptr %76, align 8
+  %79 = and i8 %78, 15
+  %80 = icmp eq i8 %79, 7
+  br i1 %80, label %method_entry_resolve_refinement.exit.else, label %.lr.ph.split.us.split.i, !llvm.loop !69
+
+.split.us.thread.i:                               ; preds = %find_refinement.exit.thread.us.i, %find_refinement.exit.thread.us.i.us
+  %.us-phi34 = phi ptr [ %26, %find_refinement.exit.thread.us.i.us ], [ %56, %find_refinement.exit.thread.us.i ]
+  %.us-phi35 = phi i64 [ %.1.us, %find_refinement.exit.thread.us.i.us ], [ %.011.lcssa.i.i.i.i, %find_refinement.exit.thread.us.i ]
+  %81 = getelementptr inbounds i8, ptr %.us-phi34, i64 8
+  %82 = load i64, ptr %81, align 8
+  br label %.critedge.sink.split.i
+
+.critedge.sink.split.i:                           ; preds = %71, %48, %.split.us.thread.i
+  %.126 = phi i64 [ %.us-phi35, %.split.us.thread.i ], [ %.1.us, %48 ], [ %.011.lcssa.i.i.i.i, %71 ]
+  %.sink.i = phi i64 [ %82, %.split.us.thread.i ], [ 0, %48 ], [ 0, %71 ]
+  %.0.ph.i = phi ptr [ %.us-phi34, %.split.us.thread.i ], [ null, %48 ], [ null, %71 ]
+  br i1 %.not, label %resolve_refined_method.exit, label %.critedge.sink.split.i.else
+
+.critedge.sink.split.i.else:                      ; preds = %.critedge.sink.split.i
+  store i64 %.sink.i, ptr %2, align 8
+  br label %resolve_refined_method.exit
+
+resolve_refined_method.exit:                      ; preds = %.critedge.sink.split.i.else, %.critedge.sink.split.i
+  %.2 = phi i64 [ %.126, %.critedge.sink.split.i.else ], [ %.sink.i, %.critedge.sink.split.i ]
+  %.not22.i = icmp eq ptr %.0.ph.i, null
+  br i1 %.not22.i, label %method_entry_resolve_refinement.exit, label %resolve_refined_method.exit.thread12
+
+resolve_refined_method.exit.thread12:             ; preds = %resolve_refined_method.exit
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.ph.i, i64 16
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.not23.i = icmp eq ptr %.pre, null
+  br i1 %.not23.i, label %method_entry_resolve_refinement.exit, label %resolve_refined_method.exit.thread12.thread
+
+resolve_refined_method.exit.thread12.thread:      ; preds = %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.i.us, %resolve_refined_method.exit.thread12
+  %.21670 = phi i64 [ %.2, %resolve_refined_method.exit.thread12 ], [ %.1.us, %.lr.ph.split.us.split.i.us ], [ %.011.lcssa.i.i.i.i, %.lr.ph.split.us.split.i ]
+  %.0.i71769 = phi ptr [ %.0.ph.i, %resolve_refined_method.exit.thread12 ], [ %.02361.us.i.us, %.lr.ph.split.us.split.i.us ], [ %.02361.us.i, %.lr.ph.split.us.split.i ]
+  %83 = phi ptr [ %.pre, %resolve_refined_method.exit.thread12 ], [ %22, %.lr.ph.split.us.split.i.us ], [ %52, %.lr.ph.split.us.split.i ]
+  %84 = load i8, ptr %83, align 8
+  %85 = and i8 %84, 15
+  %86 = icmp eq i8 %85, 7
+  %spec.select = select i1 %86, ptr null, ptr %.0.i71769
   br label %method_entry_resolve_refinement.exit
 
 search_method_protect.exit.thread.fold.split.i:   ; preds = %18
   br label %method_entry_resolve_refinement.exit
 
-method_entry_resolve_refinement.exit:             ; preds = %._crit_edge.i.i.i.i.thread, %._crit_edge.i.i.i.i, %18, %26, %30, %search_method_protect.exit.thread.fold.split.i
-  %.0.i = phi ptr [ null, %30 ], [ %22, %26 ], [ null, %._crit_edge.i.i.i.i ], [ null, %18 ], [ %15, %search_method_protect.exit.thread.fold.split.i ], [ null, %._crit_edge.i.i.i.i.thread ]
-  %31 = load i64, ptr %6, align 8
-  %32 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %31, i64 noundef %1, ptr noundef %.0.i, i32 noundef 1)
-  ret ptr %32
+method_entry_resolve_refinement.exit:             ; preds = %44, %._crit_edge.i.i.i41.us.i.us, %27, %resolve_refined_method.exit.thread12.thread, %resolve_refined_method.exit, %resolve_refined_method.exit.thread12, %._crit_edge.i.i.i.i.cont, %15, %18, %search_method_protect.exit.thread.fold.split.i
+  %.0 = phi i64 [ %.011.lcssa.i.i.i.i, %._crit_edge.i.i.i.i.cont ], [ %.011.lcssa.i.i.i.i, %15 ], [ %.011.lcssa.i.i.i.i, %search_method_protect.exit.thread.fold.split.i ], [ %.011.lcssa.i.i.i.i, %18 ], [ %.2, %resolve_refined_method.exit.thread12 ], [ %.2, %resolve_refined_method.exit ], [ %.21670, %resolve_refined_method.exit.thread12.thread ], [ %.1.us, %27 ], [ %.01119.i.i.i36.us.i.us, %._crit_edge.i.i.i41.us.i.us ], [ %.01119.i.i.i36.us.i.us, %44 ]
+  %.0.i = phi ptr [ null, %._crit_edge.i.i.i.i.cont ], [ null, %15 ], [ %.1.i.i.i.i, %search_method_protect.exit.thread.fold.split.i ], [ null, %18 ], [ null, %resolve_refined_method.exit.thread12 ], [ null, %resolve_refined_method.exit ], [ %spec.select, %resolve_refined_method.exit.thread12.thread ], [ null, %27 ], [ null, %._crit_edge.i.i.i41.us.i.us ], [ null, %44 ]
+  br i1 %.not, label %method_entry_resolve_refinement.exit.cont, label %method_entry_resolve_refinement.exit.else
+
+method_entry_resolve_refinement.exit.else:        ; preds = %57, %._crit_edge.i.i.i41.us.i, %77, %method_entry_resolve_refinement.exit
+  %.0.i73 = phi ptr [ %.0.i, %method_entry_resolve_refinement.exit ], [ null, %77 ], [ null, %._crit_edge.i.i.i41.us.i ], [ null, %57 ]
+  %.else.val = load i64, ptr %2, align 8
+  br label %method_entry_resolve_refinement.exit.cont
+
+method_entry_resolve_refinement.exit.cont:        ; preds = %method_entry_resolve_refinement.exit, %method_entry_resolve_refinement.exit.else
+  %.0.i74 = phi ptr [ %.0.i, %method_entry_resolve_refinement.exit ], [ %.0.i73, %method_entry_resolve_refinement.exit.else ]
+  %87 = phi i64 [ %.0, %method_entry_resolve_refinement.exit ], [ %.else.val, %method_entry_resolve_refinement.exit.else ]
+  %88 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %87, i64 noundef %1, ptr noundef %.0.i74, i32 noundef 1)
+  ret ptr %88
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -22827,12 +22992,12 @@ callable_method_entry.exit:                       ; preds = %62
   br i1 %76, label %77, label %rb_alloc_tmp_buffer2.exit
 
 77:                                               ; preds = %75
-  call void @ruby_malloc_size_overflow(i64 noundef %70, i64 noundef 8) #35
+  call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %70, i64 noundef 8) #35
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %75
   %78 = shl nuw nsw i64 %70, 3
-  %79 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %17, i64 noundef %78, i64 noundef %70) #58
+  %79 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %17, i64 noundef %78, i64 noundef range(i64 -2147483648, 2147483648) %70) #58
   br label %80
 
 80:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %72
@@ -23057,7 +23222,7 @@ define dso_local i64 @rb_funcallv_kw(i64 noundef %0, i64 noundef %1, i32 noundef
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = tail call fastcc i64 @rb_call0(ptr noundef %8, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %6, i64 noundef %12)
+  %13 = tail call fastcc i64 @rb_call0(ptr noundef %8, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 5) %6, i64 noundef %12)
   ret i64 %13
 }
 
@@ -23383,7 +23548,7 @@ define dso_local i64 @rb_funcallv_public_kw(i64 noundef %0, i64 noundef %1, i32 
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = tail call fastcc i64 @rb_call0(ptr noundef %8, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %6, i64 noundef %12)
+  %13 = tail call fastcc i64 @rb_call0(ptr noundef %8, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 5) %6, i64 noundef %12)
   ret i64 %13
 }
 
@@ -23466,7 +23631,7 @@ pass_passed_block_handler.exit:                   ; preds = %.lr.ph.i.i.i.i.i, %
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = tail call fastcc i64 @rb_call0(ptr noundef %22, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %21, i64 noundef %26)
+  %27 = tail call fastcc i64 @rb_call0(ptr noundef %22, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 5) %21, i64 noundef %26)
   ret i64 %27
 }
 
@@ -23507,7 +23672,7 @@ define dso_local i64 @rb_funcall_with_block_kw(i64 noundef %0, i64 noundef %1, i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = tail call fastcc i64 @rb_call0(ptr noundef %12, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %11, i64 noundef %16)
+  %17 = tail call fastcc i64 @rb_call0(ptr noundef %12, i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 5) %11, i64 noundef %16)
   ret i64 %17
 }
 
@@ -24175,7 +24340,7 @@ rb_block_call_kw.exit:                            ; preds = %6, %12
   %16 = ptrtoint ptr %7 to i64
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %18 = load ptr, ptr %17, align 8
-  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
+  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret i64 %19
 }
@@ -24205,7 +24370,7 @@ rb_iterate_internal.exit:                         ; preds = %7, %13
   %17 = ptrtoint ptr %8 to i64
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %19 = load ptr, ptr %18, align 8
-  %20 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_method, i64 noundef %17, ptr noundef %16, ptr noundef %19)
+  %20 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_method, i64 noundef %17, ptr noundef %16, ptr noundef %19)
   ret i64 %20
 }
 
@@ -24229,7 +24394,7 @@ define internal i64 @iterate_method(i64 noundef %0) #2 {
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = tail call fastcc i64 @rb_call0(ptr noundef %14, i64 noundef %3, i64 noundef %5, i32 noundef %7, ptr noundef %9, i32 noundef %12, i64 noundef %18)
+  %19 = tail call fastcc i64 @rb_call0(ptr noundef %14, i64 noundef %3, i64 noundef %5, i32 noundef %7, ptr noundef %9, i32 noundef range(i32 0, 5) %12, i64 noundef %18)
   ret i64 %19
 }
 
@@ -24533,7 +24698,7 @@ rb_iterate_internal.exit:                         ; preds = %6, %12
   %16 = ptrtoint ptr %7 to i64
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %18 = load ptr, ptr %17, align 8
-  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull readonly @iterate_check_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
+  %19 = call fastcc i64 @rb_iterate0(ptr noundef nonnull @iterate_check_method, i64 noundef %16, ptr noundef %15, ptr noundef %18)
   ret i64 %19
 }
 
@@ -25429,7 +25594,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.i
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = call fastcc i64 @rb_call0(ptr noundef %77, i64 noundef %0, i64 noundef 3425, i32 noundef %75, ptr noundef %.0.i38, i32 noundef %76, i64 noundef %81)
+  %82 = call fastcc i64 @rb_call0(ptr noundef %77, i64 noundef %0, i64 noundef 3425, i32 noundef %75, ptr noundef %.0.i38, i32 noundef range(i32 0, 5) %76, i64 noundef %81)
   br label %97
 
 83:                                               ; preds = %55
@@ -26134,7 +26299,7 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   unreachable
 
 vm_yield_with_cref.exit:                          ; preds = %VM_CF_BLOCK_HANDLER.exit.i.i
-  %96 = call fastcc i64 @invoke_block_from_c_bh(ptr noundef %8, i64 noundef %.val2.i.i.i, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef nonnull %81, i32 noundef %.047, i32 noundef 0)
+  %96 = call fastcc i64 @invoke_block_from_c_bh(ptr noundef %8, i64 noundef %.val2.i.i.i, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef nonnull %81, i32 noundef range(i32 0, 2) %.047, i32 noundef 0)
   br label %97
 
 97:                                               ; preds = %vm_yield_with_cref.exit, %vm_block_handler_type.exit
@@ -27071,7 +27236,7 @@ rb_check_arity.exit:                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %16 = load ptr, ptr %15, align 8
-  %17 = call fastcc i64 @vm_catch_protect(i64 noundef %14, ptr noundef nonnull readonly @catch_i, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %16)
+  %17 = call fastcc i64 @vm_catch_protect(i64 noundef %14, ptr noundef nonnull @catch_i, i64 noundef 0, ptr noundef nonnull %4, ptr noundef %16)
   %18 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %rb_catch_obj.exit, label %19
@@ -29381,7 +29546,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   store i64 %66, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %10, i64 32
   store i64 0, ptr %67, align 8
-  %68 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %.0108, i32 noundef %56)
+  %68 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %16, ptr noundef nonnull %.0108, i32 noundef range(i32 0, 2) %56)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   store ptr %21, ptr %20, align 8
@@ -29864,7 +30029,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   store i64 %70, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %9, i64 32
   store i64 0, ptr %71, align 8
-  %72 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %20, ptr noundef %24, i32 noundef %60)
+  %72 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %20, ptr noundef nonnull %24, i32 noundef range(i32 0, 2) %60)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   store ptr %24, ptr %23, align 8
@@ -30335,7 +30500,7 @@ define dso_local void @rb_backref_set(i64 noundef %0) local_unnamed_addr #2 {
 
 vm_svar_set.exit:                                 ; preds = %22, %.lr.ph.i.i.i.i.i, %17, %25
   %.0.i.i.i = phi ptr [ %21, %17 ], [ %.010.val.i.i.i, %25 ], [ %30, %.lr.ph.i.i.i.i.i ], [ null, %22 ]
-  tail call fastcc void @lep_svar_set(ptr noundef %3, ptr noundef %.0.i.i.i, i64 noundef 1, i64 noundef %0)
+  tail call fastcc void @lep_svar_set(ptr noundef %3, ptr noundef %.0.i.i.i, i64 noundef range(i64 0, 2) 1, i64 noundef %0)
   ret void
 }
 
@@ -30511,7 +30676,7 @@ define dso_local void @rb_lastline_set(i64 noundef %0) local_unnamed_addr #2 {
 
 vm_svar_set.exit:                                 ; preds = %22, %.lr.ph.i.i.i.i.i, %17, %25
   %.0.i.i.i = phi ptr [ %21, %17 ], [ %.010.val.i.i.i, %25 ], [ %30, %.lr.ph.i.i.i.i.i ], [ null, %22 ]
-  tail call fastcc void @lep_svar_set(ptr noundef %3, ptr noundef %.0.i.i.i, i64 noundef 0, i64 noundef %0)
+  tail call fastcc void @lep_svar_set(ptr noundef %3, ptr noundef %.0.i.i.i, i64 noundef range(i64 0, 2) 0, i64 noundef %0)
   ret void
 }
 
@@ -34590,7 +34755,7 @@ core_hash_merge.exit:                             ; preds = %18
   %23 = getelementptr i8, ptr %1, i64 8
   %24 = add i32 %0, -1
   %25 = sext i32 %24 to i64
-  tail call void @rb_hash_bulk_insert(i64 noundef %25, ptr noundef %23, i64 noundef %4) #21
+  tail call void @rb_hash_bulk_insert(i64 noundef range(i64 -2147483648, 2147483648) %25, ptr noundef %23, i64 noundef %4) #21
   %26 = load ptr, ptr %7, align 8
   %27 = getelementptr i8, ptr %26, i64 -56
   store ptr %27, ptr %7, align 8
@@ -34754,7 +34919,7 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
   store i8 4, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 1192
   store i32 -1, ptr %18, align 8
-  %19 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.278) #21
+  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.278) #21
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %get_param.exit.i.i, label %20
 
@@ -34770,7 +34935,7 @@ get_param.exit.i.i:                               ; preds = %20, %8
   %.07.i.i.i = phi i64 [ %24, %20 ], [ 1048576, %8 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 9552
   store i64 %.07.i.i.i, ptr %25, align 8
-  %26 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.279) #21
+  %26 = tail call ptr @getenv(ptr noundef nonnull @.str.279) #21
   %.not.i6.i.i = icmp eq ptr %26, null
   br i1 %.not.i6.i.i, label %get_param.exit9.i.i, label %27
 
@@ -34786,7 +34951,7 @@ get_param.exit9.i.i:                              ; preds = %27, %get_param.exit
   %.07.i8.i.i = phi i64 [ %31, %27 ], [ 1048576, %get_param.exit.i.i ]
   %32 = getelementptr inbounds i8, ptr %1, i64 9560
   store i64 %.07.i8.i.i, ptr %32, align 8
-  %33 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.280) #21
+  %33 = tail call ptr @getenv(ptr noundef nonnull @.str.280) #21
   %.not.i10.i.i = icmp eq ptr %33, null
   br i1 %.not.i10.i.i, label %get_param.exit13.i.i, label %34
 
@@ -34802,7 +34967,7 @@ get_param.exit13.i.i:                             ; preds = %34, %get_param.exit
   %.07.i12.i.i = phi i64 [ %38, %34 ], [ 131072, %get_param.exit9.i.i ]
   %39 = getelementptr inbounds i8, ptr %1, i64 9568
   store i64 %.07.i12.i.i, ptr %39, align 8
-  %40 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.281) #21
+  %40 = tail call ptr @getenv(ptr noundef nonnull @.str.281) #21
   %.not.i14.i.i = icmp eq ptr %40, null
   br i1 %.not.i14.i.i, label %get_param.exit17.i.i, label %41
 
@@ -35803,7 +35968,7 @@ RB_FLOAT_TYPE_P.exit.thread.thread:               ; preds = %RB_FLOAT_TYPE_P.exi
   %60 = add nsw i64 %.neg.i.i45, 2
   %61 = and i64 %1, -4
   %62 = or i64 %60, %61
-  %63 = tail call noundef i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 61)
+  %63 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %62, i64 range(i64 1, 0) %62, i64 61)
   %64 = bitcast i64 %63 to double
   br label %rb_float_value_inline.exit46
 
@@ -37201,13 +37366,13 @@ CC_SET_FASTPATH.exit211:                          ; preds = %vm_ci_flag.exit210,
 336:                                              ; preds = %334
   %337 = getelementptr inbounds i8, ptr %329, i64 24
   store ptr @vm_call_iseq_bmethod, ptr %337, align 8
-  %338 = tail call i64 @vm_call_iseq_bmethod(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %338 = tail call i64 @vm_call_iseq_bmethod(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %vm_call_bmethod.exit
 
 339:                                              ; preds = %334
   %340 = getelementptr inbounds i8, ptr %329, i64 24
   store ptr @vm_call_noniseq_bmethod, ptr %340, align 8
-  %341 = tail call i64 @vm_call_noniseq_bmethod(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %341 = tail call i64 @vm_call_noniseq_bmethod(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %vm_call_bmethod.exit
 
 342:                                              ; preds = %3
@@ -38083,7 +38248,7 @@ rb_obj_write.exit:                                ; preds = %vm_cc_new.exit, %75
   br label %vm_call_refined.exit
 
 search_refined_method.exit.thread:                ; preds = %639, %637, %642, %731, %713, %716, %726, %728, %720, %search_refined_method.exit
-  %764 = tail call fastcc i64 @vm_call_method_nome(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %764 = tail call fastcc i64 @vm_call_method_nome(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
   br label %vm_call_refined.exit
 
 vm_call_refined.exit:                             ; preds = %rb_obj_write.exit, %758, %search_refined_method.exit.thread
@@ -45476,7 +45641,7 @@ vm_push_frame.exit:                               ; preds = %71
   br i1 %87, label %.split.i, label %88
 
 .split.i:                                         ; preds = %86
-  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #50
+  call void @rb_error_arity(i32 noundef %3, i32 noundef range(i32 0, -2147483648) %84, i32 noundef range(i32 -1, -2147483648) %84) #50
   unreachable
 
 88:                                               ; preds = %86
@@ -45484,7 +45649,7 @@ vm_push_frame.exit:                               ; preds = %71
   br i1 %89, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %88
-  call void @rb_error_arity(i32 noundef %3, i32 noundef %84, i32 noundef %84) #50
+  call void @rb_error_arity(i32 noundef %3, i32 noundef range(i32 0, -2147483648) %84, i32 noundef range(i32 -1, -2147483648) %84) #50
   unreachable
 
 rb_check_arity.exit:                              ; preds = %88, %vm_push_frame.exit
@@ -45980,7 +46145,7 @@ define internal i64 @vm_call_noniseq_bmethod(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %3
-  tail call void @rb_gc_writebarrier_unprotect(i64 noundef %7) #21
+  tail call void @rb_gc_writebarrier_unprotect(i64 noundef range(i64 1, 0) %7) #21
   %9 = inttoptr i64 %7 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 8192
@@ -46460,7 +46625,7 @@ vm_call_opt_send0.exit:                           ; preds = %54, %rbimpl_size_mu
   %70 = load ptr, ptr %56, align 8
   %71 = getelementptr i8, ptr %70, i64 -8
   store ptr %71, ptr %56, align 8
-  %72 = tail call fastcc i64 @vm_call_symbol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %38, i64 noundef %62, i32 noundef %48)
+  %72 = tail call fastcc i64 @vm_call_symbol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %38, i64 noundef %62, i32 noundef range(i32 4, 0) %48)
   br label %73
 
 73:                                               ; preds = %vm_call_opt_send0.exit, %.critedge26
@@ -47033,7 +47198,7 @@ vm_call_opt_send0.exit:                           ; preds = %20, %rbimpl_size_mu
   %37 = load ptr, ptr %22, align 8
   %38 = getelementptr i8, ptr %37, i64 -8
   store ptr %38, ptr %22, align 8
-  %39 = tail call fastcc i64 @vm_call_symbol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5, i64 noundef %28, i32 noundef %36)
+  %39 = tail call fastcc i64 @vm_call_symbol(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5, i64 noundef %28, i32 noundef range(i32 4, 0) %36)
   ret i64 %39
 }
 
@@ -48725,12 +48890,12 @@ define internal fastcc i64 @method_missing(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %23, label %24, label %rb_alloc_tmp_buffer2.exit
 
 24:                                               ; preds = %22
-  tail call void @ruby_malloc_size_overflow(i64 noundef %17, i64 noundef 8) #35
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %17, i64 noundef 8) #35
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %22
   %25 = shl nuw nsw i64 %17, 3
-  %26 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %25, i64 noundef %17) #58
+  %26 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %25, i64 noundef range(i64 -2147483648, 2147483648) %17) #58
   br label %27
 
 27:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %19
@@ -48861,7 +49026,7 @@ define internal fastcc noalias nonnull ptr @rb_alloc_tmp_buffer2(ptr noundef non
   br i1 %3, label %4, label %rbimpl_size_mul_or_raise.exit
 
 4:                                                ; preds = %2
-  tail call void @ruby_malloc_size_overflow(i64 noundef %1, i64 noundef 8) #35
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef 8) #35
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %2
@@ -52145,7 +52310,7 @@ define internal fastcc void @check_and_export_method(i64 noundef %0, i64 noundef
   %14 = inttoptr i64 %.01119.us.i.i to ptr
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = call i32 @rb_id_table_lookup(ptr noundef %16, i64 noundef %7, ptr noundef nonnull %5) #21
+  %17 = call i32 @rb_id_table_lookup(ptr noundef %16, i64 noundef range(i64 1, 0) %7, ptr noundef nonnull %5) #21
   %.not.i.us.i.i = icmp eq i32 %17, 0
   %18 = load i64, ptr %5, align 8
   %19 = inttoptr i64 %18 to ptr
@@ -52202,7 +52367,7 @@ search_method0.exit.thread.i:                     ; preds = %search_method0.exit
   %40 = inttoptr i64 %.01119.i.i.i to ptr
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @rb_id_table_lookup(ptr noundef %42, i64 noundef %7, ptr noundef nonnull %4) #21
+  %43 = call i32 @rb_id_table_lookup(ptr noundef %42, i64 noundef range(i64 1, 0) %7, ptr noundef nonnull %4) #21
   %.not.i.i.i.i = icmp eq i32 %43, 0
   %44 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -52255,7 +52420,7 @@ search_method0.exit.thread.i:                     ; preds = %search_method0.exit
   br i1 %63, label %.critedge.thread.i, label %64
 
 .critedge.thread.i:                               ; preds = %45, %60, %57, %54, %51, %.critedge.thread72.i, %35, %search_method0.exit.thread.i
-  call void @rb_print_undef(i64 noundef %0, i64 noundef %7, i32 noundef 0) #35
+  call void @rb_print_undef(i64 noundef %0, i64 noundef range(i64 1, 0) %7, i32 noundef 0) #35
   unreachable
 
 64:                                               ; preds = %60, %51
@@ -52297,11 +52462,11 @@ search_method0.exit.thread.i:                     ; preds = %search_method0.exit
   br label %85
 
 85:                                               ; preds = %.sink.split.i, %77
-  call void @rb_clear_method_cache(i64 noundef %0, i64 noundef %7)
+  call void @rb_clear_method_cache(i64 noundef %0, i64 noundef range(i64 1, 0) %7)
   br label %rb_export_method.exit
 
 86:                                               ; preds = %69
-  call void @rb_add_method(i64 noundef %0, i64 noundef %7, i32 noundef 5, ptr noundef null, i32 noundef %2)
+  call void @rb_add_method(i64 noundef %0, i64 noundef range(i64 1, 0) %7, i32 noundef 5, ptr noundef null, i32 noundef range(i32 1, 4) %2)
   br label %rb_export_method.exit
 
 rb_export_method.exit:                            ; preds = %64, %85, %86
@@ -52777,7 +52942,7 @@ vm_push_frame.exit.i.i:                           ; preds = %153
   br i1 %167, label %.split.i.i.i, label %168
 
 .split.i.i.i:                                     ; preds = %166
-  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #50
+  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef range(i32 0, -2147483648) %69, i32 noundef range(i32 -1, -2147483648) %69) #50
   unreachable
 
 168:                                              ; preds = %166
@@ -52785,7 +52950,7 @@ vm_push_frame.exit.i.i:                           ; preds = %153
   br i1 %169, label %.split9.i.i.i, label %rb_check_arity.exit.i.i
 
 .split9.i.i.i:                                    ; preds = %168
-  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef %69, i32 noundef %69) #50
+  call void @rb_error_arity(i32 noundef %.080.i.i, i32 noundef range(i32 0, -2147483648) %69, i32 noundef range(i32 -1, -2147483648) %69) #50
   unreachable
 
 rb_check_arity.exit.i.i:                          ; preds = %168, %vm_push_frame.exit.i.i
@@ -52970,7 +53135,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %260, %257
   br i1 %268, label %.split.i.i, label %.critedge.i.thread
 
 .split.i.i:                                       ; preds = %.critedge.i
-  tail call void @rb_error_arity(i32 noundef %267, i32 noundef 1, i32 noundef 1) #50
+  tail call void @rb_error_arity(i32 noundef %267, i32 noundef range(i32 0, -2147483648) 1, i32 noundef range(i32 -1, -2147483648) 1) #50
   unreachable
 
 .critedge.i.thread:                               ; preds = %244, %RHASH_EMPTY_P.exit.i, %235, %.critedge.i
@@ -52979,7 +53144,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %260, %257
   br i1 %270, label %.split9.i.i, label %vm_call_check_arity.exit
 
 .split9.i.i:                                      ; preds = %.critedge.i.thread
-  tail call void @rb_error_arity(i32 noundef %269, i32 noundef 1, i32 noundef 1) #50
+  tail call void @rb_error_arity(i32 noundef %269, i32 noundef range(i32 0, -2147483648) 1, i32 noundef range(i32 -1, -2147483648) 1) #50
   unreachable
 
 vm_call_check_arity.exit:                         ; preds = %.critedge.i.thread
@@ -53201,7 +53366,7 @@ RHASH_EMPTY_P.exit.i245:                          ; preds = %388, %385
   br i1 %395, label %.split.i.i243, label %.critedge.i241.thread
 
 .split.i.i243:                                    ; preds = %.critedge.i241
-  tail call void @rb_error_arity(i32 noundef %361, i32 noundef 0, i32 noundef 0) #50
+  tail call void @rb_error_arity(i32 noundef %361, i32 noundef range(i32 0, -2147483648) 0, i32 noundef range(i32 -1, -2147483648) 0) #50
   unreachable
 
 .critedge.i241.thread:                            ; preds = %394, %.critedge.i241
@@ -53211,7 +53376,7 @@ RHASH_EMPTY_P.exit.i245:                          ; preds = %388, %385
 
 .split9.i.i242:                                   ; preds = %363, %RHASH_EMPTY_P.exit.i245, %372, %.critedge.i241.thread
   %397 = phi i32 [ %396, %.critedge.i241.thread ], [ %361, %372 ], [ %361, %RHASH_EMPTY_P.exit.i245 ], [ %361, %363 ]
-  tail call void @rb_error_arity(i32 noundef %397, i32 noundef 0, i32 noundef 0) #50
+  tail call void @rb_error_arity(i32 noundef %397, i32 noundef range(i32 0, -2147483648) 0, i32 noundef range(i32 -1, -2147483648) 0) #50
   unreachable
 
 vm_call_check_arity.exit247:                      ; preds = %.critedge.i241.thread
@@ -53423,7 +53588,7 @@ refined_method_callable_without_refinement.exit:  ; preds = %501, %505
   %509 = getelementptr inbounds i8, ptr %9, i64 32
   store i64 0, ptr %509, align 8
   store ptr %9, ptr %20, align 8
-  %510 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %510 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br label %rb_vm_check_ints.exit
 
@@ -53460,7 +53625,7 @@ refined_method_callable_without_refinement.exit:  ; preds = %501, %505
   %526 = getelementptr inbounds i8, ptr %8, i64 32
   store i64 0, ptr %526, align 8
   store ptr %8, ptr %20, align 8
-  %527 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %527 = call fastcc i64 @vm_call0_body(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %rb_vm_check_ints.exit
 
@@ -53644,7 +53809,7 @@ RHASH_EMPTY_P.exit.i270:                          ; preds = %624, %621
   br i1 %631, label %.split.i.i268, label %.critedge.i266.thread
 
 .split.i.i268:                                    ; preds = %.critedge.i266
-  tail call void @rb_error_arity(i32 noundef %597, i32 noundef 0, i32 noundef 0) #50
+  tail call void @rb_error_arity(i32 noundef %597, i32 noundef range(i32 0, -2147483648) 0, i32 noundef range(i32 -1, -2147483648) 0) #50
   unreachable
 
 .critedge.i266.thread:                            ; preds = %630, %.critedge.i266
@@ -53654,7 +53819,7 @@ RHASH_EMPTY_P.exit.i270:                          ; preds = %624, %621
 
 .split9.i.i267:                                   ; preds = %599, %RHASH_EMPTY_P.exit.i270, %608, %.critedge.i266.thread
   %633 = phi i32 [ %632, %.critedge.i266.thread ], [ %597, %608 ], [ %597, %RHASH_EMPTY_P.exit.i270 ], [ %597, %599 ]
-  tail call void @rb_error_arity(i32 noundef %633, i32 noundef 0, i32 noundef 0) #50
+  tail call void @rb_error_arity(i32 noundef %633, i32 noundef range(i32 0, -2147483648) 0, i32 noundef range(i32 -1, -2147483648) 0) #50
   unreachable
 
 vm_call_check_arity.exit272:                      ; preds = %.critedge.i266.thread
@@ -53915,7 +54080,7 @@ RHASH_EMPTY_P.exit.i295:                          ; preds = %765, %762
   br i1 %773, label %.split.i.i293, label %.critedge.i291.thread
 
 .split.i.i293:                                    ; preds = %.critedge.i291
-  tail call void @rb_error_arity(i32 noundef %772, i32 noundef 1, i32 noundef 1) #50
+  tail call void @rb_error_arity(i32 noundef %772, i32 noundef range(i32 0, -2147483648) 1, i32 noundef range(i32 -1, -2147483648) 1) #50
   unreachable
 
 .critedge.i291.thread:                            ; preds = %749, %RHASH_EMPTY_P.exit.i295, %740, %.critedge.i291
@@ -53924,7 +54089,7 @@ RHASH_EMPTY_P.exit.i295:                          ; preds = %765, %762
   br i1 %775, label %.split9.i.i292, label %vm_call_check_arity.exit297
 
 .split9.i.i292:                                   ; preds = %.critedge.i291.thread
-  tail call void @rb_error_arity(i32 noundef %774, i32 noundef 1, i32 noundef 1) #50
+  tail call void @rb_error_arity(i32 noundef %774, i32 noundef range(i32 0, -2147483648) 1, i32 noundef range(i32 -1, -2147483648) 1) #50
   unreachable
 
 vm_call_check_arity.exit297:                      ; preds = %.critedge.i291.thread
@@ -54171,7 +54336,7 @@ rb_vm_check_ints.exit:                            ; preds = %rb_callable_method_
   store i64 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %6, ptr %39, align 8
-  %40 = call fastcc i64 @vm_call0_body(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %40 = call fastcc i64 @vm_call0_body(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %53
 
@@ -56442,7 +56607,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   store i64 %115, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 0, ptr %116, align 8
-  %117 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %65, ptr noundef %69, i32 noundef %105)
+  %117 = call fastcc i32 @vm_callee_setup_block_arg(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %65, ptr noundef nonnull %69, i32 noundef range(i32 0, 2) %105)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   store ptr %69, ptr %68, align 8

@@ -3074,7 +3074,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   %27 = getelementptr inbounds i8, ptr %14, i64 192
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %14, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull readonly align 8 dereferenceable(32) @ftc_face_list_class, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) @ftc_face_list_class, i64 32, i1 false)
   %29 = getelementptr inbounds i8, ptr %14, i64 200
   store ptr %14, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %14, i64 240
@@ -3086,7 +3086,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   %33 = getelementptr inbounds i8, ptr %14, i64 256
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %14, i64 272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull readonly align 8 dereferenceable(32) @ftc_size_list_class, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) @ftc_size_list_class, i64 32, i1 false)
   %35 = getelementptr inbounds i8, ptr %14, i64 264
   store ptr %14, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %14, i64 304

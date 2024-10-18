@@ -72,13 +72,13 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option
   ret void
 
 5:                                                ; preds = %1
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit unwind label %6
 
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit.i.i unwind label %8
 
 8:                                                ; preds = %6
@@ -91,7 +91,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %7
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %5
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %4
 }
 
@@ -119,7 +119,7 @@ define hidden void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option
   ret void
 
 5:                                                ; preds = %1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(352) %0)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(704) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid5regex5CacheECsff1zCjKRl2o_13turborepo_env.exit unwind label %6
 
 6:                                                ; preds = %5
@@ -593,7 +593,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5al
   %5 = mul nuw i64 %2, 48
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !45, !noalias !48, !nonnull !8, !noundef !8
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %5, i64 noundef 8) #20, !noalias !42
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %5, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !42
   br label %_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBN_EENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCsff1zCjKRl2o_13turborepo_env.exit
 
 _RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBN_EENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1, %4
@@ -827,7 +827,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn
   br i1 %5, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs7oQ2vmvFkJi_9hashbrown3map7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringB1l_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateEECsff1zCjKRl2o_13turborepo_env.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !108
   %7 = load i64, ptr %3, align 8, !alias.scope !108, !noundef !8
   %8 = add i64 %7, 1
@@ -856,7 +856,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs7oQ2vmvFkJi_9hashbrown3map7H
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 {
-  tail call void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
@@ -887,7 +887,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsgrIngBG6lgl
   br i1 %13, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDINtNtNtB4_3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtB4_5panic11unwind_safe13RefUnwindSafeNtNtB4_6marker4SyncNtB2J_10UnwindSafeNtB3q_4SendEL_EECsff1zCjKRl2o_13turborepo_env.exit, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit.i.i": ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %9, i64 noundef %11) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %9, i64 noundef range(i64 1, -9223372036854775807) %11) #20
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDINtNtNtB4_3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtB4_5panic11unwind_safe13RefUnwindSafeNtNtB4_6marker4SyncNtB2J_10UnwindSafeNtB3q_4SendEL_EECsff1zCjKRl2o_13turborepo_env.exit
 
 14:                                               ; preds = %5
@@ -905,7 +905,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsgrIngBG6lgl
   br i1 %22, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit.i4.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit.i4.i": ; preds = %14
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %18, i64 noundef %20) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %18, i64 noundef range(i64 1, -9223372036854775807) %20) #20
   br label %.body
 
 .body:                                            ; preds = %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit.i4.i"
@@ -919,11 +919,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 23:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDINtNtNtB4_3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtB4_5panic11unwind_safe13RefUnwindSafeNtNtB4_6marker4SyncNtB2J_10UnwindSafeNtB3q_4SendEL_EECsff1zCjKRl2o_13turborepo_env.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5inner9CacheLineINtNtNtCsapf13pIxsjn_3std4sync5mutex5MutexINtNtB7_3vec3VecINtNtB7_5boxed3BoxNtNtNtBV_4meta5regex5CacheEEEEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBV_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5inner9CacheLineINtNtNtCsapf13pIxsjn_3std4sync5mutex5MutexINtNtB7_3vec3VecINtNtB7_5boxed3BoxNtNtNtBV_4meta5regex5CacheEEEEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBV_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body3 unwind label %26
 
 25:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDINtNtNtB4_3ops8function2FnuEp6OutputNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheNtNtNtB4_5panic11unwind_safe13RefUnwindSafeNtNtB4_6marker4SyncNtB2J_10UnwindSafeNtB3q_4SendEL_EECsff1zCjKRl2o_13turborepo_env.exit
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5inner9CacheLineINtNtNtCsapf13pIxsjn_3std4sync5mutex5MutexINtNtB7_3vec3VecINtNtB7_5boxed3BoxNtNtNtBV_4meta5regex5CacheEEEEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBV_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5inner9CacheLineINtNtNtCsapf13pIxsjn_3std4sync5mutex5MutexINtNtB7_3vec3VecINtNtB7_5boxed3BoxNtNtNtBV_4meta5regex5CacheEEEEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBV_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5inner9CacheLineINtNtNtCsapf13pIxsjn_3std4sync5mutex5MutexIBH_INtNtBL_5boxed3BoxNtNtNtB1m_4meta5regex5CacheEEEEEECsff1zCjKRl2o_13turborepo_env.exit unwind label %32
 
 26:                                               ; preds = %23
@@ -1098,7 +1098,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXsd_NtNtCs68wO5ns
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !noalias !143, !nonnull !8, !noundef !8
   %8 = mul nuw i64 %4, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %8, i64 noundef 8) #20, !noalias !146
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %8, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !146
   br label %_RNvXNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB8_8IntoIterppENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropINtB2_9DropGuardTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB21_ENtNtBc_5alloc6GlobalEB12_4dropCsff1zCjKRl2o_13turborepo_env.exit
 
 _RNvXNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB8_8IntoIterppENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropINtB2_9DropGuardTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB21_ENtNtBc_5alloc6GlobalEB12_4dropCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1, %6
@@ -1121,7 +1121,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turb
   br i1 %6, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env22EnvironmentVariableMapEBI_.exit, label %7
 
 7:                                                ; preds = %1
-  invoke void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %7
@@ -1171,7 +1171,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env22En
   br i1 %27, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env22EnvironmentVariableMapEBI_.exit2, label %28
 
 28:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env22EnvironmentVariableMapEBI_.exit
-  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(48) %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !188
   %29 = load i64, ptr %25, align 8, !alias.scope !188, !noundef !8
   %30 = add i64 %29, 1
@@ -1221,7 +1221,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turb
   br i1 %5, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringB1B_EECsff1zCjKRl2o_13turborepo_env.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner13drop_elementsTNtNtCs68wO5nsWeTG_5alloc6string6StringB1a_EECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !204
   %7 = load i64, ptr %3, align 8, !alias.scope !204, !noundef !8
   %8 = add i64 %7, 1
@@ -1256,7 +1256,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5all
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVechEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -1269,7 +1269,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -1293,7 +1293,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3s
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVechEECsff1zCjKRl2o_13turborepo_env.exit.i.i unwind label %4
 
 4:                                                ; preds = %2
@@ -1306,7 +1306,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_3std3sys6os_str5bytes3BufECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -1322,7 +1322,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsaz5AFKTGGYY_5r
 
 5:                                                ; preds = %1
   fence acquire
-  invoke void @_RNvMsj_NtCs68wO5nsWeTG_5alloc4syncINtB5_3ArcNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex6RegexIE9drop_slowBM_(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_RNvMsj_NtCs68wO5nsWeTG_5alloc4syncINtB5_3ArcNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex6RegexIE9drop_slowBM_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc4sync3ArcNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex6RegexIEECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079.exit.i unwind label %6
 
 6:                                                ; preds = %5
@@ -1403,7 +1403,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -1416,7 +1416,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -1492,13 +1492,13 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automat
   br i1 %29, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers12OnePassCacheECsff1zCjKRl2o_13turborepo_env.exit, label %30
 
 30:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers23BoundedBacktrackerCacheECsff1zCjKRl2o_13turborepo_env.exit12
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(32) %27)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit.i.i unwind label %31
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %27)
           to label %.body unwind label %33
 
 33:                                               ; preds = %31
@@ -1508,7 +1508,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automat
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit.i.i: ; preds = %30
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %27)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %27)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers12OnePassCacheECsff1zCjKRl2o_13turborepo_env.exit unwind label %35
 
 .body:                                            ; preds = %35, %31, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers23BoundedBacktrackerCacheECsff1zCjKRl2o_13turborepo_env.exit
@@ -1527,7 +1527,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automat
   br i1 %38, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers11HybridCacheECsff1zCjKRl2o_13turborepo_env.exit, label %39
 
 39:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4meta8wrappers12OnePassCacheECsff1zCjKRl2o_13turborepo_env.exit
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(352) %0)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(704) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid5regex5CacheECsff1zCjKRl2o_13turborepo_env.exit.i.i unwind label %40
 
 40:                                               ; preds = %39
@@ -1644,7 +1644,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14
   br i1 %3, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid5regex5CacheEECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079.exit, label %4
 
 4:                                                ; preds = %1
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(352) %0)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid3dfa5CacheECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(704) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid5regex5CacheECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %5
 
 5:                                                ; preds = %4
@@ -1693,13 +1693,13 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14
   br i1 %3, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheEECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079.exit, label %4
 
 4:                                                ; preds = %1
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %5
 
 5:                                                ; preds = %4
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit.i.i.i unwind label %7
 
 7:                                                ; preds = %5
@@ -1712,7 +1712,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %6
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit.i: ; preds = %4
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheEECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079.exit
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheEECsff1zCjKRl2o_13turborepo_env.llvm.5800649057538698079.exit: ; preds = %1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata3dfa7onepass5CacheECsff1zCjKRl2o_13turborepo_env.exit.i
@@ -1782,11 +1782,11 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body unwind label %5
 
 4:                                                ; preds = %1
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit unwind label %7
 
 5:                                                ; preds = %2
@@ -1814,7 +1814,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 11:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
           to label %common.resume unwind label %13
 
 13:                                               ; preds = %11
@@ -1828,7 +1828,7 @@ common.resume:                                    ; preds = %.body, %11
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit2: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   ret void
 
 15:                                               ; preds = %.body
@@ -1867,7 +1867,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automat
 9:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util8captures9GroupInfoECsff1zCjKRl2o_13turborepo_env.exit
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %common.resume unwind label %11
 
 11:                                               ; preds = %9
@@ -1881,7 +1881,7 @@ common.resume:                                    ; preds = %7, %9
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util8captures9GroupInfoECsff1zCjKRl2o_13turborepo_env.exit
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 
 13:                                               ; preds = %7
@@ -1918,11 +1918,11 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %.body unwind label %6
 
 5:                                                ; preds = %1
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit unwind label %8
 
 6:                                                ; preds = %3
@@ -1950,11 +1950,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 12:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %.body13 unwind label %15
 
 14:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit15 unwind label %18
 
 15:                                               ; preds = %12
@@ -1982,11 +1982,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 21:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit15
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
           to label %.body16 unwind label %24
 
 23:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit15
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateEECsff1zCjKRl2o_13turborepo_env.exit unwind label %27
 
 24:                                               ; preds = %21
@@ -1998,7 +1998,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 .body16:                                          ; preds = %27, %21, %.body13
   %.pn2 = phi { ptr, i32 } [ %.pn, %.body13 ], [ %28, %27 ], [ %22, %21 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 280
-  invoke void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
+  invoke void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(48) %26)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit unwind label %76
 
 27:                                               ; preds = %23
@@ -2008,7 +2008,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %23
   %29 = getelementptr inbounds i8, ptr %0, i64 280
-  invoke void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(32) %29)
+  invoke void @_RNvXsg_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB5_8RawTableTNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtBX_6hybrid2id11LazyStateIDEENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBX_(ptr noalias noundef nonnull align 8 dereferenceable(48) %29)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit18 unwind label %31
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.body16, %31
@@ -2024,7 +2024,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collec
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit18: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateEECsff1zCjKRl2o_13turborepo_env.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 96
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(56) %33)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(112) %33)
           to label %37 unwind label %34
 
 34:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state5StateNtNtNtB1J_6hybrid2id11LazyStateIDEECsff1zCjKRl2o_13turborepo_env.exit18
@@ -2064,11 +2064,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automat
 45:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set10SparseSetsECsff1zCjKRl2o_13turborepo_env.exit
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %44)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
           to label %.body21 unwind label %48
 
 47:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set10SparseSetsECsff1zCjKRl2o_13turborepo_env.exit
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(16) %44)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBS_(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit unwind label %51
 
 48:                                               ; preds = %45
@@ -2096,7 +2096,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 54:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit
   %55 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %53)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
           to label %.body23 unwind label %56
 
 56:                                               ; preds = %54
@@ -2106,7 +2106,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECsff1zCjKRl2o_13turborepo_env.exit.i: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives7StateIDEECsff1zCjKRl2o_13turborepo_env.exit
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %53)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata4util11determinize5state17StateBuilderEmptyECsff1zCjKRl2o_13turborepo_env.exit unwind label %66
 
 .body23:                                          ; preds = %66, %54, %.body21
@@ -2207,7 +2207,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVechEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -2220,7 +2220,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -2238,13 +2238,13 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm9SlotTableECsff1zCjKRl2o_13turborepo_env.exit unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
           to label %common.resume unwind label %9
 
 9:                                                ; preds = %7
@@ -2258,7 +2258,7 @@ common.resume:                                    ; preds = %2, %7
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm9SlotTableECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %5
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
   ret void
 
 11:                                               ; preds = %2
@@ -2276,11 +2276,11 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body unwind label %5
 
 4:                                                ; preds = %1
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonEECsff1zCjKRl2o_13turborepo_env.exit unwind label %7
 
 5:                                                ; preds = %2
@@ -2302,7 +2302,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(96) %10)
           to label %14 unwind label %11
 
 11:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonEECsff1zCjKRl2o_13turborepo_env.exit
@@ -2314,13 +2314,13 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
 
 14:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm13FollowEpsilonEECsff1zCjKRl2o_13turborepo_env.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm9SlotTableECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
           to label %.body2 unwind label %18
 
 18:                                               ; preds = %16
@@ -2330,7 +2330,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNt
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm9SlotTableECsff1zCjKRl2o_13turborepo_env.exit.i: ; preds = %14
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit unwind label %23
 
 20:                                               ; preds = %11
@@ -2352,7 +2352,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_autom
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm9SlotTableECsff1zCjKRl2o_13turborepo_env.exit.i
   %25 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(56) %25)
+  invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util10sparse_set9SparseSetECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(96) %25)
           to label %29 unwind label %26
 
 26:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit
@@ -2364,13 +2364,13 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_autom
 
 29:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit
   %30 = getelementptr inbounds i8, ptr %0, i64 176
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBK_3ops4drop4Drop4dropB1n_(ptr noalias noundef nonnull align 8 dereferenceable(40) %30)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit7 unwind label %31
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %30)
           to label %common.resume unwind label %33
 
 33:                                               ; preds = %31
@@ -2390,7 +2390,7 @@ common.resume:                                    ; preds = %.body2, %26, %31
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson6pikevm12ActiveStatesECsff1zCjKRl2o_13turborepo_env.exit7: ; preds = %29
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(40) %30)
   ret void
 
 37:                                               ; preds = %.body2, %.body
@@ -2408,7 +2408,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -2421,7 +2421,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtB4_6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtCs1LoaDTb72WA_4core6option6OptionNtNtNtCsgrIngBG6lgl_14regex_automata4util10primitives11NonMaxUsizeEENtNtNtBR_3ops4drop4Drop4dropB1u_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -2433,11 +2433,11 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body unwind label %5
 
 4:                                                ; preds = %1
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropBU_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameEECsff1zCjKRl2o_13turborepo_env.exit unwind label %7
 
 5:                                                ; preds = %2
@@ -2459,13 +2459,13 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 24
-  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @_RNvXsn_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack7VisitedECsff1zCjKRl2o_13turborepo_env.exit unwind label %11
 
 11:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameEECsff1zCjKRl2o_13turborepo_env.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
           to label %common.resume unwind label %13
 
 13:                                               ; preds = %11
@@ -2479,7 +2479,7 @@ common.resume:                                    ; preds = %.body, %11
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack7VisitedECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtNtCsgrIngBG6lgl_14regex_automata3nfa8thompson9backtrack5FrameEECsff1zCjKRl2o_13turborepo_env.exit
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
   ret void
 
 15:                                               ; preds = %.body
@@ -2497,7 +2497,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecjEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -2510,7 +2510,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecjEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecjENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -2522,7 +2522,7 @@ define void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsgrIngBG6lgl_
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVechEECsff1zCjKRl2o_13turborepo_env.exit.i unwind label %4
 
 4:                                                ; preds = %2
@@ -2535,7 +2535,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6R
   resume { ptr, i32 } %3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VechEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
@@ -2571,7 +2571,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTNtNtN
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %.body unwind label %4
 
 4:                                                ; preds = %2
@@ -2581,7 +2581,7 @@ define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeTNtNtN
   unreachable
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_3std3sys6os_str5bytes3BufECsff1zCjKRl2o_13turborepo_env.exit.i: ; preds = %1
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringECsff1zCjKRl2o_13turborepo_env.exit unwind label %6
 
 6:                                                ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_3std3sys6os_str5bytes3BufECsff1zCjKRl2o_13turborepo_env.exit.i
@@ -2603,7 +2603,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std3ffi6os_str
 10:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringECsff1zCjKRl2o_13turborepo_env.exit
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %common.resume unwind label %12
 
 12:                                               ; preds = %10
@@ -2617,7 +2617,7 @@ common.resume:                                    ; preds = %.body, %10
   resume { ptr, i32 } %common.resume.op
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringECsff1zCjKRl2o_13turborepo_env.exit3: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringECsff1zCjKRl2o_13turborepo_env.exit
-  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  tail call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   ret void
 
 14:                                               ; preds = %.body
@@ -2921,7 +2921,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %38
-  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEE8grow_oneCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(16) %42)
+  invoke void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecINtNtB7_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEE8grow_oneCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(24) %42)
           to label %53 unwind label %49
 
 49:                                               ; preds = %48
@@ -3119,7 +3119,7 @@ define void @_RNvXNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB8_8IntoIterppE
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !nonnull !8, !noundef !8
   %8 = mul nuw i64 %4, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %8, i64 noundef 8) #20, !noalias !422
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %8, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !422
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB1l_EEECsff1zCjKRl2o_13turborepo_env.exit
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc7raw_vec6RawVecTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB1l_EEECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %1, %6
@@ -3136,7 +3136,7 @@ define void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecTNtNtNtCsapf13pI
   %5 = mul nuw i64 %2, 48
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !427, !noalias !430, !nonnull !8, !noundef !8
-  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %5, i64 noundef 8) #20
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %5, i64 noundef range(i64 1, -9223372036854775807) 8) #20
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.exit": ; preds = %1, %4
@@ -3358,7 +3358,7 @@ define void @_RNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtB5_8IntoIterTNtNtN
 12:                                               ; preds = %.body
   %13 = load ptr, ptr %0, align 8, !noalias !447, !nonnull !8, !noundef !8
   %14 = mul nuw i64 %10, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef 8) #20, !noalias !452
+  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !452
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtBP_8IntoIterppENtNtNtB4_3ops4drop4Drop4drop9DropGuardTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB2m_ENtNtBT_5alloc6GlobalEECsff1zCjKRl2o_13turborepo_env.exit
 
 15:                                               ; preds = %17, %1
@@ -3403,7 +3403,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSTNtNtNtCsapf13pIxsjn_3std3ffi6os_s
 32:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBI_EECsff1zCjKRl2o_13turborepo_env.exit
   %33 = load ptr, ptr %0, align 8, !noalias !457, !nonnull !8, !noundef !8
   %34 = mul nuw i64 %30, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %34, i64 noundef 8) #20, !noalias !462
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %34, i64 noundef range(i64 1, -9223372036854775807) 8) #20, !noalias !462
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtBP_8IntoIterppENtNtNtB4_3ops4drop4Drop4drop9DropGuardTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB2m_ENtNtBT_5alloc6GlobalEECsff1zCjKRl2o_13turborepo_env.exit3
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNvXsd_NtNtCs68wO5nsWeTG_5alloc3vec9into_iterINtBP_8IntoIterppENtNtNtB4_3ops4drop4Drop4drop9DropGuardTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringB2m_ENtNtBT_5alloc6GlobalEECsff1zCjKRl2o_13turborepo_env.exit3: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeSTNtNtNtCsapf13pIxsjn_3std3ffi6os_str8OsStringBI_EECsff1zCjKRl2o_13turborepo_env.exit, %32

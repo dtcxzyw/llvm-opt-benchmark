@@ -301,7 +301,7 @@ declare void @_ZN4LIEF5MachO11BindingInfoC2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(88) ptr @_ZN4LIEF5MachO18ChainedBindingInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i32, ptr %3, align 8

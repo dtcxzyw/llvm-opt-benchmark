@@ -3731,7 +3731,7 @@ define hidden void @_ZN2cv3dls4rotxEd(ptr dead_on_unwind noalias writable sret(%
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %7)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %3
@@ -4020,7 +4020,7 @@ define hidden void @_ZN2cv3dls4rotyEd(ptr dead_on_unwind noalias writable sret(%
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %7)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %3
@@ -4309,7 +4309,7 @@ define hidden void @_ZN2cv3dls4rotzEd(ptr dead_on_unwind noalias writable sret(%
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %7)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %3
@@ -9125,7 +9125,7 @@ _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %8
   %18 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %1), !noalias !189
   %19 = xor i1 %18, true
   tail call void @llvm.assume(i1 %19)
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %1)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %20 = getelementptr inbounds i8, ptr %7, i64 16
@@ -9162,7 +9162,7 @@ _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %8
 
 39:                                               ; preds = %36
   store ptr %.pre, ptr %28, align 8, !noalias !195
-  call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 1, i1 noundef zeroext true), !noalias !195
+  call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef range(i64 0, 3) 1, i1 noundef zeroext true), !noalias !195
   %.pre2.i.i = load ptr, ptr %28, align 8, !noalias !195
   br label %_ZN2cvplIdEENS_17MatConstIterator_IT_EERKS3_l.exit
 
@@ -9201,7 +9201,7 @@ _ZN2cvplIdEENS_17MatConstIterator_IT_EERKS3_l.exit: ; preds = %23, %36, %39
 
 58:                                               ; preds = %54
   store ptr %48, ptr %47, align 8, !noalias !201
-  call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 2, i1 noundef zeroext true), !noalias !201
+  call void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef range(i64 0, 3) 2, i1 noundef zeroext true), !noalias !201
   %.pre2.i.i11 = load ptr, ptr %47, align 8, !noalias !201
   br label %_ZN2cvplIdEENS_17MatConstIterator_IT_EERKS3_l.exit14
 
@@ -9587,7 +9587,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dls8is_emptyEPKNS_3MatE(ptr nocapture n
   br label %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
 
 7:                                                ; preds = %2
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(96) %1)
   br label %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
 
 _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %6, %7
@@ -9600,7 +9600,7 @@ _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %6, %7
   br label %_ZNK2cv3Mat3endIdEENS_17MatConstIterator_IT_EEv.exit
 
 10:                                               ; preds = %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %1)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %11 = call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
   %12 = load ptr, ptr %4, align 8
   %13 = icmp eq ptr %12, null
@@ -31729,14 +31729,14 @@ define hidden void @_ZN2cv3dls8skewsymmEPKNS_3MatE(ptr dead_on_unwind noalias wr
   br label %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
 
 15:                                               ; preds = %3
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %2)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(96) %2)
   br label %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
 
 _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %14, %15
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 3, i32 noundef 3, i32 noundef 6)
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %12)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %.noexc unwind label %189
 
 .noexc:                                           ; preds = %_ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit
@@ -31816,7 +31816,7 @@ _ZNK2cv3Mat5beginIdEENS_17MatConstIterator_IT_EEv.exit: ; preds = %14, %15
 
 57:                                               ; preds = %53
   store ptr %45, ptr %43, align 8, !noalias !247
-  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef 2, i1 noundef zeroext true)
+  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef range(i64 0, 3) 2, i1 noundef zeroext true)
           to label %.noexc3 unwind label %189
 
 .noexc3:                                          ; preds = %57
@@ -31876,7 +31876,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %64, %58, %69
 
 83:                                               ; preds = %80
   store ptr %74, ptr %73, align 8, !noalias !253
-  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 noundef 1, i1 noundef zeroext true)
+  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 noundef range(i64 0, 3) 1, i1 noundef zeroext true)
           to label %.noexc13 unwind label %189
 
 .noexc13:                                         ; preds = %83
@@ -31935,7 +31935,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit18: ; preds = %89, %84, %94
 
 109:                                              ; preds = %105
   store ptr %99, ptr %98, align 8, !noalias !259
-  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef 2, i1 noundef zeroext true)
+  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 noundef range(i64 0, 3) 2, i1 noundef zeroext true)
           to label %.noexc26 unwind label %189
 
 .noexc26:                                         ; preds = %109
@@ -32046,7 +32046,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit45: ; preds = %133, %127, %138
 
 152:                                              ; preds = %149
   store ptr %143, ptr %142, align 8, !noalias !270
-  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 1, i1 noundef zeroext true)
+  invoke void @_ZN2cv16MatConstIterator4seekElb(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef range(i64 0, 3) 1, i1 noundef zeroext true)
           to label %.noexc53 unwind label %189
 
 .noexc53:                                         ; preds = %152

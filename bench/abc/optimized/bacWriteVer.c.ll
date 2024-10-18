@@ -732,7 +732,7 @@ Bac_ObjNameStr.exit.i:                            ; preds = %Bac_ObjName.exit.th
   %.val.i58.i = load ptr, ptr %0, align 8
   %45 = getelementptr i8, ptr %.val.i58.i, i64 16
   %.val.val.i.i = load ptr, ptr %45, align 8
-  %46 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef %44) #10
+  %46 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -536870912, 536870912) %44) #10
   br label %47
 
 47:                                               ; preds = %Bac_ObjNameStr.exit.i, %Bac_ObjName.exit.thread.i, %Bac_ObjName.exit.i
@@ -1016,7 +1016,7 @@ Bac_ObjNameStr.exit:                              ; preds = %Bac_ObjName.exit.th
   %.val.i217 = load ptr, ptr %0, align 8
   %141 = getelementptr i8, ptr %.val.i217, i64 16
   %.val.val.i = load ptr, ptr %141, align 8
-  %142 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %140) #10
+  %142 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -536870912, 536870912) %140) #10
   br label %143
 
 143:                                              ; preds = %Bac_ObjName.exit.thread, %Bac_ObjName.exit, %Bac_ObjNameStr.exit
@@ -1068,7 +1068,7 @@ Bac_ObjNameStr.exit:                              ; preds = %Bac_ObjName.exit.th
   %.val197 = load ptr, ptr %0, align 8
   %165 = getelementptr i8, ptr %.val197, i64 16
   %.val197.val = load ptr, ptr %165, align 8
-  %166 = tail call ptr @Abc_NamStr(ptr noundef %.val197.val, i32 noundef %158) #10
+  %166 = tail call ptr @Abc_NamStr(ptr noundef %.val197.val, i32 noundef range(i32 -536870912, 536870912) %158) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef %166)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.11)
   %167 = sub nsw i32 %157, %155
@@ -1382,7 +1382,7 @@ Bac_ObjNameStr.exit243:                           ; preds = %Bac_ObjName.exit234
   %.val.i239 = load ptr, ptr %0, align 8
   %295 = getelementptr i8, ptr %.val.i239, i64 16
   %.val.val.i240 = load ptr, ptr %295, align 8
-  %296 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i240, i32 noundef %294) #10
+  %296 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i240, i32 noundef range(i32 -536870912, 536870912) %294) #10
   br label %297
 
 297:                                              ; preds = %Bac_ObjName.exit234.thread, %Bac_ObjName.exit234, %Bac_ObjNameStr.exit243
@@ -1894,7 +1894,7 @@ Bac_ManFindRealNameId.exit:                       ; preds = %67, %70
   %.val191.val = load ptr, ptr %76, align 8
   %77 = getelementptr i8, ptr %.val191, i64 48
   %.val191.val196 = load ptr, ptr %77, align 8
-  %78 = tail call ptr @Abc_NamStr(ptr noundef %.val191.val, i32 noundef %.010.i) #10
+  %78 = tail call ptr @Abc_NamStr(ptr noundef %.val191.val, i32 noundef range(i32 -536870912, 536870912) %.010.i) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val191.val196, ptr noundef %78)
   br label %79
 
@@ -2247,7 +2247,7 @@ Bac_ObjName.exit:                                 ; preds = %197, %202
   %.val192.val = load ptr, ptr %209, align 8
   %210 = getelementptr i8, ptr %.val192, i64 48
   %.val192.val195 = load ptr, ptr %210, align 8
-  %211 = tail call ptr @Abc_NamStr(ptr noundef %.val192.val, i32 noundef %208) #10
+  %211 = tail call ptr @Abc_NamStr(ptr noundef %.val192.val, i32 noundef range(i32 -536870912, 536870912) %208) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val192.val195, ptr noundef %211)
   br label %.backedge
 
@@ -2333,7 +2333,7 @@ Bac_ManFindRealNameId.exit239:                    ; preds = %238, %241
   %.val193.val = load ptr, ptr %247, align 8
   %248 = getelementptr i8, ptr %.val193, i64 48
   %.val193.val194 = load ptr, ptr %248, align 8
-  %249 = tail call ptr @Abc_NamStr(ptr noundef %.val193.val, i32 noundef %.010.i230) #10
+  %249 = tail call ptr @Abc_NamStr(ptr noundef %.val193.val, i32 noundef range(i32 -536870912, 536870912) %.010.i230) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val193.val194, ptr noundef %249)
   %250 = icmp eq i32 %.2.lcssa, %187
   %.val182 = load ptr, ptr %85, align 8
@@ -2723,7 +2723,7 @@ define void @Bac_ManWriteVerilogNtk(ptr noundef %0, i32 noundef %1) local_unname
   %.val191.val = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val191, i64 48
   %.val191.val196 = load ptr, ptr %25, align 8
-  %26 = tail call ptr @Abc_NamStr(ptr noundef %.val191.val, i32 noundef %23) #10
+  %26 = tail call ptr @Abc_NamStr(ptr noundef %.val191.val, i32 noundef range(i32 -536870912, 536870912) %23) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val191.val196, ptr noundef %26)
   %.val171.pre = load i32, ptr %10, align 4
   br label %27
@@ -2796,7 +2796,7 @@ Bac_ManWriteRange.exit:                           ; preds = %46, %49
   %.val192.val = load ptr, ptr %52, align 8
   %53 = getelementptr i8, ptr %.val192, i64 48
   %.val192.val195 = load ptr, ptr %53, align 8
-  %54 = tail call ptr @Abc_NamStr(ptr noundef %.val192.val, i32 noundef %51) #10
+  %54 = tail call ptr @Abc_NamStr(ptr noundef %.val192.val, i32 noundef range(i32 -536870912, 536870912) %51) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val192.val195, ptr noundef %54)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %5, ptr noundef nonnull @.str.21)
   %.val170.pre = load i32, ptr %10, align 4
@@ -3358,7 +3358,7 @@ Bac_ManFindRealNameId.exit:                       ; preds = %292, %295
   %.val193.val = load ptr, ptr %301, align 8
   %302 = getelementptr i8, ptr %.val193, i64 48
   %.val193.val194 = load ptr, ptr %302, align 8
-  %303 = tail call ptr @Abc_NamStr(ptr noundef %.val193.val, i32 noundef %.010.i) #10
+  %303 = tail call ptr @Abc_NamStr(ptr noundef %.val193.val, i32 noundef range(i32 -536870912, 536870912) %.010.i) #10
   %304 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %303) #13
   %305 = trunc i64 %304 to i32
   %306 = icmp sgt i32 %305, 0
@@ -3668,7 +3668,7 @@ Bac_ObjNameStr.exit:                              ; preds = %420, %425
   %.val.i283 = load ptr, ptr %0, align 8
   %429 = getelementptr i8, ptr %.val.i283, i64 16
   %.val.val.i = load ptr, ptr %429, align 8
-  %430 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %428) #10
+  %430 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef range(i32 -536870912, 536870912) %428) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %5, ptr noundef %430)
   %.val.i.i.i284 = load ptr, ptr %392, align 8
   %431 = getelementptr inbounds i8, ptr %.val.i.i.i284, i64 %indvars.iv410
@@ -3698,7 +3698,7 @@ Bac_ObjNameStr.exit292:                           ; preds = %434, %439
   %.val.i288 = load ptr, ptr %0, align 8
   %443 = getelementptr i8, ptr %.val.i288, i64 16
   %.val.val.i289 = load ptr, ptr %443, align 8
-  %444 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i289, i32 noundef %442) #10
+  %444 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i289, i32 noundef range(i32 -536870912, 536870912) %442) #10
   %445 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %444) #13
   %446 = trunc i64 %445 to i32
   %447 = add i32 %.2137335, %446
@@ -3983,7 +3983,7 @@ Bac_ObjName.exit.thread:                          ; preds = %Bac_ObjGetConst.exi
   %.val24.val = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %.val24, i64 48
   %.val24.val25 = load ptr, ptr %39, align 8
-  %40 = tail call ptr @Abc_NamStr(ptr noundef %.val24.val, i32 noundef %37) #10
+  %40 = tail call ptr @Abc_NamStr(ptr noundef %.val24.val, i32 noundef range(i32 -536870912, 536870912) %37) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val24.val25, ptr noundef %40)
   br label %116
 
@@ -4042,7 +4042,7 @@ Bac_ManFindRealNameId.exit:                       ; preds = %57, %60
   %.val23.val = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %.val23, i64 48
   %.val23.val26 = load ptr, ptr %68, align 8
-  %69 = tail call ptr @Abc_NamStr(ptr noundef %.val23.val, i32 noundef %.010.i) #10
+  %69 = tail call ptr @Abc_NamStr(ptr noundef %.val23.val, i32 noundef range(i32 -536870912, 536870912) %.010.i) #10
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %.val23.val26, ptr noundef %69)
   %.val.i.i29 = load ptr, ptr %3, align 8
   %70 = getelementptr inbounds i8, ptr %.val.i.i29, i64 %.pre-phi

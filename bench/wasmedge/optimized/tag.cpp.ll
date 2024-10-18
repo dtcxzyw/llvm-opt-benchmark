@@ -55,7 +55,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime8Instance14
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #10, !noalias !4
+  %18 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #10, !noalias !4
   switch i32 %18, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %17
     i32 35, label %19
@@ -100,9 +100,9 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %17
 
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %27, %30
   %.sroa.1.1 = phi ptr [ %32, %30 ], [ %29, %27 ]
-  %36 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #10, !noalias !4
+  %36 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #10, !noalias !4
   store ptr %.sroa.1.1, ptr %5, align 8
-  %37 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %10) #10
+  %37 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #10
   %38 = icmp eq i32 %37, 35
   br i1 %38, label %39, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
@@ -117,11 +117,11 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %_ZNK8WasmEdge7Run
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  %41 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #10
+  %41 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #10
   resume { ptr, i32 } %40
 
 _ZN8WasmEdge7Runtime8Instance14ModuleInstance6addTagIJRKNS_3AST7TagTypeERPKNS4_7SubTypeEEEEvDpOT_.exit: ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
-  %42 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #10
+  %42 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #10
   %43 = getelementptr inbounds i8, ptr %.017, i64 16
   %.not = icmp eq ptr %43, %9
   br i1 %.not, label %._crit_edge, label %15

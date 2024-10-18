@@ -186,7 +186,7 @@ resize_buffer.exit:                               ; preds = %72, %75
   br i1 %.not.i, label %resize_buffer.exit.thread, label %buffer_size_check.exit
 
 resize_buffer.exit.thread:                        ; preds = %64, %resize_buffer.exit
-  %78 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %78 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %78) #12
   unreachable
 
@@ -341,7 +341,7 @@ resize_buffer.exit2317:                           ; preds = %106, %109
   br i1 %.not.i2318, label %resize_buffer.exit2317.thread, label %buffer_size_check.exit2319
 
 resize_buffer.exit2317.thread:                    ; preds = %97, %resize_buffer.exit2317
-  %112 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %112 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %112) #12
   unreachable
 
@@ -585,7 +585,7 @@ resize_buffer.exit2331:                           ; preds = %227, %230
   br i1 %.not.i2332, label %resize_buffer.exit2331.thread, label %buffer_size_check.exit2333
 
 resize_buffer.exit2331.thread:                    ; preds = %219, %resize_buffer.exit2331
-  %233 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %233 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %233) #12
   unreachable
 
@@ -606,7 +606,7 @@ buffer_size_check.exit2333:                       ; preds = %resize_buffer.exit2
   %240 = load i32, ptr %48, align 8
   %241 = lshr i32 %240, 13
   %242 = and i32 %241, 31
-  %243 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %242, i32 1)
+  %243 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %242, i32 range(i32 0, 512) 1)
   %244 = and i32 %.018933425, 1
   %.not2263 = icmp eq i32 %244, 0
   %245 = icmp slt i32 %.018893426, 1
@@ -658,7 +658,7 @@ resize_buffer.exit2340:                           ; preds = %262, %265
   br i1 %.not.i2341, label %resize_buffer.exit2340.thread, label %buffer_size_check.exit2342
 
 resize_buffer.exit2340.thread:                    ; preds = %._crit_edge3834, %resize_buffer.exit2340
-  %268 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %268 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %268) #12
   unreachable
 
@@ -693,7 +693,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %buffer_size_check.e
   %281 = load i32, ptr %48, align 8
   %282 = lshr i32 %281, 18
   %283 = and i32 %282, 31
-  %284 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %283, i32 23)
+  %284 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %283, i32 23)
   %285 = and i32 %.018933425, 1
   %.not2259 = icmp eq i32 %285, 0
   %286 = icmp slt i32 %.018893426, 1
@@ -745,7 +745,7 @@ resize_buffer.exit2350:                           ; preds = %303, %306
   br i1 %.not.i2351, label %resize_buffer.exit2350.thread, label %buffer_size_check.exit2352
 
 resize_buffer.exit2350.thread:                    ; preds = %._crit_edge3833, %resize_buffer.exit2350
-  %309 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %309 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %309) #12
   unreachable
 
@@ -780,7 +780,7 @@ rbimpl_rstring_getmem.exit2354:                   ; preds = %buffer_size_check.e
   %322 = load i32, ptr %48, align 8
   %323 = lshr i32 %322, 18
   %324 = and i32 %323, 31
-  %325 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %324, i32 23)
+  %325 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %324, i32 23)
   %326 = icmp eq i32 %324, 0
   %327 = icmp samesign ugt i32 %324, 12
   %328 = add nsw i32 %325, -12
@@ -837,7 +837,7 @@ resize_buffer.exit2361:                           ; preds = %347, %350
   br i1 %.not.i2362, label %resize_buffer.exit2361.thread, label %buffer_size_check.exit2363
 
 resize_buffer.exit2361.thread:                    ; preds = %._crit_edge3832, %resize_buffer.exit2361
-  %353 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %353 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %353) #12
   unreachable
 
@@ -871,8 +871,8 @@ rbimpl_rstring_getmem.exit2365:                   ; preds = %buffer_size_check.e
 365:                                              ; preds = %.lr.ph
   %366 = load i32, ptr %48, align 8
   %367 = and i32 %366, 511
-  %368 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %367, i32 366)
-  %369 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %368, i32 1)
+  %368 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %367, i32 366)
+  %369 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %368, i32 range(i32 0, 512) 1)
   %370 = and i32 %.018933425, 1
   %.not2251 = icmp eq i32 %370, 0
   %371 = icmp slt i32 %.018893426, 1
@@ -924,7 +924,7 @@ resize_buffer.exit2372:                           ; preds = %388, %391
   br i1 %.not.i2373, label %resize_buffer.exit2372.thread, label %buffer_size_check.exit2374
 
 resize_buffer.exit2372.thread:                    ; preds = %._crit_edge3831, %resize_buffer.exit2372
-  %394 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %394 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %394) #12
   unreachable
 
@@ -959,8 +959,8 @@ rbimpl_rstring_getmem.exit2376:                   ; preds = %buffer_size_check.e
   %407 = load i32, ptr %48, align 8
   %408 = lshr i32 %407, 9
   %409 = and i32 %408, 15
-  %410 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %409, i32 12)
-  %411 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %410, i32 1)
+  %410 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %409, i32 12)
+  %411 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %410, i32 range(i32 0, 512) 1)
   %412 = and i32 %.018933425, 1
   %.not2247 = icmp eq i32 %412, 0
   %413 = icmp slt i32 %.018893426, 1
@@ -1012,7 +1012,7 @@ resize_buffer.exit2383:                           ; preds = %430, %433
   br i1 %.not.i2384, label %resize_buffer.exit2383.thread, label %buffer_size_check.exit2385
 
 resize_buffer.exit2383.thread:                    ; preds = %._crit_edge3830, %resize_buffer.exit2383
-  %436 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %436 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %436) #12
   unreachable
 
@@ -1047,7 +1047,7 @@ rbimpl_rstring_getmem.exit2387:                   ; preds = %buffer_size_check.e
   %449 = load i32, ptr %48, align 8
   %450 = lshr i32 %449, 23
   %451 = and i32 %450, 63
-  %452 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %451, i32 59)
+  %452 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %451, i32 59)
   %453 = and i32 %.018933425, 1
   %.not2243 = icmp eq i32 %453, 0
   %454 = icmp slt i32 %.018893426, 1
@@ -1099,7 +1099,7 @@ resize_buffer.exit2394:                           ; preds = %471, %474
   br i1 %.not.i2395, label %resize_buffer.exit2394.thread, label %buffer_size_check.exit2396
 
 resize_buffer.exit2394.thread:                    ; preds = %._crit_edge3829, %resize_buffer.exit2394
-  %477 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %477 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %477) #12
   unreachable
 
@@ -1213,7 +1213,7 @@ resize_buffer.exit2405:                           ; preds = %524, %527
   br i1 %.not.i2406, label %resize_buffer.exit2405.thread, label %buffer_size_check.exit2407
 
 resize_buffer.exit2405.thread:                    ; preds = %518, %resize_buffer.exit2405
-  %530 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %530 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %530) #12
   unreachable
 
@@ -1457,7 +1457,7 @@ resize_buffer.exit2421:                           ; preds = %639, %642
   br i1 %.not.i2422, label %resize_buffer.exit2421.thread, label %buffer_size_check.exit2423
 
 resize_buffer.exit2421.thread:                    ; preds = %._crit_edge3827, %resize_buffer.exit2421
-  %645 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %645 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %645) #12
   unreachable
 
@@ -1540,7 +1540,7 @@ resize_buffer.exit2432:                           ; preds = %676, %679
   br i1 %.not.i2433, label %resize_buffer.exit2432.thread, label %buffer_size_check.exit2434
 
 resize_buffer.exit2432.thread:                    ; preds = %._crit_edge3826, %resize_buffer.exit2432
-  %682 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %682 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %682) #12
   unreachable
 
@@ -1651,7 +1651,7 @@ resize_buffer.exit2444:                           ; preds = %734, %737
   br i1 %.not.i2445, label %resize_buffer.exit2444.thread, label %buffer_size_check.exit2446
 
 resize_buffer.exit2444.thread:                    ; preds = %728, %resize_buffer.exit2444
-  %740 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %740 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %740) #12
   unreachable
 
@@ -1734,7 +1734,7 @@ resize_buffer.exit2455:                           ; preds = %771, %774
   br i1 %.not.i2456, label %resize_buffer.exit2455.thread, label %buffer_size_check.exit2457
 
 resize_buffer.exit2455.thread:                    ; preds = %._crit_edge3825, %resize_buffer.exit2455
-  %777 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %777 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %777) #12
   unreachable
 
@@ -1928,7 +1928,7 @@ resize_buffer.exit2485:                           ; preds = %860, %863
   br i1 %.not.i2486, label %resize_buffer.exit2485.thread, label %buffer_size_check.exit2487
 
 resize_buffer.exit2485.thread:                    ; preds = %852, %resize_buffer.exit2485
-  %866 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %866 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %866) #12
   unreachable
 
@@ -2081,7 +2081,7 @@ resize_buffer.exit2508:                           ; preds = %926, %929
   br i1 %.not.i2509, label %resize_buffer.exit2508.thread, label %buffer_size_check.exit2510
 
 resize_buffer.exit2508.thread:                    ; preds = %918, %resize_buffer.exit2508
-  %932 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %932 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %932) #12
   unreachable
 
@@ -2167,7 +2167,7 @@ resize_buffer.exit2519:                           ; preds = %965, %968
   br i1 %.not.i2520, label %resize_buffer.exit2519.thread, label %buffer_size_check.exit2521
 
 resize_buffer.exit2519.thread:                    ; preds = %rb_num2int_inline.exit._crit_edge, %resize_buffer.exit2519
-  %971 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %971 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %971) #12
   unreachable
 
@@ -2259,7 +2259,7 @@ resize_buffer.exit2530:                           ; preds = %1008, %1011
   br i1 %.not.i2531, label %resize_buffer.exit2530.thread, label %buffer_size_check.exit2532
 
 resize_buffer.exit2530.thread:                    ; preds = %._crit_edge3821, %resize_buffer.exit2530
-  %1014 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1014 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1014) #12
   unreachable
 
@@ -2403,7 +2403,7 @@ resize_buffer.exit2541:                           ; preds = %1074, %1077
   br i1 %.not.i2542, label %resize_buffer.exit2541.thread, label %buffer_size_check.exit2543
 
 resize_buffer.exit2541.thread:                    ; preds = %1066, %resize_buffer.exit2541
-  %1080 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1080 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1080) #12
   unreachable
 
@@ -2859,7 +2859,7 @@ resize_buffer.exit2568:                           ; preds = %1304, %1307
   br i1 %.not.i2569, label %resize_buffer.exit2568.thread, label %buffer_size_check.exit2570
 
 resize_buffer.exit2568.thread:                    ; preds = %1295, %resize_buffer.exit2568
-  %1310 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1310 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1310) #12
   unreachable
 
@@ -2953,7 +2953,7 @@ resize_buffer.exit2577:                           ; preds = %1344, %1347
   br i1 %.not.i2578, label %resize_buffer.exit2577.thread, label %buffer_size_check.exit2579
 
 resize_buffer.exit2577.thread:                    ; preds = %1335, %resize_buffer.exit2577
-  %1350 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1350 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1350) #12
   unreachable
 
@@ -3123,7 +3123,7 @@ resize_buffer.exit2600:                           ; preds = %1417, %1420
   br i1 %.not.i2601, label %resize_buffer.exit2600.thread, label %buffer_size_check.exit2602
 
 resize_buffer.exit2600.thread:                    ; preds = %1409, %resize_buffer.exit2600
-  %1423 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1423 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1423) #12
   unreachable
 
@@ -3192,7 +3192,7 @@ resize_buffer.exit2609:                           ; preds = %1448, %1451
   br i1 %.not.i2610, label %resize_buffer.exit2609.thread, label %buffer_size_check.exit2611
 
 resize_buffer.exit2609.thread:                    ; preds = %._crit_edge3817, %resize_buffer.exit2609
-  %1454 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1454 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1454) #12
   unreachable
 
@@ -3204,7 +3204,7 @@ buffer_size_check.exit2611:                       ; preds = %resize_buffer.exit2
   %1458 = load i32, ptr %48, align 8
   %1459 = lshr i32 %1458, 13
   %1460 = and i32 %1459, 31
-  %1461 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %1460, i32 1)
+  %1461 = call range(i32 0, 512) i32 @llvm.umax.i32(i32 %1460, i32 range(i32 0, 512) 1)
   %1462 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef %1457, i32 noundef %1433, i32 noundef %1461) #10
   %1463 = load i64, ptr %18, align 8, !noalias !150
   %1464 = and i64 %1463, 8192
@@ -3361,7 +3361,7 @@ resize_buffer.exit2634:                           ; preds = %1523, %1526
   br i1 %.not.i2635, label %resize_buffer.exit2634.thread, label %buffer_size_check.exit2636
 
 resize_buffer.exit2634.thread:                    ; preds = %1515, %resize_buffer.exit2634
-  %1529 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1529 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1529) #12
   unreachable
 
@@ -3514,7 +3514,7 @@ resize_buffer.exit2657:                           ; preds = %1589, %1592
   br i1 %.not.i2658, label %resize_buffer.exit2657.thread, label %buffer_size_check.exit2659
 
 resize_buffer.exit2657.thread:                    ; preds = %1581, %resize_buffer.exit2657
-  %1595 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1595 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1595) #12
   unreachable
 
@@ -3667,7 +3667,7 @@ resize_buffer.exit2680:                           ; preds = %1655, %1658
   br i1 %.not.i2681, label %resize_buffer.exit2680.thread, label %buffer_size_check.exit2682
 
 resize_buffer.exit2680.thread:                    ; preds = %1647, %resize_buffer.exit2680
-  %1661 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1661 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1661) #12
   unreachable
 
@@ -3688,7 +3688,7 @@ buffer_size_check.exit2682:                       ; preds = %resize_buffer.exit2
   %1668 = load i32, ptr %48, align 8
   %1669 = lshr i32 %1668, 18
   %1670 = and i32 %1669, 31
-  %1671 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %1670, i32 23)
+  %1671 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %1670, i32 23)
   %1672 = and i32 %.018933425, 1
   %.not2130 = icmp eq i32 %1672, 0
   %1673 = icmp slt i32 %.018893426, 1
@@ -3740,7 +3740,7 @@ resize_buffer.exit2689:                           ; preds = %1690, %1693
   br i1 %.not.i2690, label %resize_buffer.exit2689.thread, label %buffer_size_check.exit2691
 
 resize_buffer.exit2689.thread:                    ; preds = %._crit_edge3813, %resize_buffer.exit2689
-  %1696 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1696 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1696) #12
   unreachable
 
@@ -3773,7 +3773,7 @@ rbimpl_rstring_getmem.exit2693:                   ; preds = %buffer_size_check.e
   %1708 = load i32, ptr %48, align 8
   %1709 = lshr i32 %1708, 18
   %1710 = and i32 %1709, 31
-  %1711 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 %1710, i32 23)
+  %1711 = call range(i32 0, 367) i32 @llvm.umin.i32(i32 range(i32 0, 512) %1710, i32 23)
   %1712 = icmp eq i32 %1710, 0
   %1713 = icmp samesign ugt i32 %1710, 12
   %1714 = add nsw i32 %1711, -12
@@ -3830,7 +3830,7 @@ resize_buffer.exit2700:                           ; preds = %1733, %1736
   br i1 %.not.i2701, label %resize_buffer.exit2700.thread, label %buffer_size_check.exit2702
 
 resize_buffer.exit2700.thread:                    ; preds = %._crit_edge3812, %resize_buffer.exit2700
-  %1739 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1739 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1739) #12
   unreachable
 
@@ -3995,7 +3995,7 @@ resize_buffer.exit2725:                           ; preds = %1804, %1807
   br i1 %.not.i2726, label %resize_buffer.exit2725.thread, label %buffer_size_check.exit2727
 
 resize_buffer.exit2725.thread:                    ; preds = %1796, %resize_buffer.exit2725
-  %1810 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1810 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1810) #12
   unreachable
 
@@ -4083,7 +4083,7 @@ resize_buffer.exit2740:                           ; preds = %1840, %1843
   br i1 %.not.i2741, label %resize_buffer.exit2740.thread, label %buffer_size_check.exit2742
 
 resize_buffer.exit2740.thread:                    ; preds = %._crit_edge3809, %resize_buffer.exit2740
-  %1846 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1846 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1846) #12
   unreachable
 
@@ -4226,7 +4226,7 @@ resize_buffer.exit2754:                           ; preds = %1906, %1909
   br i1 %.not.i2755, label %resize_buffer.exit2754.thread, label %buffer_size_check.exit2756
 
 resize_buffer.exit2754.thread:                    ; preds = %1898, %resize_buffer.exit2754
-  %1912 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1912 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1912) #12
   unreachable
 
@@ -4333,7 +4333,7 @@ resize_buffer.exit2765:                           ; preds = %1953, %1956
   br i1 %.not.i2766, label %resize_buffer.exit2765.thread, label %buffer_size_check.exit2767
 
 resize_buffer.exit2765.thread:                    ; preds = %._crit_edge3808, %resize_buffer.exit2765
-  %1959 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1959 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1959) #12
   unreachable
 
@@ -4417,7 +4417,7 @@ resize_buffer.exit2776:                           ; preds = %1992, %1995
   br i1 %.not.i2777, label %resize_buffer.exit2776.thread, label %buffer_size_check.exit2778
 
 resize_buffer.exit2776.thread:                    ; preds = %1986, %resize_buffer.exit2776
-  %1998 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %1998 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %1998) #12
   unreachable
 
@@ -4542,7 +4542,7 @@ resize_buffer.exit2787:                           ; preds = %2054, %2057
   br i1 %.not.i2788, label %resize_buffer.exit2787.thread, label %buffer_size_check.exit2789
 
 resize_buffer.exit2787.thread:                    ; preds = %._crit_edge3806, %resize_buffer.exit2787
-  %2060 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2060 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2060) #12
   unreachable
 
@@ -4686,7 +4686,7 @@ resize_buffer.exit2801:                           ; preds = %2120, %2123
   br i1 %.not.i2802, label %resize_buffer.exit2801.thread, label %buffer_size_check.exit2803
 
 resize_buffer.exit2801.thread:                    ; preds = %2112, %resize_buffer.exit2801
-  %2126 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2126 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2126) #12
   unreachable
 
@@ -4771,7 +4771,7 @@ resize_buffer.exit2812:                           ; preds = %2159, %2162
   br i1 %.not.i2813, label %resize_buffer.exit2812.thread, label %buffer_size_check.exit2814
 
 resize_buffer.exit2812.thread:                    ; preds = %._crit_edge3805, %resize_buffer.exit2812
-  %2165 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2165 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2165) #12
   unreachable
 
@@ -4860,7 +4860,7 @@ resize_buffer.exit2823:                           ; preds = %2193, %2196
   br i1 %.not.i2824, label %resize_buffer.exit2823.thread, label %buffer_size_check.exit2825
 
 resize_buffer.exit2823.thread:                    ; preds = %2185, %resize_buffer.exit2823
-  %2199 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2199 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2199) #12
   unreachable
 
@@ -5127,7 +5127,7 @@ resize_buffer.exit2852:                           ; preds = %2315, %2318
   br i1 %.not.i2853, label %resize_buffer.exit2852.thread, label %buffer_size_check.exit2854
 
 resize_buffer.exit2852.thread:                    ; preds = %2307, %resize_buffer.exit2852
-  %2321 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2321 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2321) #12
   unreachable
 
@@ -5317,7 +5317,7 @@ resize_buffer.exit2861:                           ; preds = %2383, %2386
   br i1 %.not.i2862, label %resize_buffer.exit2861.thread, label %buffer_size_check.exit2863
 
 resize_buffer.exit2861.thread:                    ; preds = %2375, %resize_buffer.exit2861
-  %2389 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2389 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2389) #12
   unreachable
 
@@ -5381,7 +5381,7 @@ resize_buffer.exit2870:                           ; preds = %2407, %2410
   br i1 %.not.i2871, label %resize_buffer.exit2870.thread, label %ruby_nonempty_memcpy.exit2874
 
 resize_buffer.exit2870.thread:                    ; preds = %2399, %resize_buffer.exit2870
-  %2413 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef %2, ptr noundef %.01871) #10
+  %2413 = call i64 @rb_enc_str_new(ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %.01871) #10
   call void @rb_syserr_fail_str(i32 noundef 34, i64 noundef %2413) #12
   unreachable
 

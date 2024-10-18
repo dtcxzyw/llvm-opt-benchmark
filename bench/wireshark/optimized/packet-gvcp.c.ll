@@ -2307,7 +2307,7 @@ dissect_register_data.exit.sink.split:            ; preds = %73, %switch.lookup,
   %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %55 ], [ @hf_gvcp_model_name, %57 ], [ @hf_gvcp_device_version, %59 ], [ @hf_gvcp_manufacturer_specific_info, %61 ], [ @hf_gvcp_serial_number, %63 ], [ @hf_gvcp_user_defined_name, %65 ], [ @hf_gvcp_first_xml_device_description_file, %67 ], [ @hf_gvcp_second_xml_device_description_file, %69 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_writememcmd_data, %73 ]
   %.sink56 = phi i32 [ -1, %55 ], [ -1, %57 ], [ -1, %59 ], [ -1, %61 ], [ -1, %63 ], [ -1, %65 ], [ -1, %67 ], [ -1, %69 ], [ 4, %switch.lookup ], [ %26, %73 ]
   %83 = load i32, ptr %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef 12, i32 noundef %.sink56, i32 noundef 0) #5
+  %84 = call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %83, ptr noundef %1, i32 noundef 12, i32 noundef %.sink56, i32 noundef 0) #5
   br label %dissect_register_data.exit
 
 dissect_register_data.exit:                       ; preds = %is_extended_bootstrap_address.exit, %dissect_register_data.exit.sink.split, %69, %67, %65, %63, %61, %59, %57, %55, %54, %.thread, %37

@@ -107,11 +107,11 @@ define void @_ZN24InterfaceSortFilterModelC2EP7QObject(ptr noundef nonnull align
   br i1 %exitcond.not.i, label %15, label %12, !llvm.loop !4
 
 15:                                               ; preds = %.noexc
-  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
           to label %.noexc3 unwind label %.loopexit.split-lp
 
 .noexc3:                                          ; preds = %15
-  invoke void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke void @_ZN21QSortFilterProxyModel10invalidateEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
           to label %_ZN24InterfaceSortFilterModel14resetAllFilterEv.exit unwind label %.loopexit.split-lp
 
 _ZN24InterfaceSortFilterModel14resetAllFilterEv.exit: ; preds = %.noexc3
@@ -1798,7 +1798,7 @@ _ZN7QStringD2Ev.exit.thread:                      ; preds = %14, %10, %_ZN7QStri
 _ZN24InterfaceSortFilterModel2trEPKcS1_i.exit:    ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %37 = invoke noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %37 = invoke noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %_ZN24InterfaceSortFilterModel2trEPKcS1_i.exit
@@ -1822,7 +1822,7 @@ _ZN24InterfaceSortFilterModel2trEPKcS1_i.exit:    ; preds = %36
   %46 = load ptr, ptr %1, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 120
   %48 = load ptr, ptr %47, align 8
-  %49 = invoke noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %49 = invoke noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %50 unwind label %66
 
 50:                                               ; preds = %.noexc9
@@ -1958,7 +1958,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %15, %16, %20
   br label %_ZNK11QModelIndex4dataEi.exit
 
 29:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !18
   %30 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %30, align 8, !alias.scope !18
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -2016,7 +2016,7 @@ _ZNK11QModelIndex7siblingEii.exit19:              ; preds = %40, %41, %45
   br label %_ZNK11QModelIndex4dataEi.exit21
 
 54:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !alias.scope !24
   %55 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %55, align 8, !alias.scope !24
   br label %_ZNK11QModelIndex4dataEi.exit21

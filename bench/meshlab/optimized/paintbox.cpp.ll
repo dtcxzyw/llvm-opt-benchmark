@@ -3279,7 +3279,7 @@ _ZN7QStringD2Ev.exit347:                          ; preds = %937, %_ZN9QtPrivate
 
 943:                                              ; preds = %_ZN7QStringD2Ev.exit347
   %944 = load ptr, ptr %915, align 8
-  invoke void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %942, ptr noundef %944)
+  invoke void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %942, ptr noundef %944)
           to label %.noexc unwind label %2435
 
 .noexc:                                           ; preds = %943
@@ -3288,17 +3288,17 @@ _ZN7QStringD2Ev.exit347:                          ; preds = %937, %_ZN9QtPrivate
   store ptr getelementptr inbounds (i8, ptr @_ZTV9CloneView, i64 512), ptr %945, align 8
   %946 = getelementptr inbounds i8, ptr %942, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %946, i8 0, i64 32, i1 false)
-  invoke void @_ZN13QGraphicsView11setDragModeENS_8DragModeE(ptr noundef nonnull align 8 dereferenceable(48) %942, i32 noundef 0)
+  invoke void @_ZN13QGraphicsView11setDragModeENS_8DragModeE(ptr noundef nonnull align 8 dereferenceable(96) %942, i32 noundef 0)
           to label %947 unwind label %948
 
 947:                                              ; preds = %.noexc
-  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(48) %942, i32 noundef 2, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(96) %942, i32 noundef 2, i1 noundef zeroext false)
           to label %_ZN9CloneViewC2EP7QWidget.exit unwind label %948
 
 948:                                              ; preds = %947, %.noexc
   %949 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN13QGraphicsViewD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %942) #19
+  call void @_ZN13QGraphicsViewD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %942) #19
   br label %.body
 
 _ZN9CloneViewC2EP7QWidget.exit:                   ; preds = %947

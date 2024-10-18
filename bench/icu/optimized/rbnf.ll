@@ -543,7 +543,7 @@ if.else:                                          ; preds = %lor.lhs.false.i, %l
   store ptr %incdec.ptr.i.i8, ptr %p.i, align 8
   store i16 -1, ptr %ch.i7, align 8
   %deleter.i = getelementptr inbounds i8, ptr %array, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %array, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %array, i8 0, i64 16, i1 false)
   store ptr @_ZN6icu_75L8DeleteFnEPv, ptr %deleter.i, align 8
   store i32 -1, ptr %requiredLength, align 4
   %ec = getelementptr inbounds i8, ptr %this, i64 40
@@ -925,7 +925,7 @@ invoke.cont49:                                    ; preds = %if.end38.i107, %if.
 if.then54:                                        ; preds = %invoke.cont49
   %55 = load i32, ptr %size.i, align 4
   %56 = load ptr, ptr %array, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %array, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %array, i8 0, i64 16, i1 false)
   %call59 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #22
   %new.isnull = icmp eq ptr %call59, null
   br i1 %new.isnull, label %cleanup, label %new.notnull
@@ -1551,7 +1551,7 @@ if.then60:                                        ; preds = %if.else56
 
 if.end67:                                         ; preds = %if.else56, %if.then53
   %55 = load ptr, ptr %array, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %array, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %array, i8 0, i64 16, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %do.body21.invoke, %if.end67

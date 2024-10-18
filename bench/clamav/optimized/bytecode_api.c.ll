@@ -215,7 +215,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, 
 
 24:                                               ; preds = %22
   %25 = sub nuw i64 %19, %16
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %25)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 -2147483646, 2147483648) %17, i64 %25)
   %26 = getelementptr inbounds i8, ptr %5, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %5, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #28
@@ -951,7 +951,7 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
 
 42:                                               ; preds = %40
   %43 = sub nuw i64 %37, %29
-  %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 %.0.us, i64 %43)
+  %spec.select.i.us = tail call i64 @llvm.umin.i64(i64 range(i64 -2147483646, 2147483648) %.0.us, i64 %43)
   %44 = load ptr, ptr %25, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %7, i64 noundef %29, i64 noundef %spec.select.i.us, i32 noundef 0) #28
   %.not.i.us = icmp eq ptr %45, null
@@ -1003,7 +1003,7 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 
 66:                                               ; preds = %64
   %67 = sub nuw i64 %61, %53
-  %spec.select.i.us71 = call i64 @llvm.umin.i64(i64 %.0.us69, i64 %67)
+  %spec.select.i.us71 = call i64 @llvm.umin.i64(i64 range(i64 -2147483646, 2147483648) %.0.us69, i64 %67)
   %68 = load ptr, ptr %25, align 8
   %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us71, i32 noundef 0) #28
   %.not.i.us72 = icmp eq ptr %69, null
@@ -1059,7 +1059,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
 
 92:                                               ; preds = %90
   %93 = sub nuw i64 %87, %79
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %.0, i64 %93)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 range(i64 -2147483646, 2147483648) %.0, i64 %93)
   %94 = load ptr, ptr %25, align 8
   %95 = call ptr %94(ptr noundef nonnull %7, i64 noundef %79, i64 noundef %spec.select.i, i32 noundef 0) #28
   %.not.i = icmp eq ptr %95, null
@@ -2110,7 +2110,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23:   ; preds = %get_buffer.exit.i
   %36 = zext i32 %2 to i64
   %37 = getelementptr inbounds i8, ptr %34, i64 104
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef %34, i64 noundef %35, i64 noundef %36, i32 noundef 1) #28
+  %39 = tail call ptr %38(ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35, i64 noundef range(i64 0, 4294967296) %36, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23, %14, %17, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_read_avail.exit, %32, %.thread
@@ -2573,7 +2573,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %75 = zext i32 %.0.i63 to i64
   %76 = getelementptr inbounds i8, ptr %59, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef %74, i64 noundef %75, i32 noundef 1) #28
+  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef range(i64 0, 4294967296) %74, i64 noundef range(i64 0, 4294967296) %75, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
@@ -3045,7 +3045,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %70 = zext i32 %58 to i64
   %71 = getelementptr inbounds i8, ptr %55, i64 104
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call ptr %72(ptr noundef nonnull %55, i64 noundef %70, i64 noundef %45, i32 noundef 1) #28
+  %73 = tail call ptr %72(ptr noundef nonnull %55, i64 noundef range(i64 0, 4294967296) %70, i64 noundef range(i64 0, 4294967296) %45, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
@@ -3333,7 +3333,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %75 = zext i32 %63 to i64
   %76 = getelementptr inbounds i8, ptr %60, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %60, i64 noundef %75, i64 noundef %47, i32 noundef 1) #28
+  %78 = tail call ptr %77(ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %75, i64 noundef range(i64 0, 4294967296) %47, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
@@ -3856,7 +3856,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %75 = zext i32 %.0.i43 to i64
   %76 = getelementptr inbounds i8, ptr %59, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef %74, i64 noundef %75, i32 noundef 1) #28
+  %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef range(i64 0, 4294967296) %74, i64 noundef range(i64 0, 4294967296) %75, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
@@ -4381,7 +4381,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
   %74 = zext i32 %.0.i32 to i64
   %75 = getelementptr inbounds i8, ptr %58, i64 104
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr %76(ptr noundef nonnull %58, i64 noundef %73, i64 noundef %74, i32 noundef 1) #28
+  %77 = tail call ptr %76(ptr noundef nonnull %58, i64 noundef range(i64 0, 4294967296) %73, i64 noundef range(i64 0, 4294967296) %74, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
@@ -6475,7 +6475,7 @@ cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
   %47 = zext i32 %2 to i64
   %48 = getelementptr inbounds i8, ptr %39, i64 104
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr %49(ptr noundef %39, i64 noundef %46, i64 noundef %47, i32 noundef 1) #28
+  %50 = tail call ptr %49(ptr noundef %39, i64 noundef range(i64 0, 4294967296) %46, i64 noundef range(i64 0, 4294967296) %47, i32 noundef 1) #28
   br label %51
 
 51:                                               ; preds = %cli_bcapi_pdf_getobjsize.exit, %37

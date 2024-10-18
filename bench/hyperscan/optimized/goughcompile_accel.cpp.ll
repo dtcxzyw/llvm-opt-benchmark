@@ -318,7 +318,7 @@ common.resume:                                    ; preds = %while.body.i.i.i.i.
 lpad.i.i:                                         ; preds = %if.end.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %bg.i) #22
+  call void @_ZN5boost17vec_adj_list_implINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %bg.i) #22
   br label %common.resume
 
 _ZN5boost14adjacency_listINS_4vecSES1_NS_14bidirectionalSENS_11no_propertyES3_S3_NS_5listSEEC2ERKS3_.exit.i: ; preds = %if.end.i
@@ -361,7 +361,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 for.inc.i.i.i.i349.preheader:                     ; preds = %if.then.i.i.i
   %incdec.ptr.i.i.i.i353 = getelementptr inbounds i8, ptr %14, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %14, i8 0, i64 48, i1 false)
   store ptr %incdec.ptr.i.i.i.i353, ptr %_M_finish.i.i19.i, align 8
   br label %invoke.cont.i
 
@@ -386,7 +386,7 @@ _ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0
 
 call5.i.i.i.i.noexc395:                           ; preds = %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit.i358
   %add.ptr.i362 = getelementptr inbounds i8, ptr %call5.i.i.i.i396, i64 %sub.ptr.sub.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i362, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i362, i8 0, i64 48, i1 false)
   %cmp.not5.i.i.i.i370 = icmp eq ptr %15, %14
   br i1 %cmp.not5.i.i.i.i370, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit.i387, label %for.body.i.i.i.i371
 
@@ -405,7 +405,7 @@ for.body.i.i.i.i371:                              ; preds = %call5.i.i.i.i.noexc
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i377 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i373, i64 16
   %20 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i377, align 8, !alias.scope !8, !noalias !5
   store ptr %20, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i376, align 8, !alias.scope !5, !noalias !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i373, i8 0, i64 24, i1 false), !alias.scope !8, !noalias !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i.i373, i8 0, i64 24, i1 false), !alias.scope !8, !noalias !5
   %m_in_edges.i.i.i.i.i.i.i.i.i378 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i372, i64 24
   %m_in_edges3.i.i.i.i.i.i.i.i.i379 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i373, i64 24
   %21 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i.i.i.i379, align 8, !alias.scope !8, !noalias !5
@@ -625,7 +625,7 @@ if.then.i.i28.i:                                  ; preds = %for.body25.i
 
 for.inc.i.i.i.i241.preheader:                     ; preds = %if.then.i.i28.i
   %incdec.ptr.i.i.i.i245 = getelementptr inbounds i8, ptr %41, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %41, i8 0, i64 48, i1 false)
   store ptr %incdec.ptr.i.i.i.i245, ptr %_M_finish.i.i19.i, align 8
   br label %invoke.cont28.i
 
@@ -650,7 +650,7 @@ _ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0
 
 call5.i.i.i.i.noexc287:                           ; preds = %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit.i250
   %add.ptr.i254 = getelementptr inbounds i8, ptr %call5.i.i.i.i288, i64 %sub.ptr.sub.i.i26.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i254, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %add.ptr.i254, i8 0, i64 48, i1 false)
   %cmp.not5.i.i.i.i262 = icmp eq ptr %42, %41
   br i1 %cmp.not5.i.i.i.i262, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit.i279, label %for.body.i.i.i.i263
 
@@ -669,7 +669,7 @@ for.body.i.i.i.i263:                              ; preds = %call5.i.i.i.i.noexc
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i265, i64 16
   %47 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i269, align 8, !alias.scope !17, !noalias !14
   store ptr %47, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i268, align 8, !alias.scope !14, !noalias !17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i265, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i.i265, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
   %m_in_edges.i.i.i.i.i.i.i.i.i270 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i264, i64 24
   %m_in_edges3.i.i.i.i.i.i.i.i.i271 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i265, i64 24
   %48 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i.i.i.i271, align 8, !alias.scope !17, !noalias !14
@@ -1335,7 +1335,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, %for.inc.i.i.i.i.i
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i313.i, %for.inc.i.i.i.i.i ], [ %122, %if.then.i.i.i.i.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %sub.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i.i.i, i8 0, i64 48, i1 false)
   %dec.i.i.i.i.i = add i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i313.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i314.i = icmp eq i64 %dec.i.i.i.i.i, 0
@@ -1371,7 +1371,7 @@ call5.i.i.i.i.noexc.i:                            ; preds = %_ZNKSt6vectorIN5boo
 for.inc.i.i.i21.i.i:                              ; preds = %for.inc.i.i.i21.i.i, %call5.i.i.i.i.noexc.i
   %__cur.08.i.i.i22.i.i = phi ptr [ %incdec.ptr.i.i.i25.i.i, %for.inc.i.i.i21.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
   %__n.addr.07.i.i.i23.i.i = phi i64 [ %dec.i.i.i24.i.i, %for.inc.i.i.i21.i.i ], [ %sub.i.i.i.i.i, %call5.i.i.i.i.noexc.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i22.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i22.i.i, i8 0, i64 48, i1 false)
   %dec.i.i.i24.i.i = add i64 %__n.addr.07.i.i.i23.i.i, -1
   %incdec.ptr.i.i.i25.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i22.i.i, i64 56
   %cmp.not.i.i.i26.i.i = icmp eq i64 %dec.i.i.i24.i.i, 0
@@ -1396,7 +1396,7 @@ for.body.i.i.i.i.i:                               ; preds = %try.cont.i.i, %for.
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
   %128 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
   store ptr %128, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
   %m_in_edges.i.i.i.i.i.i.i.i.i317.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %m_in_edges3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
   %129 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
@@ -1470,7 +1470,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %_ZSt8_DestroyIN5boo
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i
 
 _ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.else.i.i.i.i.i, %_ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE13_M_deallocateEPSB_m.exit35.i.i, %_ZSt27__uninitialized_default_n_aIPN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexEmSB_ET_SD_T0_RSaIT1_E.exit.i.i, %if.then.i99.i
-  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i.i, i64 noundef %121, i64 noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %bg.i)
+  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i.i, i64 noundef %121, i64 noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %bg.i)
           to label %.noexc103.i unwind label %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc103.i:                                      ; preds = %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i.i
@@ -1522,7 +1522,7 @@ if.then.i.i.i.i137.i:                             ; preds = %if.then.i.i.i116.i
 for.inc.i.i.i.i115:                               ; preds = %if.then.i.i.i.i137.i, %for.inc.i.i.i.i115
   %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i115 ], [ %134, %if.then.i.i.i.i137.i ]
   %__n.addr.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i115 ], [ %sub.i.i.i.i138.i, %if.then.i.i.i.i137.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i.i, i8 0, i64 48, i1 false)
   %dec.i.i.i.i = add i64 %__n.addr.07.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 56
   %cmp.not.i.i.i.i116 = icmp eq i64 %dec.i.i.i.i, 0
@@ -1558,7 +1558,7 @@ call5.i.i.i.i.noexc:                              ; preds = %_ZNKSt6vectorIN5boo
 for.inc.i.i.i21.i:                                ; preds = %for.inc.i.i.i21.i, %call5.i.i.i.i.noexc
   %__cur.08.i.i.i22.i = phi ptr [ %incdec.ptr.i.i.i25.i, %for.inc.i.i.i21.i ], [ %add.ptr.i, %call5.i.i.i.i.noexc ]
   %__n.addr.07.i.i.i23.i = phi i64 [ %dec.i.i.i24.i, %for.inc.i.i.i21.i ], [ %sub.i.i.i.i138.i, %call5.i.i.i.i.noexc ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i22.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i22.i, i8 0, i64 48, i1 false)
   %dec.i.i.i24.i = add i64 %__n.addr.07.i.i.i23.i, -1
   %incdec.ptr.i.i.i25.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i22.i, i64 56
   %cmp.not.i.i.i26.i = icmp eq i64 %dec.i.i.i24.i, 0
@@ -1583,7 +1583,7 @@ for.body.i.i.i.i121:                              ; preds = %try.cont.i, %for.bo
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %140 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !58, !noalias !55
   store ptr %140, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !55, !noalias !58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !58, !noalias !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !58, !noalias !55
   %m_in_edges.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %m_in_edges3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
   %141 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !58, !noalias !55
@@ -1657,7 +1657,7 @@ invoke.cont.i.i.i.i.i136.i:                       ; preds = %_ZSt8_DestroyIN5boo
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i121.i
 
 _ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i121.i: ; preds = %_ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE13_M_deallocateEPSB_m.exit35.i, %_ZSt27__uninitialized_default_n_aIPN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexEmSB_ET_SD_T0_RSaIT1_E.exit.i, %invoke.cont.i.i.i.i.i136.i, %if.then5.i.i.i.i122.i, %if.else.i.i.i.i119.i, %if.then.i107.i
-  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i105.i, i64 noundef %114, i64 noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i104.i, ptr noundef nonnull align 1 dereferenceable(1) %bg.i)
+  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i105.i, i64 noundef %114, i64 noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i104.i, ptr noundef nonnull align 8 dereferenceable(56) %bg.i)
           to label %.noexc140.i unwind label %lpad52.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit
 
 .noexc140.i:                                      ; preds = %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i121.i
@@ -1983,7 +1983,7 @@ invoke.cont.i.i.i.i.i242.i:                       ; preds = %_ZSt8_DestroyIN5boo
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i227.i
 
 _ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i227.i: ; preds = %invoke.cont.i.i.i.i.i242.i, %if.then5.i.i.i.i228.i, %if.else.i.i.i.i225.i, %if.then.i.i.i.i243.i, %if.then.i213.i
-  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i211.i, i64 noundef %178, i64 noundef %179, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i210.i, ptr noundef nonnull align 1 dereferenceable(1) %bg.i)
+  invoke void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp.i211.i, i64 noundef %178, i64 noundef %179, ptr noundef nonnull align 1 dereferenceable(1) %p.i.i210.i, ptr noundef nonnull align 8 dereferenceable(56) %bg.i)
           to label %.noexc246.i unwind label %lpad52.loopexit.i
 
 .noexc246.i:                                      ; preds = %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit.i227.i
@@ -2134,7 +2134,7 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 while.body.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit.i.i.i, %while.body.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i = phi ptr [ %204, %while.body.i.i.i.i.i.i ], [ %203, %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit.i.i.i ]
   %204 = load ptr, ptr %__cur.05.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i) #25
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %204, %bg.i
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN3ue2L23can_accel_over_selfloopERKNS_16GoughVertexPropsERKN5boost6detail14edge_desc_implINS3_17bidirectional_tagEmEERKNS_14GoughEdgePropsEPj.exit, label %while.body.i.i.i.i.i.i, !llvm.loop !90
 
@@ -2212,7 +2212,7 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 while.body.i.i.i.i.i303.i:                        ; preds = %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit.i.i301.i, %while.body.i.i.i.i.i303.i
   %__cur.05.i.i.i.i.i304.i = phi ptr [ %215, %while.body.i.i.i.i.i303.i ], [ %214, %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit.i.i301.i ]
   %215 = load ptr, ptr %__cur.05.i.i.i.i.i304.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i304.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i304.i) #25
   %cmp.not.i.i.i.i.i305.i = icmp eq ptr %215, %bg.i
   br i1 %cmp.not.i.i.i.i.i305.i, label %common.resume, label %while.body.i.i.i.i.i303.i, !llvm.loop !90
 
@@ -3896,7 +3896,7 @@ invoke.cont.i.i.i.i:                              ; preds = %_ZSt8_DestroyIN5boo
   br label %_ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit
 
 _ZN5boost8add_edgeINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEENS_6detail12adj_list_genIS6_S2_S2_S3_S4_S4_S4_S5_E6configENS_40bidirectional_graph_helper_with_propertyISA_EEEESt4pairINT0_15edge_descriptorEbENSE_17vertex_descriptorESH_RNS_17vec_adj_list_implIT_SE_T1_EE.exit: ; preds = %if.then, %if.then.i.i.i, %if.else.i.i.i, %if.then5.i.i.i, %invoke.cont.i.i.i.i
-  call void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp, i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %p.i, ptr noundef nonnull align 1 dereferenceable(1) %g)
+  call void @_ZN5boost8add_edgeINS_6detail12adj_list_genINS_14adjacency_listINS_4vecSES4_NS_14bidirectionalSENS_11no_propertyES6_S6_NS_5listSEEES4_S4_S5_S6_S6_S6_S7_E6configEEESt4pairINT_15edge_descriptorEbENSC_17vertex_descriptorESF_RKNSC_18edge_property_typeERNS_40bidirectional_graph_helper_with_propertyISC_EE(ptr nonnull sret(%"struct.std::pair.151") align 8 %tmp, i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %p.i, ptr noundef nonnull align 8 dereferenceable(48) %g)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %p.i)
   br label %if.end
 
@@ -3984,7 +3984,7 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 while.body.i.i.i:                                 ; preds = %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %6, %while.body.i.i.i ], [ %5, %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EED2Ev.exit ]
   %6 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #25
   %cmp.not.i.i.i = icmp eq ptr %6, %this
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN5boost9list_edgeImNS1_11no_propertyEEESaIS4_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !90
 
@@ -4037,7 +4037,7 @@ if.then:                                          ; preds = %entry
 for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i, i8 0, i64 48, i1 false)
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 56
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -4067,7 +4067,7 @@ _ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0
 for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
   %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i25, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSENS0_11no_propertyES6_S6_NS0_5listSEEES4_S4_S5_S6_S6_S6_S7_E6config13stored_vertexESaISB_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.08.i.i.i22, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.08.i.i.i22, i8 0, i64 48, i1 false)
   %dec.i.i.i24 = add i64 %__n.addr.07.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 56
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -4092,7 +4092,7 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !174, !noalias !171
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !171, !noalias !174
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !174, !noalias !171
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !174, !noalias !171
   %m_in_edges.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %m_in_edges3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %7 = load ptr, ptr %m_in_edges3.i.i.i.i.i.i.i.i, align 8, !alias.scope !174, !noalias !171
@@ -4368,7 +4368,7 @@ entry:
   store i64 %u, ptr %_M_storage.i.i.i.i.i.i, align 8
   %e.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 24
   store i64 %v, ptr %e.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %g_) #22
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %g_) #22
   %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %g_, i64 16
   %0 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %0, 1

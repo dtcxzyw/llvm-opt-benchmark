@@ -98,7 +98,7 @@ define i32 @gzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %44, label %gz_skip.exit.thread, label %45
 
 45:                                               ; preds = %42, %40
-  %46 = tail call fastcc i32 @gz_make(ptr noundef %0)
+  %46 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %47 = icmp eq i32 %46, -1
   br i1 %47, label %gz_skip.exit, label %48
 
@@ -646,7 +646,7 @@ define range(i32 -1, -2147483648) i32 @gzungetc(i32 noundef %0, ptr noundef %1) 
   br i1 %38, label %gz_skip.exit, label %39
 
 39:                                               ; preds = %36, %34
-  %40 = tail call fastcc i32 @gz_make(ptr noundef %1)
+  %40 = tail call fastcc i32 @gz_make(ptr noundef nonnull %1)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %gz_skip.exit.thread, label %42
 
@@ -826,7 +826,7 @@ define noundef ptr @gzgets(ptr noundef %0, ptr noundef writeonly %1, i32 noundef
   br i1 %41, label %gz_skip.exit.thread, label %42
 
 42:                                               ; preds = %39, %37
-  %43 = tail call fastcc i32 @gz_make(ptr noundef %0)
+  %43 = tail call fastcc i32 @gz_make(ptr noundef nonnull %0)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %gz_skip.exit, label %45
 

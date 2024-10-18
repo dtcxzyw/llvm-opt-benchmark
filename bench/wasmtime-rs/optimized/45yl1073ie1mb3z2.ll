@@ -2226,7 +2226,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %96 = sub i64 %95, %94
   store i64 %96, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   store i64 %94, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 97:                                               ; preds = %.thread
@@ -2247,7 +2247,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %100, -1
   %.neg32.i.i = shl i64 %.neg31.i.i, 4
   %104 = getelementptr inbounds i8, ptr %103, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %104, ptr noundef nonnull align 1 dereferenceable(16) %102, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %104, ptr noundef nonnull align 1 dereferenceable(16) %102, i64 range(i64 16, 57) 16, i1 false)
   %.pr = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   %105 = icmp eq i64 %.pr, 0
   br i1 %105, label %.thread.loopexit, label %.lr.ph
@@ -2515,7 +2515,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %96 = sub i64 %95, %94
   store i64 %96, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   store i64 %94, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 97:                                               ; preds = %.thread
@@ -2536,7 +2536,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %100, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 24
   %104 = getelementptr inbounds i8, ptr %103, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %104, ptr noundef nonnull align 1 dereferenceable(24) %102, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %104, ptr noundef nonnull align 1 dereferenceable(24) %102, i64 range(i64 16, 57) 24, i1 false)
   %.pr = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   %105 = icmp eq i64 %.pr, 0
   br i1 %105, label %.thread.loopexit, label %.lr.ph
@@ -2804,7 +2804,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %96 = sub i64 %95, %94
   store i64 %96, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   store i64 %94, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 97:                                               ; preds = %.thread
@@ -2825,7 +2825,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %100, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 24
   %104 = getelementptr inbounds i8, ptr %103, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %104, ptr noundef nonnull align 1 dereferenceable(24) %102, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %104, ptr noundef nonnull align 1 dereferenceable(24) %102, i64 range(i64 16, 57) 24, i1 false)
   %.pr = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   %105 = icmp eq i64 %.pr, 0
   br i1 %105, label %.thread.loopexit, label %.lr.ph
@@ -3093,7 +3093,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %96 = sub i64 %95, %94
   store i64 %96, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   store i64 %94, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 97:                                               ; preds = %.thread
@@ -3114,7 +3114,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %100, -1
   %.neg32.i.i = mul i64 %.neg31.i.i, 56
   %104 = getelementptr inbounds i8, ptr %103, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %104, ptr noundef nonnull align 1 dereferenceable(56) %102, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %104, ptr noundef nonnull align 1 dereferenceable(56) %102, i64 range(i64 16, 57) 56, i1 false)
   %.pr = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   %105 = icmp eq i64 %.pr, 0
   br i1 %105, label %.thread.loopexit, label %.lr.ph
@@ -3382,7 +3382,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %96 = sub i64 %95, %94
   store i64 %96, ptr %.sroa.420.i.i.sroa.5.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
   store i64 %94, ptr %.sroa.420.i.i.sroa.6.0..sroa.420.0..sroa_idx.i.i.sroa_idx, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h0b279b6553fb8e89E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 97:                                               ; preds = %.thread
@@ -3403,7 +3403,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   %.neg31.i.i = xor i64 %100, -1
   %.neg32.i.i = shl i64 %.neg31.i.i, 5
   %104 = getelementptr inbounds i8, ptr %103, i64 %.neg32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %104, ptr noundef nonnull align 1 dereferenceable(32) %102, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %104, ptr noundef nonnull align 1 dereferenceable(32) %102, i64 range(i64 16, 57) 32, i1 false)
   %.pr = load i64, ptr %.sroa.58.0..sroa_idx, align 8
   %105 = icmp eq i64 %.pr, 0
   br i1 %105, label %.thread.loopexit, label %.lr.ph

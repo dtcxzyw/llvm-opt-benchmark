@@ -242,7 +242,7 @@ $_ZGVZN11btMatrix3x311getIdentityEvE14identityMatrix = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22btGImpactMeshShapePartC2EP23btStridingMeshInterfacei(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %meshInterface, i32 noundef %part) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
+  tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
   %m_localAABB.i = getelementptr inbounds i8, ptr %this, i64 36
   %localScaling.i = getelementptr inbounds i8, ptr %this, i64 72
   %m_box_set.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -351,7 +351,7 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #17
   ret void
 }
 
@@ -389,7 +389,7 @@ _ZN22btGImpactMeshShapePartD2Ev.exit:             ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i.i.i.i.i, align 4
   %m_capacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) #17
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN14btConcaveShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -600,7 +600,7 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %init.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(48) %call.i, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 16), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
   %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -1351,7 +1351,7 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #17
   ret void
 }
 
@@ -1911,7 +1911,7 @@ entry:
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -1931,7 +1931,7 @@ entry:
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds %class.btTransform, ptr %0, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %transform, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(64) %transform, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %transform, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -2276,7 +2276,7 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   store i32 0, ptr %m_size.i.i.i.i.i.i.i, align 4
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #17
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i

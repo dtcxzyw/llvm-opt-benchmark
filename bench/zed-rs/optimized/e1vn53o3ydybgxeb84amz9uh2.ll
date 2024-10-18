@@ -165,7 +165,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 7:                                                ; preds = %5
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
-  %9 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !29
+  %9 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !29
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
 
@@ -406,11 +406,11 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17he
 
 10:                                               ; preds = %7
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %12 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %1, i64 noundef %.sroa.0.0.i) #14
+  %12 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #14
   br label %15
 
 13:                                               ; preds = %7
-  %14 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef %.sroa.0.0.i) #14
+  %14 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #14
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -498,7 +498,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2f416dca8825
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !32
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !32
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !32
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -553,7 +553,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2f416dca8825
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !42
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !42
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !42
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -591,7 +591,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2f416dca8825
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !49
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !49
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !49
   br label %45
 
@@ -642,7 +642,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3669bae96c6b
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !57
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !57
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !57
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -695,7 +695,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3669bae96c6b
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !67
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !67
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !67
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -733,7 +733,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h3669bae96c6b
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !74
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !74
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !74
   br label %45
 
@@ -784,7 +784,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h46aea1bd6361
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !81
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !81
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !81
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -837,7 +837,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h46aea1bd6361
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !91
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !91
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !91
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -875,7 +875,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h46aea1bd6361
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !98
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !98
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !98
   br label %45
 
@@ -926,7 +926,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha41eedc6a201
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !105
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !105
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !105
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -981,7 +981,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha41eedc6a201
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !115
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !115
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !115
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -1019,7 +1019,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha41eedc6a201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !122
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !122
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !122
   br label %45
 
@@ -1070,7 +1070,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb8d3c19d2823
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !129
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !129
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !129
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -1123,7 +1123,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb8d3c19d2823
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !139
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !139
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !139
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -1161,7 +1161,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb8d3c19d2823
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !146
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !146
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !146
   br label %45
 
@@ -1212,7 +1212,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hcc06840b339d
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !153
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !153
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !153
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -1267,7 +1267,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hcc06840b339d
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !163
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !163
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !163
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -1305,7 +1305,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hcc06840b339d
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !170
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !170
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !170
   br label %45
 
@@ -1356,7 +1356,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfce40d2c78e1
 
 17:                                               ; preds = %15
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !177
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !177
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !177
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
 
@@ -1411,7 +1411,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfce40d2c78e1
 
 31:                                               ; preds = %30
   %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !187
-  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef 1) #14, !noalias !187
+  %33 = call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) 1) #14, !noalias !187
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.noexc8, label %35
 
@@ -1449,7 +1449,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hfce40d2c78e1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !194
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false), !noalias !194
-  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  %44 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17he406236ea161090dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !194
   br label %45
 

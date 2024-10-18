@@ -737,7 +737,7 @@ define void @_ZN13PacketDiagramD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13PacketDiagramD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13PacketDiagramD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(76) %2) #18
   ret void
 }
 
@@ -1646,7 +1646,7 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i180
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store double %235, ptr %7, align 8
   store double %336, ptr %296, align 8
-  invoke void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  invoke void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(192) %325, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %.noexc185 unwind label %.loopexit
 
 .noexc185:                                        ; preds = %331
@@ -1705,7 +1705,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
   %368 = fmul double %354, %367
   store double 0.000000e+00, ptr %6, align 8
   store double %368, ptr %297, align 8
-  %369 = invoke { double, double } @_ZNK13QGraphicsItem11mapToParentERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %369 = invoke { double, double } @_ZNK13QGraphicsItem11mapToParentERK7QPointF(ptr noundef nonnull align 8 dereferenceable(192) %325, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %370 unwind label %.loopexit
 
 370:                                              ; preds = %342
@@ -1741,7 +1741,7 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc185
   %396 = fmul double %382, %395
   store double 0.000000e+00, ptr %5, align 8
   store double %396, ptr %298, align 8
-  %397 = invoke { double, double } @_ZNK13QGraphicsItem11mapToParentERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %397 = invoke { double, double } @_ZNK13QGraphicsItem11mapToParentERK7QPointF(ptr noundef nonnull align 8 dereferenceable(192) %325, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %398 unwind label %.loopexit
 
 398:                                              ; preds = %370
@@ -2046,7 +2046,7 @@ _ZN7QStringD2Ev.exit162:                          ; preds = %495, %_ZN17QArrayDa
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13PacketDiagram5clearEv(ptr noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %2 = tail call noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
   tail call void @_ZN14QGraphicsScene5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -2265,7 +2265,7 @@ define void @_ZN13PacketDiagram20selectedFrameChangedE5QListIiE(ptr noundef nonn
   br label %19
 
 16:                                               ; preds = %12, %9, %6, %2
-  %17 = tail call noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %17 = tail call noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef nonnull align 8 dereferenceable(76) %0)
   tail call void @_ZN14QGraphicsScene5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, i8 0, i64 20, i1 false)
@@ -2665,7 +2665,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN5QListI7QStringE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not.i.i.i28 = icmp eq ptr %46, null
   %spec.select.i.i.i = select i1 %.not.i.i.i28, ptr @_ZN7QString6_emptyE, ptr %46
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull %9, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %48)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %48)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %100
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %43
@@ -3392,13 +3392,13 @@ _ZN5QListIP13QGraphicsItemED2Ev.exit14:           ; preds = %27, %_ZN17QArrayDat
           to label %39 unwind label %40
 
 39:                                               ; preds = %38
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   br label %42
 
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   br label %_ZN5QListIP13QGraphicsItemED2Ev.exit18
 
 _ZN5QListIP13QGraphicsItemED2Ev.exit14.thread:    ; preds = %_ZN5QListIP13QGraphicsItemED2Ev.exit, %_ZN5QListIP13QGraphicsItemED2Ev.exit14
@@ -3895,7 +3895,7 @@ _ZN9QPolygonFD2Ev.exit118:                        ; preds = %165, %_ZN17QArrayDa
           to label %174 unwind label %191
 
 174:                                              ; preds = %173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %21, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
   %175 = getelementptr inbounds i8, ptr %21, i64 72
   %176 = load i16, ptr %175, align 8
   %177 = and i16 %176, -1024
@@ -4198,7 +4198,7 @@ _ZN7QStringD2Ev.exit162:                          ; preds = %_ZN16FieldInformati
 270:                                              ; preds = %_ZN7QStringD2Ev.exit162
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %269, ptr %8, align 8, !noalias !51
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %8)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %271 unwind label %.loopexit.split-lp
 
 271:                                              ; preds = %270
@@ -4868,7 +4868,7 @@ define linkonce_odr void @_ZN28FieldInformationGraphicsItem12updateLayoutEv(ptr 
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QPolygonF, align 8
   %7 = alloca %class.QLineF, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %2, ptr noundef nonnull align 8 dereferenceable(72) @constinit, i64 72, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 72
   store i16 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5323,7 +5323,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN9QPolygonFD2Ev.e
   br label %_ZN28FieldInformationGraphicsItemD2Ev.exit
 
 _ZN28FieldInformationGraphicsItemD2Ev.exit:       ; preds = %_ZN9QPolygonFD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %18
-  tail call void @_ZN20QGraphicsPolygonItemD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  tail call void @_ZN20QGraphicsPolygonItemD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -5664,9 +5664,9 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i61: ; preds 
   %119 = getelementptr %class.QPointF, ptr %118, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  invoke void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
+  invoke void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1)
           to label %_ZN8QPainter8drawLineERK7QPointFS2_.exit unwind label %.loopexit
 
 _ZN8QPainter8drawLineERK7QPointFS2_.exit:         ; preds = %117

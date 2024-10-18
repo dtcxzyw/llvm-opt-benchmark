@@ -1055,7 +1055,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %88 = tail call i32 @llvm.umin.i32(i32 %1, i32 50)
+  %88 = tail call i32 @llvm.umin.i32(i32 range(i32 2, -2147483648) %1, i32 50)
   %89 = zext nneg i32 %88 to i64
   %90 = tail call fastcc ptr @gv_calloc(i64 noundef %89, i64 noundef 8)
   %91 = mul nuw nsw i32 %88, %1
@@ -1078,13 +1078,13 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   %100 = zext i1 %19 to i32
   %101 = shl nuw nsw i32 %88, 1
   %102 = tail call i32 @llvm.umax.i32(i32 %101, i32 50)
-  %..i = tail call i32 @llvm.umin.i32(i32 %1, i32 %102)
+  %..i = tail call i32 @llvm.umin.i32(i32 range(i32 2, -2147483648) %1, i32 %102)
   store ptr null, ptr %9, align 8
-  call void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %..i, ptr noundef nonnull %9, i32 noundef %100) #17
+  call void @embed_graph(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %..i, ptr noundef nonnull %9, i32 noundef range(i32 0, 2) %100) #17
   %103 = load ptr, ptr %9, align 8
-  call void @center_coordinate(ptr noundef %103, i32 noundef %1, i32 noundef %..i) #17
+  call void @center_coordinate(ptr noundef %103, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %..i) #17
   %104 = load ptr, ptr %9, align 8
-  call void @PCA_alloc(ptr noundef %104, i32 noundef %..i, i32 noundef %1, ptr noundef nonnull %90, i32 noundef %88) #17
+  call void @PCA_alloc(ptr noundef %104, i32 noundef %..i, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull %90, i32 noundef %88) #17
   %105 = load ptr, ptr %9, align 8
   %106 = load ptr, ptr %105, align 8
   call void @free(ptr noundef %106) #17
@@ -1098,7 +1098,7 @@ define i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %19, label %112, label %113
 
 112:                                              ; preds = %99
-  call void @compute_new_weights(ptr noundef nonnull %0, i32 noundef %1) #17
+  call void @compute_new_weights(ptr noundef nonnull %0, i32 noundef range(i32 2, -2147483648) %1) #17
   br label %113
 
 113:                                              ; preds = %112, %99
@@ -1148,11 +1148,11 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %19, label %137, label %138
 
 137:                                              ; preds = %131
-  call void @dijkstra(i32 noundef %133, ptr noundef %0, i32 noundef %1, ptr noundef %136) #17
+  call void @dijkstra(i32 noundef %133, ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %136) #17
   br label %139
 
 138:                                              ; preds = %131
-  call void @bfs(i32 noundef %133, ptr noundef %0, i32 noundef %1, ptr noundef %136) #17
+  call void @bfs(i32 noundef %133, ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %136) #17
   br label %139
 
 139:                                              ; preds = %138, %137
@@ -1187,11 +1187,11 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %19, label %151, label %152
 
 151:                                              ; preds = %.preheader567.i
-  call void @dijkstra(i32 noundef %.2506578.i, ptr noundef %0, i32 noundef %1, ptr noundef %150) #17
+  call void @dijkstra(i32 noundef %.2506578.i, ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %150) #17
   br label %.preheader764
 
 152:                                              ; preds = %.preheader567.i
-  call void @bfs(i32 noundef %.2506578.i, ptr noundef %0, i32 noundef %1, ptr noundef %150) #17
+  call void @bfs(i32 noundef %.2506578.i, ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %150) #17
   br label %.preheader764
 
 .preheader764:                                    ; preds = %152, %151
@@ -1543,7 +1543,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   store double 1.000000e+00, ptr %282, align 8
   %295 = getelementptr inbounds i8, ptr %279, i64 8
   %296 = load ptr, ptr %295, align 8
-  %297 = call zeroext i1 @iterativePCA_1D(ptr noundef %90, i32 noundef %88, i32 noundef %1, ptr noundef %296) #17
+  %297 = call zeroext i1 @iterativePCA_1D(ptr noundef %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %296) #17
   br i1 %297, label %.lr.ph614.i.preheader, label %.preheader555.preheader.i
 
 .preheader555.preheader.i:                        ; preds = %294
@@ -1561,7 +1561,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv713.i
   %302 = load ptr, ptr %301, align 8
-  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef %1, i32 noundef %88, ptr noundef %300, ptr noundef %302) #17
+  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %300, ptr noundef %302) #17
   %indvars.iv.next714.i = add nuw nsw i64 %indvars.iv713.i, 1
   %exitcond717.not.i = icmp eq i64 %indvars.iv.next714.i, %wide.trip.count703.i
   br i1 %exitcond717.not.i, label %._crit_edge615.i, label %.lr.ph614.i
@@ -1570,9 +1570,9 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   %wide.trip.count726.i.pre-phi = phi i64 [ %.pre718, %.preheader559.i.._crit_edge615.i_crit_edge ], [ %wide.trip.count703.i, %.lr.ph614.i ]
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  call void @mult_sparse_dense_mat_transpose(ptr noundef %230, ptr noundef %90, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %10) #17
+  call void @mult_sparse_dense_mat_transpose(ptr noundef %230, ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %10) #17
   %303 = load ptr, ptr %10, align 8
-  call void @mult_dense_mat(ptr noundef %90, ptr noundef %303, i32 noundef %88, i32 noundef %1, i32 noundef %88, ptr noundef nonnull %11) #17
+  call void @mult_dense_mat(ptr noundef %90, ptr noundef %303, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef nonnull %11) #17
   %304 = load ptr, ptr %10, align 8
   %305 = load ptr, ptr %304, align 8
   call void @free(ptr noundef %305) #17
@@ -1580,7 +1580,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   call void @free(ptr noundef %306) #17
   %307 = call fastcc ptr @gv_calloc(i64 noundef %94, i64 noundef 8)
   %308 = call fastcc ptr @gv_calloc(i64 noundef %89, i64 noundef 8)
-  %309 = call fastcc double @compute_stress1(ptr noundef %2, ptr noundef %170, i32 noundef %4, i32 noundef %1, i32 noundef %13)
+  %309 = call fastcc double @compute_stress1(ptr noundef %2, ptr noundef %170, i32 noundef %4, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 0, 4) %13)
   br label %.preheader553.i
 
 .preheader553.i:                                  ; preds = %371, %._crit_edge615.i
@@ -1666,7 +1666,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %exitcond722.not.i, label %354, label %311
 
 354:                                              ; preds = %._crit_edge620.i
-  call void @right_mult_with_vector_d(ptr noundef %90, i32 noundef %88, i32 noundef %1, ptr noundef nonnull %307, ptr noundef %308) #17
+  call void @right_mult_with_vector_d(ptr noundef %90, i32 noundef %88, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull %307, ptr noundef %308) #17
   %355 = load ptr, ptr %11, align 8
   %356 = getelementptr inbounds ptr, ptr %279, i64 %indvars.iv723.i
   %357 = load ptr, ptr %356, align 8
@@ -1676,7 +1676,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
 
 359:                                              ; preds = %354
   %360 = load ptr, ptr %310, align 8
-  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef %1, i32 noundef %88, ptr noundef %357, ptr noundef %360) #17
+  call void @right_mult_with_vector_transpose(ptr noundef %90, i32 noundef range(i32 2, -2147483648) %1, i32 noundef %88, ptr noundef %357, ptr noundef %360) #17
   %indvars.iv.next724.i = add nuw nsw i64 %indvars.iv723.i, 1
   %exitcond727.not.i = icmp eq i64 %indvars.iv.next724.i, %wide.trip.count726.i.pre-phi
   br i1 %exitcond727.not.i, label %._crit_edge624.i, label %.preheader.i
@@ -1687,7 +1687,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %362, label %363, label %371
 
 363:                                              ; preds = %._crit_edge624.i
-  %364 = call fastcc double @compute_stress1(ptr noundef %2, ptr noundef %170, i32 noundef %4, i32 noundef %1, i32 noundef %13)
+  %364 = call fastcc double @compute_stress1(ptr noundef %2, ptr noundef %170, i32 noundef %4, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 0, 4) %13)
   %365 = fsub double %364, %.0502625.i
   %366 = call double @llvm.fabs.f64(double %365)
   %367 = fadd double %364, 1.000000e-10
@@ -1711,7 +1711,7 @@ gv_calloc.exit552.i:                              ; preds = %gv_calloc.exit.i, %
   br i1 %19, label %374, label %.preheader
 
 374:                                              ; preds = %.loopexit.i
-  call void @restore_old_weights(ptr noundef %0, i32 noundef %1, ptr noundef %111) #17
+  call void @restore_old_weights(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef %111) #17
   br label %.preheader
 
 .preheader:                                       ; preds = %374, %.loopexit.i

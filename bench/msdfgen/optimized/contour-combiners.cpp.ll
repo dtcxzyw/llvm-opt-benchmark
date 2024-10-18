@@ -104,7 +104,7 @@ $_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE17_M_default_appen
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
   %minDistance.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
   %dot.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store double 0.000000e+00, ptr %dot.i.i, align 8
@@ -138,7 +138,7 @@ declare noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
-  tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this)
+  tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %p.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   ret void
@@ -172,7 +172,7 @@ declare noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noun
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
   %r.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 0, i64 16, i1 false)
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i)
   %g.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i)
@@ -209,7 +209,7 @@ declare void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr sret(%"struct.m
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
   %r.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 0, i64 16, i1 false)
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i)
   %g.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i)
@@ -503,17 +503,17 @@ entry:
   %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 5
   %conv = trunc i64 %sub.ptr.div.i to i32
   %minDistance.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shapeEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
   %dot.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i, align 8
   %minDistance.i38 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %innerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %innerEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i38, align 8
   %dot.i.i39 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i39, align 8
   %minDistance.i40 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %outerEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i40, align 8
   %dot.i.i41 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i41, align 8
@@ -981,13 +981,13 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 6
   %conv = trunc i64 %sub.ptr.div.i to i32
-  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %shapeEdgeSelector)
+  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %shapeEdgeSelector)
   %p.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
-  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %innerEdgeSelector)
+  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %innerEdgeSelector)
   %p.i38 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i38, i8 0, i64 16, i1 false)
-  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %outerEdgeSelector)
+  call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %outerEdgeSelector)
   %p.i39 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i39, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -1459,21 +1459,21 @@ entry:
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
   %conv = trunc i64 %sub.ptr.div.i to i32
   %r.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shapeEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i)
   %g.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i)
   %b.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i)
   %r.i27 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %innerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i27)
   %g.i28 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i28)
   %b.i29 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i29)
   %r.i30 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i30)
   %g.i31 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i31)
@@ -2114,21 +2114,21 @@ entry:
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
   %conv = trunc i64 %sub.ptr.div.i to i32
   %r.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shapeEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i)
   %g.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i)
   %b.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i)
   %r.i.i27 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %innerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i27)
   %g.i.i28 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i28)
   %b.i.i29 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i29)
   %r.i.i30 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outerEdgeSelector, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i30)
   %g.i.i31 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i31)
@@ -2706,7 +2706,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
   %__cur.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.08.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i, i8 0, i64 64, i1 false)
-  invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %__cur.09.i.i.i)
+  invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i)
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2770,7 +2770,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN7msd
   %__cur.09.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i32, %for.inc.i.i.i29 ], [ %add.ptr, %_ZNKSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.08.i.i.i23 = phi i64 [ %dec.i.i.i31, %for.inc.i.i.i29 ], [ %__n, %_ZNKSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i22, i8 0, i64 64, i1 false)
-  invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %__cur.09.i.i.i22)
+  invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %__cur.09.i.i.i22)
           to label %for.inc.i.i.i29 unwind label %invoke.cont2.i.i.i24
 
 for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21

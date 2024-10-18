@@ -384,7 +384,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br i1 %158, label %emptyComp.exit.i, label %159
 
 159:                                              ; preds = %156
-  %160 = call fastcc i32 @getComp(ptr noundef %.3, ptr noundef nonnull %.15579.i, ptr noundef %142, ptr noundef %148)
+  %160 = call fastcc i32 @getComp(ptr noundef nonnull %.3, ptr noundef nonnull %.15579.i, ptr noundef %142, ptr noundef %148)
   %.not59.i = icmp eq i32 %160, 0
   br i1 %.not59.i, label %.loopexit.i, label %161
 
@@ -5029,7 +5029,7 @@ define internal fastcc void @ordered_edges(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(4) @.str.14) #28
+  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %sub_0
 
@@ -5117,7 +5117,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not15.i, label %48, label %35
 
 35:                                               ; preds = %.lr.ph.i23
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %34, ptr noundef nonnull readonly dereferenceable(4) @.str.14) #28
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %34, ptr noundef nonnull dereferenceable(4) @.str.14) #28
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %sub_0.i
 

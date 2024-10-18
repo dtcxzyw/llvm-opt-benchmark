@@ -1249,7 +1249,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizerC2Ev(ptr noundef nonnull align 8
 .noexc:
   %1 = alloca %"class.std::vector.15", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0)
+  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -1268,7 +1268,7 @@ define void @_ZN5faiss24ProductAdditiveQuantizerC2Ev(ptr noundef nonnull align 8
   br label %_ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit.i: ; preds = %6, %3
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   resume { ptr, i32 } %4
 
 _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit: ; preds = %.noexc
@@ -2755,7 +2755,7 @@ define void @_ZN5faiss27ProductLocalSearchQuantizerC2EmmmmNS_17AdditiveQuantizer
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0)
+  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
@@ -2778,7 +2778,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIPN5fai
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit.i.i: ; preds = %14, %11
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   br label %common.resume
 
 _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
@@ -3054,7 +3054,7 @@ define linkonce_odr void @_ZN5faiss27ProductLocalSearchQuantizerD2Ev(ptr noundef
   br label %_ZN5faiss24ProductAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss24ProductAdditiveQuantizerD2Ev.exit:     ; preds = %._crit_edge.i, %15
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   ret void
 }
 
@@ -3100,7 +3100,7 @@ define linkonce_odr void @_ZN5faiss27ProductLocalSearchQuantizerD0Ev(ptr noundef
   br label %_ZN5faiss27ProductLocalSearchQuantizerD2Ev.exit
 
 _ZN5faiss27ProductLocalSearchQuantizerD2Ev.exit:  ; preds = %._crit_edge.i.i, %15
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -3118,7 +3118,7 @@ define void @_ZN5faiss24ProductResidualQuantizerC2EmmmmNS_17AdditiveQuantizer13S
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0)
+  tail call void @_ZN5faiss17AdditiveQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProductAdditiveQuantizerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
@@ -3141,7 +3141,7 @@ common.resume:                                    ; preds = %_ZNSt6vectorIPN5fai
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIPN5faiss17AdditiveQuantizerESaIS2_EED2Ev.exit.i.i: ; preds = %14, %11
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   br label %common.resume
 
 _ZN5faiss24ProductAdditiveQuantizerC2Ev.exit:     ; preds = %6
@@ -3417,7 +3417,7 @@ define linkonce_odr void @_ZN5faiss24ProductResidualQuantizerD2Ev(ptr noundef no
   br label %_ZN5faiss24ProductAdditiveQuantizerD2Ev.exit
 
 _ZN5faiss24ProductAdditiveQuantizerD2Ev.exit:     ; preds = %._crit_edge.i, %15
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   ret void
 }
 
@@ -3463,7 +3463,7 @@ define linkonce_odr void @_ZN5faiss24ProductResidualQuantizerD0Ev(ptr noundef no
   br label %_ZN5faiss24ProductResidualQuantizerD2Ev.exit
 
 _ZN5faiss24ProductResidualQuantizerD2Ev.exit:     ; preds = %._crit_edge.i.i, %15
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) #17
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

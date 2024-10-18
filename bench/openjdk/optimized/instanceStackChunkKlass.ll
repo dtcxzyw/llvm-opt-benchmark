@@ -414,7 +414,7 @@ _ZN7oopDesc13identity_hashEv.exit:                ; preds = %24, %27, %.thread.i
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 224
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull %0) #10
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(104) %31, ptr noundef nonnull align 8 dereferenceable(16) %0) #10
   %36 = zext i1 %35 to i32
   %37 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
   %38 = sext i32 %37 to i64
@@ -431,7 +431,7 @@ _ZN7oopDesc13identity_hashEv.exit:                ; preds = %24, %27, %.thread.i
   %47 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %50 = tail call noundef ptr %49(ptr noundef nonnull %0, i64 noundef %48) #10
+  %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %48) #10
   %51 = ptrtoint ptr %50 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i32 noundef %36, i32 noundef %43, i32 noundef %46, i64 noundef %51) #10
   %52 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
@@ -2750,7 +2750,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deo
   br i1 %59, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i:     ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i, %60, %49, %43
-  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull %0) #10
+  %63 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %30, ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %64 = load ptr, ptr %63, align 8
   %.not.i.i2 = icmp eq ptr %64, null
   br i1 %.not.i.i2, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i, label %65
@@ -3211,7 +3211,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i:           ; preds = %_ZN7nmethod14is_deo
   br i1 %46, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i:     ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i, %47, %36, %30
-  %50 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %17, ptr noundef nonnull %0) #10
+  %50 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %17, ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %51 = load ptr, ptr %50, align 8
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i, label %52

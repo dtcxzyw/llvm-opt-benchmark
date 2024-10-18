@@ -692,7 +692,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %pnum) #10
+  %call.i = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, 0) %pnum) #10
   %cmp6 = icmp eq ptr %call.i, null
   br i1 %cmp6, label %return, label %if.end8
 
@@ -1271,16 +1271,16 @@ if.end24:                                         ; preds = %if.then16, %land.lh
   br i1 %cmp26.not, label %if.then27, label %if.end61
 
 if.then27:                                        ; preds = %if.end24
-  %call.i52 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %call.i) #10
+  %call.i52 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, 0) %call.i) #10
   %cmp29 = icmp eq ptr %call.i52, null
   br i1 %cmp29, label %return, label %for.body
 
 for.body:                                         ; preds = %if.then27, %if.end49
   %i.060 = phi i32 [ %inc, %if.end49 ], [ 2, %if.then27 ]
-  %call.i53 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %primes, i32 noundef %i.060) #10
-  %call.i54 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %exps, i32 noundef %i.060) #10
+  %call.i53 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %primes, i32 noundef range(i32 -2147483648, 2147483647) %i.060) #10
+  %call.i54 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %exps, i32 noundef range(i32 -2147483648, 2147483647) %i.060) #10
   %sub = add nsw i32 %i.060, -1
-  %call.i55 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %coeffs, i32 noundef %sub) #10
+  %call.i55 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %coeffs, i32 noundef range(i32 -2147483648, 2147483647) %sub) #10
   %cmp36 = icmp ne ptr %call.i53, null
   %cmp38 = icmp ne ptr %call.i54, null
   %or.cond2 = select i1 %cmp36, i1 %cmp38, i1 false

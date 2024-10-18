@@ -862,7 +862,7 @@ invoke.cont95:                                    ; preds = %invoke.cont80
   store i64 0, ptr %_M_string_length.i.i.i.i.i53, align 8, !tbaa !28
   store i8 0, ptr %41, align 8, !tbaa !34
   %second.i55 = getelementptr inbounds i8, ptr %ref.tmp98, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %second.i55, ptr noundef nonnull align 8 dereferenceable(12) %rootCategoryConfig, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %second.i55, ptr noundef nonnull align 8 dereferenceable(48) %rootCategoryConfig, i64 12, i1 false)
   %handlers.i.i56 = getelementptr inbounds i8, ptr %ref.tmp98, i64 48
   %handlers3.i.i = getelementptr inbounds i8, ptr %rootCategoryConfig, i64 16
   invoke void @_ZN5folly8OptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(32) %handlers.i.i56, ptr noundef nonnull align 8 dereferenceable(32) %handlers3.i.i)

@@ -190,7 +190,7 @@ define dso_local void @_ZN4llvm18BinaryStreamReader11readULEB128ERm(ptr dead_on_
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = alloca %"class.llvm::ArrayRef", align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6, i64 noundef 10) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull %6, i64 noundef 10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -275,7 +275,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %31, %38
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %_ZN4llvm12ErrorSuccessD2Ev.exit
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %4) #14
   %48 = load ptr, ptr %4, align 8
   %49 = icmp eq ptr %48, %6
   br i1 %49, label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit, label %50
@@ -293,7 +293,7 @@ define dso_local void @_ZN4llvm18BinaryStreamReader11readSLEB128ERl(ptr dead_on_
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = alloca %"class.llvm::ArrayRef", align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6, i64 noundef 10) #14
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull %6, i64 noundef 10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -399,7 +399,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %31, %.critedge.i, %
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %_ZN4llvm12ErrorSuccessD2Ev.exit
-  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(34) %4) #14
   %55 = load ptr, ptr %4, align 8
   %56 = icmp eq ptr %55, %6
   br i1 %56, label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit, label %57
@@ -695,7 +695,7 @@ _ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit: ; preds = %9, %12, %15
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   store ptr %32, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8

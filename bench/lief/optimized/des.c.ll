@@ -1659,7 +1659,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   ]
 
 23:                                               ; preds = %22
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
   br label %24
 
 24:                                               ; preds = %24, %23
@@ -1684,7 +1684,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   br i1 %36, label %24, label %mbedtls_des_setkey_dec.exit, !llvm.loop !9
 
 mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
   br label %mbedtls_des_setkey_dec.exit.split.us.preheader
 
 37:                                               ; preds = %22
@@ -1907,7 +1907,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   ]
 
 134:                                              ; preds = %133
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
   br label %135
 
 135:                                              ; preds = %135, %134
@@ -1932,7 +1932,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   br i1 %147, label %135, label %mbedtls_des_setkey_dec.exit87, !llvm.loop !9
 
 148:                                              ; preds = %133
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull readonly @des3_test_keys)
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
   br label %.preheader118
 
 149:                                              ; preds = %133

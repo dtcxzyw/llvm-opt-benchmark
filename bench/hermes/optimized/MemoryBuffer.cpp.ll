@@ -637,7 +637,7 @@ if.then.i:                                        ; preds = %init.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %Perms.i.i.i = getelementptr inbounds i8, ptr %Status.i, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status.i, i8 0, i64 36, i1 false), !noalias !29
   store i32 65535, ptr %Perms.i.i.i, align 4, !noalias !29
   %fs_st_dev.i.i = getelementptr inbounds i8, ptr %Status.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i.i, i8 0, i64 24, i1 false), !noalias !29
@@ -1093,7 +1093,7 @@ if.then2:                                         ; preds = %if.end
 
 if.then4:                                         ; preds = %if.then2
   %Perms.i.i = getelementptr inbounds i8, ptr %Status, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
   %fs_st_dev.i = getelementptr inbounds i8, ptr %Status, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i, i8 0, i64 24, i1 false)
@@ -1283,7 +1283,7 @@ if.then:                                          ; preds = %init.end
 
 if.then3:                                         ; preds = %if.then
   %Perms.i.i = getelementptr inbounds i8, ptr %Status, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
   %fs_st_dev.i = getelementptr inbounds i8, ptr %Status, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i, i8 0, i64 24, i1 false)
@@ -1364,7 +1364,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 if.then9.i:                                       ; preds = %if.end7.i
   %Perms.i.i.i = getelementptr inbounds i8, ptr %Status.i, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %Status.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i.i, align 4
   %fs_st_dev.i.i = getelementptr inbounds i8, ptr %Status.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fs_st_dev.i.i, i8 0, i64 24, i1 false)

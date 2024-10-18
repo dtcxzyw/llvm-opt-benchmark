@@ -196,7 +196,7 @@ define range(i32 -1, 1) i32 @H5R__encode(ptr nocapture noundef readonly %0, ptr 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.055.ph, i64 1
   store i8 %20, ptr %.055.ph, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 range(i64 0, 256) %21, i1 false)
   br label %28
 
 H5R__encode_obj_token.exit:                       ; preds = %5

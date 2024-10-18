@@ -116,7 +116,7 @@ define void @_ZN5faiss6reduceERKSt6vectorIlSaIlEES4_RKSt8functionIFfllEERS2_(ptr
 
 _ZNKSt8functionIFfllEEclEll.exit:                 ; preds = %.lr.ph
   %33 = load ptr, ptr %14, align 8
-  %34 = call noundef float %33(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %34 = call noundef float %33(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %35 = load ptr, ptr %12, align 8
@@ -136,7 +136,7 @@ _ZNKSt8functionIFfllEEclEll.exit:                 ; preds = %.lr.ph
 
 _ZNKSt8functionIFfllEEclEll.exit17:               ; preds = %_ZNKSt8functionIFfllEEclEll.exit
   %40 = load ptr, ptr %14, align 8
-  %41 = call noundef float %40(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %41 = call noundef float %40(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %42 = fcmp ult float %34, %41
@@ -519,7 +519,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %26, align 8
-  %110 = invoke noundef float %109(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %110 = invoke noundef float %109(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %_ZNKSt8functionIFfllEEclEll.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNKSt8functionIFfllEEclEll.exit:                 ; preds = %108
@@ -546,7 +546,7 @@ _ZNKSt8functionIFfllEEclEll.exit:                 ; preds = %108
 
 115:                                              ; preds = %.lr.ph91
   %116 = load ptr, ptr %26, align 8
-  %117 = invoke noundef float %116(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %117 = invoke noundef float %116(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %118 unwind label %.loopexit
 
 118:                                              ; preds = %115
@@ -1244,7 +1244,7 @@ define void @_ZN5faiss5smawkEllPKfPl(i64 noundef %0, i64 noundef %1, ptr noundef
   br i1 %.not.i.i, label %_ZNSt8functionIFfllEED2Ev.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %13 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFfllEED2Ev.exit unwind label %14
 
 14:                                               ; preds = %12
@@ -1265,7 +1265,7 @@ _ZNSt8functionIFfllEED2Ev.exit:                   ; preds = %10, %12
   br i1 %.not.i.i3, label %_ZNSt8functionIFfllEED2Ev.exit4, label %20
 
 20:                                               ; preds = %17
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFfllEED2Ev.exit4 unwind label %22
 
 22:                                               ; preds = %20
@@ -1600,7 +1600,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %115, %113
   br label %.body115
 
 _ZN5faiss12_GLOBAL__N_114CostCalculatorC2ERKSt6vectorIfSaIfEEl.exit: ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit45.i, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit23.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false)
   %118 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %2, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %7, i64 32
@@ -1802,7 +1802,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
   br i1 %.not.i.i, label %_ZNSt8functionIFfllEED2Ev.exit, label %182
 
 182:                                              ; preds = %180
-  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFfllEED2Ev.exit unwind label %184
 
 184:                                              ; preds = %182
@@ -1949,7 +1949,7 @@ _ZN5faiss12_GLOBAL__N_114CostCalculatorclEll.exit13.i: ; preds = %._ZN5faiss12_G
   br i1 %.not.i.i133, label %_ZNSt8functionIFfllEED2Ev.exit134, label %256
 
 256:                                              ; preds = %253
-  %257 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %257 = invoke noundef zeroext i1 %255(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt8functionIFfllEED2Ev.exit134 unwind label %258
 
 258:                                              ; preds = %256

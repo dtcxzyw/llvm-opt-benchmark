@@ -501,7 +501,7 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
   %i.0.i133 = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.i.preheader ]
   %call.i101 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %4, i32 noundef %i.0.i133) #8
   store ptr %call.i101, ptr %skitem.i, align 8
-  %call21.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %call96, i32 noundef -1, i32 noundef %and18)
+  %call21.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %call96, i32 noundef -1, i32 noundef range(i32 0, -192) %and18)
   %inc.i = add nuw nsw i32 %i.0.i133, 1
   %call.i102 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #8
   %cmp18.i = icmp slt i32 %inc.i, %call.i102
@@ -520,7 +520,7 @@ for.body27.i:                                     ; preds = %if.end22.i, %for.bo
   store ptr %call.i99, ptr %skitem.i, align 8
   %8 = load ptr, ptr %p.i, align 8
   store ptr %8, ptr %tder.0.i122, align 8
-  %call29.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %p.i, ptr noundef %call96, i32 noundef -1, i32 noundef %and18)
+  %call29.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %p.i, ptr noundef %call96, i32 noundef -1, i32 noundef range(i32 0, -192) %and18)
   %length.i = getelementptr inbounds i8, ptr %tder.0.i122, i64 8
   store i32 %call29.i, ptr %length.i, align 8
   %9 = load ptr, ptr %skitem.i, align 8

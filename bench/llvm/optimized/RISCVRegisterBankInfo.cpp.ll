@@ -524,7 +524,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm21RIS
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %81 = and i32 %77, 2147483647
   %82 = zext nneg i32 %81 to i64
-  %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #8
+  %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %80) #8
   %84 = icmp ugt i64 %83, %82
   br i1 %84, label %85, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -669,7 +669,7 @@ _ZL17getFPValueMappingj.exit:                     ; preds = %122, %125, %126
   %141 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %142 = and i32 %138, 2147483647
   %143 = zext nneg i32 %142 to i64
-  %144 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %141) #8
+  %144 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %141) #8
   %145 = icmp ugt i64 %144, %143
   br i1 %145, label %146, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit232
 
@@ -778,8 +778,8 @@ _ZL17getFPValueMappingj.exit254:                  ; preds = %180, %182, %183
 188:                                              ; preds = %43
   %189 = zext i24 %68 to i64
   %190 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %190, i64 noundef 4) #8
-  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %189)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %190, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %189)
   switch i16 %30, label %.preheader [
     i16 90, label %193
     i16 96, label %247
@@ -817,7 +817,7 @@ _ZL17getFPValueMappingj.exit254:                  ; preds = %180, %182, %183
   %200 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %201 = and i32 %197, 2147483647
   %202 = zext nneg i32 %201 to i64
-  %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %200) #8
+  %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %200) #8
   %204 = icmp ugt i64 %203, %202
   br i1 %204, label %205, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit256
 
@@ -938,7 +938,7 @@ _ZL17getFPValueMappingj.exit261:                  ; preds = %238, %243, %244
   %254 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %255 = and i32 %251, 2147483647
   %256 = zext nneg i32 %255 to i64
-  %257 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #8
+  %257 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %254) #8
   %258 = icmp ugt i64 %257, %256
   br i1 %258, label %259, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit263
 
@@ -1060,7 +1060,7 @@ _ZL17getFPValueMappingj.exit268:                  ; preds = %293, %298, %299
   %309 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %310 = and i32 %306, 2147483647
   %311 = zext nneg i32 %310 to i64
-  %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %309) #8
+  %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %309) #8
   %313 = icmp ugt i64 %312, %311
   br i1 %313, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit270, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit270.thread
 
@@ -1090,7 +1090,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit270: ; preds = %308
 326:                                              ; preds = %321
   %327 = and i32 %324, 2147483647
   %328 = zext nneg i32 %327 to i64
-  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %309) #8
+  %329 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %309) #8
   %330 = icmp ugt i64 %329, %328
   br i1 %330, label %331, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit273
 
@@ -1243,7 +1243,7 @@ _ZL17getFPValueMappingj.exit275:                  ; preds = %379, %384, %385
   %398 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %399 = and i32 %395, 2147483647
   %400 = zext nneg i32 %399 to i64
-  %401 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %398) #8
+  %401 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %398) #8
   %402 = icmp ugt i64 %401, %400
   br i1 %402, label %403, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit277
 
@@ -1301,7 +1301,7 @@ _ZL17getFPValueMappingj.exit279:                  ; preds = %_ZNK4llvm19MachineR
   %424 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %425 = and i32 %421, 2147483647
   %426 = zext nneg i32 %425 to i64
-  %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %424) #8
+  %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %424) #8
   %428 = icmp ugt i64 %427, %426
   br i1 %428, label %429, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit281
 
@@ -1359,7 +1359,7 @@ _ZL17getFPValueMappingj.exit283:                  ; preds = %_ZNK4llvm19MachineR
   %450 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %451 = and i32 %447, 2147483647
   %452 = zext nneg i32 %451 to i64
-  %453 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %450) #8
+  %453 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %450) #8
   %454 = icmp ugt i64 %453, %452
   br i1 %454, label %455, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit285
 
@@ -1419,7 +1419,7 @@ _ZL17getFPValueMappingj.exit287:                  ; preds = %_ZNK4llvm19MachineR
   %477 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %478 = and i32 %474, 2147483647
   %479 = zext nneg i32 %478 to i64
-  %480 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %477) #8
+  %480 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %477) #8
   %481 = icmp ugt i64 %480, %479
   br i1 %481, label %482, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit289
 
@@ -1494,7 +1494,7 @@ _ZL17getFPValueMappingj.exit291:                  ; preds = %491, %496, %497
   %510 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %511 = and i32 %507, 2147483647
   %512 = zext nneg i32 %511 to i64
-  %513 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %510) #8
+  %513 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %510) #8
   %514 = icmp ugt i64 %513, %512
   br i1 %514, label %515, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit293
 
@@ -1580,7 +1580,7 @@ _ZL17getFPValueMappingj.exit295:                  ; preds = %524, %532, %533
 548:                                              ; preds = %546
   %549 = and i32 %545, 2147483647
   %550 = zext nneg i32 %549 to i64
-  %551 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %192) #8
+  %551 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %192) #8
   %552 = icmp ugt i64 %551, %550
   br i1 %552, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit297, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit297.thread
 
@@ -1662,7 +1662,7 @@ _ZL17getFPValueMappingj.exit300:                  ; preds = %567, %572, %573
   %580 = load i32, ptr @_ZN4llvm16RegisterBankInfo16DefaultMappingIDE, align 4
   %581 = call noundef ptr @_ZNK4llvm16RegisterBankInfo18getOperandsMappingERKNS_15SmallVectorImplIPKNS0_12ValueMappingEEE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   %582 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false, i32 noundef %580, i32 noundef 1, ptr noundef %581, i32 noundef %69) #8
-  %583 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
+  %583 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #8
   %584 = load ptr, ptr %3, align 8
   %585 = icmp eq ptr %584, %190
   br i1 %585, label %_ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj4EED2Ev.exit, label %586

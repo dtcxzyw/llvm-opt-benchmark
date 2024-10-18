@@ -98,7 +98,7 @@ is_arj_archive.exit:                              ; preds = %13
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 2)
   %24 = getelementptr inbounds i8, ptr %19, i64 104
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr %25(ptr noundef nonnull %19, i64 noundef %15, i64 noundef %spec.select.i.i, i32 noundef 0) #12
+  %26 = tail call ptr %25(ptr noundef nonnull %19, i64 noundef %15, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
   %.not26.i.i = icmp eq ptr %26, null
   br i1 %.not26.i.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit.i
 
@@ -148,7 +148,7 @@ fmap_readn.exit.i:                                ; preds = %22
   %spec.select.i93.i = tail call i64 @llvm.umin.i64(i64 %41, i64 30)
   %46 = getelementptr inbounds i8, ptr %37, i64 104
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef %spec.select.i93.i, i32 noundef 0) #12
+  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef range(i64 0, 4294967296) %spec.select.i93.i, i32 noundef 0) #12
   %.not26.i94.i = icmp eq ptr %48, null
   br i1 %.not26.i94.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit96.i
 
@@ -233,7 +233,7 @@ fmap_readn.exit96.i:                              ; preds = %45
   %79 = load i64, ptr %9, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 112
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call ptr %81(ptr noundef %78, i64 noundef %79, i64 noundef %76) #12
+  %82 = tail call ptr %81(ptr noundef %78, i64 noundef %79, i64 noundef range(i64 2, 65537) %76) #12
   %83 = icmp ne ptr %82, null
   %84 = icmp ne ptr %77, null
   %or.cond.i = select i1 %83, i1 %84, i1 false
@@ -268,7 +268,7 @@ fmap_readn.exit96.i:                              ; preds = %45
   %98 = load i64, ptr %9, align 8
   %99 = getelementptr inbounds i8, ptr %97, i64 112
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr %100(ptr noundef %97, i64 noundef %98, i64 noundef %95) #12
+  %101 = tail call ptr %100(ptr noundef %97, i64 noundef %98, i64 noundef range(i64 2, 65537) %95) #12
   %102 = icmp ne ptr %101, null
   %103 = icmp ne ptr %96, null
   %or.cond3.i = select i1 %102, i1 %103, i1 false
@@ -433,7 +433,7 @@ is_arj_archive.exit:                              ; preds = %17
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 2)
   %28 = getelementptr inbounds i8, ptr %23, i64 104
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr %29(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %spec.select.i.i, i32 noundef 0) #12
+  %30 = tail call ptr %29(ptr noundef nonnull %23, i64 noundef %19, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
   %.not26.i.i = icmp eq ptr %30, null
   br i1 %.not26.i.i, label %arj_read_file_header.exit, label %fmap_readn.exit.i
 
@@ -483,7 +483,7 @@ fmap_readn.exit.i:                                ; preds = %26
   %spec.select.i113.i = tail call i64 @llvm.umin.i64(i64 %45, i64 30)
   %50 = getelementptr inbounds i8, ptr %41, i64 104
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr %51(ptr noundef nonnull %41, i64 noundef %44, i64 noundef %spec.select.i113.i, i32 noundef 0) #12
+  %52 = tail call ptr %51(ptr noundef nonnull %41, i64 noundef %44, i64 noundef range(i64 0, 4294967296) %spec.select.i113.i, i32 noundef 0) #12
   %.not26.i114.i = icmp eq ptr %52, null
   br i1 %.not26.i114.i, label %arj_read_file_header.exit, label %fmap_readn.exit116.i
 
@@ -586,7 +586,7 @@ fmap_readn.exit116.i:                             ; preds = %49
   %86 = load i64, ptr %12, align 8
   %87 = getelementptr inbounds i8, ptr %85, i64 112
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call ptr %88(ptr noundef %85, i64 noundef %86, i64 noundef %81) #12
+  %89 = tail call ptr %88(ptr noundef %85, i64 noundef %86, i64 noundef range(i64 2, 65537) %81) #12
   %.not101.i = icmp eq ptr %89, null
   br i1 %.not101.i, label %.thread140.i, label %90
 
@@ -635,7 +635,7 @@ fmap_readn.exit116.i:                             ; preds = %49
   %106 = load i64, ptr %12, align 8
   %107 = getelementptr inbounds i8, ptr %105, i64 112
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call ptr %108(ptr noundef %105, i64 noundef %106, i64 noundef %101) #12
+  %109 = tail call ptr %108(ptr noundef %105, i64 noundef %106, i64 noundef range(i64 2, 65537) %101) #12
   %.not105.i = icmp eq ptr %109, null
   br i1 %.not105.i, label %110, label %111
 
@@ -897,7 +897,7 @@ fmap_need_off_once_len.exit.i.i:                  ; preds = %67
   %69 = sub nuw i64 %68, %.pre65.i370.i
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %69, i64 8192)
   %70 = load ptr, ptr %49, align 8
-  %71 = call ptr %70(ptr noundef nonnull %33, i64 noundef %.pre65.i370.i, i64 noundef %spec.select.i.i.i, i32 noundef 0) #12
+  %71 = call ptr %70(ptr noundef nonnull %33, i64 noundef %.pre65.i370.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i.i, i32 noundef 0) #12
   %.not20.i.not.i.i = icmp eq ptr %71, null
   br i1 %.not20.i.not.i.i, label %fmap_need_off_once_len.exit.thread.i.i, label %72
 
@@ -1053,7 +1053,7 @@ fmap_need_off_once_len.exit.i227.i:               ; preds = %138
   %140 = sub nuw i64 %139, %.pre65.i221377.i
   %spec.select.i.i228.i = call i64 @llvm.umin.i64(i64 %140, i64 8192)
   %141 = load ptr, ptr %113, align 8
-  %142 = call ptr %141(ptr noundef nonnull %111, i64 noundef %.pre65.i221377.i, i64 noundef %spec.select.i.i228.i, i32 noundef 0) #12
+  %142 = call ptr %141(ptr noundef nonnull %111, i64 noundef %.pre65.i221377.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i228.i, i32 noundef 0) #12
   %.not20.i.not.i229.i = icmp eq ptr %142, null
   store ptr %142, ptr %30, align 8
   br i1 %.not20.i.not.i229.i, label %.loopexit.i226.i, label %143
@@ -1108,7 +1108,7 @@ fmap_need_off_once_len.exit.i227.i:               ; preds = %138
 
 fill_buf.exit234.i:                               ; preds = %._crit_edge.i212.i, %.loopexit.i226.i
   store i16 %.pre497.i, ptr %41, align 8
-  call fastcc void @read_pt_len(ptr noundef %3, i32 noundef 3)
+  call fastcc void @read_pt_len(ptr noundef nonnull %3, i32 noundef 3)
   %165 = load i16, ptr %44, align 2
   %166 = lshr i16 %165, 7
   %167 = load i32, ptr %43, align 8
@@ -1197,7 +1197,7 @@ fmap_need_off_once_len.exit.i202.i:               ; preds = %202
   %204 = sub nuw i64 %203, %.pre65.i196384.i
   %spec.select.i.i203.i = call i64 @llvm.umin.i64(i64 %204, i64 8192)
   %205 = load ptr, ptr %177, align 8
-  %206 = call ptr %205(ptr noundef nonnull %175, i64 noundef %.pre65.i196384.i, i64 noundef %spec.select.i.i203.i, i32 noundef 0) #12
+  %206 = call ptr %205(ptr noundef nonnull %175, i64 noundef %.pre65.i196384.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i203.i, i32 noundef 0) #12
   %.not20.i.not.i204.i = icmp eq ptr %206, null
   store ptr %206, ptr %30, align 8
   br i1 %.not20.i.not.i204.i, label %.loopexit.i201.i, label %207
@@ -1328,7 +1328,7 @@ fmap_need_off_once_len.exit.i177.i:               ; preds = %261
   %263 = sub nuw i64 %262, %.pre65.i171405.i
   %spec.select.i.i178.i = call i64 @llvm.umin.i64(i64 %263, i64 8192)
   %264 = load ptr, ptr %238, align 8
-  %265 = call ptr %264(ptr noundef nonnull %236, i64 noundef %.pre65.i171405.i, i64 noundef %spec.select.i.i178.i, i32 noundef 0) #12
+  %265 = call ptr %264(ptr noundef nonnull %236, i64 noundef %.pre65.i171405.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i178.i, i32 noundef 0) #12
   %.not20.i.not.i179.i = icmp eq ptr %265, null
   store ptr %265, ptr %30, align 8
   br i1 %.not20.i.not.i179.i, label %fill_buf.exit184.thread.i, label %266
@@ -1545,7 +1545,7 @@ fmap_need_off_once_len.exit.i152.i:               ; preds = %361
   %363 = sub nuw i64 %362, %.pre65.i146391.i
   %spec.select.i.i153.i = call i64 @llvm.umin.i64(i64 %363, i64 8192)
   %364 = load ptr, ptr %336, align 8
-  %365 = call ptr %364(ptr noundef nonnull %334, i64 noundef %.pre65.i146391.i, i64 noundef %spec.select.i.i153.i, i32 noundef 0) #12
+  %365 = call ptr %364(ptr noundef nonnull %334, i64 noundef %.pre65.i146391.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i153.i, i32 noundef 0) #12
   %.not20.i.not.i154.i = icmp eq ptr %365, null
   store ptr %365, ptr %30, align 8
   br i1 %.not20.i.not.i154.i, label %.loopexit.i151.i, label %366
@@ -1703,7 +1703,7 @@ fmap_need_off_once_len.exit.i127.i:               ; preds = %428
   %430 = sub nuw i64 %429, %.pre65.i121398.i
   %spec.select.i.i128.i = call i64 @llvm.umin.i64(i64 %430, i64 8192)
   %431 = load ptr, ptr %403, align 8
-  %432 = call ptr %431(ptr noundef nonnull %401, i64 noundef %.pre65.i121398.i, i64 noundef %spec.select.i.i128.i, i32 noundef 0) #12
+  %432 = call ptr %431(ptr noundef nonnull %401, i64 noundef %.pre65.i121398.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i128.i, i32 noundef 0) #12
   %.not20.i.not.i129.i = icmp eq ptr %432, null
   store ptr %432, ptr %30, align 8
   br i1 %.not20.i.not.i129.i, label %fill_buf.exit134.thread.i, label %433
@@ -1809,11 +1809,11 @@ fill_buf.exit134.thread.i:                        ; preds = %fmap_need_off_once_
   br i1 %474, label %.lr.ph95.i.i.i, label %.preheader81.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph98.i.i.i, %.preheader81.i.i.i
-  %475 = call fastcc i32 @make_table(ptr noundef %3, i32 noundef 510, ptr noundef %invariant.gep.i, i32 noundef 12, ptr noundef %99, i32 noundef 4096)
+  %475 = call fastcc i32 @make_table(ptr noundef nonnull %3, i32 noundef 510, ptr noundef %invariant.gep.i, i32 noundef 12, ptr noundef %99, i32 noundef 4096)
   br label %read_c_len.exit.i.i
 
 read_c_len.exit.i.i:                              ; preds = %fill_buf.exit159.i, %.loopexit85.i.i.i, %288, %._crit_edge.i.i.i, %466, %459, %fill_buf.exit134.thread.i, %.loopexit.i151.i, %304, %fill_buf.exit184.thread.i, %._crit_edge.i187.i, %.loopexit.i201.i, %fill_buf.exit234.i
-  call fastcc void @read_pt_len(ptr noundef %3, i32 noundef -1)
+  call fastcc void @read_pt_len(ptr noundef nonnull %3, i32 noundef -1)
   %.pre.i.i = load i16, ptr %41, align 8
   %.pre.i = load i16, ptr %44, align 2
   br label %476
@@ -1962,7 +1962,7 @@ fmap_need_off_once_len.exit.i102.i:               ; preds = %544
   %546 = sub nuw i64 %545, %.pre65.i96412.i
   %spec.select.i.i103.i = call i64 @llvm.umin.i64(i64 %546, i64 8192)
   %547 = load ptr, ptr %519, align 8
-  %548 = call ptr %547(ptr noundef nonnull %517, i64 noundef %.pre65.i96412.i, i64 noundef %spec.select.i.i103.i, i32 noundef 0) #12
+  %548 = call ptr %547(ptr noundef nonnull %517, i64 noundef %.pre65.i96412.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i103.i, i32 noundef 0) #12
   %.not20.i.not.i104.i = icmp eq ptr %548, null
   store ptr %548, ptr %30, align 8
   br i1 %.not20.i.not.i104.i, label %.loopexit.i101.i, label %549
@@ -2186,7 +2186,7 @@ fmap_need_off_once_len.exit.i277.i:               ; preds = %655
   %657 = sub nuw i64 %656, %.pre65.i271419.i
   %spec.select.i.i278.i = call i64 @llvm.umin.i64(i64 %657, i64 8192)
   %658 = load ptr, ptr %630, align 8
-  %659 = call ptr %658(ptr noundef nonnull %628, i64 noundef %.pre65.i271419.i, i64 noundef %spec.select.i.i278.i, i32 noundef 0) #12
+  %659 = call ptr %658(ptr noundef nonnull %628, i64 noundef %.pre65.i271419.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i278.i, i32 noundef 0) #12
   %.not20.i.not.i279.i = icmp eq ptr %659, null
   store ptr %659, ptr %30, align 8
   br i1 %.not20.i.not.i279.i, label %.loopexit.i276.i, label %660
@@ -2350,7 +2350,7 @@ fmap_need_off_once_len.exit.i252.i:               ; preds = %735
   %737 = sub nuw i64 %736, %.pre65.i246426.i
   %spec.select.i.i253.i = call i64 @llvm.umin.i64(i64 %737, i64 8192)
   %738 = load ptr, ptr %710, align 8
-  %739 = call ptr %738(ptr noundef nonnull %708, i64 noundef %.pre65.i246426.i, i64 noundef %spec.select.i.i253.i, i32 noundef 0) #12
+  %739 = call ptr %738(ptr noundef nonnull %708, i64 noundef %.pre65.i246426.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i253.i, i32 noundef 0) #12
   %.not20.i.not.i254.i = icmp eq ptr %739, null
   store ptr %739, ptr %30, align 8
   br i1 %.not20.i.not.i254.i, label %.loopexit.i251.i, label %740
@@ -2517,7 +2517,7 @@ decode_p.exit.i:                                  ; preds = %fill_buf.exit259.i,
 811:                                              ; preds = %.loopexit.i
   %812 = load i32, ptr %20, align 4
   %813 = zext i32 %.054.i to i64
-  %814 = call i64 @cli_writen(i32 noundef %812, ptr noundef %.pre498.i, i64 noundef %813) #12
+  %814 = call i64 @cli_writen(i32 noundef %812, ptr noundef %.pre498.i, i64 noundef range(i64 1, 4294967296) %813) #12
   br label %815
 
 815:                                              ; preds = %811, %.loopexit.i
@@ -2581,10 +2581,10 @@ fmap_need_off_once_len.exit:                      ; preds = %9
   %14 = tail call i32 @llvm.umin.i32(i32 %.01324, i32 8192)
   %15 = zext nneg i32 %14 to i64
   %16 = sub nuw i64 %13, %11
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %16)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %15, i64 %16)
   %17 = getelementptr inbounds i8, ptr %10, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %10, i64 noundef %11, i64 noundef %spec.select.i, i32 noundef 0) #12
+  %19 = tail call ptr %18(ptr noundef nonnull %10, i64 noundef %11, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
   %.not20.i.not = icmp eq ptr %19, null
   br i1 %.not20.i.not, label %fmap_need_off_once_len.exit.thread, label %20
 
@@ -2660,7 +2660,7 @@ fmap_need_off_once_len.exit.i102:                 ; preds = %25
   %27 = sub nuw i64 %26, %.sroa.21.16
   %spec.select.i.i103 = tail call i64 @llvm.umin.i64(i64 %27, i64 8192)
   %28 = load ptr, ptr %11, align 8
-  %29 = tail call ptr %28(ptr noundef nonnull %4, i64 noundef %.sroa.21.16, i64 noundef %spec.select.i.i103, i32 noundef 0) #12
+  %29 = tail call ptr %28(ptr noundef nonnull %4, i64 noundef %.sroa.21.16, i64 noundef range(i64 0, 4294967296) %spec.select.i.i103, i32 noundef 0) #12
   %.not20.i.not.i104 = icmp eq ptr %29, null
   br i1 %.not20.i.not.i104, label %.sink.split, label %30
 
@@ -2818,7 +2818,7 @@ fmap_need_off_once_len.exit.i152:                 ; preds = %93
   %95 = sub nuw i64 %94, %.sroa.21.24
   %spec.select.i.i153 = tail call i64 @llvm.umin.i64(i64 %95, i64 8192)
   %96 = load ptr, ptr %48, align 8
-  %97 = tail call ptr %96(ptr noundef nonnull %4, i64 noundef %.sroa.21.24, i64 noundef %spec.select.i.i153, i32 noundef 0) #12
+  %97 = tail call ptr %96(ptr noundef nonnull %4, i64 noundef %.sroa.21.24, i64 noundef range(i64 0, 4294967296) %spec.select.i.i153, i32 noundef 0) #12
   %.not20.i.not.i154 = icmp eq ptr %97, null
   br i1 %.not20.i.not.i154, label %fill_buf.exit159, label %98
 
@@ -2972,7 +2972,7 @@ fmap_need_off_once_len.exit.i127:                 ; preds = %165
   %167 = sub nuw i64 %166, %.sroa.21.20
   %spec.select.i.i128 = tail call i64 @llvm.umin.i64(i64 %167, i64 8192)
   %168 = load ptr, ptr %48, align 8
-  %169 = tail call ptr %168(ptr noundef nonnull %4, i64 noundef %.sroa.21.20, i64 noundef %spec.select.i.i128, i32 noundef 0) #12
+  %169 = tail call ptr %168(ptr noundef nonnull %4, i64 noundef %.sroa.21.20, i64 noundef range(i64 0, 4294967296) %spec.select.i.i128, i32 noundef 0) #12
   %.not20.i.not.i129 = icmp eq ptr %169, null
   br i1 %.not20.i.not.i129, label %.lr.ph.i, label %170
 
@@ -3141,7 +3141,7 @@ fmap_need_off_once_len.exit.i:                    ; preds = %239
   %241 = sub nuw i64 %240, %.sroa.21.9
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %241, i64 8192)
   %242 = load ptr, ptr %48, align 8
-  %243 = tail call ptr %242(ptr noundef nonnull %4, i64 noundef %.sroa.21.9, i64 noundef %spec.select.i.i, i32 noundef 0) #12
+  %243 = tail call ptr %242(ptr noundef nonnull %4, i64 noundef %.sroa.21.9, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
   %.not20.i.not.i = icmp eq ptr %243, null
   br i1 %.not20.i.not.i, label %fill_buf.exit, label %244
 
@@ -3326,7 +3326,7 @@ fmap_need_off_once_len.exit.i202:                 ; preds = %322
   %324 = sub nuw i64 %323, %.sroa.21.32
   %spec.select.i.i203 = tail call i64 @llvm.umin.i64(i64 %324, i64 8192)
   %325 = load ptr, ptr %48, align 8
-  %326 = tail call ptr %325(ptr noundef nonnull %4, i64 noundef %.sroa.21.32, i64 noundef %spec.select.i.i203, i32 noundef 0) #12
+  %326 = tail call ptr %325(ptr noundef nonnull %4, i64 noundef %.sroa.21.32, i64 noundef range(i64 0, 4294967296) %spec.select.i.i203, i32 noundef 0) #12
   %.not20.i.not.i204 = icmp eq ptr %326, null
   br i1 %.not20.i.not.i204, label %fill_buf.exit209, label %327
 
@@ -3476,7 +3476,7 @@ fmap_need_off_once_len.exit.i177:                 ; preds = %394
   %396 = sub nuw i64 %395, %.sroa.21.28
   %spec.select.i.i178 = tail call i64 @llvm.umin.i64(i64 %396, i64 8192)
   %397 = load ptr, ptr %48, align 8
-  %398 = tail call ptr %397(ptr noundef nonnull %4, i64 noundef %.sroa.21.28, i64 noundef %spec.select.i.i178, i32 noundef 0) #12
+  %398 = tail call ptr %397(ptr noundef nonnull %4, i64 noundef %.sroa.21.28, i64 noundef range(i64 0, 4294967296) %spec.select.i.i178, i32 noundef 0) #12
   %.not20.i.not.i179 = icmp eq ptr %398, null
   br i1 %.not20.i.not.i179, label %fill_buf.exit184, label %399
 
@@ -3625,7 +3625,7 @@ decode_ptr.exit:                                  ; preds = %416
   %453 = getelementptr inbounds i8, ptr %0, i64 20
   %454 = load i32, ptr %453, align 4
   %455 = zext i32 %.057497 to i64
-  %456 = tail call i64 @cli_writen(i32 noundef %454, ptr noundef nonnull %2, i64 noundef %455) #12
+  %456 = tail call i64 @cli_writen(i32 noundef %454, ptr noundef nonnull %2, i64 noundef range(i64 1, 4294967296) %455) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %fmap_need_off_once_len.exit.i102, %25, %decode_ptr.exit, %272, %262, %decode_len.exit, %442, %.loopexit399, %452, %.loopexit400
@@ -3769,7 +3769,7 @@ fmap_need_off_once_len.exit:                      ; preds = %56
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %60, i64 8192)
   %61 = getelementptr inbounds i8, ptr %57, i64 104
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %57, i64 noundef %.pre65, i64 noundef %spec.select.i, i32 noundef 0) #12
+  %63 = tail call ptr %62(ptr noundef nonnull %57, i64 noundef %.pre65, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
   %.not20.i.not = icmp eq ptr %63, null
   store ptr %63, ptr %26, align 8
   br i1 %.not20.i.not, label %.loopexit, label %64
@@ -3831,7 +3831,7 @@ fmap_need_off_once_len.exit:                      ; preds = %56
 define internal fastcc void @read_pt_len(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -1, 4) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 42
   %4 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 5)
+  tail call fastcc void @fill_buf(ptr noundef nonnull %0, i32 noundef 5)
   %5 = icmp ult i16 %4, 2048
   br i1 %5, label %.preheader, label %.lr.ph81
 
@@ -3846,7 +3846,7 @@ define internal fastcc void @read_pt_len(ptr nocapture noundef nonnull %0, i32 n
 
 .preheader:                                       ; preds = %2
   %11 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 5)
+  tail call fastcc void @fill_buf(ptr noundef nonnull %0, i32 noundef 5)
   %12 = getelementptr inbounds i8, ptr %0, i64 12834
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %12, i8 0, i64 19, i1 false)
   %13 = lshr i16 %11, 11
@@ -3923,7 +3923,7 @@ define internal fastcc void @read_pt_len(ptr nocapture noundef nonnull %0, i32 n
 
 43:                                               ; preds = %37
   %44 = load i16, ptr %3, align 2
-  tail call fastcc void @fill_buf(ptr noundef %0, i32 noundef 2)
+  tail call fastcc void @fill_buf(ptr noundef nonnull %0, i32 noundef 2)
   %45 = load i32, ptr %9, align 8
   %.not65 = icmp eq i32 %45, 0
   br i1 %.not65, label %.preheader67, label %.loopexit72

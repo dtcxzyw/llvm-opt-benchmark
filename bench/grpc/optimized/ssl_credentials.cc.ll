@@ -307,7 +307,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
   %min_tls_version.i = getelementptr inbounds i8, ptr %options, i64 68
   store i32 0, ptr %min_tls_version.i, align 4
   %max_tls_version.i = getelementptr inbounds i8, ptr %options, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %options, i8 0, i64 65, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %options, i8 0, i64 65, i1 false)
   store i32 1, ptr %max_tls_version.i, align 8
   %crl_directory.i = getelementptr inbounds i8, ptr %options, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %crl_directory.i, i8 0, i64 24, i1 false)
@@ -831,7 +831,7 @@ _ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103: ; p
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %overridden_target_name) #19
   br label %return
 
 ehcleanup.thread129:                              ; preds = %if.then15, %if.then7
@@ -869,7 +869,7 @@ ehcleanup63:                                      ; preds = %if.then.i.i90, %if.
 
 if.then.i.i.i.i114:                               ; preds = %ehcleanup63
   store i8 0, ptr %_M_engaged.i.i.i.i112, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %overridden_target_name) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %overridden_target_name) #19
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit115
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit115: ; preds = %ehcleanup63, %if.then.i.i.i.i114
@@ -1171,7 +1171,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV27grpc_ssl_server_credentials, i64 16), ptr %this, align 8
   %config_ = getelementptr inbounds i8, ptr %this, i64 40
   %max_tls_version.i = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %config_, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %config_, i8 0, i64 32, i1 false)
   store i32 1, ptr %max_tls_version.i, align 8
   %certificate_config_fetcher_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %certificate_config_fetcher_, align 8

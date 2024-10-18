@@ -268,7 +268,7 @@ get_xml_attr.exit:                                ; preds = %.lr.ph.i.tail
 .lr.ph.i158:                                      ; preds = %get_xml_attr.exit, %45
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %45 ], [ 0, %get_xml_attr.exit ]
   %42 = phi ptr [ %47, %45 ], [ %18, %get_xml_attr.exit ]
-  %43 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(9) @.str.7, ptr noundef nonnull dereferenceable(1) %42) #25
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.7, ptr noundef nonnull dereferenceable(1) %42) #25
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %get_xml_attr.exit163, label %45
 
@@ -356,7 +356,7 @@ isAnonGraph.exit.thread:                          ; preds = %68, %74, %isAnonGra
 .lr.ph.i166:                                      ; preds = %80, %85
   %indvars.iv.i167 = phi i64 [ %indvars.iv.next.i168, %85 ], [ 0, %80 ]
   %82 = phi ptr [ %87, %85 ], [ %81, %80 ]
-  %83 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.13, ptr noundef nonnull dereferenceable(1) %82) #25
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.13, ptr noundef nonnull dereferenceable(1) %82) #25
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %get_xml_attr.exit171, label %85
 
@@ -385,7 +385,7 @@ get_xml_attr.exit171.thread:                      ; preds = %85, %get_xml_attr.e
 .lr.ph.i173:                                      ; preds = %get_xml_attr.exit171.thread, %96
   %indvars.iv.i174 = phi i64 [ %indvars.iv.next.i175, %96 ], [ 0, %get_xml_attr.exit171.thread ]
   %93 = phi ptr [ %98, %96 ], [ %.pr, %get_xml_attr.exit171.thread ]
-  %94 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(11) @.str.15, ptr noundef nonnull dereferenceable(1) %93) #25
+  %94 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.15, ptr noundef nonnull dereferenceable(1) %93) #25
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %get_xml_attr.exit178, label %96
 
@@ -485,7 +485,7 @@ get_xml_attr.exit185:                             ; preds = %.lr.ph.i180.tail
 .lr.ph.i187:                                      ; preds = %137, %142
   %indvars.iv.i188 = phi i64 [ %indvars.iv.next.i189, %142 ], [ 0, %137 ]
   %139 = phi ptr [ %144, %142 ], [ %138, %137 ]
-  %140 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.19, ptr noundef nonnull dereferenceable(1) %139) #25
+  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.19, ptr noundef nonnull dereferenceable(1) %139) #25
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %get_xml_attr.exit192, label %142
 
@@ -622,7 +622,7 @@ mapLookup.exit204:                                ; preds = %mapLookup.exit, %18
 .lr.ph.i206:                                      ; preds = %202, %207
   %indvars.iv.i207 = phi i64 [ %indvars.iv.next.i208, %207 ], [ 0, %202 ]
   %204 = phi ptr [ %209, %207 ], [ %203, %202 ]
-  %205 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(10) @.str.21, ptr noundef nonnull dereferenceable(1) %204) #25
+  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.21, ptr noundef nonnull dereferenceable(1) %204) #25
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %get_xml_attr.exit211, label %207
 
@@ -651,7 +651,7 @@ get_xml_attr.exit211.thread:                      ; preds = %207, %get_xml_attr.
 .lr.ph.i213:                                      ; preds = %get_xml_attr.exit211.thread, %218
   %indvars.iv.i214 = phi i64 [ %indvars.iv.next.i215, %218 ], [ 0, %get_xml_attr.exit211.thread ]
   %215 = phi ptr [ %220, %218 ], [ %.pr257, %get_xml_attr.exit211.thread ]
-  %216 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(8) @.str.23, ptr noundef nonnull dereferenceable(1) %215) #25
+  %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.23, ptr noundef nonnull dereferenceable(1) %215) #25
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %get_xml_attr.exit218, label %218
 
@@ -735,7 +735,7 @@ get_xml_attr.exit225:                             ; preds = %.lr.ph.i220.tail
 .lr.ph.i227:                                      ; preds = %251, %259
   %indvars.iv.i228 = phi i64 [ %indvars.iv.next.i229, %259 ], [ 0, %251 ]
   %253 = phi ptr [ %261, %259 ], [ %252, %251 ]
-  %254 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.27, ptr noundef nonnull dereferenceable(1) %253) #25
+  %254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.27, ptr noundef nonnull dereferenceable(1) %253) #25
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %259
 
@@ -823,7 +823,7 @@ agxbput.exit:                                     ; preds = %get_xml_attr.exit23
 .lr.ph.i234:                                      ; preds = %agxbput.exit, %295
   %indvars.iv.i235 = phi i64 [ %indvars.iv.next.i236, %295 ], [ 0, %agxbput.exit ]
   %292 = phi ptr [ %297, %295 ], [ %291, %agxbput.exit ]
-  %293 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.28, ptr noundef nonnull dereferenceable(1) %292) #25
+  %293 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.28, ptr noundef nonnull dereferenceable(1) %292) #25
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %get_xml_attr.exit239, label %295
 
@@ -2354,7 +2354,7 @@ agxbstart.exit:                                   ; preds = %agxbclear.exit.thre
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setGlobalNodeAttr(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(6) @.str.60, i64 noundef 5) #25
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.60, i64 noundef 5) #25
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %10, label %6
 
@@ -2392,7 +2392,7 @@ define internal fastcc void @setGlobalNodeAttr(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setGlobalEdgeAttr(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(6) @.str.62, i64 noundef 5) #25
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.62, i64 noundef 5) #25
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %10, label %6
 

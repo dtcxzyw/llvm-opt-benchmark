@@ -153,7 +153,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass8allocateEP15ClassLoaderData9Basic
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef %2, i32 noundef 5) #10
+  tail call void @_ZN10ArrayKlassC2EP6SymbolN5Klass9KlassKindE(ptr noundef nonnull align 8 dereferenceable(220) %7, ptr noundef %2, i32 noundef 5) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %7, align 8
   %10 = tail call noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %1) #10
   %11 = getelementptr inbounds i8, ptr %7, i64 8
@@ -366,7 +366,7 @@ define hidden noundef ptr @_ZN14TypeArrayKlass14multi_allocateEiPiP10JavaThread(
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef nonnull %0, i64 noundef %28, i32 noundef %5, i1 noundef zeroext true, ptr noundef nonnull %3) #10
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(104) %29, ptr noundef nonnull align 8 dereferenceable(220) %0, i64 noundef %28, i32 noundef %5, i1 noundef zeroext true, ptr noundef nonnull %3) #10
   br label %_ZN14TypeArrayKlass8allocateEiP10JavaThread.exit
 
 _ZN14TypeArrayKlass8allocateEiP10JavaThread.exit: ; preds = %4, %10

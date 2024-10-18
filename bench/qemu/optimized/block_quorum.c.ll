@@ -1589,7 +1589,7 @@ quorum_report_bad_acb.exit:                       ; preds = %do.body
   %div25.i.i = lshr i64 %sub.i.i, 9
   %div4.i.i = lshr i64 %15, 9
   %sub4.i.i = sub nsw i64 %div25.i.i, %div4.i.i
-  tail call void @qapi_event_send_quorum_report_bad(i32 noundef %cond.i, ptr noundef %call.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
+  tail call void @qapi_event_send_quorum_report_bad(i32 noundef range(i32 0, 3) %cond.i, ptr noundef %call.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   %19 = load i32, ptr %children_read, align 8
   %20 = load i32, ptr %num_children, align 8
   %cmp13 = icmp slt i32 %19, %20
@@ -1692,7 +1692,7 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else, %if.then.i
   %div25.i.i = lshr i64 %sub.i.i, 9
   %div4.i.i = lshr i64 %16, 9
   %sub4.i.i = sub nsw i64 %div25.i.i, %div4.i.i
-  tail call void @qapi_event_send_quorum_report_bad(i32 noundef %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
+  tail call void @qapi_event_send_quorum_report_bad(i32 noundef range(i32 0, 3) %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   br label %if.end
 
 if.end:                                           ; preds = %quorum_report_bad_acb.exit, %if.then
@@ -2910,7 +2910,7 @@ quorum_report_bad_acb.exit:                       ; preds = %if.else21, %if.then
   %div25.i.i = lshr i64 %sub.i.i, 9
   %div4.i.i = lshr i64 %18, 9
   %sub4.i.i = sub nsw i64 %div25.i.i, %div4.i.i
-  tail call void @qapi_event_send_quorum_report_bad(i32 noundef %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
+  tail call void @qapi_event_send_quorum_report_bad(i32 noundef range(i32 0, 3) %cond.i, ptr noundef %msg.0.i.i, ptr noundef nonnull %node_name.i, i64 noundef %div4.i.i, i64 noundef %sub4.i.i) #17
   br label %if.end23
 
 if.end23:                                         ; preds = %quorum_report_bad_acb.exit, %if.then20

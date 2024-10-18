@@ -412,7 +412,7 @@ define hidden void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull al
   br i1 %8, label %_ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
+  %10 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %10, ptr %11, align 8
   store i8 1, ptr %4, align 8
@@ -436,7 +436,7 @@ _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit: ; preds = %1, %7, %9
   br i1 %18, label %_ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
+  %20 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %20, ptr %21, align 8
   store i8 1, ptr %4, align 8
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr nound
   br i1 %16, label %_ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit.i, label %17
 
 17:                                               ; preds = %15
-  %18 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
+  %18 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %18, ptr %19, align 8
   store i8 1, ptr %12, align 8
@@ -928,7 +928,7 @@ _ZL14check_cds_dumpP10JvmtiAgent.exit.i:          ; preds = %221, %218, %205
   br i1 %226, label %_ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit.i, label %227
 
 227:                                              ; preds = %225
-  %228 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef %0, i1 noundef zeroext true)
+  %228 = call fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %229 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %228, ptr %229, align 8
   store i8 1, ptr %222, align 8
@@ -1211,7 +1211,7 @@ define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noc
   br i1 %brmerge.not.i, label %11, label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 11:                                               ; preds = %8
-  tail call fastcc void @_ZL7vm_exitPK10JvmtiAgentPKcS3_(ptr noundef readonly %0, ptr noundef nonnull @.str.12, ptr noundef null)
+  tail call fastcc void @_ZL7vm_exitPK10JvmtiAgentPKcS3_(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.12, ptr noundef null)
   br label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 12:                                               ; preds = %2
@@ -1236,7 +1236,7 @@ define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr noc
   br i1 %brmerge.not.i4, label %22, label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 22:                                               ; preds = %20
-  tail call fastcc void @_ZL7vm_exitPK10JvmtiAgentPKcS3_(ptr noundef readonly %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
+  tail call fastcc void @_ZL7vm_exitPK10JvmtiAgentPKcS3_(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   br label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 _ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit: ; preds = %22, %20, %.thread.i, %16, %11, %8

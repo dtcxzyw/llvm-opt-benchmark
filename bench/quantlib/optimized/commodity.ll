@@ -144,7 +144,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @_ZNSt15__new_allocatorIN8QuantLib12PricingErrorEE9constructIS1_JRNS1_5LevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %pricingErrors_, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %errorLevel.addr, ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %detail)
+  call void @_ZNSt15__new_allocatorIN8QuantLib12PricingErrorEE9constructIS1_JRNS1_5LevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %pricingErrors_, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %errorLevel.addr, ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %detail)
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !26
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !26

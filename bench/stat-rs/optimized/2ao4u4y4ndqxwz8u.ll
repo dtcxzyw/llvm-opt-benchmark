@@ -948,7 +948,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %32
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %46, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a535fe7ef364fcb4762aa7ab38aa75fd.23) #20
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef range(i64 1, 65537) %46, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a535fe7ef364fcb4762aa7ab38aa75fd.23) #20
           to label %.noexc10 unwind label %30
 
 .noexc10:                                         ; preds = %48
@@ -1612,7 +1612,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   unreachable
 
 "_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit": ; preds = %75
-  %77 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h0f689bfd19a5b955E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %12), !noalias !277
+  %77 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h0f689bfd19a5b955E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %12), !noalias !277
   %78 = add nuw nsw i64 %19, 1
   %79 = add nuw nsw i64 %78, %58
   %.sroa.06.0.i = extractvalue { ptr, i64 } %77, 0
@@ -1674,7 +1674,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   unreachable
 
 "_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95": ; preds = %83
-  %85 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h0f689bfd19a5b955E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %10), !noalias !285
+  %85 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h0f689bfd19a5b955E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %10), !noalias !285
   %.sroa.06.0.i93 = extractvalue { ptr, i64 } %85, 0
   %.sroa.3.0.i94 = extractvalue { ptr, i64 } %85, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
@@ -2007,7 +2007,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove269_$LT$impl$u20$alloc..
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx5.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %33, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx5.sroa_idx.i, align 8, !noalias !357
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !357
-  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h2c659e006d430588E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr noalias noundef align 1 dereferenceable(1) %2), !noalias !358
+  call fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14remove_leaf_kv17h2c659e006d430588E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 1 dereferenceable(1) %2), !noalias !358
   %34 = load double, ptr %4, align 8, !noalias !357, !noundef !4
   %35 = getelementptr inbounds i8, ptr %4, i64 8
   %36 = load i64, ptr %35, align 8, !noalias !357, !noundef !4

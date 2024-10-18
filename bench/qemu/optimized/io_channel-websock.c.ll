@@ -257,11 +257,11 @@ if.then8.i.i14:                                   ; preds = %if.then.i.i11
   %10 = load i64, ptr %_now.i.i4, align 8
   %tv_usec.i.i17 = getelementptr inbounds i8, ptr %_now.i.i4, i64 8
   %11 = load i64, ptr %tv_usec.i.i17, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i16, i64 noundef %10, i64 noundef %11, ptr noundef %ioc, i32 noundef 1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i16, i64 noundef %10, i64 noundef %11, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 if.else.i.i13:                                    ; preds = %if.then.i.i11
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef 1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 trace_qio_channel_websock_handshake_pending.exit: ; preds = %trace_qio_channel_websock_handshake_start.exit, %land.lhs.true5.i.i8, %if.then8.i.i14, %if.else.i.i13
@@ -777,7 +777,7 @@ if.then59.i.i:                                    ; preds = %if.end56.i.i
   br label %bad_request.i.i
 
 if.end60.i.i:                                     ; preds = %if.end56.i.i
-  call fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %call.i, ptr noundef %21, i1 noundef zeroext %tobool28.i.i, ptr noundef %err)
+  call fastcc void @qio_channel_websock_handshake_send_res_ok(ptr noundef %call.i, ptr noundef %21, i1 noundef zeroext %tobool28.i.i, ptr noundef nonnull %err)
   br label %qio_channel_websock_handshake_process.exit.i
 
 bad_request.i.i:                                  ; preds = %if.then59.i.i, %if.then55.i.i, %if.then40.i.i, %if.then37.i.i, %if.then32.i.i, %if.then26.i.i, %if.then21.i.i, %if.then16.i.i, %if.then11.i.i, %if.then6.i.i
@@ -873,11 +873,11 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %51 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %52 = load i64, ptr %tv_usec.i.i23, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i22, i64 noundef %51, i64 noundef %52, ptr noundef %ioc, i32 noundef 1) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i22, i64 noundef %51, i64 noundef %52, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef 1) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef range(i32 1, 5) 1) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 trace_qio_channel_websock_handshake_pending.exit: ; preds = %if.then5, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
@@ -1251,11 +1251,11 @@ if.then8.i.i57:                                   ; preds = %if.then.i.i54
   %30 = load i64, ptr %_now.i.i47, align 8
   %tv_usec.i.i60 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %31 = load i64, ptr %tv_usec.i.i60, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i59, i64 noundef %30, i64 noundef %31, ptr noundef %ioc, i32 noundef 4) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i59, i64 noundef %30, i64 noundef %31, ptr noundef %ioc, i32 noundef range(i32 1, 5) 4) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 if.else.i.i56:                                    ; preds = %if.then.i.i54
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef 4) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %ioc, i32 noundef range(i32 1, 5) 4) #15
   br label %trace_qio_channel_websock_handshake_pending.exit
 
 trace_qio_channel_websock_handshake_pending.exit: ; preds = %if.end16, %land.lhs.true5.i.i51, %if.then8.i.i57, %if.else.i.i56
@@ -1903,14 +1903,14 @@ if.else8:                                         ; preds = %if.end
 if.then11:                                        ; preds = %if.else8
   store i8 126, ptr %b1, align 1
   %conv13 = trunc nuw i64 %size to i16
-  %1 = tail call noundef i16 @llvm.bswap.i16(i16 %conv13)
+  %1 = tail call noundef i16 @llvm.bswap.i16(i16 range(i16 126, 0) %conv13)
   %u = getelementptr inbounds i8, ptr %header, i64 2
   store i16 %1, ptr %u, align 1
   br label %if.end20
 
 if.else15:                                        ; preds = %if.else8
   store i8 127, ptr %b1, align 1
-  %2 = tail call noundef i64 @llvm.bswap.i64(i64 %size)
+  %2 = tail call noundef i64 @llvm.bswap.i64(i64 range(i64 65536, 0) %size)
   %u18 = getelementptr inbounds i8, ptr %header, i64 2
   store i64 %2, ptr %u18, align 1
   br label %if.end20
@@ -1943,12 +1943,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %opcode to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %ioc, i32 noundef %conv11.i.i, i64 noundef %header_size.0, i64 noundef %size) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %ioc, i32 noundef %conv11.i.i, i64 noundef range(i64 2, 11) %header_size.0, i64 noundef %size) #15
   br label %trace_qio_channel_websock_encode.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext nneg i8 %opcode to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, ptr noundef %ioc, i32 noundef %conv12.i.i, i64 noundef %header_size.0, i64 noundef %size) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, ptr noundef %ioc, i32 noundef %conv12.i.i, i64 noundef range(i64 2, 11) %header_size.0, i64 noundef %size) #15
   br label %trace_qio_channel_websock_encode.exit
 
 trace_qio_channel_websock_encode.exit:            ; preds = %if.end20, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2243,14 +2243,14 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %conv11.i.i.i = zext i8 %and.i to i32
   %conv12.i.i.i = zext i8 %opcode.0.i to i32
   %conv13.i.i.i = zext i8 %and11.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %ioc, i64 noundef %conv16.i, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %ioc, i64 noundef range(i64 0, 128) %conv16.i, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i) #15
   br label %trace_qio_channel_websock_header_partial_decode.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %conv14.i.i.i = zext i8 %and.i to i32
   %conv15.i.i.i = zext i8 %opcode.0.i to i32
   %conv16.i.i.i = zext i8 %and11.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, ptr noundef nonnull %ioc, i64 noundef %conv16.i, i32 noundef %conv14.i.i.i, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, ptr noundef nonnull %ioc, i64 noundef range(i64 0, 128) %conv16.i, i32 noundef %conv14.i.i.i, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i) #15
   br label %trace_qio_channel_websock_header_partial_decode.exit.i
 
 trace_qio_channel_websock_header_partial_decode.exit.i: ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end21.i
@@ -2365,11 +2365,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @qemu_get_thread_id() #15
   %29 = load i64, ptr %_now.i.i, align 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %ioc, i64 noundef %header_size.0.i, i64 noundef %.sink55.i, i32 noundef %24) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %ioc, i64 noundef range(i64 6, 15) %header_size.0.i, i64 noundef %.sink55.i, i32 noundef %24) #15
   br label %trace_qio_channel_websock_header_full_decode.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef nonnull %ioc, i64 noundef %header_size.0.i, i64 noundef %.sink55.i, i32 noundef %24) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef nonnull %ioc, i64 noundef range(i64 6, 15) %header_size.0.i, i64 noundef %.sink55.i, i32 noundef %24) #15
   br label %trace_qio_channel_websock_header_full_decode.exit
 
 trace_qio_channel_websock_header_full_decode.exit: ; preds = %if.end99.i, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -140,7 +140,7 @@ define internal fastcc void @"_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !20, !noalias !21, !noundef !12
-  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !7
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1), !noalias !7
   %27 = getelementptr inbounds i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !20, !noalias !21, !noundef !12
   %29 = getelementptr inbounds i8, ptr %5, i64 24
@@ -227,7 +227,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h15d6a80f86bdbc0cE.exit: ; p
   br i1 %cond.i.i.i, label %58, label %"_ZN4core3ptr92drop_in_place$LT$arrayvec..errors..CapacityError$LT$notifications..NotificationEntry$GT$$GT$17h089169184a7fb345E.exit"
 
 58:                                               ; preds = %54
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf9bf5651df6edd81E.llvm.3163802790851490697"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hf9bf5651df6edd81E.llvm.3163802790851490697"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7)
           to label %"_ZN4core3ptr92drop_in_place$LT$arrayvec..errors..CapacityError$LT$notifications..NotificationEntry$GT$$GT$17h089169184a7fb345E.exit" unwind label %60
 
 59:                                               ; preds = %53
@@ -414,12 +414,12 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i: ; preds = %.lr
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h09cf9b1646a68fadE.exit.i": ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i
   %51 = sub nuw i64 %48, %15
   %52 = getelementptr inbounds i8, ptr %.val, i64 %51
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %52, ptr nonnull readonly %12, i64 %15), !alias.scope !85, !noalias !79
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %52, ptr nonnull readonly align 1 %12, i64 %15), !alias.scope !85, !noalias !79
   %53 = icmp eq i32 %bcmp.i.i, 0
   br i1 %53, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9", label %49
 
 .split.us.i:                                      ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.us.i
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.898a0e2bc5efb6124cf11a29affefa5c.32) #17, !noalias !89
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef range(i64 0, 256) %15, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.898a0e2bc5efb6124cf11a29affefa5c.32) #17, !noalias !89
   unreachable
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread18": ; preds = %.preheader.i.i, %42, %.preheader.i.us.i, %29
@@ -497,7 +497,7 @@ define hidden void @_ZN4util21log_error_with_caller17hf94286fc1a430df3E(ptr noal
   store i8 1, ptr %.sroa.616.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
-  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h78c31fb1e6327aadE"(ptr noalias noundef align 8 dereferenceable(72) %6)
+  %11 = invoke fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h78c31fb1e6327aadE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
           to label %14 unwind label %12
 
 12:                                               ; preds = %3, %31, %20, %18, %16
@@ -872,7 +872,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %97 = getelementptr inbounds { i64, i64, i64 }, ptr %93, i64 %77
   %98 = sub nsw i64 %80, %77
   %gepdiff107 = and i64 %98, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 %96)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 range(i64 0, 4294967296) %96)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -987,7 +987,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %137 = sub nuw nsw i64 %130, %75
   %138 = getelementptr inbounds { i64, i64, i64 }, ptr %134, i64 %75
   %.idx105 = sub nsw i64 %73, %75
-  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 %137)
+  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 range(i64 0, 4294967296) %137)
   %.not141 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i44, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph134
 
@@ -1273,7 +1273,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %93 = getelementptr inbounds { i64, i64, i64 }, ptr %89, i64 %72
   %94 = sub nsw i64 %75, %72
   %gepdiff68 = and i64 %94, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff68, i64 %92)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff68, i64 range(i64 0, 4294967296) %92)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1349,7 +1349,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   unreachable
 
 "_ZN106_$LT$sum_tree..cursor..SliceSeekAggregate$LT$T$GT$$u20$as$u20$sum_tree..cursor..SeekAggregate$LT$T$GT$$GT$9push_tree17h1a74dccdb155cd2cE.exit": ; preds = %115
-  call void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h919355a9a3d52148E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %118, ptr noalias noundef nonnull readonly align 1 %4), !noalias !229
+  call void @"_ZN8sum_tree16SumTree$LT$T$GT$6append17h919355a9a3d52148E"(ptr noalias noundef nonnull align 8 dereferenceable(1200) %3, ptr noundef nonnull %118, ptr noalias noundef nonnull readonly align 1 %4), !noalias !229
   %122 = load i64, ptr %76, align 8, !noundef !12
   %123 = add i64 %122, 1
   store i64 %123, ptr %76, align 8
@@ -1418,7 +1418,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %142 = sub nuw nsw i64 %135, %70
   %143 = getelementptr inbounds { i64, i64, i64 }, ptr %139, i64 %70
   %.idx66 = sub nsw i64 %68, %70
-  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx66, i64 %142)
+  %.sroa.0.0.sroa.speculated.i.i.i50 = call noundef i64 @llvm.umin.i64(i64 %.idx66, i64 range(i64 0, 4294967296) %142)
   %.not109 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i50, 0
   br i1 %.not109, label %._crit_edge, label %.lr.ph102
 
@@ -1721,7 +1721,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %97 = getelementptr inbounds { i64, i64, i64 }, ptr %93, i64 %77
   %98 = sub nsw i64 %80, %77
   %gepdiff107 = and i64 %98, 2305843009213693951
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 %96)
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %gepdiff107, i64 range(i64 0, 4294967296) %96)
   %.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1838,7 +1838,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %139 = sub nuw nsw i64 %132, %75
   %140 = getelementptr inbounds { i64, i64, i64 }, ptr %136, i64 %75
   %.idx105 = sub nsw i64 %73, %75
-  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 %139)
+  %.sroa.0.0.sroa.speculated.i.i.i44 = call noundef i64 @llvm.umin.i64(i64 %.idx105, i64 range(i64 0, 4294967296) %139)
   %.not141 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i44, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph134
 

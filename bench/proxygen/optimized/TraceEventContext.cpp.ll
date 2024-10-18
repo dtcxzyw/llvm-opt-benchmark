@@ -54,7 +54,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8proxygen10TraceEventD2Ev.exit
   %__begin1.sroa.0.06 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN8proxygen10TraceEventD2Ev.exit ]
   %3 = load ptr, ptr %__begin1.sroa.0.06, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %event, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(80) %event, i64 32, i1 false)
   store i32 0, ptr %2, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8

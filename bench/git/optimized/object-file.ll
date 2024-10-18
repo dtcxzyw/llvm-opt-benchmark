@@ -1092,7 +1092,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %whil
   ]
 
 if.then.i:                                        ; preds = %strbuf_setlen.exit.i
-  %call.i7 = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef %sep) #26
+  %call.i7 = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef range(i32 10, 59) %sep) #26
   store ptr %call.i7, ptr %end.i, align 8
   br label %parse_alt_odb_entry.exit
 
@@ -1102,7 +1102,7 @@ land.lhs.true.i:                                  ; preds = %strbuf_setlen.exit.
   br i1 %tobool.not.i, label %parse_alt_odb_entry.exit, label %if.else7.i
 
 if.else7.i:                                       ; preds = %land.lhs.true.i, %strbuf_setlen.exit.i
-  %call8.i = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef %sep) #26
+  %call8.i = call ptr @strchrnul(ptr noundef nonnull %alt.addr.048, i32 noundef range(i32 10, 59) %sep) #26
   store ptr %call8.i, ptr %end.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call8.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %alt.addr.048 to i64
@@ -1329,7 +1329,7 @@ if.then.i52:                                      ; preds = %if.end22.i
 
 if.end.i51:                                       ; preds = %if.end22.i
   %49 = load ptr, ptr %buf3.i, align 8
-  call fastcc void @link_alt_odb_entries(ptr noundef nonnull readonly %r, ptr noundef %49, i32 noundef 10, ptr noundef %48, i32 noundef %add.i)
+  call fastcc void @link_alt_odb_entries(ptr noundef nonnull readonly %r, ptr noundef %49, i32 noundef 10, ptr noundef %48, i32 noundef range(i32 0, 7) %add.i)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #25
   br label %read_info_alternates.exit
 
@@ -2732,7 +2732,7 @@ st_mult.exit:                                     ; preds = %if.end31
   br i1 %cmp.i, label %if.then.i21, label %st_add.exit
 
 if.then.i21:                                      ; preds = %st_mult.exit
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.72, i64 noundef %mul.i, i64 noundef %sub2636) #24
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.72, i64 noundef %mul.i, i64 noundef range(i64 0, 10) %sub2636) #24
   unreachable
 
 st_add.exit:                                      ; preds = %st_mult.exit
@@ -3674,7 +3674,7 @@ if.then3:                                         ; preds = %do.body
   br i1 %mul.ov.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then3
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.73, i64 noundef 56, i64 noundef %conv) #24
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.73, i64 noundef 56, i64 noundef range(i64 -2147483648, 4294967296) %conv) #24
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then3
@@ -4101,7 +4101,7 @@ if.end18:                                         ; preds = %if.then10, %land.lh
   %12 = load ptr, ptr %next_out.i, align 8
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
-  %call4.i = call i64 @write_in_full(i32 noundef %call5, ptr noundef nonnull %compressed, i64 noundef %sub.ptr.sub3.i) #25
+  %call4.i = call i64 @write_in_full(i32 noundef range(i32 -1, -2147483648) %call5, ptr noundef nonnull %compressed, i64 noundef %sub.ptr.sub3.i) #25
   %cmp.i22 = icmp slt i64 %call4.i, 0
   br i1 %cmp.i22, label %if.then.i23, label %write_loose_object_common.exit
 
@@ -4636,7 +4636,7 @@ do.body:                                          ; preds = %write_loose_object_
   %11 = load ptr, ptr %next_out.i, align 8
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
-  %call4.i = call i64 @write_in_full(i32 noundef %call2, ptr noundef nonnull %compressed, i64 noundef %sub.ptr.sub3.i) #25
+  %call4.i = call i64 @write_in_full(i32 noundef range(i32 -1, -2147483648) %call2, ptr noundef nonnull %compressed, i64 noundef %sub.ptr.sub3.i) #25
   %cmp.i15 = icmp slt i64 %call4.i, 0
   br i1 %cmp.i15, label %if.then.i, label %write_loose_object_common.exit
 
@@ -5151,7 +5151,7 @@ if.then.i47:                                      ; preds = %lor.lhs.false10.spl
   unreachable
 
 xsize_t.exit48:                                   ; preds = %lor.lhs.false10.split
-  %call.i49 = tail call i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef %14, ptr noundef null, i32 noundef %flags) #25
+  %call.i49 = tail call i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef range(i64 0, -9223372036854775808) %14, ptr noundef null, i32 noundef %flags) #25
   br label %if.end24
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false10
@@ -5169,7 +5169,7 @@ if.then.i52:                                      ; preds = %land.lhs.true12.spl
   unreachable
 
 xsize_t.exit53:                                   ; preds = %land.lhs.true12.split35
-  %call.i54 = tail call i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef %16, ptr noundef nonnull %path, i32 noundef %flags) #25
+  %call.i54 = tail call i32 @index_blob_bulk_checkin(ptr noundef %oid, i32 noundef %fd, i64 noundef range(i64 0, -9223372036854775808) %16, ptr noundef nonnull %path, i32 noundef %flags) #25
   br label %if.end24
 
 land.lhs.true12.split:                            ; preds = %land.lhs.true12

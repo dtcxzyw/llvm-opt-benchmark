@@ -269,7 +269,7 @@ define linkonce_odr void @_ZN5Ipopt11UserScalingD0Ev(ptr noundef nonnull align 8
   br label %_ZN5Ipopt11UserScalingD2Ev.exit
 
 _ZN5Ipopt11UserScalingD2Ev.exit:                  ; preds = %1, %4, %12
-  tail call void @_ZN5Ipopt19StandardScalingBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
+  tail call void @_ZN5Ipopt19StandardScalingBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
   tail call void @_ZdlPv(ptr noundef nonnull %0) #8
   ret void
 }

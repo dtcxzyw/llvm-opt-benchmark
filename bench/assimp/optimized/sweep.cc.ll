@@ -181,7 +181,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %_
   %13 = load ptr, ptr %triangle.i, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %q.i, align 8
-  %call.i.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %call.i.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15)
   %cmp.not.i.not.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.not.i.not.i, label %if.end.i, label %if.then.i.i
 
@@ -195,7 +195,7 @@ if.then.i.i:                                      ; preds = %for.body7
   br i1 %tobool.not.i.i, label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %16, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15)
   br label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 if.end.i:                                         ; preds = %for.body7
@@ -1024,7 +1024,7 @@ entry:
   %4 = load ptr, ptr %triangle, align 8
   %5 = load ptr, ptr %edge, align 8
   %6 = load ptr, ptr %q, align 8
-  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
   %cmp.not.i.not = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i.not, label %if.end, label %if.then.i
 
@@ -1038,7 +1038,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1461,7 +1461,7 @@ if.end:                                           ; preds = %if.end.i21, %if.end
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %triangle, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i100108 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull %ep, ptr noundef nonnull %eq)
+  %call.i100108 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq)
   %cmp.not.i.not101109 = icmp eq i32 %call.i100108, -1
   br i1 %cmp.not.i.not101109, label %if.end.lr.ph.lr.ph, label %if.then.i
 
@@ -1490,7 +1490,7 @@ if.then.i:                                        ; preds = %tailrecurse.outer.b
   br i1 %tobool.not.i, label %if.end35, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph.lcssa99)
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq.tr.ph.lcssa99)
   br label %if.end35
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end33
@@ -1544,7 +1544,7 @@ tailrecurse.outer.backedge:                       ; preds = %_ZN3p2t8Triangle8Co
   %q = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %call2.sink, ptr %q, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
-  %call.i100 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %call7, ptr noundef nonnull %ep, ptr noundef nonnull %call2.sink)
+  %call.i100 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %call7, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %call2.sink)
   %cmp.not.i.not101 = icmp eq i32 %call.i100, -1
   br i1 %cmp.not.i.not101, label %if.end.lr.ph, label %if.then.i
 
@@ -1636,7 +1636,7 @@ if.else31:                                        ; preds = %if.then27
 
 if.end33:                                         ; preds = %if.else31, %if.then29
   %triangle.addr.0 = phi ptr [ %call30, %if.then29 ], [ %call32, %if.else31 ]
-  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.addr.0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph110)
+  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.addr.0, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq.tr.ph110)
   %cmp.not.i.not = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i.not, label %if.end, label %if.then.i
 
@@ -1791,7 +1791,7 @@ if.else18:                                        ; preds = %land.lhs.true, %if.
   %cmp.i80 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   %ot.t.i = select i1 %cmp.i80, ptr %call, ptr %t.tr
   %t.ot.i = select i1 %cmp.i80, ptr %t.tr, ptr %call
-  %call4.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i, ptr noundef nonnull %p, ptr noundef nonnull %call2)
+  %call4.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i, ptr noundef nonnull align 8 dereferenceable(40) %p, ptr noundef nonnull align 8 dereferenceable(40) %call2)
   %delaunay_edge5.i = getelementptr inbounds i8, ptr %ot.t.i, i64 3
   %idxprom6.i = sext i32 %call4.i to i64
   %arrayidx7.i = getelementptr inbounds [3 x i8], ptr %delaunay_edge5.i, i64 0, i64 %idxprom6.i

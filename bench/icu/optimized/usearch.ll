@@ -764,7 +764,7 @@ if.then4:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %3 = load ptr, ptr %textIter, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %3, i32 noundef %position, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %3, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then4
@@ -1384,7 +1384,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef 0, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
@@ -1483,7 +1483,7 @@ if.then.i65:                                      ; preds = %if.then11
 
 if.end.i:                                         ; preds = %if.then.i65, %if.then11
   %.sink.i = phi i32 [ %14, %if.then.i65 ], [ 0, %if.then11 ]
-  call void @ucol_setOffset_75(ptr noundef %13, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %13, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %15 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %15, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -1560,7 +1560,7 @@ if.end46:                                         ; preds = %if.end46.sink.split
   %matchedLength47 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %matchedLength47, align 4
   %27 = load ptr, ptr %textIter.i, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %27, i32 noundef %26, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %27, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %28 = load i32, ptr %matchedIndex24, align 8
   %cmp50 = icmp eq i32 %28, %3
   br i1 %cmp50, label %if.then51, label %if.end77
@@ -1674,7 +1674,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
@@ -1733,7 +1733,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %3, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
@@ -1784,7 +1784,7 @@ if.then4:                                         ; preds = %if.then
   store i8 0, ptr %reset, align 1
   %textIter = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %4 = load ptr, ptr %textIter, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %4, i32 noundef %3, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %4, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end
 
 usearch_getOffset_75.exit:                        ; preds = %if.then
@@ -1843,7 +1843,7 @@ if.then.i45:                                      ; preds = %if.then16
 
 if.end.i:                                         ; preds = %if.then.i45, %if.then16
   %.sink.i = phi i32 [ %16, %if.then.i45 ], [ 0, %if.then16 ]
-  call void @ucol_setOffset_75(ptr noundef %15, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %15, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %17 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %17, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -1914,7 +1914,7 @@ do.end:                                           ; preds = %do.body, %land.lhs.
   %28 = phi i32 [ %dec, %do.body ], [ %dec, %land.lhs.true35 ], [ %dec45, %if.then43 ]
   %textIter47 = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %29 = load ptr, ptr %textIter47, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %29, i32 noundef %28, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %29, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %matchedLength = getelementptr inbounds i8, ptr %1, i64 36
   store i32 0, ptr %matchedLength, align 4
   br label %if.end58
@@ -1983,7 +1983,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %textIter.i = getelementptr inbounds i8, ptr %strsrch, i64 3144
   %5 = load ptr, ptr %textIter.i, align 8
-  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull %status)
+  tail call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %position, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %usearch_setOffset_75.exit
 
 usearch_setOffset_75.exit:                        ; preds = %if.then4.i, %if.else.i
@@ -2035,7 +2035,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i32 [ %5, %if.then ], [ 0, %entry ]
-  call void @ucol_setOffset_75(ptr noundef %4, i32 noundef %.sink, ptr noundef nonnull %localStatus)
+  call void @ucol_setOffset_75(ptr noundef %4, i32 noundef %.sink, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
   %6 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %6, 0
   br i1 %cmp.i, label %if.end9, label %land.lhs.true
@@ -2090,7 +2090,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %.sink.i = phi i32 [ %6, %if.then.i ], [ 0, %if.then ]
-  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %7 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %7, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -2153,7 +2153,7 @@ if.then.i15:                                      ; preds = %if.else
 
 if.end.i17:                                       ; preds = %if.then.i15, %if.else
   %.sink.i18 = phi i32 [ %19, %if.then.i15 ], [ 0, %if.else ]
-  call void @ucol_setOffset_75(ptr noundef %18, i32 noundef %.sink.i18, ptr noundef nonnull %localStatus.i9)
+  call void @ucol_setOffset_75(ptr noundef %18, i32 noundef %.sink.i18, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i9)
   %20 = load i32, ptr %status, align 4
   %cmp.i.i19 = icmp sgt i32 %20, 0
   br i1 %cmp.i.i19, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit23, label %land.lhs.true.i20
@@ -2211,7 +2211,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %.sink.i = phi i32 [ %6, %if.then.i ], [ 0, %if.then ]
-  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %7 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %7, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -2274,7 +2274,7 @@ if.then.i15:                                      ; preds = %if.else
 
 if.end.i17:                                       ; preds = %if.then.i15, %if.else
   %.sink.i18 = phi i32 [ %19, %if.then.i15 ], [ 0, %if.else ]
-  call void @ucol_setOffset_75(ptr noundef %18, i32 noundef %.sink.i18, ptr noundef nonnull %localStatus.i9)
+  call void @ucol_setOffset_75(ptr noundef %18, i32 noundef %.sink.i18, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i9)
   %20 = load i32, ptr %status, align 4
   %cmp.i.i19 = icmp sgt i32 %20, 0
   br i1 %cmp.i.i19, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit23, label %land.lhs.true.i20
@@ -2334,7 +2334,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %.sink.i = phi i32 [ %6, %if.then.i ], [ 0, %if.then ]
-  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %7 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %7, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -2446,7 +2446,7 @@ if.then.i36:                                      ; preds = %if.then10
 
 if.end.i38:                                       ; preds = %if.then.i36, %if.then10
   %.sink.i39 = phi i32 [ %24, %if.then.i36 ], [ 0, %if.then10 ]
-  call void @ucol_setOffset_75(ptr noundef %23, i32 noundef %.sink.i39, ptr noundef nonnull %localStatus.i30)
+  call void @ucol_setOffset_75(ptr noundef %23, i32 noundef %.sink.i39, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i30)
   %25 = load i32, ptr %status, align 4
   %cmp.i.i40 = icmp sgt i32 %25, 0
   br i1 %cmp.i.i40, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit44, label %land.lhs.true.i41
@@ -2507,7 +2507,7 @@ if.then.i53:                                      ; preds = %if.then20
 
 if.end.i55:                                       ; preds = %if.then.i53, %if.then20
   %.sink.i56 = phi i32 [ %35, %if.then.i53 ], [ 0, %if.then20 ]
-  call void @ucol_setOffset_75(ptr noundef %34, i32 noundef %.sink.i56, ptr noundef nonnull %localStatus.i47)
+  call void @ucol_setOffset_75(ptr noundef %34, i32 noundef %.sink.i56, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i47)
   %36 = load i32, ptr %status, align 4
   %cmp.i.i57 = icmp sgt i32 %36, 0
   br i1 %cmp.i.i57, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit61, label %land.lhs.true.i58
@@ -2581,7 +2581,7 @@ if.then.i68:                                      ; preds = %if.else36
 
 if.end.i70:                                       ; preds = %if.then.i68, %if.else36
   %.sink.i71 = phi i32 [ %49, %if.then.i68 ], [ 0, %if.else36 ]
-  call void @ucol_setOffset_75(ptr noundef %48, i32 noundef %.sink.i71, ptr noundef nonnull %localStatus.i62)
+  call void @ucol_setOffset_75(ptr noundef %48, i32 noundef %.sink.i71, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i62)
   %50 = load i32, ptr %status, align 4
   %cmp.i.i72 = icmp sgt i32 %50, 0
   br i1 %cmp.i.i72, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit76, label %land.lhs.true.i73
@@ -2641,7 +2641,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %.sink.i = phi i32 [ %6, %if.then.i ], [ 0, %if.then ]
-  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull %localStatus.i)
+  call void @ucol_setOffset_75(ptr noundef %5, i32 noundef %.sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i)
   %7 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %7, 0
   br i1 %cmp.i.i, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit, label %land.lhs.true.i
@@ -2753,7 +2753,7 @@ if.then.i36:                                      ; preds = %if.then10
 
 if.end.i38:                                       ; preds = %if.then.i36, %if.then10
   %.sink.i39 = phi i32 [ %24, %if.then.i36 ], [ 0, %if.then10 ]
-  call void @ucol_setOffset_75(ptr noundef %23, i32 noundef %.sink.i39, ptr noundef nonnull %localStatus.i30)
+  call void @ucol_setOffset_75(ptr noundef %23, i32 noundef %.sink.i39, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i30)
   %25 = load i32, ptr %status, align 4
   %cmp.i.i40 = icmp sgt i32 %25, 0
   br i1 %cmp.i.i40, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit44, label %land.lhs.true.i41
@@ -2814,7 +2814,7 @@ if.then.i53:                                      ; preds = %if.then20
 
 if.end.i55:                                       ; preds = %if.then.i53, %if.then20
   %.sink.i56 = phi i32 [ %35, %if.then.i53 ], [ 0, %if.then20 ]
-  call void @ucol_setOffset_75(ptr noundef %34, i32 noundef %.sink.i56, ptr noundef nonnull %localStatus.i47)
+  call void @ucol_setOffset_75(ptr noundef %34, i32 noundef %.sink.i56, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i47)
   %36 = load i32, ptr %status, align 4
   %cmp.i.i57 = icmp sgt i32 %36, 0
   br i1 %cmp.i.i57, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit61, label %land.lhs.true.i58
@@ -2888,7 +2888,7 @@ if.then.i68:                                      ; preds = %if.else36
 
 if.end.i70:                                       ; preds = %if.then.i68, %if.else36
   %.sink.i71 = phi i32 [ %49, %if.then.i68 ], [ 0, %if.else36 ]
-  call void @ucol_setOffset_75(ptr noundef %48, i32 noundef %.sink.i71, ptr noundef nonnull %localStatus.i62)
+  call void @ucol_setOffset_75(ptr noundef %48, i32 noundef %.sink.i71, ptr noundef nonnull align 4 dereferenceable(4) %localStatus.i62)
   %50 = load i32, ptr %status, align 4
   %cmp.i.i72 = icmp sgt i32 %50, 0
   br i1 %cmp.i.i72, label %_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit76, label %land.lhs.true.i73
@@ -3644,7 +3644,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %if.end4.i.i
   %86 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i312 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %86, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i312 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %86, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i
@@ -3652,7 +3652,7 @@ call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIterat
   %88 = load ptr, ptr %87, align 8
   %textLength.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i32, ptr %textLength.i.i, align 8
-  %call14.i.i313 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i312, ptr noundef %88, i32 noundef %89, ptr noundef nonnull %status)
+  %call14.i.i313 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i312, ptr noundef %88, i32 noundef %89, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
@@ -3807,7 +3807,7 @@ if.end4.i.i331:                                   ; preds = %if.end.i.i326
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334: ; preds = %if.end4.i.i331
   %115 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i342 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %115, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i342 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %115, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc341 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call11.i.i.noexc341:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i334
@@ -3815,7 +3815,7 @@ call11.i.i.noexc341:                              ; preds = %_ZL16getBreakIterat
   %117 = load ptr, ptr %116, align 8
   %textLength.i.i336 = getelementptr inbounds i8, ptr %116, i64 8
   %118 = load i32, ptr %textLength.i.i336, align 8
-  %call14.i.i344 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i342, ptr noundef %117, i32 noundef %118, ptr noundef nonnull %status)
+  %call14.i.i344 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i342, ptr noundef %117, i32 noundef %118, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc343 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call14.i.i.noexc343:                              ; preds = %call11.i.i.noexc341
@@ -3859,7 +3859,7 @@ if.end4.i.i354:                                   ; preds = %if.end.i.i350
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i357: ; preds = %if.end4.i.i354
   %126 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i364 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i364 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %126, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc363 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call11.i.i.noexc363:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i357
@@ -3867,7 +3867,7 @@ call11.i.i.noexc363:                              ; preds = %_ZL16getBreakIterat
   %128 = load ptr, ptr %127, align 8
   %textLength.i.i359 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load i32, ptr %textLength.i.i359, align 8
-  %call14.i.i366 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i364, ptr noundef %128, i32 noundef %129, ptr noundef nonnull %status)
+  %call14.i.i366 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i364, ptr noundef %128, i32 noundef %129, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc365 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call14.i.i.noexc365:                              ; preds = %call11.i.i.noexc363
@@ -3927,7 +3927,7 @@ if.end4.i.i378:                                   ; preds = %if.then193
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i381: ; preds = %if.end4.i.i378
   %137 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i389 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %137, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i389 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %137, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc388 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call11.i.i.noexc388:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i381
@@ -3935,7 +3935,7 @@ call11.i.i.noexc388:                              ; preds = %_ZL16getBreakIterat
   %139 = load ptr, ptr %138, align 8
   %textLength.i.i383 = getelementptr inbounds i8, ptr %138, i64 8
   %140 = load i32, ptr %textLength.i.i383, align 8
-  %call14.i.i391 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i389, ptr noundef %139, i32 noundef %140, ptr noundef nonnull %status)
+  %call14.i.i391 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i389, ptr noundef %139, i32 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc390 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 call14.i.i.noexc390:                              ; preds = %call11.i.i.noexc388
@@ -4609,7 +4609,7 @@ if.end4.i:                                        ; preds = %if.end.i
 if.end10.i:                                       ; preds = %if.end4.i
   %collator.i = getelementptr inbounds i8, ptr %strsrch, i64 3128
   %11 = load ptr, ptr %collator.i, align 8
-  %call11.i119 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %11, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i119 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %11, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call11.i.noexc:                                   ; preds = %if.end10.i
@@ -4617,7 +4617,7 @@ call11.i.noexc:                                   ; preds = %if.end10.i
   %13 = load ptr, ptr %12, align 8
   %textLength.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %textLength.i, align 8
-  %call14.i120 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i119, ptr noundef %13, i32 noundef %14, ptr noundef nonnull %status)
+  %call14.i120 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i119, ptr noundef %13, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %call11.i.noexc
@@ -5078,7 +5078,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %if.end4.i.i
   %77 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i237 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %77, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i237 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %77, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i
@@ -5086,7 +5086,7 @@ call11.i.i.noexc:                                 ; preds = %_ZL16getBreakIterat
   %79 = load ptr, ptr %78, align 8
   %textLength.i.i = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %textLength.i.i, align 8
-  %call14.i.i238 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i237, ptr noundef %79, i32 noundef %80, ptr noundef nonnull %status)
+  %call14.i.i238 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i237, ptr noundef %79, i32 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call14.i.i.noexc:                                 ; preds = %call11.i.i.noexc
@@ -5308,7 +5308,7 @@ if.end4.i.i289:                                   ; preds = %if.end.i.i285
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i292: ; preds = %if.end4.i.i289
   %117 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i299 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %117, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i299 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %117, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc298 unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.i.noexc298:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i292
@@ -5316,7 +5316,7 @@ call11.i.i.noexc298:                              ; preds = %_ZL16getBreakIterat
   %119 = load ptr, ptr %118, align 8
   %textLength.i.i294 = getelementptr inbounds i8, ptr %118, i64 8
   %120 = load i32, ptr %textLength.i.i294, align 8
-  %call14.i.i301 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i299, ptr noundef %119, i32 noundef %120, ptr noundef nonnull %status)
+  %call14.i.i301 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i299, ptr noundef %119, i32 noundef %120, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc300 unwind label %lpad.loopexit.split-lp.loopexit
 
 call14.i.i.noexc300:                              ; preds = %call11.i.i.noexc298
@@ -5372,7 +5372,7 @@ if.end4.i.i311:                                   ; preds = %if.end.i.i306
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i314: ; preds = %if.end4.i.i311
   %129 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i322 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %129, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i322 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %129, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc321 unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.i.noexc321:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i314
@@ -5380,7 +5380,7 @@ call11.i.i.noexc321:                              ; preds = %_ZL16getBreakIterat
   %131 = load ptr, ptr %130, align 8
   %textLength.i.i316 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load i32, ptr %textLength.i.i316, align 8
-  %call14.i.i324 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i322, ptr noundef %131, i32 noundef %132, ptr noundef nonnull %status)
+  %call14.i.i324 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i322, ptr noundef %131, i32 noundef %132, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc323 unwind label %lpad.loopexit.split-lp.loopexit
 
 call14.i.i.noexc323:                              ; preds = %call11.i.i.noexc321
@@ -5422,7 +5422,7 @@ if.end4.i.i337:                                   ; preds = %if.end.i.i332
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i340: ; preds = %if.end4.i.i337
   %140 = load ptr, ptr %collator.i.i, align 8
-  %call11.i.i348 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %140, i32 noundef 1, ptr noundef nonnull %status)
+  %call11.i.i348 = invoke ptr @ucol_getLocaleByType_75(ptr noundef %140, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call11.i.i.noexc347 unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.i.noexc347:                              ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i340
@@ -5430,7 +5430,7 @@ call11.i.i.noexc347:                              ; preds = %_ZL16getBreakIterat
   %142 = load ptr, ptr %141, align 8
   %textLength.i.i342 = getelementptr inbounds i8, ptr %141, i64 8
   %143 = load i32, ptr %textLength.i.i342, align 8
-  %call14.i.i350 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i348, ptr noundef %142, i32 noundef %143, ptr noundef nonnull %status)
+  %call14.i.i350 = invoke ptr @ubrk_open_75(i32 noundef 0, ptr noundef %call11.i.i348, ptr noundef %142, i32 noundef %143, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call14.i.i.noexc349 unwind label %lpad.loopexit.split-lp.loopexit
 
 call14.i.i.noexc349:                              ; preds = %call11.i.i.noexc347

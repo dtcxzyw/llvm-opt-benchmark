@@ -656,7 +656,7 @@ for.inc.i:                                        ; preds = %entry, %for.body.i
 find_first_bit.exit:                              ; preds = %for.body.i, %entry
   %result.011.i.lcssa = phi i64 [ 0, %entry ], [ 64, %for.body.i ]
   %.lcssa = phi i64 [ %0, %entry ], [ %1, %for.body.i ]
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.lcssa, i1 true)
   %add.i = or disjoint i64 %2, %result.011.i.lcssa
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call3, ptr %host_nodes, align 8

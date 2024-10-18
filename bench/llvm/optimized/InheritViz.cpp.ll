@@ -107,7 +107,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %16, 
   %.sroa.0.0.i = phi i64 [ %20, %19 ], [ %18, %16 ]
   store i64 %.sroa.0.0.i, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %21, i64 noundef 128) #11
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull %21, i64 noundef 128) #11
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 4, ptr %22, align 8
@@ -352,7 +352,7 @@ _ZN12_GLOBAL__N_126InheritanceHierarchyWriter10WriteGraphEN5clang8QualTypeE.exit
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %145, %147
   call void @_ZN4llvm14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(96) %12) #11
   %150 = load ptr, ptr %8, align 8
-  %151 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %151 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #11
   %152 = call noundef zeroext i1 @_ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE(ptr %150, i64 %151, i1 noundef zeroext true, i32 noundef 0) #11
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %154 = load ptr, ptr %89, align 8
@@ -364,7 +364,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %145, %147
   br label %157
 
 157:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit15, %_ZN4llvm11raw_ostreamlsEPKc.exit6
-  %158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #11
   %159 = load ptr, ptr %8, align 8
   %160 = icmp eq ptr %159, %21
   br i1 %160, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %161
@@ -692,7 +692,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %123, %125
   %136 = getelementptr inbounds i8, ptr %135, i64 104
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 96
-  %139 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef nonnull %137)
+  %139 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull %137)
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 128
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
@@ -713,7 +713,7 @@ _ZNK5clang13CXXRecordDecl11bases_beginEv.exit.i:  ; preds = %146, %_ZNK5clang13L
   %.0.i.i.i = phi ptr [ %147, %146 ], [ %145, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i ]
   %148 = load ptr, ptr %136, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 96
-  %150 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull %148)
+  %150 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull %148)
   %151 = load ptr, ptr %140, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load i64, ptr %152, align 8
@@ -733,7 +733,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %.0.i.i.i.i = phi ptr [ %157, %156 ], [ %155, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i.i ]
   %158 = load ptr, ptr %136, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 96
-  %160 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull %158)
+  %160 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull %158)
   %161 = load ptr, ptr %140, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = load i32, ptr %162, align 8

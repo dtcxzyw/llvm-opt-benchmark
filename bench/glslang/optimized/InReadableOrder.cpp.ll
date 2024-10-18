@@ -45,27 +45,27 @@ define void @_ZN3spv15inReadableOrderEPNS_5BlockESt8functionIFvS1_NS_11ReachReas
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread: ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, i8 0, i64 32, i1 false)
   br label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit: ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 24
   %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #10
+  %10 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2) #10
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.not.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit, label %15
 
 15:                                               ; preds = %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit
   %16 = getelementptr inbounds i8, ptr %3, i64 24
   %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2) #10
+  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2) #10
   %19 = getelementptr inbounds i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %16, align 8
@@ -199,7 +199,7 @@ _ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit1
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, label %73
 
 73:                                               ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i
-  %74 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #10
+  %74 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(200) %3, i32 noundef 3) #10
   br label %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit
 
 _ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit: ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i, %73
@@ -208,7 +208,7 @@ _ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit: ; preds = %_ZNSt13unordered_
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit, label %76
 
 76:                                               ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit
-  %77 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #10
+  %77 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #10
   br label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, %76
@@ -379,7 +379,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122ReadableOrderTraverser5visitEPN3
 _ZNKSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEclES2_S3_S2_.exit: ; preds = %.loopexit85
   %88 = getelementptr inbounds i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #10
+  call void %89(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)

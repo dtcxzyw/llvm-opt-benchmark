@@ -1924,7 +1924,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
 readback_bytes.exit:                              ; preds = %43, %48
   %.025.i = phi ptr [ %45, %43 ], [ %49, %48 ]
   %.024.i = phi i64 [ %44, %43 ], [ %50, %48 ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 %.059115)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 range(i64 1, 0) %.059115)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.058117, ptr align 1 %.025.i, i64 %spec.select.i, i1 false)
   %51 = load i64, ptr %12, align 8
   %52 = add i64 %51, %spec.select.i
@@ -1948,7 +1948,7 @@ readback_bytes.exit.thread:                       ; preds = %46, %readback_bytes
 readback_bytes.exit83:                            ; preds = %55
   %59 = sub nuw nsw i64 2, %57
   %60 = getelementptr inbounds i8, ptr @.str.41, i64 %57
-  %spec.select.i82 = tail call i64 @llvm.umin.i64(i64 %59, i64 %.059115)
+  %spec.select.i82 = tail call i64 @llvm.umin.i64(i64 %59, i64 range(i64 1, 0) %.059115)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.058117, ptr nonnull align 1 %60, i64 %spec.select.i82, i1 false)
   %61 = load i64, ptr %12, align 8
   %62 = add i64 %61, %spec.select.i82
@@ -2054,7 +2054,7 @@ thread-pre-split:                                 ; preds = %80, %86
 90:                                               ; preds = %thread-pre-split
   %91 = getelementptr inbounds i8, ptr %10, i64 %87
   %92 = sub nuw nsw i64 256, %87
-  %93 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef nonnull %91, i64 noundef %92, ptr noundef %3)
+  %93 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef nonnull %91, i64 noundef %92, ptr noundef nonnull %3)
   switch i64 %93, label %95 [
     i64 0, label %.outer167
     i64 268435456, label %94
@@ -2264,7 +2264,7 @@ slist_size.exit:                                  ; preds = %match_header.exit.t
   %.018.i = phi i64 [ %.1.i, %match_header.exit.i ], [ 0, %slist_size.exit ]
   %.0916.i = phi ptr [ %49, %match_header.exit.i ], [ %38, %slist_size.exit ]
   %39 = load ptr, ptr %.0916.i, align 8
-  %40 = tail call i32 @curl_strnequal(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef 12) #15
+  %40 = tail call i32 @curl_strnequal(ptr noundef %39, ptr noundef nonnull @.str, i64 noundef range(i64 0, 26) 12) #15
   %.not.i.i = icmp eq i32 %40, 0
   %.pre.i = load ptr, ptr %.0916.i, align 8
   br i1 %.not.i.i, label %match_header.exit.thread.i, label %41
@@ -2404,7 +2404,7 @@ define dso_local range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef %0,
 .lr.ph.i:                                         ; preds = %16, %match_header.exit.i
   %.067.i = phi ptr [ %30, %match_header.exit.i ], [ %18, %16 ]
   %19 = load ptr, ptr %.067.i, align 8
-  %20 = tail call i32 @curl_strnequal(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef 12) #15
+  %20 = tail call i32 @curl_strnequal(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef range(i64 0, 26) 12) #15
   %.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i, label %match_header.exit.i, label %21
 
@@ -2625,7 +2625,7 @@ content_type_match.exit:                          ; preds = %98, %96, %90, %94, 
 .lr.ph.i197:                                      ; preds = %content_type_match.exit, %match_header.exit.i200
   %.067.i198 = phi ptr [ %117, %match_header.exit.i200 ], [ %108, %content_type_match.exit ]
   %109 = load ptr, ptr %.067.i198, align 8
-  %110 = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef nonnull @.str.21, i64 noundef 19) #15
+  %110 = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef nonnull @.str.21, i64 noundef range(i64 0, 26) 19) #15
   %.not.i.i199 = icmp eq i32 %110, 0
   br i1 %.not.i.i199, label %match_header.exit.i200, label %111
 
@@ -2750,7 +2750,7 @@ search_header.exit207.thread273:                  ; preds = %124, %search_header
 .lr.ph.i210:                                      ; preds = %search_header.exit207.thread273, %match_header.exit.i213
   %.067.i211 = phi ptr [ %162, %match_header.exit.i213 ], [ %153, %search_header.exit207.thread273 ]
   %154 = load ptr, ptr %.067.i211, align 8
-  %155 = tail call i32 @curl_strnequal(ptr noundef %154, ptr noundef nonnull @.str.29, i64 noundef 25) #15
+  %155 = tail call i32 @curl_strnequal(ptr noundef %154, ptr noundef nonnull @.str.29, i64 noundef range(i64 0, 26) 25) #15
   %.not.i.i212 = icmp eq i32 %155, 0
   br i1 %.not.i.i212, label %match_header.exit.i213, label %156
 
@@ -3604,7 +3604,7 @@ define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, 
 readback_bytes.exit49:                            ; preds = %29
   %33 = sub nuw nsw i64 4, %31
   %34 = getelementptr inbounds i8, ptr @.str.42, i64 %31
-  %spec.select.i48 = tail call i64 @llvm.umin.i64(i64 %33, i64 %.048.i58)
+  %spec.select.i48 = tail call i64 @llvm.umin.i64(i64 %33, i64 range(i64 1, 0) %.048.i58)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %34, i64 %spec.select.i48, i1 false)
   %35 = load i64, ptr %21, align 8
   %36 = add i64 %35, %spec.select.i48
@@ -3644,7 +3644,7 @@ readback_bytes.exit49.thread:                     ; preds = %29
   %.025.i40 = phi ptr [ %43, %42 ], [ %47, %46 ]
   %.pn = phi i64 [ 46, %42 ], [ 48, %46 ]
   %.024.i41 = sub nuw nsw i64 %.pn, %39
-  %spec.select.i42 = tail call i64 @llvm.umin.i64(i64 %.024.i41, i64 %.048.i58)
+  %spec.select.i42 = tail call i64 @llvm.umin.i64(i64 %.024.i41, i64 range(i64 1, 0) %.048.i58)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %.025.i40, i64 %spec.select.i42, i1 false)
   %49 = load i64, ptr %21, align 8
   %50 = add i64 %49, %spec.select.i42
@@ -3671,7 +3671,7 @@ readback_bytes.exit49.thread:                     ; preds = %29
   %.025.i = phi ptr [ %53, %52 ], [ %57, %56 ]
   %.pn56 = phi i64 [ 46, %52 ], [ 50, %56 ]
   %.024.i = sub nsw i64 %.pn56, %39
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 %.048.i58)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 range(i64 1, 0) %.048.i58)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %.025.i, i64 %spec.select.i, i1 false)
   %59 = load i64, ptr %21, align 8
   %60 = add i64 %59, %spec.select.i
@@ -3694,7 +3694,7 @@ readback_bytes.exit49.thread:                     ; preds = %29
   br label %readback_bytes.exit43
 
 64:                                               ; preds = %62
-  %65 = tail call fastcc i64 @readback_part(ptr noundef nonnull %25, ptr noundef %.047.i60, i64 noundef %.048.i58, ptr noundef %3)
+  %65 = tail call fastcc i64 @readback_part(ptr noundef nonnull %25, ptr noundef %.047.i60, i64 noundef %.048.i58, ptr noundef nonnull %3)
   switch i64 %65, label %readback_bytes.exit43 [
     i64 268435456, label %66
     i64 268435457, label %66

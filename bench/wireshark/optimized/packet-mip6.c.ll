@@ -1795,7 +1795,7 @@ dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.e
   %.0144164 = phi i32 [ %.0144, %dissect_mip6_hoti.exit ], [ 6, %dissect_mip6_hoti.exit.thread.sink.split ]
   %288 = sub nsw i32 %12, %.0144164
   %289 = load i32, ptr @ett_mip6, align 4
-  %290 = tail call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef %.0144164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.724) #5
+  %290 = tail call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %0, i32 noundef range(i32 0, 2048) %.0144164, i32 noundef range(i32 -2039, 2049) %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.724) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %.old1.i.i = icmp sgt i32 %288, 0
   br i1 %.old1.i.i, label %.preheader.i.i, label %dissect_mip6_options.exit

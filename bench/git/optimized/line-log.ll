@@ -188,7 +188,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv = zext i32 %0 to i64
   %1 = load ptr, ptr %ranges, align 8
-  tail call void @qsort(ptr noundef %1, i64 noundef %conv, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
+  tail call void @qsort(ptr noundef %1, i64 noundef range(i64 0, 4294967296) %conv, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
   %.pre = load i32, ptr %nr, align 4
   br label %sane_qsort.exit
 
@@ -689,7 +689,7 @@ for.body60.i:                                     ; preds = %for.end.i7, %sort_a
 if.then.i.i.i:                                    ; preds = %for.body60.i
   %conv.i.i = zext i32 %65 to i64
   %66 = load ptr, ptr %ranges.i37.i, align 8
-  call void @qsort(ptr noundef %66, i64 noundef %conv.i.i, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
+  call void @qsort(ptr noundef %66, i64 noundef range(i64 0, 4294967296) %conv.i.i, i64 noundef 16, ptr noundef nonnull @range_cmp) #16
   %.pre.i.i = load i32, ptr %nr.i.i, align 4
   br label %sane_qsort.exit.i.i
 
@@ -1471,8 +1471,8 @@ if.then.i:                                        ; preds = %lor.lhs.false
 if.end.i26:                                       ; preds = %if.then11.thread, %if.then.i
   %parent.0.i = phi ptr [ %14, %if.then.i ], [ null, %if.then11.thread ]
   %diffopt.i = getelementptr inbounds i8, ptr %rev, i64 1472
-  call fastcc void @queue_diffs(ptr noundef %call.i, ptr noundef nonnull %diffopt.i, ptr noundef nonnull %queue.i, ptr noundef nonnull %commit, ptr noundef %parent.0.i)
-  %call.i27 = call fastcc i32 @process_all_files(ptr noundef nonnull %parent_range.i, ptr noundef %rev, ptr noundef nonnull %queue.i, ptr noundef %call.i)
+  call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i, ptr noundef nonnull %queue.i, ptr noundef nonnull %commit, ptr noundef %parent.0.i)
+  %call.i27 = call fastcc i32 @process_all_files(ptr noundef nonnull %parent_range.i, ptr noundef %rev, ptr noundef nonnull %queue.i, ptr noundef nonnull %call.i)
   %tobool2.not.i28 = icmp eq ptr %parent.0.i, null
   %.pr.i = load ptr, ptr %parent_range.i, align 8
   br i1 %tobool2.not.i28, label %if.end4.i, label %if.then3.i
@@ -1567,7 +1567,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %next.i = getelementptr inbounds i8, ptr %p.088.i, i64 8
   %21 = load ptr, ptr %next.i, align 8
   %arrayidx14.i = getelementptr inbounds %struct.diff_queue_struct, ptr %call3.i41, i64 %indvars.iv.i
-  call fastcc void @queue_diffs(ptr noundef %call.i, ptr noundef nonnull %diffopt.i42, ptr noundef %arrayidx14.i, ptr noundef %commit, ptr noundef %20)
+  call fastcc void @queue_diffs(ptr noundef nonnull %call.i, ptr noundef nonnull %diffopt.i42, ptr noundef %arrayidx14.i, ptr noundef %commit, ptr noundef %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.cond17.preheader.i, label %for.body.i, !llvm.loop !23
@@ -1582,7 +1582,7 @@ for.body20.i:                                     ; preds = %for.cond17.i, %for.
   %arrayidx22.i = getelementptr inbounds ptr, ptr %call6.i, i64 %indvars.iv97.i
   store ptr null, ptr %arrayidx22.i, align 8
   %arrayidx26.i = getelementptr inbounds %struct.diff_queue_struct, ptr %call3.i41, i64 %indvars.iv97.i
-  %call27.i = call fastcc i32 @process_all_files(ptr noundef nonnull %arrayidx22.i, ptr noundef %rev, ptr noundef %arrayidx26.i, ptr noundef %call.i)
+  %call27.i = call fastcc i32 @process_all_files(ptr noundef nonnull %arrayidx22.i, ptr noundef %rev, ptr noundef %arrayidx26.i, ptr noundef nonnull %call.i)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %if.then29.i, label %for.cond17.i
 

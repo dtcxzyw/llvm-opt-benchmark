@@ -108,7 +108,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset10FromBufferE
   store i32 1, ptr %6, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !4
 
 .noexc.i.i.i.i:                                   ; preds = %3
@@ -165,7 +165,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset10FromBufferE
   store i32 1, ptr %6, align 4, !noalias !7
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetEJSt10shared_ptrIKcERmNS1_14PrivateCtorTagEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !7
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %3
@@ -475,7 +475,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset9FromAssetERK
   store i32 1, ptr %50, align 4, !noalias !16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %48, align 8, !noalias !16
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %51)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %_ZNSt10shared_ptrIKcED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !16
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %.noexc
@@ -907,7 +907,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset16GetDetache
   store i32 1, ptr %7, align 4, !noalias !17
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !17
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !17
 
 .noexc.i.i.i.i.i:                                 ; preds = %2

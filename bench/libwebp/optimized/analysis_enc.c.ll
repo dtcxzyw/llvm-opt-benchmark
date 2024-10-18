@@ -91,7 +91,7 @@ define hidden i32 @VP8EncAnalyze(ptr noundef %0) local_unnamed_addr #0 {
   %50 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr @DoSegmentsJob, ptr %50, align 8
   call void @VP8IteratorInit(ptr noundef nonnull %0, ptr noundef nonnull %48) #6
-  call void @VP8IteratorSetRow(ptr noundef nonnull %48, i32 noundef %27) #6
+  call void @VP8IteratorSetRow(ptr noundef nonnull %48, i32 noundef range(i32 0, 134217728) %27) #6
   %51 = sub nsw i32 %21, %27
   %52 = load i32, ptr %22, align 8
   %53 = mul nsw i32 %52, %51

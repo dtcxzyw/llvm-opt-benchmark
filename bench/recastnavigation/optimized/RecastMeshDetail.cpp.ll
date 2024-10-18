@@ -134,7 +134,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   store i32 0, ptr %31, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef 64, ptr noundef nonnull %31)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %32, i64 noundef 64, ptr noundef nonnull align 4 dereferenceable(4) %31)
           to label %71 unwind label %83
 
 71:                                               ; preds = %56
@@ -142,7 +142,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
   store i32 0, ptr %30, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef 512, ptr noundef nonnull %30)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef 512, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %72 unwind label %85
 
 72:                                               ; preds = %71
@@ -150,7 +150,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   store i32 0, ptr %29, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 512, ptr noundef nonnull %29)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 512, ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %73 unwind label %87
 
 73:                                               ; preds = %72
@@ -158,7 +158,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   store i32 0, ptr %28, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 512, ptr noundef nonnull %28)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 512, ptr noundef nonnull align 4 dereferenceable(4) %28)
           to label %74 unwind label %89
 
 74:                                               ; preds = %73
@@ -4427,7 +4427,7 @@ _ZN10rcIntArrayixEi.exit111.i.i:                  ; preds = %1979, %.noexc415
 _ZN10rcIntArrayixEi.exit113.i.i:                  ; preds = %1989, %.noexc417
   %1990 = load ptr, ptr %246, align 8
   %1991 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef readonly %36, i32 noundef %indvars, ptr noundef %1990, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %1991)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef %1990, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %1991)
           to label %.noexc419 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc419:                                        ; preds = %_ZN10rcIntArrayixEi.exit113.i.i, %_ZN10rcIntArrayixEi.exit111.i.i
@@ -4471,7 +4471,7 @@ _ZN10rcIntArrayixEi.exit115.i.i:                  ; preds = %1997, %.noexc420
 _ZN10rcIntArrayixEi.exit117.i.i:                  ; preds = %2007, %.noexc422
   %2008 = load ptr, ptr %246, align 8
   %2009 = trunc nuw nsw i64 %indvars.iv178.i.i to i32
-  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef readonly %36, i32 noundef %indvars, ptr noundef %2008, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2009)
+  invoke fastcc void @_ZL13completeFacetP9rcContextPKfiPiRiiS4_i(ptr noundef %0, ptr noundef nonnull readonly %36, i32 noundef %indvars, ptr noundef %2008, ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef %1904, ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef %2009)
           to label %.noexc424 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc424:                                        ; preds = %_ZN10rcIntArrayixEi.exit117.i.i, %_ZN10rcIntArrayixEi.exit115.i.i

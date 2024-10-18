@@ -680,7 +680,7 @@ define void @_ZThn8_N6icu_7514StringReplacerD0Ev(ptr noundef %this) unnamed_addr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7514StringReplacerD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #15
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(96) %0) #15
   ret void
 }
 

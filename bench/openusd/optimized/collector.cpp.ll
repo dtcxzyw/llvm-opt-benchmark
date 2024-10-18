@@ -576,7 +576,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_GetT
 
 .noexc:                                           ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %6)
           to label %.noexc1 unwind label %19
 
 .noexc1:                                          ; preds = %.noexc
@@ -647,7 +647,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectorC2Ev(ptr nound
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9 unwind label %42
 
 .noexc9:                                          ; preds = %.noexc
@@ -657,7 +657,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectorC2Ev(ptr nound
 11:                                               ; preds = %.noexc9
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
@@ -758,7 +758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ClearEv.exit: ; preds = %_
           to label %.noexc16 unwind label %44
 
 .noexc16:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ClearEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %35, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc17 unwind label %44
 
 .noexc17:                                         ; preds = %.noexc16
@@ -768,7 +768,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ClearEv.exit: ; preds = %_
 36:                                               ; preds = %.noexc17
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   br label %.body18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; preds = %.noexc17
@@ -1102,7 +1102,7 @@ _ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19
 3:                                                ; preds = %_ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19TraceConcurrentListINS3_14TraceCollector14_PerThreadDataEE4NodeEE10deallocateEPS8_m.exit
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %5 = load ptr, ptr %4, align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataD1Ev(ptr noundef nonnull align 128 dereferenceable(80) %.0) #19
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0)
           to label %_ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19TraceConcurrentListINS3_14TraceCollector14_PerThreadDataEE4NodeEE10deallocateEPS8_m.exit unwind label %7
 
@@ -1133,7 +1133,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev(
   br i1 %7, label %8, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
 
 8:                                                ; preds = %3
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i unwind label %16
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i: ; preds = %3, %8
@@ -1252,7 +1252,7 @@ _ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19
 41:                                               ; preds = %_ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19TraceConcurrentListINS3_14TraceCollector14_PerThreadDataEE4NodeEE10deallocateEPS8_m.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %43 = load ptr, ptr %42, align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0.i) #19
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataD1Ev(ptr noundef nonnull align 128 dereferenceable(80) %.0.i) #19
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i)
           to label %_ZN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__19TraceConcurrentListINS3_14TraceCollector14_PerThreadDataEE4NodeEE10deallocateEPS8_m.exit.i unwind label %44
 
@@ -1278,7 +1278,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TraceConcurrentListINS_14TraceCollector14
   br i1 %52, label %53, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 53:                                               ; preds = %48
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull %.0.i.i1)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i.i1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i unwind label %61
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %53, %48
@@ -1330,7 +1330,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit: ; pre
 
 .noexc.i:                                         ; preds = %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %11, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %11)
           to label %.noexc1.i unwind label %22
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -1397,7 +1397,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_GetThreadDataEv.exit: ; 
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_GetThreadDataEv.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i3)
           to label %47 unwind label %45
 
 45:                                               ; preds = %44
@@ -1472,7 +1472,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA27_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %22, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %22)
           to label %.noexc1.i unwind label %33
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -1604,7 +1604,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA43_S3_EEEOT_D
   br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERjEEERKS2_DpOT_.exit
 
 38:                                               ; preds = %20
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERjEEERKS2_DpOT_.exit unwind label %48
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERjEEERKS2_DpOT_.exit: ; preds = %20, %38
@@ -1691,7 +1691,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA31_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %22, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %22)
           to label %.noexc1.i unwind label %33
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -1823,7 +1823,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA41_S3_EEEOT_D
   br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERjEEERKS2_DpOT_.exit
 
 38:                                               ; preds = %20
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERjEEERKS2_DpOT_.exit unwind label %48
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERjEEERKS2_DpOT_.exit: ; preds = %20, %38
@@ -1910,7 +1910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA28_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %22, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %22)
           to label %.noexc1.i unwind label %33
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -2042,7 +2042,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA44_S3_EEEOT_D
   br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERjEEERKS2_DpOT_.exit
 
 38:                                               ; preds = %20
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERjEEERKS2_DpOT_.exit unwind label %48
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERjEEERKS2_DpOT_.exit: ; preds = %20, %38
@@ -2129,7 +2129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA45_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %23, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %23)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %23)
           to label %.noexc1.i unwind label %34
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -2269,7 +2269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA47_S3_EEEOT_D
   br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit
 
 43:                                               ; preds = %23
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit unwind label %53
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit: ; preds = %23, %43
@@ -2365,7 +2365,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA47_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %23, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %23)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %23)
           to label %.noexc1.i unwind label %34
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -2505,7 +2505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA49_S3_EEEOT_D
   br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit
 
 43:                                               ; preds = %23
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit unwind label %53
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent8BeginTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit: ; preds = %23, %43
@@ -2601,7 +2601,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA48_S3_EEEOT_D
 
 .noexc.i:                                         ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %23, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %23)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %23)
           to label %.noexc1.i unwind label %34
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -2741,7 +2741,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA6_KcJRA50_S3_EEEOT_D
   br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit
 
 43:                                               ; preds = %23
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit unwind label %53
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent9MarkerTagENS_8TraceKeyERKmRjEEERKS2_DpOT_.exit: ; preds = %23, %43
@@ -2845,7 +2845,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector9_EndScopeERKN
 
 .noexc.i:                                         ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC1Ev(ptr noundef nonnull align 128 dereferenceable(80) %8)
           to label %.noexc1.i unwind label %19
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -2911,7 +2911,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_GetThreadDataEv.exit: ; 
   br i1 %40, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadData8EndScopeERKNS_8TraceKeyEj.exit
 
 41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_GetThreadDataEv.exit
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i.i.i3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadData8EndScopeERKNS_8TraceKeyEj.exit unwind label %42
 
 42:                                               ; preds = %41
@@ -3568,7 +3568,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDa
   br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagERKNS_8TraceKeyERjEEERKS2_DpOT_.exit
 
 22:                                               ; preds = %3
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagERKNS_8TraceKeyERjEEERKS2_DpOT_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent6EndTagERKNS_8TraceKeyERjEEERKS2_DpOT_.exit: ; preds = %3, %22
@@ -3621,7 +3621,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDa
   br i1 %30, label %31, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterDeltaTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit
 
 31:                                               ; preds = %12
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterDeltaTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit unwind label %32
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterDeltaTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit: ; preds = %12, %31
@@ -3681,7 +3681,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDa
   br i1 %30, label %31, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterValueTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit
 
 31:                                               ; preds = %12
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr noundef nonnull align 8 dereferenceable(160) %.0.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterValueTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit unwind label %32
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventList11EmplaceBackIJNS_10TraceEvent15CounterValueTagENS_8TraceKeyERdRjEEERKS2_DpOT_.exit: ; preds = %12, %31
@@ -4110,7 +4110,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
   %63 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 24, i1 false)
   %65 = getelementptr inbounds i8, ptr %63, i64 32
   store i64 %62, ptr %65, align 8
   %66 = and i64 %62, 7
@@ -4600,7 +4600,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEEclEP
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdESt4pairIKS1_St10unique_ptrINS0_14TraceEventListESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__14TraceEventListEEclEPS1_.exit.i.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   store ptr null, ptr %7, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40

@@ -233,7 +233,7 @@ define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocaptur
   store i64 %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false), !noalias !23
-  %6 = call ptr @gmtime_r(ptr noundef nonnull %3, ptr noundef nonnull %2) #12, !noalias !23
+  %6 = call ptr @gmtime_r(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2) #12, !noalias !23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -269,7 +269,7 @@ define dso_local void @_ZN5vcpkg5CTime10now_stringB5cxx11Ev(ptr dead_on_unwind n
   store i64 %6, ptr %3, align 8, !noalias !26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2), !noalias !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false), !noalias !29
-  %7 = call ptr @gmtime_r(ptr noundef nonnull %3, ptr noundef nonnull %2) #12, !noalias !29
+  %7 = call ptr @gmtime_r(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2) #12, !noalias !29
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %10, label %8
 
@@ -380,7 +380,7 @@ define dso_local void @_ZNK5vcpkg5CTime9add_hoursEi(ptr dead_on_unwind noalias n
   store i64 %10, ptr %5, align 8, !noalias !32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !noalias !35
-  %11 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #12, !noalias !35
+  %11 = call ptr @gmtime_r(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4) #12, !noalias !35
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %_ZN5vcpkg11to_utc_timeERKl.exit.i
 
@@ -427,7 +427,7 @@ define dso_local void @_ZNK5vcpkg5CTime8strftimeB5cxx11EPKc(ptr dead_on_unwind n
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc3 unwind label %12
 
 .noexc3:                                          ; preds = %.noexc
@@ -439,7 +439,7 @@ define dso_local void @_ZNK5vcpkg5CTime8strftimeB5cxx11EPKc(ptr dead_on_unwind n
 10:                                               ; preds = %.noexc3
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc3
@@ -479,7 +479,7 @@ define dso_local void @_ZN5vcpkg27get_current_date_time_localEv(ptr dead_on_unwi
   %3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #12
   %4 = sdiv i64 %3, 1000000000
   store i64 %4, ptr %2, align 8
-  %5 = call ptr @localtime(ptr noundef nonnull %2) #12, !noalias !38
+  %5 = call ptr @localtime(ptr noundef nonnull align 8 dereferenceable(8) %2) #12, !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   ret void
 }

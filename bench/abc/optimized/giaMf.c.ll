@@ -1839,7 +1839,7 @@ Vec_IntFill.exit:                                 ; preds = %45, %Vec_IntAlloc.e
   %74 = load i64, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %75 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %74, i64 noundef %74, i32 noundef %61, ptr noundef %7, ptr noundef %6)
+  %75 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %74, i64 noundef %74, i32 noundef range(i32 0, 32) %61, ptr noundef nonnull %7, ptr noundef %6)
   %76 = load i32, ptr %6, align 4
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph.i108, label %._crit_edge.i
@@ -1864,7 +1864,7 @@ Vec_IntFill.exit:                                 ; preds = %45, %Vec_IntAlloc.e
 ._crit_edge.i:                                    ; preds = %80, %73
   %.0.lcssa.i = phi i32 [ 0, %73 ], [ %76, %80 ]
   %84 = xor i64 %74, -1
-  %85 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %84, i64 noundef %84, i32 noundef %61, ptr noundef %7, ptr noundef %6)
+  %85 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %84, i64 noundef %84, i32 noundef range(i32 0, 32) %61, ptr noundef nonnull %7, ptr noundef %6)
   %86 = load i32, ptr %6, align 4
   %87 = icmp slt i32 %.0.lcssa.i, %86
   br i1 %87, label %.lr.ph21.i, label %Abc_Tt6Cnf.exit
@@ -2142,7 +2142,7 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
   %222 = and i32 %.val94, 31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %223 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %221, i64 noundef %221, i32 noundef %222, ptr noundef %7, ptr noundef %5)
+  %223 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %221, i64 noundef %221, i32 noundef range(i32 0, 32) %222, ptr noundef nonnull %7, ptr noundef %5)
   %224 = load i32, ptr %5, align 4
   %225 = icmp sgt i32 %224, 0
   br i1 %225, label %.lr.ph.i137, label %._crit_edge.i130
@@ -2166,7 +2166,7 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
 ._crit_edge.i130:                                 ; preds = %228, %220
   %.0.lcssa.i131 = phi i32 [ 0, %220 ], [ %224, %228 ]
   %232 = xor i64 %221, -1
-  %233 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %232, i64 noundef %232, i32 noundef %222, ptr noundef %7, ptr noundef %5)
+  %233 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %232, i64 noundef %232, i32 noundef range(i32 0, 32) %222, ptr noundef nonnull %7, ptr noundef %5)
   %234 = load i32, ptr %5, align 4
   %235 = icmp slt i32 %.0.lcssa.i131, %234
   br i1 %235, label %.lr.ph21.i132, label %Abc_Tt6Cnf.exit142
@@ -4643,7 +4643,7 @@ Mf_ManPrepareCuts.exit:                           ; preds = %Mf_CutGetSign.exit.
   %151 = getelementptr inbounds i8, ptr %150, i64 12
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 65535
-  %154 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %146, i32 %153)
+  %154 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %146, i32 range(i32 0, 65536) %153)
   store i32 %154, ptr %141, align 8
   %155 = getelementptr inbounds i8, ptr %150, i64 4
   %156 = load float, ptr %155, align 4
@@ -5240,8 +5240,8 @@ Abc_TtCopy.exit105.i.us.us.us:                    ; preds = %.lr.ph.i94.i.us.us.
   br i1 %452, label %Abc_TtSwapVars.exit553.us.us.us, label %453
 
 453:                                              ; preds = %450
-  %spec.select.i527.us.us.us = call i32 @llvm.smax.i32(i32 %451, i32 %.017.i.i.us.us.us)
-  %spec.select117.i528.us.us.us = call i32 @llvm.smin.i32(i32 %451, i32 %.017.i.i.us.us.us)
+  %spec.select.i527.us.us.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %451, i32 range(i32 -2147483648, 30) %.017.i.i.us.us.us)
+  %spec.select117.i528.us.us.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %451, i32 range(i32 -2147483648, 30) %.017.i.i.us.us.us)
   %454 = icmp ult i32 %spec.select.i527.us.us.us, 6
   br i1 %454, label %511, label %455
 
@@ -5428,8 +5428,8 @@ Abc_TtExpand.exit.i.us.us.us:                     ; preds = %534, %Abc_TtCopy.ex
   br i1 %555, label %Abc_TtSwapVars.exit526.us.us.us, label %556
 
 556:                                              ; preds = %553
-  %spec.select.i500.us.us.us = call i32 @llvm.smax.i32(i32 %554, i32 %.017.i113.i.us.us.us)
-  %spec.select117.i501.us.us.us = call i32 @llvm.smin.i32(i32 %554, i32 %.017.i113.i.us.us.us)
+  %spec.select.i500.us.us.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %554, i32 range(i32 -2147483648, 30) %.017.i113.i.us.us.us)
+  %spec.select117.i501.us.us.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %554, i32 range(i32 -2147483648, 30) %.017.i113.i.us.us.us)
   %557 = icmp ult i32 %spec.select.i500.us.us.us, 6
   br i1 %557, label %614, label %558
 
@@ -5616,8 +5616,8 @@ Abc_TtExpand.exit116.i.us.us.us:                  ; preds = %637, %Abc_TtExpand.
   br i1 %658, label %Abc_TtSwapVars.exit499.us.us.us, label %659
 
 659:                                              ; preds = %656
-  %spec.select.i473.us.us.us = call i32 @llvm.smax.i32(i32 %657, i32 %.017.i120.i.us.us.us)
-  %spec.select117.i474.us.us.us = call i32 @llvm.smin.i32(i32 %657, i32 %.017.i120.i.us.us.us)
+  %spec.select.i473.us.us.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %657, i32 range(i32 -2147483648, 30) %.017.i120.i.us.us.us)
+  %spec.select117.i474.us.us.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %657, i32 range(i32 -2147483648, 30) %.017.i120.i.us.us.us)
   %660 = icmp ult i32 %spec.select.i473.us.us.us, 6
   br i1 %660, label %717, label %661
 
@@ -5891,8 +5891,8 @@ Abc_TtHasVar.exit.i.i.us.us.us:                   ; preds = %784, %770
   br i1 %796, label %Abc_TtSwapVars.exit.us.us.us, label %797
 
 797:                                              ; preds = %792
-  %spec.select.i462.us.us.us = call i32 @llvm.smax.i32(i32 %764, i32 %.033.i.i.us.us.us)
-  %spec.select117.i.us.us.us = call i32 @llvm.smin.i32(i32 %764, i32 %.033.i.i.us.us.us)
+  %spec.select.i462.us.us.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %764, i32 range(i32 -2147483648, 30) %.033.i.i.us.us.us)
+  %spec.select117.i.us.us.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %764, i32 range(i32 -2147483648, 30) %.033.i.i.us.us.us)
   %798 = icmp slt i32 %spec.select.i462.us.us.us, 6
   br i1 %798, label %.lr.ph.i470.us.us.us, label %799
 
@@ -6085,8 +6085,8 @@ Abc_TtMinBase.exit.i.us.us.us:                    ; preds = %Abc_TtMinBase.exit.
   %900 = load i64, ptr %229, align 8
   %901 = xor i64 %900, -1
   store i64 %901, ptr %228, align 8
-  %902 = call fastcc i32 @Abc_Tt8Isop(ptr noundef readonly %14, ptr noundef readonly %14, i32 noundef %893, ptr noundef %10)
-  %903 = call fastcc i32 @Abc_Tt8Isop(ptr noundef %11, ptr noundef %11, i32 noundef %893, ptr noundef %10)
+  %902 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %14, i32 noundef range(i32 0, 32) %893, ptr noundef %10)
+  %903 = call fastcc i32 @Abc_Tt8Isop(ptr noundef %11, ptr noundef %11, i32 noundef range(i32 0, 32) %893, ptr noundef %10)
   %904 = add nsw i32 %903, %902
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -6541,9 +6541,9 @@ Abc_Tt6MinBase.exit.i.i.us.us.us:                 ; preds = %1150, %._crit_edge.
   %1168 = lshr i32 %1159, 27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  %1169 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %1151, i64 noundef %1151, i32 noundef %1168, ptr noundef %12)
+  %1169 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %1151, i64 noundef %1151, i32 noundef range(i32 0, 32) %1168, ptr noundef %12)
   %1170 = xor i64 %1151, -1
-  %1171 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %1170, i64 noundef %1170, i32 noundef %1168, ptr noundef %12)
+  %1171 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %1170, i64 noundef %1170, i32 noundef range(i32 0, 32) %1168, ptr noundef %12)
   %1172 = load i32, ptr %12, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %1181
@@ -6716,7 +6716,7 @@ Mf_CutGetSign.exit.us.us.us:                      ; preds = %.lr.ph.i216.us.us.u
   %1244 = getelementptr inbounds i8, ptr %1243, i64 12
   %1245 = load i32, ptr %1244, align 4
   %1246 = and i32 %1245, 65535
-  %1247 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %1239, i32 %1246)
+  %1247 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %1239, i32 range(i32 0, 65536) %1246)
   store i32 %1247, ptr %1234, align 8
   %1248 = getelementptr inbounds i8, ptr %1243, i64 4
   %1249 = load float, ptr %1248, align 4
@@ -7557,8 +7557,8 @@ Abc_TtCopy.exit78.i.us:                           ; preds = %.lr.ph.i67.i.us, %.
   br i1 %1629, label %Abc_TtSwapVars.exit607.us, label %1630
 
 1630:                                             ; preds = %1627
-  %spec.select.i581.us = call i32 @llvm.smax.i32(i32 %1628, i32 %.017.i.i326.us)
-  %spec.select117.i582.us = call i32 @llvm.smin.i32(i32 %1628, i32 %.017.i.i326.us)
+  %spec.select.i581.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %1628, i32 range(i32 -2147483648, 30) %.017.i.i326.us)
+  %spec.select117.i582.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %1628, i32 range(i32 -2147483648, 30) %.017.i.i326.us)
   %1631 = icmp ult i32 %spec.select.i581.us, 6
   br i1 %1631, label %1688, label %1632
 
@@ -7745,8 +7745,8 @@ Abc_TtExpand.exit.i295.us:                        ; preds = %1711, %Abc_TtCopy.e
   br i1 %1732, label %Abc_TtSwapVars.exit580.us, label %1733
 
 1733:                                             ; preds = %1730
-  %spec.select.i554.us = call i32 @llvm.smax.i32(i32 %1731, i32 %.017.i86.i.us)
-  %spec.select117.i555.us = call i32 @llvm.smin.i32(i32 %1731, i32 %.017.i86.i.us)
+  %spec.select.i554.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 31) %1731, i32 range(i32 -2147483648, 30) %.017.i86.i.us)
+  %spec.select117.i555.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 31) %1731, i32 range(i32 -2147483648, 30) %.017.i86.i.us)
   %1734 = icmp ult i32 %spec.select.i554.us, 6
   br i1 %1734, label %1791, label %1735
 
@@ -8079,7 +8079,7 @@ Abc_TtHasVar.exit.i.i306.us:                      ; preds = %1877, %1863
   %1887 = load i32, ptr %1886, align 4
   %1888 = getelementptr inbounds i32, ptr %1443, i64 %1883
   store i32 %1887, ptr %1888, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %7, i32 noundef %1558, i32 noundef %.033.i.i302.us, i32 noundef %1857)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %7, i32 noundef range(i32 7, -2147483648) %1558, i32 noundef %.033.i.i302.us, i32 noundef %1857)
   br label %1889
 
 1889:                                             ; preds = %1885, %Abc_TtHasVar.exit.i.i306.us
@@ -8146,8 +8146,8 @@ Abc_TtMinBase.exit.i310.us:                       ; preds = %Abc_TtMinBase.exit.
   %1916 = load i64, ptr %1414, align 8
   %1917 = xor i64 %1916, -1
   store i64 %1917, ptr %1413, align 8
-  %1918 = call fastcc i32 @Abc_Tt8Isop(ptr noundef readonly %7, ptr noundef readonly %7, i32 noundef %1909, ptr noundef %3)
-  %1919 = call fastcc i32 @Abc_Tt8Isop(ptr noundef %4, ptr noundef %4, i32 noundef %1909, ptr noundef %3)
+  %1918 = call fastcc i32 @Abc_Tt8Isop(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %7, i32 noundef range(i32 0, 32) %1909, ptr noundef %3)
+  %1919 = call fastcc i32 @Abc_Tt8Isop(ptr noundef %4, ptr noundef %4, i32 noundef range(i32 0, 32) %1909, ptr noundef %3)
   %1920 = add nsw i32 %1919, %1918
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -8533,9 +8533,9 @@ Abc_Tt6MinBase.exit.i.i364.us:                    ; preds = %2117, %._crit_edge.
   %2137 = lshr i32 %2128, 27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %2138 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %2124, i64 noundef %2124, i32 noundef %2137, ptr noundef %5)
+  %2138 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %2124, i64 noundef %2124, i32 noundef range(i32 0, 32) %2137, ptr noundef %5)
   %2139 = xor i64 %2124, -1
-  %2140 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %2139, i64 noundef %2139, i32 noundef %2137, ptr noundef %5)
+  %2140 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %2139, i64 noundef %2139, i32 noundef range(i32 0, 32) %2137, ptr noundef %5)
   %2141 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %2150
@@ -8706,7 +8706,7 @@ Mf_CutGetSign.exit386.us:                         ; preds = %.lr.ph.i379.us, %21
   %2213 = getelementptr inbounds i8, ptr %2212, i64 12
   %2214 = load i32, ptr %2213, align 4
   %2215 = and i32 %2214, 65535
-  %2216 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %2208, i32 %2215)
+  %2216 = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %2208, i32 range(i32 0, 65536) %2215)
   store i32 %2216, ptr %2203, align 8
   %2217 = getelementptr inbounds i8, ptr %2212, i64 4
   %2218 = load float, ptr %2217, align 4
@@ -9953,7 +9953,7 @@ define i32 @Mf_ManSetMapRefs(ptr nocapture noundef readonly %0) local_unnamed_ad
   %28 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val91, i64 %27, i32 3
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 65535
-  %31 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.0116, i32 %30)
+  %31 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.0116, i32 range(i32 0, 65536) %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !97
@@ -15183,7 +15183,7 @@ Mf_CutAreaDerefed2.exit.i:                        ; preds = %.lr.ph.i.i, %45
   %68 = getelementptr inbounds i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 65535
-  %71 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.023.i.i, i32 %70)
+  %71 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.023.i.i, i32 range(i32 0, 65536) %70)
   %72 = getelementptr inbounds i8, ptr %67, i64 4
   %73 = load float, ptr %72, align 4
   %74 = fadd float %.01621.i.i, %73
@@ -15321,7 +15321,7 @@ Mf_CutFlow.exit.i:                                ; preds = %92, %89, %85, %._cr
   %132 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val.i63.i, i64 %131, i32 3
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 65535
-  %135 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.023.i66.i, i32 %134)
+  %135 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.023.i66.i, i32 range(i32 0, 65536) %134)
   %indvars.iv.next.i68.i = add nuw nsw i64 %indvars.iv.i65.i, 1
   %exitcond.not.i69.i = icmp eq i64 %indvars.iv.next.i68.i, %wide.trip.count.i64.i
   br i1 %exitcond.not.i69.i, label %._crit_edge.i71.i, label %128, !llvm.loop !139
@@ -15675,7 +15675,7 @@ Mf_ManComputeCuts.exit:                           ; preds = %._crit_edge.i, %55
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %136
-  %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.67, i32 noundef %141) #28
+  %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.67, i32 noundef range(i32 0, 16) %141) #28
   br label %Vec_MemDumpDigit.exit.i.i
 
 145:                                              ; preds = %136

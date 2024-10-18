@@ -226,7 +226,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
   %78 = load ptr, ptr %.0.i.i.i.i, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 256
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull %53) #8
+  %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %53) #8
   br label %_ZN6XUtils11object_sizeEm.exit.i
 
 82:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
@@ -259,7 +259,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
   %105 = load ptr, ptr %.0.i.i.i.i, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 256
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull %53) #8
+  %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %53) #8
   br label %_ZN6XUtils11object_sizeEm.exit.i
 
 _ZN6XUtils11object_sizeEm.exit.i:                 ; preds = %104, %84, %77, %74
@@ -661,7 +661,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit:       ; preds = %_ZNK11XForwarding4f
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.XRelocateTask, align 8
-  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str) #8
+  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull @.str) #8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -675,8 +675,8 @@ define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %3, i64 56
   store volatile i64 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 88, i1 false)
-  call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 88, i1 false)
+  call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #8
   %13 = getelementptr inbounds i8, ptr %3, i64 152
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 160
@@ -707,7 +707,7 @@ _ZL23should_free_target_pageP5XPage.exit.i.i:     ; preds = %2
   br label %_ZN13XRelocateTaskD2Ev.exit
 
 _ZN13XRelocateTaskD2Ev.exit:                      ; preds = %2, %_ZL23should_free_target_pageP5XPage.exit.i.i, %25
-  call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #8
+  call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #8
   ret void
 }
 
@@ -840,7 +840,7 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
-  %18 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.011.i.i, ptr nonnull %10) #8, !srcloc !9
+  %18 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %10) #8, !srcloc !9
   %19 = icmp eq ptr %18, %.011.i.i
   br i1 %19, label %20, label %14, !llvm.loop !12
 
@@ -980,14 +980,14 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #8
+  %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(112) %23) #8
   %27 = getelementptr inbounds i8, ptr %23, i64 88
   store ptr %25, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 96
   store i8 0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %23, i64 40
   %30 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %29) #8
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #8
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(112) %23) #8
   br label %35
 
 32:                                               ; preds = %15
@@ -1037,7 +1037,7 @@ _ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; pr
   br label %.backedge
 
 23:                                               ; preds = %8, %_ZL10alloc_pagePK11XForwarding.exit.i
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %9) #8, !srcloc !14
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %9) #8, !srcloc !14
   store ptr null, ptr %7, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = tail call noundef ptr @_ZN11XForwarding10claim_pageEv(ptr noundef nonnull align 8 dereferenceable(134) %25) #8
@@ -1174,7 +1174,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %77 = load ptr, ptr %.0.i.i.i, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -1207,7 +1207,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %104 = load ptr, ptr %.0.i.i.i, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
@@ -1491,14 +1491,14 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #8
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(112) %9) #8
   %13 = getelementptr inbounds i8, ptr %9, i64 96
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %16 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %9, i64 noundef 0) #8
+  %16 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(112) %9, i64 noundef 0) #8
   %17 = load i8, ptr %13, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
@@ -1533,7 +1533,7 @@ _ZL10alloc_pagePK11XForwarding.exit.i:            ; preds = %22
   br i1 %34, label %36, label %_ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thread
 
 _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thread: ; preds = %_ZL10alloc_pagePK11XForwarding.exit.i
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #8
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(112) %9) #8
   store ptr %33, ptr %7, align 8
   br label %.backedge
 
@@ -1546,7 +1546,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thre
 
 _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; preds = %._crit_edge.i, %36
   %39 = phi ptr [ %.pre.i, %36 ], [ %20, %._crit_edge.i ]
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #8
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(112) %9) #8
   store ptr %39, ptr %7, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %41, label %.backedge
@@ -1687,7 +1687,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %77 = load ptr, ptr %.0.i.i.i, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -1720,7 +1720,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %104 = load ptr, ptr %.0.i.i.i, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
@@ -2204,7 +2204,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %77 = load ptr, ptr %.0.i.i.i, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -2237,7 +2237,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %104 = load ptr, ptr %.0.i.i.i, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %52) #8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
 
 _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103

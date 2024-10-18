@@ -593,7 +593,7 @@ entry:
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %__svw.coerce0, ptr %__svw.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ENS4_12__sv_wrapperERKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %cmp.i = icmp eq ptr %__svw.coerce1, null
   %cmp2.i = icmp ne i64 %__svw.coerce0, 0
   %or.cond.i = and i1 %cmp2.i, %cmp.i

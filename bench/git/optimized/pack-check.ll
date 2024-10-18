@@ -300,7 +300,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp.i.not.i, label %for.body56.lr.ph.i, label %sane_qsort.exit.thread129.i
 
 sane_qsort.exit.thread129.i:                      ; preds = %for.end.i
-  call void @qsort(ptr noundef nonnull %call42.i, i64 noundef %idxprom.i, i64 noundef 16, ptr noundef nonnull @compare_entries) #9
+  call void @qsort(ptr noundef nonnull %call42.i, i64 noundef range(i64 0, 4294967296) %idxprom.i, i64 noundef 16, ptr noundef nonnull @compare_entries) #9
   br label %for.body56.lr.ph.i
 
 for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qsort.exit.thread129.i

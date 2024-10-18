@@ -130,7 +130,7 @@ loop:                                             ; preds = %loop.backedge, %loo
 
 if.then60:                                        ; preds = %loop
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %mods.i)
-  %call50.i = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1) #5
+  %call50.i = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1) #5
   %tobool.not51.i = icmp eq i32 %call50.i, 0
   br i1 %tobool.not51.i, label %probable_prime.exit.thread, label %for.cond.preheader.i
 
@@ -269,7 +269,7 @@ if.end85.i:                                       ; preds = %if.end81.i
 
 again.backedge.i:                                 ; preds = %if.then71.i, %if.then46.us.i, %if.end85.i
   %maxdelta.170.i = phi i64 [ %maxdelta.171.i, %if.end85.i ], [ %spec.select.i, %if.then46.us.i ], [ %maxdelta.052.i, %if.then71.i ]
-  %call.i = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1) #5
+  %call.i = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %probable_prime.exit.thread, label %for.cond.preheader.i
 
@@ -386,7 +386,7 @@ if.else72:                                        ; preds = %if.else65
   br i1 %cmp.i61, label %probable_prime_dh.exit.thread, label %if.end.i62
 
 if.end.i62:                                       ; preds = %if.else72
-  %call1.i63 = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef %bits, i32 noundef 0, i32 noundef 1) #5
+  %call1.i63 = tail call i32 @BN_rand(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 0, i32 noundef 1) #5
   %tobool.not.i64 = icmp eq i32 %call1.i63, 0
   br i1 %tobool.not.i64, label %probable_prime_dh.exit.thread, label %if.end3.i
 

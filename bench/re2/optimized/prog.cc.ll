@@ -2098,7 +2098,7 @@ define void @_ZN3re24Prog14ComputeByteMapEv(ptr nocapture noundef nonnull align 
 entry:
   %builder = alloca %"class.re2::ByteMapBuilder", align 8
   %ref.tmp71 = alloca [2 x i8], align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %builder, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %builder, i8 0, i64 24, i1 false)
   %colormap_.i = getelementptr inbounds i8, ptr %builder, i64 1064
   %arrayidx.i.i = getelementptr inbounds i8, ptr %builder, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %colormap_.i, i8 0, i64 48, i1 false)
@@ -2650,7 +2650,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 if.then.i:                                        ; preds = %land.lhs.true.i
   %or.i.i = or i64 %56, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx.i.i209, align 8
-  %call12.i211 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %builder, i32 noundef %54)
+  %call12.i211 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(1112) %builder, i32 noundef %54)
           to label %call12.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call12.i.noexc:                                   ; preds = %if.then.i
@@ -2678,7 +2678,7 @@ if.then18.i:                                      ; preds = %if.end.i204
   %or.i35.i = or i64 %58, %shl.i26.i
   store i64 %or.i35.i, ptr %arrayidx.i23.i, align 8
   %add22.i = add nsw i32 %55, 1
-  %call23.i212 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %builder, i32 noundef %add22.i)
+  %call23.i212 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(1112) %builder, i32 noundef %add22.i)
           to label %call23.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call23.i.noexc:                                   ; preds = %if.then18.i
@@ -2696,7 +2696,7 @@ if.end30.i:                                       ; preds = %call23.i.noexc, %if
 
 while.body.i:                                     ; preds = %if.end30.i, %call39.i.noexc
   %c.047.i = phi i32 [ %add46.i, %call39.i.noexc ], [ %54, %if.end30.i ]
-  %call35.i213 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %builder, i32 noundef %c.047.i)
+  %call35.i213 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(1112) %builder, i32 noundef %c.047.i)
           to label %call35.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call35.i.noexc:                                   ; preds = %while.body.i
@@ -2768,7 +2768,7 @@ while.cond.loopexit.i:                            ; preds = %while.body5.prehead
 
 while.body.i217:                                  ; preds = %while.cond.loopexit.i, %for.end113
   %c.08.i = phi i32 [ 0, %for.end113 ], [ %c.1.lcssa.i, %while.cond.loopexit.i ]
-  %call.i222 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(32) %builder, i32 noundef %c.08.i)
+  %call.i222 = invoke noundef i32 @_ZNK3re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull align 8 dereferenceable(1112) %builder, i32 noundef %c.08.i)
           to label %call.i.noexc unwind label %lpad.loopexit
 
 call.i.noexc:                                     ; preds = %while.body.i217

@@ -1020,7 +1020,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp.i18, label %if.end.i, label %if.else.i
 
 if.end.i:                                         ; preds = %if.then4
-  %call4.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add.i, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
+  %call4.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add.i, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf)
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %3 = and i64 %2, 2147483648
   %cmp.i76.not.i = icmp eq i64 %3, 0
@@ -1121,7 +1121,7 @@ for.end.i:                                        ; preds = %_Py_XNewRef.exit
   br label %return
 
 if.else.i:                                        ; preds = %if.then4
-  %call23.i = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %1, i32 noundef %add.i, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
+  %call23.i = tail call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %1, i32 noundef %add.i, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf)
   %cmp24.i = icmp eq ptr %call23.i, null
   br i1 %cmp24.i, label %return, label %if.else26.i
 
@@ -1547,7 +1547,7 @@ if.end.i.i53:                                     ; preds = %if.end52.i
 _Py_NewRef.exit:                                  ; preds = %if.end52.i, %if.end.i.i53
   %arrayidx56.i = getelementptr i8, ptr %call.i, i64 40
   store ptr %node, ptr %arrayidx56.i, align 8
-  %call57.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull %call.i, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
+  %call57.i = tail call fastcc ptr @hamt_node_bitmap_assoc(ptr noundef nonnull %call.i, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf)
   %85 = load i64, ptr %call.i, align 8
   %86 = and i64 %85, 2147483648
   %cmp.i71.not.i = icmp eq i64 %86, 0
@@ -1700,7 +1700,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %arrayidx5.i, align 8
   store ptr null, ptr %sub_node.i, align 8
   %add8.i = add i32 %shift, 5
-  %call9.i = call fastcc i32 @hamt_node_without(ptr noundef %4, i32 noundef %add8.i, i32 noundef %hash, ptr noundef %key, ptr noundef %sub_node.i)
+  %call9.i = call fastcc i32 @hamt_node_without(ptr noundef %4, i32 noundef %add8.i, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %sub_node.i)
   %switch.i = icmp samesign ult i32 %call9.i, 2
   br i1 %switch.i, label %hamt_node_bitmap_without.exit, label %sw.bb10.i
 
@@ -2089,7 +2089,7 @@ if.then4:                                         ; preds = %if.else
 if.end.i22:                                       ; preds = %if.then4
   store ptr null, ptr %sub_node.i17, align 8
   %add.i23 = add i32 %shift, 5
-  %call1.i = call fastcc i32 @hamt_node_without(ptr noundef nonnull %62, i32 noundef %add.i23, i32 noundef %hash, ptr noundef %key, ptr noundef %sub_node.i17)
+  %call1.i = call fastcc i32 @hamt_node_without(ptr noundef nonnull %62, i32 noundef %add.i23, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %sub_node.i17)
   switch i32 %call1.i, label %default.unreachable [
     i32 1, label %hamt_node_array_without.exit
     i32 0, label %hamt_node_array_without.exit
@@ -4241,7 +4241,7 @@ Py_DECREF.exit38.i:                               ; preds = %if.then1.i36.i, %if
   br i1 %cmp23.i, label %hamt_node_new_bitmap_or_collision.exit.thread, label %if.end25.i
 
 if.end25.i:                                       ; preds = %Py_DECREF.exit38.i
-  %call26.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %call22.i, i32 noundef %add48, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf.i)
+  %call26.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %call22.i, i32 noundef %add48, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf.i)
   %60 = load i64, ptr %call22.i, align 8
   %61 = and i64 %60, 2147483648
   %cmp.i43.not.i = icmp eq i64 %61, 0

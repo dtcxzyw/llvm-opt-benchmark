@@ -5263,8 +5263,8 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   %.1257.ph.i = phi double [ %.0256.i, %958 ], [ %.8264.i, %IDATestError.exit.i ], [ %.0256.i, %.lr.ph144.i.i.i ], [ %.0256.i, %791 ], [ %.0256.i, %900 ], [ %.0256.i, %913 ], [ %.0256.i, %IDAPredict.exit.i.i ], [ %.0256.i, %716 ], [ %.0256.i, %._crit_edge.i124.i ], [ %.0256.i, %760 ], [ %.0256.i, %762 ], [ %.0256.i, %774 ], [ %.0256.i, %.loopexit.i.i ]
   %.1253.ph.i = phi double [ %.0252.i, %958 ], [ %.8.i, %IDATestError.exit.i ], [ %.0252.i, %.lr.ph144.i.i.i ], [ %.0252.i, %791 ], [ %.0252.i, %900 ], [ %.0252.i, %913 ], [ %.0252.i, %IDAPredict.exit.i.i ], [ %.0252.i, %716 ], [ %.0252.i, %._crit_edge.i124.i ], [ %.0252.i, %760 ], [ %.0252.i, %762 ], [ %.0252.i, %774 ], [ %.0252.i, %.loopexit.i.i ]
   %.0101.ph.i = phi i32 [ 5, %958 ], [ 7, %IDATestError.exit.i ], [ -7, %.lr.ph144.i.i.i ], [ -41, %913 ], [ -8, %900 ], [ -7, %791 ], [ %.0.i.ph.i.i, %.loopexit.i.i ], [ 2, %774 ], [ -6, %762 ], [ 11, %760 ], [ -41, %._crit_edge.i124.i ], [ 1, %716 ], [ -8, %IDAPredict.exit.i.i ]
-  tail call fastcc void @IDARestore(ptr noundef %0, double noundef %516)
-  %1040 = call fastcc i32 @IDAHandleNFlag(ptr noundef %0, i32 noundef %.0101.ph.i, double noundef %.1272.ph.i, double noundef %.1257.ph.i, ptr noundef %382, ptr noundef %7, ptr noundef %383, ptr noundef %8)
+  tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %516)
+  %1040 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.0101.ph.i, double noundef %.1272.ph.i, double noundef %.1257.ph.i, ptr noundef %382, ptr noundef %7, ptr noundef %383, ptr noundef %8)
   %.not119.i = icmp eq i32 %1040, 20
   br i1 %.not119.i, label %1041, label %IDAStep.exit
 
@@ -5519,8 +5519,8 @@ IDAQuadNls.exit.thread.i:                         ; preds = %IDAQuadTestError.ex
   %.3259.i = phi double [ %.8264.i, %IDAQuadPredict.exit.i.i ], [ %.8264.i, %1098 ], [ %.10266.i, %IDAQuadTestError.exit.i ]
   %.3255.i = phi double [ %.8.i, %IDAQuadPredict.exit.i.i ], [ %.8.i, %1098 ], [ %.11.i, %IDAQuadTestError.exit.i ]
   %.1.i423 = phi i32 [ -31, %IDAQuadPredict.exit.i.i ], [ 10, %1098 ], [ 7, %IDAQuadTestError.exit.i ]
-  tail call fastcc void @IDARestore(ptr noundef %0, double noundef %516)
-  %1175 = call fastcc i32 @IDAHandleNFlag(ptr noundef %0, i32 noundef %.1.i423, double noundef %.3274.i, double noundef %.3259.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
+  tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %516)
+  %1175 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.1.i423, double noundef %.3274.i, double noundef %.3259.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
   %.not118.i = icmp eq i32 %1175, 20
   br i1 %.not118.i, label %1176, label %IDAStep.exit
 
@@ -5996,8 +5996,8 @@ IDASensNls.exit.thread.i:                         ; preds = %1246, %1233, %1231,
   %.5261.i = phi double [ %.2258.i, %.loopexit.i156.i ], [ %.12268.i, %IDASensTestError.exit.i ], [ %.2258.i, %._crit_edge.i144.i ], [ %.2258.i, %1231 ], [ %.2258.i, %1233 ], [ %.2258.i, %1246 ]
   %.5.i = phi double [ %.2254.i, %.loopexit.i156.i ], [ %.14.i, %IDASensTestError.exit.i ], [ %.2254.i, %._crit_edge.i144.i ], [ %.2254.i, %1231 ], [ %.2254.i, %1233 ], [ %.2254.i, %1246 ]
   %.2.i = phi i32 [ %.0.i63.ph.i.i, %.loopexit.i156.i ], [ 7, %IDASensTestError.exit.i ], [ 2, %1246 ], [ -6, %1233 ], [ 11, %1231 ], [ -41, %._crit_edge.i144.i ]
-  tail call fastcc void @IDARestore(ptr noundef %0, double noundef %516)
-  %1443 = call fastcc i32 @IDAHandleNFlag(ptr noundef %0, i32 noundef %.2.i, double noundef %.5276.i, double noundef %.5261.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
+  tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %516)
+  %1443 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.2.i, double noundef %.5276.i, double noundef %.5261.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
   %.not117.i = icmp eq i32 %1443, 20
   br i1 %.not117.i, label %1444, label %IDAStep.exit
 
@@ -6383,8 +6383,8 @@ IDAQuadSensNls.exit.thread.i:                     ; preds = %IDAQuadSensTestErro
   %.6262.i = phi double [ %.4260.i, %IDAQuadSensPredict.exit.i.i ], [ %.4260.i, %1505 ], [ %.14270.i, %IDAQuadSensTestError.exit.i ]
   %.6.i = phi double [ %.4.i, %IDAQuadSensPredict.exit.i.i ], [ %.4.i, %1505 ], [ %.17.i, %IDAQuadSensTestError.exit.i ]
   %.3.i = phi i32 [ -51, %IDAQuadSensPredict.exit.i.i ], [ 12, %1505 ], [ 7, %IDAQuadSensTestError.exit.i ]
-  tail call fastcc void @IDARestore(ptr noundef %0, double noundef %516)
-  %1654 = call fastcc i32 @IDAHandleNFlag(ptr noundef %0, i32 noundef %.3.i, double noundef %.6277.i, double noundef %.6262.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
+  tail call fastcc void @IDARestore(ptr noundef nonnull %0, double noundef %516)
+  %1654 = call fastcc i32 @IDAHandleNFlag(ptr noundef nonnull %0, i32 noundef %.3.i, double noundef %.6277.i, double noundef %.6262.i, ptr noundef %370, ptr noundef %7, ptr noundef %371, ptr noundef %8)
   %.not116.i = icmp eq i32 %1654, 20
   br i1 %.not116.i, label %1655, label %IDAStep.exit
 

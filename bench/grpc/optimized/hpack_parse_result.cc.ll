@@ -499,7 +499,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %22(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i
@@ -587,7 +587,7 @@ if.then.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i53.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i51.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i, align 8
-  invoke void %34(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i55.i.i.i
 
 terminate.lpad.i.i.i.i.i.i55.i.i.i:               ; preds = %if.then.i.i.i2.i.i.i.i.i53.i.i.i
@@ -742,7 +742,7 @@ if.then.i.i.i.i.i.i.i105.i.i.i:                   ; preds = %.noexc38
 if.then.i.i.i.i.i.i.i.i107.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i105.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i108.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i, i64 8
   %52 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i108.i.i.i, align 8
-  invoke void %52(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i)
+  invoke void %52(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i109.i.i.i
 
 terminate.lpad.i.i.i.i.i.i109.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i107.i.i.i
@@ -1126,7 +1126,7 @@ if.then.i.i.i.i.i.i.i251.i.i.i:                   ; preds = %.noexc57
 if.then.i.i.i.i.i.i.i.i253.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i251.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i254.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
   %96 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i254.i.i.i, align 8
-  invoke void %96(ptr noundef nonnull %93)
+  invoke void %96(ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i255.i.i.i
 
 terminate.lpad.i.i.i.i.i.i255.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i253.i.i.i
@@ -1220,7 +1220,7 @@ if.then.i.i.i.i.i.i.i289.i.i.i:                   ; preds = %.noexc61
 if.then.i.i.i.i.i.i.i.i291.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i289.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i292.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i, i64 8
   %106 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i292.i.i.i, align 8
-  invoke void %106(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i)
+  invoke void %106(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i293.i.i.i
 
 terminate.lpad.i.i.i.i.i.i293.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i291.i.i.i
@@ -1302,7 +1302,7 @@ if.then.i.i.i.i.i.i.i319.i.i.i:                   ; preds = %.noexc64
 if.then.i.i.i.i.i.i.i.i321.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i319.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i322.i.i.i = getelementptr inbounds i8, ptr %115, i64 8
   %118 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i322.i.i.i, align 8
-  invoke void %118(ptr noundef nonnull %115)
+  invoke void %118(ptr noundef nonnull align 8 dereferenceable(16) %115)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i323.i.i.i
 
 terminate.lpad.i.i.i.i.i.i323.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i321.i.i.i
@@ -1395,7 +1395,7 @@ if.then.i.i.i.i.i.i.i357.i.i.i:                   ; preds = %.noexc68
 if.then.i.i.i.i.i.i.i.i359.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i357.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i360.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i, i64 8
   %128 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i360.i.i.i, align 8
-  invoke void %128(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i)
+  invoke void %128(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i361.i.i.i
 
 terminate.lpad.i.i.i.i.i.i361.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i359.i.i.i
@@ -1486,7 +1486,7 @@ if.then.i.i.i.i.i.i.i393.i.i.i:                   ; preds = %.noexc72
 if.then.i.i.i.i.i.i.i.i395.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i393.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i396.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i, i64 8
   %138 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i396.i.i.i, align 8
-  invoke void %138(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i)
+  invoke void %138(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i397.i.i.i
 
 terminate.lpad.i.i.i.i.i.i397.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i395.i.i.i
@@ -1574,7 +1574,7 @@ if.then.i.i.i.i.i.i.i426.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i428.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i426.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i429.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i, i64 8
   %150 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i429.i.i.i, align 8
-  invoke void %150(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i)
+  invoke void %150(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i430.i.i.i
 
 terminate.lpad.i.i.i.i.i.i430.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i428.i.i.i
@@ -1662,7 +1662,7 @@ if.then.i.i.i.i.i.i.i461.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i463.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i461.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i464.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i, i64 8
   %162 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i464.i.i.i, align 8
-  invoke void %162(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i)
+  invoke void %162(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i465.i.i.i
 
 terminate.lpad.i.i.i.i.i.i465.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i463.i.i.i
@@ -1750,7 +1750,7 @@ if.then.i.i.i.i.i.i.i496.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i498.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i496.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i499.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i, i64 8
   %174 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i499.i.i.i, align 8
-  invoke void %174(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i)
+  invoke void %174(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i500.i.i.i
 
 terminate.lpad.i.i.i.i.i.i500.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i498.i.i.i
@@ -1838,7 +1838,7 @@ if.then.i.i.i.i.i.i.i531.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i533.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i531.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i534.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i, i64 8
   %186 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i534.i.i.i, align 8
-  invoke void %186(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i)
+  invoke void %186(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i535.i.i.i
 
 terminate.lpad.i.i.i.i.i.i535.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i533.i.i.i
@@ -1926,7 +1926,7 @@ if.then.i.i.i.i.i.i.i566.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i568.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i566.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i569.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i, i64 8
   %198 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i569.i.i.i, align 8
-  invoke void %198(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i)
+  invoke void %198(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i570.i.i.i
 
 terminate.lpad.i.i.i.i.i.i570.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i568.i.i.i
@@ -2014,7 +2014,7 @@ if.then.i.i.i.i.i.i.i601.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i603.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i601.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i604.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i, i64 8
   %210 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i604.i.i.i, align 8
-  invoke void %210(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i)
+  invoke void %210(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i605.i.i.i
 
 terminate.lpad.i.i.i.i.i.i605.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i603.i.i.i
@@ -2102,7 +2102,7 @@ if.then.i.i.i.i.i.i.i636.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i638.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i636.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i639.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i, i64 8
   %222 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i639.i.i.i, align 8
-  invoke void %222(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i)
+  invoke void %222(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i640.i.i.i
 
 terminate.lpad.i.i.i.i.i.i640.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i638.i.i.i
@@ -2259,7 +2259,7 @@ if.then.i.i.i.i.i.i.i687.i.i.i:                   ; preds = %.noexc91
 if.then.i.i.i.i.i.i.i.i689.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i687.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i690.i.i.i = getelementptr inbounds i8, ptr %244, i64 8
   %247 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i690.i.i.i, align 8
-  invoke void %247(ptr noundef nonnull %244)
+  invoke void %247(ptr noundef nonnull align 8 dereferenceable(16) %244)
           to label %_ZN9grpc_core12_GLOBAL__N_132MetadataSizeLimitExceededEncoder6EncodeINS_17LbCostBinMetadataENS3_9ValueTypeEEEvT_RKT0_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i691.i.i.i
 
 terminate.lpad.i.i.i.i.i.i691.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i689.i.i.i
@@ -2341,7 +2341,7 @@ if.then.i.i.i.i.i.i.i720.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i722.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i720.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i723.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i, i64 8
   %254 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i723.i.i.i, align 8
-  invoke void %254(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i)
+  invoke void %254(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i724.i.i.i
 
 terminate.lpad.i.i.i.i.i.i724.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i722.i.i.i
@@ -2429,7 +2429,7 @@ if.then.i.i.i.i.i.i.i755.i.i.i:                   ; preds = %_ZN9grpc_core24Simp
 if.then.i.i.i2.i.i.i.i.i757.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i755.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i758.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i, i64 8
   %266 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i758.i.i.i, align 8
-  invoke void %266(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i)
+  invoke void %266(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i)
           to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i759.i.i.i
 
 terminate.lpad.i.i.i.i.i.i759.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i757.i.i.i

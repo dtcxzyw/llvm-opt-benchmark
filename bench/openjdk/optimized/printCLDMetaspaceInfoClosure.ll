@@ -223,7 +223,7 @@ _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   call void @_ZNK20ClassLoaderMetaspace17add_to_statisticsEPN9metaspace9ClmsStatsE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %3) #6
   %29 = getelementptr inbounds i8, ptr %0, i64 56
-  call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(736) %29, ptr noundef nonnull align 8 dereferenceable(736) %3) #6
+  call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(1472) %29, ptr noundef nonnull align 8 dereferenceable(1472) %3) #6
   %30 = getelementptr inbounds i8, ptr %0, i64 792
   call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(736) %30, ptr noundef nonnull align 8 dereferenceable(736) %24) #6
   %31 = getelementptr inbounds i8, ptr %0, i64 32
@@ -235,7 +235,7 @@ _ZN9metaspace9ClmsStatsC2Ev.exit:                 ; preds = %25
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds [4 x %"struct.metaspace::ClmsStats"], ptr %34, i64 0, i64 %37
-  call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(736) %38, ptr noundef nonnull align 8 dereferenceable(736) %3) #6
+  call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(1472) %38, ptr noundef nonnull align 8 dereferenceable(1472) %3) #6
   %39 = getelementptr inbounds i8, ptr %38, i64 736
   call void @_ZN9metaspace10ArenaStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(736) %39, ptr noundef nonnull align 8 dereferenceable(736) %24) #6
   %40 = getelementptr inbounds i8, ptr %0, i64 1528

@@ -483,7 +483,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %9
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %2)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN4QMapI7QStringP7QActionEaSEOS3_.exit unwind label %9
 
 9:                                                ; preds = %.noexc1.i.i, %.noexc.i.i, %7
@@ -520,7 +520,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %17
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull @_ZN12QMapDataBase11shared_nullE)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE)
           to label %_ZN4QMapI7QStringP7QActionED2Ev.exit unwind label %17
 
 17:                                               ; preds = %.noexc1.i, %.noexc.i, %15
@@ -647,7 +647,7 @@ define void @_ZN21FilterPluginContainer16pushFilterPluginEP12FilterPlugin(ptr no
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %12, %._crit_edge ]
   %13 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %13, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -842,7 +842,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %64, %_ZN9QtPrivate8
 .lr.ph.i.i.i18:                                   ; preds = %78, %.lr.ph.i.i.i18
   %.09.i.i.i19 = phi ptr [ %80, %.lr.ph.i.i.i18 ], [ %79, %78 ]
   %80 = load ptr, ptr %.09.i.i.i19, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i19) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i19) #19
   %.not.i.i.i20 = icmp eq ptr %80, %3
   br i1 %.not.i.i.i20, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit21, label %.lr.ph.i.i.i18, !llvm.loop !10
 
@@ -988,7 +988,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataI7QStringP7QActionE7destroyEv.exit
 
 _ZN8QMapDataI7QStringP7QActionE7destroyEv.exit:   ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataI7QStringP7QActionE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -1108,7 +1108,7 @@ define void @_ZN21FilterPluginContainer17eraseFilterPluginEP12FilterPlugin(ptr n
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i ], [ %9, %._crit_edge ]
   %10 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i = icmp eq ptr %10, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -1292,7 +1292,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %67, %_ZN9QtPrivate8
 .lr.ph.i.i.i11:                                   ; preds = %76, %.lr.ph.i.i.i11
   %.09.i.i.i12 = phi ptr [ %78, %.lr.ph.i.i.i11 ], [ %77, %76 ]
   %78 = load ptr, ptr %.09.i.i.i12, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i12) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i12) #19
   %.not.i.i.i13 = icmp eq ptr %78, %3
   br i1 %.not.i.i.i13, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit14, label %.lr.ph.i.i.i11, !llvm.loop !10
 
@@ -1503,7 +1503,7 @@ _ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %15, 
 .lr.ph.i.i.i10:                                   ; preds = %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit, %.lr.ph.i.i.i10
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i10 ], [ %11, %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #19
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #19
   %.not.i.i.i11 = icmp eq ptr %17, %3
   br i1 %.not.i.i.i11, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i10, !llvm.loop !10
 

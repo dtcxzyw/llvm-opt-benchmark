@@ -1024,7 +1024,7 @@ dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %251, %229
   store i8 %storemerge.i.i, ptr %260, align 1
   %261 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2) #3
   call void @tvb_composite_append(ptr noundef %248, ptr noundef %261) #3
-  %262 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  %262 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef range(i32 0, -32) %43) #3
   call void @tvb_composite_append(ptr noundef %248, ptr noundef %262) #3
   call void @tvb_composite_finalize(ptr noundef %248) #3
   %263 = load ptr, ptr @flexray_handle, align 8

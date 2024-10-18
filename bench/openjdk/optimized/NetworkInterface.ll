@@ -1552,7 +1552,7 @@ getFlags.exit:                                    ; preds = %24, %18
   %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 noundef 16) #14
   %33 = getelementptr inbounds i8, ptr %3, i64 15
   store i8 0, ptr %33, align 1
-  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.03.i.ph, i64 noundef 35091, ptr noundef nonnull %3) #14
+  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35091, ptr noundef nonnull %3) #14
   %35 = icmp slt i32 %34, 0
   %36 = load i16, ptr %31, align 8
   %37 = zext i16 %36 to i32
@@ -1805,7 +1805,7 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr nocapture
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 32, i1 false)
   %35 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %11, i64 noundef 15) #14
-  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.03.i.ph, i64 noundef 35105, ptr noundef nonnull %5) #14
+  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35105, ptr noundef nonnull %5) #14
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -1937,7 +1937,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %39 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
   %40 = getelementptr inbounds i8, ptr %11, i64 15
   store i8 0, ptr %40, align 1
-  %41 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35091, ptr noundef nonnull %11) #14
+  %41 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35091, ptr noundef nonnull %11) #14
   %42 = icmp slt i32 %41, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br i1 %42, label %43, label %44
@@ -1994,7 +1994,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %64 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
   %65 = getelementptr inbounds i8, ptr %10, i64 15
   store i8 0, ptr %65, align 1
-  %66 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %10) #14
+  %66 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %10) #14
   %67 = load i32, ptr %63, align 8
   %.inv.i = icmp sgt i32 %66, -1
   %.0.i120 = select i1 %.inv.i, i32 %67, i32 -1
@@ -2065,7 +2065,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %90 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #14
   %91 = getelementptr inbounds i8, ptr %9, i64 15
   store i8 0, ptr %91, align 1
-  %92 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35123, ptr noundef nonnull %9) #14
+  %92 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %9) #14
   %93 = load i32, ptr %89, align 8
   %.inv.i121 = icmp sgt i32 %92, -1
   %.0.i122 = select i1 %.inv.i121, i32 %93, i32 -1

@@ -1807,7 +1807,7 @@ invoke.cont31:                                    ; preds = %for.end
   %add.ptr.i75 = getelementptr inbounds i32, ptr %44, i64 %conv
   %45 = load i32, ptr %add.ptr.i75, align 4
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call32, i32 noundef %45)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call32, i32 noundef %45)
           to label %.noexc76 unwind label %lpad
 
 .noexc76:                                         ; preds = %invoke.cont31
@@ -3170,7 +3170,7 @@ cond.false:                                       ; preds = %_ZN4cvc58internal12
 
 invoke.cont9:                                     ; preds = %cond.false
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call10, i32 noundef 19)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call10, i32 noundef 19)
           to label %.noexc53 unwind label %lpad
 
 .noexc53:                                         ; preds = %invoke.cont9
@@ -6489,7 +6489,7 @@ entry:
   %_M_offset.i.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %trb, i64 96
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %trb, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %trb, i8 0, i64 84, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %trb, i8 0, i64 84, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_end_of_storage.i.i.i.i.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %vn, align 8
   store ptr %0, ptr %agg.tmp, align 8
@@ -7032,7 +7032,7 @@ cond.false:                                       ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call3, i32 noundef 18)
+  call void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call3, i32 noundef 18)
   store ptr %3, ptr %agg.tmp.i, align 8, !noalias !63
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !63
@@ -7742,7 +7742,7 @@ if.end23:                                         ; preds = %_ZN4cvc58internal8T
   %_M_offset.i.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %trb, i64 96
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %trb, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %trb, i8 0, i64 84, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %trb, i8 0, i64 84, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_end_of_storage.i.i.i.i.i, i8 0, i64 32, i1 false)
   %38 = load ptr, ptr %vn, align 8
   store ptr %38, ptr %agg.tmp24, align 8

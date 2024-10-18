@@ -333,7 +333,7 @@ if.end.i.i:                                       ; preds = %if.end11.i
   %sext.i.i = and i64 %call.i.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %sext.i.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
-  %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull readonly dereferenceable(12) @.str.22) #9
+  %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull dereferenceable(12) @.str.22) #9
   %tobool.not.i.i = icmp eq i32 %call6.i.i, 0
   br i1 %tobool.not.i.i, label %if.end8.i.i, label %do.body.critedge
 
@@ -377,7 +377,7 @@ if.end.i38.i:                                     ; preds = %if.then23.i
   %sext.i39.i = and i64 %call.i31.i, 2147483647
   %add.ptr.i41.i = getelementptr inbounds i8, ptr %7, i64 %sext.i39.i
   %add.ptr5.i45.i = getelementptr inbounds i8, ptr %add.ptr.i41.i, i64 -10
-  %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull readonly dereferenceable(11) @.str.23) #9
+  %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull dereferenceable(11) @.str.23) #9
   %tobool.not.i47.i = icmp eq i32 %call6.i46.i, 0
   br i1 %tobool.not.i47.i, label %if.end8.i48.i, label %do.body.critedge
 

@@ -248,7 +248,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbuse.exit.i, %le
   br i1 %.not.i.i.i, label %43, label %42
 
 42:                                               ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %34, align 1
   br label %43
 
@@ -343,8 +343,8 @@ define internal fastcc void @iterateBody(ptr nocapture noundef nonnull readonly 
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.0.i53 = phi ptr [ %5, %.lr.ph ], [ %4, %2 ]
-  tail call fastcc void @iterateHdr(ptr noundef %0, ptr noundef nonnull %.0.i53)
-  tail call fastcc void @iterateBody(ptr noundef %0, ptr noundef nonnull %.0.i53)
+  tail call fastcc void @iterateHdr(ptr noundef nonnull %0, ptr noundef nonnull %.0.i53)
+  tail call fastcc void @iterateBody(ptr noundef nonnull %0, ptr noundef nonnull %.0.i53)
   %5 = tail call ptr @agnxtsubg(ptr noundef nonnull %.0.i53) #20
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %iterate_subgs.exit, label %.lr.ph
@@ -500,7 +500,7 @@ legalGXLName.exit:                                ; preds = %switch.early.test31
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %7, align 8
-  %64 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
+  %64 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 24) #21
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %gv_alloc.exit.i
 
@@ -590,7 +590,7 @@ agxbsizeof.exit.i.i:                              ; preds = %18
   br i1 %.not.i.i, label %27, label %26
 
 26:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %20, align 1
   br label %27
 
@@ -942,8 +942,8 @@ define internal fastcc void @writeBody(ptr nocapture noundef nonnull %0, ptr nou
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i74 = phi ptr [ %6, %.lr.ph ], [ %5, %3 ]
-  tail call fastcc void @writeHdr(ptr noundef %0, ptr noundef nonnull %.0.i74, ptr noundef %2, i1 noundef zeroext false)
-  tail call fastcc void @writeBody(ptr noundef %0, ptr noundef nonnull %.0.i74, ptr noundef %2)
+  tail call fastcc void @writeHdr(ptr noundef nonnull %0, ptr noundef nonnull %.0.i74, ptr noundef %2, i1 noundef zeroext false)
+  tail call fastcc void @writeBody(ptr noundef nonnull %0, ptr noundef nonnull %.0.i74, ptr noundef %2)
   tail call fastcc void @writeTrl(ptr noundef nonnull %.0.i74, ptr noundef %2, i1 noundef zeroext false)
   %6 = tail call ptr @agnxtsubg(ptr noundef nonnull %.0.i74) #20
   %.not.i = icmp eq ptr %6, null
@@ -1072,7 +1072,7 @@ tabover.exit41.i:                                 ; preds = %.lr.ph.i38.i, %tabo
   br i1 %.not47.i, label %62, label %63
 
 62:                                               ; preds = %58
-  call fastcc void @writeNondefaultAttr(ptr noundef %.02780, ptr noundef %2, ptr noundef %28)
+  call fastcc void @writeNondefaultAttr(ptr noundef nonnull %.02780, ptr noundef %2, ptr noundef %28)
   br label %63
 
 63:                                               ; preds = %62, %58
@@ -1541,7 +1541,7 @@ agxbuse.exit39.i.i:                               ; preds = %253, %agxbclear.exi
 ._crit_edge.i.i:                                  ; preds = %agxbuse.exit39.i.i, %agxbuse.exit.i.i
   %.017.lcssa.i.i = phi ptr [ %210, %agxbuse.exit.i.i ], [ %255, %agxbuse.exit39.i.i ]
   %259 = load ptr, ptr %17, align 8
-  %260 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
+  %260 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 24) #21
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %gv_alloc.exit.i
 
@@ -1626,8 +1626,8 @@ tabover.exit14.i:                                 ; preds = %.lr.ph.i11.i, %tabo
   br label %printHref.exit
 
 printHref.exit:                                   ; preds = %279, %282, %tabover.exit14.i
-  call fastcc void @writePort(ptr noundef %.076, ptr noundef %2, ptr noundef nonnull @.str.13)
-  call fastcc void @writePort(ptr noundef %.076, ptr noundef %2, ptr noundef nonnull @.str.14)
+  call fastcc void @writePort(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef nonnull @.str.13)
+  call fastcc void @writePort(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef nonnull @.str.14)
   %.val.i41 = load i8, ptr %11, align 8
   %.val42.i = load i32, ptr %.076, align 8
   %296 = lshr i32 %.val42.i, 3
@@ -1637,7 +1637,7 @@ printHref.exit:                                   ; preds = %279, %282, %tabover
   br i1 %.not53.i, label %299, label %300
 
 299:                                              ; preds = %printHref.exit
-  call fastcc void @writeNondefaultAttr(ptr noundef %.076, ptr noundef %2, ptr noundef %76)
+  call fastcc void @writeNondefaultAttr(ptr noundef nonnull %.076, ptr noundef %2, ptr noundef %76)
   br label %writeEdgeName.exit
 
 300:                                              ; preds = %printHref.exit
@@ -1784,7 +1784,7 @@ declare i32 @agisdirected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noalias noundef ptr @make_nitem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 {
-  %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #21
+  %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 32) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 
@@ -1838,7 +1838,7 @@ declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @addid(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #21
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 33) 24) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 
@@ -1914,7 +1914,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -2083,7 +2083,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbuse.exit, %1
   br i1 %.not.i.i, label %12, label %11
 
 11:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %3, align 1
   br label %12
 
@@ -2247,7 +2247,7 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
   %.0130 = phi ptr [ %7, %.lr.ph ], [ %125, %123 ]
   %10 = getelementptr inbounds i8, ptr %.0130, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(6) @.str.41, i64 noundef 5) #24
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.41, i64 noundef 5) #24
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %81, label %14
 
@@ -2284,7 +2284,7 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
 
 31:                                               ; preds = %._crit_edge132, %18
   %32 = phi ptr [ %.pre, %._crit_edge132 ], [ %16, %18 ]
-  %33 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(14) @.str.42, i64 noundef 13) #24
+  %33 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %32, ptr noundef nonnull dereferenceable(14) @.str.42, i64 noundef 13) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %53
 
@@ -2394,7 +2394,7 @@ tabover.exit108:                                  ; preds = %.lr.ph.i105, %68
   br i1 %.not.i112, label %.sink.split, label %.lr.ph.i110
 
 81:                                               ; preds = %9
-  %82 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(16) @.str.38, i64 noundef 15) #24
+  %82 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(16) @.str.38, i64 noundef 15) #24
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %123
 
@@ -2525,7 +2525,7 @@ define internal fastcc void @writeNondefaultAttr(ptr noundef nonnull %0, ptr nou
   %.0131 = phi ptr [ %11, %.lr.ph ], [ %137, %135 ]
   %14 = getelementptr inbounds i8, ptr %.0131, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str.41, i64 noundef 5) #24
+  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.41, i64 noundef 5) #24
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %100, label %18
 
@@ -2579,7 +2579,7 @@ define internal fastcc void @writeNondefaultAttr(ptr noundef nonnull %0, ptr nou
   br i1 %47, label %135, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(14) @.str.42, i64 noundef 13) #24
+  %49 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %43, ptr noundef nonnull dereferenceable(14) @.str.42, i64 noundef 13) #24
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %69
 
@@ -2691,7 +2691,7 @@ tabover.exit109:                                  ; preds = %.lr.ph.i106, %84
   br i1 %.not.i113, label %.sink.split, label %.lr.ph.i111
 
 100:                                              ; preds = %13
-  %101 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(16) @.str.38, i64 noundef 15) #24
+  %101 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(16) @.str.38, i64 noundef 15) #24
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %135
 

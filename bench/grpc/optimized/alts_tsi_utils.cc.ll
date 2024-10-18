@@ -156,7 +156,7 @@ if.then.i12:                                      ; preds = %grpc_gcp_Handshaker
 if.then.i.i:                                      ; preds = %if.then.i12
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %11(ptr noundef nonnull %9)
+  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %grpc_gcp_HandshakerResp_parse.exit, %if.then.i12, %if.then.i.i

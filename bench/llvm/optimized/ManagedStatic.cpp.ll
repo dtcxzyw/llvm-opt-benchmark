@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZL21getManagedStaticMutexvE1m) #3
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL21getManagedStaticMutexvE1m) #3
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %5
 
@@ -40,7 +40,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %3
   br label %13
 
 13:                                               ; preds = %7, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZL21getManagedStaticMutexvE1m) #3
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL21getManagedStaticMutexvE1m) #3
   ret void
 }
 

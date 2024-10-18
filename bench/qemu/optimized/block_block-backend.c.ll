@@ -5055,7 +5055,7 @@ send_qmp_error_event.exit:                        ; preds = %cond.end.i, %land.r
   %not.is_read.i = xor i1 %is_read, true
   %cond.i12 = zext i1 %not.is_read.i to i32
   %cmp.i13 = icmp eq i32 %error, 28
-  %call6.i = tail call ptr @strerror(i32 noundef %error) #18
+  %call6.i = tail call ptr @strerror(i32 noundef range(i32 0, -2147483648) %error) #18
   tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i611.i, ptr noundef %cond4.i, i32 noundef %cond.i12, i32 noundef 2, i1 noundef zeroext %13, i1 noundef zeroext %cmp.i13, ptr noundef %call6.i) #18
   tail call void @qemu_system_vmstop_request(i32 noundef 3) #18
   br label %if.end5
@@ -5110,7 +5110,7 @@ send_qmp_error_event.exit46:                      ; preds = %cond.end.i27, %land
   %not.is_read.i33 = xor i1 %is_read, true
   %cond.i34 = zext i1 %not.is_read.i33 to i32
   %cmp.i35 = icmp eq i32 %error, 28
-  %call6.i36 = tail call ptr @strerror(i32 noundef %error) #18
+  %call6.i36 = tail call ptr @strerror(i32 noundef range(i32 0, -2147483648) %error) #18
   tail call void @qapi_event_send_block_io_error(ptr noundef nonnull %cond.i611.i28, ptr noundef %cond4.i29, i32 noundef %cond.i34, i32 noundef %action, i1 noundef zeroext %22, i1 noundef zeroext %cmp.i35, ptr noundef %call6.i36) #18
   br label %if.end5
 

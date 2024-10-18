@@ -3198,7 +3198,7 @@ if.end:                                           ; preds = %PyUnicode_DATA.exit
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call.i = tail call ptr @PyLong_FromSsize_t(i64 noundef %idx) #3
+  %call.i = tail call ptr @PyLong_FromSsize_t(i64 noundef range(i64 0, -9223372036854775808) %idx) #3
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %return, label %if.then.i130
 
@@ -4198,7 +4198,7 @@ if.then.i427:                                     ; preds = %PyUnicode_READ.exit
   br i1 %cmp3.i.not, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i427
-  %call.i.i428 = tail call ptr @PyLong_FromSsize_t(i64 noundef %idx) #3
+  %call.i.i428 = tail call ptr @PyLong_FromSsize_t(i64 noundef range(i64 0, -9223372036854775808) %idx) #3
   %cmp.not.i.i = icmp eq ptr %call.i.i428, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i116.i
 
@@ -4377,7 +4377,7 @@ if.then21.i:                                      ; preds = %PyUnicode_READ.exit
   br label %if.end25.i
 
 if.else23.i:                                      ; preds = %PyUnicode_READ.exit167.i
-  %call.i168.i = tail call ptr @PyLong_FromSsize_t(i64 noundef %idx) #3
+  %call.i168.i = tail call ptr @PyLong_FromSsize_t(i64 noundef range(i64 0, -9223372036854775808) %idx) #3
   %cmp.not.i169.i = icmp eq ptr %call.i168.i, null
   br i1 %cmp.not.i169.i, label %return, label %if.then.i170.i
 
@@ -8351,13 +8351,13 @@ if.end38:                                         ; preds = %if.else33, %if.then
   br i1 %tobool.not.i43, label %if.end.i46, label %if.then.i44
 
 if.then.i44:                                      ; preds = %if.end38
-  %call.i = tail call ptr %21(ptr noundef null, ptr noundef %keystr.060) #3
+  %call.i = tail call ptr %21(ptr noundef null, ptr noundef nonnull %keystr.060) #3
   br label %encoder_encode_string.exit
 
 if.end.i46:                                       ; preds = %if.end38
   %encoder.i = getelementptr inbounds i8, ptr %s, i64 32
   %22 = load ptr, ptr %encoder.i, align 8
-  %call2.i47 = tail call ptr @PyObject_CallOneArg(ptr noundef %22, ptr noundef %keystr.060) #3
+  %call2.i47 = tail call ptr @PyObject_CallOneArg(ptr noundef %22, ptr noundef nonnull %keystr.060) #3
   %cmp.not.i = icmp eq ptr %call2.i47, null
   br i1 %cmp.not.i, label %encoder_encode_string.exit, label %land.lhs.true.i
 

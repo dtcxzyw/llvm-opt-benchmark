@@ -432,7 +432,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = 
   %content = getelementptr inbounds i8, ptr %page, i64 32
   %12 = load ptr, ptr %content, align 8
   store ptr null, ptr %content, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %page) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %page) #18
   %cmp.i.not = icmp eq ptr %12, null
   br i1 %cmp.i.not, label %cond.end85, label %cond.true80
 

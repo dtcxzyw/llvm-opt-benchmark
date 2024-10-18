@@ -225,7 +225,7 @@ define range(i32 0, 4096) i32 @Rtm_ManLatchMax(ptr nocapture noundef readonly %0
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %14 = load i32, ptr %gep, align 8
   %15 = and i32 %14, 4095
-  %16 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117, i32 %15)
+  %16 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117, i32 range(i32 -2147483647, -2147483648) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %13, !llvm.loop !4
@@ -506,7 +506,7 @@ define range(i32 1, 131073) i32 @Rtm_ObjGetDegreeFwd(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 15
-  %14 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 %13)
+  %14 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 range(i32 -2147483647, -2147483648) %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !9
@@ -547,7 +547,7 @@ define range(i32 1, 131073) i32 @Rtm_ObjGetDegreeBwd(ptr nocapture noundef reado
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 15
-  %19 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 %18)
+  %19 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 range(i32 -2147483647, -2147483648) %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %11, !llvm.loop !10
@@ -3309,7 +3309,7 @@ Vec_PtrPush.exit179:                              ; preds = %.Vec_PtrGrow.exit11
   %273 = getelementptr inbounds i8, ptr %272, i64 8
   %274 = load i32, ptr %273, align 8
   %275 = lshr i32 %274, 15
-  %276 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i, i32 %275)
+  %276 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i, i32 range(i32 -2147483647, -2147483648) %275)
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
   %exitcond.not.i189 = icmp eq i64 %indvars.iv.next.i188, %wide.trip.count.i
   br i1 %exitcond.not.i189, label %.critedge.loopexit.i, label %269, !llvm.loop !9
@@ -3320,7 +3320,7 @@ Vec_PtrPush.exit179:                              ; preds = %.Vec_PtrGrow.exit11
 
 Rtm_ObjGetDegreeFwd.exit:                         ; preds = %261, %.critedge.loopexit.i
   %.0.lcssa.i191 = phi i32 [ %277, %.critedge.loopexit.i ], [ 1, %261 ]
-  %278 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.1277, i32 %.0.lcssa.i191)
+  %278 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.1277, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i191)
   %279 = icmp sgt i32 %.0.lcssa.i191, %2
   br i1 %279, label %Rtm_ObjCheckRetimeFwd.exit, label %280
 
@@ -3469,7 +3469,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   %351 = getelementptr inbounds i8, ptr %350, i64 8
   %352 = load i32, ptr %351, align 8
   %353 = lshr i32 %352, 15
-  %354 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i211, i32 %353)
+  %354 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i211, i32 range(i32 -2147483647, -2147483648) %353)
   %indvars.iv.next.i212 = add nuw nsw i64 %indvars.iv.i210, 1
   %exitcond.not.i213 = icmp eq i64 %indvars.iv.next.i212, %wide.trip.count.i202
   br i1 %exitcond.not.i213, label %.critedge.loopexit.i214, label %.lr.ph.i208, !llvm.loop !10
@@ -3480,7 +3480,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
 
 Rtm_ObjGetDegreeBwd.exit:                         ; preds = %329, %.critedge.loopexit.i214
   %.0.lcssa.i207 = phi i32 [ %355, %.critedge.loopexit.i214 ], [ 1, %329 ]
-  %356 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.3280, i32 %.0.lcssa.i207)
+  %356 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.3280, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i207)
   %357 = icmp sgt i32 %.0.lcssa.i207, %2
   br i1 %357, label %Rtm_ObjCheckRetimeBwd.exit, label %358
 
@@ -3615,7 +3615,7 @@ Rtm_ObjCheckRetimeBwd.exit:                       ; preds = %338, %Rtm_ObjGetDeg
   %gep.i230 = getelementptr inbounds i8, ptr %invariant.gep.i226, i64 %gep.idx.i229
   %411 = load i32, ptr %gep.i230, align 8
   %412 = and i32 %411, 4095
-  %413 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117.i, i32 %412)
+  %413 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117.i, i32 range(i32 -2147483647, -2147483648) %412)
   %indvars.iv.next.i231 = add nuw nsw i64 %indvars.iv.i228, 1
   %exitcond.not.i232 = icmp eq i64 %indvars.iv.next.i231, %wide.trip.count.i227
   br i1 %exitcond.not.i232, label %.critedge2.i233, label %410, !llvm.loop !4

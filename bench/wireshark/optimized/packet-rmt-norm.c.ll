@@ -440,7 +440,7 @@ dissect_norm_hdrext.exit.i:                       ; preds = %77, %73
 dissect_norm_hdrext.exit.i74:                     ; preds = %120, %116
   %123 = load i32, ptr @hf_extension, align 4
   %124 = load i32, ptr @ett_hdrext, align 4
-  %125 = call i32 @lct_ext_decode(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %112, i32 noundef %114, ptr noundef nonnull %10, i32 noundef %123, i32 noundef %124) #6
+  %125 = call i32 @lct_ext_decode(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 1020) %112, i32 noundef %114, ptr noundef nonnull %10, i32 noundef %123, i32 noundef %124) #6
   %126 = add i32 %125, %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %127
@@ -614,7 +614,7 @@ UnquantizeRtt.exit.i.i:                           ; preds = %206, %202
 dissect_norm_hdrext.exit.i41.i:                   ; preds = %231, %227
   %234 = load i32, ptr @hf_extension, align 4
   %235 = load i32, ptr @ett_hdrext, align 4
-  %236 = call i32 @lct_ext_decode(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %223, i32 noundef %225, ptr noundef nonnull %8, i32 noundef %234, i32 noundef %235) #6
+  %236 = call i32 @lct_ext_decode(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 1020) %223, i32 noundef %225, ptr noundef nonnull %8, i32 noundef %234, i32 noundef %235) #6
   %237 = add i32 %236, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %dissect_norm_cmd_cc.exit.i

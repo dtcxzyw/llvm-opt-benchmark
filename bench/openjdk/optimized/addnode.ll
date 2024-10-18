@@ -1736,7 +1736,7 @@ declare noundef ptr @_ZN11TypeInteger6bottomE9BasicType(i8 noundef zeroext) loca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15RotateRightNodeC2EP4NodeS1_PK4Type(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 3) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 3) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -3085,7 +3085,7 @@ _ZN4NodenwEm.exit:                                ; preds = %57, %59
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 3) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 3) #7
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
@@ -3241,7 +3241,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %152, %154
   %163 = getelementptr inbounds i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i35, i32 noundef 3) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i35, i32 noundef 3) #7
   %166 = getelementptr inbounds i8, ptr %.0.i.i.i35, i64 56
   store ptr %165, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %.0.i.i.i35, i64 44
@@ -3756,7 +3756,7 @@ _ZN4NodenwEm.exit:                                ; preds = %57, %59
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 3) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 3) #7
   %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
@@ -3912,7 +3912,7 @@ _ZN4NodenwEm.exit36:                              ; preds = %152, %154
   %163 = getelementptr inbounds i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i35, i32 noundef 3) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i35, i32 noundef 3) #7
   %166 = getelementptr inbounds i8, ptr %.0.i.i.i35, i64 56
   store ptr %165, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %.0.i.i.i35, i64 44
@@ -5290,7 +5290,7 @@ _ZN4NodenwEm.exit48:                              ; preds = %109, %111
   br i1 %113, label %117, label %114
 
 114:                                              ; preds = %_ZN4NodenwEm.exit48
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i47, ptr noundef null, ptr noundef %93) #7
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i47, ptr noundef null, ptr noundef %93) #7
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %.0.i.i.i47, align 8
   %115 = getelementptr inbounds i8, ptr %.0.i.i.i47, i64 52
   store i32 3, ptr %115, align 4
@@ -5513,7 +5513,7 @@ _ZN4NodenwEm.exit45:                              ; preds = %110, %112
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %_ZN4NodenwEm.exit45
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i44, ptr noundef null, ptr noundef %90) #7
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i44, ptr noundef null, ptr noundef %90) #7
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8BoolNode, i64 16), ptr %.0.i.i.i44, align 8
   %116 = getelementptr inbounds i8, ptr %.0.i.i.i44, i64 52
   store i32 3, ptr %116, align 4
@@ -6666,7 +6666,7 @@ declare noundef ptr @_ZN11PhaseValues14find_long_typeEP4Node(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9CMoveNodeC2EP4NodeS1_S1_PK4Type(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 4) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 4) #7
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 44

@@ -4302,8 +4302,8 @@ if.then427.i:                                     ; preds = %if.end425.i
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1915)
   %call452.i = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   %_Splitter.i.i = getelementptr inbounds i8, ptr %call429.i, i64 168
-  call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 2)
-  call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 1)
+  call void @_ZN18ImDrawListSplitter5SplitEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull align 8 dereferenceable(196) %call429.i, i32 noundef 2)
+  call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull align 8 dereferenceable(196) %call429.i, i32 noundef 1)
   %p1451.sroa.0.0.vec.extract.i = extractelement <2 x float> %call452.i, i64 0
   %p1451.sroa.0.4.vec.extract.i = extractelement <2 x float> %call452.i, i64 1
   store float %p1451.sroa.0.0.vec.extract.i, ptr %ref.tmp453.i, align 4
@@ -4315,7 +4315,7 @@ if.then427.i:                                     ; preds = %if.end425.i
   %y.i339.i = getelementptr inbounds i8, ptr %ref.tmp456.i, i64 4
   store float %add460.i, ptr %y.i339.i, align 4
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp453.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp456.i, i32 noundef -65536, float noundef 0.000000e+00, i32 noundef 0)
-  call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i, i32 noundef 0)
+  call void @_ZN18ImDrawListSplitter17SetCurrentChannelEP10ImDrawListi(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull align 8 dereferenceable(196) %call429.i, i32 noundef 0)
   %add463.i = fadd float %p1451.sroa.0.0.vec.extract.i, 2.500000e+01
   %add465.i = fadd float %p1451.sroa.0.4.vec.extract.i, 2.500000e+01
   store float %add463.i, ptr %ref.tmp461.i, align 4
@@ -4327,7 +4327,7 @@ if.then427.i:                                     ; preds = %if.end425.i
   %y.i342.i = getelementptr inbounds i8, ptr %ref.tmp466.i, i64 4
   store float %add470.i, ptr %y.i342.i, align 4
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %call429.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp461.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp466.i, i32 noundef -16776961, float noundef 0.000000e+00, i32 noundef 0)
-  call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull %call429.i)
+  call void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull align 8 dereferenceable(24) %_Splitter.i.i, ptr noundef nonnull align 8 dereferenceable(196) %call429.i)
   store float 7.500000e+01, ptr %ref.tmp471.i, align 4
   %y.i344.i = getelementptr inbounds i8, ptr %ref.tmp471.i, i64 4
   store float 7.500000e+01, ptr %y.i344.i, align 4

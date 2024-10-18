@@ -415,7 +415,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @ucln_common_registerCleanup_75(i32 noundef 22, ptr noundef nonnull @_ZL15ucnv_io_cleanupv)
-  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @_ZL9DATA_TYPE, ptr noundef nonnull @_ZL9DATA_NAME, ptr noundef nonnull @_ZL12isAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %pErrorCode)
+  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @_ZL9DATA_TYPE, ptr noundef nonnull @_ZL9DATA_NAME, ptr noundef nonnull @_ZL12isAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i2 = icmp slt i32 %2, 1
   br i1 %cmp.i.i2, label %if.end.i3, label %_ZL13initAliasDataR10UErrorCode.exit

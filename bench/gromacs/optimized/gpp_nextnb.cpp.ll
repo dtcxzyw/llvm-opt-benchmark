@@ -77,10 +77,10 @@ define void @_Z8init_nnbP8t_nextnbii(ptr nocapture noundef %0, i32 noundef %1, i
   store i32 %2, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = sext i32 %1 to i64
-  %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 108, i64 noundef %6, i64 noundef 8)
+  %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 108, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8)
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 109, i64 noundef %6, i64 noundef 8)
+  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 109, i64 noundef range(i64 -2147483648, 2147483648) %6, i64 noundef 8)
   store ptr %9, ptr %8, align 8
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
@@ -95,11 +95,11 @@ define void @_Z8init_nnbP8t_nextnbii(ptr nocapture noundef %0, i32 noundef %1, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
-  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 112, i64 noundef %12, i64 noundef 8)
+  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 112, i64 noundef range(i64 -2147483648, 2147483648) %12, i64 noundef 8)
   store ptr %16, ptr %15, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
-  %19 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 113, i64 noundef %12, i64 noundef 4)
+  %19 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 113, i64 noundef range(i64 -2147483647, 2147483648) %12, i64 noundef 4)
   store ptr %19, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -230,7 +230,7 @@ _ZL11IS_CHEMBONDi.exit.thread:                    ; preds = %5, %_ZL11IS_CHEMBON
 
 24:                                               ; preds = %_ZL11IS_CHEMBONDi.exit.thread
   %25 = sext i32 %.1 to i64
-  %26 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 366, i64 noundef %25, i64 noundef 8)
+  %26 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 366, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef 8)
   br label %27
 
 27:                                               ; preds = %24, %_ZL11IS_CHEMBONDi.exit16.thread
@@ -350,7 +350,7 @@ _ZL11IS_CHEMBONDi.exit16.thread:                  ; preds = %27, %_ZL11IS_CHEMBO
   %74 = add nsw i32 %73, 1
   %75 = sext i32 %74 to i64
   %76 = load ptr, ptr %69, align 8
-  %77 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %76, i64 noundef %75, i64 noundef 4)
+  %77 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %76, i64 noundef range(i64 -2147483647, 2147483648) %75, i64 noundef 4)
   store ptr %77, ptr %69, align 8
   %78 = load ptr, ptr %64, align 8
   %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv.i
@@ -409,7 +409,7 @@ _ZL11IS_CHEMBONDi.exit16.thread:                  ; preds = %27, %_ZL11IS_CHEMBO
   %118 = add nsw i32 %117, 1
   %119 = sext i32 %118 to i64
   %120 = load ptr, ptr %112, align 8
-  %121 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %120, i64 noundef %119, i64 noundef 4)
+  %121 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %120, i64 noundef range(i64 -2147483647, 2147483648) %119, i64 noundef 4)
   store ptr %121, ptr %112, align 8
   %122 = load ptr, ptr %101, align 8
   %123 = getelementptr inbounds ptr, ptr %122, i64 %109
@@ -560,7 +560,7 @@ _ZL11IS_CHEMBONDi.exit16.thread:                  ; preds = %27, %_ZL11IS_CHEMBO
   %206 = add nsw i32 %205, 1
   %207 = sext i32 %206 to i64
   %208 = load ptr, ptr %203, align 8
-  %209 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %208, i64 noundef %207, i64 noundef 4)
+  %209 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %208, i64 noundef range(i64 -2147483647, 2147483648) %207, i64 noundef 4)
   store ptr %209, ptr %203, align 8
   %210 = load ptr, ptr %143, align 8
   %211 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv77.i
@@ -676,7 +676,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA134_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(134) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.10", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(134) %1) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #18
@@ -722,7 +722,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA134_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #18
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #18
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -749,7 +749,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #18
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #18
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -836,10 +836,10 @@ common.resume:                                    ; preds = %163, %14
   store i32 %0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %9, i64 16
   %19 = sext i32 %1 to i64
-  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 108, i64 noundef %19, i64 noundef 8)
+  %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 108, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
   store ptr %20, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %9, i64 8
-  %22 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 109, i64 noundef %19, i64 noundef 8)
+  %22 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 109, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
   store ptr %22, ptr %21, align 8
   %23 = icmp sgt i32 %1, 0
   br i1 %23, label %.lr.ph.i, label %_Z8init_nnbP8t_nextnbii.exit.thread
@@ -857,10 +857,10 @@ _Z8init_nnbP8t_nextnbii.exit.thread:              ; preds = %16
 26:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %27 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
-  %28 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 112, i64 noundef %25, i64 noundef 8)
+  %28 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 112, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef 8)
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i
-  %30 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 113, i64 noundef %25, i64 noundef 4)
+  %30 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 113, i64 noundef range(i64 -2147483647, 2147483648) %25, i64 noundef 4)
   store ptr %30, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1051,7 +1051,7 @@ _ZL18sort_and_purge_nnbP8t_nextnb.exit:           ; preds = %._crit_edge99.i, %_
 
 109:                                              ; preds = %_ZL18sort_and_purge_nnbP8t_nextnb.exit
   %110 = sub nuw nsw i64 1, %107
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %110)
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %110)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 111:                                              ; preds = %_ZL18sort_and_purge_nnbP8t_nextnb.exit
@@ -1107,7 +1107,7 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit.i:           ; preds = %120, %_ZNSt6vectorI
 
 .preheader.lr.ph.i15:                             ; preds = %125
   %129 = sext i32 %128 to i64
-  %130 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 190, i64 noundef %129, i64 noundef 8)
+  %130 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 190, i64 noundef range(i64 -2147483648, 2147483648) %129, i64 noundef 8)
   %131 = trunc nuw nsw i64 %indvars.iv130.i to i32
   %132 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv130.i
   %.pre39 = load ptr, ptr %123, align 8
@@ -1329,7 +1329,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

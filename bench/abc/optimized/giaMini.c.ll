@@ -5610,7 +5610,7 @@ define noundef ptr @Gia_MiniAigSuperDeriveGia(ptr nocapture noundef readonly %0,
   %12 = mul i32 %2, %1
   %13 = tail call ptr @Gia_ManStart(i32 noundef 1000) #25
   %14 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.27, i64 5, i1 false) #25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false) #25
   store ptr %14, ptr %13, align 8
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph, label %._crit_edge

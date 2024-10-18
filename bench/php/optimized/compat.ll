@@ -585,7 +585,7 @@ define internal ptr @_get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %40 = tail call ptr %38(i64 noundef %39) #9
   store i8 38, ptr %40, align 1
   %41 = getelementptr inbounds i8, ptr %40, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr readonly align 1 %1, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr readonly align 1 %1, i64 range(i64 -2147483648, 2147483648) %36, i1 false)
   %42 = getelementptr i8, ptr %40, i64 %36
   %43 = getelementptr i8, ptr %42, i64 1
   store i8 59, ptr %43, align 1
@@ -854,7 +854,7 @@ define internal void @_comment_handler(ptr nocapture noundef readonly %0, ptr no
   %11 = tail call ptr %9(i64 noundef %10) #9
   store i32 757932348, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %11, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 range(i64 -2147483648, 2147483648) %7, i1 false)
   %13 = getelementptr inbounds i8, ptr %12, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %13, ptr noundef nonnull align 1 dereferenceable(3) @.str.9, i64 3, i1 false)
   %14 = getelementptr inbounds i8, ptr %11, i64 %8

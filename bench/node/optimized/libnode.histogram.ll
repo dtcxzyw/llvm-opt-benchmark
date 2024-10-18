@@ -334,7 +334,7 @@ entry:
   %histogram_ = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %histogram_, i8 0, i64 32, i1 false)
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_) #15
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -385,7 +385,7 @@ define dso_local void @_ZNK4node9Histogram10MemoryInfoEPNS_13MemoryTrackerE(ptr 
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr.391", align 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %histogram_.i, align 8
   %call2.i = tail call i64 @hdr_get_memory_size(ptr noundef %0) #15
@@ -713,7 +713,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %count_.i = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load i64, ptr %count_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #15
@@ -819,7 +819,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %count_.i = getelementptr inbounds i8, ptr %24, i64 32
   %25 = load i64, ptr %count_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #15
@@ -885,7 +885,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call i64 @hdr_min(ptr noundef %11) #15
@@ -992,7 +992,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %histogram_.i, align 8
   %call2.i = tail call i64 @hdr_min(ptr noundef %25) #15
@@ -1059,7 +1059,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call i64 @hdr_max(ptr noundef %11) #15
@@ -1166,7 +1166,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %histogram_.i, align 8
   %call2.i = tail call i64 @hdr_max(ptr noundef %25) #15
@@ -1233,7 +1233,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %11 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call double @hdr_mean(ptr noundef %12) #15
@@ -1465,7 +1465,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %11 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call double @hdr_stddev(ptr noundef %12) #15
@@ -1582,7 +1582,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %22 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %22, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %cmp.i = fcmp ule double %call36, 0.000000e+00
   br i1 %cmp.i, label %do.body4.i, label %do.body7.i
 
@@ -1758,7 +1758,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %34 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %cmp.i = fcmp ule double %call37, 0.000000e+00
   br i1 %cmp.i, label %do.body4.i, label %do.body7.i
 
@@ -1931,7 +1931,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %34 = load ptr, ptr %add.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %histogram_.i, align 8
   call void @hdr_iter_percentile_init(ptr noundef nonnull %iter.i, ptr noundef %35, i32 noundef 1) #15
@@ -2097,7 +2097,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %34 = load ptr, ptr %add.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %histogram_.i, align 8
   call void @hdr_iter_percentile_init(ptr noundef nonnull %iter.i, ptr noundef %35, i32 noundef 1) #15
@@ -2174,7 +2174,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   tail call void @hdr_reset(ptr noundef %11) #15
@@ -2225,7 +2225,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %call.i = tail call i64 @uv_hrtime() #15
   %prev_.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %prev_.i, align 8
@@ -2477,7 +2477,7 @@ do.end66:                                         ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %53 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %53, i64 40
-  call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %histogram_.i, align 8
   %call2.i = call zeroext i1 @hdr_record_value(ptr noundef %54, i64 noundef %cond) #15
@@ -2655,7 +2655,7 @@ do.end48:                                         ; preds = %_ZN4node10BaseObjec
   %add.ptr50 = getelementptr inbounds i8, ptr %retval.i11.0.i27, i64 32
   %45 = load ptr, ptr %add.ptr50, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %44, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %count_.i = getelementptr inbounds i8, ptr %45, i64 32
   %46 = load i64, ptr %count_.i, align 8
   %count_2.i = getelementptr inbounds i8, ptr %44, i64 32
@@ -2811,7 +2811,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   %1 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #15
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #15
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %call.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
   tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %args3)
@@ -2827,7 +2827,7 @@ entry:
   store ptr %call.i.i, ptr %_M_ptr.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call) #15
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
@@ -2888,13 +2888,13 @@ entry:
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args3, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #15
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef %3, ptr %agg.tmp.sroa.0.0.copyload) #15
   %4 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %1, ptr %4, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %2, ptr %_M_refcount.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call) #15
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #15
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
@@ -3345,7 +3345,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store i32 %call165, ptr %figures174, align 8
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %102 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call166, ptr noundef %102, ptr nonnull %add.ptr.i486) #15
+  call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call166, ptr noundef %102, ptr nonnull %add.ptr.i486) #15
   %103 = getelementptr inbounds i8, ptr %call166, i64 32
   %call.i.i = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
   call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %ref.tmp171)
@@ -3361,7 +3361,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store ptr %call.i.i, ptr %_M_ptr.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call166, align 8
-  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call166) #15
+  call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call166) #15
   ret void
 }
 
@@ -4740,13 +4740,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17, !noalias !17
   %5 = load ptr, ptr %principal_realm_.i.i.i, align 8, !noalias !17
-  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %5, ptr nonnull %call19.i) #15, !noalias !17
+  tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i, ptr noundef %5, ptr nonnull %call19.i) #15, !noalias !17
   %6 = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %0, ptr %6, align 8, !noalias !17
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13HistogramBaseE, i64 16), ptr %call.i, align 8, !noalias !17
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !17
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(48) %call.i) #15, !noalias !17
   %call3.i.i.i4 = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #15, !noalias !17
   %cmp2.not.i.i5 = icmp eq ptr %call3.i.i.i4, null
   br i1 %cmp2.not.i.i5, label %do.body6.i.i6, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb0EE12pointer_dataEv.exit.i.i
@@ -5103,7 +5103,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %count_.i = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load i64, ptr %count_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #15
@@ -5209,7 +5209,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %count_.i = getelementptr inbounds i8, ptr %24, i64 32
   %25 = load i64, ptr %count_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #15
@@ -5437,7 +5437,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call i64 @hdr_min(ptr noundef %11) #15
@@ -5544,7 +5544,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %histogram_.i, align 8
   %call2.i = tail call i64 @hdr_min(ptr noundef %25) #15
@@ -5609,7 +5609,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call i64 @hdr_max(ptr noundef %11) #15
@@ -5716,7 +5716,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %24 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %24, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %histogram_.i, align 8
   %call2.i = tail call i64 @hdr_min(ptr noundef %25) #15
@@ -5783,7 +5783,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %11 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call double @hdr_mean(ptr noundef %12) #15
@@ -5851,7 +5851,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %11 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %histogram_.i, align 8
   %call2.i8 = tail call double @hdr_stddev(ptr noundef %12) #15
@@ -5968,7 +5968,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %22 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %22, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %cmp.i = fcmp ule double %call36, 0.000000e+00
   br i1 %cmp.i, label %do.body4.i, label %do.body7.i
 
@@ -6140,7 +6140,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %34 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %cmp.i = fcmp ule double %call37, 0.000000e+00
   br i1 %cmp.i, label %do.body4.i, label %do.body7.i
 
@@ -6313,7 +6313,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %34 = load ptr, ptr %add.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %histogram_.i, align 8
   call void @hdr_iter_percentile_init(ptr noundef nonnull %iter.i, ptr noundef %35, i32 noundef 1) #15
@@ -6477,7 +6477,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %34 = load ptr, ptr %add.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds i8, ptr %34, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %histogram_.i, align 8
   call void @hdr_iter_percentile_init(ptr noundef nonnull %iter.i, ptr noundef %35, i32 noundef 1) #15
@@ -6554,7 +6554,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %10 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %10, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %histogram_.i, align 8
   tail call void @hdr_reset(ptr noundef %11) #15
@@ -6644,7 +6644,7 @@ if.then3.i:                                       ; preds = %if.end.i7
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 88
   %19 = load ptr, ptr %add.ptr.i, align 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %19, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i) #15
   %histogram_.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %histogram_.i.i, align 8
   tail call void @hdr_reset(ptr noundef %20) #15
@@ -7932,7 +7932,7 @@ entry:
   %on_interval_ = getelementptr inbounds i8, ptr %this, i64 112
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 136
   %_M_invoker2.i = getelementptr inbounds i8, ptr %on_interval, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %on_interval_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %on_interval, i64 16
@@ -7942,7 +7942,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %on_interval_, ptr noundef nonnull align 8 dereferenceable(16) %on_interval, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(32) %on_interval, i64 16, i1 false)
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %3, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -8008,7 +8008,7 @@ entry:
   %2 = load i32, ptr %args5, align 4
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %args7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %3, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %args7, i64 16
@@ -8018,7 +8018,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %args7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %args7, i64 16, i1 false)
   store ptr %4, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN4node9HistogramEEEC2EOS4_.exit
@@ -8043,7 +8043,7 @@ _ZN4node17BaseObjectPtrImplINS_17IntervalHistogramELb0EEC2EPS1_.exit: ; preds = 
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4node17BaseObjectPtrImplINS_17IntervalHistogramELb0EEC2EPS1_.exit
-  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, i32 noundef 3) #15
+  %call.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, i32 noundef 3) #15
   br label %_ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit
 
 _ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit:   ; preds = %_ZN4node17BaseObjectPtrImplINS_17IntervalHistogramELb0EEC2EPS1_.exit, %if.then.i.i
@@ -8071,7 +8071,7 @@ _ZNKSt8functionIFvRN4node9HistogramEEEclES2_.exit: ; preds = %entry
   %3 = load ptr, ptr %add.ptr, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %1, i64 136
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %3) #15
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %3) #15
   ret void
 }
 
@@ -8215,7 +8215,7 @@ if.then3:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %add.ptr, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %histogram_.i, align 8
   tail call void @hdr_reset(ptr noundef %4) #15
@@ -8507,7 +8507,7 @@ define linkonce_odr dso_local void @_ZN4node9HistogramD2Ev(ptr noundef nonnull a
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9HistogramE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #15
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #15
   %histogram_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %histogram_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -8527,7 +8527,7 @@ define linkonce_odr dso_local void @_ZN4node9HistogramD0Ev(ptr noundef nonnull a
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9HistogramE, i64 16), ptr %this, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_.i) #15
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #15
   %histogram_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %histogram_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -8712,7 +8712,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4node13HistogramBaseD2Ev.exit
 
 _ZN4node13HistogramBaseD2Ev.exit:                 ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
+  tail call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -8819,7 +8819,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %on_interval_ = getelementptr inbounds i8, ptr %this, i64 112
-  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %on_interval_, ptr noundef nonnull align 8 dereferenceable(16) %on_interval_, i32 noundef 3) #15
+  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, i32 noundef 3) #15
   br label %_ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit
 
 _ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit:   ; preds = %entry, %if.then.i.i
@@ -8908,7 +8908,7 @@ _ZN4node13HistogramImplD2Ev.exit:                 ; preds = %_ZNSt8functionIFvRN
   store ptr %14, ptr %12, align 8
   store ptr %handle_wrap_queue_.i, ptr %handle_wrap_queue_.i, align 8
   store ptr %handle_wrap_queue_.i, ptr %next_.i.i.i, align 8
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #15
   ret void
 }
 
@@ -9490,7 +9490,7 @@ _ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.e
 
 _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIPKN4node14MemoryRetainerESt4pairIKS4_PNS1_18MemoryRetainerNodeEESaIS9_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %seen_, ptr noundef nonnull align 8 dereferenceable(8) %retainer.addr)
   store ptr %call9, ptr %call.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -10137,7 +10137,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -10165,7 +10165,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #15
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)

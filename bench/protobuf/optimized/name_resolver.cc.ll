@@ -592,7 +592,7 @@ define hidden void @_ZN6google8protobuf8compiler4java17ClassNameResolver12GetCla
 entry:
   %agg.tmp = alloca %"struct.google::protobuf::compiler::java::Options", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %this, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %this, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -687,7 +687,7 @@ entry:
   br i1 %is_own_file, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %this, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %this, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -1181,7 +1181,7 @@ invoke.cont:
   br i1 %tobool.i.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %this, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %this, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)
@@ -1305,7 +1305,7 @@ entry:
   %tobool.i.i.i.i = trunc i8 %3 to i1
   %4 = extractvalue { i64, ptr } %call.i, 1
   %5 = extractvalue { i64, ptr } %call.i, 0
-  invoke void @_ZN6google8protobuf8compiler4java17ClassNameResolver16GetClassFullNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorEbbb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(112) %this, i64 %5, ptr %4, ptr noundef nonnull %1, i1 noundef zeroext %immutable, i1 noundef zeroext %tobool.i.i.i.i, i1 noundef zeroext %kotlin)
+  invoke void @_ZN6google8protobuf8compiler4java17ClassNameResolver16GetClassFullNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_14FileDescriptorEbbb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(112) %this, i64 %5, ptr %4, ptr noundef nonnull %1, i1 noundef zeroext %immutable, i1 noundef zeroext %tobool.i.i.i.i, i1 noundef zeroext %kotlin)
           to label %invoke.cont6 unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -1835,7 +1835,7 @@ entry:
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
   %file_.i = getelementptr inbounds i8, ptr %descriptor, i64 16
   %0 = load ptr, ptr %file_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(6) %this, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(73) %this, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %annotation_list_file3.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i)

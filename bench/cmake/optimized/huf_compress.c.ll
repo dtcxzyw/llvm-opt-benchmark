@@ -92,7 +92,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %43, i64 400
-  %48 = call i32 @HIST_count_simple(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %38, i64 noundef %39) #13
+  %48 = call i32 @HIST_count_simple(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39) #13
   %49 = icmp eq i32 %3, %48
   %50 = icmp eq i32 %48, 1
   %or.cond = or i1 %49, %50
@@ -100,17 +100,17 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %8, align 4
-  %53 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef %39, i32 noundef %52) #13
+  %53 = call i32 @FSE_optimalTableLog(i32 noundef 6, i64 noundef range(i64 0, 256) %39, i32 noundef %52) #13
   %54 = getelementptr inbounds i8, ptr %43, i64 452
   %55 = load i32, ptr %8, align 4
-  %56 = call i64 @FSE_normalizeCount(ptr noundef nonnull %54, i32 noundef %53, ptr noundef nonnull %47, i64 noundef %39, i32 noundef %55, i32 noundef 0) #13
+  %56 = call i64 @FSE_normalizeCount(ptr noundef nonnull %54, i32 noundef %53, ptr noundef nonnull %47, i64 noundef range(i64 0, 256) %39, i32 noundef %55, i32 noundef 0) #13
   %57 = icmp ult i64 %56, -119
   br i1 %57, label %58, label %HUF_compressWeights.exit.thread
 
 58:                                               ; preds = %51
   %59 = ptrtoint ptr %36 to i64
   %60 = load i32, ptr %8, align 4
-  %61 = call i64 @FSE_writeNCount(ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull %54, i32 noundef %60, i32 noundef %53) #13
+  %61 = call i64 @FSE_writeNCount(ptr noundef nonnull %36, i64 noundef range(i64 0, -1) %37, ptr noundef nonnull %54, i32 noundef %60, i32 noundef %53) #13
   %62 = icmp ult i64 %61, -119
   br i1 %62, label %63, label %HUF_compressWeights.exit.thread
 
@@ -124,7 +124,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
 
 69:                                               ; preds = %63
   %gepdiff.i = sub nsw i64 %37, %61
-  %70 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %64, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef %39, ptr noundef %43) #13
+  %70 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %64, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef %43) #13
   %71 = icmp ult i64 %70, -119
   br i1 %71, label %72, label %HUF_compressWeights.exit.thread
 

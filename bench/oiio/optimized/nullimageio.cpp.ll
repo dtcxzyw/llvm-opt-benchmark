@@ -200,7 +200,7 @@ entry:
   %agg.tmp.i = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %call = tail call noundef ptr @_ZN18OpenImageIO_v2_6_010ImageInputnwEm(i64 noundef 416)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call)
+  invoke void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(416) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -494,7 +494,7 @@ entry:
   %m_mip = getelementptr inbounds i8, ptr %this, i64 224
   store i8 0, ptr %m_mip, align 8
   %m_topspec = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_topspec, ptr noundef nonnull align 8 dereferenceable(72) %config, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m_topspec, ptr noundef nonnull align 8 dereferenceable(160) %config, i64 72, i1 false)
   %channelformats.i = getelementptr inbounds i8, ptr %this, i64 328
   %channelformats3.i = getelementptr inbounds i8, ptr %config, i64 72
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i)
@@ -1101,7 +1101,7 @@ if.end246:                                        ; preds = %invoke.cont75, %_ZN
 if.end.i:                                         ; preds = %if.end246
   store i32 0, ptr %m_subimage, align 8
   %m_spec.i = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_spec.i, ptr noundef nonnull align 8 dereferenceable(72) %m_topspec, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m_spec.i, ptr noundef nonnull align 8 dereferenceable(160) %m_topspec, i64 72, i1 false)
   %channelformats.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %call.i.i143145 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i)
           to label %call.i.i143.noexc unwind label %lpad82.loopexit.split-lp
@@ -1124,7 +1124,7 @@ call.i.i.i144.noexc:                              ; preds = %call5.i.i.noexc
 
 invoke.cont247:                                   ; preds = %call.i.i.i144.noexc, %if.end246
   %m_spec.i148 = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %newspec, ptr noundef nonnull align 8 dereferenceable(72) %m_spec.i148, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %m_spec.i148, i64 72, i1 false)
   %channelformats.i149 = getelementptr inbounds i8, ptr %newspec, i64 72
   %channelformats3.i150 = getelementptr inbounds i8, ptr %this, i64 80
   %call.i151160 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i149, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i150)
@@ -2205,7 +2205,7 @@ land.lhs.true8:                                   ; preds = %if.end6
 if.end10:                                         ; preds = %land.lhs.true8, %if.end6
   %m_topspec = getelementptr inbounds i8, ptr %this, i64 256
   %m_spec = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_spec, ptr noundef nonnull align 8 dereferenceable(72) %m_topspec, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull align 8 dereferenceable(160) %m_topspec, i64 72, i1 false)
   %channelformats.i = getelementptr inbounds i8, ptr %this, i64 80
   %channelformats3.i = getelementptr inbounds i8, ptr %this, i64 328
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i)
@@ -2570,7 +2570,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_010NullOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9ImageSpecENS_11ImageOutput8OpenModeE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %1) unnamed_addr #4 comdat align 2 {
 entry:
   %m_spec = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_spec, ptr noundef nonnull align 8 dereferenceable(72) %spec, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull align 8 dereferenceable(160) %spec, i64 72, i1 false)
   %channelformats.i = getelementptr inbounds i8, ptr %this, i64 80
   %channelformats3.i = getelementptr inbounds i8, ptr %spec, i64 72
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i)
@@ -2676,7 +2676,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #19
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14

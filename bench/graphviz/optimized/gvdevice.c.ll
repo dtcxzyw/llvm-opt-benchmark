@@ -1429,7 +1429,7 @@ define internal fastcc void @gvprintnum(ptr nocapture noundef nonnull %0, double
   br i1 %3, label %4, label %32
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @maxnegnumstr) #21
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @maxnegnumstr) #21
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %agxbput.exit, label %7
 

@@ -308,7 +308,7 @@ define hidden void @_ZN10ArrayKlass20log_array_class_loadEP5Klass(ptr nocapture 
   br i1 %.not, label %32, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #13
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #13
@@ -435,7 +435,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %14
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 36:                                               ; preds = %24
-  %37 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef 8, i32 noundef 0) #13
+  %37 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %36, %34
@@ -467,7 +467,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %14, %_ZNK5Klass12cl
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i15
 
 51:                                               ; preds = %39
-  %52 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %41, i64 noundef 8, i32 noundef 0) #13
+  %52 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %41, i64 noundef 8, i32 noundef 0) #13
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i15
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i15: ; preds = %51, %49

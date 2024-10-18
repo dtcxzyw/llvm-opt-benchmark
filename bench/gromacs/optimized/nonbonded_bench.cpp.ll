@@ -380,7 +380,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD0Ev(ptr noundef 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
-  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN3gmx25ICommandLineOptionsModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -437,7 +437,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %36 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %37 unwind label %220
 
 37:                                               ; preds = %25
@@ -458,7 +458,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %45 = load ptr, ptr %1, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %48 = invoke noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %6)
           to label %49 unwind label %222
 
 49:                                               ; preds = %37
@@ -483,7 +483,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %59 = load ptr, ptr %1, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
-  %62 = invoke noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %62 = invoke noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %7)
           to label %63 unwind label %224
 
 63:                                               ; preds = %49
@@ -508,7 +508,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %73 = load ptr, ptr %1, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
-  %76 = invoke noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %76 = invoke noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %8)
           to label %77 unwind label %226
 
 77:                                               ; preds = %63
@@ -529,7 +529,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
-  %88 = invoke noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %88 = invoke noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %9)
           to label %89 unwind label %228
 
 89:                                               ; preds = %77
@@ -554,7 +554,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %99 = load ptr, ptr %1, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = invoke noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %102 = invoke noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %10)
           to label %103 unwind label %230
 
 103:                                              ; preds = %89
@@ -575,7 +575,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %111 = load ptr, ptr %1, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = invoke noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  %114 = invoke noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %11)
           to label %115 unwind label %232
 
 115:                                              ; preds = %103
@@ -596,7 +596,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %123 = load ptr, ptr %1, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
-  %126 = invoke noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %126 = invoke noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %12)
           to label %127 unwind label %234
 
 127:                                              ; preds = %115
@@ -617,7 +617,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %135 = load ptr, ptr %1, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = invoke noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %138 = invoke noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %13)
           to label %139 unwind label %236
 
 139:                                              ; preds = %127
@@ -640,7 +640,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %148 = load ptr, ptr %1, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
-  %151 = invoke noundef ptr %150(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %14)
+  %151 = invoke noundef ptr %150(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %14)
           to label %152 unwind label %238
 
 152:                                              ; preds = %139
@@ -661,7 +661,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %160 = load ptr, ptr %1, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = load ptr, ptr %161, align 8
-  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %15)
+  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %15)
           to label %164 unwind label %240
 
 164:                                              ; preds = %152
@@ -682,7 +682,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %172 = load ptr, ptr %1, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8
-  %175 = invoke noundef ptr %174(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %16)
+  %175 = invoke noundef ptr %174(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %16)
           to label %176 unwind label %242
 
 176:                                              ; preds = %164
@@ -703,7 +703,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %184 = load ptr, ptr %1, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
-  %187 = invoke noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %187 = invoke noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %17)
           to label %188 unwind label %244
 
 188:                                              ; preds = %176
@@ -724,7 +724,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %196 = load ptr, ptr %1, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = invoke noundef ptr %198(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %18)
+  %199 = invoke noundef ptr %198(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %18)
           to label %200 unwind label %246
 
 200:                                              ; preds = %188
@@ -757,7 +757,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark11initOptionsEPNS
   %214 = load ptr, ptr %1, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 24
   %216 = load ptr, ptr %215, align 8
-  %217 = invoke noundef ptr %216(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %19)
+  %217 = invoke noundef ptr %216(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(113) %19)
           to label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit unwind label %248
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %200

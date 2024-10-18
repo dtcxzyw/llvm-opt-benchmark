@@ -355,7 +355,7 @@ lpad.i:                                           ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_visited.i) #15
-  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #15
+  call void @_ZN7counterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %ref.tmp) #15
   br label %common.resume
 
 _ZN11var_counterC2Ev.exit:                        ; preds = %entry
@@ -3051,7 +3051,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

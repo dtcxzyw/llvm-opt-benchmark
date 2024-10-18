@@ -7773,7 +7773,7 @@ lor.rhs.i164:                                     ; preds = %_ZNKSt3mapIjSt6vect
 invoke.cont34:                                    ; preds = %lor.rhs.i164
   %_M_finish.i171 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i158, i64 48
   %20 = load ptr, ptr %_M_finish.i171, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %q2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %q2, i8 0, i64 24, i1 false)
   store ptr %3, ptr %_M_left.i.i.i.i.i12, align 8
   store ptr %3, ptr %_M_right.i.i.i.i.i13, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i14, align 8

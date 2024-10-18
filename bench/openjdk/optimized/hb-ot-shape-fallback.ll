@@ -415,7 +415,7 @@ define internal fastcc void @_ZL16position_clusterPK18hb_ot_shape_plan_tP9hb_fon
 
 _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i: ; preds = %52, %42
   %55 = phi ptr [ %54, %52 ], [ null, %42 ]
-  %56 = call noundef i32 %48(ptr noundef nonnull %1, ptr noundef %49, i32 noundef %45, ptr noundef nonnull %8, ptr noundef %55)
+  %56 = call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %49, i32 noundef %45, ptr noundef nonnull %8, ptr noundef %55)
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %57, label %92
 
@@ -515,7 +515,7 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i: ; preds = %52, %
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
   %110 = phi ptr [ %109, %107 ], [ null, %92 ]
-  %111 = call noundef i32 %103(ptr noundef nonnull %1, ptr noundef %104, i32 noundef %100, ptr noundef %110)
+  %111 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %104, i32 noundef %100, ptr noundef %110)
   store i32 %111, ptr %19, align 4
   %112 = load ptr, ptr %12, align 8
   %113 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %112, i64 %27
@@ -692,7 +692,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit.i:      ; preds = %107, %92
 
 _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit.i.i: ; preds = %177, %167
   %180 = phi ptr [ %179, %177 ], [ null, %167 ]
-  %181 = call noundef i32 %173(ptr noundef nonnull %1, ptr noundef %174, i32 noundef %170, ptr noundef nonnull %7, ptr noundef %180)
+  %181 = call noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %174, i32 noundef %170, ptr noundef nonnull %7, ptr noundef %180)
   %.not.i146.i = icmp eq i32 %181, 0
   br i1 %.not.i146.i, label %_ZL13position_markPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tR18hb_glyph_extents_tjj.exit.i, label %182
 
@@ -1511,7 +1511,7 @@ _ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke.sink.split: ; preds = %218
 _ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke: ; preds = %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke.sink.split, %218, %215
   %223 = phi ptr [ null, %215 ], [ null, %218 ], [ %222, %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke.sink.split ]
   %224 = phi ptr [ %217, %215 ], [ %220, %218 ], [ %.ph180, %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke.sink.split ]
-  %225 = invoke noundef i32 %224(ptr noundef nonnull %204, ptr noundef %212, i32 noundef %200, i32 noundef %203, ptr noundef %223)
+  %225 = invoke noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(192) %204, ptr noundef %212, i32 noundef %200, i32 noundef %203, ptr noundef %223)
           to label %_ZNK34hb_ot_shape_fallback_kern_driver_t11get_kerningEjj.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZNK34hb_ot_shape_fallback_kern_driver_t11get_kerningEjj.exit: ; preds = %_ZN9hb_font_t19get_glyph_v_kerningEjj.exit.i.i.invoke
@@ -1808,7 +1808,7 @@ define hidden void @_Z28_hb_ot_shape_fallback_spacesPK18hb_ot_shape_plan_tP9hb_f
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %.preheader, %83
   %86 = phi ptr [ %85, %83 ], [ null, %.preheader ]
-  %87 = call noundef i32 %79(ptr noundef nonnull %1, ptr noundef %80, i32 noundef %indvars.iv, ptr noundef nonnull %4, ptr noundef %86)
+  %87 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %80, i32 noundef %indvars.iv, ptr noundef nonnull %4, ptr noundef %86)
   %.not70 = icmp eq i32 %87, 0
   br i1 %.not70, label %76, label %88
 
@@ -1833,7 +1833,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %.preheader, %83
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %94, %97
   %100 = phi ptr [ %99, %97 ], [ null, %94 ]
-  %101 = call noundef i32 %96(ptr noundef nonnull %1, ptr noundef %91, i32 noundef %89, ptr noundef %100)
+  %101 = call noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %91, i32 noundef %89, ptr noundef %100)
   %102 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %8, i64 %indvars.iv91
   store i32 %101, ptr %102, align 4
   br label %.loopexit
@@ -1850,7 +1850,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit:        ; preds = %94, %97
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %103, %106
   %109 = phi ptr [ %108, %106 ], [ null, %103 ]
-  %110 = call noundef i32 %105(ptr noundef nonnull %1, ptr noundef %91, i32 noundef %89, ptr noundef %109)
+  %110 = call noundef i32 %105(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %91, i32 noundef %89, ptr noundef %109)
   %111 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %8, i64 %indvars.iv91, i32 1
   store i32 %110, ptr %111, align 4
   br label %.loopexit
@@ -1873,7 +1873,7 @@ _ZN9hb_font_t19get_glyph_v_advanceEj.exit:        ; preds = %103, %106
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit78:     ; preds = %112, %119
   %122 = phi ptr [ %121, %119 ], [ null, %112 ]
-  %123 = call noundef i32 %115(ptr noundef nonnull %1, ptr noundef %116, i32 noundef 46, ptr noundef nonnull %4, ptr noundef %122)
+  %123 = call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %116, i32 noundef 46, ptr noundef nonnull %4, ptr noundef %122)
   %.not71 = icmp eq i32 %123, 0
   br i1 %.not71, label %124, label %136
 
@@ -1895,7 +1895,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit78:     ; preds = %112, %119
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit80:     ; preds = %124, %131
   %134 = phi ptr [ %133, %131 ], [ null, %124 ]
-  %135 = call noundef i32 %127(ptr noundef nonnull %1, ptr noundef %128, i32 noundef 44, ptr noundef nonnull %4, ptr noundef %134)
+  %135 = call noundef i32 %127(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %128, i32 noundef 44, ptr noundef nonnull %4, ptr noundef %134)
   %.not72 = icmp eq i32 %135, 0
   br i1 %.not72, label %.loopexit, label %136
 
@@ -1920,7 +1920,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit80:     ; preds = %124, %131
 
 _ZN9hb_font_t19get_glyph_h_advanceEj.exit82:      ; preds = %142, %145
   %148 = phi ptr [ %147, %145 ], [ null, %142 ]
-  %149 = call noundef i32 %144(ptr noundef nonnull %1, ptr noundef %139, i32 noundef %137, ptr noundef %148)
+  %149 = call noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %139, i32 noundef %137, ptr noundef %148)
   %150 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %8, i64 %indvars.iv91
   store i32 %149, ptr %150, align 4
   br label %.loopexit
@@ -1937,7 +1937,7 @@ _ZN9hb_font_t19get_glyph_h_advanceEj.exit82:      ; preds = %142, %145
 
 _ZN9hb_font_t19get_glyph_v_advanceEj.exit84:      ; preds = %151, %154
   %157 = phi ptr [ %156, %154 ], [ null, %151 ]
-  %158 = call noundef i32 %153(ptr noundef nonnull %1, ptr noundef %139, i32 noundef %137, ptr noundef %157)
+  %158 = call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %139, i32 noundef %137, ptr noundef %157)
   %159 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %8, i64 %indvars.iv91, i32 1
   store i32 %158, ptr %159, align 4
   br label %.loopexit
@@ -3671,7 +3671,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
 99:                                               ; preds = %90
   %100 = zext nneg i32 %97 to i64
   %101 = getelementptr inbounds i8, ptr %0, i64 %100
-  %102 = tail call noundef zeroext i1 @_ZNK2OT10AttachList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %101, ptr noundef nonnull %1)
+  %102 = tail call noundef zeroext i1 @_ZNK2OT10AttachList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %101, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %102, label %.thread74, label %103
 
 103:                                              ; preds = %99
@@ -3717,7 +3717,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i45: ; preds = %103
 128:                                              ; preds = %119
   %129 = zext nneg i32 %126 to i64
   %130 = getelementptr inbounds i8, ptr %0, i64 %129
-  %131 = tail call noundef zeroext i1 @_ZNK2OT12LigCaretList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %130, ptr noundef nonnull %1)
+  %131 = tail call noundef zeroext i1 @_ZNK2OT12LigCaretList8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %130, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %131, label %.thread80, label %132
 
 132:                                              ; preds = %128
@@ -3905,7 +3905,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i55: ; preds = %209
 261:                                              ; preds = %242
   %262 = zext i32 %259 to i64
   %263 = getelementptr inbounds i8, ptr %0, i64 %262
-  %264 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %263, ptr noundef nonnull %1)
+  %264 = tail call noundef zeroext i1 @_ZNK2OT14VariationStore8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(12) %263, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %264, label %.thread69, label %265
 
 265:                                              ; preds = %261
@@ -4482,7 +4482,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_8LigGlyphENS_7IntTypeItLj2EEELb1EEES4_E16sanitiz
 130:                                              ; preds = %121
   %131 = zext nneg i32 %128 to i64
   %132 = getelementptr inbounds i8, ptr %0, i64 %131
-  %133 = tail call noundef zeroext i1 @_ZNK2OT8LigGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(4) %132, ptr noundef nonnull %1)
+  %133 = tail call noundef zeroext i1 @_ZNK2OT8LigGlyph8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(4) %132, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %133, label %141, label %134
 
 134:                                              ; preds = %130
@@ -4621,7 +4621,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_10CaretValueENS_7IntTypeItLj2EEELb1EEES4_E16sani
   br i1 %.not.i.i, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i, label %85
 
 74:                                               ; preds = %63
-  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull %1)
+  %75 = tail call noundef zeroext i1 @_ZNK2OT17CaretValueFormat38sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 8 dereferenceable(62) %1)
   br i1 %75, label %85, label %_ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread10.i.i
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT10CaretValueEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.i.i: ; preds = %63

@@ -62,7 +62,7 @@ try_provided_check.exit.thread15:                 ; preds = %if.end.i
 
 try_provided_check.exit:                          ; preds = %if.end.i
   %4 = load ptr, ptr %keymgmt.i, align 8
-  %call6.i = call i32 @evp_keymgmt_validate(ptr noundef %4, ptr noundef nonnull %call.i, i32 noundef 2, i32 noundef %checktype) #3
+  %call6.i = call i32 @evp_keymgmt_validate(ptr noundef %4, ptr noundef nonnull %call.i, i32 noundef 2, i32 noundef range(i32 0, 2) %checktype) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keymgmt.i)
   %cmp2.not = icmp eq i32 %call6.i, -1
   br i1 %cmp2.not, label %if.end4, label %return
@@ -170,7 +170,7 @@ try_provided_check.exit.thread15:                 ; preds = %if.end.i
 
 try_provided_check.exit:                          ; preds = %if.end.i
   %4 = load ptr, ptr %keymgmt.i, align 8
-  %call6.i = call i32 @evp_keymgmt_validate(ptr noundef %4, ptr noundef nonnull %call.i, i32 noundef 132, i32 noundef %checktype) #3
+  %call6.i = call i32 @evp_keymgmt_validate(ptr noundef %4, ptr noundef nonnull %call.i, i32 noundef 132, i32 noundef range(i32 0, 2) %checktype) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keymgmt.i)
   %cmp2.not = icmp eq i32 %call6.i, -1
   br i1 %cmp2.not, label %if.end4, label %return

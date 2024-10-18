@@ -29643,7 +29643,7 @@ if.end43.i.i:                                     ; preds = %if.else41.i.i, %if.
   %cmp46.i.i = icmp eq i64 %argcount, 1
   %79 = and i1 %cmp46.i.i, %tobool19.not.i.i
   %cond49.i.i = select i1 %79, ptr @.str.76, ptr @.str.77
-  %call50.i.i = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %78, ptr noundef nonnull @.str.75, ptr noundef %71, ptr noundef nonnull %sig.0.i.i, ptr noundef nonnull %plural.0.i.i, i64 noundef %argcount, ptr noundef %kwonly_sig.0.i.i, ptr noundef nonnull %cond49.i.i) #15
+  %call50.i.i = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %78, ptr noundef nonnull @.str.75, ptr noundef %71, ptr noundef nonnull %sig.0.i.i, ptr noundef nonnull %plural.0.i.i, i64 noundef range(i64 -2147483647, -9223372036854775808) %argcount, ptr noundef %kwonly_sig.0.i.i, ptr noundef nonnull %cond49.i.i) #15
   %80 = load i64, ptr %sig.0.i.i, align 8
   %81 = and i64 %80, 2147483648
   %cmp.i83.not.i.i = icmp eq i64 %81, 0
@@ -29724,7 +29724,7 @@ for.end287.i:                                     ; preds = %for.body278.i
 if.then289.i:                                     ; preds = %for.end287.i
   %func_qualname290.i = getelementptr inbounds i8, ptr %func, i64 40
   %91 = load ptr, ptr %func_qualname290.i, align 8
-  tail call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %spec.select200.i, i64 noundef %cond.i, ptr noundef %localsplus, ptr noundef %91)
+  tail call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %spec.select200.i, i64 noundef %cond.i, ptr noundef nonnull %localsplus, ptr noundef %91)
   br label %if.then3
 
 if.end291.i:                                      ; preds = %for.end287.i, %cond.end.i
@@ -29835,7 +29835,7 @@ for.end360.i:                                     ; preds = %for.inc358.i
 if.then362.i:                                     ; preds = %for.end360.i
   %func_qualname363.i = getelementptr inbounds i8, ptr %func, i64 40
   %103 = load ptr, ptr %func_qualname363.i, align 8
-  call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %missing326.1.i, i64 noundef -1, ptr noundef %localsplus, ptr noundef %103)
+  call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %missing326.1.i, i64 noundef -1, ptr noundef nonnull %localsplus, ptr noundef %103)
   br label %if.then3
 
 do.body370.i:                                     ; preds = %for.cond366.preheader.i, %for.inc386.i

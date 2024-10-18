@@ -1221,7 +1221,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and6.i = and i32 %2, -4096
   %and9.i = and i32 %4, -4096
@@ -1377,7 +1377,7 @@ invoke.cont34:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %29 to i1
   %30 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call29, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call29, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call29, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and6.i59 = and i32 %2, -4096
   %and9.i61 = and i32 %4, -4096
@@ -1491,7 +1491,7 @@ if.then16:                                        ; preds = %if.then, %if.end
   %call17 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx20 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call17, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call17, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call17, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -1547,7 +1547,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
@@ -2579,7 +2579,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -2728,7 +2728,7 @@ invoke.cont32:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -2825,7 +2825,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.305"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -2880,7 +2880,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
@@ -4113,7 +4113,7 @@ if.then25:                                        ; preds = %entry.if.then25_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then25
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then25
@@ -4132,7 +4132,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -4252,7 +4252,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -4469,7 +4469,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -4479,7 +4479,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -4671,7 +4671,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup187
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread158, %invoke.cont98.thread156, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -5369,7 +5369,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -5379,7 +5379,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -5507,7 +5507,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -5656,7 +5656,7 @@ invoke.cont32:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -5753,7 +5753,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.398"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -5808,9 +5808,9 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %second.i.i.i.i.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 17, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE10_Auto_nodeD2Ev.exit
 
@@ -6954,7 +6954,7 @@ if.then25:                                        ; preds = %entry.if.then25_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then25
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then25
@@ -6973,7 +6973,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -7090,7 +7090,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -7299,7 +7299,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -7309,7 +7309,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -7501,7 +7501,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup187
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread158, %invoke.cont98.thread156, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -7960,7 +7960,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -8111,7 +8111,7 @@ invoke.cont32:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and3.i59 = and i32 %2, -4096
   %and5.i61 = and i32 %4, -4096
@@ -8210,7 +8210,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.440"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -8265,7 +8265,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr null, ptr %second.i.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
@@ -9417,7 +9417,7 @@ if.then25:                                        ; preds = %entry.if.then25_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then25
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then25
@@ -9436,7 +9436,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -9554,7 +9554,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -9763,7 +9763,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -9773,7 +9773,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -9965,7 +9965,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup187
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread157, %invoke.cont98.thread155, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -10591,7 +10591,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -10742,7 +10742,7 @@ invoke.cont32:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and3.i59 = and i32 %2, -4096
   %and5.i61 = and i32 %4, -4096
@@ -10841,7 +10841,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.487"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -10896,9 +10896,9 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %second.i.i.i.i.i.i.i, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 17, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISF_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE10_Auto_nodeD2Ev.exit
 
@@ -12044,7 +12044,7 @@ if.then25:                                        ; preds = %entry.if.then25_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then25
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then25
@@ -12063,7 +12063,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -12181,7 +12181,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -12390,7 +12390,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -12400,7 +12400,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -12592,7 +12592,7 @@ lpad112:                                          ; preds = %if.else115, %if.the
   br label %ehcleanup187
 
 if.else115:                                       ; preds = %if.then107
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
 if.end118:                                        ; preds = %invoke.cont98.thread157, %invoke.cont98.thread155, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
@@ -13247,7 +13247,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !97
@@ -13464,7 +13464,7 @@ for.body.i75.preheader:                           ; preds = %if.then.i80, %invok
 for.body.i75:                                     ; preds = %for.body.i75.preheader, %for.body.i75
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i78, %for.body.i75 ], [ 0, %for.body.i75.preheader ]
   %arrayidx.i77 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call27, i64 0, i64 %indvars.iv.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 32768
   br i1 %exitcond.not.i79, label %invoke.cont34, label %for.body.i75, !llvm.loop !97
@@ -13621,7 +13621,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.541"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont21, label %for.body.i, !llvm.loop !102
@@ -13651,9 +13651,9 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %second.i.i.i.i.i.i.i, i8 0, i64 21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 21, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IfEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IfEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE10_Auto_nodeD2Ev.exit
 
@@ -15032,7 +15032,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -15241,7 +15241,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -15251,7 +15251,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -15456,7 +15456,7 @@ lpad117:                                          ; preds = %if.else120, %if.the
   br label %ehcleanup190
 
 if.else120:                                       ; preds = %if.then112
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
 if.end123:                                        ; preds = %invoke.cont103.thread158, %invoke.cont103.thread156, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
@@ -16612,9 +16612,9 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %second.i.i.i.i.i.i.i, i8 0, i64 33, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i.i.i, i8 0, i64 33, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IdEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IdEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE10_Auto_nodeD2Ev.exit
 
@@ -17992,7 +17992,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -18201,7 +18201,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -18211,7 +18211,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -18423,7 +18423,7 @@ lpad111:                                          ; preds = %if.else114, %if.the
   br label %ehcleanup184
 
 if.else114:                                       ; preds = %if.then106
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
 if.end117:                                        ; preds = %invoke.cont97.thread160, %invoke.cont97.thread158, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
@@ -19183,7 +19183,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !141
@@ -19400,7 +19400,7 @@ for.body.i75.preheader:                           ; preds = %if.then.i80, %invok
 for.body.i75:                                     ; preds = %for.body.i75.preheader, %for.body.i75
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i78, %for.body.i75 ], [ 0, %for.body.i75.preheader ]
   %arrayidx.i77 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call27, i64 0, i64 %indvars.iv.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 32768
   br i1 %exitcond.not.i79, label %invoke.cont34, label %for.body.i75, !llvm.loop !141
@@ -19557,7 +19557,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.635"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont21, label %for.body.i, !llvm.loop !146
@@ -19587,9 +19587,9 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %second.i.i.i.i.i.i.i, i8 0, i64 21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 21, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IiEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISH_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN7openvdb5v11_04math5CoordESt4pairIKS3_NS1_4tree8RootNodeINS6_12InternalNodeINS8_INS6_8LeafNodeINS2_4Vec3IiEELj3EEELj4EEELj5EEEE10NodeStructEESt10_Select1stISH_ESt4lessIS3_ESaISH_EE10_Auto_nodeD2Ev.exit
 
@@ -20968,7 +20968,7 @@ invoke.cont15:                                    ; preds = %invoke.cont11
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %invoke.cont15
-  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %mask, i64 noundef 64)
+  %call2.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %mask, i64 noundef 64)
           to label %invoke.cont21 unwind label %lpad17
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -21177,7 +21177,7 @@ invoke.cont15:                                    ; preds = %if.then
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %invoke.cont15
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -21187,7 +21187,7 @@ call.i.noexc:                                     ; preds = %invoke.cont15
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #11
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %.noexc
@@ -21402,7 +21402,7 @@ lpad117:                                          ; preds = %if.else120, %if.the
   br label %ehcleanup190
 
 if.else120:                                       ; preds = %if.then112
-  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %selectionMask, i64 noundef 64)
+  %call2.i64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
 if.end123:                                        ; preds = %invoke.cont103.thread169, %invoke.cont103.thread167, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
@@ -21856,7 +21856,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and6.i = and i32 %2, -4096
   %and9.i = and i32 %4, -4096
@@ -22012,7 +22012,7 @@ invoke.cont33:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %29 to i1
   %30 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call29, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call29, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call29, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and6.i59 = and i32 %2, -4096
   %and9.i61 = and i32 %4, -4096
@@ -22126,7 +22126,7 @@ if.then16:                                        ; preds = %if.then, %if.end
   %call17 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx20 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call17, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call17, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call17, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -22429,7 +22429,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -22578,7 +22578,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -22675,7 +22675,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.305"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -22888,7 +22888,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -22907,7 +22907,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -23037,7 +23037,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -23186,7 +23186,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -23283,7 +23283,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.398"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -23496,7 +23496,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -23515,7 +23515,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -23645,7 +23645,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -23796,7 +23796,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and3.i59 = and i32 %2, -4096
   %and5.i61 = and i32 %4, -4096
@@ -23895,7 +23895,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.440"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -24110,7 +24110,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -24129,7 +24129,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -24260,7 +24260,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -24411,7 +24411,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i55 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i53, i1 %tobool.i.i55, i1 false
   %mOrigin.i56 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i57 = and i32 %0, -4096
   %and3.i59 = and i32 %2, -4096
   %and5.i61 = and i32 %4, -4096
@@ -24510,7 +24510,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.487"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -24725,7 +24725,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -24744,7 +24744,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %20)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %20)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -24905,7 +24905,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !97
@@ -25122,7 +25122,7 @@ for.body.i75.preheader:                           ; preds = %if.then.i80, %invok
 for.body.i75:                                     ; preds = %for.body.i75.preheader, %for.body.i75
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i78, %for.body.i75 ], [ 0, %for.body.i75.preheader ]
   %arrayidx.i77 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call27, i64 0, i64 %indvars.iv.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 32768
   br i1 %exitcond.not.i79, label %invoke.cont33, label %for.body.i75, !llvm.loop !97
@@ -25279,7 +25279,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.541"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !102
@@ -26582,7 +26582,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !141
@@ -26799,7 +26799,7 @@ for.body.i75.preheader:                           ; preds = %if.then.i80, %invok
 for.body.i75:                                     ; preds = %for.body.i75.preheader, %for.body.i75
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i78, %for.body.i75 ], [ 0, %for.body.i75.preheader ]
   %arrayidx.i77 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call27, i64 0, i64 %indvars.iv.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i77, ptr noundef nonnull align 4 dereferenceable(12) %tile.i54, i64 12, i1 false)
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 32768
   br i1 %exitcond.not.i79, label %invoke.cont33, label %for.body.i75, !llvm.loop !141
@@ -26956,7 +26956,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.635"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !146
@@ -27392,7 +27392,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and6.i = and i32 %2, -4096
   %and9.i = and i32 %4, -4096
@@ -27546,7 +27546,7 @@ invoke.cont33:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %27 to i1
   %28 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call29, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call29, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call29, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and6.i58 = and i32 %2, -4096
   %and9.i60 = and i32 %4, -4096
@@ -27658,7 +27658,7 @@ if.then16:                                        ; preds = %if.then, %if.end
   %call17 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx20 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call17, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call17, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call17, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -27956,7 +27956,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -28101,7 +28101,7 @@ invoke.cont31:                                    ; preds = %if.else19
   %tobool.i.i54 = trunc i8 %23 to i1
   %24 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -28194,7 +28194,7 @@ if.then14:                                        ; preds = %if.then
   %idxprom17 = zext nneg i32 %add8.i to i64
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.305"], ptr %this, i64 0, i64 %idxprom17
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -28403,7 +28403,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -28422,7 +28422,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -28552,7 +28552,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -28697,7 +28697,7 @@ invoke.cont31:                                    ; preds = %if.else19
   %tobool.i.i54 = trunc i8 %23 to i1
   %24 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -28790,7 +28790,7 @@ if.then14:                                        ; preds = %if.then
   %idxprom17 = zext nneg i32 %add8.i to i64
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.398"], ptr %this, i64 0, i64 %idxprom17
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -28999,7 +28999,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -29018,7 +29018,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %18)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -29148,7 +29148,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -29298,7 +29298,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -29396,7 +29396,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.440"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -29610,7 +29610,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -29629,7 +29629,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -29759,7 +29759,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -29909,7 +29909,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -30007,7 +30007,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.487"], ptr %this, i64 0, i64 %.pre36
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -30221,7 +30221,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -30240,7 +30240,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -30398,7 +30398,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !97
@@ -30583,7 +30583,7 @@ for.body.i74.preheader:                           ; preds = %if.then.i79, %invok
 for.body.i74:                                     ; preds = %for.body.i74.preheader, %for.body.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %for.body.i74 ], [ 0, %for.body.i74.preheader ]
   %arrayidx.i76 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call27, i64 0, i64 %indvars.iv.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 32768
   br i1 %exitcond.not.i78, label %invoke.cont33, label %for.body.i74, !llvm.loop !97
@@ -30706,7 +30706,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.541"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !102
@@ -31841,7 +31841,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !141
@@ -32017,7 +32017,7 @@ for.body.i74.preheader:                           ; preds = %if.then.i79, %invok
 for.body.i74:                                     ; preds = %for.body.i74.preheader, %for.body.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %for.body.i74 ], [ 0, %for.body.i74.preheader ]
   %arrayidx.i76 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call27, i64 0, i64 %indvars.iv.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 32768
   br i1 %exitcond.not.i78, label %invoke.cont33, label %for.body.i74, !llvm.loop !141
@@ -32131,7 +32131,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.635"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !146
@@ -32509,7 +32509,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and6.i = and i32 %2, -4096
   %and9.i = and i32 %4, -4096
@@ -32663,7 +32663,7 @@ invoke.cont33:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %27 to i1
   %28 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call29, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call29, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call29, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and6.i58 = and i32 %2, -4096
   %and9.i60 = and i32 %4, -4096
@@ -32775,7 +32775,7 @@ if.then16:                                        ; preds = %if.then, %if.end
   %call17 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx20 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call17, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call17, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call17, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -33073,7 +33073,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -33223,7 +33223,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -33321,7 +33321,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.305"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -33535,7 +33535,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -33554,7 +33554,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIiLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -33684,7 +33684,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -33834,7 +33834,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -33932,7 +33932,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.398"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -34146,7 +34146,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -34165,7 +34165,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIlLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -34295,7 +34295,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -34445,7 +34445,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -34543,7 +34543,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.440"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -34757,7 +34757,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -34776,7 +34776,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIfLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -34906,7 +34906,7 @@ if.then:                                          ; preds = %cond.false7.i.i.i.i
   %call5 = tail call noalias noundef nonnull dereferenceable(270352) ptr @_Znwm(i64 noundef 270352) #21
   %mBackground = getelementptr inbounds i8, ptr %this, i64 48
   %mOrigin.i = getelementptr inbounds i8, ptr %call5, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call5, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call5, i8 0, i64 270336, i1 false)
   %and.i = and i32 %0, -4096
   %and3.i = and i32 %2, -4096
   %and5.i = and i32 %4, -4096
@@ -35056,7 +35056,7 @@ invoke.cont31:                                    ; preds = %if.else19, %if.end
   %tobool.i.i54 = trunc i8 %24 to i1
   %25 = select i1 %cmp.i.i.i52, i1 %tobool.i.i54, i1 false
   %mOrigin.i55 = getelementptr inbounds i8, ptr %call27, i64 270336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270336) %call27, i8 0, i64 270336, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(270352) %call27, i8 0, i64 270336, i1 false)
   %and.i56 = and i32 %0, -4096
   %and3.i58 = and i32 %2, -4096
   %and5.i60 = and i32 %4, -4096
@@ -35154,7 +35154,7 @@ if.then14:                                        ; preds = %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(33808) ptr @_Znwm(i64 noundef 33808) #21
   %arrayidx18 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.487"], ptr %this, i64 0, i64 %.pre35
   %mOrigin.i = getelementptr inbounds i8, ptr %call15, i64 33792
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call15, i8 0, i64 33792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33808) %call15, i8 0, i64 33792, i1 false)
   %and.i = and i32 %0, -128
   %and3.i = and i32 %2, -128
   %and5.i = and i32 %4, -128
@@ -35368,7 +35368,7 @@ if.then24:                                        ; preds = %entry.if.then24_cri
   br i1 %tobool.i.not.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then24
@@ -35387,7 +35387,7 @@ if.then.i.i:                                      ; preds = %_ZNK7openvdb5v11_04
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
   br label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i
 
 _ZN7openvdb5v11_04tree10LeafBufferIdLj3EEixEj.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i
@@ -35545,7 +35545,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !97
@@ -35730,7 +35730,7 @@ for.body.i74.preheader:                           ; preds = %if.then.i79, %invok
 for.body.i74:                                     ; preds = %for.body.i74.preheader, %for.body.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %for.body.i74 ], [ 0, %for.body.i74.preheader ]
   %arrayidx.i76 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %call27, i64 0, i64 %indvars.iv.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 32768
   br i1 %exitcond.not.i78, label %invoke.cont33, label %for.body.i74, !llvm.loop !97
@@ -35853,7 +35853,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.541"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !102
@@ -36988,7 +36988,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
 for.body.i:                                       ; preds = %for.body.i, %invoke.cont.i
   %indvars.iv.i = phi i64 [ 0, %invoke.cont.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call5, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %mBackground, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
   br i1 %exitcond.not.i, label %invoke.cont10, label %for.body.i, !llvm.loop !141
@@ -37173,7 +37173,7 @@ for.body.i74.preheader:                           ; preds = %if.then.i79, %invok
 for.body.i74:                                     ; preds = %for.body.i74.preheader, %for.body.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %for.body.i74 ], [ 0, %for.body.i74.preheader ]
   %arrayidx.i76 = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %call27, i64 0, i64 %indvars.iv.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i76, ptr noundef nonnull align 4 dereferenceable(12) %tile.i53, i64 12, i1 false)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 32768
   br i1 %exitcond.not.i78, label %invoke.cont33, label %for.body.i74, !llvm.loop !141
@@ -37296,7 +37296,7 @@ for.body.i.preheader:                             ; preds = %if.then.i, %invoke.
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %arrayidx.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.635"], ptr %call15, i64 0, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx18, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !146

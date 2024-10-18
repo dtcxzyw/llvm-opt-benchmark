@@ -3071,7 +3071,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %19, %30
   br i1 %105, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i, label %106
 
 106:                                              ; preds = %101
-  %107 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %88) #23
+  %107 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %88) #23
   %masksel.i.i.i.i = zext i1 %107 to i8
   %108 = shl i8 %104, 1
   %109 = or disjoint i8 %108, %masksel.i.i.i.i
@@ -3139,7 +3139,7 @@ _ZN7nmethod12is_unloadingEv.exit.thread.i:        ; preds = %_ZN7nmethod12is_unl
   br i1 %142, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, label %143
 
 143:                                              ; preds = %138
-  %144 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %125) #23
+  %144 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %125) #23
   %masksel.i.i.i.i18 = zext i1 %144 to i8
   %145 = shl i8 %141, 1
   %146 = or disjoint i8 %145, %masksel.i.i.i.i18
@@ -3183,7 +3183,7 @@ _ZN7nmethod12is_unloadingEv.exit.thread.i16:      ; preds = %_ZN7nmethod12is_unl
   br i1 %162, label %_ZN7nmethod12is_unloadingEv.exit.thread, label %163
 
 163:                                              ; preds = %158
-  %164 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %0) #23
+  %164 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %masksel.i.i.i = zext i1 %164 to i8
   %165 = shl i8 %161, 1
   %166 = or disjoint i8 %165, %masksel.i.i.i
@@ -4886,7 +4886,7 @@ define hidden void @_ZN7nmethodC2EP6Method12CompilerTypeiiP11CodeOffsetsP10CodeB
   br i1 %72, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit, label %73
 
 73:                                               ; preds = %11
-  %74 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %71) #23
+  %74 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %71) #23
   %75 = add i32 %74, 7
   %76 = and i32 %75, -8
   br label %_ZNK10CodeBuffer14total_oop_sizeEv.exit
@@ -4945,7 +4945,7 @@ _ZN11OopRecorder9is_unusedEv.exit.i:              ; preds = %_ZNK10CodeBuffer19t
   br i1 %.not2.i, label %111, label %_ZN10CodeBuffer14copy_values_toEP7nmethod.exit
 
 110:                                              ; preds = %_ZNK10CodeBuffer19total_metadata_sizeEv.exit
-  tail call void @_ZN13ValueRecorderIP8_jobjectE14copy_values_toEP7nmethod(ptr noundef nonnull align 8 dereferenceable(33) %99, ptr noundef nonnull %0) #23
+  tail call void @_ZN13ValueRecorderIP8_jobjectE14copy_values_toEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %99, ptr noundef nonnull %0) #23
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %99, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre4.i = load i8, ptr %.phi.trans.insert3.i, align 8
@@ -4973,8 +4973,8 @@ _ZN10CodeBuffer14copy_values_toEP7nmethod.exit:   ; preds = %_ZN11OopRecorder9is
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 368
   %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(104) %118, ptr noundef nonnull %0) #23
-  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull %0) #23
+  tail call void %121(ptr noundef nonnull align 8 dereferenceable(104) %118, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
+  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %122 = load i8, ptr @PrintNativeNMethods, align 1
   %123 = trunc i8 %122 to i1
   br i1 %123, label %124, label %166
@@ -5280,7 +5280,7 @@ define hidden void @_ZN7nmethodC2EP6Method12CompilerTypeiiiiPhP11CodeOffsetsiP24
   br i1 %116, label %_ZNK10CodeBuffer14total_oop_sizeEv.exit, label %117
 
 117:                                              ; preds = %101
-  %118 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(33) %115) #23
+  %118 = tail call noundef i32 @_ZN13ValueRecorderIP8_jobjectE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %115) #23
   %119 = add i32 %118, 7
   %120 = and i32 %119, -8
   br label %_ZNK10CodeBuffer14total_oop_sizeEv.exit
@@ -5383,7 +5383,7 @@ _ZN11OopRecorder9is_unusedEv.exit.i:              ; preds = %_ZNK10CodeBuffer19t
   br i1 %.not2.i, label %192, label %_ZN10CodeBuffer14copy_values_toEP7nmethod.exit
 
 191:                                              ; preds = %_ZNK10CodeBuffer19total_metadata_sizeEv.exit
-  tail call void @_ZN13ValueRecorderIP8_jobjectE14copy_values_toEP7nmethod(ptr noundef nonnull align 8 dereferenceable(33) %180, ptr noundef nonnull %0) #23
+  tail call void @_ZN13ValueRecorderIP8_jobjectE14copy_values_toEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %180, ptr noundef nonnull %0) #23
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %180, i64 40
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre4.i = load i8, ptr %.phi.trans.insert3.i, align 8
@@ -5473,8 +5473,8 @@ _ZN15PcDescContainerC2EP6PcDesc.exit:             ; preds = %202
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 368
   %238 = load ptr, ptr %237, align 8
-  tail call void %238(ptr noundef nonnull align 8 dereferenceable(104) %235, ptr noundef nonnull %0) #23
-  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull %0) #23
+  tail call void %238(ptr noundef nonnull align 8 dereferenceable(104) %235, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
+  tail call void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   ret void
 }
 
@@ -6800,7 +6800,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %17, %28
   br i1 %82, label %_ZN7nmethod12is_unloadingEv.exit, label %83
 
 83:                                               ; preds = %78
-  %84 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %66) #23
+  %84 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %66) #23
   %masksel.i.i.i = zext i1 %84 to i8
   %85 = shl i8 %81, 1
   %86 = or disjoint i8 %85, %masksel.i.i.i
@@ -6845,7 +6845,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %17, %28
   br i1 %112, label %_ZN7nmethod12is_unloadingEv.exit22.thread28, label %113
 
 113:                                              ; preds = %108
-  %114 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %96) #23
+  %114 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %96) #23
   %masksel.i.i.i21 = zext i1 %114 to i8
   %115 = shl i8 %111, 1
   %116 = or disjoint i8 %115, %masksel.i.i.i21
@@ -7093,7 +7093,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef no
   br i1 %9, label %_ZN7nmethod12is_unloadingEv.exit.thread18, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %0) #23
+  %11 = tail call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %masksel.i.i.i = zext i1 %11 to i8
   %12 = shl i8 %8, 1
   %13 = or disjoint i8 %12, %masksel.i.i.i
@@ -7150,7 +7150,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread: ; p
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 @_ZN13InstanceKlass18remove_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %38, ptr noundef nonnull %0) #23
+  %39 = tail call noundef zeroext i1 @_ZN13InstanceKlass18remove_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %38, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   br label %_ZN7nmethod21invalidate_osr_methodEv.exit
 
 40:                                               ; preds = %26
@@ -7250,7 +7250,7 @@ _ZN7nmethod14try_transitionEa.exit:               ; preds = %93, %95
   br i1 %.not.i12, label %_ZN7nmethod18unlink_from_methodEv.exit, label %98
 
 98:                                               ; preds = %_ZN7nmethod14try_transitionEa.exit
-  tail call void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %0) #23
+  tail call void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   br label %_ZN7nmethod18unlink_from_methodEv.exit
 
 _ZN7nmethod18unlink_from_methodEv.exit:           ; preds = %_ZN7nmethod14try_transitionEa.exit, %98
@@ -7315,7 +7315,7 @@ define hidden void @_ZN7nmethod6unlinkEv(ptr noundef nonnull align 8 dereference
   br i1 %.not.i, label %_ZN7nmethod18unlink_from_methodEv.exit, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull %0) #23
+  tail call void @_ZN6Method11unlink_codeEP7nmethod(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   br label %_ZN7nmethod18unlink_from_methodEv.exit
 
 _ZN7nmethod18unlink_from_methodEv.exit:           ; preds = %5, %8
@@ -7336,7 +7336,7 @@ _ZN7nmethod18unlink_from_methodEv.exit:           ; preds = %5, %8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef zeroext i1 @_ZN13InstanceKlass18remove_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %19, ptr noundef nonnull %0) #23
+  %20 = tail call noundef zeroext i1 @_ZN13InstanceKlass18remove_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %19, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   br label %_ZN7nmethod21invalidate_osr_methodEv.exit
 
 _ZN7nmethod21invalidate_osr_methodEv.exit:        ; preds = %13, %11, %_ZN7nmethod18unlink_from_methodEv.exit
@@ -7870,7 +7870,7 @@ define hidden void @_ZN7nmethod31post_compiled_method_load_eventEP16JvmtiThreadS
 52:                                               ; preds = %48
   %53 = load ptr, ptr %51, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull %0) #23
+  %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   br label %_ZN7nmethod25run_nmethod_entry_barrierEv.exit
 
 _ZN7nmethod25run_nmethod_entry_barrierEv.exit:    ; preds = %48, %52
@@ -7990,7 +7990,7 @@ define hidden void @_ZN7nmethod12do_unloadingEb(ptr noundef nonnull align 8 dere
   br i1 %10, label %_ZN7nmethod12is_unloadingEv.exit.thread4, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull %0) #23
+  %12 = tail call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %masksel.i.i.i = zext i1 %12 to i8
   %13 = shl i8 %9, 1
   %14 = or disjoint i8 %13, %masksel.i.i.i
@@ -8241,7 +8241,7 @@ define hidden void @_ZN7nmethod18oops_do_log_changeEPKc(ptr nocapture noundef no
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #23
@@ -8307,7 +8307,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod30oops_do_try_claim_weak_requestEv(
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %11
 
 11:                                               ; preds = %9
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #23
@@ -8361,7 +8361,7 @@ define hidden noundef ptr @_ZN7nmethod36oops_do_try_add_to_list_as_weak_doneEv(p
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %14
 
 14:                                               ; preds = %12
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %15) #23
@@ -8421,7 +8421,7 @@ define hidden noundef ptr @_ZN7nmethod29oops_do_try_claim_strong_doneEv(ptr noun
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %11
 
 11:                                               ; preds = %9
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #23
@@ -8470,7 +8470,7 @@ define hidden noundef ptr @_ZN7nmethod30oops_do_try_add_strong_requestEPNS_17oop
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %12
 
 12:                                               ; preds = %10
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #23
@@ -8519,7 +8519,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod42oops_do_try_claim_weak_done_as_st
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %12
 
 12:                                               ; preds = %10
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #23
@@ -8578,7 +8578,7 @@ define hidden void @_ZN7nmethod20oops_do_process_weakEPNS_15OopsDoProcessorE(ptr
   br i1 %.not.i, label %_ZN7nmethod18oops_do_log_changeEPKc.exit, label %9
 
 9:                                                ; preds = %7
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %10) #23
@@ -8620,7 +8620,7 @@ _ZN7nmethod18oops_do_log_changeEPKc.exit:         ; preds = %7, %9
   br i1 %.not.i5, label %_ZN7nmethod18oops_do_log_changeEPKc.exit7, label %29
 
 29:                                               ; preds = %27
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #23
@@ -8651,7 +8651,7 @@ _ZN7nmethod18oops_do_log_changeEPKc.exit7:        ; preds = %27, %29
   br i1 %.not.i8, label %_ZN7nmethod18oops_do_log_changeEPKc.exit10, label %43
 
 43:                                               ; preds = %_ZN7nmethod18oops_do_log_changeEPKc.exit7
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %44) #23
@@ -8701,7 +8701,7 @@ define hidden void @_ZN7nmethod22oops_do_process_strongEPNS_15OopsDoProcessorE(p
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0) #23
-  %8 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull @_ZN7nmethod22_oops_do_mark_nmethodsE) #23, !srcloc !83
+  %8 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(214) %0, ptr nonnull @_ZN7nmethod22_oops_do_mark_nmethodsE) #23, !srcloc !83
   %9 = icmp eq ptr %8, null
   %spec.store.select.i = select i1 %9, ptr %0, ptr %8
   %10 = ptrtoint ptr %spec.store.select.i to i64
@@ -8798,7 +8798,7 @@ define hidden void @_ZN7nmethod24oops_do_marking_epilogueEv() local_unnamed_addr
   br i1 %.not10, label %23, label %12
 
 12:                                               ; preds = %5
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false) #23
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #23
   store i32 1, ptr %4, align 8
@@ -10119,13 +10119,13 @@ _ZN7nmethod12pc_desc_nearEPh.exit.i:              ; preds = %9
 
 _ZN7nmethod12pc_desc_nearEPh.exit.thread11.i:     ; preds = %_ZN7nmethod12pc_desc_nearEPh.exit.i, %9
   %.0.i.i14.i = phi ptr [ %31, %_ZN7nmethod12pc_desc_nearEPh.exit.i ], [ %20, %9 ]
-  %32 = tail call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.0.i.i14.i, ptr noundef nonnull %0) #23
+  %32 = tail call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.0.i.i14.i, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %.not8.i = icmp ugt ptr %32, %2
   br i1 %.not8.i, label %_ZN7nmethod13scope_desc_inEPhS0_.exit.thread, label %_ZN7nmethod13scope_desc_inEPhS0_.exit
 
 _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_desc_nearEPh.exit.thread11.i
   %33 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i32 noundef 0) #23
-  tail call void @_ZN9ScopeDescC1EPK7nmethodP6PcDescb(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i14.i, i1 noundef zeroext false) #23
+  tail call void @_ZN9ScopeDescC1EPK7nmethodP6PcDescb(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef nonnull %.0.i.i14.i, i1 noundef zeroext false) #23
   br label %45
 
 _ZN7nmethod13scope_desc_inEPhS0_.exit.thread:     ; preds = %3, %_ZN7nmethod12pc_desc_nearEPh.exit.i, %_ZN7nmethod12pc_desc_nearEPh.exit.thread11.i
@@ -10295,13 +10295,13 @@ _ZN7nmethod12pc_desc_nearEPh.exit.i:              ; preds = %70
 
 _ZN7nmethod12pc_desc_nearEPh.exit.thread11.i:     ; preds = %_ZN7nmethod12pc_desc_nearEPh.exit.i, %70
   %.0.i.i14.i = phi ptr [ %91, %_ZN7nmethod12pc_desc_nearEPh.exit.i ], [ %80, %70 ]
-  %92 = call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.0.i.i14.i, ptr noundef nonnull %0) #23
+  %92 = call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.0.i.i14.i, ptr noundef nonnull align 8 dereferenceable(214) %0) #23
   %.not8.i = icmp ugt ptr %92, %4
   br i1 %.not8.i, label %_ZN7nmethod13scope_desc_inEPhS0_.exit.thread, label %_ZN7nmethod13scope_desc_inEPhS0_.exit
 
 _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_desc_nearEPh.exit.thread11.i
   %93 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i32 noundef 0) #23
-  call void @_ZN9ScopeDescC1EPK7nmethodP6PcDescb(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i14.i, i1 noundef zeroext false) #23
+  call void @_ZN9ScopeDescC1EPK7nmethodP6PcDescb(ptr noundef nonnull align 8 dereferenceable(56) %93, ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef nonnull %.0.i.i14.i, i1 noundef zeroext false) #23
   call void @_ZN12outputStream7move_toEiii(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, i32 noundef 6, i32 noundef 0) #23
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load i32, ptr %94, align 8

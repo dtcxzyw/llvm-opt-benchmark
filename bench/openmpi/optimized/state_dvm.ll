@@ -324,7 +324,7 @@ define internal noundef i32 @finalize() #0 {
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %28 = phi ptr [ %30, %.lr.ph.i ], [ %27, %22 ]
   %.07.i = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
-  tail call void %28(ptr noundef %5) #14
+  tail call void %28(ptr noundef nonnull %5) #14
   %29 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -417,7 +417,7 @@ pmix_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %._crit
 .lr.ph.i42:                                       ; preds = %67, %.lr.ph.i42
   %73 = phi ptr [ %75, %.lr.ph.i42 ], [ %72, %67 ]
   %.07.i43 = phi ptr [ %74, %.lr.ph.i42 ], [ %71, %67 ]
-  tail call void %73(ptr noundef %50) #14
+  tail call void %73(ptr noundef nonnull %50) #14
   %74 = getelementptr inbounds i8, ptr %.07.i43, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i44 = icmp eq ptr %75, null
@@ -2734,12 +2734,12 @@ pmix_pointer_array_get_item.exit468:              ; preds = %537
   %578 = getelementptr inbounds i8, ptr %577, i64 128
   %579 = load ptr, ptr %578, align 8
   %580 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
-  %581 = call i32 @hwloc_get_type_depth(ptr noundef %579, i32 noundef %.) #14
+  %581 = call i32 @hwloc_get_type_depth(ptr noundef %579, i32 noundef range(i32 2, 4) %.) #14
   %or.cond.i = icmp ugt i32 %581, -3
   br i1 %or.cond.i, label %.loopexit, label %582
 
 582:                                              ; preds = %573
-  %583 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %579, i32 noundef %581, i32 noundef 0) #18
+  %583 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %579, i32 noundef range(i32 0, -2) %581, i32 noundef 0) #18
   %.not.i.i = icmp eq ptr %583, null
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 

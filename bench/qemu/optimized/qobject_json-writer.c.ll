@@ -674,7 +674,7 @@ if.then.i27:                                      ; preds = %if.else31
   br label %for.inc
 
 if.else.i25:                                      ; preds = %if.else31
-  %call.i26 = call ptr @g_string_insert_c(ptr noundef nonnull %16, i64 noundef -1, i8 noundef signext %conv) #6
+  %call.i26 = call ptr @g_string_insert_c(ptr noundef nonnull %16, i64 noundef -1, i8 noundef signext range(i8 32, 127) %conv) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i25, %if.then.i27, %sw.bb, %sw.bb4, %sw.bb7, %sw.bb10, %sw.bb13, %sw.bb16, %sw.bb19, %if.then29, %if.then23

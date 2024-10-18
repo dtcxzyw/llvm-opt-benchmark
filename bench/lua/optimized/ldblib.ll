@@ -401,7 +401,7 @@ if.then39:                                        ; preds = %if.end36
   %isvararg = getelementptr inbounds i8, ptr %ar, i64 62
   %9 = load i8, ptr %isvararg, align 2
   %conv42 = sext i8 %9 to i32
-  call void @lua_pushboolean(ptr noundef %L, i32 noundef %conv42) #7
+  call void @lua_pushboolean(ptr noundef %L, i32 noundef range(i32 -128, 128) %conv42) #7
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.42) #7
   br label %if.end43
 
@@ -448,7 +448,7 @@ if.then56:                                        ; preds = %if.end53
   %istailcall = getelementptr inbounds i8, ptr %ar, i64 63
   %14 = load i8, ptr %istailcall, align 1
   %conv57 = sext i8 %14 to i32
-  call void @lua_pushboolean(ptr noundef %L, i32 noundef %conv57) #7
+  call void @lua_pushboolean(ptr noundef %L, i32 noundef range(i32 -128, 128) %conv57) #7
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.47) #7
   br label %if.end58
 

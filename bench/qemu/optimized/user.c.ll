@@ -547,7 +547,7 @@ land.lhs.true:                                    ; preds = %if.end8.i
 
 for.cond.i:                                       ; preds = %land.lhs.true.i, %land.lhs.true
   store i32 16, ptr %len.i, align 4
-  %call.i17 = call i32 @accept(i32 noundef %call.i, ptr nonnull %sockaddr.i16, ptr noundef nonnull %len.i) #11
+  %call.i17 = call i32 @accept(i32 noundef range(i32 0, -2147483648) %call.i, ptr nonnull %sockaddr.i16, ptr noundef nonnull %len.i) #11
   %cmp.i18 = icmp slt i32 %call.i17, 0
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.then4.i
 
@@ -596,7 +596,7 @@ if.else13:                                        ; preds = %gdb_accept_tcp.exit
   br label %for.cond.i23
 
 for.cond.i23:                                     ; preds = %land.lhs.true.i26, %if.else13
-  %call.i24 = call i32 @accept(i32 noundef %gdb_fd.03537, ptr null, ptr noundef null) #11
+  %call.i24 = call i32 @accept(i32 noundef range(i32 0, -2147483648) %gdb_fd.03537, ptr null, ptr noundef null) #11
   %cmp.i25 = icmp sgt i32 %call.i24, -1
   br i1 %cmp.i25, label %if.then15, label %land.lhs.true.i26
 

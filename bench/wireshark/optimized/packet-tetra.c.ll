@@ -3408,13 +3408,13 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 69:                                               ; preds = %53, %53
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  %70 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %68) #3
+  %70 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 5, 7) %68) #3
   %71 = load i32, ptr @hf_tetra_txreg, align 4
-  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %71, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %70) #3
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %71, ptr noundef %0, i32 noundef range(i32 5, 7) %68, i32 noundef 4, i32 noundef %70) #3
   %73 = and i32 %70, 3
   %74 = add nuw nsw i32 %73, 1
   %75 = load i32, ptr @hf_tetra_channels, align 4
-  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %75, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %74) #3
+  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %75, ptr noundef %0, i32 noundef range(i32 5, 7) %68, i32 noundef 4, i32 noundef %74) #3
   %77 = load i32, ptr @ett_tetra, align 4
   %78 = tail call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77) #3
   %79 = icmp eq i32 %74, 2
@@ -3448,7 +3448,7 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %91 = and i32 %.150.i, 15
   %92 = getelementptr [3 x i32], ptr %6, i64 0, i64 %indvars.iv.i
   %93 = load i32, ptr %92, align 4
-  %94 = tail call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %93, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %91) #3
+  %94 = tail call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %93, ptr noundef %0, i32 noundef range(i32 5, 7) %68, i32 noundef 4, i32 noundef %91) #3
   %95 = lshr i32 %.150.i, 4
   %switch.tableidx = add nsw i32 %91, -1
   %96 = icmp ult i32 %switch.tableidx, 11
@@ -3480,9 +3480,9 @@ dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_tx_pdu_length.e
 
 103:                                              ; preds = %53, %53
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %104 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %68) #3
+  %104 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 5, 7) %68) #3
   %105 = load i32, ptr @hf_tetra_len0, align 4
-  %106 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %105, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %104) #3
+  %106 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %105, ptr noundef %0, i32 noundef range(i32 5, 7) %68, i32 noundef 4, i32 noundef %104) #3
   %107 = or disjoint i32 %.0, 8
   %108 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %107) #3
   %109 = load i32, ptr @hf_tetra_rvstr, align 4

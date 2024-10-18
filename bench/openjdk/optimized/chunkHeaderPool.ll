@@ -55,7 +55,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noca
   %.idx.i = phi i64 [ 16, %1 ], [ %.add.i, %4 ]
   %.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %5 = getelementptr inbounds i8, ptr %.ptr.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %.ptr.i, i8 0, i64 26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.ptr.i, i8 0, i64 26, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 72
   %6 = icmp eq i64 %.add.i, 9232
@@ -69,7 +69,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noca
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %7 = getelementptr inbounds [128 x %"class.metaspace::Metachunk"], ptr %.ptr4.i, i64 0, i64 %indvars.iv.i
   %8 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %7, i8 0, i64 26, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 26, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128

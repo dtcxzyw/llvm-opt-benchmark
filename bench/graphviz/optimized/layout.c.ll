@@ -55,7 +55,7 @@ define void @fdp_layout(ptr noundef %0) local_unnamed_addr #0 {
   %4 = tail call double @get_inputscale(ptr noundef %0) #22
   store double %4, ptr @PSinputscale, align 8
   tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #22
-  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #23
+  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 65) 64) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit.i
 
@@ -411,7 +411,7 @@ clist_append.exit:                                ; preds = %6
 
 19:                                               ; preds = %15
   %20 = call ptr @agbindrec(ptr noundef nonnull %.02439, ptr noundef nonnull @.str.4, i32 noundef 408, i32 noundef 1) #22
-  %21 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #23
+  %21 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 65) 64) #23
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %gv_alloc.exit
 
@@ -652,13 +652,13 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
   br label %gv_realloc.exit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef %10) #27
+  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef range(i64 0, -7) %10) #27
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef %10) #24
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -7) %10) #24
   tail call fastcc void @graphviz_exit() #25
   unreachable
 
@@ -733,7 +733,7 @@ define internal fastcc range(i32 -1, 1) i32 @layout(ptr noundef %0, ptr noundef 
   %31 = load i32, ptr @Agstrictdirected, align 4
   %32 = tail call ptr @agopen(ptr noundef nonnull @.str.12, i32 %31, ptr noundef null) #22
   %33 = tail call ptr @agbindrec(ptr noundef %32, ptr noundef nonnull @.str.4, i32 noundef 408, i32 noundef 1) #22
-  %34 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #23
+  %34 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 65) 64) #23
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %gv_alloc.exit.i
 
@@ -1246,13 +1246,13 @@ deriveGraph.exit.thread:                          ; preds = %156
   %329 = shl nuw nsw i64 %321, 3
   %330 = icmp ne i64 %321, 0
   call void @llvm.assume(i1 %330)
-  %331 = call ptr @realloc(ptr noundef %328, i64 noundef %329) #27
+  %331 = call ptr @realloc(ptr noundef %328, i64 noundef range(i64 0, -7) %329) #27
   %332 = icmp eq ptr %331, null
   br i1 %332, label %333, label %gv_recalloc.exit.i
 
 333:                                              ; preds = %326
   %334 = load ptr, ptr @stderr, align 8
-  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.2, i64 noundef %329) #24
+  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -7) %329) #24
   call fastcc void @graphviz_exit() #25
   unreachable
 
@@ -2581,7 +2581,7 @@ declare void @do_graph_label(ptr noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @mkDeriveNode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @agnode(ptr noundef %0, ptr noundef %1, i32 noundef 1) #22
   %4 = tail call ptr @agbindrec(ptr noundef %3, ptr noundef nonnull @.str.18, i32 noundef 472, i32 noundef 1) #22
-  %5 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #23
+  %5 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 65) 32) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
 

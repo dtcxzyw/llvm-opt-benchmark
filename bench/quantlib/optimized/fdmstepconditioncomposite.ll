@@ -831,7 +831,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i.i16.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i ], [ %call5.i.i.i.i2.i6.i.i.i4.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i16.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i17.i.i.i, align 8, !tbaa !40
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i5, ptr noundef nonnull %stoppingTimes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i5, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #19
   %5 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
   %add.i.i.i = add i64 %5, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
@@ -870,7 +870,7 @@ call5.i.i.i.i2.i.i1.i.i.noexc.i.i.i:              ; preds = %if.end.i.i.i.i.i.i.
   store double %call8, ptr %call5.i.i.i.i2.i.i1.i.i4.i.i.i, align 8, !tbaa !33
   %_M_finish.i.i7.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i19, i64 24
   store ptr %add.ptr.i.i.i.i.i.i.i.i13, ptr %_M_finish.i.i7.i.i.i.i.i.i, align 8, !tbaa !40
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i19, ptr noundef nonnull %stoppingTimes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #19
   %8 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
   %add.i.i.i16 = add i64 %8, 1
   store i64 %add.i.i.i16, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
@@ -910,7 +910,7 @@ _ZN5boost10shared_ptrIN8QuantLib13StepConditionINS1_5ArrayEEEED2Ev.exit: ; preds
   store ptr %9, ptr %_M_storage.i.i.i.i23, align 8, !tbaa !44
   %pn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i27, i64 24
   store ptr %10, ptr %pn.i.i.i.i.i.i, align 8, !tbaa !16
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i27, ptr noundef nonnull %conditions) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(24) %conditions) #19
   %13 = load i64, ptr %_M_size.i.i.i.i.i22, align 8, !tbaa !54
   %add.i.i.i25 = add i64 %13, 1
   store i64 %add.i.i.i25, ptr %_M_size.i.i.i.i.i22, align 8, !tbaa !54
@@ -939,7 +939,7 @@ _ZN5boost10shared_ptrIN8QuantLib13StepConditionINS1_5ArrayEEEED2Ev.exit60: ; pre
   store ptr %.pre, ptr %_M_storage.i.i.i.i37, align 8, !tbaa !44
   %pn.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i43, i64 24
   store ptr %.pre69, ptr %pn.i.i.i.i.i.i38, align 8, !tbaa !16
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull %conditions) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i43, ptr noundef nonnull align 8 dereferenceable(24) %conditions) #19
   %15 = load i64, ptr %_M_size.i.i.i.i.i22, align 8, !tbaa !54
   %add.i.i.i41 = add i64 %15, 1
   store i64 %add.i.i.i41, ptr %_M_size.i.i.i.i.i22, align 8, !tbaa !54
@@ -1202,7 +1202,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i.i.i.i
   br label %_ZNSt7__cxx114listIN5boost10shared_ptrIN8QuantLib13StepConditionINS3_5ArrayEEEEESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit.i.i
 
 _ZNSt7__cxx114listIN5boost10shared_ptrIN8QuantLib13StepConditionINS3_5ArrayEEEEESaIS7_EE12emplace_backIJRKS7_EEERS7_DpOT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.i.i.noexc.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull %agg.tmp5) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5) #19
   %9 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !54
   %add.i.i.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !54
@@ -1446,7 +1446,7 @@ _ZN5boost10shared_ptrIN8QuantLib13StepConditionINS1_5ArrayEEEED2Ev.exit: ; preds
   store ptr %2, ptr %_M_storage.i.i.i.i, align 8, !tbaa !44
   %pn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i44, i64 24
   store ptr %3, ptr %pn.i.i.i.i.i.i, align 8, !tbaa !16
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i44, ptr noundef nonnull %stepConditions) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(24) %stepConditions) #19
   %5 = load i64, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
   %add.i.i.i = add i64 %5, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
@@ -1661,7 +1661,7 @@ invoke.cont40:                                    ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i.i16.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i ], [ %call5.i.i.i.i2.i6.i.i.i4.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i16.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i17.i.i.i, align 8, !tbaa !40
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i59, ptr noundef nonnull %stoppingTimes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #19
   %21 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
   %add.i.i.i58 = add i64 %21, 1
   store i64 %add.i.i.i58, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
@@ -1736,7 +1736,7 @@ invoke.cont66:                                    ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i.i16.i.i.i79 = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i85 ], [ %call5.i.i.i.i2.i6.i.i.i4.i.i.i72, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i74 ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i16.i.i.i79, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.pre-phi
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i80, ptr %_M_finish.i.i.i.i.i17.i.i.i78, align 8, !tbaa !40
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i90, ptr noundef nonnull %stoppingTimes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #19
   %25 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
   %add.i.i.i82 = add i64 %25, 1
   store i64 %add.i.i.i82, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
@@ -2105,7 +2105,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
   %pn.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i190, i64 24
   store ptr %call.i.i.i, ptr %pn.i.i.i.i.i.i185, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp127, i8 0, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i190, ptr noundef nonnull %stepConditions) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i190, ptr noundef nonnull align 8 dereferenceable(24) %stepConditions) #19
   %73 = load i64, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
   %add.i.i.i188 = add i64 %73, 1
   store i64 %add.i.i.i188, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
@@ -2445,7 +2445,7 @@ _ZN5boost10shared_ptrIN8QuantLib13StepConditionINS1_5ArrayEEEED2Ev.exit335: ; pr
   store ptr %125, ptr %_M_storage.i.i.i.i312, align 8, !tbaa !44
   %pn.i.i.i.i.i.i313 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i318, i64 24
   store ptr %126, ptr %pn.i.i.i.i.i.i313, align 8, !tbaa !16
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i318, ptr noundef nonnull %stepConditions) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i318, ptr noundef nonnull align 8 dereferenceable(24) %stepConditions) #19
   %128 = load i64, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
   %add.i.i.i316 = add i64 %128, 1
   store i64 %add.i.i.i316, ptr %_M_size.i.i.i.i.i43, align 8, !tbaa !54
@@ -2527,7 +2527,7 @@ invoke.cont184:                                   ; preds = %if.then.i.i.i.i.i.i
   %cond.i.i.i.i.i.i16.i.i.i356 = phi ptr [ null, %invoke.cont.i.i.i.thread.i.i.i362 ], [ %call5.i.i.i.i2.i6.i.i.i4.i.i.i349, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i351 ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i357 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i16.i.i.i356, i64 %sub.ptr.sub.i.i.i.i.i.i.i344
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i357, ptr %_M_finish.i.i.i.i.i17.i.i.i355, align 8, !tbaa !40
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i367, ptr noundef nonnull %stoppingTimes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i367, ptr noundef nonnull align 8 dereferenceable(24) %stoppingTimes) #19
   %133 = load i64, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49
   %add.i.i.i359 = add i64 %133, 1
   store i64 %add.i.i.i359, ptr %_M_size.i.i.i.i.i, align 8, !tbaa !49

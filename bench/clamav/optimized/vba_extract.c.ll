@@ -3190,7 +3190,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %196 = shl nuw nsw i64 %195, 3
   %197 = or disjoint i64 %196, 5
   %198 = call i64 @lseek(i32 noundef %24, i64 noundef %197, i32 noundef 1) #17
-  %199 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %7, i64 noundef 4) #17
+  %199 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %24, ptr noundef nonnull %7, i64 noundef 4) #17
   %.not.i181 = icmp eq i64 %199, 4
   br i1 %.not.i181, label %200, label %read_uint16.exit156.thread.loopexit.split.loop.exit
 
@@ -3441,7 +3441,7 @@ thread-pre-split:                                 ; preds = %.backedge
 67:                                               ; preds = %63
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.165, i64 noundef %64) #17
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  %68 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 20) #17
+  %68 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %3, i64 noundef 20) #17
   %.not.i56 = icmp eq i64 %68, 20
   br i1 %.not.i56, label %69, label %vba56_test_middle.exit
 
@@ -3457,7 +3457,7 @@ thread-pre-split:                                 ; preds = %.backedge
 
 71:                                               ; preds = %70
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.166) #17
-  %72 = call i64 @lseek(i32 noundef %0, i64 noundef -20, i32 noundef 1) #17
+  %72 = call i64 @lseek(i32 noundef range(i32 0, -1) %0, i64 noundef -20, i32 noundef 1) #17
   %73 = icmp eq i64 %72, -1
   br i1 %73, label %.sink.split.i, label %vba56_test_middle.exit
 
@@ -3733,7 +3733,7 @@ define i32 @cli_scan_ole10(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 9:                                                ; preds = %2
   %10 = tail call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 0) #17
-  %11 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4) #17
+  %11 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 4) #17
   %.not.i = icmp eq i64 %11, 4
   br i1 %.not.i, label %12, label %read_uint32.exit.thread
 
@@ -3761,7 +3761,7 @@ define i32 @cli_scan_ole10(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %26
 
 26:                                               ; preds = %29, %25
-  %27 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 128) #17
+  %27 = call i64 @cli_readn(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %5, i64 noundef 128) #17
   %28 = add i64 %27, 1
   %or.cond.i = icmp ult i64 %28, 2
   br i1 %or.cond.i, label %skip_past_nul.exit.thread, label %29
@@ -3781,7 +3781,7 @@ skip_past_nul.exit:                               ; preds = %29
   %33 = add i64 %27, %32
   %reass.sub = sub i64 %31, %33
   %34 = add i64 %reass.sub, 1
-  %35 = call i64 @lseek(i32 noundef %0, i64 noundef %34, i32 noundef 1) #17
+  %35 = call i64 @lseek(i32 noundef range(i32 0, -2147483648) %0, i64 noundef %34, i32 noundef 1) #17
   %36 = icmp slt i64 %35, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   br i1 %36, label %read_uint32.exit.thread, label %37
@@ -3791,7 +3791,7 @@ skip_past_nul.exit:                               ; preds = %29
   br label %38
 
 38:                                               ; preds = %41, %37
-  %39 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 128) #17
+  %39 = call i64 @cli_readn(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %4, i64 noundef 128) #17
   %40 = add i64 %39, 1
   %or.cond.i44 = icmp ult i64 %40, 2
   br i1 %or.cond.i44, label %skip_past_nul.exit49.thread, label %41
@@ -3811,7 +3811,7 @@ skip_past_nul.exit49:                             ; preds = %41
   %45 = add i64 %39, %44
   %reass.sub72 = sub i64 %43, %45
   %46 = add i64 %reass.sub72, 1
-  %47 = call i64 @lseek(i32 noundef %0, i64 noundef %46, i32 noundef 1) #17
+  %47 = call i64 @lseek(i32 noundef range(i32 0, -2147483648) %0, i64 noundef %46, i32 noundef 1) #17
   %48 = icmp slt i64 %47, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   br i1 %48, label %read_uint32.exit.thread, label %49
@@ -3827,7 +3827,7 @@ skip_past_nul.exit49:                             ; preds = %41
   br i1 %.not36, label %read_uint32.exit.thread, label %54
 
 54:                                               ; preds = %52
-  %55 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4) #17
+  %55 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 4) #17
   %.not.i50 = icmp eq i64 %55, 4
   br i1 %.not.i50, label %read_uint32.exit52, label %read_uint32.exit.thread
 
@@ -3867,12 +3867,12 @@ read_uint32.exit52:                               ; preds = %54, %15
   %.017.i = phi i32 [ %73, %71 ], [ %67, %66 ]
   %68 = call i32 @llvm.umin.i32(i32 %.017.i, i32 8192)
   %69 = zext nneg i32 %68 to i64
-  %70 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %3, i64 noundef %69) #17
+  %70 = call i64 @cli_readn(i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull %3, i64 noundef %69) #17
   %.not14.i = icmp eq i64 %70, %69
   br i1 %.not14.i, label %71, label %ole_copy_file_data.exit
 
 71:                                               ; preds = %.lr.ph.i
-  %72 = call i64 @cli_writen(i32 noundef %63, ptr noundef nonnull %3, i64 noundef %69) #17
+  %72 = call i64 @cli_writen(i32 noundef range(i32 0, -2147483648) %63, ptr noundef nonnull %3, i64 noundef %69) #17
   %.not15.i = icmp ne i64 %72, %69
   %73 = sub i32 %.017.i, %68
   %.not.i53 = icmp eq i32 %73, 0
@@ -4800,7 +4800,7 @@ seekandread.exit.thread:                          ; preds = %12
   br label %16
 
 seekandread.exit:                                 ; preds = %12
-  %15 = tail call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %9, i64 noundef %8) #17
+  %15 = tail call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %9, i64 noundef range(i64 1, 4294967296) %8) #17
   %.not = icmp eq i64 %15, %8
   br i1 %.not, label %17, label %16
 

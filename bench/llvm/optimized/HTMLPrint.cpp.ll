@@ -81,7 +81,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111HTMLPrinterESt14default_deleteIS1_EED2Ev.exit
   %12 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr null, ptr %12, align 8, !noalias !4
   %13 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !noalias !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 16, i1 false), !noalias !4
   store ptr %11, ptr %13, align 8, !noalias !4
   %14 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr %11, ptr %14, align 8, !noalias !4
@@ -499,7 +499,7 @@ _ZNSt10shared_ptrIN5clang4html17RelexRewriteCacheEED2Ev.exit33: ; preds = %_ZNSt
   call void @_ZN5clang4html10EscapeTextERNS_8RewriterENS_6FileIDEbb(ptr noundef nonnull align 8 dereferenceable(64) %19, i32 %.sroa.0.0.copyload.i, i1 noundef zeroext false, i1 noundef zeroext true) #12
   %148 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5clang8Rewriter13getEditBufferENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(64) %19, i32 %.sroa.0.0.copyload.i) #12
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = call noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %149) #12
+  %150 = call noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %149) #12
   %151 = zext i32 %150 to i64
   %152 = call noalias noundef nonnull ptr @_Znam(i64 noundef %151) #11
   %153 = load ptr, ptr %149, align 8, !noalias !20
@@ -559,7 +559,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZN4llvm22Rop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %184 = load ptr, ptr %183, align 8
-  %185 = call noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %149) #12
+  %185 = call noundef i32 @_ZNK4llvm14RopePieceBTree4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %149) #12
   %186 = zext i32 %185 to i64
   %187 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %184, ptr noundef nonnull %152, i64 noundef %186) #12
   call void @_ZdaPv(ptr noundef nonnull %152) #13
@@ -658,14 +658,14 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13Rewr
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
 
 12:                                               ; preds = %9
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
+  tail call void @_ZdaPv(ptr noundef nonnull align 4 dereferenceable(8) %8) #13
   br label %_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
 
 _ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %.lr.ph, %9, %12
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %.07, i64 48
-  tail call void @_ZN4llvm14RopePieceBTreeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #12
-  tail call void @_ZN4llvm9DeltaTreeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  tail call void @_ZN4llvm14RopePieceBTreeD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %14) #12
+  tail call void @_ZN4llvm9DeltaTreeD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28

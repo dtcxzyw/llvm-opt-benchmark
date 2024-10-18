@@ -11028,7 +11028,7 @@ get_mac_lte_channel_priority.exit2007:            ; preds = %get_mac_lte_channel
 2340:                                             ; preds = %2336
   %2341 = getelementptr inbounds i8, ptr %2337, i64 8
   %2342 = load i32, ptr %2341, align 4
-  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2342, i8 noundef zeroext %2328, ptr noundef %37, ptr noundef %38)
+  call fastcc void @set_rlc_seqnum_length_ext_li_field(i32 noundef %2342, i8 noundef zeroext %2328, ptr noundef nonnull %37, ptr noundef nonnull %38)
   %2343 = getelementptr %struct.lcid_drb_mapping_t, ptr %2333, i64 %indvars.iv.i, i32 1
   br label %lookup_rlc_channel_from_lcid.exit
 

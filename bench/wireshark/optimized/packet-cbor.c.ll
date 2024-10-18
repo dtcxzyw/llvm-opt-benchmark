@@ -595,7 +595,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
 
 .lr.ph57.split.us:                                ; preds = %148, %150
   %.057.i55.us = phi i64 [ %151, %150 ], [ 0, %148 ]
-  %149 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef %3)
+  %149 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef nonnull %3)
   %.not60.i.us = icmp eq i32 %149, 0
   br i1 %.not60.i.us, label %dissect_cbor_array.exit, label %150
 
@@ -639,7 +639,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %._crit_edge58
 
 174:                                              ; preds = %.lr.ph57.split
-  %175 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef %3)
+  %175 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %120, ptr noundef nonnull %3)
   %.not60.i = icmp eq i32 %175, 0
   br i1 %.not60.i, label %dissect_cbor_array.exit, label %154
 
@@ -745,7 +745,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
 
 .lr.ph.split.us:                                  ; preds = %214, %216
   %.061.i54.us = phi i64 [ %217, %216 ], [ 0, %214 ]
-  %215 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
+  %215 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
   %.not64.i.us = icmp eq i32 %215, 0
   br i1 %.not64.i.us, label %dissect_cbor_map.exit, label %220
 
@@ -756,7 +756,7 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   br i1 %219, label %.lr.ph.split.us, label %234, !llvm.loop !7
 
 220:                                              ; preds = %.lr.ph.split.us
-  %221 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
+  %221 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
   %.not65.i.us = icmp eq i32 %221, 0
   br i1 %.not65.i.us, label %dissect_cbor_map.exit, label %216
 
@@ -774,16 +774,16 @@ dissect_cbor_array.exit:                          ; preds = %174, %.lr.ph57.spli
   br i1 %228, label %.thread53, label %230
 
 .thread53:                                        ; preds = %.lr.ph.split
-  %229 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3, i8 noundef zeroext 31)
+  %229 = tail call fastcc i32 @dissect_cbor_float_simple_data(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3, i8 noundef zeroext 31)
   br label %._crit_edge
 
 230:                                              ; preds = %.lr.ph.split
-  %231 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
+  %231 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
   %.not64.i = icmp eq i32 %231, 0
   br i1 %.not64.i, label %dissect_cbor_map.exit, label %232
 
 232:                                              ; preds = %230
-  %233 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef %3)
+  %233 = tail call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %186, ptr noundef nonnull %3)
   %.not65.i = icmp eq i32 %233, 0
   br i1 %.not65.i, label %dissect_cbor_map.exit, label %222
 
@@ -883,7 +883,7 @@ switch.lookup110:                                 ; preds = %265
   br label %279
 
 279:                                              ; preds = %switch.lookup110, %269
-  %280 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %251, ptr noundef %3)
+  %280 = call fastcc i32 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %251, ptr noundef nonnull %3)
   %.not.i50 = icmp eq i32 %280, 0
   br i1 %.not.i50, label %281, label %283
 

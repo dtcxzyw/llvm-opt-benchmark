@@ -637,7 +637,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object10ObjectFile12hasDebugInfoE
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(8) %2) #16
+  call void %26(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   %27 = load ptr, ptr %15, align 8
   %28 = icmp ne ptr %27, %14
   %lhsv.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
@@ -670,7 +670,7 @@ define dso_local void @_ZNK4llvm6object10ObjectFile19getRelocatedSectionENS0_11D
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm6object10ObjectFile10makeTripleEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::Triple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %1, align 8

@@ -3049,7 +3049,7 @@ AllocUnits.exit.thread:                           ; preds = %171
   br label %AllocUnits.exit
 
 194:                                              ; preds = %180
-  %195 = tail call fastcc ptr @AllocUnitsRare(ptr noundef nonnull %0, i32 noundef %173)
+  %195 = tail call fastcc ptr @AllocUnitsRare(ptr noundef nonnull %0, i32 noundef range(i32 0, 257) %173)
   br label %AllocUnits.exit
 
 AllocUnits.exit:                                  ; preds = %191, %194

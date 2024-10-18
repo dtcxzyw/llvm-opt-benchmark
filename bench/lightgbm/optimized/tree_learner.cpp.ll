@@ -190,7 +190,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 54:                                               ; preds = %50
   %55 = call noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #17
-  invoke void @_ZN8LightGBM17SerialTreeLearnerC2EPKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(536) %55, ptr noundef nonnull %2)
+  invoke void @_ZN8LightGBM17SerialTreeLearnerC2EPKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(688) %55, ptr noundef nonnull %2)
           to label %_ZN8LightGBM17LinearTreeLearnerC2EPKNS_6ConfigE.exit unwind label %62
 
 _ZN8LightGBM17LinearTreeLearnerC2EPKNS_6ConfigE.exit: ; preds = %54

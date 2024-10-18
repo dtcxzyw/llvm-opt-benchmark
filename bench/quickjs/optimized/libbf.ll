@@ -354,7 +354,7 @@ define dso_local range(i32 0, 33) i32 @bf_set_ui(ptr nocapture noundef %0, i64 n
 
 26:                                               ; preds = %._crit_edge, %25
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %23, %25 ]
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
   %29 = shl i64 %1, %28
   store i64 %29, ptr %27, align 8
   %30 = sub nuw nsw i64 64, %28
@@ -453,7 +453,7 @@ define dso_local range(i32 0, 33) i32 @bf_set_si(ptr nocapture noundef %0, i64 n
 
 17:                                               ; preds = %16, %._crit_edge.i
   %18 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %14, %16 ]
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %5, i1 true)
   %20 = shl i64 %5, %19
   store i64 %20, ptr %18, align 8
   %21 = sub nuw nsw i64 64, %19
@@ -538,7 +538,7 @@ bf_set_ui.exit:                                   ; preds = %bf_resize.exit16.i,
 
 53:                                               ; preds = %52, %._crit_edge.i16
   %54 = phi ptr [ %.pre.i18, %._crit_edge.i16 ], [ %50, %52 ]
-  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
   %56 = shl i64 %1, %55
   store i64 %56, ptr %54, align 8
   %57 = sub nuw nsw i64 64, %55
@@ -792,7 +792,7 @@ define dso_local range(i32 0, 33) i32 @bf_normalize_and_round(ptr nocapture noun
   %25 = add i64 %24, %.neg37
   store i64 %25, ptr %23, align 8
   %26 = load i64, ptr %22, align 8
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 false)
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %26, i1 false)
   %.not38 = icmp eq i64 %27, 0
   br i1 %.not38, label %40, label %.preheader
 
@@ -2133,7 +2133,7 @@ define internal fastcc range(i32 -1, 1) i32 @fft_mul(ptr noundef %0, ptr nocaptu
 
 ceil_log2.exit.i:                                 ; preds = %117
   %122 = add i64 %120, -1
-  %123 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %122, i1 false)
+  %123 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %122, i1 false)
   %124 = trunc nuw nsw i64 %123 to i32
   %125 = sub nuw nsw i32 64, %124
   %126 = icmp ugt i64 %122, 2251799813685247
@@ -4118,7 +4118,7 @@ mp_mul_basecase.exit:                             ; preds = %mp_add_mul1.exit.lo
   %188 = add i64 %.neg37.i, %171
   store i64 %188, ptr %172, align 8
   %189 = load i64, ptr %187, align 8
-  %190 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %189, i1 false)
+  %190 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %189, i1 false)
   %.not38.i = icmp eq i64 %190, 0
   br i1 %.not38.i, label %203, label %.preheader.i
 
@@ -4224,7 +4224,7 @@ define dso_local i64 @bf_get_exp_min(ptr nocapture noundef readonly %0) local_un
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %8, i1 true)
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %8, i1 true)
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %.neg = sub i64 %.01117, %3
@@ -4972,7 +4972,7 @@ define dso_local range(i32 0, 64) i32 @bf_add_si(ptr noundef %0, ptr noundef %1,
   %19 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %15, ptr %19, align 8
   store i64 1, ptr %11, align 8
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %18, i1 true)
   %21 = shl i64 %18, %20
   store i64 %21, ptr %15, align 8
   %22 = sub nuw nsw i64 64, %20
@@ -5006,7 +5006,7 @@ bf_set_ui.exit.i:                                 ; preds = %13, %17
   %31 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %28, ptr %31, align 8
   store i64 1, ptr %11, align 8
-  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %2, i1 true)
   %33 = shl i64 %2, %32
   store i64 %33, ptr %28, align 8
   %34 = sub nuw nsw i64 64, %32
@@ -5285,7 +5285,7 @@ define dso_local i64 @bf_isqrt(i64 noundef %0) local_unnamed_addr #8 {
   br i1 %2, label %55, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %0, i1 true)
   %5 = and i64 %4, 62
   %6 = shl i64 %0, %5
   %7 = lshr i64 %6, 56
@@ -6801,7 +6801,7 @@ bf_set_ui.exit:                                   ; preds = %5
   %19 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %14, ptr %19, align 8
   store i64 1, ptr %10, align 8
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %2, i1 true)
   %21 = shl i64 %2, %20
   store i64 %21, ptr %14, align 8
   %22 = sub nuw nsw i64 64, %20
@@ -6845,7 +6845,7 @@ define dso_local range(i32 0, 64) i32 @bf_mul_si(ptr noundef %0, ptr noundef %1,
   %18 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %14, ptr %18, align 8
   store i64 1, ptr %10, align 8
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %17, i1 true)
   %20 = shl i64 %17, %19
   store i64 %20, ptr %14, align 8
   %21 = sub nuw nsw i64 64, %19
@@ -6868,7 +6868,7 @@ define dso_local range(i32 0, 64) i32 @bf_mul_si(ptr noundef %0, ptr noundef %1,
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %26, ptr %28, align 8
   store i64 1, ptr %10, align 8
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %2, i1 true)
   %30 = shl i64 %2, %29
   store i64 %30, ptr %26, align 8
   %31 = sub nuw nsw i64 64, %29
@@ -7351,7 +7351,7 @@ bf_logic_op1.exit140:                             ; preds = %171, %173, %175
   %200 = shl i64 %199, 6
   store i64 %200, ptr %182, align 8
   %201 = load i64, ptr %198, align 8
-  %202 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %201, i1 false)
+  %202 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %201, i1 false)
   %.not38.i = icmp eq i64 %202, 0
   br i1 %.not38.i, label %215, label %.preheader.i
 
@@ -7708,7 +7708,7 @@ bf_set_zero.exit:                                 ; preds = %31, %34
 
 41:                                               ; preds = %29
   %42 = shl nuw i64 %9, 12
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %42, i1 true)
   %44 = trunc nuw nsw i64 %43 to i32
   %45 = shl i64 %42, %43
   %46 = sub nsw i32 0, %44
@@ -8257,7 +8257,7 @@ bf_round.exit:                                    ; preds = %bf_set.exit91, %75
 
 .preheader:                                       ; preds = %78
   %85 = add i64 %spec.select, -1
-  %86 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %85, i1 false)
+  %86 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %85, i1 false)
   %87 = shl nuw nsw i64 %86, 1
   %88 = sub nuw nsw i64 128, %87
   %89 = or disjoint i64 %88, 1
@@ -8375,7 +8375,7 @@ bf_free.exit.i.i.i100:                            ; preds = %141, %137
   br label %bf_div.exit101
 
 145:                                              ; preds = %136
-  %146 = call fastcc i32 @__bf_div(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull readonly %9, i64 noundef %133, i32 noundef 2016) #17
+  %146 = call fastcc i32 @__bf_div(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull readonly %9, i64 noundef %133, i32 noundef 2016) #17
   br label %bf_div.exit101
 
 bf_div.exit101:                                   ; preds = %bf_free.exit.i.i.i100, %145
@@ -8562,7 +8562,7 @@ define internal fastcc i32 @bf_pow_ui_ui(ptr noundef %0, i64 noundef %1, i64 nou
 
 23:                                               ; preds = %22, %._crit_edge.i
   %24 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %22 ]
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %11, i1 true)
   %26 = shl i64 %11, %25
   store i64 %26, ptr %24, align 8
   %27 = sub nuw nsw i64 64, %25
@@ -8619,7 +8619,7 @@ bf_set_nan.exit.i:                                ; preds = %30, %bf_resize.exit
   %48 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %45, ptr %48, align 8
   store i64 1, ptr %40, align 8
-  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %1, i1 true)
   %50 = shl i64 %1, %49
   store i64 %50, ptr %45, align 8
   %51 = sub nuw nsw i64 64, %49
@@ -8939,7 +8939,7 @@ bf_set_inf.exit:                                  ; preds = %strcasestart.exit28
 100:                                              ; preds = %98
   %101 = sext i32 %93 to i64
   %102 = add nsw i64 %101, -1
-  %103 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %102, i1 false)
+  %103 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %102, i1 false)
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = sub nuw nsw i32 64, %104
   br label %ceil_log2.exit
@@ -9590,7 +9590,7 @@ bf_set_inf.exit347:                               ; preds = %310, %311
   %350 = add i64 %336, %.neg37.i
   store i64 %350, ptr %.0170.sroa.phi, align 8
   %351 = load i64, ptr %349, align 8
-  %352 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %351, i1 false)
+  %352 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %351, i1 false)
   %.not38.i = icmp eq i64 %352, 0
   br i1 %.not38.i, label %365, label %.preheader.i
 
@@ -9782,7 +9782,7 @@ define dso_local i64 @bf_mul_log2_radix(i64 noundef %0, i32 noundef %1, i32 noun
 10:                                               ; preds = %8
   %11 = zext i32 %1 to i64
   %12 = add nsw i64 %11, -1
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %12, i1 false)
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = sub nuw nsw i32 64, %14
   br label %ceil_log2.exit
@@ -9926,7 +9926,7 @@ define internal fastcc ptr @bf_ftoa_internal(ptr noundef writeonly %0, ptr nound
 37:                                               ; preds = %34
   %38 = sext i32 %2 to i64
   %39 = add nsw i64 %38, -1
-  %40 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 false)
+  %40 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %39, i1 false)
   %41 = trunc nuw nsw i64 %40 to i32
   %42 = sub nuw nsw i32 64, %41
   br label %ceil_log2.exit
@@ -10151,7 +10151,7 @@ bf_round.exit.thread:                             ; preds = %85, %bf_round.exit
 135:                                              ; preds = %134
   %136 = zext i32 %2 to i64
   %137 = add nsw i64 %136, -1
-  %138 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %137, i1 false)
+  %138 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %137, i1 false)
   %139 = trunc nuw nsw i64 %138 to i32
   %140 = sub nuw nsw i32 64, %139
   br label %ceil_log2.exit.i
@@ -12453,7 +12453,7 @@ bf_set_ui.exit:                                   ; preds = %104, %bf_set_nan.ex
 
 128:                                              ; preds = %127, %._crit_edge.i74
   %129 = phi ptr [ %.pre.i76, %._crit_edge.i74 ], [ %125, %127 ]
-  %130 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.096, i1 true)
+  %130 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.096, i1 true)
   %131 = shl i64 %.096, %130
   store i64 %131, ptr %129, align 8
   %132 = sub nuw nsw i64 64, %130
@@ -13231,7 +13231,7 @@ bf_set_ui.exit143:                                ; preds = %164, %bf_set_nan.ex
 
 182:                                              ; preds = %181, %._crit_edge.i154
   %183 = phi ptr [ %.pre.i156, %._crit_edge.i154 ], [ %179, %181 ]
-  %184 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %173, i1 true)
+  %184 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %173, i1 true)
   %185 = shl i64 %173, %184
   store i64 %185, ptr %183, align 8
   %186 = sub nuw nsw i64 64, %184
@@ -13827,7 +13827,7 @@ bf_set_inf.exit:                                  ; preds = %134, %135
   br i1 %.not.i204, label %155, label %149
 
 149:                                              ; preds = %146
-  %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %148, i1 true)
+  %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %148, i1 true)
   %.neg.i = sub i64 %.01117.i, %143
   %.neg13.i = shl i64 %.neg.i, 6
   %151 = or disjoint i64 %150, %.neg13.i
@@ -13975,7 +13975,7 @@ bf_set.exit:                                      ; preds = %180, %bf_set_nan.ex
   br i1 %.not.i228, label %216, label %211
 
 211:                                              ; preds = %208
-  %212 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %210, i1 true)
+  %212 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %210, i1 true)
   %213 = load i64, ptr %.0148.sroa.gep, align 8
   %.neg.i229 = sub i64 %.01117.i227, %205
   %.neg13.i230 = shl i64 %.neg.i229, 6
@@ -14275,7 +14275,7 @@ bf_delete.exit267:                                ; preds = %bf_delete.exit262, 
   br i1 %.not.i271, label %343, label %339
 
 339:                                              ; preds = %336
-  %340 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %338, i1 true)
+  %340 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %338, i1 true)
   %.neg.i272 = sub i64 %.01117.i270, %333
   %.neg13.i273 = shl i64 %.neg.i272, 6
   %341 = add i64 %.neg13.i273, %332
@@ -14353,7 +14353,7 @@ bf_delete.exit281:                                ; preds = %360, %362, %365
 378:                                              ; preds = %374
   %379 = add i64 %345, -1
   %380 = call i32 @bf_mul_si(ptr noundef nonnull %0, ptr noundef %.0148, i64 noundef %379, i64 noundef 64, i32 noundef 1)
-  %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef readonly %0, i32 noundef 0)
+  %381 = call range(i32 0, 2) i32 @bf_get_int64(ptr noundef nonnull %10, ptr noundef nonnull readonly %0, i32 noundef 0)
   %382 = load i64, ptr %10, align 8
   %383 = icmp ult i64 %3, %382
   br i1 %383, label %400, label %384
@@ -14699,7 +14699,7 @@ bf_set_nan.exit.i30:                              ; preds = %47, %bf_resize.exit
 
 bf_set.exit:                                      ; preds = %29, %bf_set_nan.exit.i30, %54
   %.0.i26 = phi i32 [ 32, %bf_set_nan.exit.i30 ], [ 0, %54 ], [ 0, %29 ]
-  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %2, i1 true)
   %.not36 = icmp eq i64 %66, 63
   br i1 %.not36, label %bf_set_ui.exit, label %.lr.ph.preheader
 
@@ -14803,7 +14803,7 @@ bf_get_int64.exit.thread:                         ; preds = %22, %bf_get_int64.e
 bf_get_int64.exit.thread.thread:                  ; preds = %11, %35, %bf_get_int64.exit.thread
   %.02229 = phi i64 [ %.022, %bf_get_int64.exit.thread ], [ 9223372036854775807, %35 ], [ 9223372036854775807, %11 ]
   %41 = add i64 %.02229, -1
-  %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 false)
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %41, i1 false)
   %43 = shl nuw nsw i64 %42, 1
   %44 = sub nuw nsw i64 128, %43
   br label %ceil_log2.exit
@@ -14910,7 +14910,7 @@ define internal fastcc range(i32 0, 2) i32 @check_exact_power2n(ptr noundef %0, 
   br i1 %.not.i, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
+  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %12, i1 true)
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8
   %.neg.i = sub i64 %.01117.i, %7
@@ -17087,7 +17087,7 @@ bf_set_si.exit:                                   ; preds = %133, %bf_set_nan.ex
 
 151:                                              ; preds = %150, %._crit_edge.i130
   %152 = phi ptr [ %.pre.i132, %._crit_edge.i130 ], [ %148, %150 ]
-  %153 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %142, i1 true)
+  %153 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %142, i1 true)
   %154 = shl i64 %142, %153
   store i64 %154, ptr %152, align 8
   %155 = sub nuw nsw i64 64, %153
@@ -18819,7 +18819,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
   br label %119
 
 19:                                               ; preds = %15
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 false)
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %3, i1 false)
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.lr.ph120, label %.lr.ph116
 
@@ -19033,7 +19033,7 @@ define internal fastcc i64 @mp_sqrtrem_rec_dec(ptr noundef %0, ptr nocapture nou
   %15 = add nuw i128 %12, %14
   %16 = lshr i128 %15, 64
   %17 = trunc nuw i128 %16 to i64
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 false)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %17, i1 false)
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 126
   %21 = zext nneg i32 %20 to i128
@@ -20075,7 +20075,7 @@ define dso_local i32 @bfdec_normalize_and_round(ptr nocapture noundef %0, i64 no
   br i1 %28, label %clz_dec.exit.thread, label %29
 
 29:                                               ; preds = %.critedge
-  %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
   %31 = trunc nuw nsw i64 %30 to i32
   switch i32 %31, label %clz_dec.exit.thread31 [
     i32 63, label %clz_dec.exit.thread
@@ -22004,12 +22004,12 @@ bf_free.exit.i.i.i.i:                             ; preds = %212, %209
   br label %bfdec_div.exit.i
 
 216:                                              ; preds = %.loopexit.i
-  %217 = call fastcc i32 @__bfdec_div(ptr noundef %0, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef 0, i32 noundef 17) #17
+  %217 = call fastcc i32 @__bfdec_div(ptr noundef nonnull %0, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, i64 noundef 0, i32 noundef 17) #17
   br label %bfdec_div.exit.i
 
 bfdec_div.exit.i:                                 ; preds = %216, %bf_free.exit.i.i.i.i, %203
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  %218 = call i32 @bfdec_mul(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %11, i64 noundef 4611686018427387903, i32 noundef 1)
+  %218 = call i32 @bfdec_mul(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 4611686018427387903, i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %219 = load ptr, ptr %1, align 8
   store ptr %219, ptr %8, align 8
@@ -23161,7 +23161,7 @@ bf_set_nan.exit.i.i:                              ; preds = %47, %bf_resize.exit
 
 bfdec_set.exit:                                   ; preds = %29, %bf_set_nan.exit.i.i, %54
   %.0.i.i = phi i32 [ 32, %bf_set_nan.exit.i.i ], [ 0, %54 ], [ 0, %29 ]
-  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %2, i1 true)
   %.not27 = icmp eq i64 %66, 63
   br i1 %.not27, label %bfdec_set_ui.exit, label %.lr.ph.preheader
 
@@ -23239,7 +23239,7 @@ define dso_local range(i32 0, 52) i32 @bf_get_fft_size(ptr nocapture noundef wri
 
 ceil_log2.exit:                                   ; preds = %13
   %18 = add i64 %16, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %18, i1 false)
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = sub nuw nsw i32 64, %20
   %22 = icmp ugt i64 %18, 2251799813685247
@@ -23820,7 +23820,7 @@ get_bits.exit.i:                                  ; preds = %187, %179
 
 197:                                              ; preds = %get_bits.exit.i
   %198 = xor i64 %.0.i53.i, %.0.i.i177
-  %199 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %198, i1 false)
+  %199 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %198, i1 false)
   %200 = trunc nuw nsw i64 %199 to i32
   %201 = add nuw nsw i32 %200, 1
   %202 = zext nneg i32 %201 to i64
@@ -23835,10 +23835,10 @@ get_bits.exit.i:                                  ; preds = %187, %179
   %notmask.i.i = shl nsw i64 -1, %208
   %209 = xor i64 %notmask.i.i, -1
   %210 = and i64 %.0.i.i177, %209
-  %211 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %210, i1 false)
+  %211 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %210, i1 false)
   %212 = xor i64 %.0.i53.i, -1
   %213 = and i64 %209, %212
-  %214 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %213, i1 false)
+  %214 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %213, i1 false)
   %215 = tail call i64 @llvm.umin.i64(i64 %211, i64 %214)
   %216 = trunc nuw nsw i64 %215 to i32
   %217 = sub nsw i32 %216, %201
@@ -23913,9 +23913,9 @@ get_bits.exit61.i:                                ; preds = %242, %234
   br i1 %or.cond.i, label %252, label %220
 
 252:                                              ; preds = %get_bits.exit61.i
-  %253 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i56.i, i1 false)
+  %253 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.0.i56.i, i1 false)
   %254 = xor i64 %.0.i60.i, -1
-  %255 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %254, i1 false)
+  %255 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %254, i1 false)
   %256 = tail call i64 @llvm.umin.i64(i64 %253, i64 %255)
   %257 = add i64 %256, %.3.i
   br label %count_cancelled_bits.exit
@@ -24265,7 +24265,7 @@ get_bits.exit192:                                 ; preds = %375, %382
   %438 = add i64 %437, %.neg37.i
   store i64 %438, ptr %436, align 8
   %439 = load i64, ptr %435, align 8
-  %440 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %439, i1 false)
+  %440 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %439, i1 false)
   %.not38.i = icmp eq i64 %440, 0
   br i1 %.not38.i, label %453, label %.preheader.i
 
@@ -24353,7 +24353,7 @@ get_limb_radix.exit:                              ; preds = %.lr.ph.i
 
 13:                                               ; preds = %get_limb_radix.exit
   %14 = add i64 %2, -1
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %14, i1 false)
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = sub nuw nsw i32 66, %16
   br label %ceil_log2.exit
@@ -24492,7 +24492,7 @@ define internal fastcc i32 @bf_integer_from_radix_rec(ptr noundef nonnull %0, pt
 
 36:                                               ; preds = %35, %._crit_edge.i
   %37 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %33, %35 ]
-  %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %12, i1 true)
   %39 = shl i64 %12, %38
   store i64 %39, ptr %37, align 8
   %40 = sub nuw nsw i64 64, %38
@@ -24668,7 +24668,7 @@ define internal fastcc void @output_digits(ptr noundef nonnull %0, ptr noundef n
 16:                                               ; preds = %14
   %17 = sext i32 %2 to i64
   %18 = add nsw i64 %17, -1
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %18, i1 false)
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = sub nuw nsw i32 64, %20
   br label %ceil_log2.exit
@@ -24744,7 +24744,7 @@ get_limb_radix.exit:                              ; preds = %.lr.ph.i
 
 59:                                               ; preds = %57
   %60 = add i64 %51, -1
-  %61 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %60, i1 false)
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %60, i1 false)
   %62 = trunc nuw nsw i64 %61 to i32
   %63 = shl nuw nsw i32 %62, 1
   %64 = sub nuw nsw i32 132, %63
@@ -24787,14 +24787,14 @@ ceil_log2.exit.i:                                 ; preds = %get_limb_radix.exit
 
 75:                                               ; preds = %._crit_edge.i
   %76 = add i64 %42, -1
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %76, i1 false)
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %76, i1 false)
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = sub nuw nsw i32 64, %78
   br label %.lr.ph37.preheader.i
 
 .lr.ph37.preheader.i:                             ; preds = %75, %._crit_edge.i
   %.0.i31.i = phi i32 [ %79, %75 ], [ 0, %._crit_edge.i ]
-  %80 = tail call fastcc i32 @bf_integer_to_radix_rec(ptr noundef %69, ptr noundef %66, ptr noundef %1, i64 noundef %65, i32 noundef 0, i64 noundef %65, i64 noundef %42, i32 noundef %.0.i31.i)
+  %80 = tail call fastcc i32 @bf_integer_to_radix_rec(ptr noundef %69, ptr noundef %66, ptr noundef nonnull %1, i64 noundef %65, i32 noundef 0, i64 noundef %65, i64 noundef %42, i32 noundef %.0.i31.i)
   br label %.lr.ph37.i
 
 .lr.ph37.i:                                       ; preds = %bf_delete.exit.i, %.lr.ph37.preheader.i
@@ -25152,7 +25152,7 @@ bf_set_nan.exit.i:                                ; preds = %30, %bf_resize.exit
 60:                                               ; preds = %58
   %61 = zext i32 %3 to i64
   %62 = add nsw i64 %61, -1
-  %63 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %62, i1 false)
+  %63 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %62, i1 false)
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = sub nuw nsw i32 64, %64
   br label %ceil_log2.exit.i
@@ -25230,7 +25230,7 @@ bf_mul_log2_radix.exit:                           ; preds = %ceil_log2.exit.i, %
   %117 = icmp ult i32 %3, 2
   %118 = zext i32 %3 to i64
   %119 = add nsw i64 %118, -1
-  %120 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %119, i1 false)
+  %120 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %119, i1 false)
   %121 = sub nuw nsw i64 64, %120
   %122 = or disjoint i32 %5, 16
   %123 = getelementptr inbounds i8, ptr %9, i64 8
@@ -25262,7 +25262,7 @@ bf_mul_log2_radix.exit84:                         ; preds = %128, %131
   %137 = sub i64 0, %.2.i80
   %spec.select.i81 = select i1 %100, i64 %137, i64 %.2.i80
   %138 = add i64 %spec.select, -1
-  %139 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %138, i1 false)
+  %139 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %138, i1 false)
   %140 = shl nuw nsw i64 %139, 1
   %141 = sub nuw nsw i64 128, %140
   %142 = or disjoint i64 %141, 1
@@ -26215,7 +26215,7 @@ bf_set_nan.exit.i:                                ; preds = %31, %bf_resize.exit
 
 46:                                               ; preds = %45, %._crit_edge.i61
   %47 = phi ptr [ %.pre.i63, %._crit_edge.i61 ], [ %43, %45 ]
-  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %3, i1 true)
   %49 = shl i64 %3, %48
   store i64 %49, ptr %47, align 8
   %50 = sub nuw nsw i64 64, %48
@@ -26277,7 +26277,7 @@ bf_set_ui.exit:                                   ; preds = %bf_set_nan.exit.i, 
 
 71:                                               ; preds = %70, %._crit_edge.i74
   %72 = phi ptr [ %.pre.i76, %._crit_edge.i74 ], [ %68, %70 ]
-  %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %59, i1 true)
+  %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %59, i1 true)
   %74 = shl i64 %59, %73
   store i64 %74, ptr %72, align 8
   %75 = sub nuw nsw i64 66, %73
@@ -26813,7 +26813,7 @@ define internal fastcc void @chud_bs(ptr noundef nonnull %0, ptr noundef %1, ptr
 
 39:                                               ; preds = %38, %._crit_edge.i
   %40 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %36, %38 ]
-  %41 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %41 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %27, i1 true)
   %42 = shl i64 %27, %41
   store i64 %42, ptr %40, align 8
   %43 = sub nuw nsw i64 64, %41
@@ -26979,7 +26979,7 @@ bf_add.exit:                                      ; preds = %bf_set_ui.exit92, %
 
 108:                                              ; preds = %107, %._crit_edge.i102
   %109 = phi ptr [ %.pre.i104, %._crit_edge.i102 ], [ %105, %107 ]
-  %110 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
+  %110 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %4, i1 true)
   %111 = shl i64 %4, %110
   store i64 %111, ptr %109, align 8
   %112 = sub nuw nsw i64 64, %110
@@ -27561,7 +27561,7 @@ bf_set_ui.exit:                                   ; preds = %103, %bf_set_nan.ex
 
 127:                                              ; preds = %126, %._crit_edge.i126
   %128 = phi ptr [ %.pre.i128, %._crit_edge.i126 ], [ %124, %126 ]
-  %129 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
+  %129 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %118, i1 true)
   %130 = shl i64 %118, %129
   store i64 %130, ptr %128, align 8
   %131 = sub nuw nsw i64 64, %129

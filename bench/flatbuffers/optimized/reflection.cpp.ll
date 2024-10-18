@@ -369,7 +369,7 @@ cond.end:                                         ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -381,7 +381,7 @@ call.i.noexc:                                     ; preds = %cond.end
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -743,7 +743,7 @@ if.else69:                                        ; preds = %sw.bb4
           to label %call.i.noexc132 unwind label %lpad71
 
 call.i.noexc132:                                  ; preds = %if.else69
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i133, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70)
           to label %.noexc134 unwind label %lpad71
 
 .noexc134:                                        ; preds = %call.i.noexc132
@@ -753,7 +753,7 @@ call.i.noexc132:                                  ; preds = %if.else69
 lpad.i131:                                        ; preds = %.noexc134
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad71.body
 
 invoke.cont72:                                    ; preds = %.noexc134
@@ -776,7 +776,7 @@ sw.bb74:                                          ; preds = %entry
           to label %call.i.noexc140 unwind label %lpad76
 
 call.i.noexc140:                                  ; preds = %sw.bb74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i141, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75)
           to label %.noexc142 unwind label %lpad76
 
 .noexc142:                                        ; preds = %call.i.noexc140
@@ -786,7 +786,7 @@ call.i.noexc140:                                  ; preds = %sw.bb74
 lpad.i139:                                        ; preds = %.noexc142
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad76.body
 
 invoke.cont77:                                    ; preds = %.noexc142
@@ -809,7 +809,7 @@ sw.bb79:                                          ; preds = %entry
           to label %call.i.noexc148 unwind label %lpad81
 
 call.i.noexc148:                                  ; preds = %sw.bb79
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80)
           to label %.noexc150 unwind label %lpad81
 
 .noexc150:                                        ; preds = %call.i.noexc148
@@ -819,7 +819,7 @@ call.i.noexc148:                                  ; preds = %sw.bb79
 lpad.i147:                                        ; preds = %.noexc150
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad81.body
 
 invoke.cont82:                                    ; preds = %.noexc150
@@ -1004,7 +1004,7 @@ cond.false:                                       ; preds = %_ZNK10reflection5Fi
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.false
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1014,7 +1014,7 @@ call.i.noexc:                                     ; preds = %cond.false
 lpad.i:                                           ; preds = %.noexc
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 cond.end:                                         ; preds = %cond.true.i.i49, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i46, %_ZNK10reflection5Field4typeEv.exit40
@@ -1434,7 +1434,7 @@ invoke.cont21.us:                                 ; preds = %cond.true.i.i.i53.u
 
 if.end.i.us:                                      ; preds = %invoke.cont21.us
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %for.inc28.us unwind label %if.then.i.i.i.loopexit.split.us
 
 for.inc28.us:                                     ; preds = %if.end.i.us
@@ -1551,7 +1551,7 @@ if.then.i72:                                      ; preds = %invoke.cont21, %inv
 
 if.end.i:                                         ; preds = %invoke.cont21
   %28 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %for.inc28 unwind label %if.then.i.i.i.loopexit.split
 
 for.inc28:                                        ; preds = %if.end.i
@@ -3064,7 +3064,7 @@ if.then.i.i.i484:                                 ; preds = %invoke.cont170
   br i1 %cmp.i.i.i.i485, label %if.then.i.i.i.i, label %_ZN11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i484
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %mul)
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %mul)
           to label %.noexc488 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc488:                                        ; preds = %if.then.i.i.i.i
@@ -3114,7 +3114,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %and.i.i.i.i)
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %and.i.i.i.i)
           to label %.noexc496 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc496:                                        ; preds = %if.then.i.i.i.i.i.i
@@ -3152,7 +3152,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i: ; preds = %for.b
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %invoke.cont180
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef 4)
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef 4)
           to label %.noexc497 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc497:                                        ; preds = %if.then.i.i.i4.i.i
@@ -3325,7 +3325,7 @@ if.then.i.i.i.i537:                               ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i543, label %if.then.i.i.i.i.i547, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i547:                             ; preds = %if.then.i.i.i.i537
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %and.i.i.i)
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %and.i.i.i)
           to label %.noexc550 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc550:                                        ; preds = %if.then.i.i.i.i.i547
@@ -3657,7 +3657,7 @@ if.then.i.i.i.i.i711:                             ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i.i718, label %if.then.i.i.i.i.i.i730, label %for.body.preheader.i.i.i.i719
 
 if.then.i.i.i.i.i.i730:                           ; preds = %if.then.i.i.i.i.i711
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %and.i.i.i.i708)
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %and.i.i.i.i708)
           to label %.noexc734 unwind label %lpad.loopexit
 
 .noexc734:                                        ; preds = %if.then.i.i.i.i.i.i730
@@ -4187,7 +4187,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -4247,7 +4247,7 @@ if.then.i.i.i5:                                   ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i8, label %for.body.preheader.i.i
 
 if.then.i.i.i.i8:                                 ; preds = %if.then.i.i.i5
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i
@@ -4311,7 +4311,7 @@ if.then.i.i.i:                                    ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %for.body.preheader.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %and.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %and.i.i)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   %.pre.i = load i32, ptr %size_.i.i, align 8
   br label %for.body.preheader.i.i
@@ -4397,7 +4397,7 @@ if.then.i.i.i11:                                  ; preds = %_ZNK11flatbuffers5T
   br i1 %cmp.i.i.i.i19, label %if.then.i.i.i.i24, label %_ZN11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i24:                                ; preds = %if.then.i.i.i11
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef %size)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %size)
   %.pre.i.i.i25 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i, align 8
   br label %_ZN11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -4449,7 +4449,7 @@ _ZNK10reflection5Field6offsetEv.exit37:           ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i40, label %if.then.i.i.i42, label %_ZN11flatbuffers15vector_downwardIjE18scratch_push_smallINS_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i42:                                  ; preds = %_ZNK10reflection5Field6offsetEv.exit37
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %fbb, i64 noundef 8)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef 8)
   %.pre.i.i = load ptr, ptr %scratch_.i.i.i.i, align 8
   br label %_ZN11flatbuffers15vector_downwardIjE18scratch_push_smallINS_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
@@ -4514,7 +4514,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -4550,7 +4550,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %for.bod
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %if.then.i.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %if.then.i.i
 
@@ -9320,7 +9320,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -9385,7 +9385,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.preheader.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i11, label %_ZN11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
 if.then.i.i.i.i11:                                ; preds = %if.then.i.i.i7
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %len)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %len)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   br label %_ZN11flatbuffers15vector_downwardIjE10make_spaceEm.exit.i.i
 
@@ -9430,7 +9430,7 @@ if.then.i.i.i.i19:                                ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i26, label %if.then.i.i.i.i.i44, label %for.body.preheader.i.i.i27
 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i19
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i16)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i16)
   %.pre.i.i.i.i45 = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   %.pre.i.i46 = load i32, ptr %size_.i.i, align 8
   br label %for.body.preheader.i.i.i27
@@ -9465,7 +9465,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %for.bod
   br i1 %cmp.i.i.i.i41, label %if.then.i.i.i4.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i43 = load ptr, ptr %cur_2.phi.trans.insert.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -9703,7 +9703,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -9739,7 +9739,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i: ; preds = %for.b
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -9790,7 +9790,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -9844,7 +9844,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i5)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i5)
   %.pre.i.i.i.i26 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i27 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i16
@@ -9880,7 +9880,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %for.bod
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -9948,7 +9948,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i.i)
   %.pre.i.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %size_.i.i.i.i, align 8
   br label %for.body.preheader.i.i.i.i
@@ -9984,7 +9984,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i: ; preds = %for.b
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i4.i.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
 if.then.i.i.i4.i.i:                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit
 
@@ -10035,7 +10035,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -10089,7 +10089,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i15, label %if.then.i.i.i.i.i25, label %for.body.preheader.i.i.i16
 
 if.then.i.i.i.i.i25:                              ; preds = %if.then.i.i.i.i8
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i5)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i5)
   %.pre.i.i.i.i26 = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i27 = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i16
@@ -10125,7 +10125,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %for.bod
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -10187,7 +10187,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN11flatbuffers21F
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.body.preheader.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %and.i.i.i)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %and.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   %.pre.i.i = load i32, ptr %size_.i.i.i, align 8
   br label %for.body.preheader.i.i.i
@@ -10223,7 +10223,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i: ; preds = %for.bod
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i4.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.i
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 4)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %cur_2.phi.trans.insert.i.i.i.i, align 8
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
 
@@ -10246,7 +10246,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit: ; pre
   br i1 %cmp.i.i.i2, label %if.then.i.i.i4, label %_ZN11flatbuffers15vector_downwardIjE18scratch_push_smallINS_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 
 if.then.i.i.i4:                                   ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIjjEET0_T_.exit
-  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 8)
+  tail call void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef 8)
   %.pre.i.i5 = load ptr, ptr %scratch_.i.i.i.i.i, align 8
   br label %_ZN11flatbuffers15vector_downwardIjE18scratch_push_smallINS_21FlatBufferBuilderImplILb0EE8FieldLocEEEvRKT_.exit.i
 

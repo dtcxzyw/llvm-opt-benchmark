@@ -529,7 +529,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
 107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %108 = load i32, ptr @ett_someip_sd_option, align 4
-  %109 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef %99, i32 noundef %108, ptr noundef null, ptr noundef nonnull @.str.137, i32 noundef %.0644.i) #7
+  %109 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef range(i32 0, 65536) %99, i32 noundef %108, ptr noundef null, ptr noundef nonnull @.str.137, i32 noundef %.0644.i) #7
   %110 = load i32, ptr @hf_someip_sd_option_length, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %106, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
   %112 = load i32, ptr @hf_someip_sd_option_type, align 4
@@ -587,7 +587,7 @@ dissect_someip_sd_pdu_option_configuration.exit.i: ; preds = %139, %.lr.ph.i.i, 
 
 149:                                              ; preds = %105
   %150 = load i32, ptr @ett_someip_sd_option, align 4
-  %151 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef %99, i32 noundef %150, ptr noundef null, ptr noundef nonnull @.str.138, i32 noundef %.0644.i) #7
+  %151 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef range(i32 0, 65536) %99, i32 noundef %150, ptr noundef null, ptr noundef nonnull @.str.138, i32 noundef %.0644.i) #7
   %152 = load i32, ptr @hf_someip_sd_option_length, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %152, ptr noundef %106, i32 noundef 0, i32 noundef 2, i32 noundef 0) #7
   %154 = load i32, ptr @hf_someip_sd_option_type, align 4
@@ -611,7 +611,7 @@ dissect_someip_sd_pdu_option_configuration.exit.i: ; preds = %139, %.lr.ph.i.i, 
   %164 = zext i8 %163 to i32
   %165 = call ptr @val_to_str(i32 noundef %164, ptr noundef nonnull @sd_option_type, ptr noundef nonnull @.str.139) #7
   %166 = load i32, ptr @ett_someip_sd_option, align 4
-  %167 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef %99, i32 noundef %166, ptr noundef nonnull %21, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %165) #7
+  %167 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef range(i32 0, 65536) %99, i32 noundef %166, ptr noundef nonnull %21, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %165) #7
   %.not.i.i = icmp eq i16 %96, 12
   br i1 %.not.i.i, label %171, label %168
 
@@ -679,7 +679,7 @@ dissect_someip_sd_pdu_option_ipv4.exit.i:         ; preds = %194, %168
   %205 = zext i8 %204 to i32
   %206 = call ptr @val_to_str(i32 noundef %205, ptr noundef nonnull @sd_option_type, ptr noundef nonnull @.str.139) #7
   %207 = load i32, ptr @ett_someip_sd_option, align 4
-  %208 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef %99, i32 noundef %207, ptr noundef nonnull %18, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %206) #7
+  %208 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef range(i32 0, 65536) %99, i32 noundef %207, ptr noundef nonnull %18, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %206) #7
   %.not.i69.i = icmp eq i16 %96, 24
   br i1 %.not.i69.i, label %212, label %209
 
@@ -744,7 +744,7 @@ dissect_someip_sd_pdu_option_ipv6.exit.i:         ; preds = %235, %209
   %246 = call zeroext i8 @tvb_get_guint8(ptr noundef %106, i32 noundef 2) #7
   %247 = zext i8 %246 to i32
   %248 = call ptr @val_to_str_const(i32 noundef %247, ptr noundef nonnull @sd_option_type, ptr noundef nonnull @.str.144) #7
-  %249 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef %99, i32 noundef %245, ptr noundef nonnull %15, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %248) #7
+  %249 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %76, ptr noundef %106, i32 noundef 0, i32 noundef range(i32 0, 65536) %99, i32 noundef %245, ptr noundef nonnull %15, ptr noundef nonnull @.str.140, i32 noundef %.0644.i, ptr noundef %248) #7
   %250 = load ptr, ptr %15, align 8
   %251 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %250, ptr noundef nonnull @ei_someipsd_option_unknown) #7
   %252 = load i32, ptr @hf_someip_sd_option_length, align 4
@@ -1721,11 +1721,11 @@ define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noun
   %14 = tail call ptr @someip_lookup_eventgroup_name(i16 noundef zeroext %11, i16 noundef zeroext %13) #7
   %15 = load i16, ptr %8, align 2
   %16 = zext i16 %15 to i32
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %16) #7
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %16) #7
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %20) #7
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %20) #7
   %22 = getelementptr inbounds i8, ptr %0, i64 4
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i8 %23, -1
@@ -1737,7 +1737,7 @@ define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noun
 
 26:                                               ; preds = %1
   %27 = zext i8 %23 to i32
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 127, ptr noundef nonnull readonly @.str.192, i32 noundef %27) #7
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 127, ptr noundef nonnull @.str.192, i32 noundef %27) #7
   br label %stat_number_to_string_with_any.exit
 
 stat_number_to_string_with_any.exit:              ; preds = %25, %26
@@ -1760,7 +1760,7 @@ stat_number_to_string_with_any.exit:              ; preds = %25, %26
   br label %stat_number_to_string_with_any.exit23
 
 35:                                               ; preds = %30
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 127, ptr noundef nonnull readonly @.str.192, i32 noundef %32) #7
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 127, ptr noundef nonnull @.str.192, i32 noundef %32) #7
   br label %stat_number_to_string_with_any.exit23
 
 stat_number_to_string_with_any.exit23:            ; preds = %34, %35
@@ -1778,7 +1778,7 @@ stat_number_to_string_with_any.exit23:            ; preds = %34, %35
 41:                                               ; preds = %stat_number_to_string_with_any.exit, %stat_number_to_string_with_any.exit
   %42 = load i16, ptr %12, align 2
   %43 = zext i16 %42 to i32
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 127, ptr noundef nonnull readonly @.str.191, i32 noundef %43) #7
+  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %43) #7
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %47, label %45
 

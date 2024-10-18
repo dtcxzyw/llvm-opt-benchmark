@@ -663,7 +663,7 @@ define dso_local noundef i32 @rb_cloexec_open(ptr nocapture noundef readonly %0,
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %.lcssa, i32 noundef 1) #24
+  %25 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 3, -2147483648) %.lcssa, i32 noundef 1) #24
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %31
 
@@ -671,7 +671,7 @@ define dso_local noundef i32 @rb_cloexec_open(ptr nocapture noundef readonly %0,
   %28 = tail call ptr @rb_errno_ptr() #24
   %29 = load i32, ptr %28, align 4
   %30 = tail call ptr @strerror(i32 noundef %29) #24
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.190, i32 noundef %.lcssa, ptr noundef %30) #25
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.190, i32 noundef range(i32 3, -2147483648) %.lcssa, ptr noundef %30) #25
   unreachable
 
 31:                                               ; preds = %24
@@ -680,7 +680,7 @@ define dso_local noundef i32 @rb_cloexec_open(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %33, label %rb_fix_detect_o_cloexec.exit
 
 33:                                               ; preds = %31
-  tail call void @rb_maygvl_fd_fix_cloexec(i32 noundef %.lcssa)
+  tail call void @rb_maygvl_fd_fix_cloexec(i32 noundef range(i32 3, -2147483648) %.lcssa)
   br label %rb_fix_detect_o_cloexec.exit
 
 rb_fix_detect_o_cloexec.exit:                     ; preds = %31, %33
@@ -3157,7 +3157,7 @@ RSTRING_PTR.exit124:                              ; preds = %63, %59, %rb_enc_as
   %101 = trunc nuw nsw i64 %.0102.i to i32
   %.0106.i = select i1 %or.cond.i, i32 %101, i32 %92
   %102 = sext i32 %.0106.i to i64
-  %103 = tail call ptr @memchr(ptr noundef %97, i32 noundef %.092, i64 noundef %102) #29
+  %103 = tail call ptr @memchr(ptr noundef %97, i32 noundef range(i32 -1, 256) %.092, i64 noundef %102) #29
   %.not118.i = icmp eq ptr %103, null
   br i1 %.not118.i, label %122, label %104
 
@@ -3282,7 +3282,7 @@ more_char.exit.i:                                 ; preds = %141
   %160 = icmp sgt i64 %.2104.i, 0
   %161 = tail call i64 @llvm.smin.i64(i64 %.2104.i, i64 %155)
   %.0100.i = select i1 %160, i64 %161, i64 %155
-  %162 = tail call ptr @memchr(ptr noundef %159, i32 noundef %.092, i64 noundef %.0100.i) #29
+  %162 = tail call ptr @memchr(ptr noundef %159, i32 noundef range(i32 -1, 256) %.092, i64 noundef %.0100.i) #29
   %.not115.i = icmp eq ptr %162, null
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %159 to i64
@@ -14398,7 +14398,7 @@ RSTRING_PTR.exit:                                 ; preds = %io_setstrbuf.exit30
 
 112:                                              ; preds = %107
   call void @rb_str_modify(i64 noundef %108) #24
-  call void @rb_str_set_len(i64 noundef %108, i64 noundef %100) #24
+  call void @rb_str_set_len(i64 noundef %108, i64 noundef range(i64 0, -9223372036854775808) %100) #24
   br i1 %.not33, label %113, label %io_set_read_length.exit
 
 113:                                              ; preds = %112
@@ -14408,7 +14408,7 @@ RSTRING_PTR.exit:                                 ; preds = %io_setstrbuf.exit30
   br i1 %116, label %117, label %io_set_read_length.exit
 
 117:                                              ; preds = %113
-  %118 = call i64 @rb_str_resize(i64 noundef %108, i64 noundef %100) #24
+  %118 = call i64 @rb_str_resize(i64 noundef %108, i64 noundef range(i64 0, -9223372036854775808) %100) #24
   br label %io_set_read_length.exit
 
 io_set_read_length.exit:                          ; preds = %107, %112, %113, %117
@@ -14620,7 +14620,7 @@ rb_io_check_closed.exit24:                        ; preds = %rb_io_check_initial
 
 95:                                               ; preds = %90
   call void @rb_str_modify(i64 noundef %91) #24
-  call void @rb_str_set_len(i64 noundef %91, i64 noundef %83) #24
+  call void @rb_str_set_len(i64 noundef %91, i64 noundef range(i64 0, -9223372036854775808) %83) #24
   br i1 %.not, label %96, label %io_set_read_length.exit
 
 96:                                               ; preds = %95
@@ -14630,7 +14630,7 @@ rb_io_check_closed.exit24:                        ; preds = %rb_io_check_initial
   br i1 %99, label %100, label %io_set_read_length.exit
 
 100:                                              ; preds = %96
-  %101 = call i64 @rb_str_resize(i64 noundef %91, i64 noundef %83) #24
+  %101 = call i64 @rb_str_resize(i64 noundef %91, i64 noundef range(i64 0, -9223372036854775808) %83) #24
   br label %io_set_read_length.exit
 
 io_set_read_length.exit:                          ; preds = %90, %95, %96, %100
@@ -14824,7 +14824,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_io_check_writabl
   br label %rb_ll2num_inline.exit
 
 84:                                               ; preds = %79
-  %85 = call i64 @rb_ll2inum(i64 noundef %72) #24
+  %85 = call i64 @rb_ll2inum(i64 noundef range(i64 0, -9223372036854775808) %72) #24
   br label %rb_ll2num_inline.exit
 
 rb_ll2num_inline.exit:                            ; preds = %81, %84
@@ -15714,7 +15714,7 @@ io_fread.exit:                                    ; preds = %RSTRING_PTR.exit.i
 
 173:                                              ; preds = %io_fread.exit
   call void @rb_str_modify(i64 noundef %169) #24
-  call void @rb_str_set_len(i64 noundef %169, i64 noundef %162) #24
+  call void @rb_str_set_len(i64 noundef %169, i64 noundef range(i64 0, -9223372036854775808) %162) #24
   br i1 %.not39.not, label %174, label %io_set_read_length.exit38
 
 174:                                              ; preds = %173
@@ -15724,7 +15724,7 @@ io_fread.exit:                                    ; preds = %RSTRING_PTR.exit.i
   br i1 %177, label %178, label %io_set_read_length.exit38
 
 178:                                              ; preds = %174
-  %179 = call i64 @rb_str_resize(i64 noundef %169, i64 noundef %162) #24
+  %179 = call i64 @rb_str_resize(i64 noundef %169, i64 noundef range(i64 0, -9223372036854775808) %162) #24
   br label %io_set_read_length.exit38
 
 io_set_read_length.exit38:                        ; preds = %io_fread.exit, %173, %174, %178
@@ -16702,7 +16702,7 @@ rb_io_get_fptr.exit:                              ; preds = %rb_io_taint_check.e
   %24 = getelementptr inbounds i8, ptr %17, i64 32
   %25 = load i64, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %26 = call i32 @fstat(i32 noundef %21, ptr noundef nonnull %4) #24
+  %26 = call i32 @fstat(i32 noundef range(i32 0, -2147483648) %21, ptr noundef nonnull %4) #24
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %is_socket.exit
 
@@ -16927,7 +16927,7 @@ rb_io_get_fptr.exit:                              ; preds = %rb_io_taint_check.e
   %31 = getelementptr inbounds i8, ptr %24, i64 32
   %32 = load i64, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %33 = call i32 @fstat(i32 noundef %28, ptr noundef nonnull %4) #24
+  %33 = call i32 @fstat(i32 noundef range(i32 0, -2147483648) %28, ptr noundef nonnull %4) #24
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %is_socket.exit
 
@@ -22113,7 +22113,7 @@ RSTRING_PTR.exit46:                               ; preds = %io_setstrbuf.exit42
 
 152:                                              ; preds = %147
   call void @rb_str_modify(i64 noundef %148) #24
-  call void @rb_str_set_len(i64 noundef %148, i64 noundef %.028) #24
+  call void @rb_str_set_len(i64 noundef %148, i64 noundef range(i64 0, -9223372036854775808) %.028) #24
   %.not8.i48 = icmp eq i32 %.027, 0
   br i1 %.not8.i48, label %io_set_read_length.exit49, label %153
 
@@ -22124,7 +22124,7 @@ RSTRING_PTR.exit46:                               ; preds = %io_setstrbuf.exit42
   br i1 %156, label %157, label %io_set_read_length.exit49
 
 157:                                              ; preds = %153
-  %158 = call i64 @rb_str_resize(i64 noundef %148, i64 noundef %.028) #24
+  %158 = call i64 @rb_str_resize(i64 noundef %148, i64 noundef range(i64 0, -9223372036854775808) %.028) #24
   br label %io_set_read_length.exit49
 
 io_set_read_length.exit49:                        ; preds = %147, %152, %153, %157
@@ -22560,7 +22560,7 @@ define internal i64 @io_binwrite_string(i64 noundef %0) #0 {
   br label %io_binwrite_string_internal.exit
 
 36:                                               ; preds = %11
-  %37 = call fastcc i64 @rb_io_write_memory(ptr noundef nonnull %12, ptr noundef %.01927, i64 noundef %.01828)
+  %37 = call fastcc i64 @rb_io_write_memory(ptr noundef nonnull %12, ptr noundef %.01927, i64 noundef range(i64 1, 0) %.01828)
   br label %io_binwrite_string_internal.exit
 
 io_binwrite_string_internal.exit:                 ; preds = %35, %36
@@ -24958,7 +24958,7 @@ define internal fastcc void @rb_io_fptr_cleanup(ptr noundef %0, i32 noundef rang
   br label %24
 
 6:                                                ; preds = %2
-  tail call fastcc void @fptr_finalize_flush(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null)
+  tail call fastcc void @fptr_finalize_flush(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef null)
   %7 = getelementptr inbounds i8, ptr %0, i64 68
   %8 = load ptr, ptr %7, align 1
   %.not.i.i = icmp eq ptr %8, null
@@ -26638,7 +26638,7 @@ define internal fastcc i64 @io_fwritev(i32 noundef %0, ptr nocapture noundef rea
   br i1 %15, label %16, label %rb_alloc_tmp_buffer2.exit
 
 16:                                               ; preds = %14
-  tail call void @ruby_malloc_size_overflow(i64 noundef %9, i64 noundef 16) #26
+  tail call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 16) #26
   unreachable
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %14
@@ -26664,7 +26664,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %14
   br i1 %28, label %29, label %rb_alloc_tmp_buffer2.exit42
 
 29:                                               ; preds = %27
-  call void @ruby_malloc_size_overflow(i64 noundef %22, i64 noundef 8) #26
+  call void @ruby_malloc_size_overflow(i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef 8) #26
   unreachable
 
 rb_alloc_tmp_buffer2.exit42:                      ; preds = %27
@@ -32629,7 +32629,7 @@ rb_io_check_initialized.exit.i.i:                 ; preds = %158
 
 178:                                              ; preds = %.loopexit
   call void @rb_str_modify(i64 noundef %174) #24
-  call void @rb_str_set_len(i64 noundef %174, i64 noundef %.033) #24
+  call void @rb_str_set_len(i64 noundef %174, i64 noundef range(i64 0, -9223372036854775808) %.033) #24
   br i1 %.not61.not, label %179, label %io_set_read_length.exit60
 
 179:                                              ; preds = %178
@@ -32639,7 +32639,7 @@ rb_io_check_initialized.exit.i.i:                 ; preds = %158
   br i1 %182, label %183, label %io_set_read_length.exit60
 
 183:                                              ; preds = %179
-  %184 = call i64 @rb_str_resize(i64 noundef %174, i64 noundef %.033) #24
+  %184 = call i64 @rb_str_resize(i64 noundef %174, i64 noundef range(i64 0, -9223372036854775808) %.033) #24
   br label %io_set_read_length.exit60
 
 io_set_read_length.exit60:                        ; preds = %.loopexit, %178, %179, %183

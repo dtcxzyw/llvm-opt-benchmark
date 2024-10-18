@@ -3254,7 +3254,7 @@ define zeroext i1 @print_hex_data(ptr noundef %0, ptr nocapture noundef readonly
   %24 = lshr i16 %23, 2
   %.lobit.us = and i16 %24, 1
   %25 = zext nneg i16 %.lobit.us to i32
-  %26 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %20, i32 noundef %17, i32 noundef %25, i32 noundef %11) #18
+  %26 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %20, i32 noundef %17, i32 noundef %25, i32 noundef range(i32 0, 4) %11) #18
   br i1 %26, label %27, label %._crit_edge
 
 27:                                               ; preds = %19
@@ -3281,7 +3281,7 @@ define zeroext i1 @print_hex_data(ptr noundef %0, ptr nocapture noundef readonly
   %38 = lshr i16 %37, 2
   %.lobit.us40 = and i16 %38, 1
   %39 = zext nneg i16 %.lobit.us40 to i32
-  %40 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %34, i32 noundef %32, i32 noundef %39, i32 noundef %11) #18
+  %40 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %34, i32 noundef %32, i32 noundef %39, i32 noundef range(i32 0, 4) %11) #18
   br label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %53
@@ -3300,7 +3300,7 @@ define zeroext i1 @print_hex_data(ptr noundef %0, ptr nocapture noundef readonly
   %50 = lshr i16 %49, 2
   %.lobit = and i16 %50, 1
   %51 = zext nneg i16 %.lobit to i32
-  %52 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %46, i32 noundef %43, i32 noundef %51, i32 noundef %11) #18
+  %52 = tail call zeroext i1 @hex_dump_buffer(ptr noundef nonnull @print_hex_data_line, ptr noundef %0, ptr noundef %46, i32 noundef %43, i32 noundef %51, i32 noundef range(i32 0, 4) %11) #18
   br i1 %52, label %53, label %._crit_edge
 
 53:                                               ; preds = %45

@@ -5223,7 +5223,7 @@ if.end.i134.i:                                    ; preds = %if.then.i130.i
   br label %if.end100.i
 
 if.end6.i.i:                                      ; preds = %if.end96.i
-  %call.i112.i = tail call fastcc ptr @seq_as_ssize_array(ptr noundef readonly %shape, i64 noundef %cond.i, i32 noundef 1)
+  %call.i112.i = tail call fastcc ptr @seq_as_ssize_array(ptr noundef readonly %shape, i64 noundef range(i64 -9223372036854775808, 129) %cond.i, i32 noundef 1)
   store ptr %call.i112.i, ptr %shape.i.i, align 8
   %cmp9.i.i = icmp eq ptr %call.i112.i, null
   br i1 %cmp9.i.i, label %error.i, label %if.end12.i.i
@@ -5311,7 +5311,7 @@ if.end20.i.thread.i:                              ; preds = %for.body.i.i125.i, 
   br label %if.end.i31.i.i
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
-  %call15.i.i = tail call fastcc ptr @seq_as_ssize_array(ptr noundef nonnull readonly %strides.addr.0.i, i64 noundef %cond.i, i32 noundef 0)
+  %call15.i.i = tail call fastcc ptr @seq_as_ssize_array(ptr noundef nonnull readonly %strides.addr.0.i, i64 noundef range(i64 -9223372036854775808, 129) %cond.i, i32 noundef 0)
   %strides19.i.i = getelementptr inbounds i8, ptr %call.i98.i, i64 112
   store ptr %call15.i.i, ptr %strides19.i.i, align 8
   %cmp22.i.i = icmp eq ptr %call15.i.i, null
@@ -5935,7 +5935,7 @@ if.then.i:                                        ; preds = %entry
   br label %ssize_array_as_tuple.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @PyTuple_New(i64 noundef %conv) #14
+  %call1.i = tail call ptr @PyTuple_New(i64 noundef range(i64 -2147483648, 2147483648) %conv) #14
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %ssize_array_as_tuple.exit, label %for.cond.preheader.i
 
@@ -6001,7 +6001,7 @@ if.then.i:                                        ; preds = %entry
   br label %ssize_array_as_tuple.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @PyTuple_New(i64 noundef %conv) #14
+  %call1.i = tail call ptr @PyTuple_New(i64 noundef range(i64 -2147483648, 2147483648) %conv) #14
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %ssize_array_as_tuple.exit, label %for.cond.preheader.i
 
@@ -6067,7 +6067,7 @@ if.then.i:                                        ; preds = %entry
   br label %ssize_array_as_tuple.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @PyTuple_New(i64 noundef %conv) #14
+  %call1.i = tail call ptr @PyTuple_New(i64 noundef range(i64 -2147483648, 2147483648) %conv) #14
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %ssize_array_as_tuple.exit, label %for.cond.preheader.i
 

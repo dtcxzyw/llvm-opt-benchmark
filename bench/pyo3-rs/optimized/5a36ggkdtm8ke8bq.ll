@@ -117,7 +117,7 @@ common.resume:                                    ; preds = %16, %19, %6
   br i1 %18, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %14, i64 noundef 1) #12
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, 0) %14, i64 noundef 1) #12
   br label %common.resume
 
 20:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit"
@@ -126,7 +126,7 @@ common.resume:                                    ; preds = %16, %19, %6
   br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4", label %22
 
 22:                                               ; preds = %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %14, i64 noundef 1) #12
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, 0) %14, i64 noundef 1) #12
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4"
 
 "_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h66c7b83b18eb3a5cE.exit4": ; preds = %20, %22

@@ -133,7 +133,7 @@ if.else10:                                        ; preds = %if.end7
   unreachable
 
 if.end11:                                         ; preds = %if.end7
-  %2 = tail call range(i32 0, 7) i32 @llvm.cttz.i32(i32 %nr_vectors, i1 true)
+  %2 = tail call range(i32 0, 7) i32 @llvm.cttz.i32(i32 range(i32 1, 113) %nr_vectors, i1 true)
   %.tr = trunc nuw nsw i32 %2 to i16
   %conv = shl nuw nsw i16 %.tr, 1
   %conv16 = or disjoint i16 %conv, 128

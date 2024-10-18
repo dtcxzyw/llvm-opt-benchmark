@@ -956,7 +956,7 @@ for.cond6.preheader.i:                            ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %5, i1 false)
   %buf21.i = getelementptr inbounds i8, ptr %state, i64 40
   %arrayidx24.i = getelementptr inbounds i8, ptr %tmp32, i64 256
-  call fastcc void @SHA256_Transform(ptr noundef %state, ptr noundef nonnull %buf21.i, ptr noundef %tmp32, ptr noundef nonnull %arrayidx24.i)
+  call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf21.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx24.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buf21.i, i8 0, i64 56, i1 false)
   br label %SHA256_Pad.exit
 
@@ -1004,7 +1004,7 @@ SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader
   %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %arrayidx28.i, align 1
   %arrayidx35.i = getelementptr inbounds i8, ptr %tmp32, i64 256
-  call fastcc void @SHA256_Transform(ptr noundef %state, ptr noundef nonnull %buf27.i, ptr noundef %tmp32, ptr noundef nonnull %arrayidx35.i)
+  call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf27.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx35.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %SHA256_Pad.exit

@@ -1088,7 +1088,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %48 = fmul double %29, %46
   %49 = getelementptr inbounds i8, ptr %40, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef %33) #11
+  %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #11
   %52 = extractvalue { double, double } %51, 0
   %53 = extractvalue { double, double } %51, 1
   br label %arrow_gen_type.exit

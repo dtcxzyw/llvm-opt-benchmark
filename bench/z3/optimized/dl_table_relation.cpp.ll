@@ -348,7 +348,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -358,7 +358,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
@@ -460,7 +460,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -926,7 +926,7 @@ if.end8:                                          ; preds = %if.end
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_signature.i = getelementptr inbounds i8, ptr %r1, i64 16
   %m_signature.i13 = getelementptr inbounds i8, ptr %r2, i64 16
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(40) %call9, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i13, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef 0, ptr noundef null)
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(48) %call9, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i13, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef 0, ptr noundef null)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21table_relation_plugin18tr_join_project_fnE, i64 16), ptr %call9, align 8
   %m_tfun.i = getelementptr inbounds i8, ptr %call9, i64 40
   store ptr %call6, ptr %m_tfun.i, align 8
@@ -968,7 +968,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_signature.i = getelementptr inbounds i8, ptr %r1, i64 16
   %m_signature.i14 = getelementptr inbounds i8, ptr %r2, i64 16
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(40) %call7, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i14, i32 noundef %joined_col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnC2ERKNS_18relation_signatureES6_jPKjS8_jS8_(ptr noundef nonnull align 8 dereferenceable(48) %call7, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(8) %m_signature.i14, i32 noundef %joined_col_cnt, ptr noundef %cols1, ptr noundef %cols2, i32 noundef %removed_col_cnt, ptr noundef %removed_cols)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21table_relation_plugin18tr_join_project_fnE, i64 16), ptr %call7, align 8
   %m_tfun.i = getelementptr inbounds i8, ptr %call7, i64 40
   store ptr %call6, ptr %m_tfun.i, align 8
@@ -1058,7 +1058,7 @@ lpad2.i:                                          ; preds = %_ZNK6vectorIP4sortL
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tfun.i) #16
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call8) #16
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call8) #16
   br label %lpad.body
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1464,7 +1464,7 @@ lpad2.i:                                          ; preds = %_ZNK6vectorIP4sortL
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tfun.i) #16
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call8) #16
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call8) #16
   br label %lpad.body
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i19, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i22
@@ -1629,7 +1629,7 @@ lpad2.i:                                          ; preds = %_ZNK6vectorIP4sortL
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tfun.i) #16
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call8) #16
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call8) #16
   br label %lpad.body
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1751,7 +1751,7 @@ lpad2.i:                                          ; preds = %_ZNK6vectorIP4sortL
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tfun.i) #16
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call11) #16
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call11) #16
   br label %lpad.body
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2021,7 +2021,7 @@ lpad2.i:                                          ; preds = %_ZNK6vectorIP4sortL
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_tfun.i) #16
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call8) #16
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call8) #16
   br label %lpad.body
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2590,7 +2590,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i50
   %vtable.i.i.i.i.i = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(12) %35) #16
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %35)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %35)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then.i.i.i.i
@@ -2617,7 +2617,7 @@ if.then.i.i.i.i57:                                ; preds = %if.then.i.i.i53
   %vtable.i.i.i.i.i58 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %vtable.i.i.i.i.i58, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(12) %40) #16
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %40)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %40)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit60 unwind label %terminate.lpad.i.i59
 
 terminate.lpad.i.i59:                             ; preds = %if.then.i.i.i.i57
@@ -2665,7 +2665,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #16
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %_ZN3refIN7datalog10table_base13iterator_coreEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -2898,7 +2898,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(28) %this) #16
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(28) %this)
   ret void
 }
 
@@ -3359,7 +3359,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN7datalog21table_relation_plugin18tr_join_project_fnD2Ev.exit: ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #16
+  tail call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE26convenient_join_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -4387,7 +4387,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i16
   %vtable.i.i.i.i.i = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %vtable.i.i.i.i.i, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(12) %45) #16
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %45)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %45)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit unwind label %terminate.lpad.i.i18
 
 terminate.lpad.i.i18:                             ; preds = %if.then.i.i.i.i
@@ -4414,7 +4414,7 @@ if.then.i.i.i.i24:                                ; preds = %if.then.i.i.i20
   %vtable.i.i.i.i.i25 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %vtable.i.i.i.i.i25, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(12) %50) #16
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %50)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %50)
           to label %_ZN7datalog10table_base8iteratorD2Ev.exit27 unwind label %terminate.lpad.i.i26
 
 terminate.lpad.i.i26:                             ; preds = %if.then.i.i.i.i24

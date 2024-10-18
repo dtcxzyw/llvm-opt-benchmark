@@ -848,11 +848,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %13 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, i64 noundef %cond.i.i, i64 noundef %cond11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
   br label %trace_run_poll_handlers_begin.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %ctx, i64 noundef %cond.i.i, i64 noundef %cond11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
   br label %trace_run_poll_handlers_begin.exit.i.i
 
 trace_run_poll_handlers_begin.exit.i.i:           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i10.i
@@ -1713,11 +1713,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %ctx, ptr noundef nonnull %node, i32 noundef %6, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %ctx, ptr noundef nonnull %node, i32 noundef %6, i32 noundef range(i32 0, 65536) %and) #10
   br label %trace_poll_add.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef %ctx, ptr noundef nonnull %node, i32 noundef %6, i32 noundef %and) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef %ctx, ptr noundef nonnull %node, i32 noundef %6, i32 noundef range(i32 0, 65536) %and) #10
   br label %trace_poll_add.exit
 
 trace_poll_add.exit:                              ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

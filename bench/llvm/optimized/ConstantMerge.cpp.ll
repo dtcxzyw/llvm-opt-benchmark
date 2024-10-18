@@ -215,7 +215,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE6insertES3_.exit.i52.i: ; preds = 
 _ZL14FindUsedValuesPN4llvm14GlobalVariableERNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit60.i: ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE6insertES3_.exit.i52.i, %52, %_ZL14FindUsedValuesPN4llvm14GlobalVariableERNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %85 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %85, i64 noundef 32) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %10, ptr noundef nonnull %85, i64 noundef 32) #8
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %88 = getelementptr inbounds i8, ptr %7, i64 16
@@ -265,11 +265,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   br i1 %112, label %113, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
 
 113:                                              ; preds = %109
-  %114 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %98) #8
+  %114 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %98) #8
   br i1 %114, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i, label %115
 
 115:                                              ; preds = %113
-  %116 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(48) %98) #8
+  %116 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(81) %98) #8
   br i1 %116, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i
 
 _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i: ; preds = %115
@@ -368,7 +368,7 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.i: ; preds = %154
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %88, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %88, i64 noundef 4) #8
   call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(16) %7) #8
   %157 = load ptr, ptr %7, align 8
   %158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
@@ -387,7 +387,7 @@ _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.i: ; preds = %154
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i68.i, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.i
   %.not.lcssa.i.i = phi i1 [ false, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit.i ], [ %.not10.not.i.not.i.not, %.lr.ph.i68.i ]
-  %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
+  %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #8
   %163 = load ptr, ptr %7, align 8
   %164 = icmp eq ptr %163, %88
   br i1 %164, label %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i, label %165
@@ -520,11 +520,11 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   br i1 %218, label %219, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit99.thread.i
 
 219:                                              ; preds = %.lr.ph154.i
-  %220 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %215) #8
+  %220 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %215) #8
   br i1 %220, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit99.thread.i, label %221
 
 221:                                              ; preds = %219
-  %222 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(48) %215) #8
+  %222 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(81) %215) #8
   br i1 %222, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit99.thread.i, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i78.i
 
 _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i78.i: ; preds = %221
@@ -687,7 +687,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
 
 307:                                              ; preds = %302, %299
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %90, i64 noundef 4) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %90, i64 noundef 4) #8
   call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(16) %6) #8
   %308 = load ptr, ptr %6, align 8
   %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
@@ -706,7 +706,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i105.i, %307
   %.not.lcssa.i.i.i = phi i1 [ false, %307 ], [ %.not10.not.i.not.i.not.i.not, %.lr.ph.i.i105.i ]
-  %313 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
+  %313 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %6) #8
   %314 = load ptr, ptr %6, align 8
   %315 = icmp eq ptr %314, %90
   br i1 %315, label %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i.i, label %316
@@ -812,7 +812,7 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
 
 362:                                              ; preds = %.critedge.i.i, %346
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %91, i64 noundef 1) #8
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %91, i64 noundef 1) #8
   call void @_ZNK4llvm14GlobalVariable12getDebugInfoERNS_15SmallVectorImplIPNS_26DIGlobalVariableExpressionEEE(ptr noundef nonnull align 8 dereferenceable(81) %339, ptr noundef nonnull align 8 dereferenceable(16) %5) #8
   %363 = load ptr, ptr %5, align 8
   %364 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
@@ -829,7 +829,7 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   br i1 %.not.i.i108.i, label %._crit_edge.i.i109.i, label %.lr.ph.i.i107.i
 
 ._crit_edge.i.i109.i:                             ; preds = %.lr.ph.i.i107.i, %362
-  %368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #8
   %369 = load ptr, ptr %5, align 8
   %370 = icmp eq ptr %369, %91
   br i1 %370, label %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i, label %371

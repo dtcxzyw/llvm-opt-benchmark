@@ -405,7 +405,7 @@ if.end4:                                          ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %5)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.end4
@@ -436,7 +436,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   br i1 %cmp.not.i.i27, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %call.i.i29 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i)
+  %call.i.i29 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30: ; preds = %if.then.i.i28, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -494,7 +494,7 @@ if.end9:                                          ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i49, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i52, label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %if.end9
-  %call.i.i51 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %13)
+  %call.i.i51 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %13)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i52
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i52: ; preds = %if.then.i.i50, %if.end9
@@ -526,7 +526,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66: ; preds = %wh
   br i1 %cmp.not.i.i68, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %if.then.i.i69
 
 if.then.i.i69:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66
-  %call.i.i70 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i58)
+  %call.i.i70 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i58)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66, %if.then.i.i69
@@ -570,7 +570,7 @@ if.end13:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i82, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i85, label %if.then.i.i83
 
 if.then.i.i83:                                    ; preds = %if.end13
-  %call.i.i84 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %21)
+  %call.i.i84 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %21)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i85
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i85: ; preds = %if.then.i.i83, %if.end13
@@ -601,7 +601,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99: ; preds = %wh
   br i1 %cmp.not.i.i101, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i104, label %if.then.i.i102
 
 if.then.i.i102:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99
-  %call.i.i103 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i91)
+  %call.i.i103 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i91)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i104
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i104: ; preds = %if.then.i.i102, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99
@@ -655,7 +655,7 @@ if.end16:                                         ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.end16
   %conv.i122 = trunc i64 %call2.i to i32
-  %call.i.i.i123 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call.i119, i32 noundef %conv.i122, ptr noundef %27)
+  %call.i.i.i123 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call.i119, i32 noundef %conv.i122, ptr noundef %27)
           to label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad
 
 if.end.i.i.i:                                     ; preds = %if.end16
@@ -681,7 +681,7 @@ sw.bb18:                                          ; preds = %if.end
   br i1 %cmp.not.i.i125, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i128, label %if.then.i.i126
 
 if.then.i.i126:                                   ; preds = %sw.bb18
-  %call.i.i127 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %29)
+  %call.i.i127 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %29)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i128
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i128: ; preds = %if.then.i.i126, %sw.bb18
@@ -759,7 +759,7 @@ if.then3.i:                                       ; preds = %if.end.i146
   br i1 %cmp.not.i.i194, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i197, label %if.then.i.i195
 
 if.then.i.i195:                                   ; preds = %if.then3.i
-  %call.i.i196 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %36)
+  %call.i.i196 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %36)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i197
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i197: ; preds = %if.then.i.i195, %if.then3.i
@@ -839,7 +839,7 @@ if.end35:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i168, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i171, label %if.then.i.i169
 
 if.then.i.i169:                                   ; preds = %if.end35
-  %call.i.i170 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %45)
+  %call.i.i170 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %45)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i171
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i171: ; preds = %if.then.i.i169, %if.end35
@@ -871,7 +871,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185: ; preds = %w
   br i1 %cmp.not.i.i187, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %if.then.i.i188
 
 if.then.i.i188:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185
-  %call.i.i189 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i177)
+  %call.i.i189 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i177)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185, %if.then.i.i188
@@ -944,7 +944,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %3)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %3)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.then3
@@ -1099,7 +1099,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %4)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %4)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %if.then3.i
@@ -1148,7 +1148,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %entry
@@ -1183,7 +1183,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   br i1 %cmp.not.i.i2, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i5, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %call.i.i4 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %4, ptr noundef %5)
+  %call.i.i4 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i5
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i5: ; preds = %if.then.i.i3, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -1384,7 +1384,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %unknown_fields_stream, ptr noundef %23)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %unknown_fields_stream, ptr noundef %23)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.else
@@ -1414,7 +1414,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   br i1 %cmp.not.i.i27, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %call.i.i29 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %unknown_fields_stream, ptr noundef nonnull %incdec.ptr2.i.i.i)
+  %call.i.i29 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %unknown_fields_stream, ptr noundef nonnull %incdec.ptr2.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30: ; preds = %if.then.i.i28, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -1477,7 +1477,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIfEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1507,7 +1507,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIdEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1537,7 +1537,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIjEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1567,7 +1567,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayImEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1597,7 +1597,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIiEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1627,7 +1627,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %mul.i, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIlEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1656,7 +1656,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %a, i32 noundef %n, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %a, i32 noundef %n, ptr noundef %0)
   br label %_ZN6google8protobuf8internalL10WriteArrayIbEEvPKT_iPNS0_2io17CodedOutputStreamE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -1682,7 +1682,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -1714,7 +1714,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i.i3, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i.i5 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i.i5 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6: ; preds = %if.then.i.i.i4, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -1754,7 +1754,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -1785,7 +1785,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -1825,7 +1825,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -1856,7 +1856,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -1896,7 +1896,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -1927,7 +1927,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -1967,7 +1967,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2001,7 +2001,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2041,7 +2041,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2075,7 +2075,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2116,7 +2116,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2147,7 +2147,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2170,7 +2170,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2201,7 +2201,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2224,7 +2224,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2255,7 +2255,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2278,7 +2278,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2309,7 +2309,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2332,7 +2332,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2363,7 +2363,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian32Ej.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2386,7 +2386,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2417,7 +2417,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit
 
 _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2439,7 +2439,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2470,7 +2470,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, %if.then.i.i
@@ -2493,7 +2493,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2525,7 +2525,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i.i3, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i.i5 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
+  %call.i.i.i5 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef nonnull %incdec.ptr2.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6: ; preds = %if.then.i.i.i4, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -2567,7 +2567,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2615,7 +2615,7 @@ while.end:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %5)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %while.end
@@ -2655,7 +2655,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 
 if.then.i.i.i11:                                  ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %conv.i = trunc i64 %call2.i to i32
-  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call.i6, i32 noundef %conv.i, ptr noundef %8)
+  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call.i6, i32 noundef %conv.i, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -2695,7 +2695,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2743,7 +2743,7 @@ while.end:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %5)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %while.end
@@ -2779,7 +2779,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   br i1 %tobool.i.i, label %if.then.i.i13, label %if.else.i.i
 
 if.then.i.i13:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %call.i.i14 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
+  %call.i.i14 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 if.else.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -2793,7 +2793,7 @@ if.else.i.i:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i9, label %if.then.i.i.i11, label %if.end.i.i.i
 
 if.then.i.i.i11:                                  ; preds = %if.else.i.i
-  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
+  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
@@ -2824,7 +2824,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2872,7 +2872,7 @@ while.end:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %5)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %while.end
@@ -2912,7 +2912,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 
 if.then.i.i.i11:                                  ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %conv.i = trunc i64 %call2.i to i32
-  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call.i6, i32 noundef %conv.i, ptr noundef %8)
+  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call.i6, i32 noundef %conv.i, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end.i.i.i:                                     ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -2940,7 +2940,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -2988,7 +2988,7 @@ while.end:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %5)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %while.end
@@ -3024,7 +3024,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   br i1 %tobool.i.i, label %if.then.i.i13, label %if.else.i.i
 
 if.then.i.i13:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %call.i.i14 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
+  %call.i.i14 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 if.else.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -3038,7 +3038,7 @@ if.else.i.i:                                      ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i9, label %if.then.i.i.i11, label %if.end.i.i.i
 
 if.then.i.i.i11:                                  ; preds = %if.else.i.i
-  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
+  %call.i.i.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call9, i32 noundef %conv11, ptr noundef %8)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i
@@ -3065,7 +3065,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -3102,7 +3102,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i11, label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i.i10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call3.i)
+  %call.i.i.i10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call3.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i11
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i11: ; preds = %if.then.i.i.i9, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3142,7 +3142,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -3175,7 +3175,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %3)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %3)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3370,7 +3370,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -3409,7 +3409,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i.i9, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i.i11 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call2.i)
+  %call.i.i.i11 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %call2.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12: ; preds = %if.then.i.i.i10, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3449,7 +3449,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %0)
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %0)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i: ; preds = %if.then.i.i.i, %entry
@@ -3482,7 +3482,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
-  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %3)
+  %call.i.i = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %output, ptr noundef %3)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit
@@ -3626,7 +3626,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %quoted_field_name, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %quoted_field_name, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -3636,7 +3636,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %quoted_field_name) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %quoted_field_name) #22
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc

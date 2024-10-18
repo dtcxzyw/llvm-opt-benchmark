@@ -2327,7 +2327,7 @@ define dso_local void @_ZN5clang8comments13CommandTraitsC2ERN4llvm20BumpPtrAlloc
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 4) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %6, i64 noundef 4) #13
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -2575,7 +2575,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits25getTypoCorrect
 10:                                               ; preds = %3
   store i32 1, ptr %5, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %11, i64 noundef 2) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %11, i64 noundef 2) #13
   store ptr %4, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %12, align 8
@@ -2629,7 +2629,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits25getTypoCorrect
 
 32:                                               ; preds = %._crit_edge, %29
   %33 = phi ptr [ %31, %29 ], [ null, %._crit_edge ]
-  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   %35 = load ptr, ptr %6, align 8
   %36 = icmp eq ptr %35, %11
   br i1 %36, label %_ZN4llvm11SmallVectorIPKN5clang8comments11CommandInfoELj2EED2Ev.exit, label %37

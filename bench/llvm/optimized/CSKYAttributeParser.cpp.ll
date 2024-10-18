@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm19CSKYAttributeParser9fpuHardFPEj(ptr dead_on_unw
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %11 = tail call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  %11 = tail call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10) #8
   store i64 %11, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   %12 = and i64 %11, 1

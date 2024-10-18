@@ -2177,7 +2177,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2ERKS1_.exit: ; preds = %595, %601
 611:                                              ; preds = %608
   %612 = getelementptr inbounds i8, ptr %607, i64 8
   %613 = load ptr, ptr %612, align 8
-  invoke void %613(ptr noundef nonnull %607)
+  invoke void %613(ptr noundef nonnull align 8 dereferenceable(16) %607)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %616
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %611, %608
@@ -6671,7 +6671,7 @@ define linkonce_odr void @_ZN14QSharedPointerI13QCPAxisTickerED2Ev(ptr noundef n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -7873,7 +7873,7 @@ define linkonce_odr void @_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev(ptr n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -8046,7 +8046,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7IOGraphEED2Ev.exit: ; preds = %._crit_
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %31, i64 8
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull %31)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %40
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %35, %32
@@ -8080,7 +8080,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %29, %_ZN15QtSh
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %44, i64 8
   %50 = load ptr, ptr %49, align 8
-  invoke void %50(ptr noundef nonnull %44)
+  invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %44)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i6 unwind label %53
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i6: ; preds = %48, %45
@@ -8167,7 +8167,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %74
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #27
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #27
   ret void
 
 76:                                               ; preds = %1
@@ -8213,7 +8213,7 @@ define void @_ZN13IOGraphDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13IOGraphDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13IOGraphDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(352) %2) #28
   ret void
 }
 
@@ -11072,7 +11072,7 @@ _ZNK5QListIP7IOGraphE5valueExS1_.exit.thread:     ; preds = %36, %108, %_ZNK5QLi
 146:                                              ; preds = %134
   %147 = getelementptr inbounds i8, ptr %126, i64 8
   %148 = load ptr, ptr %147, align 8
-  invoke void %148(ptr noundef nonnull %126)
+  invoke void %148(ptr noundef nonnull align 8 dereferenceable(16) %126)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %151
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %146, %134
@@ -13787,7 +13787,7 @@ _ZNK13IOGraphDialog14graphIsEnabledEi.exit:       ; preds = %45
 103:                                              ; preds = %91
   %104 = getelementptr inbounds i8, ptr %83, i64 8
   %105 = load ptr, ptr %104, align 8
-  invoke void %105(ptr noundef nonnull %83)
+  invoke void %105(ptr noundef nonnull align 8 dereferenceable(16) %83)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %108
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %103, %91
@@ -14754,7 +14754,7 @@ _ZNK7QCPAxis6tickerEv.exit:                       ; preds = %_ZNK20QCPAbstractPl
 61:                                               ; preds = %49
   %62 = getelementptr inbounds i8, ptr %41, i64 8
   %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull %41)
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %41)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %66
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %61, %49
@@ -14783,7 +14783,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %61, 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %14, i64 8
   %74 = load ptr, ptr %73, align 8
-  invoke void %74(ptr noundef nonnull %14)
+  invoke void %74(ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i30 unwind label %77
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i30: ; preds = %72, %69
@@ -14815,7 +14815,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread: ; preds = %30, %76
 83:                                               ; preds = %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread
   %84 = getelementptr inbounds i8, ptr %14, i64 8
   %85 = load ptr, ptr %84, align 8
-  invoke void %85(ptr noundef nonnull %14)
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i34 unwind label %88
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i34: ; preds = %83, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread
@@ -14875,7 +14875,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i34: ; preds = %83
 117:                                              ; preds = %104
   %118 = getelementptr inbounds i8, ptr %96, i64 8
   %119 = load ptr, ptr %118, align 8
-  invoke void %119(ptr noundef nonnull %96)
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(16) %96)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i40 unwind label %122
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i40: ; preds = %117, %104
@@ -14995,7 +14995,7 @@ _ZNK7QCPAxis6tickerEv.exit45:                     ; preds = %_ZNK20QCPAbstractPl
 184:                                              ; preds = %172
   %185 = getelementptr inbounds i8, ptr %164, i64 8
   %186 = load ptr, ptr %185, align 8
-  invoke void %186(ptr noundef nonnull %164)
+  invoke void %186(ptr noundef nonnull align 8 dereferenceable(16) %164)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61 unwind label %189
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61: ; preds = %184, %172
@@ -15024,7 +15024,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i61: ; preds = %18
 195:                                              ; preds = %192
   %196 = getelementptr inbounds i8, ptr %137, i64 8
   %197 = load ptr, ptr %196, align 8
-  invoke void %197(ptr noundef nonnull %137)
+  invoke void %197(ptr noundef nonnull align 8 dereferenceable(16) %137)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65 unwind label %200
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65: ; preds = %195, %192
@@ -15056,7 +15056,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit67.thread: ; preds = %153, 
 206:                                              ; preds = %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit67.thread
   %207 = getelementptr inbounds i8, ptr %137, i64 8
   %208 = load ptr, ptr %207, align 8
-  invoke void %208(ptr noundef nonnull %137)
+  invoke void %208(ptr noundef nonnull align 8 dereferenceable(16) %137)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i70 unwind label %211
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i70: ; preds = %206, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit67.thread
@@ -15116,7 +15116,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i70: ; preds = %20
 240:                                              ; preds = %227
   %241 = getelementptr inbounds i8, ptr %219, i64 8
   %242 = load ptr, ptr %241, align 8
-  invoke void %242(ptr noundef nonnull %219)
+  invoke void %242(ptr noundef nonnull align 8 dereferenceable(16) %219)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i77 unwind label %245
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i77: ; preds = %240, %227
@@ -15156,7 +15156,7 @@ define linkonce_odr void @_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataE
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -16235,7 +16235,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2I21QCPAxisTickerDateTimeTnNSt9enable_ifIXs
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull %27)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %35
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %31, %28
@@ -16291,7 +16291,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2ERKS1_.exit: ; preds = %40, %46
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %52, i64 8
   %58 = load ptr, ptr %57, align 8
-  invoke void %58(ptr noundef nonnull %52)
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %52)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i10 unwind label %60
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i10: ; preds = %56, %53
@@ -20700,7 +20700,7 @@ define linkonce_odr void @_ZN14QSharedPointerI16QCPDataContainerI11QCPBarsDataEE
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -20842,7 +20842,7 @@ _ZN17QArrayDataPointerI12QCPGraphDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArra
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %23, i64 8
   %54 = load ptr, ptr %53, align 8
-  invoke void %54(ptr noundef nonnull %23)
+  invoke void %54(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %57
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %52, %49
@@ -20947,7 +20947,7 @@ _ZN17QArrayDataPointerI11QCPBarsDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArray
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %66, i64 8
   %97 = load ptr, ptr %96, align 8
-  invoke void %97(ptr noundef nonnull %66)
+  invoke void %97(ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i16 unwind label %100
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i16: ; preds = %95, %92
@@ -21062,7 +21062,7 @@ _ZN17QArrayDataPointerI12QCPGraphDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArra
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %13, i64 8
   %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr noundef nonnull %13)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %47
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %42, %39
@@ -21186,7 +21186,7 @@ _ZN17QArrayDataPointerI11QCPBarsDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArray
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %67, i64 8
   %98 = load ptr, ptr %97, align 8
-  invoke void %98(ptr noundef nonnull %67)
+  invoke void %98(ptr noundef nonnull align 8 dereferenceable(16) %67)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i108 unwind label %101
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i108: ; preds = %96, %93
@@ -21387,7 +21387,7 @@ _ZNK7QCPAxis6tickerEv.exit:                       ; preds = %181, %184
 208:                                              ; preds = %202
   %209 = getelementptr inbounds i8, ptr %183, i64 8
   %210 = load ptr, ptr %209, align 8
-  invoke void %210(ptr noundef nonnull %183)
+  invoke void %210(ptr noundef nonnull align 8 dereferenceable(16) %183)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i117 unwind label %213
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i117: ; preds = %208, %202
@@ -21424,7 +21424,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %189, %_ZNK7QCP
 219:                                              ; preds = %216
   %220 = getelementptr inbounds i8, ptr %183, i64 8
   %221 = load ptr, ptr %220, align 8
-  invoke void %221(ptr noundef nonnull %183)
+  invoke void %221(ptr noundef nonnull align 8 dereferenceable(16) %183)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121 unwind label %224
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121: ; preds = %219, %216
@@ -21814,7 +21814,7 @@ _ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI12QCPGraphDataEEEdRKT_.exi
 53:                                               ; preds = %50
   %54 = getelementptr inbounds i8, ptr %30, i64 8
   %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull %30)
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(16) %30)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %57
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %53, %50
@@ -21892,7 +21892,7 @@ _ZN7IOGraph21maxValueFromGraphDataI16QCPDataContainerI11QCPBarsDataEEEdRKT_.exit
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %67, i64 8
   %92 = load ptr, ptr %91, align 8
-  invoke void %92(ptr noundef nonnull %67)
+  invoke void %92(ptr noundef nonnull align 8 dereferenceable(16) %67)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31 unwind label %94
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i31: ; preds = %90, %87
@@ -22129,7 +22129,7 @@ _ZN7IOGraph14scaleGraphDataI16QCPDataContainerI12QCPGraphDataEEEvRT_i.exit: ; pr
 182:                                              ; preds = %179
   %183 = getelementptr inbounds i8, ptr %178, i64 8
   %184 = load ptr, ptr %183, align 8
-  invoke void %184(ptr noundef nonnull %178)
+  invoke void %184(ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51 unwind label %186
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i51: ; preds = %182, %179
@@ -22258,7 +22258,7 @@ _ZN7IOGraph14scaleGraphDataI16QCPDataContainerI11QCPBarsDataEEEvRT_i.exit: ; pre
 233:                                              ; preds = %230
   %234 = getelementptr inbounds i8, ptr %229, i64 8
   %235 = load ptr, ptr %234, align 8
-  invoke void %235(ptr noundef nonnull %229)
+  invoke void %235(ptr noundef nonnull align 8 dereferenceable(16) %229)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65 unwind label %237
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i65: ; preds = %233, %230
@@ -27584,7 +27584,7 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit: ; preds = %8
 23:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit
   %24 = getelementptr %class.QVariant, ptr %15, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i, align 8
   %25 = load i64, ptr %9, align 8
@@ -27609,7 +27609,7 @@ _ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit: ; preds = %27
 35:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit
   %36 = getelementptr i8, ptr %30, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i17, align 8
   %37 = load ptr, ptr %29, align 8
@@ -27622,7 +27622,7 @@ _ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit: ; preds = %27
 
 _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK17QArrayDataPointerI8QVariantE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i18, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -27642,7 +27642,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread: ; preds = %3, %27
 50:                                               ; preds = %47
   %51 = getelementptr i8, ptr %49, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr i8, ptr %52, i64 -32
   store ptr %53, ptr %48, align 8
@@ -27662,7 +27662,7 @@ _ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit: ; preds = %47
   %60 = shl i64 %59, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %57, ptr align 1 %56, i64 %60, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   br label %61
 
 61:                                               ; preds = %_ZN9QtPrivate16QMovableArrayOpsI8QVariantE8InserterD2Ev.exit, %50
@@ -28056,7 +28056,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread: ; preds = %38, 
   %.010.i33 = phi ptr [ %58, %.lr.ph.i31 ], [ %66, %63 ]
   %65 = getelementptr %class.QVariant, ptr %31, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.010.i33, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.010.i33, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.i33, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %66 = getelementptr i8, ptr %.010.i33, i64 32
@@ -29545,7 +29545,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30
@@ -29925,7 +29925,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEEC2Em.exit, label %27
@@ -30120,7 +30120,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38

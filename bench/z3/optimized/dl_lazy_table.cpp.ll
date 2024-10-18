@@ -902,7 +902,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
   %.pn.i.i = phi { ptr, i32 } [ %10, %lpad2.i.i ], [ %9, %lpad.i.i ]
-  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call2) #17
+  tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call2) #17
   resume { ptr, i32 } %.pn.i.i
 
 _ZN7datalog17lazy_table_plugin10project_fnC2ERKNS_15table_signatureEjPKj.exit: ; preds = %invoke.cont.i.i
@@ -1926,7 +1926,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(48) %13) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %13)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %13)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %if.end.i, %if.then.i.i, %if.then.i.i.i
@@ -2785,7 +2785,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
@@ -2904,7 +2904,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
@@ -3014,7 +3014,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
@@ -3124,7 +3124,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i14
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   br label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i14, %if.then.i.i.i
@@ -3525,7 +3525,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3580,7 +3580,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -3620,7 +3620,7 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %this)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(36) %this)
   ret void
 }
 
@@ -3723,7 +3723,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3752,7 +3752,7 @@ if.then.i.i.i6:                                   ; preds = %if.then.i.i2
   %vfn.i.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i.i7, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i8, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit10 unwind label %terminate.lpad.i9
 
 terminate.lpad.i9:                                ; preds = %if.then.i.i.i6
@@ -3874,7 +3874,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -3978,7 +3978,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -4082,7 +4082,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -4186,7 +4186,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -4272,7 +4272,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -4421,7 +4421,7 @@ if.then.i.i.i6:                                   ; preds = %if.then.i.i
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %6)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i6
@@ -4450,7 +4450,7 @@ if.then.i.i.i12:                                  ; preds = %if.then.i.i8
   %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 8
   %13 = load ptr, ptr %vfn.i.i.i.i14, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(48) %11) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %11)
           to label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit16 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %if.then.i.i.i12
@@ -5047,7 +5047,7 @@ _ZN7datalog17lazy_table_plugin7join_fnD2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin7join_fnclERKNS_10table_baseES4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t1, ptr noundef nonnull align 8 dereferenceable(36) %_t2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t1, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -5056,7 +5056,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t2, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i1, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2
 
@@ -5340,7 +5340,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5719,7 +5719,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -5750,7 +5750,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin8union_fnclERNS_10table_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(36) %_tgt, ptr noundef nonnull align 8 dereferenceable(36) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_tgt, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -5759,7 +5759,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_src, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i7, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -6001,7 +6001,7 @@ _ZN7datalog17lazy_table_plugin10project_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin10project_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -6591,7 +6591,7 @@ _ZN7datalog17lazy_table_plugin9rename_fnD2Ev.exit: ; preds = %_ZN7svectorIjjED2E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17lazy_table_plugin9rename_fnclERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
 
@@ -6923,7 +6923,7 @@ _ZN7datalog17lazy_table_plugin19filter_identical_fnD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin19filter_identical_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -6968,7 +6968,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %if.then.i.i.i, %if.then.i.i.i.i
@@ -7210,7 +7210,7 @@ _ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 
@@ -7245,7 +7245,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %4)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %if.then.i.i.i, %if.then.i.i.i.i
@@ -7465,7 +7465,7 @@ _ZN7datalog17lazy_table_plugin21filter_by_negation_fnD2Ev.exit: ; preds = %_ZN7s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnclERNS_10table_baseERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t, ptr noundef nonnull align 8 dereferenceable(36) %_intersected_obj) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
 
@@ -7474,7 +7474,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_intersected_obj, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i2, label %if.end.i.i
 
@@ -7509,7 +7509,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %if.then.i.i.i, %if.then.i.i.i.i
@@ -7728,7 +7728,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin15filter_equal_fnclERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(36) %_t) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly align 8 dereferenceable(36) %_t, ptr nonnull @_ZTIN7datalog10table_baseE, ptr nonnull @_ZTIN7datalog10lazy_tableE, i64 0) #17
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %if.end.i.i
 
@@ -7765,7 +7765,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
   br label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %if.then.i.i.i, %if.then.i.i.i.i

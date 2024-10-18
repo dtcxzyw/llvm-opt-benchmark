@@ -554,7 +554,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8datasets6ObjectEEESaIS4_EED2Ev.exit57: ; preds = %_ZS
           to label %176 unwind label %.loopexit114
 
 176:                                              ; preds = %174
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %175) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %175) #14
   %177 = getelementptr inbounds i8, ptr %175, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %177, i8 0, i64 24, i1 false)
   store ptr %175, ptr %7, align 8
@@ -2059,7 +2059,7 @@ _ZSt8_DestroyIPN2cv8datasets9cameraPosES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_
   br label %_ZN2cv8datasets11IR_robotObjD2Ev.exit
 
 _ZN2cv8datasets11IR_robotObjD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN2cv8datasets9cameraPosES2_EvT_S4_RSaIT0_E.exit.i.i, %18
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   br label %19
 

@@ -7568,7 +7568,7 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
   br i1 %282, label %283, label %.thread.i.i.i
 
 283:                                              ; preds = %280
-  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef %11)
+  %284 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef nonnull %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 285:                                              ; preds = %263
@@ -7616,12 +7616,12 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %256, %251
 306:                                              ; preds = %.thread.i.i.i, %285
   %307 = phi ptr [ %288, %.thread.i.i.i ], [ %286, %285 ]
   %308 = call i32 @tvb_captured_length(ptr noundef nonnull %307) #10
-  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef %11)
+  %309 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef nonnull %307, ptr noundef %1, ptr noundef %100, ptr noundef nonnull %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef 0, i32 noundef %308, ptr noundef nonnull %11)
   %310 = add i32 %309, %258
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 311:                                              ; preds = %dissect_dcm_pdv_header.exit.i.i.i
-  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef %11)
+  %312 = call fastcc i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr noundef %1, ptr noundef %100, ptr noundef nonnull %.1.i.i, ptr noundef nonnull %.1.i121.i.i.i.i, i32 noundef %258, i32 noundef %111, ptr noundef nonnull %11)
   br label %dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i
 
 dissect_dcm_pdv_fragmented.exitthread-pre-split.i.i: ; preds = %311, %306, %283
@@ -7735,7 +7735,7 @@ dissect_dcm_pdu_data.exit.i:                      ; preds = %320
   %360 = load ptr, ptr %347, align 8
   %361 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %359, ptr noundef nonnull @.str.359, ptr noundef %356, ptr noundef %360) #10
   %362 = sub i32 %59, %358
-  %363 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %.1.i.i, i32 noundef %358, i32 noundef %362)
+  %363 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef nonnull %.1.i.i, i32 noundef %358, i32 noundef %362)
   br label %462
 
 364:                                              ; preds = %332
@@ -7768,7 +7768,7 @@ dissect_dcm_pdu_data.exit.i:                      ; preds = %320
   %389 = load ptr, ptr %376, align 8
   %390 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %388, ptr noundef nonnull @.str.360, ptr noundef %385, ptr noundef %389) #10
   %391 = sub i32 %59, %387
-  %392 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %.1.i.i, i32 noundef %387, i32 noundef %391)
+  %392 = call fastcc i32 @dissect_dcm_assoc_detail(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef nonnull %.1.i.i, i32 noundef %387, i32 noundef %391)
   br label %462
 
 393:                                              ; preds = %332

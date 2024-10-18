@@ -97,12 +97,12 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h96d6
 5:                                                ; preds = %2
   store i64 1, ptr %0, align 8, !alias.scope !7, !noalias !10
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, i64 32, i1 false), !alias.scope !12
   br label %_ZN10actix_http4body5boxed7BoxBody3new17h3d227e6d07612406E.llvm.14700172292964297094.exit
 
 6:                                                ; preds = %2
   %.sroa.517.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull readonly align 8 dereferenceable(76) %1, i64 76, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, i64 76, i1 false), !noalias !7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i, i64 3, i1 false), !noalias !7
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 76
@@ -110,7 +110,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h96d6
   %7 = getelementptr inbounds i8, ptr %3, i64 80
   store i8 1, ptr %7, align 8, !noalias !12
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
-  %9 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #20, !noalias !13
+  %9 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 88, i64 noundef range(i64 1, 9) 8) #20, !noalias !13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %16
 
@@ -124,7 +124,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h96d6
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 dereferenceable(88) %3) #22
           to label %.body.i unwind label %14, !noalias !12
 
 14:                                               ; preds = %12
@@ -164,12 +164,12 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17had98
 5:                                                ; preds = %2
   store i64 1, ptr %0, align 8, !alias.scope !16, !noalias !19
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !alias.scope !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 32, i1 false), !alias.scope !21
   br label %_ZN10actix_http4body5boxed7BoxBody3new17h253baa451bc33951E.llvm.14700172292964297094.exit
 
 6:                                                ; preds = %2
   %.sroa.516.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull readonly align 8 dereferenceable(68) %1, i64 68, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 68, i1 false), !noalias !16
   %.sroa.05.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i, i64 3, i1 false), !noalias !16
   %.sroa.05.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 68
@@ -177,7 +177,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17had98
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   store i8 1, ptr %7, align 8, !noalias !21
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !22
-  %9 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #20, !noalias !22
+  %9 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 80, i64 noundef range(i64 1, 9) 8) #20, !noalias !22
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %16
 
@@ -191,7 +191,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17had98
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
           to label %.body.i unwind label %14, !noalias !21
 
 14:                                               ; preds = %12
@@ -263,7 +263,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17hded2
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %9, align 8, !noalias !31
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !39
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !39
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 32, i64 noundef range(i64 1, 9) 8) #20, !noalias !39
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %18
 
@@ -328,7 +328,7 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h253baa451bc33951E.l
   %7 = getelementptr inbounds i8, ptr %3, i64 72
   store i8 1, ptr %7, align 8
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !42
-  %9 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #20, !noalias !42
+  %9 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 80, i64 noundef range(i64 1, 9) 8) #20, !noalias !42
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
@@ -342,7 +342,7 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h253baa451bc33951E.l
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
           to label %.body unwind label %14
 
 14:                                               ; preds = %12
@@ -391,7 +391,7 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h3d227e6d07612406E.l
   %7 = getelementptr inbounds i8, ptr %3, i64 80
   store i8 1, ptr %7, align 8
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !45
-  %9 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #20, !noalias !45
+  %9 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 88, i64 noundef range(i64 1, 9) 8) #20, !noalias !45
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
@@ -405,7 +405,7 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h3d227e6d07612406E.l
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 dereferenceable(88) %3) #22
           to label %.body unwind label %14
 
 14:                                               ; preds = %12
@@ -461,7 +461,7 @@ define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h3d42c4efb35c2be0E.l
   %9 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %9, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !53
-  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !53
+  %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 32, i64 noundef range(i64 1, 9) 8) #20, !noalias !53
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %19
 
@@ -657,7 +657,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   store i8 1, ptr %14, align 8, !noalias !58
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !75
-  %16 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !75
+  %16 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 32, i64 noundef range(i64 1, 9) 8) #20, !noalias !75
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %23
 
@@ -779,7 +779,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
   %12 = getelementptr inbounds i8, ptr %3, i64 80
   store i8 1, ptr %12, align 8, !noalias !88
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !90
-  %14 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #20, !noalias !90
+  %14 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 88, i64 noundef range(i64 1, 9) 8) #20, !noalias !90
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %21
 
@@ -793,7 +793,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 dereferenceable(88) %3) #22
           to label %.body unwind label %19, !noalias !88
 
 19:                                               ; preds = %17
@@ -901,7 +901,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
   %12 = getelementptr inbounds i8, ptr %3, i64 72
   store i8 1, ptr %12, align 8, !noalias !103
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !105
-  %14 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #20, !noalias !105
+  %14 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 80, i64 noundef range(i64 1, 9) 8) #20, !noalias !105
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %21
 
@@ -915,7 +915,7 @@ define hidden void @"_ZN10actix_http9responses8response17Response$LT$B$GT$8map_b
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 %3) #22
+  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 dereferenceable(80) %3) #22
           to label %.body unwind label %19, !noalias !103
 
 19:                                               ; preds = %17
@@ -1513,7 +1513,7 @@ common.resume.i:                                  ; preds = %46, %11
 46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h926c23867d5fa9ceE.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #22
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h926c23867d5fa9ceE.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #22
           to label %common.resume.i unwind label %48
 
 48:                                               ; preds = %46
@@ -1523,7 +1523,7 @@ common.resume.i:                                  ; preds = %46, %11
   unreachable
 
 "_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc964693d1e67ebe1E.llvm.8740116509709696285.exit.i.i.i": ; preds = %42
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h926c23867d5fa9ceE.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h926c23867d5fa9ceE.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %"_ZN4core3ptr185drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$std..fs..File$C$bytes..bytes..Bytes$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h246ef69eecf8b927E.exit"
 
 "_ZN4core3ptr185drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$std..fs..File$C$bytes..bytes..Bytes$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h246ef69eecf8b927E.exit": ; preds = %"_ZN4core3ptr137drop_in_place$LT$tokio..util..sync_wrapper..SyncWrapper$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hc964693d1e67ebe1E.llvm.8740116509709696285.exit.i.i.i", %39, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb63a43ab35d8a683E.exit.i.i", %"_ZN4core3ptr64drop_in_place$LT$$LP$std..fs..File$C$bytes..bytes..Bytes$RP$$GT$17h2c59d5e0a3450547E.exit.i.i", %1
@@ -1735,7 +1735,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task3raw7RawTask3new17h4010
 10:                                               ; preds = %9, %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr274drop_in_place$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hfe5c95416559d71cE"(ptr noundef nonnull align 128 %3) #22
+  invoke void @"_ZN4core3ptr274drop_in_place$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hfe5c95416559d71cE"(ptr noundef nonnull align 128 dereferenceable(128) %3) #22
           to label %14 unwind label %12, !noalias !218
 
 12:                                               ; preds = %10
@@ -2032,7 +2032,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41
@@ -2444,7 +2444,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41
@@ -2856,7 +2856,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41
@@ -3257,12 +3257,12 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 6:                                                ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !553, !noalias !552
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %2, i64 32, i1 false), !alias.scope !554
   br label %_ZN10actix_http4body12message_body11MessageBody5boxed17had98d3d1daf566a0E.llvm.14700172292964297094.exit
 
 7:                                                ; preds = %3
   %.sroa.516.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef nonnull readonly align 8 dereferenceable(68) %2, i64 68, i1 false), !noalias !553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %2, i64 68, i1 false), !noalias !553
   %.sroa.05.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.05.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.516.0..sroa_idx.i.i, i64 3, i1 false), !noalias !553
   %.sroa.05.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 68
@@ -3270,7 +3270,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
   %8 = getelementptr inbounds i8, ptr %4, i64 72
   store i8 1, ptr %8, align 8, !noalias !554
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !555
-  %10 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #20, !noalias !555
+  %10 = tail call noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 80, i64 noundef range(i64 1, 9) 8) #20, !noalias !555
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
@@ -3284,7 +3284,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 13:                                               ; preds = %12
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 %4) #22
+  invoke void @"_ZN4core3ptr437drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..body_stream..BodyStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17h1c0bc62b77ce23a8E"(ptr noundef nonnull align 8 dereferenceable(80) %4) #22
           to label %.body.i.i unwind label %15, !noalias !554
 
 15:                                               ; preds = %13
@@ -3345,7 +3345,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 1, ptr %10, align 8, !noalias !566
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !575
-  %12 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #20, !noalias !575
+  %12 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 32, i64 noundef range(i64 1, 9) 8) #20, !noalias !575
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %19
 
@@ -3402,12 +3402,12 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 6:                                                ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !590, !noalias !589
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !alias.scope !591
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.44.0..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %2, i64 32, i1 false), !alias.scope !591
   br label %_ZN10actix_http4body12message_body11MessageBody5boxed17h96d65ea5bcd06b98E.llvm.14700172292964297094.exit
 
 7:                                                ; preds = %3
   %.sroa.517.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull readonly align 8 dereferenceable(76) %2, i64 76, i1 false), !noalias !590
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull readonly align 8 dereferenceable(80) %2, i64 76, i1 false), !noalias !590
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.517.0..sroa_idx.i.i, i64 3, i1 false), !noalias !590
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 76
@@ -3415,7 +3415,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store i8 1, ptr %8, align 8, !noalias !591
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !592
-  %10 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef 88, i64 noundef 8) #20, !noalias !592
+  %10 = tail call noundef align 8 dereferenceable_or_null(88) ptr @__rust_alloc(i64 noundef range(i64 1, 89) 88, i64 noundef range(i64 1, 9) 8) #20, !noalias !592
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17
 
@@ -3429,7 +3429,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$19map
 13:                                               ; preds = %12
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 %4) #22
+  invoke void @"_ZN4core3ptr439drop_in_place$LT$actix_http..body..message_body..MessageBodyMapErr$LT$actix_http..body..sized_stream..SizedStream$LT$actix_files..chunked..ChunkedReadFile$LT$actix_files..chunked..chunked_read_file_callback$C$actix_files..chunked..chunked_read_file_callback..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$$LT$actix_web..error..error..Error$u20$as$u20$core..convert..Into$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$..into$GT$$GT$17hd3db05b93b079e4aE"(ptr noundef nonnull align 8 dereferenceable(88) %4) #22
           to label %.body.i.i unwind label %15, !noalias !591
 
 15:                                               ; preds = %13
@@ -3621,13 +3621,13 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !601)
-  %4 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  %4 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
           to label %13 unwind label %5, !noalias !601
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h95da1594cc80d226E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #22
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h95da1594cc80d226E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3) #22
           to label %9 unwind label %7, !noalias !601
 
 7:                                                ; preds = %9, %5
@@ -3711,7 +3711,7 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
           to label %.body unwind label %8, !noalias !607
 
 13:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3) #22
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$actix_http..body..boxed..BoxBody$GT$17hc5db8344ab74b0c2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3) #22
           to label %10 unwind label %8, !noalias !607
 
 .body:                                            ; preds = %10
@@ -3800,13 +3800,13 @@ define hidden void @"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
-  %4 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
+  %4 = invoke noundef align 8 dereferenceable(88) ptr @"_ZN93_$LT$actix_http..responses..head..BoxedResponseHead$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h6f669ee376630478E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
           to label %13 unwind label %5, !noalias !613
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h95da1594cc80d226E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #22
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h95da1594cc80d226E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3) #22
           to label %9 unwind label %7, !noalias !613
 
 7:                                                ; preds = %9, %5

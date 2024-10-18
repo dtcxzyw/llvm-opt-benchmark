@@ -187,7 +187,7 @@ entry:
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_start.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %requests_lock_ = getelementptr inbounds i8, ptr %this, i64 96
-  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %requests_lock_) #20
+  %call.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i
 
@@ -225,7 +225,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
   %dispatching_messages_ = getelementptr inbounds i8, ptr %this, i64 216
   store i8 0, ptr %dispatching_messages_, align 8
   %incoming_message_cond_ = getelementptr inbounds i8, ptr %this, i64 224
-  %call.i.i14 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull %incoming_message_cond_) #20
+  %call.i.i14 = tail call noundef i32 @uv_cond_init(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_) #20
   %cmp.not.i15 = icmp eq i32 %call.i.i14, 0
   br i1 %cmp.not.i15, label %_ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit, label %do.body5.i16
 
@@ -263,7 +263,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %block_lock_.i = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i) #20
   %main_thread_.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %main_thread_.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i) #20
@@ -388,11 +388,11 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS3_EESt4hashIiESt8equal_toIiESaISt4pairIKiS6_EEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %incoming_message_cond_ = getelementptr inbounds i8, ptr %this, i64 224
-  tail call void @uv_cond_destroy(ptr noundef nonnull %incoming_message_cond_) #20
+  tail call void @uv_cond_destroy(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_) #20
   %dispatching_message_queue_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt5dequeISt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %dispatching_message_queue_) #20
   %requests_lock_ = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %requests_lock_) #20
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
   %requests_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt5dequeISt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %requests_) #20
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -436,7 +436,7 @@ _ZNSt23enable_shared_from_thisIN4node9inspector19MainThreadInterfaceEED2Ev.exit:
 define dso_local void @_ZN4node9inspector16MainThreadHandle5ResetEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %block_lock_ = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_) #20
   %main_thread_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %main_thread_, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_) #20
@@ -613,7 +613,7 @@ do.body4:                                         ; preds = %entry
 
 do.end5:                                          ; preds = %entry
   %requests_lock_ = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @uv_mutex_lock(ptr noundef nonnull %requests_lock_) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -781,7 +781,7 @@ _ZNSt8weak_ptrIN4node9inspector19MainThreadInterfaceEEC2ERKS3_.exit: ; preds = %
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !noalias !20
   %native_immediates_threadsafe_mutex_.i = getelementptr inbounds i8, ptr %26, i64 2456
-  tail call void @uv_mutex_lock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %native_immediates_threadsafe_mutex_.i) #20
   %tail_.i.i = getelementptr inbounds i8, ptr %26, i64 2536
   %30 = load ptr, ptr %tail_.i.i, align 8
   %31 = atomicrmw add ptr %native_immediates_interrupts_.i, i64 1 seq_cst, align 8
@@ -853,7 +853,7 @@ if.then.i.i.i.i35:                                ; preds = %_ZN9__gnu_cxx27__ex
 
 if.end11:                                         ; preds = %if.then.i.i.i.i35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i32, %_ZNSt5dequeISt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
   %incoming_message_cond_ = getelementptr inbounds i8, ptr %this, i64 224
-  tail call void @uv_cond_broadcast(ptr noundef nonnull %incoming_message_cond_) #20
+  tail call void @uv_cond_broadcast(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_) #20
   tail call void @uv_mutex_unlock(ptr noundef nonnull %requests_lock_) #20
   ret void
 }
@@ -877,7 +877,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %requests_lock_ = getelementptr inbounds i8, ptr %this, i64 96
-  tail call void @uv_mutex_lock(ptr noundef nonnull %requests_lock_) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
   %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 64
   %_M_start.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i1, align 8
@@ -890,7 +890,7 @@ while.body.lr.ph:                                 ; preds = %if.then
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  tail call void @uv_cond_wait(ptr noundef nonnull %incoming_message_cond_, ptr noundef nonnull %requests_lock_) #20
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %incoming_message_cond_, ptr noundef nonnull %requests_lock_) #20
   %4 = load ptr, ptr %_M_finish.i1, align 8
   %5 = load ptr, ptr %_M_start.i2, align 8
   %cmp.i.i3 = icmp eq ptr %4, %5
@@ -948,9 +948,9 @@ do.body:                                          ; preds = %do.cond, %if.end
   br i1 %cmp.i.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.body
-  call void @uv_mutex_lock(ptr noundef nonnull %requests_lock_) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %requests_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %requests_, i64 16, i1 false)
   %4 = load ptr, ptr %_M_start3.i.i.i.i.i, align 8
   %5 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8
   %6 = load ptr, ptr %_M_last4.i.i.i.i.i.i, align 8
@@ -960,7 +960,7 @@ if.then3:                                         ; preds = %do.body
   %10 = load ptr, ptr %_M_last4.i6.i.i.i.i.i, align 8
   %11 = load ptr, ptr %_M_node5.i8.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %requests_, ptr noundef nonnull align 8 dereferenceable(80) %dispatching_message_queue_, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dispatching_message_queue_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dispatching_message_queue_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   store ptr %4, ptr %_M_start.i, align 8
   store ptr %5, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i, align 8
   store ptr %6, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i, align 8
@@ -1283,7 +1283,7 @@ do.body4:                                         ; preds = %entry
 
 do.end5:                                          ; preds = %entry
   %managed_objects_ = getelementptr inbounds i8, ptr %this, i64 296
-  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %managed_objects_, ptr noundef nonnull align 4 dereferenceable(4) %id.addr)
+  %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_, ptr noundef nonnull align 4 dereferenceable(4) %id.addr)
   %1 = load ptr, ptr %object, align 8
   store ptr null, ptr %object, align 8
   %2 = load ptr, ptr %call.i, align 8
@@ -1711,7 +1711,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i.i: ; preds = %
   store i8 %frombool.i, ptr %_M_bound_args.i.i.i.i.i, align 1, !noalias !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds i8, ptr %29, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %main_thread_.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %main_thread_.i.i.i, align 8
   %tobool.not.i.not.i.i = icmp eq ptr %31, null
@@ -1831,7 +1831,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i: ; preds = %if
   store i64 %7, ptr %_M_bound_args.i.i.i.i17.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   %block_lock_.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 24
-  call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i.i) #20
   %main_thread_.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i, i64 16
   %47 = load ptr, ptr %main_thread_.i.i.i.i, align 8
   %tobool.not.i.not.i.i.i = icmp eq ptr %47, null
@@ -1947,7 +1947,7 @@ define dso_local noundef zeroext i1 @_ZN4node9inspector16MainThreadHandle4PostES
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %block_lock_ = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_) #20
   %main_thread_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %main_thread_, align 8
   %tobool.not = icmp ne ptr %0, null
@@ -1996,7 +1996,7 @@ do.end5.i:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
   store i32 %1, ptr %id.addr.i, align 4
   %managed_objects_.i = getelementptr inbounds i8, ptr %2, i64 296
-  %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
+  %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
   %4 = load ptr, ptr %call.i.i, align 8
   store ptr %call.i, ptr %call.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -2237,7 +2237,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZN9
 define dso_local noundef zeroext i1 @_ZN4node9inspector16MainThreadHandle7ExpiredEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
   %block_lock_ = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_) #20
   %main_thread_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %main_thread_, align 8
   %cmp = icmp eq ptr %0, null
@@ -2347,7 +2347,7 @@ entry:
   store i32 %object_id_.val.i, ptr %object_id_.i.i.i, align 8, !noalias !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %main_thread_.i.i, align 8
   %tobool.not.i.not.i = icmp eq ptr %1, null
@@ -2495,7 +2495,7 @@ entry:
   store i64 %0, ptr %_M_bound_args.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 24
-  call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %main_thread_.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
   %3 = load ptr, ptr %main_thread_.i.i.i, align 8
   %tobool.not.i.not.i.i = icmp eq ptr %3, null
@@ -2574,7 +2574,7 @@ do.end5.i:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
   store i32 %0, ptr %id.addr.i, align 4
   %managed_objects_.i = getelementptr inbounds i8, ptr %thread, i64 296
-  %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
+  %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
   %2 = load ptr, ptr %call.i.i, align 8
   store ptr %call.i, ptr %call.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -3104,7 +3104,7 @@ entry:
   store i32 %object_id_.val.i, ptr %object_id_.i.i.i, align 8, !noalias !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %main_thread_.i.i, align 8
   %tobool.not.i.not.i = icmp eq ptr %1, null
@@ -3320,7 +3320,7 @@ entry:
   store i64 %1, ptr %fn_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds i8, ptr %delegate_.val, i64 24
-  call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds i8, ptr %delegate_.val, i64 16
   %2 = load ptr, ptr %main_thread_.i.i, align 8
   %tobool.not.i.not.i = icmp eq ptr %2, null
@@ -3989,11 +3989,11 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
   %0 = load ptr, ptr %__args, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl.i.i.i, i8 0, i64 16, i1 false)
   %main_thread_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 32
   store ptr %0, ptr %main_thread_.i.i.i.i.i, align 8
   %block_lock_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
-  %call.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %block_lock_.i.i.i.i.i) #20
+  %call.i.i.i.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i.i.i) #20
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %if.then.i, label %do.body5.i.i.i.i.i.i
 
@@ -4096,7 +4096,7 @@ entry:
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector16MainThreadHandleESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %block_lock_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %block_lock_.i.i.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %main_thread_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %main_thread_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -4109,7 +4109,7 @@ do.body4.i.i.i:                                   ; preds = %entry
 
 do.end6.i.i.i:                                    ; preds = %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i) #20
-  tail call void @uv_mutex_destroy(ptr noundef nonnull %block_lock_.i.i.i) #20
+  tail call void @uv_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null

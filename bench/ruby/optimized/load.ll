@@ -3309,7 +3309,7 @@ thread-pre-split:                                 ; preds = %18, %3
 
 .critedge.us:                                     ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @rb_unexpected_type(i64 noundef %2, i32 noundef 21) #25
+  call void @rb_unexpected_type(i64 noundef range(i64 1, 0) %2, i32 noundef 21) #25
   unreachable
 
 .split:                                           ; preds = %26
@@ -3385,7 +3385,7 @@ thread-pre-split:                                 ; preds = %18, %3
   br i1 %.not32.i.i, label %.critedge.i.i56, label %features_index_add_single.exit57
 
 .critedge.i.i56:                                  ; preds = %.split68.us
-  call void @rb_unexpected_type(i64 noundef %2, i32 noundef 21) #25
+  call void @rb_unexpected_type(i64 noundef range(i64 1, 0) %2, i32 noundef 21) #25
   unreachable
 
 features_index_add_single.exit57:                 ; preds = %.split68.us

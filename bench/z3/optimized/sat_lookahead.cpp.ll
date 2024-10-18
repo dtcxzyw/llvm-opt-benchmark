@@ -8929,7 +8929,7 @@ _ZN3sat9lookahead8dfs_infoD2Ev.exit:              ; preds = %.noexc244, %lor.lhs
   %108 = phi ptr [ %.pre.i241, %.noexc244 ], [ %104, %lor.lhs.false.i231 ]
   %idx.ext.i235 = zext i32 %107 to i64
   %add.ptr.i236 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %108, i64 %idx.ext.i235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr.i236, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp51, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i236, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp51, i64 12, i1 false)
   %m_next.i.i = getelementptr inbounds i8, ptr %add.ptr.i236, i64 16
   store ptr null, ptr %m_next.i.i, align 8
   %m_nextp.i.i237 = getelementptr inbounds i8, ptr %add.ptr.i236, i64 24
@@ -8983,7 +8983,7 @@ invoke.cont58:                                    ; preds = %.noexc270, %lor.lhs
   %114 = phi ptr [ %.pre.i267, %.noexc270 ], [ %.pre340, %lor.lhs.false.i254 ]
   %idx.ext.i258 = zext i32 %113 to i64
   %add.ptr.i259 = getelementptr inbounds %"struct.sat::lookahead::dfs_info", ptr %114, i64 %idx.ext.i258
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr.i259, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp56, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i259, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp56, i64 12, i1 false)
   %m_next.i.i260 = getelementptr inbounds i8, ptr %add.ptr.i259, i64 16
   %115 = load ptr, ptr %m_next.i247, align 8
   store ptr %115, ptr %m_next.i.i260, align 8
@@ -18081,7 +18081,7 @@ if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %this)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(1160) %this)
   br label %_ZN3sat9lookahead10scoped_extC2ERS0_.exit
 
 _ZN3sat9lookahead10scoped_extC2ERS0_.exit:        ; preds = %entry, %if.then.i
@@ -19302,7 +19302,7 @@ if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %this)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(1160) %this)
   br label %_ZN3sat9lookahead10scoped_extC2ERS0_.exit
 
 _ZN3sat9lookahead10scoped_extC2ERS0_.exit:        ; preds = %entry, %if.then.i
@@ -20128,7 +20128,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -20145,7 +20145,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #29
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -20209,7 +20209,7 @@ if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %this)
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(1160) %this)
   br label %_ZN3sat9lookahead10scoped_extC2ERS0_.exit
 
 _ZN3sat9lookahead10scoped_extC2ERS0_.exit:        ; preds = %entry, %if.then.i
@@ -21704,7 +21704,7 @@ for.body155:                                      ; preds = %_ZN22union_find_def
           to label %invoke.cont157 unwind label %lpad58.loopexit
 
 invoke.cont157:                                   ; preds = %for.body155
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ufctx, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ufctx, i8 0, i64 16, i1 false)
   invoke void @_ZN6regionC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i)
           to label %invoke.cont158 unwind label %lpad2.i.i
 
@@ -21712,7 +21712,7 @@ lpad2.i.i:                                        ; preds = %invoke.cont157
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes.i.i265) #29
-  call void @_ZN10ptr_vectorI5trailED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ufctx) #29
+  call void @_ZN10ptr_vectorI5trailED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ufctx) #29
   br label %ehcleanup304
 
 invoke.cont158:                                   ; preds = %invoke.cont157
@@ -22329,7 +22329,7 @@ lor.lhs.false.i.i.i172:                           ; preds = %call.i.i21.i.noexc
   br i1 %cmp5.i.i.i174, label %if.then.i.i.i179, label %invoke.cont.i
 
 if.then.i.i.i179:                                 ; preds = %lor.lhs.false.i.i.i172, %call.i.i21.i.noexc
-  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %143)
+  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %143)
           to label %.noexc184 unwind label %lpad164.loopexit
 
 .noexc184:                                        ; preds = %if.then.i.i.i179
@@ -22427,7 +22427,7 @@ lor.lhs.false.i.i.i221:                           ; preds = %call.i.i21.i.noexc2
   br i1 %cmp5.i.i.i224, label %if.then.i.i.i230, label %invoke.cont.i225
 
 if.then.i.i.i230:                                 ; preds = %lor.lhs.false.i.i.i221, %call.i.i21.i.noexc234
-  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %163)
+  invoke void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %163)
           to label %.noexc236 unwind label %lpad164.loopexit
 
 .noexc236:                                        ; preds = %if.then.i.i.i230
@@ -23555,7 +23555,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN3sat16clause_allocatorD2Ev.exit:               ; preds = %for.end32, %if.then.i.i.i.i.i
-  call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %dummy_allocator) #29
+  call void @_ZN13sat_allocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %dummy_allocator) #29
   ret ptr %out
 }
 
@@ -23852,7 +23852,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #29
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #29
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -25424,7 +25424,7 @@ _ZNK6vectorIN3sat9lookahead8dfs_infoELb1EjE4sizeEv.exit: ; preds = %if.end
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorIN3sat9lookahead8dfs_infoELb1EjE4sizeEv.exit, %for.body.i.i.i.i.i.i
   %__cur.09.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr28, %_ZNK6vectorIN3sat9lookahead8dfs_infoELb1EjE4sizeEv.exit ]
   %__first.sroa.0.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %4, %_ZNK6vectorIN3sat9lookahead8dfs_infoELb1EjE4sizeEv.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__cur.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__first.sroa.0.08.i.i.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.08.i.i.i.i.i.i, i64 12, i1 false)
   %m_next.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %m_next3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %m_next3.i.i.i.i.i.i.i.i, align 8

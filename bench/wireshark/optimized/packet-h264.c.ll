@@ -1215,7 +1215,7 @@ declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = shl i32 %3, 3
-  %7 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %6, i32 noundef 8) #6
+  %7 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef range(i32 0, -7) %6, i32 noundef 8) #6
   %8 = icmp eq i8 %7, -1
   br i1 %8, label %.lr.ph.i, label %._crit_edge.i
 
@@ -2345,7 +2345,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 104:                                              ; preds = %.split110
   %105 = load i32, ptr @hf_h264_don, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %105, ptr noundef %0, i32 noundef %.sink, i32 noundef 2, i32 noundef 0) #6
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %105, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink, i32 noundef 2, i32 noundef 0) #6
   %107 = add nuw nsw i32 %.sink, 2
   br label %108
 
@@ -2394,7 +2394,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 132:                                              ; preds = %.split110, %.split110
   %133 = load i32, ptr @hf_h264_don, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %133, ptr noundef %0, i32 noundef %.sink, i32 noundef 2, i32 noundef 0) #6
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %133, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink, i32 noundef 2, i32 noundef 0) #6
   %135 = add nuw nsw i32 %.sink, 2
   %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %135) #6
   %137 = icmp sgt i32 %136, 0
@@ -2451,7 +2451,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %166, label %139, label %dissect_h264_prefix.exit, !llvm.loop !15
 
 167:                                              ; preds = %.split110
-  %168 = tail call fastcc i32 @dissect_h264_svc_nal_header_extension(ptr noundef %53, ptr noundef %0, i32 noundef %.sink)
+  %168 = tail call fastcc i32 @dissect_h264_svc_nal_header_extension(ptr noundef %53, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink)
   %169 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %168) #6
   %170 = load i32, ptr @hf_h264_pacsi_x, align 4
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %170, ptr noundef %0, i32 noundef %168, i32 noundef 1, i32 noundef 0) #6

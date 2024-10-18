@@ -1030,7 +1030,7 @@ define void @_ZN29RadianceScalingRendererPlugin9createLitERK7QStringi(ptr nocapt
   br i1 %.not12, label %29, label %25
 
 25:                                               ; preds = %22
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %24)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %24)
           to label %_ZN9Texture2DIhED2Ev.exit unwind label %26
 
 26:                                               ; preds = %25
@@ -1099,7 +1099,7 @@ _ZN9Texture2DIhED2Ev.exit:                        ; preds = %25
   br i1 %.not, label %53, label %49
 
 49:                                               ; preds = %46
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %48)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %48)
           to label %_ZN9Texture2DIhED2Ev.exit16 unwind label %50
 
 50:                                               ; preds = %49
@@ -2995,7 +2995,7 @@ _ZN29RadianceScalingRendererPlugin13checkViewportEv.exit: ; preds = %18, %._crit
   call void @glClearColor(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   call void @glClear(i32 noundef 16640)
   store i32 -4144960, ptr %7, align 4
-  call void @glColor4ubv(ptr noundef nonnull %7)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   %33 = getelementptr inbounds i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @__glewUseProgramObjectARB, align 8
@@ -3325,7 +3325,7 @@ define void @_ZN29RadianceScalingRendererPlugin9cleanFBOsEv(ptr nocapture nounde
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %6)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %6)
           to label %_ZN9Texture2DIfED2Ev.exit unwind label %9
 
 9:                                                ; preds = %8
@@ -3346,7 +3346,7 @@ _ZN9Texture2DIfED2Ev.exit:                        ; preds = %8
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %14)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %14)
           to label %_ZN9Texture2DIfED2Ev.exit5 unwind label %17
 
 17:                                               ; preds = %16
@@ -3367,7 +3367,7 @@ _ZN9Texture2DIfED2Ev.exit5:                       ; preds = %16
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %20
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %22)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %22)
           to label %_ZN9Texture2DIfED2Ev.exit6 unwind label %25
 
 25:                                               ; preds = %24
@@ -3388,7 +3388,7 @@ _ZN9Texture2DIfED2Ev.exit6:                       ; preds = %24
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %28
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %30)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %30)
           to label %_ZN9Texture2DIhED2Ev.exit unwind label %33
 
 33:                                               ; preds = %32
@@ -3472,7 +3472,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIibE7destroyEv.exit
 
 _ZN8QMapDataIibE7destroyEv.exit:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIibE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -3631,7 +3631,7 @@ _ZN29RadianceScalingRendererPlugin12cleanShadersEv.exit: ; preds = %4, %12
   br i1 %.not4, label %31, label %27
 
 27:                                               ; preds = %24
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %26)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %26)
           to label %_ZN9Texture2DIhED2Ev.exit unwind label %28
 
 28:                                               ; preds = %27
@@ -3653,7 +3653,7 @@ _ZN9Texture2DIhED2Ev.exit:                        ; preds = %27
   br i1 %.not5, label %38, label %34
 
 34:                                               ; preds = %31
-  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %33)
+  invoke void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(68) %33)
           to label %_ZN9Texture2DIhED2Ev.exit6 unwind label %35
 
 35:                                               ; preds = %34
@@ -4205,7 +4205,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -4290,7 +4290,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #18
   tail call void @_ZdlPv(ptr noundef nonnull %7) #17
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -4627,7 +4627,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %6
 

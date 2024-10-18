@@ -3178,7 +3178,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i: ; preds = %_ZNSt11char_t
   br i1 %9, label %29, label %.thread95.i
 
 .thread95.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i
-  %bcmp.i.i.i57 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(3) @.str.67, i64 3)
+  %bcmp.i.i.i57 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(3) @.str.67, i64 3)
   %10 = icmp eq i32 %bcmp.i.i.i57, 0
   br i1 %10, label %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread105.sink.split, label %.thread95.i.thread
 
@@ -3187,32 +3187,32 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i: ; preds = %_ZNSt11char_t
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %.thread95.i.thread
-  %bcmp.i.i.i49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.68, i64 4)
+  %bcmp.i.i.i49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.68, i64 4)
   %13 = icmp eq i32 %bcmp.i.i.i49, 0
   br i1 %13, label %48, label %14
 
 14:                                               ; preds = %12
-  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.69, i64 4)
+  %bcmp.i.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.69, i64 4)
   %15 = icmp eq i32 %bcmp.i.i.i41, 0
   br i1 %15, label %189, label %16
 
 16:                                               ; preds = %14
-  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.70, i64 4)
+  %bcmp.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
   %17 = icmp eq i32 %bcmp.i.i.i33, 0
   br i1 %17, label %65, label %18
 
 18:                                               ; preds = %16
-  %bcmp.i.i.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.71, i64 4)
+  %bcmp.i.i.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.71, i64 4)
   %19 = icmp eq i32 %bcmp.i.i.i25, 0
   br i1 %19, label %127, label %.thread138
 
 .thread138:                                       ; preds = %18
-  %bcmp.i.i.i142 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.72, i64 4)
+  %bcmp.i.i.i142 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.72, i64 4)
   %20 = icmp eq i32 %bcmp.i.i.i142, 0
   br i1 %20, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %.thread
 
 .thread:                                          ; preds = %.thread95.i.thread, %.thread138
-  %bcmp.i.i.i147 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(3) @.str.73, i64 3)
+  %bcmp.i.i.i147 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(3) @.str.73, i64 3)
   %21 = icmp eq i32 %bcmp.i.i.i147, 0
   br i1 %21, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %22
 
@@ -3220,17 +3220,17 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i51.i: ; preds = %_ZNSt11char_t
   br i1 %11, label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit, label %23
 
 23:                                               ; preds = %22
-  %bcmp.i.i.i155 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.74, i64 4)
+  %bcmp.i.i.i155 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.74, i64 4)
   %24 = icmp eq i32 %bcmp.i.i.i155, 0
   br i1 %24, label %194, label %25
 
 25:                                               ; preds = %23
-  %bcmp.i.i.i163 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.75, i64 4)
+  %bcmp.i.i.i163 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.75, i64 4)
   %26 = icmp eq i32 %bcmp.i.i.i163, 0
   br i1 %26, label %_ZL27consumeSpecialIntrinsicKindRSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %27
 
 27:                                               ; preds = %25
-  %bcmp.i.i.i171 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.76, i64 4)
+  %bcmp.i.i.i171 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.22.0.copyload.i.i, ptr noundef nonnull dereferenceable(4) @.str.76, i64 4)
   %28 = icmp eq i32 %bcmp.i.i.i171, 0
   br i1 %28, label %44, label %_ZN4llvm11ms_demangle9Demangler23demangleUntypedVariableERNS0_14ArenaAllocatorERSt17basic_string_viewIcSt11char_traitsIcEES7_.exit
 
@@ -3605,7 +3605,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler21demangleStringLit
   %3 = alloca %"class.llvm::itanium_demangle::OutputBuffer", align 8
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 24, i1 false)
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -1, ptr %6, align 4
@@ -7149,7 +7149,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler19demangleBackRefNa
 define dso_local void @_ZN4llvm11ms_demangle9Demangler18memorizeIdentifierEPNS0_14IdentifierNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::itanium_demangle::OutputBuffer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 24, i1 false)
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -1, ptr %5, align 4
@@ -8112,7 +8112,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %283, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit468, label %284
 
 284:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %bcmp.i.i.i466 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.22.0.copyload.i464620, ptr noundef nonnull readonly dereferenceable(2) @.str.50, i64 2)
+  %bcmp.i.i.i466 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.22.0.copyload.i464620, ptr noundef nonnull dereferenceable(2) @.str.50, i64 2)
   %285 = icmp eq i32 %bcmp.i.i.i466, 0
   br i1 %285, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i467, label %_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.exit468
 
@@ -13519,7 +13519,7 @@ define dso_local void @_ZN4llvm11ms_demangle9Demangler18dumpBackReferencesEv(ptr
   %6 = trunc i64 %5 to i32
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1, ptr %9, align 4
@@ -13679,7 +13679,7 @@ define dso_local noundef ptr @_ZN4llvm17microsoftDemangleESt17basic_string_viewI
   %.3 = or disjoint i32 %.2, %35
   %.4 = or disjoint i32 %.3, %37
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 0, i64 24, i1 false)
   store i32 -1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 -1, ptr %40, align 4

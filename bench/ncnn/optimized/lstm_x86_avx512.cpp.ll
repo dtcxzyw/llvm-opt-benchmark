@@ -971,7 +971,7 @@ define hidden noundef i32 @_ZN4ncnn15LSTM_x86_avx51220create_pipeline_int8ERKNS_
   br i1 %.not.i, label %26, label %25
 
 25:                                               ; preds = %2
-  tail call void @_ZN4ncnn37lstm_transform_weight_int8_avx512vnniERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %13, i32 noundef %23, i32 noundef %6, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  tail call void @_ZN4ncnn37lstm_transform_weight_int8_avx512vnniERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef range(i32 -536870912, 536870912) %13, i32 noundef %23, i32 noundef range(i32 1, 3) %6, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit
 
 26:                                               ; preds = %2
@@ -979,9 +979,9 @@ define hidden noundef i32 @_ZN4ncnn15LSTM_x86_avx51220create_pipeline_int8ERKNS_
   %28 = sdiv i32 %11, 4
   %29 = mul nsw i32 %28, -3
   %30 = add i32 %29, %11
-  tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %19, i32 noundef %27, i32 noundef %30, i32 noundef %6, i64 noundef 16, i32 noundef 16, ptr noundef null)
-  tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef 32, i32 noundef %30, i32 noundef %6, i64 noundef 4, ptr noundef null)
-  tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %11, i32 noundef 1, i32 noundef %6, i64 noundef 16, i32 noundef 4, ptr noundef null)
+  tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %19, i32 noundef %27, i32 noundef %30, i32 noundef range(i32 1, 3) %6, i64 noundef 16, i32 noundef 16, ptr noundef null)
+  tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef 32, i32 noundef %30, i32 noundef range(i32 1, 3) %6, i64 noundef 4, ptr noundef null)
+  tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %11, i32 noundef 1, i32 noundef range(i32 1, 3) %6, i64 noundef 16, i32 noundef 4, ptr noundef null)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 320

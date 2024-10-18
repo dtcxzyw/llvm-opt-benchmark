@@ -515,7 +515,7 @@ if.end5.i.i.i:                                    ; preds = %if.end9.i.i
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %if.end9.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end5.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %litBuffer.i, ptr nonnull align 1 %add.ptr10.i.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %litBuffer.i, ptr nonnull align 1 %add.ptr10.i.i, i64 range(i64 0, 524288) %conv.i.i, i1 false)
   br label %ZSTD_decodeLiteralsBlock.exit.thread52
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
@@ -523,7 +523,7 @@ if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
   br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %litBuffer.i, i8 %3, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %litBuffer.i, i8 %3, i64 range(i64 0, 524288) %conv.i.i, i1 false)
   br label %ZSTD_decodeLiteralsBlock.exit.thread52
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
@@ -570,7 +570,7 @@ HUF_decompress.exit.i.i:                          ; preds = %for.body.i.i.i
   %spec.select.i.i.i = zext i1 %cmp37.i.i.i to i64
   %arrayidx42.i.i.i = getelementptr inbounds [3 x ptr], ptr @HUF_decompress.decompress, i64 0, i64 %spec.select.i.i.i
   %8 = load ptr, ptr %arrayidx42.i.i.i, align 8
-  %call.i.i.i = tail call i64 %8(ptr noundef nonnull %litBuffer.i, i64 noundef %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef %conv4.i.i) #18
+  %call.i.i.i = tail call i64 %8(ptr noundef nonnull %litBuffer.i, i64 noundef range(i64 0, 524288) %conv.i.i, ptr noundef nonnull %add.ptr10.i.i, i64 noundef range(i64 0, 524288) %conv4.i.i) #18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %Dtime.i.i.i)
   %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, -119
   br i1 %cmp.i.i.i.i, label %ZSTD_decodeLiteralsBlock.exit, label %ZSTD_decodeLiteralsBlock.exit.thread43
@@ -4123,7 +4123,7 @@ if.end42:                                         ; preds = %if.else37
   br i1 %cmp.i, label %FSE_decompress.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end42
-  %call.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i, ptr noundef %maxSymbolValue.i, ptr noundef %tableLog.i, ptr noundef nonnull %add.ptr44, i64 noundef %conv)
+  %call.i = call fastcc i64 @FSE_readNCount(ptr noundef %counting.i, ptr noundef %maxSymbolValue.i, ptr noundef %tableLog.i, ptr noundef nonnull %add.ptr44, i64 noundef range(i64 0, 128) %conv)
   %cmp.i.i.i = icmp ult i64 %call.i, -119
   br i1 %cmp.i.i.i, label %if.end3.i, label %FSE_decompress.exit.thread
 

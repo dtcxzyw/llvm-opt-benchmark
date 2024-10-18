@@ -143,7 +143,7 @@ define ptr @Io_ReadBlif(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %calloc.i, i64 88
   store ptr %34, ptr %38, align 8
-  %39 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %calloc.i)
+  %39 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %calloc.i)
   %40 = getelementptr inbounds i8, ptr %calloc.i, i64 40
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
@@ -184,7 +184,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %60, label %61, label %.lr.ph.backedge.i
 
 61:                                               ; preds = %55
-  %62 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
+  %62 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %63 = getelementptr inbounds i8, ptr %53, i64 328
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
@@ -197,13 +197,13 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %66, label %.split.us.i, label %.lr.ph.backedge.i
 
 .lr.ph.backedge.i:                                ; preds = %65, %55
-  %67 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
+  %67 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.split.us.i, label %.lr.ph
 
 69:                                               ; preds = %42
   %70 = getelementptr inbounds i8, ptr %calloc.i, i64 16
-  %71 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
+  %71 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.split.us.i, label %73
 
@@ -229,7 +229,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br label %.lr.ph.preheader.i
 
 81:                                               ; preds = %75
-  %82 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
+  %82 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %83 = getelementptr inbounds i8, ptr %71, i64 328
   store ptr %82, ptr %83, align 8
   %84 = icmp eq ptr %82, null
@@ -243,7 +243,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %85, label %.split.us.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.split32.us.i, %.split32.us.thread46.i
-  %86 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef %calloc.i)
+  %86 = tail call fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %calloc.i)
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.split.us.i, label %.lr.ph
 
@@ -2427,7 +2427,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %103, %100, %.crited
   store i32 0, ptr %132, align 4
   %133 = load i32, ptr %111, align 4
   %134 = icmp eq i32 %133, 2
-  %135 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
+  %135 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not86166.i = icmp eq ptr %135, null
   br i1 %134, label %.preheader.i, label %.preheader160.i
 
@@ -2670,7 +2670,7 @@ Vec_StrPush.exit108.i:                            ; preds = %242, %Vec_StrGrow.e
   %247 = sext i32 %245 to i64
   %248 = getelementptr inbounds i8, ptr %244, i64 %247
   store i8 10, ptr %248, align 1
-  %249 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
+  %249 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not86.i = icmp eq ptr %249, null
   br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !32
 
@@ -3024,7 +3024,7 @@ Vec_StrPush.exit130.i:                            ; preds = %406, %Vec_StrGrow.e
   %411 = sext i32 %409 to i64
   %412 = getelementptr inbounds i8, ptr %408, i64 %411
   store i8 10, ptr %412, align 1
-  %413 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef %0)
+  %413 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not.i126 = icmp eq ptr %413, null
   br i1 %.not.i126, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 

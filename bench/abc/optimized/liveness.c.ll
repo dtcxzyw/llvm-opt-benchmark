@@ -310,7 +310,7 @@ define ptr @retrieveLOName(ptr nocapture noundef readonly %0, ptr nocapture noun
   %61 = getelementptr inbounds ptr, ptr %.val113.val, i64 %indvars.iv139
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @Abc_ObjName(ptr noundef %62) #14
-  %64 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) @.str.5) #16
+  %64 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) @.str.5) #16
   %65 = tail call ptr @Abc_ObjName(ptr noundef %62) #14
   %.not117 = icmp eq ptr %64, %65
   br i1 %.not117, label %66, label %73
@@ -370,7 +370,7 @@ define ptr @retrieveLOName(ptr nocapture noundef readonly %0, ptr nocapture noun
   %89 = getelementptr inbounds ptr, ptr %.val114.val, i64 %indvars.iv136
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr @Abc_ObjName(ptr noundef %90) #14
-  %92 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) @.str.7) #16
+  %92 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) @.str.7) #16
   %93 = tail call ptr @Abc_ObjName(ptr noundef %90) #14
   %.not116 = icmp eq ptr %92, %93
   br i1 %.not116, label %94, label %101
@@ -4267,7 +4267,7 @@ Vec_PtrAlloc.exit338:                             ; preds = %Vec_PtrAlloc.exit33
   %61 = shl nsw i32 %.val302.val, 1
   %62 = tail call ptr @Aig_ManStart(i32 noundef %61) #14
   %63 = tail call noalias dereferenceable_or_null(10) ptr @malloc(i64 noundef 10) #15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %63, ptr noundef nonnull readonly align 1 dereferenceable(10) @.str.18, i64 10, i1 false) #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %63, ptr noundef nonnull align 1 dereferenceable(10) @.str.18, i64 10, i1 false) #14
   store ptr %63, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr null, ptr %64, align 8
@@ -5324,7 +5324,7 @@ define noalias noundef ptr @populateLivenessVector(ptr nocapture noundef readonl
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) @.str.5) #16
+  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.5) #16
   %17 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not = icmp eq ptr %16, %17
   br i1 %.not, label %18, label %50
@@ -5444,7 +5444,7 @@ define noalias noundef ptr @populateFairnessVector(ptr nocapture noundef readonl
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) @.str.7) #16
+  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.7) #16
   %17 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not = icmp eq ptr %16, %17
   br i1 %.not, label %18, label %50
@@ -5564,14 +5564,14 @@ define noalias noundef ptr @populateSafetyAssertionVector(ptr nocapture noundef 
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #16
+  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.22) #16
   %17 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not = icmp eq ptr %16, %17
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %11
   %19 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) @.str.23) #16
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.23) #16
   %21 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not17 = icmp eq ptr %20, %21
   br i1 %.not17, label %22, label %54
@@ -5691,14 +5691,14 @@ define noalias noundef ptr @populateSafetyAssumptionVector(ptr nocapture noundef
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) @.str.25) #16
+  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.25) #16
   %17 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not = icmp eq ptr %16, %17
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %11
   %19 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) @.str.26) #16
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.26) #16
   %21 = tail call ptr @Abc_ObjName(ptr noundef %14) #14
   %.not17 = icmp eq ptr %20, %21
   br i1 %.not17, label %22, label %54

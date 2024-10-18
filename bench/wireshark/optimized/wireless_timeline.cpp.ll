@@ -1151,7 +1151,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 define void @_ZThn16_N16WirelessTimelineD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16WirelessTimelineD1Ev(ptr noundef nonnull align 8 dereferenceable(896) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(896) %2) #22
   ret void
 }
 
@@ -1657,7 +1657,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   br label %_ZN16WirelessTimeline4zoomEd.exit
 
 _ZN16WirelessTimeline4zoomEd.exit:                ; preds = %._crit_edge.i.i, %72
-  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(896) %0)
   br label %74
 
 74:                                               ; preds = %_ZN16WirelessTimeline4zoomEd.exit, %2

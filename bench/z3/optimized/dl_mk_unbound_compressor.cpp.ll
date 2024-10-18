@@ -1084,7 +1084,7 @@ invoke.cont28:                                    ; preds = %.noexc44, %lor.lhs.
   store i32 %arg_index, ptr %ci.sroa.4.0.ref.tmp.i.sroa_idx, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %call22, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_S3_E(ptr noundef nonnull align 8 dereferenceable(28) %m_map, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryISt4pairIP9func_decljES3_EN9table2mapIS5_9pair_hashI8ptr_hashIS2_E13unsigned_hashE10default_eqIS4_EE15entry_hash_procENSE_13entry_eq_procEE6insertEO9_key_dataIS4_S3_E(ptr noundef nonnull align 8 dereferenceable(32) %m_map, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont31 unwind label %lpad10
 
 invoke.cont31:                                    ; preds = %invoke.cont28
@@ -1905,7 +1905,7 @@ invoke.cont58:                                    ; preds = %invoke.cont54
   store ptr %72, ptr %temp.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %temp.i.i.i.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i, align 8
-  %call.i.i.i.i.i.i52 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
+  %call.i.i.i.i.i.i52 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
           to label %invoke.cont64 unwind label %lpad42.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %invoke.cont58
@@ -2046,7 +2046,7 @@ invoke.cont96:                                    ; preds = %invoke.cont91
   store ptr %96, ptr %temp.i.i.i.i.i.i87, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i89 = getelementptr inbounds i8, ptr %temp.i.i.i.i.i.i87, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i89, align 8
-  %call.i.i.i.i.i.i92 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr97, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i87, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i88)
+  %call.i.i.i.i.i.i92 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr97, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i87, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i88)
           to label %invoke.cont103 unwind label %lpad92
 
 invoke.cont103:                                   ; preds = %invoke.cont96
@@ -2085,7 +2085,7 @@ invoke.cont107:                                   ; preds = %.noexc98
   store ptr %107, ptr %temp.i.i.i.i.i.i106, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i108 = getelementptr inbounds i8, ptr %temp.i.i.i.i.i.i106, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i108, align 8
-  %call.i.i.i.i.i.i111 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr97, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i107)
+  %call.i.i.i.i.i.i111 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr97, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i107)
           to label %invoke.cont114 unwind label %lpad92
 
 invoke.cont114:                                   ; preds = %invoke.cont107
@@ -3088,7 +3088,7 @@ invoke.cont11:                                    ; preds = %invoke.cont5
   store ptr %15, ptr %temp.i.i.i.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %temp.i.i.i.i.i.i, i64 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i, align 8
-  %call.i.i.i.i.i.i6 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
+  %call.i.i.i.i.i.i6 = invoke noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont11
@@ -3467,7 +3467,7 @@ land.rhs:                                         ; preds = %for.body.i.i, %for.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i.i)
   store ptr %3, ptr %temp.i.i.i.i, align 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i, align 8
-  %call.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i)
+  %call.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i.i)
   %16 = load ptr, ptr %et.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i.i)
@@ -3759,7 +3759,7 @@ _ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i.i.i.i)
   store ptr %18, ptr %temp.i.i.i.i.i.i, align 8
   store i32 0, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.i.i.i, align 8
-  %call.i.i.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(20) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
+  %call.i.i.i.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI3astiE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE24insert_if_not_there_coreEOS5_RPS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_head_occurrence_ctr, ptr noundef nonnull align 8 dereferenceable(12) %temp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i.i.i.i)
   %19 = load ptr, ptr %et.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i.i.i.i)
@@ -4417,7 +4417,7 @@ return.sink.split.sink.split:                     ; preds = %if.then41, %if.then
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then41, %if.then17
   %new_entry42.0.sink76 = phi ptr [ %curr.055, %if.then17 ], [ %curr.158, %if.then41 ], [ %new_entry42.0.sink76.ph, %return.sink.split.sink.split ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %new_entry42.0.sink76, ptr noundef nonnull align 8 dereferenceable(12) %e, i64 12, i1 false)
   %12 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %12, 1
   store i32 %inc50, ptr %m_size, align 4
@@ -4647,7 +4647,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

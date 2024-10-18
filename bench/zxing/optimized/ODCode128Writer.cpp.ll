@@ -470,7 +470,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   %184 = getelementptr inbounds [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %183
   %185 = getelementptr inbounds i8, ptr %181, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %185, ptr noundef nonnull align 4 dereferenceable(24) %184, i64 24, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull %9) #8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
   %186 = load i64, ptr %43, align 8
   %187 = add i64 %186, 1
   store i64 %187, ptr %43, align 8
@@ -492,7 +492,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   %196 = getelementptr inbounds [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %195
   %197 = getelementptr inbounds i8, ptr %192, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %197, ptr noundef nonnull align 4 dereferenceable(24) %196, i64 24, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull %9) #8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
   %198 = load i64, ptr %43, align 8
   %199 = add i64 %198, 1
   store i64 %199, ptr %43, align 8
@@ -502,7 +502,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 201:                                              ; preds = %193
   %202 = getelementptr inbounds i8, ptr %200, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %202, ptr noundef nonnull align 4 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 2544), i64 24, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull %9) #8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
   %203 = load i64, ptr %43, align 8
   %204 = add i64 %203, 1
   store i64 %204, ptr %43, align 8
@@ -587,7 +587,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %221, %._crit_edge17
   %.08.i = phi i32 [ %233, %.noexc ], [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
   %.sroa.03.07.i = phi ptr [ %234, %.noexc ], [ %205, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
   %231 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 16
-  %232 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %.08.i, ptr noundef nonnull %231, i64 noundef 6, i1 noundef zeroext true)
+  %232 = invoke noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIbEEiPKimb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %.08.i, ptr noundef nonnull align 4 dereferenceable(24) %231, i64 noundef 6, i1 noundef zeroext true)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i109
@@ -666,7 +666,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %258, %260
 .lr.ph.i.i.i118:                                  ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit, %.lr.ph.i.i.i118
   %.09.i.i.i = phi ptr [ %269, %.lr.ph.i.i.i118 ], [ %268, %_ZNSt6vectorIbSaIbEED2Ev.exit ]
   %269 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #11
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #11
   %.not.i.i.i119 = icmp eq ptr %269, %9
   br i1 %.not.i.i.i119, label %_ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i118, !llvm.loop !10
 
@@ -714,7 +714,7 @@ _ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i118,
 .lr.ph.i.i.i126:                                  ; preds = %.body, %.lr.ph.i.i.i126
   %.09.i.i.i127 = phi ptr [ %281, %.lr.ph.i.i.i126 ], [ %280, %.body ]
   %281 = load ptr, ptr %.09.i.i.i127, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i127) #11
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i127) #11
   %.not.i.i.i128 = icmp eq ptr %281, %9
   br i1 %.not.i.i.i128, label %_ZNSt7__cxx114listISt5arrayIiLm6EESaIS2_EED2Ev.exit129, label %.lr.ph.i.i.i126, !llvm.loop !10
 

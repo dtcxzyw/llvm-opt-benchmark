@@ -8885,7 +8885,7 @@ add_capabilities.exit:                            ; preds = %86, %90, %.backedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %261 = load i32, ptr @hf_wsp_redirect_flags, align 4
   %262 = load i32, ptr @ett_redirect_flags, align 4
-  %263 = tail call ptr @proto_tree_add_bitmask(ptr noundef %26, ptr noundef %0, i32 noundef %34, i32 noundef %261, i32 noundef %262, ptr noundef nonnull @dissect_redirect.flags, i32 noundef 0) #4
+  %263 = tail call ptr @proto_tree_add_bitmask(ptr noundef %26, ptr noundef %0, i32 noundef range(i32 1, 3) %34, i32 noundef %261, i32 noundef %262, ptr noundef nonnull @dissect_redirect.flags, i32 noundef 0) #4
   %264 = or disjoint i32 %4, 2
   %265 = load i32, ptr @hf_redirect_addresses, align 4
   %266 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %265, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4

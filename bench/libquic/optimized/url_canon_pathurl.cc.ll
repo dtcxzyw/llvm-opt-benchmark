@@ -55,7 +55,7 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url19CanonicalizePathURLEPKciRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed)
   %username.i1 = getelementptr inbounds i8, ptr %new_parsed, i64 8
   store i32 0, ptr %username.i1, align 4
   %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
@@ -90,7 +90,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3url19CanonicalizePathURLEPKtiRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %call.i = tail call noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed)
   %username.i1 = getelementptr inbounds i8, ptr %new_parsed, i64 8
   store i32 0, ptr %username.i1, align 4
   %len.i.i = getelementptr inbounds i8, ptr %new_parsed, i64 12
@@ -148,7 +148,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %source, align 8
-  %call.i9 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %call.i9 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
@@ -247,7 +247,7 @@ invoke.cont1:                                     ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont1
   %1 = load ptr, ptr %source, align 8
-  %call.i10 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %parsed, ptr noundef %output, ptr noundef %new_parsed)
+  %call.i10 = invoke noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed)
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %invoke.cont3
@@ -547,7 +547,7 @@ if.then8:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch.i)
   %call.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef nonnull %source, ptr noundef nonnull %i, i32 noundef %add.i, ptr noundef nonnull %ch.i)
   %9 = load i32, ptr %ch.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %9, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %9, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ch.i)
   %10 = and i8 %success.050, 1
   %tobool1316 = icmp ne i8 %10, 0
@@ -936,7 +936,7 @@ if.then8:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %char_value.i)
   %call.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef nonnull %source, ptr noundef nonnull %i, i32 noundef %add.i, ptr noundef nonnull %char_value.i)
   %10 = load i32, ptr %char_value.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %10, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %10, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %char_value.i)
   %11 = and i8 %success.050, 1
   %tobool1316 = icmp ne i8 %11, 0

@@ -347,7 +347,7 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i: ; pre
   br label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i, %11
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   ret void
 }
 
@@ -392,7 +392,7 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i: ; p
   br label %_ZN3gmx8internal27BasicAverageHistogramModuleD2Ev.exit
 
 _ZN3gmx8internal27BasicAverageHistogramModuleD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i, %11
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }
@@ -538,7 +538,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule12dataFinishedEv(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit ]
-  %13 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %13 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = mul nsw i32 %13, %14
   %16 = add nsw i32 %15, %12
@@ -633,7 +633,7 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i: ; p
   br label %_ZN3gmx8internal27BasicAverageHistogramModuleD2Ev.exit
 
 _ZN3gmx8internal27BasicAverageHistogramModuleD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i, %11
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %2) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #28
   ret void
 }
 
@@ -678,8 +678,8 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i.i: ;
   br label %_ZN3gmx8internal27BasicAverageHistogramModuleD0Ev.exit
 
 _ZN3gmx8internal27BasicAverageHistogramModuleD0Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i.i, %11
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %2) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #29
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #28
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %2) #29
   ret void
 }
 
@@ -931,7 +931,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit: ; preds = %22, %40, %53
 
 83:                                               ; preds = %72
   %84 = sub nuw nsw i64 %74, %81
-  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %84)
+  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %63, i64 noundef %84)
   br label %_ZN3gmx26AnalysisDataFrameLocalDataIlE15setDataSetCountEi.exit
 
 85:                                               ; preds = %72
@@ -1311,7 +1311,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModuleD1Ev(ptr noundef %0
 define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModuleD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx33AnalysisDataSimpleHistogramModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #29
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %2) #29
   ret void
 }
 
@@ -1588,7 +1588,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEED2Ev.exit: ; preds = %22, %40, %53
 
 83:                                               ; preds = %72
   %84 = sub nuw nsw i64 %74, %81
-  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %63, i64 noundef %84)
+  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %63, i64 noundef %84)
   br label %_ZN3gmx26AnalysisDataFrameLocalDataIdE15setDataSetCountEi.exit
 
 85:                                               ; preds = %72
@@ -1796,7 +1796,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23An
   %.016 = phi i1 [ false, %23 ], [ true, %21 ]
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br i1 %.016, label %28, label %92
@@ -2026,7 +2026,7 @@ define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModuleD1Ev(ptr noundef 
 define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModuleD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx35AnalysisDataWeightedHistogramModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #29
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %2) #29
   ret void
 }
 
@@ -2267,7 +2267,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisD
   %.018 = phi i1 [ false, %23 ], [ true, %21 ]
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br i1 %.018, label %28, label %69
@@ -2389,7 +2389,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule12dataFinishedEv(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit ]
-  %15 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %15 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = mul nsw i32 %15, %16
   %18 = add nsw i32 %17, %14
@@ -2453,7 +2453,7 @@ define void @_ZThn96_N3gmx28AnalysisDataBinAverageModuleD1Ev(ptr noundef %0) unn
 define void @_ZThn96_N3gmx28AnalysisDataBinAverageModuleD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -96
   tail call void @_ZN3gmx28AnalysisDataBinAverageModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #29
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(112) %2) #29
   ret void
 }
 
@@ -2947,7 +2947,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
           to label %22 unwind label %122
 
 22:                                               ; preds = %16
-  invoke void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %11)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %11)
           to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %22
@@ -2956,7 +2956,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull readonly align 4 dereferenceable(24) %5, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 4
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94) %11, i32 noundef %25)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(120) %11, i32 noundef %25)
           to label %26 unwind label %34
 
 26:                                               ; preds = %.noexc
@@ -2967,13 +2967,13 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %31 = fpext float %30 to double
   %32 = call double @llvm.fmuladd.f64(double %31, double 5.000000e-01, double %28)
   %33 = fptrunc double %32 to float
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(94) %11, float noundef %33, float noundef %30)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(120) %11, float noundef %33, float noundef %30)
           to label %36 unwind label %34
 
 34:                                               ; preds = %26, %.noexc
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %11) #28
+  call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %11) #28
   br label %.body
 
 36:                                               ; preds = %26
@@ -3018,21 +3018,21 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   br i1 %50, label %51, label %.split58.us
 
 51:                                               ; preds = %48
-  %52 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %52 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %53 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split.us
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %41, align 8
   %55 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %54, i64 %indvars.iv
   %56 = load float, ptr %55, align 8
-  %57 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %57 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %.thread56.us unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split.us
 
 .thread56.us:                                     ; preds = %53
   %58 = load ptr, ptr %41, align 8
   %59 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %58, i64 %indvars.iv, i32 1
   %60 = load float, ptr %59, align 4
-  %61 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %61 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %11)
           to label %62 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split.us
 
 62:                                               ; preds = %.thread56.us
@@ -3066,7 +3066,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   br i1 %73, label %74, label %.split58.us
 
 74:                                               ; preds = %72
-  %75 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %75 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %76 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 76:                                               ; preds = %74
@@ -3076,7 +3076,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   %80 = load ptr, ptr %41, align 8
   %81 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %80, i64 %79
   %82 = load float, ptr %81, align 8
-  %83 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %83 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %84 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 84:                                               ; preds = %76
@@ -3086,7 +3086,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   %88 = load ptr, ptr %41, align 8
   %89 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %88, i64 %87
   %90 = load float, ptr %89, align 8
-  %91 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %91 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %92 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 92:                                               ; preds = %84
@@ -3096,7 +3096,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   %96 = load ptr, ptr %41, align 8
   %97 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %96, i64 %95, i32 1
   %98 = load float, ptr %97, align 4
-  %99 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %99 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %1)
           to label %100 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 100:                                              ; preds = %92
@@ -3106,7 +3106,7 @@ _ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.e
   %104 = load ptr, ptr %41, align 8
   %105 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %104, i64 %103, i32 1
   %106 = load float, ptr %105, align 4
-  %107 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %107 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %11)
           to label %108 unwind label %_ZNSt10unique_ptrIN3gmx24AbstractAverageHistogramESt14default_deleteIS1_EED2Ev.exit.loopexit.split
 
 108:                                              ; preds = %100
@@ -3184,13 +3184,13 @@ declare void @_ZN3gmx25AbstractAnalysisArrayData14allocateValuesEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_122StaticAverageHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3gmx12_GLOBAL__N_122StaticAverageHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }
@@ -3213,7 +3213,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx24AbstractAverageHistogram5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.30") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
-  invoke void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %3)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %2
@@ -3225,7 +3225,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram5cloneEv(ptr dead_on_unwind noali
 5:                                                ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %3) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #28
   br label %.body
 
 7:                                                ; preds = %.noexc
@@ -3287,7 +3287,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.014 = phi i32 [ %18, %.lr.ph ], [ 0, %.preheader ]
   %.01013 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %9 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %9 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %10 = mul nsw i32 %9, %.014
   %11 = add nsw i32 %10, %.01116
   %12 = sext i32 %11 to i64
@@ -3316,7 +3316,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.08.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %22 ]
-  %29 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %29 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %30 = mul nsw i32 %29, %.08.i
   %31 = add nsw i32 %30, %.01116
   %32 = sext i32 %31 to i64
@@ -3325,7 +3325,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, %28
   store float %36, ptr %34, align 4
-  %37 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %37 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %38 = mul nsw i32 %37, %.08.i
   %39 = add nsw i32 %38, %.01116
   %40 = sext i32 %39 to i64
@@ -3362,7 +3362,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
 
 8:                                                ; preds = %.lr.ph, %8
   %.08 = phi i32 [ 0, %.lr.ph ], [ %25, %8 ]
-  %9 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %9 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %10 = mul nsw i32 %9, %.08
   %11 = add nsw i32 %10, %1
   %12 = sext i32 %11 to i64
@@ -3371,7 +3371,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
   %15 = load float, ptr %14, align 4
   %16 = fmul float %2, %15
   store float %16, ptr %14, align 4
-  %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %18 = mul nsw i32 %17, %.08
   %19 = add nsw i32 %18, %1
   %20 = sext i32 %19 to i64
@@ -3409,7 +3409,7 @@ define void @_ZN3gmx24AbstractAverageHistogram14makeCumulativeEv(ptr noundef non
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.015 = phi i32 [ %33, %.lr.ph ], [ 0, %.preheader ]
   %.01214 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %8 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %8 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %9 = mul nsw i32 %8, %.015
   %10 = add nsw i32 %9, %.01316
   %11 = sext i32 %10 to i64
@@ -3418,14 +3418,14 @@ define void @_ZN3gmx24AbstractAverageHistogram14makeCumulativeEv(ptr noundef non
   %14 = load float, ptr %13, align 4
   %15 = fpext float %14 to double
   %16 = fadd double %.01214, %15
-  %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %17 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %18 = mul nsw i32 %17, %.015
   %19 = add nsw i32 %18, %.01316
   %20 = sext i32 %19 to i64
   %21 = load ptr, ptr %5, align 8
   %22 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %21, i64 %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %23 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %23 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %24 = mul nsw i32 %23, %.015
   %25 = add nsw i32 %24, %.01316
   %26 = sext i32 %25 to i64
@@ -3477,7 +3477,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.08.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %7 ]
-  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %11 = mul nsw i32 %10, %.08.i
   %12 = add nsw i32 %11, %.04
   %13 = sext i32 %12 to i64
@@ -3486,7 +3486,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
   %16 = load float, ptr %15, align 4
   %17 = fmul float %1, %16
   store float %17, ptr %15, align 4
-  %18 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %18 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %19 = mul nsw i32 %18, %.08.i
   %20 = add nsw i32 %19, %.04
   %21 = sext i32 %20 to i64
@@ -3531,7 +3531,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
   %10 = load float, ptr %9, align 4
-  %11 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %11 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = mul nsw i32 %11, %12
   %14 = add nsw i32 %13, %.01214
@@ -3542,7 +3542,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
   %19 = fmul float %10, %18
   store float %19, ptr %17, align 4
   %20 = load float, ptr %9, align 4
-  %21 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %21 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %22 = mul nsw i32 %21, %12
   %23 = add nsw i32 %22, %.01214
   %24 = sext i32 %23 to i64
@@ -3569,7 +3569,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx24AbstractAverageHistogramE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   invoke void @_ZN3gmx25AnalysisHistogramSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(21) %2)
@@ -3578,7 +3578,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2Ev(ptr noundef nonnu
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   resume { ptr, i32 } %4
 
 _ZN3gmx24AbstractAverageHistogramC2Ev.exit:       ; preds = %1
@@ -3592,13 +3592,13 @@ _ZN3gmx24AbstractAverageHistogramC2Ev.exit:       ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx24AbstractAverageHistogramE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 4 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94) %0, i32 noundef %5)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %5)
           to label %6 unwind label %14
 
 6:                                                ; preds = %2
@@ -3609,13 +3609,13 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2ERKNS_25AnalysisHist
   %11 = fpext float %10 to double
   %12 = tail call double @llvm.fmuladd.f64(double %11, double 5.000000e-01, double %8)
   %13 = fptrunc double %12 to float
-  invoke void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(94) %0, float noundef %13, float noundef %10)
+  invoke void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(120) %0, float noundef %13, float noundef %10)
           to label %_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSettingsE.exit unwind label %14
 
 14:                                               ; preds = %6, %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0) #28
+  tail call void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #28
   resume { ptr, i32 } %15
 
 _ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSettingsE.exit: ; preds = %6
@@ -3717,7 +3717,7 @@ _ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0
   %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %37 = load ptr, ptr %36, align 8, !alias.scope !39, !noalias !36
   store ptr %37, ptr %35, align 8, !alias.scope !36, !noalias !39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   %40 = load i8, ptr %39, align 8, !alias.scope !39, !noalias !36
@@ -4055,7 +4055,7 @@ define void @_ZN3gmx8internal18BasicHistogramImpl4initERKNS_25AnalysisHistogramS
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull readonly align 4 dereferenceable(21) %1, i64 21, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 4
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94) %5, i32 noundef %8)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(120) %5, i32 noundef %8)
   %9 = load float, ptr %1, align 4
   %10 = fpext float %9 to double
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4063,7 +4063,7 @@ define void @_ZN3gmx8internal18BasicHistogramImpl4initERKNS_25AnalysisHistogramS
   %13 = fpext float %12 to double
   %14 = tail call double @llvm.fmuladd.f64(double %13, double 5.000000e-01, double %10)
   %15 = fptrunc double %14 to float
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(94) %5, float noundef %15, float noundef %12)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(120) %5, float noundef %15, float noundef %12)
   ret void
 }
 
@@ -4077,7 +4077,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2Ev(ptr noundef nonnull 
           to label %4 unwind label %18
 
 4:                                                ; preds = %1
-  invoke void @_ZN3gmx8internal18BasicHistogramImplC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  invoke void @_ZN3gmx8internal18BasicHistogramImplC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %4
@@ -4101,7 +4101,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2Ev(ptr noundef nonnull 
   br label %.body.i
 
 .body.i:                                          ; preds = %11, %7
-  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
+  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #28
   br label %.body
 
 12:                                               ; preds = %.noexc
@@ -4431,7 +4431,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2ERKNS_25AnalysisHistogr
           to label %5 unwind label %19
 
 5:                                                ; preds = %2
-  invoke void @_ZN3gmx8internal18BasicHistogramImplC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(21) %1)
+  invoke void @_ZN3gmx8internal18BasicHistogramImplC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 4 dereferenceable(21) %1)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %5
@@ -4455,7 +4455,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2ERKNS_25AnalysisHistogr
   br label %.body.i
 
 .body.i:                                          ; preds = %12, %8
-  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
+  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #28
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -4528,7 +4528,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHist
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull readonly align 4 dereferenceable(21) %1, i64 21, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 4
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94) %7, i32 noundef %10)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(120) %7, i32 noundef %10)
   %11 = load float, ptr %1, align 4
   %12 = fpext float %11 to double
   %13 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4536,7 +4536,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHist
   %15 = fpext float %14 to double
   %16 = tail call double @llvm.fmuladd.f64(double %15, double 5.000000e-01, double %12)
   %17 = fptrunc double %16 to float
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(94) %7, float noundef %17, float noundef %14)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(120) %7, float noundef %17, float noundef %14)
   ret void
 }
 
@@ -5009,7 +5009,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModuleC2Ev(ptr noundef nonnul
           to label %4 unwind label %18
 
 4:                                                ; preds = %1
-  invoke void @_ZN3gmx8internal18BasicHistogramImplC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  invoke void @_ZN3gmx8internal18BasicHistogramImplC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %4
@@ -5033,7 +5033,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModuleC2Ev(ptr noundef nonnul
   br label %.body.i
 
 .body.i:                                          ; preds = %11, %7
-  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #28
+  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #28
   br label %.body
 
 12:                                               ; preds = %.noexc
@@ -5257,7 +5257,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModuleC2ERKNS_25AnalysisHisto
           to label %5 unwind label %19
 
 5:                                                ; preds = %2
-  invoke void @_ZN3gmx8internal18BasicHistogramImplC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(21) %1)
+  invoke void @_ZN3gmx8internal18BasicHistogramImplC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 4 dereferenceable(21) %1)
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %5
@@ -5281,7 +5281,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModuleC2ERKNS_25AnalysisHisto
   br label %.body.i
 
 .body.i:                                          ; preds = %12, %8
-  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
+  tail call void @_ZN3gmx8internal18BasicHistogramImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #28
   br label %.body
 
 13:                                               ; preds = %.noexc
@@ -5354,7 +5354,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull readonly align 4 dereferenceable(21) %1, i64 21, i1 false)
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 4
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94) %7, i32 noundef %10)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(120) %7, i32 noundef %10)
   %11 = load float, ptr %1, align 4
   %12 = fpext float %11 to double
   %13 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5362,7 +5362,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHi
   %15 = fpext float %14 to double
   %16 = tail call double @llvm.fmuladd.f64(double %15, double 5.000000e-01, double %12)
   %17 = fptrunc double %16 to float
-  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(94) %7, float noundef %17, float noundef %14)
+  tail call void @_ZN3gmx25AbstractAnalysisArrayData8setXAxisEff(ptr noundef nonnull align 8 dereferenceable(120) %7, float noundef %17, float noundef %14)
   ret void
 }
 
@@ -5789,7 +5789,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -5806,7 +5806,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #28
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -5909,7 +5909,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   ret void
 }
 
@@ -5970,7 +5970,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }
@@ -6106,7 +6106,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModuleC2Ev(ptr noundef nonnull align
           to label %5 unwind label %9
 
 5:                                                ; preds = %1
-  invoke void @_ZN3gmx25AnalysisHistogramSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(21) %4)
+  invoke void @_ZN3gmx25AnalysisHistogramSettingsC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %6 unwind label %11
 
 6:                                                ; preds = %5
@@ -6204,7 +6204,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModuleC2ERKNS_25AnalysisHistogramSet
           to label %6 unwind label %19
 
 6:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %5, ptr %4, align 8

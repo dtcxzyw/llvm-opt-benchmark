@@ -65,7 +65,7 @@ define noundef i64 @_RINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB
   store ptr %15, ptr %.sroa.547.0..sroa.4.0..sroa_idx.i.i.i.sroa_idx, align 8, !noalias !23
   %.sroa.648.0..sroa.4.0..sroa_idx.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
   store i64 0, ptr %.sroa.648.0..sroa.4.0..sroa_idx.i.i.i.sroa_idx, align 8, !noalias !23
-  %20 = invoke noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduQNCINvNtNtB1M_8adapters6cloned14clone_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowINtNtB3o_9try_trait17NeverShortCircuituEENCINvNvXs_NtB2D_4takeINtB4N_4TakepEB1G_8try_fold5checkBJ_uB3Y_NCINvMB41_B3Y_10wrap_mut_2uBJ_NCINvNvXs_NtB2D_9enumerateINtB6h_9EnumeratepEB1G_4fold9enumerateBJ_uNCINvNvB1G_8for_each4callTjBJ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7R_8VecDequeBJ_E10write_iterIB4Z_INtNtB2D_12by_ref_sized10ByRefSizedINtB2B_6ClonedINtNtB7R_4iter4IterBJ_EEEEE0E0E0E0E0E0B3j_EBP_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
+  %20 = invoke noundef zeroext i1 @_RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBa_4iter6traits8iterator8Iterator8try_folduQNCINvNtNtB1M_8adapters6cloned14clone_try_foldBJ_uINtNtNtBa_3ops12control_flow11ControlFlowINtNtB3o_9try_trait17NeverShortCircuituEENCINvNvXs_NtB2D_4takeINtB4N_4TakepEB1G_8try_fold5checkBJ_uB3Y_NCINvMB41_B3Y_10wrap_mut_2uBJ_NCINvNvXs_NtB2D_9enumerateINtB6h_9EnumeratepEB1G_4fold9enumerateBJ_uNCINvNvB1G_8for_each4callTjBJ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB7R_8VecDequeBJ_E10write_iterIB4Z_INtNtB2D_12by_ref_sized10ByRefSizedINtB2B_6ClonedINtNtB7R_4iter4IterBJ_EEEEE0E0E0E0E0E0B3j_EBP_.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %19
@@ -1515,7 +1515,7 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3M
   br label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB18_5TokenuEEE7reserveB1a_.exit
 
 88:                                               ; preds = %67
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %59, i64 noundef %58)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %59, i64 noundef %58)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !270
   %.pre6.i = load i64, ptr %19, align 8, !alias.scope !270
   %.pre7.i = sub i64 %64, %.pre6.i
@@ -1892,7 +1892,7 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
   br label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE7reserveB1a_.exit
 
 86:                                               ; preds = %65
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %57, i64 noundef %56)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %57, i64 noundef %56)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !405
   %.pre6.i = load i64, ptr %19, align 8, !alias.scope !405
   %.pre7.i = sub i64 %62, %.pre6.i
@@ -2785,7 +2785,7 @@ define void @_RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_exte
   br label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentE7reserveB1b_.exit
 
 54:                                               ; preds = %29
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtBa_5alloc6GlobalEB1t_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %21, i64 noundef %19)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentNtNtBa_5alloc6GlobalEB1t_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21, i64 noundef %19)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !689
   %.pre6.i = load i64, ptr %20, align 8, !alias.scope !689
   %.pre7.i = sub i64 %26, %.pre6.i
@@ -2878,7 +2878,7 @@ define void @_RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_exte
   br label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB18_5TokenuEEE7reserveB1a_.exit
 
 45:                                               ; preds = %20
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %12, i64 noundef %10)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB1q_5TokenuEENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, i64 noundef %10)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !704
   %.pre6.i = load i64, ptr %11, align 8, !alias.scope !704
   %.pre7.i = sub i64 %17, %.pre6.i
@@ -2971,7 +2971,7 @@ define void @_RNvXs_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_exte
   br label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB18_5TokenEE7reserveB1a_.exit
 
 45:                                               ; preds = %20
-  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %12, i64 noundef %10)
+  tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1q_5TokenENtNtBa_5alloc6GlobalEB1s_(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, i64 noundef %10)
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !719
   %.pre6.i = load i64, ptr %11, align 8, !alias.scope !719
   %.pre7.i = sub i64 %17, %.pre6.i

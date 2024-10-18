@@ -997,7 +997,7 @@ if.end11.i122:                                    ; preds = %if.else.i121, %hand
   %dir_re_merge.0.i = phi ptr [ %call8.i, %handle_directory_level_conflicts.exit.i ], [ %call10.i, %if.else.i121 ]
   %branch1.i = getelementptr inbounds i8, ptr %opt, i64 16
   %111 = load ptr, ptr %branch1.i, align 8
-  %call12.i123 = call fastcc ptr @get_renames(ptr noundef %opt, ptr noundef %111, ptr noundef %call1.i119, ptr noundef %dir_re_merge.0.i, ptr noundef %dir_re_head.0.i, ptr noundef %head, ptr noundef %merge_base.addr.0, ptr noundef %head, ptr noundef %merge.addr.0, ptr noundef %call.i112, ptr noundef %clean.i)
+  %call12.i123 = call fastcc ptr @get_renames(ptr noundef nonnull %opt, ptr noundef %111, ptr noundef %call1.i119, ptr noundef %dir_re_merge.0.i, ptr noundef %dir_re_head.0.i, ptr noundef %head, ptr noundef %merge_base.addr.0, ptr noundef %head, ptr noundef %merge.addr.0, ptr noundef %call.i112, ptr noundef %clean.i)
   %112 = load i32, ptr %clean.i, align 4
   %cmp14.i = icmp slt i32 %112, 0
   br i1 %cmp14.i, label %cleanup.i, label %if.end16.i
@@ -1235,7 +1235,7 @@ setup_rename_conflict_info.exit.i.i:              ; preds = %land.lhs.true.i.i.i
   br label %if.end270.sink.split.i.i
 
 if.else124.i.i:                                   ; preds = %if.end111.i.i
-  call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef %143, i32 noundef 1)
+  call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %143, i32 noundef 1)
   %157 = load ptr, ptr %dst_entry.i.i, align 8
   %158 = load ptr, ptr %pair94.i.i, align 8
   %159 = load ptr, ptr %158, align 8
@@ -1393,7 +1393,7 @@ lor.rhs168.i.i:                                   ; preds = %if.then165.i.i
 
 lor.end173.i.i:                                   ; preds = %lor.rhs168.i.i, %if.then165.i.i
   %lor.ext.i.i = phi i32 [ 1, %if.then165.i.i ], [ %call1.i.lobit.i.i, %lor.rhs168.i.i ]
-  call fastcc void @remove_file(ptr noundef %opt, i32 noundef 1, ptr noundef %143, i32 noundef %lor.ext.i.i)
+  call fastcc void @remove_file(ptr noundef nonnull %opt, i32 noundef 1, ptr noundef %143, i32 noundef %lor.ext.i.i)
   br label %if.end175.i.i
 
 if.end175.i.i:                                    ; preds = %lor.end173.i.i, %if.else156.i.i
@@ -2178,7 +2178,7 @@ if.then8.i.i:                                     ; preds = %if.end.i.i182, %if.
   %305 = icmp ne i32 %304, 0
   %lor.ext.i.i.i = zext i1 %305 to i32
   %lnot.ext.i.i.i = zext i1 %tobool.not.i29.i.i to i32
-  %call.i30.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef %opt, ptr noundef %288, ptr noundef %file_path.05.i.i, i32 noundef %lor.ext.i.i.i, i32 noundef %lnot.ext.i.i.i)
+  %call.i30.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef %288, ptr noundef %file_path.05.i.i, i32 noundef %lor.ext.i.i.i, i32 noundef %lnot.ext.i.i.i)
   %tobool10.not.i.i185 = icmp eq i32 %call.i30.i.i, 0
   br i1 %tobool10.not.i.i185, label %if.end12.i.i, label %sw.epilog.i
 
@@ -2211,7 +2211,7 @@ if.else.i.i183:                                   ; preds = %if.end.i.i182, %wou
   %312 = load i32, ptr %311, align 8
   %tobool.not.i32.i.i = icmp eq i32 %312, 0
   %lnot.ext.i34.i.i = zext i1 %tobool.not.i32.i.i to i32
-  %call.i35.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef %opt, ptr noundef %288, ptr noundef %310, i32 noundef 1, i32 noundef %lnot.ext.i34.i.i)
+  %call.i35.i.i = call fastcc range(i32 -1, 1) i32 @update_file_flags(ptr noundef nonnull %opt, ptr noundef %288, ptr noundef %310, i32 noundef 1, i32 noundef %lnot.ext.i34.i.i)
   %tobool36.not.i.i184 = icmp eq i32 %call.i35.i.i, 0
   %.26.i.i = select i1 %tobool36.not.i.i184, i32 1, i32 -1
   br label %sw.epilog.i
@@ -3502,7 +3502,7 @@ if.then.i:                                        ; preds = %if.then9
 
 if.end.i:                                         ; preds = %if.then9
   %conv = zext i32 %call10 to i64
-  %call.i59 = tail call ptr @ngettext(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, i64 noundef %conv) #22
+  %call.i59 = tail call ptr @ngettext(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, i64 noundef range(i64 0, 4294967296) %conv) #22
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i, %if.end.i
@@ -5224,7 +5224,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
 if.else.i58:                                      ; preds = %dir_rename_find_entry.exit.i, %dir_rename_find_entry.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %collision_paths.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %collision_paths.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.merge_recursive_internal.merge_base_abbrev, i64 24, i1 false)
-  %call.i14.i = call fastcc ptr @apply_dir_rename(ptr noundef %call.i52, ptr noundef %17)
+  %call.i14.i = call fastcc ptr @apply_dir_rename(ptr noundef nonnull %call.i52, ptr noundef %17)
   %tobool.not.i15.i = icmp eq ptr %call.i14.i, null
   br i1 %tobool.not.i15.i, label %if.then.i.i, label %if.end5.i.i
 

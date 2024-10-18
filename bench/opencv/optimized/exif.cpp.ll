@@ -121,7 +121,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt3mapIiN2cv11Ex
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK2cv10ExifReader6getTagENS_11ExifTagNameE(ptr dead_on_unwind noalias writable sret(%"struct.cv::ExifEntry_t") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -163,7 +163,7 @@ _ZNKSt3mapIiN2cv11ExifEntry_tESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; pr
 
 19:                                               ; preds = %_ZNKSt3mapIiN2cv11ExifEntry_tESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
   %20 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
-  %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairIjjESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairIjjESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %20)
           to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %19
@@ -516,7 +516,7 @@ _ZNK2cv10ExifReader14getNumDirEntryEm.exit:       ; preds = %76, %85
   %110 = ptrtoint ptr %108 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 24, i1 false), !alias.scope !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %96, i8 0, i64 24, i1 false), !alias.scope !6
   %.not.i.i.i.i.i.i.i = icmp eq ptr %108, %109
   br i1 %.not.i.i.i.i.i.i.i, label %.thread.i, label %114
 
@@ -841,7 +841,7 @@ define hidden void @_ZN2cv10ExifReader14parseExifEntryEm(ptr dead_on_unwind noal
   %11 = alloca %"class.std::vector", align 8
   %12 = alloca %"class.std::vector", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   %15 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1625,7 +1625,7 @@ _ZNK2cv10ExifReader6getU32Em.exit14:              ; preds = %59, %70
           to label %.noexc unwind label %100
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %96, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %96, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc15 unwind label %100
 
 .noexc15:                                         ; preds = %.noexc
@@ -1637,7 +1637,7 @@ _ZNK2cv10ExifReader6getU32Em.exit14:              ; preds = %59, %70
 98:                                               ; preds = %.noexc15
   %99 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEvEET_SE_RKS3_.exit: ; preds = %.noexc15
@@ -2904,7 +2904,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiN2cv11ExifEntr
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %3, i64 64
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #20

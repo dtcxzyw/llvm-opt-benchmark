@@ -486,7 +486,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i63:    ; preds = %165
   %172 = load ptr, ptr %14, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
   store i64 2, ptr %121, align 8
   %175 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %.noexc66 unwind label %184
@@ -1357,7 +1357,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %21
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #14
   ret void
 }
 
@@ -1382,7 +1382,7 @@ define void @_ZN19FirewallRulesDialogD0Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZThn16_N19FirewallRulesDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19FirewallRulesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(292) %2) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(292) %2) #15
   ret void
 }
 

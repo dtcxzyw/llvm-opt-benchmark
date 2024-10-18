@@ -1877,7 +1877,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noun
   br i1 %8, label %uv_os_getenv.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #22
+  %10 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %uv_os_getenv.exit, label %12
 

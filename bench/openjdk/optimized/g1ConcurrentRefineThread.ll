@@ -440,7 +440,7 @@ define hidden void @_ZN24G1ConcurrentRefineThread12stop_serviceEv(ptr noundef no
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
+  %7 = tail call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   br i1 %7, label %8, label %_ZN24G1ConcurrentRefineThread8activateEv.exit
 
 8:                                                ; preds = %6, %1
@@ -667,7 +667,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
 
 9:                                                ; preds = %8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
-  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %6) #9
+  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 920
   %11 = getelementptr inbounds i8, ptr %6, i64 936
@@ -683,7 +683,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 1096
   store ptr %0, ptr %16, align 8
-  call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %6, ptr noundef nonnull @.str, i32 noundef 0) #9
+  call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(1104) %6, ptr noundef nonnull @.str, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)
   br label %26
 
@@ -692,7 +692,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3)
-  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %6) #9
+  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %6) #9
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 920
   %20 = getelementptr inbounds i8, ptr %6, i64 936
@@ -708,7 +708,7 @@ define hidden noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentR
   store i32 %1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %6, i64 1096
   store ptr %0, ptr %25, align 8
-  call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %6, ptr noundef nonnull @.str, i32 noundef %1) #9
+  call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(1104) %6, ptr noundef nonnull @.str, i32 noundef %1) #9
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %3)
   br label %26
 
@@ -735,7 +735,7 @@ define linkonce_odr hidden void @_ZN24G1ConcurrentRefineThreadD2Ev(ptr noundef n
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #9
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #9
   ret void
 }
 
@@ -860,7 +860,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD2Ev(ptr no
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #9
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   ret void
 }
 
@@ -869,7 +869,7 @@ define linkonce_odr hidden void @_ZN31G1PrimaryConcurrentRefineThreadD0Ev(ptr no
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #9
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #9
   ret void
 }
@@ -879,7 +879,7 @@ define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD2Ev(ptr 
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #9
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   ret void
 }
 
@@ -888,7 +888,7 @@ define linkonce_odr hidden void @_ZN33G1SecondaryConcurrentRefineThreadD0Ev(ptr 
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTV24G1ConcurrentRefineThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #9
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) #9
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #9
   ret void
 }

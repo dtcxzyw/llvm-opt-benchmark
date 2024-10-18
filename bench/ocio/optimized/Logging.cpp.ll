@@ -113,7 +113,7 @@ entry:
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -130,7 +130,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN19OpenColorIO_v2_4dev15GetLoggingLevelEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -144,13 +144,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %0 = load i32, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_logginglevelE, align 4
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret i32 %0
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %1
 }
 
@@ -235,7 +235,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev15SetLoggingLevelENS_12LoggingLevelE(i32 noundef %level) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -258,11 +258,11 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %0 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %if.then, %invoke.cont
-  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret void
 }
 
@@ -281,7 +281,7 @@ entry:
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvPKcEEC2ERKS3_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %logFunction, i32 noundef 2)
+  %call3.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %logFunction, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -298,7 +298,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -315,9 +315,9 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit.i:            ; preds = %invoke.cont.i.i, %e
   %7 = phi ptr [ null, %entry ], [ %1, %invoke.cont.i.i ]
   %8 = phi ptr [ null, %entry ], [ %2, %invoke.cont.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   store ptr %9, ptr %_M_manager.i.i.i, align 8
@@ -329,7 +329,7 @@ _ZNSt8functionIFvPKcEEC2ERKS3_.exit.i:            ; preds = %invoke.cont.i.i, %e
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvPKcEEaSERKS3_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvPKcEEC2ERKS3_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPKcEEaSERKS3_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -356,9 +356,9 @@ entry:
   store i64 0, ptr %0, align 8
   store ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122DefaultLoggingFunctionEPKc, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117g_loggingFunctionE, i64 16), align 8
   store ptr %1, ptr %_M_manager.i.i.i, align 8
@@ -370,7 +370,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPKcEEaSIRS2_EENSt9enable_ifIXsrNS3_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES3_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JS1_EEEE5valueERS3_E4typeEOS8_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPKcEEaSIRS2_EENSt9enable_ifIXsrNS3_9_CallableIT_NS6_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS8_E4typeEE4typeES3_EE5valueESt5decayIS8_EE4type4typeESt15__invoke_resultIRSJ_JS1_EEEE5valueERS3_E4typeEOS8_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -407,7 +407,7 @@ sw.bb:                                            ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -430,7 +430,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt10lock_guardIS
 lpad.i:                                           ; preds = %if.end.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   br label %lpad2.body
 
 if.end.i:                                         ; preds = %invoke.cont.i
@@ -463,7 +463,7 @@ sw.bb4:                                           ; preds = %entry
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %sw.bb4
-  %call1.i.i.i.i10 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i.i10 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i.i11 = icmp eq i32 %call1.i.i.i.i10, 0
   br i1 %tobool.not.i.i.i11, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13, label %if.then.i.i.i12
 
@@ -486,7 +486,7 @@ invoke.cont.i16:                                  ; preds = %_ZNSt10lock_guardIS
 lpad.i14:                                         ; preds = %if.end.i18, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i13
   %5 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   br label %lpad9.body
 
 if.end.i18:                                       ; preds = %invoke.cont.i16
@@ -519,7 +519,7 @@ sw.bb13:                                          ; preds = %entry
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %sw.bb13
-  %call1.i.i.i.i22 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i.i22 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i.i23 = icmp eq i32 %call1.i.i.i.i22, 0
   br i1 %tobool.not.i.i.i23, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i25, label %if.then.i.i.i24
 
@@ -542,7 +542,7 @@ invoke.cont.i28:                                  ; preds = %_ZNSt10lock_guardIS
 lpad.i26:                                         ; preds = %if.end.i30, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i25
   %9 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1.i27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1.i27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   br label %lpad18.body
 
 if.end.i30:                                       ; preds = %invoke.cont.i28
@@ -587,7 +587,7 @@ lpad24:                                           ; preds = %sw.bb23
 sw.epilog.sink.split:                             ; preds = %invoke.cont.i28, %if.end.i30, %invoke.cont.i16, %if.end.i18, %invoke.cont.i, %if.end.i
   %ref.tmp14.sink = phi ptr [ %ref.tmp, %if.end.i ], [ %ref.tmp, %invoke.cont.i ], [ %ref.tmp5, %if.end.i18 ], [ %ref.tmp5, %invoke.cont.i16 ], [ %ref.tmp14, %if.end.i30 ], [ %ref.tmp14, %invoke.cont.i28 ]
   %ref.tmp15.sink = phi ptr [ %ref.tmp1, %if.end.i ], [ %ref.tmp1, %invoke.cont.i ], [ %ref.tmp6, %if.end.i18 ], [ %ref.tmp6, %invoke.cont.i16 ], [ %ref.tmp15, %if.end.i30 ], [ %ref.tmp15, %invoke.cont.i28 ]
-  %call1.i.i.i2.i31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2.i31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14.sink) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15.sink) #18
   br label %sw.epilog
@@ -603,7 +603,7 @@ eh.resume:                                        ; preds = %lpad24, %ehcleanup2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev10LogWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -623,7 +623,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
 lpad:                                             ; preds = %if.end, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont
@@ -631,7 +631,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret void
 }
 
@@ -649,7 +649,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev7LogInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -669,7 +669,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
 lpad:                                             ; preds = %if.end, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont
@@ -677,14 +677,14 @@ if.end:                                           ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8LogDebugERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -704,7 +704,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
 lpad:                                             ; preds = %if.end, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont
@@ -712,7 +712,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret void
 }
 
@@ -731,7 +731,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev8LogErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -751,7 +751,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
 lpad:                                             ; preds = %if.end, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %invoke.cont
@@ -759,7 +759,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %invoke.cont
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   ret void
 }
 
@@ -938,7 +938,7 @@ eh.resume:                                        ; preds = %ehcleanup20, %ehcle
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev21IsDebugLoggingEnabledEv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -953,12 +953,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %entry
 lpad.i:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   resume { ptr, i32 } %0
 
 _ZN19OpenColorIO_v2_4dev15GetLoggingLevelEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %1 = load i32, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114g_logginglevelE, align 4
-  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
+  %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_110g_logmutexE) #18
   %cmp = icmp sgt i32 %1, 2
   ret i1 %cmp
 }

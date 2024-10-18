@@ -6776,7 +6776,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 270:                                              ; preds = %267
   %271 = load i32, ptr %244, align 64, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #27
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef readonly %266, ptr noundef nonnull %7, ptr noundef nonnull readonly %242, ptr noundef nonnull readonly %243, i32 noundef %271)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull readonly %266, ptr noundef nonnull %7, ptr noundef nonnull readonly %242, ptr noundef nonnull readonly %243, i32 noundef %271)
   %272 = load <4 x float>, ptr %7, align 16
   %273 = load <4 x float>, ptr %241, align 4, !tbaa !16
   %274 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8269,7 +8269,7 @@ dt_ioppr_rgb_matrix_to_lab.exit.us:               ; preds = %98, %95
   %137 = phi float [ %170, %dt_ioppr_rgb_matrix_to_lab.exit ], [ 0x47EFFFFFE0000000, %63 ]
   %138 = getelementptr inbounds float, ptr %1, i64 %133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef readonly %138, ptr noundef nonnull %6, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14, i32 noundef %66)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef nonnull readonly %138, ptr noundef nonnull %6, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14, i32 noundef %66)
   %139 = load <4 x float>, ptr %6, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
   %140 = extractelement <4 x float> %139, i64 1

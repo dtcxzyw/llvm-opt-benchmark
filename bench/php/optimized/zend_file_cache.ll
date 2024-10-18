@@ -230,7 +230,7 @@ zend_file_cache_get_bin_file_path.exit:           ; preds = %2
   store ptr %72, ptr %83, align 16
   %84 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %78, ptr %84, align 8
-  %85 = call i64 @writev(i32 noundef %39, ptr noundef nonnull %3, i32 noundef 3) #19
+  %85 = call i64 @writev(i32 noundef range(i32 0, -2147483648) %39, ptr noundef nonnull %3, i32 noundef 3) #19
   %86 = icmp eq i64 %85, %79
   br i1 %86, label %108, label %87
 

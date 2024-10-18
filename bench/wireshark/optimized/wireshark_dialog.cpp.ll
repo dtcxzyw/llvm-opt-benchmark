@@ -63,7 +63,7 @@ define void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull 
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 1)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 1)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -519,8 +519,8 @@ define void @_ZN15WiresharkDialog6acceptEv(ptr noundef nonnull align 8 dereferen
   br i1 %8, label %9, label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 9:                                                ; preds = %1
-  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
-  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(133) %0)
   br label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 _ZN15WiresharkDialog13dialogCleanupEb.exit:       ; preds = %1, %9
@@ -555,7 +555,7 @@ define void @_ZN15WiresharkDialog13dialogCleanupEb(ptr noundef nonnull align 8 d
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %17 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null, ptr noundef null, ptr noundef null)
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %18
 
@@ -578,8 +578,8 @@ define void @_ZN15WiresharkDialog6rejectEv(ptr noundef nonnull align 8 dereferen
   br i1 %8, label %9, label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 9:                                                ; preds = %1
-  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
-  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(133) %0)
   br label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 _ZN15WiresharkDialog13dialogCleanupEb.exit:       ; preds = %1, %9
@@ -931,8 +931,8 @@ define void @_ZN15WiresharkDialog15endRetapPacketsEv(ptr noundef nonnull align 8
   br i1 %9, label %10, label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 10:                                               ; preds = %6
-  %11 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null)
-  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %11 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef null, ptr noundef null, ptr noundef null)
+  tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(133) %0)
   br label %_ZN15WiresharkDialog13dialogCleanupEb.exit
 
 _ZN15WiresharkDialog13dialogCleanupEb.exit:       ; preds = %1, %6, %10

@@ -337,7 +337,7 @@ _ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErro
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportENS1_23cache_aligned_allocatorIS5_EEEES5_EptEv.exit: ; preds = %11, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportENS1_23cache_aligned_allocatorIS4_EEE7grow_byEm.exit
   %.0.i.i = phi ptr [ %22, %11 ], [ %9, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportENS1_23cache_aligned_allocatorIS4_EEE7grow_byEm.exit ]
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3) #11
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -357,7 +357,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIN32pxrInternal_v0_24
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7TfErrorEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i.i, label %31
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
-  invoke void %30(i32 noundef 3, ptr noundef nonnull %29, ptr noundef null)
+  invoke void %30(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef null)
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -397,13 +397,13 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark9Tr
   %5 = tail call noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %8 = call noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
   %9 = load i64, ptr %1, align 8
   %10 = call ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMarkBeginEmPm(ptr noundef nonnull align 8 dereferenceable(481) %8, i64 noundef %9, ptr noundef null)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %0, ptr %12, align 8
@@ -427,7 +427,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE11_S_dist
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %17, %15
   store i64 %18, ptr %16, align 8
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %10, ptr noundef nonnull %11) #11
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %10, ptr noundef nonnull %11) #11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportC2ERNSt7__cxx114listINS_7TfErrorESaIS3_EEESt14_List_iteratorIS3_ES8_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__16TfErrorTransportC2ERNSt7__cxx114listINS_7TfErrorESaIS3_EEESt14_List_iteratorIS3_ES8_.exit: ; preds = %2, %_ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfErrorESaIS2_EE11_S_distanceESt20_List_const_iteratorIS2_ES6_.exit.i.i.i
@@ -449,7 +449,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16TfErrorTranspor
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7TfErrorEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
-  invoke void %5(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
+  invoke void %5(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef null)
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -588,7 +588,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage
   %3 = alloca %"class.std::thread::id", align 8
   %4 = tail call i64 @pthread_self() #17
   store i64 %4, ptr %3, align 8
-  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 3339675911)
+  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %6
 
 6:                                                ; preds = %2
@@ -927,7 +927,7 @@ _ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__16TfErro
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7TfErrorEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i.i.i.i.i, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  invoke void %21(i32 noundef 3, ptr noundef nonnull %20, ptr noundef null)
+  invoke void %21(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef null)
           to label %23 unwind label %24
 
 23:                                               ; preds = %22
@@ -1010,7 +1010,7 @@ define linkonce_odr void @_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN32pxrInternal_v0_24__pxrReserved__7TfErrorEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i.i.i.i.i, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  invoke void %16(i32 noundef 3, ptr noundef nonnull %15, ptr noundef null)
+  invoke void %16(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef null)
           to label %18 unwind label %19
 
 18:                                               ; preds = %17

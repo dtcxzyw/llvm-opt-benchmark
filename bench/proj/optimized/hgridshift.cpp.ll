@@ -1020,7 +1020,7 @@ declare i32 @proj_errno(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z36pj_clear_hgridshift_knowngrids_cachev() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16gMutexHGridShift) #17
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %2
 
@@ -1045,7 +1045,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   store ptr getelementptr inbounds (i8, ptr @_ZL21gKnownGridsHGridShiftB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL21gKnownGridsHGridShiftB5cxx11, i64 24), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZL21gKnownGridsHGridShiftB5cxx11, i64 8), ptr getelementptr inbounds (i8, ptr @_ZL21gKnownGridsHGridShiftB5cxx11, i64 32), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL21gKnownGridsHGridShiftB5cxx11, i64 40), align 8
-  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL16gMutexHGridShift) #17
+  %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16gMutexHGridShift) #17
   ret void
 }
 

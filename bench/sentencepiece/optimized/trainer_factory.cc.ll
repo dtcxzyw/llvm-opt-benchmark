@@ -58,7 +58,7 @@ define void @_ZN13sentencepiece14TrainerFactory6CreateERKNS_11TrainerSpecERKNS_1
 
 8:                                                ; preds = %4
   %9 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #11, !noalias !4
-  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
+  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(708) %9, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
           to label %_ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit unwind label %10, !noalias !4
 
 common.resume:                                    ; preds = %66, %63, %33, %29, %14, %10
@@ -77,7 +77,7 @@ _ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.
 
 12:                                               ; preds = %4
   %13 = tail call noalias noundef nonnull dereferenceable(856) ptr @_Znwm(i64 noundef 856) #11, !noalias !7
-  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %13, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
+  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(856) %13, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
           to label %_ZNSt10unique_ptrIN13sentencepiece3bpe7TrainerESt14default_deleteIS2_EED2Ev.exit unwind label %14, !noalias !7
 
 14:                                               ; preds = %12
@@ -207,7 +207,7 @@ _ZNSt10unique_ptrIN13sentencepiece9character7TrainerESt14default_deleteIS2_EED2E
 
 .critedge:                                        ; preds = %59, %35
   %65 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #11, !noalias !16
-  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(704) %65, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
+  invoke void @_ZN13sentencepiece16TrainerInterfaceC2ERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr noundef nonnull align 8 dereferenceable(708) %65, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3)
           to label %_ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.exit26 unwind label %66, !noalias !16
 
 66:                                               ; preds = %.critedge

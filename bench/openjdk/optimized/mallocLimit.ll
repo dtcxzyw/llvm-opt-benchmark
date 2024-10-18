@@ -43,7 +43,7 @@ $_ZN12ParserHelper10match_sizeEPm = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN14MallocLimitSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, i8 0, i64 12, i1 false)
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -228,7 +228,7 @@ define hidden noundef zeroext i1 @_ZN14MallocLimitSet24parse_malloclimit_optionE
   %4 = alloca %class.stringStream, align 8
   %5 = alloca %class.ParserHelper, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, i8 0, i64 12, i1 false)
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -627,7 +627,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_mallocLimit.cpp() #10 section ".text.startup" {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @_ZN18MallocLimitHandler7_limitsE, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) @_ZN18MallocLimitHandler7_limitsE, i8 0, i64 12, i1 false)
   br label %1
 
 1:                                                ; preds = %1, %0

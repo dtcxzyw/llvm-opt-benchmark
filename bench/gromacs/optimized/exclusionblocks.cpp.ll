@@ -494,7 +494,7 @@ _ZN3gmx12_GLOBAL__N_122countAndSortExclusionsENS_8ArrayRefINS_14ExclusionBlockEE
 
 122:                                              ; preds = %_ZN3gmx12_GLOBAL__N_122countAndSortExclusionsENS_8ArrayRefINS_14ExclusionBlockEEE.exit
   %123 = sub nuw nsw i64 1, %120
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %123)
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %123)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 124:                                              ; preds = %_ZN3gmx12_GLOBAL__N_122countAndSortExclusionsENS_8ArrayRefINS_14ExclusionBlockEEE.exit

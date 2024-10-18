@@ -290,7 +290,7 @@ define hidden noundef i32 @_ZN21JfrThreadGroupsHelper31populate_thread_group_hie
   br label %23
 
 21:                                               ; preds = %9
-  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 8, i32 noundef 0) #21
+  %22 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 8, i32 noundef 0) #21
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -363,7 +363,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %28, %37
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit22
 
 65:                                               ; preds = %54
-  %66 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef 8, i32 noundef 0) #21
+  %66 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %55, i64 noundef 8, i32 noundef 0) #21
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit22
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit22:            ; preds = %63, %65
@@ -438,7 +438,7 @@ _ZNK6HandleclEv.exit27:                           ; preds = %70, %79
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
 107:                                              ; preds = %96
-  %108 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %97, i64 noundef 8, i32 noundef 0) #21
+  %108 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %97, i64 noundef 8, i32 noundef 0) #21
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit32:            ; preds = %105, %107
@@ -808,7 +808,7 @@ _ZN14JfrThreadGroup19JfrThreadGroupEntryD2Ev.exit: ; preds = %18, %21
 
 30:                                               ; preds = %._crit_edge
   store i32 0, ptr %.lcssa, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIPN14JfrThreadGroup19JfrThreadGroupEntryE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %.lcssa)
+  tail call void @_ZN26GrowableArrayWithAllocatorIPN14JfrThreadGroup19JfrThreadGroupEntryE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %.lcssa)
   br label %_ZN13GrowableArrayIPN14JfrThreadGroup19JfrThreadGroupEntryEED2Ev.exit
 
 _ZN13GrowableArrayIPN14JfrThreadGroup19JfrThreadGroupEntryEED2Ev.exit: ; preds = %._crit_edge, %30

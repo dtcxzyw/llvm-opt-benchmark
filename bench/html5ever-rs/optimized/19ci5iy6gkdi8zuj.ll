@@ -636,7 +636,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$markup5ever..interface.
   %4 = getelementptr inbounds [0 x { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }], ptr %0, i64 0, i64 %.08
   %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h1d807ffaec19e144E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h1d807ffaec19e144E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4)
           to label %8 unwind label %.body
 
 .body:                                            ; preds = %.lr.ph

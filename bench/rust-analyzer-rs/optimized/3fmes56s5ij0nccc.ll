@@ -163,7 +163,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i: ; preds = %50, %48, %46, %44
 
 _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i: ; preds = %80, %78, %76, %74, %72, %70, %.lr.ph.i
   %.0.i154.i = phi i8 [ 1, %.lr.ph.i ], [ 2, %70 ], [ 3, %72 ], [ 4, %74 ], [ 5, %76 ], [ %..i153.i, %80 ], [ 6, %78 ]
-  %.0.sroa.speculated.i.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0126206.i, i8 %.0.i154.i)
+  %.0.sroa.speculated.i.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0126206.i, i8 range(i8 1, 9) %.0.i154.i)
   %82 = load i64, ptr %.sroa.0.0204.i, align 8, !noalias !11, !noundef !4
   %83 = icmp ult i64 %82, 256
   br i1 %83, label %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i, label %84
@@ -195,7 +195,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i: ; preds = %80, %78, %76, 
 
 _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i: ; preds = %94, %92, %90, %88, %86, %84, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i
   %.0.i157.i = phi i8 [ 1, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i ], [ 2, %84 ], [ 3, %86 ], [ 4, %88 ], [ 5, %90 ], [ %..i156.i, %94 ], [ 6, %92 ]
-  %.0.sroa.speculated.i159.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0125207.i, i8 %.0.i157.i)
+  %.0.sroa.speculated.i159.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0125207.i, i8 range(i8 1, 9) %.0.i157.i)
   %96 = icmp ne i64 %82, 0
   %narrow.i = or i1 %.0129205.i, %96
   %97 = icmp eq ptr %64, %53
@@ -235,7 +235,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i: ; preds = %94, %92, %90, 
 
 _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit178.us.i: ; preds = %105
   %109 = getelementptr inbounds i8, ptr %.sroa.5184.0.us.i, i64 -24
-  %110 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %99), !noalias !15
+  %110 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef range(i64 1, 9) %99), !noalias !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !12
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.split210.us.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
@@ -275,7 +275,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit178.us.i: ; preds = %105
   br i1 %exitcond.not.i166.us.i, label %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit168.us.i, label %116
 
 _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit168.us.i: ; preds = %116
-  %120 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %.pre-phi225.i), !noalias !19
+  %120 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef range(i64 1, 9) %.pre-phi225.i), !noalias !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !16
   %121 = icmp eq ptr %120, null
   br i1 %121, label %.split.us.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
@@ -298,7 +298,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit168.us.i: ; preds = %116
   br i1 %exitcond.not.i.i, label %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i, label %123
 
 _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i: ; preds = %123
-  %127 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %122), !noalias !23
+  %127 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef range(i64 1, 9) %122), !noalias !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !20
   %128 = icmp eq ptr %127, null
   br i1 %128, label %.split.us.preheader.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
@@ -461,7 +461,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i.i: ; preds = %179
   br i1 %exitcond.not.i.i.i, label %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i, label %183
 
 _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i.i: ; preds = %183
-  %187 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %182), !noalias !32
+  %187 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef range(i64 1, 9) %182), !noalias !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !24
   %188 = icmp eq ptr %187, null
   br i1 %188, label %_ZN3fst5bytes9pack_uint17h342c53e2317bb7d6E.exit.thread.i, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit
@@ -519,7 +519,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i55.i: ; preds = %200
   br i1 %exitcond.not.i.i62.i, label %_ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i63.i, label %204
 
 _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i63.i: ; preds = %204
-  %208 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %203), !noalias !38
+  %208 = call noundef ptr @_ZN3std2io5Write9write_all17h52e0d6ae28ba0bedE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef range(i64 1, 9) %203), !noalias !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !33
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %_ZN3fst3raw4node13StateAnyTrans7compile17hebbade8d7d90725bE.exit

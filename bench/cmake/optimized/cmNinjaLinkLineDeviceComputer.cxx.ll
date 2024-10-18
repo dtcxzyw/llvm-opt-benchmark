@@ -70,7 +70,7 @@ define linkonce_odr dso_local void @_ZN29cmNinjaLinkLineDeviceComputerD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN29cmNinjaLinkLineDeviceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN24cmLinkLineDeviceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #7
+  tail call void @_ZN24cmLinkLineDeviceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   tail call void @_ZdlPv(ptr noundef nonnull %0) #8
   ret void
 }

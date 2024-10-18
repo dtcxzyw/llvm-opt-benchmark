@@ -313,7 +313,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
           to label %69 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 69:                                               ; preds = %._crit_edge128
-  invoke void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %68, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext true)
+  invoke void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(288) %68, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext true)
           to label %.noexc63 unwind label %98
 
 .noexc63:                                         ; preds = %69
@@ -366,7 +366,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %79
 86:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i, %.noexc.i.i.i
   %87 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %68) #19
+  tail call void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %68) #19
   br label %.body
 
 88:                                               ; preds = %82, %.noexc9.i.thread
@@ -3620,7 +3620,7 @@ define dso_local void @_ZNK13ArrayVariable9OutputDefERSoi(ptr noundef nonnull al
   br i1 %switch.i, label %_ZNK13ArrayVariable19no_loop_initializerEv.exit.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
+  %18 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(288) %0)
   br i1 %18, label %_ZNK13ArrayVariable19no_loop_initializerEv.exit.thread, label %19
 
 19:                                               ; preds = %17

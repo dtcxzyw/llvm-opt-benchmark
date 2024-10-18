@@ -1278,7 +1278,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %39
   call void @list_iterator_destroy(ptr noundef %52) #13
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.374)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.374)
   %432 = call ptr @list_iterator_create(ptr noundef %41) #13
   %433 = call ptr @list_next(ptr noundef %432) #13
   %.not277414.i = icmp eq ptr %433, null
@@ -1301,7 +1301,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %438
 
 438:                                              ; preds = %437, %._crit_edge417.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.376)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.376)
   %439 = call ptr @list_iterator_create(ptr noundef %43) #13
   %440 = call ptr @list_next(ptr noundef %439) #13
   %.not279418.i = icmp eq ptr %440, null
@@ -1324,7 +1324,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %445
 
 445:                                              ; preds = %444, %._crit_edge421.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.377)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.377)
   %446 = call ptr @list_iterator_create(ptr noundef %42) #13
   %447 = call ptr @list_next(ptr noundef %446) #13
   %.not281422.i = icmp eq ptr %447, null
@@ -1347,7 +1347,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %452
 
 452:                                              ; preds = %451, %._crit_edge425.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.378)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.378)
   %453 = call ptr @list_iterator_create(ptr noundef %45) #13
   %454 = call ptr @list_next(ptr noundef %453) #13
   %.not283426.i = icmp eq ptr %454, null
@@ -1370,7 +1370,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %459
 
 459:                                              ; preds = %458, %._crit_edge429.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.379)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.379)
   %460 = call ptr @list_iterator_create(ptr noundef %46) #13
   %461 = call ptr @list_next(ptr noundef %460) #13
   %.not285430.i = icmp eq ptr %461, null
@@ -1393,7 +1393,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %466
 
 466:                                              ; preds = %465, %._crit_edge433.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.380)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.380)
   %467 = call ptr @list_iterator_create(ptr noundef %47) #13
   %468 = call ptr @list_next(ptr noundef %467) #13
   %.not287434.i = icmp eq ptr %468, null
@@ -1416,7 +1416,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %473
 
 473:                                              ; preds = %472, %._crit_edge437.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.381)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.381)
   %474 = call ptr @list_iterator_create(ptr noundef %44) #13
   %475 = call ptr @list_next(ptr noundef %474) #13
   %.not289438.i = icmp eq ptr %475, null
@@ -1439,7 +1439,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %480
 
 480:                                              ; preds = %479, %._crit_edge441.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.382)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.382)
   %481 = call ptr @list_iterator_create(ptr noundef %48) #13
   %482 = call ptr @list_next(ptr noundef %481) #13
   %.not291442.i = icmp eq ptr %482, null
@@ -1462,7 +1462,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %487
 
 487:                                              ; preds = %486, %._crit_edge445.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.383)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.383)
   %488 = call ptr @list_iterator_create(ptr noundef %49) #13
   %489 = call ptr @list_next(ptr noundef %488) #13
   %.not293446.i = icmp eq ptr %489, null
@@ -1485,7 +1485,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %494
 
 494:                                              ; preds = %493, %._crit_edge449.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.384)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.384)
   %495 = call ptr @list_iterator_create(ptr noundef %51) #13
   %496 = call ptr @list_next(ptr noundef %495) #13
   %.not295450.i = icmp eq ptr %496, null
@@ -1508,7 +1508,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %501
 
 501:                                              ; preds = %500, %._crit_edge453.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.385)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.385)
   %502 = call ptr @list_iterator_create(ptr noundef %50) #13
   %503 = call ptr @list_next(ptr noundef %502) #13
   %.not297454.i = icmp eq ptr %503, null
@@ -1531,7 +1531,7 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %508
 
 508:                                              ; preds = %507, %._crit_edge457.i
-  call fastcc void @_write_group_header(ptr noundef %24, ptr noundef nonnull @.str.386)
+  call fastcc void @_write_group_header(ptr noundef nonnull %24, ptr noundef nonnull @.str.386)
   %509 = call ptr @list_iterator_create(ptr noundef %40) #13
   %510 = call ptr @list_next(ptr noundef %509) #13
   %.not299458.i = icmp eq ptr %510, null

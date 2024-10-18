@@ -145,7 +145,7 @@ dom_html5_serialize_doctype.exit.i:               ; preds = %23
 dom_is_html_ns.exit.i.i:                          ; preds = %38
   %41 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %dom_is_html_ns.exit.thread.i.i, label %dom_local_name_compare_ex.exit28.thread.i.i
 
@@ -394,7 +394,7 @@ dom_html5_serialize_comment.exit.i:               ; preds = %99
 dom_is_ns.exit.i.i:                               ; preds = %152
   %162 = getelementptr inbounds i8, ptr %154, i64 16
   %163 = load ptr, ptr %162, align 8
-  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(37) @.str.44) #5
+  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(37) @.str.44) #5
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %dom_is_ns.exit111.i.i
 
@@ -415,7 +415,7 @@ dom_is_ns.exit.i.i:                               ; preds = %152
   br i1 %.not95.i.i, label %228, label %dom_html5_serialize_node.exit
 
 dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
-  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(30) @.str.46) #5
+  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(30) @.str.46) #5
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %dom_is_ns.exit113.i.i
 
@@ -447,7 +447,7 @@ dom_is_ns.exit111.i.i:                            ; preds = %dom_is_ns.exit.i.i
   br i1 %.not92.i.i, label %228, label %dom_html5_serialize_node.exit
 
 dom_is_ns.exit113.i.i:                            ; preds = %dom_is_ns.exit111.i.i
-  %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull readonly dereferenceable(29) @.str.49) #5
+  %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(29) @.str.49) #5
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %206
 
@@ -640,7 +640,7 @@ define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr noca
 dom_is_html_ns.exit:                              ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %dom_is_html_ns.exit.thread, label %dom_local_name_compare_ex.exit54.thread
 
@@ -950,17 +950,17 @@ define internal fastcc i32 @dom_html5_serialize_element_tag_name(ptr nocapture n
 dom_is_html_ns.exit:                              ; preds = %5
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(29) @.str.18) #5
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(29) @.str.18) #5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %26, label %dom_is_ns.exit
 
 dom_is_ns.exit:                                   ; preds = %dom_is_html_ns.exit
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(35) @.str.52) #5
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(35) @.str.52) #5
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %26, label %dom_is_ns.exit20
 
 dom_is_ns.exit20:                                 ; preds = %dom_is_ns.exit
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(27) @.str.53) #5
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(27) @.str.53) #5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %26, label %16
 

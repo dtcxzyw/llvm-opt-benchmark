@@ -1599,7 +1599,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %47, %51, %53
 
 66:                                               ; preds = %._crit_edge55
   %67 = load i64, ptr %0, align 8
-  %.0.i43 = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
+  %.0.i43 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 6) %39, i32 1)
   %68 = icmp ult i32 %39, 2
   %69 = and i64 %67, 3
   %70 = mul nuw nsw i64 %69, 5
@@ -4579,8 +4579,8 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %191 = getelementptr inbounds i32, ptr %2, i64 %190
   %192 = load i32, ptr %191, align 4
   store i32 %192, ptr %23, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.342, i32 noundef %indvars97, i32 noundef %189)
-  %193 = call fastcc i32 @Dau_Dsd6DecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %189, i32 noundef %45)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.342, i32 noundef range(i32 1, 2147483647) %indvars97, i32 noundef %189)
+  %193 = call fastcc i32 @Dau_Dsd6DecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %189, i32 noundef range(i32 0, 2147483646) %45)
   %.not116.i = icmp eq i32 %193, 0
   br i1 %.not116.i, label %Dau_Dsd6DecomposeDoubleVarsOne.exit, label %194
 
@@ -4840,7 +4840,7 @@ Dau_DsdWriteString.exit68:                        ; preds = %Dau_Dsd6FindSupport
   %102 = load i32, ptr %24, align 4
   store i32 %102, ptr %43, align 4
   store i32 %101, ptr %24, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.038, i32 noundef %33, i32 noundef %22)
+  call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %1, i32 noundef %.038, i32 noundef range(i32 0, 2147483647) %33, i32 noundef %22)
   %103 = load i64, ptr %1, align 8
   %104 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %23
   %105 = load i64, ptr %104, align 8
@@ -4991,14 +4991,14 @@ Dau_Dsd6DecomposeTripleVarsOuter.exit:            ; preds = %Dau_DsdTranslate.ex
   %178 = xor i32 %.018.lcssa.i, -1
   %179 = lshr i32 %178, 1
   %180 = and i32 %94, %179
-  %181 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %180)
+  %181 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 range(i32 0, 1431655766) %180)
   %or.cond.not = icmp eq i32 %181, 1
   br i1 %or.cond.not, label %182, label %Abc_TtSuppOnlyOne.exit.thread
 
 182:                                              ; preds = %177
   %183 = and i32 %178, 1431655765
   %184 = and i32 %183, %93
-  %185 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %184)
+  %185 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 range(i32 0, 1431655766) %184)
   %or.cond79.not = icmp eq i32 %185, 1
   br i1 %or.cond79.not, label %186, label %Abc_TtSuppOnlyOne.exit.thread
 
@@ -6937,7 +6937,7 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   %56 = shl nuw i32 1, %55
   %57 = select i1 %54, i32 1, i32 %56
   %58 = trunc nuw nsw i64 %indvars.iv132 to i32
-  %59 = call fastcc i32 @Dau_DsdFindSupportOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.368, i32 noundef %indvars251, i32 noundef %58)
+  %59 = call fastcc i32 @Dau_DsdFindSupportOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.368, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef range(i32 0, 2147483646) %58)
   switch i32 %59, label %Dau_DsdDecomposeDoubleVarsOne.exit [
     i32 3, label %60
     i32 2, label %228
@@ -6945,12 +6945,12 @@ Abc_Clock.exit:                                   ; preds = %4, %15
   ]
 
 60:                                               ; preds = %53
-  %61 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 0, i32 noundef 3)
+  %61 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 0, i32 noundef 3)
   %.not146.i = icmp eq i32 %61, 0
   br i1 %.not146.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 1, i32 noundef 2)
+  %63 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 1, i32 noundef 2)
   %.not147.i = icmp eq i32 %63, 0
   br i1 %.not147.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %64
 
@@ -7322,7 +7322,7 @@ Dau_DsdTtElems.exit.i:                            ; preds = %.loopexit.i.i.i, %A
   br i1 %exitcond.not.i201.i, label %Abc_TtMux.exit.i, label %.lr.ph.i198.i, !llvm.loop !31
 
 228:                                              ; preds = %53
-  %229 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 0, i32 noundef 2)
+  %229 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 0, i32 noundef 2)
   %.not144.i = icmp eq i32 %229, 0
   br i1 %.not144.i, label %398, label %230
 
@@ -7698,7 +7698,7 @@ Dau_DsdTtElems.exit284.i:                         ; preds = %.loopexit.i.i276.i,
   br i1 %exitcond.not.i290.i, label %Abc_TtMux.exit.i, label %.lr.ph.i287.i, !llvm.loop !31
 
 398:                                              ; preds = %228
-  %399 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 0, i32 noundef 3)
+  %399 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 0, i32 noundef 3)
   %.not145.i = icmp eq i32 %399, 0
   br i1 %.not145.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %400
 
@@ -8072,7 +8072,7 @@ Dau_DsdTtElems.exit381.i:                         ; preds = %.loopexit.i.i373.i,
   br i1 %exitcond.not.i387.i, label %Abc_TtMux.exit.i, label %.lr.ph.i384.i, !llvm.loop !31
 
 566:                                              ; preds = %53
-  %567 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 0, i32 noundef 3)
+  %567 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 0, i32 noundef 3)
   %.not.i = icmp eq i32 %567, 0
   br i1 %.not.i, label %732, label %568
 
@@ -8444,7 +8444,7 @@ Dau_DsdTtElems.exit478.i:                         ; preds = %.loopexit.i.i470.i,
   br i1 %exitcond.not.i484.i, label %Abc_TtMux.exit.i, label %.lr.ph.i481.i, !llvm.loop !31
 
 732:                                              ; preds = %566
-  %733 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef %58, i32 noundef %indvars251, i32 noundef 1, i32 noundef 3)
+  %733 = call fastcc i32 @Abc_TtCheckEqualCofs(ptr noundef %1, i32 noundef %57, i32 noundef range(i32 0, 2147483646) %58, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef 1, i32 noundef 3)
   %.not143.i = icmp eq i32 %733, 0
   br i1 %.not143.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %734
 
@@ -8871,8 +8871,8 @@ Dau_DsdAddVarDef.exit.i:                          ; preds = %.lr.ph21.i.i, %.pre
   %923 = getelementptr inbounds i32, ptr %2, i64 %922
   %924 = load i32, ptr %923, align 4
   store i32 %924, ptr %34, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.368, i32 noundef %indvars251, i32 noundef %921)
-  %925 = call fastcc i32 @Dau_DsdDecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %921, i32 noundef %58)
+  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.368, i32 noundef range(i32 1, 2147483647) %indvars251, i32 noundef %921)
+  %925 = call fastcc i32 @Dau_DsdDecomposeSingleVarOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %921, i32 noundef range(i32 0, 2147483646) %58)
   %.not148.i = icmp eq i32 %925, 0
   br i1 %.not148.i, label %Dau_DsdDecomposeDoubleVarsOne.exit, label %926
 
@@ -9729,7 +9729,7 @@ Dau_DsdFindSupports.exit:                         ; preds = %371
   %384 = load i32, ptr %39, align 4
   store i32 %384, ptr %382, align 4
   store i32 %383, ptr %39, align 4
-  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.038, i32 noundef %57, i32 noundef %37)
+  call fastcc void @Abc_TtSwapVars(ptr noundef %1, i32 noundef %.038, i32 noundef range(i32 0, 2147483647) %57, i32 noundef %37)
   br i1 %27, label %Abc_TtCofactor0p.exit.thread221, label %399
 
 Abc_TtCofactor0p.exit.thread221:                  ; preds = %376
@@ -9998,14 +9998,14 @@ Dau_DsdDecomposeTripleVarsOuter.exit:             ; preds = %.lr.ph18.preheader.
   %504 = xor i32 %.1.i, -1
   %505 = lshr i32 %504, 1
   %506 = and i32 %373, %505
-  %507 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %506)
+  %507 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 range(i32 0, 1431655766) %506)
   %or.cond239.not = icmp eq i32 %507, 1
   br i1 %or.cond239.not, label %508, label %Abc_TtSuppOnlyOne.exit.thread
 
 508:                                              ; preds = %503
   %509 = and i32 %504, 1431655765
   %510 = and i32 %509, %372
-  %511 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %510)
+  %511 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 range(i32 0, 1431655766) %510)
   %or.cond241.not = icmp eq i32 %511, 1
   br i1 %or.cond241.not, label %512, label %Abc_TtSuppOnlyOne.exit.thread
 

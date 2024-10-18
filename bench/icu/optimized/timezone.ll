@@ -1387,7 +1387,7 @@ if.then71:                                        ; preds = %if.end5, %if.then69
 
 new.notnull:                                      ; preds = %if.then71
   %21 = load i32, ptr %baseLen, align 4
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call72)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %call72)
           to label %_ZN6icu_7513TZEnumerationC2EPiia.exit unwind label %lpad73
 
 _ZN6icu_7513TZEnumerationC2EPiia.exit:            ; preds = %new.notnull
@@ -1414,7 +1414,7 @@ if.else75:                                        ; preds = %if.then69
   br i1 %new.isnull77, label %if.then89, label %new.notnull78
 
 new.notnull78:                                    ; preds = %if.else75
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call76)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %call76)
           to label %_ZN6icu_7513TZEnumerationC2EPiia.exit60 unwind label %lpad81
 
 _ZN6icu_7513TZEnumerationC2EPiia.exit60:          ; preds = %new.notnull78
@@ -1497,7 +1497,7 @@ if.end5.i:                                        ; preds = %_ZN6icu_7513TZEnume
   br i1 %new.isnull.i, label %if.then89.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end5.i
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call72.i)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %call72.i)
           to label %_ZN6icu_7513TZEnumerationC2EPiia.exit.i unwind label %lpad73.i
 
 _ZN6icu_7513TZEnumerationC2EPiia.exit.i:          ; preds = %new.notnull.i
@@ -1640,7 +1640,7 @@ declare void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 d
 define internal fastcc noundef ptr @_ZN6icu_75L17openOlsonResourceERKNS_13UnicodeStringER15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 8 dereferenceable(136) %res, ptr noundef nonnull align 4 dereferenceable(4) %ec) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %ec)
-  %call.i = tail call ptr @ures_getByKey_75(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull %ec)
+  %call.i = tail call ptr @ures_getByKey_75(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %call1.i = tail call fastcc noundef i32 @_ZN6icu_75L17findInStringArrayEP15UResourceBundleRKNS_13UnicodeStringER10UErrorCode(ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %cmp.i = icmp ne i32 %call1.i, -1
   %0 = load i32, ptr %ec, align 4
@@ -1653,8 +1653,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN6icu_75L13getZoneByNameEPK15UResourceBundleRKNS_13UnicodeStringEPS0_R10UErrorCode.exit
 
 if.else.i:                                        ; preds = %entry
-  %call3.i = tail call ptr @ures_getByKey_75(ptr noundef %call, ptr noundef nonnull @.str.5, ptr noundef %call.i, ptr noundef nonnull %ec)
-  %call4.i = tail call ptr @ures_getByIndex_75(ptr noundef %call3.i, i32 noundef %call1.i, ptr noundef nonnull %res, ptr noundef nonnull %ec)
+  %call3.i = tail call ptr @ures_getByKey_75(ptr noundef %call, ptr noundef nonnull @.str.5, ptr noundef %call.i, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  %call4.i = tail call ptr @ures_getByIndex_75(ptr noundef %call3.i, i32 noundef %call1.i, ptr noundef nonnull %res, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   br label %_ZN6icu_75L13getZoneByNameEPK15UResourceBundleRKNS_13UnicodeStringEPS0_R10UErrorCode.exit
 
 _ZN6icu_75L13getZoneByNameEPK15UResourceBundleRKNS_13UnicodeStringEPS0_R10UErrorCode.exit: ; preds = %if.then.i, %if.else.i
@@ -3254,11 +3254,11 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   tail call void @ucln_i18n_registerCleanup_75(i32 noundef 19, ptr noundef nonnull @_ZL16timeZone_cleanupv)
   store i32 0, ptr %len.i, align 4
   call void @_ZN6icu_7520StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %bundle.i)
-  invoke void @ures_openDirectFillIn_75(ptr noundef nonnull %bundle.i, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %status)
+  invoke void @ures_openDirectFillIn_75(ptr noundef nonnull %bundle.i, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then4.i
-  %call3.i = invoke ptr @ures_getStringByKey_75(ptr noundef nonnull %bundle.i, ptr noundef nonnull @.str.17, ptr noundef nonnull %len.i, ptr noundef nonnull %status)
+  %call3.i = invoke ptr @ures_getStringByKey_75(ptr noundef nonnull %bundle.i, ptr noundef nonnull @.str.17, ptr noundef nonnull %len.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
@@ -3840,7 +3840,7 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
@@ -3884,7 +3884,7 @@ if.then7.i:                                       ; preds = %invoke.cont.i
 lpad.i:                                           ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call) #19
+  tail call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %call) #19
   br label %lpad.body
 
 if.else.i:                                        ; preds = %invoke.cont.i

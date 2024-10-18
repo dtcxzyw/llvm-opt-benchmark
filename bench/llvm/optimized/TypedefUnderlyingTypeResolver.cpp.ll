@@ -153,7 +153,7 @@ define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver25ge
   store i64 %2, ptr %6, align 8
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
   %11 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %11, i64 noundef 128) #5
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull %11, i64 noundef 128) #5
   %.sroa.04.0.copyload = load i64, ptr %6, align 8
   %12 = call noundef ptr @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver21getUnderlyingTypeDeclENS_8QualTypeE(ptr nonnull align 8 poison, i64 %.sroa.04.0.copyload)
   %.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8
@@ -236,12 +236,12 @@ _ZNK5clang4Decl23getImportedOwningModuleEv.exit.thread: ; preds = %32, %37, %_ZN
   %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   %49 = load ptr, ptr %8, align 8
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #5
   store ptr %.sroa.021.0, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   call void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llvm9StringRefES3_S3_(ptr dead_on_unwind writable sret(%"struct.clang::extractapi::SymbolReference") align 8 %0, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr %47, i64 %48, ptr %49, i64 %50, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #5
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %8) #5
   %52 = load ptr, ptr %8, align 8
   %53 = icmp eq ptr %52, %11
   br i1 %53, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %54
@@ -274,7 +274,7 @@ define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver13ge
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %6, i64 noundef 128) #5
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %6, i64 noundef 128) #5
   %7 = call noundef ptr @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver21getUnderlyingTypeDeclENS_8QualTypeE(ptr nonnull align 8 poison, i64 %2)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -291,12 +291,12 @@ define dso_local void @_ZNK5clang10extractapi29TypedefUnderlyingTypeResolver13ge
 13:                                               ; preds = %10, %8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %14 = load ptr, ptr %5, align 8, !noalias !7
-  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #5, !noalias !7
+  %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %5) #5, !noalias !7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #5, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4) #5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #5
+  %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %5) #5
   %17 = load ptr, ptr %5, align 8
   %18 = icmp eq ptr %17, %6
   br i1 %18, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %19

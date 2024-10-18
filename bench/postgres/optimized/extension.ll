@@ -3079,7 +3079,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %52 = sext i16 %38 to i32
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.110, i32 noundef %52) #13
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.110, i32 noundef range(i32 -32768, 32768) %52) #13
   tail call void @errfinish(ptr noundef nonnull @.str.111, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 
@@ -3088,7 +3088,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 57:                                               ; preds = %19
-  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
+  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef nonnull %2) #13
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
@@ -3106,7 +3106,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 66:                                               ; preds = %59
-  %67 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+  %67 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 6, 9) %1, ptr noundef %2) #13
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %66, %65, %57, %55, %49, %46, %43, %40, %12

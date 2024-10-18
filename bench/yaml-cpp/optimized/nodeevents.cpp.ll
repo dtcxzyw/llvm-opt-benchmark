@@ -583,7 +583,7 @@ entry:
   %ref.tmp = alloca %"struct.YAML::Mark", align 4
   %0 = getelementptr inbounds i8, ptr %am, i64 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %am, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %am, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %am, i8 0, i64 24, i1 false)
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %am, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
@@ -626,7 +626,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 invoke.cont7:                                     ; preds = %if.end
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %am, i64 16
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_mESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %am, ptr noundef %5)
+  invoke void @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_mESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(56) %am, ptr noundef %5)
           to label %_ZN4YAML10NodeEvents12AliasManagerD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont7
@@ -746,7 +746,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt8_R
   store ptr %0, ptr %ref.tmp.i, align 8
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %inc.i.i, ptr %11, align 8
-  %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_mESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE17_M_emplace_uniqueIJS5_IS4_mEEEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %am, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_mESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE17_M_emplace_uniqueIJS5_IS4_mEEEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %am, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %12 = load ptr, ptr %node, align 8
   %13 = load ptr, ptr %_M_parent.i.i.i.i34, align 8

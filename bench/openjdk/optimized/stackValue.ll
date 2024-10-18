@@ -98,7 +98,7 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %0, ptr noundef nonnull %1) #6
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
 
 24:                                               ; preds = %8, %7
@@ -118,7 +118,7 @@ define hidden noundef ptr @_ZN10StackValue36create_stack_value_from_oop_location
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %0, ptr noundef nonnull %1) #6
+  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) #6
   br label %_ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit
 
 37:                                               ; preds = %28
@@ -158,7 +158,7 @@ _ZL21oop_from_oop_locationP17stackChunkOopDescPv.exit: ; preds = %16, %29, %37, 
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 59:                                               ; preds = %45
-  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 8, i32 noundef 0) #6
+  %60 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %49, i64 noundef 8, i32 noundef 0) #6
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %59, %57
@@ -189,7 +189,7 @@ define hidden noundef ptr @_ZN10StackValue42create_stack_value_from_narrowOop_lo
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %0, ptr noundef %1) #6
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6
   br label %_ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit
 
 12:                                               ; preds = %3
@@ -239,7 +239,7 @@ _ZL27oop_from_narrowOop_locationP17stackChunkOopDescPvb.exit: ; preds = %4, %12,
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 44:                                               ; preds = %30
-  %45 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 8, i32 noundef 0) #6
+  %45 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %34, i64 noundef 8, i32 noundef 0) #6
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %44, %42

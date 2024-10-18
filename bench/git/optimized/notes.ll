@@ -2284,7 +2284,7 @@ entry:
   %nn_prev = getelementptr inbounds i8, ptr %cb_data, i64 16
   store ptr null, ptr %nn_prev, align 8
   %3 = load ptr, ptr %spec.store.select, align 8
-  %call.i = call fastcc i32 @for_each_note_helper(ptr noundef nonnull %spec.store.select, ptr noundef %3, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 3, ptr noundef nonnull readonly @write_each_note, ptr noundef nonnull %cb_data)
+  %call.i = call fastcc i32 @for_each_note_helper(ptr noundef nonnull %spec.store.select, ptr noundef %3, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 3, ptr noundef nonnull @write_each_note, ptr noundef nonnull %cb_data)
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %lor.lhs.false, label %lor.end
 
@@ -2511,7 +2511,7 @@ entry:
   %tobool.not = icmp eq ptr %t, null
   %spec.store.select = select i1 %tobool.not, ptr @default_notes_tree, ptr %t
   %0 = load ptr, ptr %spec.store.select, align 8
-  %call.i = call fastcc i32 @for_each_note_helper(ptr noundef nonnull %spec.store.select, ptr noundef %0, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull readonly @prune_notes_helper, ptr noundef nonnull %l)
+  %call.i = call fastcc i32 @for_each_note_helper(ptr noundef nonnull %spec.store.select, ptr noundef %0, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull @prune_notes_helper, ptr noundef nonnull %l)
   %.pr = load ptr, ptr %l, align 8
   %tobool1.not4 = icmp eq ptr %.pr, null
   br i1 %tobool1.not4, label %while.end, label %while.body.lr.ph

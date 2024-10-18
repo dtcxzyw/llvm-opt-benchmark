@@ -261,7 +261,7 @@ sink_checkphi.exit.thread.i:                      ; preds = %if.then18.i.i, %lan
 
 sink_checkphi.exit.i:                             ; preds = %if.end.i54.i
   store i32 64, ptr %work.i.i, align 4
-  %call.i.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv35.i, ptr noundef %work.i.i)
+  %call.i.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef range(i32 0, 65536) %conv35.i, ptr noundef %work.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %work.i.i)
   %tobool37.not.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool37.not.not.i, label %if.end49.i, label %sink_checkphi.exit.if.then38_crit_edge.i
@@ -359,7 +359,7 @@ sink_checkphi.exit85.thread.i:                    ; preds = %if.then18.i65.i, %l
 
 sink_checkphi.exit85.i:                           ; preds = %if.end.i71.i
   store i32 64, ptr %work.i56.i, align 4
-  %call.i75.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv68.i, ptr noundef %work.i56.i)
+  %call.i75.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef range(i32 0, 65536) %conv68.i, ptr noundef %work.i56.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %work.i56.i)
   %tobool70.not.not.i = icmp eq i32 %call.i75.i, 0
   br i1 %tobool70.not.not.i, label %sw.bb78.i, label %sink_checkphi.exit85.if.then71_crit_edge.i

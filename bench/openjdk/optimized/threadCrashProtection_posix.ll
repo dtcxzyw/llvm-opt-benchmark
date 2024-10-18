@@ -80,7 +80,7 @@ define hidden void @_ZN21ThreadCrashProtection22check_crash_protectionEiP6Thread
   ]
 
 9:                                                ; preds = %8, %8
-  tail call void @siglongjmp(ptr noundef nonnull %6, i32 noundef 1) #9
+  tail call void @siglongjmp(ptr noundef nonnull align 8 dereferenceable(200) %6, i32 noundef 1) #9
   unreachable
 
 10:                                               ; preds = %8, %3, %2

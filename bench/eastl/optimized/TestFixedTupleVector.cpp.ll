@@ -13280,7 +13280,7 @@ arraydestroy.body3628.preheader:                  ; preds = %while.body.i.i
 lpad.i:                                           ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i
   %2344 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %srcVec3544) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %srcVec3544) #11
   %_ZN10TestObject16sMagicErrorCountE.promoted15869 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %_ZN10TestObject8sTOCountE.promoted15872 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject12sTODtorCountE.promoted15874 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
@@ -13429,7 +13429,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i: ; pre
 lpad.i8648:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13804
   %2370 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromConstRef) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromConstRef) #11
   br label %ehcleanup4666
 
 invoke.cont3661:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13787, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i
@@ -13679,7 +13679,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1EL
   store ptr %2410, ptr %arrayinit.element.i.i4.i.i, align 8, !alias.scope !463
   %arrayinit.element4.i.i6.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 24
   store ptr %.pre16109, ptr %arrayinit.element4.i.i6.i.i, align 8, !alias.scope !463
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
           to label %invoke.cont3712 unwind label %lpad3711.loopexit.split-lp
 
 invoke.cont3712:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit.i.i
@@ -14015,7 +14015,7 @@ invoke.cont3836:                                  ; preds = %delete.notnull.i.i.
   %2471 = getelementptr inbounds i8, ptr %ref.tmp3764, i64 392
   store float 9.000000e+00, ptr %2471, align 8
   %add.ptr.i.i.i9086 = getelementptr inbounds i8, ptr %ref.tmp3764, i64 400
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromAssignment3761, ptr noundef nonnull %ref.tmp3764, ptr noundef nonnull %add.ptr.i.i.i9086)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromAssignment3761, ptr noundef nonnull %ref.tmp3764, ptr noundef nonnull %add.ptr.i.i.i9086)
           to label %arraydestroy.body3845.preheader unwind label %lpad3841
 
 arraydestroy.body3845.preheader:                  ; preds = %invoke.cont3836
@@ -14345,7 +14345,7 @@ for.body.i.i.i.i13840:                            ; preds = %for.body.i.i.i.i138
 lpad.i9376:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13860
   %2527 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromIters) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromIters) #11
   br label %ehcleanup4666
 
 invoke.cont3933:                                  ; preds = %for.body.i.i.i.i13840
@@ -14603,7 +14603,7 @@ for.body.i.i13886:                                ; preds = %for.body.i.i13886, 
 lpad.i9462:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13895
   %2576 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromFill) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromFill) #11
   br label %ehcleanup4666
 
 invoke.cont3986:                                  ; preds = %for.body.i.i13886
@@ -14873,7 +14873,7 @@ for.body.i.i.i.i.i13929:                          ; preds = %for.body.i.i.i.i.i1
 lpad.i9554:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13931
   %2625 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromFillArgs) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromFillArgs) #11
   %2626 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i9604 = add nsw i64 %2626, -1
   store i64 %dec.i9604, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -15158,7 +15158,7 @@ for.body.i.i.i.i.i13970:                          ; preds = %for.body.i.i.i.i.i1
 lpad.i9683:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13974
   %2678 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromFillTup) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromFillTup) #11
   br label %_ZN5eastl5tupleIJb10TestObjectfEED2Ev.exit9980
 
 invoke.cont4094:                                  ; preds = %for.body.i.i.i.i.i13970
@@ -15736,7 +15736,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i14022: 
 lpad.i9936:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14027
   %2790 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromConstRef4157) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromConstRef4157) #11
   br label %ehcleanup4666
 
 invoke.cont4158:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13999, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i14022
@@ -16056,7 +16056,7 @@ for.body.i.i.i.i.i14073:                          ; preds = %for.body.i.i.i.i.i1
 lpad.i10052:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14077
   %2851 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromFillArgs4210) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromFillArgs4210) #11
   %2852 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i10102 = add nsw i64 %2852, -1
   store i64 %dec.i10102, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -16500,7 +16500,7 @@ for.cond.for.end_crit_edge.i.i.i.i10229:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10207:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i
   %2931 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromMove) #11
   br label %ehcleanup4334
 
 invoke.cont4281:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i, %for.cond.for.end_crit_edge.i.i.i.i10229, %invoke.cont12.i
@@ -17025,7 +17025,7 @@ for.cond.for.end_crit_edge.i.i.i.i10448:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10426:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14176
   %3024 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove4354) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromMove4354) #11
   br label %ehcleanup4463
 
 invoke.cont4356:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14141, %for.cond.for.end_crit_edge.i.i.i.i10448, %invoke.cont10.i
@@ -17338,7 +17338,7 @@ for.cond.for.end_crit_edge.i.i.i.i10554:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10531:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14241
   %3086 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMoveSameAlloc) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromMoveSameAlloc) #11
   br label %ehcleanup4462
 
 invoke.cont4409:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14206, %for.cond.for.end_crit_edge.i.i.i.i10554, %invoke.cont10.i10532
@@ -17864,7 +17864,7 @@ for.body.i.i10.i14291:                            ; preds = %for.body.i.i10.i142
 lpad.i10801:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14306
   %3180 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove4483) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %ctorFromMove4483) #11
   br label %ehcleanup4660
 
 invoke.cont4496:                                  ; preds = %for.body.i.i10.i14291
@@ -21687,7 +21687,7 @@ for.body.i.i14793:                                ; preds = %for.body.i.i14793, 
 lpad.i12770:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14806
   %3936 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %smallSizeVec) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %smallSizeVec) #11
   br label %ehcleanup5521
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14845: ; preds = %for.body.i.i14793
@@ -21775,7 +21775,7 @@ for.body.i.i14832:                                ; preds = %for.body.i.i14832, 
 lpad.i12781:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14845
   %3952 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %lessThanVec) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %lessThanVec) #11
   br label %ehcleanup5520
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14884: ; preds = %for.body.i.i14832
@@ -21863,7 +21863,7 @@ for.body.i.i14871:                                ; preds = %for.body.i.i14871, 
 lpad.i12792:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14884
   %3968 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %greaterThanVec) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %greaterThanVec) #11
   br label %ehcleanup5519
 
 _ZN5eastl18fixed_tuple_vectorILm2ELb1EJb10TestObjectfEEC2EmRKNS_9allocatorE.exit12794: ; preds = %for.body.i.i14871
@@ -35649,7 +35649,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i: ; pre
 lpad.i8648:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i13804
   %2296 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromConstRef) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %ctorFromConstRef) #11
   br label %ehcleanup4585
 
 invoke.cont3605:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13787, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i
@@ -35872,7 +35872,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1E
   store ptr %2335, ptr %arrayinit.element.i.i4.i.i, align 8, !alias.scope !1171
   %arrayinit.element4.i.i6.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 24
   store ptr %.pre16099, ptr %arrayinit.element4.i.i6.i.i, align 8, !alias.scope !1171
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(536) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
           to label %invoke.cont3655 unwind label %lpad3654.loopexit.split-lp
 
 invoke.cont3655:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit.i.i
@@ -36208,7 +36208,7 @@ invoke.cont3778:                                  ; preds = %delete.notnull.i.i.
   %2396 = getelementptr inbounds i8, ptr %ref.tmp3706, i64 392
   store float 9.000000e+00, ptr %2396, align 8
   %add.ptr.i.i.i9086 = getelementptr inbounds i8, ptr %ref.tmp3706, i64 400
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromAssignment3703, ptr noundef nonnull %ref.tmp3706, ptr noundef nonnull %add.ptr.i.i.i9086)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(536) %ctorFromAssignment3703, ptr noundef nonnull %ref.tmp3706, ptr noundef nonnull %add.ptr.i.i.i9086)
           to label %arraydestroy.body3787.preheader unwind label %lpad3783
 
 arraydestroy.body3787.preheader:                  ; preds = %invoke.cont3778
@@ -37775,7 +37775,7 @@ _ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i14022: 
 lpad.i9936:                                       ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i14027
   %2685 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromConstRef4094) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %ctorFromConstRef4094) #11
   br label %ehcleanup4585
 
 invoke.cont4095:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE23DoConditionalReallocateEmmm.exit.i13999, %_ZN5eastl22uninitialized_copy_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i14022
@@ -38492,7 +38492,7 @@ for.cond.for.end_crit_edge.i.i.i.i10229:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10207:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i
   %2815 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %ctorFromMove) #11
   br label %ehcleanup4267
 
 invoke.cont4216:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i, %for.cond.for.end_crit_edge.i.i.i.i10229, %invoke.cont12.i
@@ -39017,7 +39017,7 @@ for.cond.for.end_crit_edge.i.i.i.i10448:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10426:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14176
   %2908 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove4287) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %ctorFromMove4287) #11
   br label %ehcleanup4392
 
 invoke.cont4289:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14141, %for.cond.for.end_crit_edge.i.i.i.i10448, %invoke.cont10.i
@@ -39330,7 +39330,7 @@ for.cond.for.end_crit_edge.i.i.i.i10554:          ; preds = %_ZN10TestObjectD2Ev
 lpad.i10531:                                      ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i.i14241
   %2970 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMoveSameAlloc) #11
+  call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(584) %ctorFromMoveSameAlloc) #11
   br label %ehcleanup4391
 
 invoke.cont4340:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i14206, %for.cond.for.end_crit_edge.i.i.i.i10554, %invoke.cont10.i10532
@@ -45245,7 +45245,7 @@ cond.true.i.i.i.i.i:                              ; preds = %if.then.i.i
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm256ELm1ELm4ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0EEEEJiEE12DoReallocateEmm.exit.i.i: ; preds = %cond.true.i.i.i.i.i, %if.then.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
   call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %singleElementVec, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %singleElementVec, i8 0, i64 16, i1 false)
   store i64 %mul.i.i.i, ptr %mNumCapacity.i.i, align 8
   store i64 8, ptr %mDataSizeAndAllocator.i.i, align 8
   br label %invoke.cont13
@@ -57330,7 +57330,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1
   store ptr %2235, ptr %arrayinit.element.i.i4.i.i, align 8, !alias.scope !1873
   %arrayinit.element4.i.i6.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 24
   store ptr %.pre14679, ptr %arrayinit.element4.i.i6.i.i, align 8, !alias.scope !1873
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(56) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignENS0_12TupleVecIterIS6_JKbKS7_KfEEESD_(ptr noundef nonnull align 8 dereferenceable(1912) %ctorFromAssignment, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.eastl::TupleVecInternal::TupleVecIter.65") align 8 %agg.tmp2.i.i)
           to label %invoke.cont3655 unwind label %lpad3654.loopexit.split-lp
 
 invoke.cont3655:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit.i.i
@@ -57657,7 +57657,7 @@ invoke.cont3778:                                  ; preds = %for.end3701.invoke.
   %2294 = getelementptr inbounds i8, ptr %ref.tmp3706, i64 392
   store float 9.000000e+00, ptr %2294, align 8
   %add.ptr.i.i.i9209 = getelementptr inbounds i8, ptr %ref.tmp3706, i64 400
-  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(56) %ctorFromAssignment3703, ptr noundef nonnull %ref.tmp3706, ptr noundef nonnull %add.ptr.i.i.i9209)
+  invoke void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE6assignEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(1912) %ctorFromAssignment3703, ptr noundef nonnull %ref.tmp3706, ptr noundef nonnull %add.ptr.i.i.i9209)
           to label %arraydestroy.body3787.preheader unwind label %lpad3783
 
 arraydestroy.body3787.preheader:                  ; preds = %invoke.cont3778
@@ -66486,7 +66486,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %mpPoolBegin3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %temp, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %temp, i8 0, i64 56, i1 false)
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 8
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf(ptr noundef nonnull align 8 dereferenceable(72) %temp, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(20) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
@@ -69940,7 +69940,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %mpPoolBegin3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %temp, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %temp, i8 0, i64 56, i1 false)
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 8
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE20DoInitFromTupleArrayEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %temp, ptr noundef %first, ptr noundef %last)
@@ -73124,7 +73124,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %mpPoolBegin3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %temp, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %temp, i8 0, i64 56, i1 false)
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 8
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf(ptr noundef nonnull align 8 dereferenceable(72) %temp, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(20) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
@@ -76060,7 +76060,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %mpPoolBegin.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
   %mpPoolBegin3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %temp, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %temp, i8 0, i64 56, i1 false)
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 8
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE20DoInitFromTupleArrayEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %temp, ptr noundef %first, ptr noundef %last)

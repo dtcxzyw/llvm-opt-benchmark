@@ -189,7 +189,7 @@ define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not22.i.us.us, label %40, label %.split.i40
 
 40:                                               ; preds = %39
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef %3)
   %.pre.i41.us.us = load i32, ptr %14, align 4
   br label %41
 
@@ -252,7 +252,7 @@ define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not22.i.us, label %73, label %.split.i40
 
 73:                                               ; preds = %72
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef %.02346.us, ptr noundef nonnull %55, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %.02346.us, ptr noundef nonnull %55, i32 noundef %3)
   %.pre.i41.us = load i32, ptr %47, align 4
   br label %74
 
@@ -341,7 +341,7 @@ scanNameSpaceForRelid.exit.us.thread:             ; preds = %.lr.ph.i35.us, %.lr
   br i1 %.not26.i.us, label %117, label %.split.i
 
 117:                                              ; preds = %116
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef %0, ptr noundef nonnull %91, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %3)
   %.pre.i.us = load i32, ptr %83, align 4
   br label %118
 
@@ -420,13 +420,13 @@ scanNameSpaceForRelid.exit.us.thread:             ; preds = %.lr.ph.i35.us, %.lr
   %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %158)
   %159 = tail call i32 @errcode(i32 noundef 151126148) #10
-  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, i32 noundef %11) #10
+  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, i32 noundef range(i32 1, 0) %11) #10
   %161 = tail call i32 @parser_errposition(ptr noundef nonnull %.us-phi, i32 noundef %3) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.scanNameSpaceForRelid) #10
   unreachable
 
 162:                                              ; preds = %157
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef %.02346, ptr noundef nonnull %132, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %.02346, ptr noundef nonnull %132, i32 noundef %3)
   %.pre.i = load i32, ptr %124, align 4
   br label %163
 

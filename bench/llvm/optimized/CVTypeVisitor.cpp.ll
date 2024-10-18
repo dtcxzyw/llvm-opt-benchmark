@@ -562,7 +562,7 @@ _ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i: ; preds = %28, %_ZN12
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit, label %35
 
 35:                                               ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i
-  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %34)
+  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %34)
   br label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit
 
 _ZN12_GLOBAL__N_111VisitHelperD2Ev.exit:          ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i, %35
@@ -646,7 +646,7 @@ _ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i: ; preds = %27, %_ZN12
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit, label %34
 
 34:                                               ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i
-  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %33)
+  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %33)
   br label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit
 
 _ZN12_GLOBAL__N_111VisitHelperD2Ev.exit:          ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i, %34
@@ -833,7 +833,7 @@ _ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i: ; preds = %71, %_ZN12
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit, label %78
 
 78:                                               ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i
-  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %77)
+  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %77)
   br label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit
 
 _ZN12_GLOBAL__N_111VisitHelperD2Ev.exit:          ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i, %78
@@ -875,7 +875,7 @@ define dso_local void @_ZN4llvm8codeview15visitTypeStreamENS_14iterator_rangeINS
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull align 8 dereferenceable(208) %1, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !32
@@ -916,7 +916,7 @@ _ZN4llvm9adl_beginIRNS_14iterator_rangeINS_22VarStreamArrayIteratorINS_8codeview
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %38, ptr noundef nonnull align 8 dereferenceable(104) %39, i64 16, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %42 = load ptr, ptr %41, align 8, !noalias !45
@@ -955,7 +955,7 @@ _ZN4llvm14iterator_rangeINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, i64 16, i1 false), !noalias !46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull readonly align 8 dereferenceable(208) %7, i64 16, i1 false), !noalias !46
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = load ptr, ptr %20, align 8, !noalias !52
   store ptr %59, ptr %58, align 8, !alias.scope !49, !noalias !46
@@ -1277,7 +1277,7 @@ _ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i: ; preds = %179, %_ZN1
   br i1 %.not.i.i.i2, label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit, label %185
 
 185:                                              ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i
-  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %184)
+  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %184)
   br label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit
 
 _ZN12_GLOBAL__N_111VisitHelperD2Ev.exit:          ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i, %185
@@ -1542,7 +1542,7 @@ _ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i: ; preds = %41, %_ZN12
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit, label %47
 
 47:                                               ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i
-  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %46)
+  call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %46)
   br label %_ZN12_GLOBAL__N_111VisitHelperD2Ev.exit
 
 _ZN12_GLOBAL__N_111VisitHelperD2Ev.exit:          ; preds = %_ZN4llvm8codeview27TypeVisitorCallbackPipelineD2Ev.exit.i, %47
@@ -1565,7 +1565,7 @@ define dso_local void @_ZN4llvm8codeview17visitMemberRecordENS0_14CVMemberRecord
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 24
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(248) %6) #15
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZN4llvm8codeview21FieldListDeserializerC2ERNS_18BinaryStreamReaderE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull align 8 dereferenceable(64) %10)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 208
@@ -1722,7 +1722,7 @@ define dso_local void @_ZN4llvm8codeview17visitMemberRecordENS0_12TypeLeafKindEN
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !70
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(8) %7) #15, !noalias !70
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(248) %7) #15, !noalias !70
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN4llvm8codeview21FieldListDeserializerC2ERNS_18BinaryStreamReaderE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull align 8 dereferenceable(64) %10), !noalias !70
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 208
@@ -1774,7 +1774,7 @@ define dso_local void @_ZN4llvm8codeview23visitMemberRecordStreamENS_8ArrayRefIh
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(248) %7) #15
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN4llvm8codeview21FieldListDeserializerC2ERNS_18BinaryStreamReaderE(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull align 8 dereferenceable(64) %10)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 208
@@ -1892,7 +1892,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializerD2Ev(ptr nou
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit: ; preds = %1, %4
@@ -1909,7 +1909,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializerD0Ev(ptr nou
   br i1 %.not.i.i, label %_ZN4llvm8codeview16TypeDeserializerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
+  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3)
   br label %_ZN4llvm8codeview16TypeDeserializerD2Ev.exit
 
 _ZN4llvm8codeview16TypeDeserializerD2Ev.exit:     ; preds = %1, %4
@@ -1940,7 +1940,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer14visitTypeB
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %6, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !83
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  tail call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(8) %9) #15, !noalias !83
+  tail call void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(184) %9) #15, !noalias !83
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %13, align 8, !noalias !83
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 106
@@ -1949,7 +1949,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer14visitTypeB
   store i8 0, ptr %15, align 2, !noalias !83
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %17 = getelementptr inbounds i8, ptr %9, i64 128
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 2) #15, !noalias !83
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull %17, i64 noundef 2) #15, !noalias !83
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr %12, ptr %18, align 8, !noalias !83
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 160
@@ -1961,7 +1961,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer14visitTypeB
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EEaSEOS6_.exit._ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit_crit_edge
 
 _ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EEaSEOS6_.exit._ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit_crit_edge: ; preds = %3
-  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %21)
+  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %21)
   %.pre = load ptr, ptr %20, align 8
   br label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EED2Ev.exit
 
@@ -1993,7 +1993,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16TypeDeserializer12visitTypeE
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EE5resetEPS3_.exit, label %8
 
 8:                                                ; preds = %3
-  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %7)
+  tail call void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDeserializer11MappingInfoEEclEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %7)
   br label %_ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIN4llvm8codeview16TypeDeserializer11MappingInfoESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %3, %8
@@ -2527,7 +2527,7 @@ define linkonce_odr hidden void @_ZNKSt14default_deleteIN4llvm8codeview16TypeDes
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
+  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #15
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 128
   %10 = icmp eq ptr %8, %9
@@ -4947,12 +4947,12 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.i246: ; preds = %_Z
   store i16 5635, ptr %11, align 8, !noalias !329
   %215 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %216 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull %216, i64 noundef 5) #15, !noalias !329
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(36) %215, ptr noundef nonnull %216, i64 noundef 5) #15, !noalias !329
   %217 = load ptr, ptr %214, align 8, !noalias !329
   %218 = getelementptr inbounds i8, ptr %217, i64 288
   %219 = load ptr, ptr %218, align 8, !noalias !329
   call void %219(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %11) #15
-  %220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #15
+  %220 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %215) #15
   %221 = load ptr, ptr %215, align 8, !noalias !329
   %222 = icmp eq ptr %221, %216
   br i1 %222, label %_ZL16visitKnownRecordIN4llvm8codeview15BuildInfoRecordEENS0_5ErrorERNS1_8CVRecordINS1_12TypeLeafKindEEERNS1_20TypeVisitorCallbacksE.exit, label %223
@@ -5908,12 +5908,12 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %8, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #15
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #15
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #15
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   ret void
 }
 
@@ -6894,7 +6894,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview21FieldListDeserializerC2ERNS_
   store i8 0, ptr %12, align 2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 2) #15
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %14, i64 noundef 2) #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -7006,7 +7006,7 @@ _ZN4llvm12consumeErrorENS_5ErrorE.exit:           ; preds = %1, %15
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm12consumeErrorENS_5ErrorE.exit, %21
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %10, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #15
+  %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %25) #15
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 48
   %29 = icmp eq ptr %27, %28

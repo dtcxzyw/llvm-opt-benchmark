@@ -1562,7 +1562,7 @@ __JS_NewAtomInit.exit.i:                          ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %88, ptr readonly align 1 %.027.i, i64 %79, i1 false)
   %89 = getelementptr [0 x i8], ptr %88, i64 0, i64 %79
   store i8 0, ptr %89, align 1
-  %90 = call fastcc i32 @__JS_NewAtom(ptr noundef nonnull %8, ptr noundef nonnull %82, i32 noundef %.017.i)
+  %90 = call fastcc i32 @__JS_NewAtom(ptr noundef nonnull %8, ptr noundef nonnull %82, i32 noundef range(i32 1, 5) %.017.i)
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %JS_InitAtoms.exit.thread, label %92
 
@@ -1597,7 +1597,7 @@ JS_InitAtoms.exit:                                ; preds = %92
   %105 = load i32, ptr %100, align 8
   %106 = trunc i64 %indvars.iv.i to i32
   %107 = add i32 %106, 1
-  %108 = call fastcc i32 @JS_NewClass1(ptr noundef %8, i32 noundef %107, ptr noundef nonnull %3, i32 noundef %105)
+  %108 = call fastcc i32 @JS_NewClass1(ptr noundef nonnull %8, i32 noundef %107, ptr noundef nonnull %3, i32 noundef %105)
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %init_class_range.exit.thread, label %98
 
@@ -9022,7 +9022,7 @@ JS_AtomToValue.exit:                              ; preds = %JS_NewObjectProto.e
   %indvars.iv505 = phi i64 [ 213, %JS_NewObjectProto.exit415 ], [ %indvars.iv.next506, %JS_AtomToValue.exit ]
   %.val = load ptr, ptr %57, align 8
   %597 = trunc nuw nsw i64 %indvars.iv505 to i32
-  %598 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %11, i32 noundef %597)
+  %598 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %11, i32 noundef %597)
   %599 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %598, i32 noundef 46) #43
   %.not279 = icmp eq ptr %599, null
   %600 = getelementptr i8, ptr %599, i64 1
@@ -9654,7 +9654,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %.val = load ptr, ptr %3, align 8
   %10 = trunc i64 %indvars.iv to i32
   %11 = add i32 %10, 186
-  %12 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %2, i32 noundef %11)
+  %12 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %11)
   %13 = load ptr, ptr %4, align 8
   %14 = add nuw nsw i64 %indvars.iv, 38
   %15 = getelementptr %struct.JSValue, ptr %13, i64 %14
@@ -9678,7 +9678,7 @@ define dso_local void @JS_AddIntrinsicMapSet(ptr noundef %0) local_unnamed_addr 
   %.val.i.i = load i64, ptr %5, align 8
   %.val6.i.i = load i64, ptr %6, align 8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_map_constructor, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 3, i32 noundef %29, i64 %.val.i.i, i64 %.val6.i.i)
+  %30 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_map_constructor, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 3, i32 noundef range(i32 -2147483648, 4) %29, i64 %.val.i.i, i64 %.val6.i.i)
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
   %33 = icmp samesign ult i64 %indvars.iv, 2
@@ -10004,7 +10004,7 @@ JS_NewObjectProto.exit:                           ; preds = %.loopexit.i, %107
   %.val = load ptr, ptr %72, align 8
   %122 = trunc i64 %indvars.iv to i32
   %123 = add i32 %122, 147
-  %124 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %4, i32 noundef %123)
+  %124 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %123)
   %125 = trunc nuw nsw i64 %indvars.iv to i32
   %126 = call fastcc { i64, i64 } @JS_NewCFunction3(ptr noundef %0, ptr noundef nonnull @js_typed_array_constructor, ptr noundef nonnull %124, i32 noundef 3, i32 noundef 3, i32 noundef %125, i64 %69, i64 %70)
   %127 = extractvalue { i64, i64 } %126, 0
@@ -10797,7 +10797,7 @@ define dso_local void @JS_FreeContext(ptr noundef %0) local_unnamed_addr #0 {
   %.011.in.i = getelementptr inbounds i8, ptr %.0.i113, i64 8
   %.011.i = load ptr, ptr %.011.in.i, align 8
   %11 = getelementptr i8, ptr %.0.i113, i64 -8
-  tail call fastcc void @js_free_module_def(ptr noundef %0, ptr noundef %11)
+  tail call fastcc void @js_free_module_def(ptr noundef nonnull %0, ptr noundef %11)
   %.not.i = icmp eq ptr %.011.i, %8
   br i1 %.not.i, label %js_free_modules.exit, label %.lr.ph, !llvm.loop !42
 
@@ -11610,7 +11610,7 @@ string_buffer_write8.exit:                        ; preds = %78, %.loopexit
 108:                                              ; preds = %104
   %109 = zext nneg i8 %102 to i32
   %110 = add i32 %106, 1
-  %111 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %5, i32 noundef %110, i32 noundef %109)
+  %111 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %5, i32 noundef %110, i32 noundef range(i32 -56613888, 10559488) %109)
   %.not13.i = icmp eq i32 %111, 0
   br i1 %.not13.i, label %112, label %string_buffer_putc8.exit
 
@@ -11686,7 +11686,7 @@ string_buffer_write8.exit:                        ; preds = %78, %.loopexit
   br label %string_buffer_putc16.exit
 
 155:                                              ; preds = %140
-  %156 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %5, i32 noundef %143)
+  %156 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %5, i32 noundef range(i32 0, -2147483648) %143)
   br label %string_buffer_putc16.exit
 
 string_buffer_putc16.exit:                        ; preds = %148, %155
@@ -11756,7 +11756,7 @@ string_buffer_putc16.exit:                        ; preds = %148, %155
   br label %string_buffer_putc8.exit
 
 187:                                              ; preds = %178, %.critedge4
-  %188 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %5, i32 noundef %.0)
+  %188 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %5, i32 noundef range(i32 0, -2147483648) %.0)
   br label %string_buffer_putc8.exit
 
 string_buffer_putc8.exit:                         ; preds = %187, %180, %171, %122, %114, %108
@@ -13693,7 +13693,7 @@ js_class_has_bytecode.exit.thread.i:              ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %js_class_has_bytecode.exit.thread.i, %18, %11, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 6, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
@@ -15131,7 +15131,7 @@ JS_NewObjectProtoClass.exit:                      ; preds = %find_hashed_shape_p
   store i32 0, ptr %11, align 8
   %71 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 3, ptr %71, align 8
-  %72 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %46, i64 %47, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, ptr noundef nonnull byval(%struct.JSValue) align 8 %11, i32 noundef 9985)
+  %72 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %46, i64 range(i64 -1, 7) %47, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, ptr noundef nonnull byval(%struct.JSValue) align 8 %11, i32 noundef 9985)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
@@ -15189,7 +15189,7 @@ JS_AtomToString.exit.i:                           ; preds = %92, %73
   store i32 0, ptr %8, align 8
   %98 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 3, ptr %98, align 8
-  %99 = call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %46, i64 %47, i32 noundef 55, i64 %95, i64 %96, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
+  %99 = call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %46, i64 range(i64 -1, 7) %47, i32 noundef 55, i64 %95, i64 %96, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
   %100 = trunc i64 %96 to i32
   %101 = icmp ugt i32 %100, -12
   br i1 %101, label %102, label %js_function_set_properties.exit
@@ -15506,7 +15506,7 @@ JS_AtomToString.exit:                             ; preds = %97, %._crit_edge
   store i32 0, ptr %8, align 8
   %101 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 3, ptr %101, align 8
-  %102 = tail call i32 @JS_DefineProperty(ptr noundef %0, i64 %49, i64 %50, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
+  %102 = tail call i32 @JS_DefineProperty(ptr noundef %0, i64 %49, i64 range(i64 -1, 7) %50, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %103 = load ptr, ptr %16, align 8
@@ -15526,7 +15526,7 @@ JS_AtomToString.exit:                             ; preds = %97, %._crit_edge
   store i32 0, ptr %10, align 8
   %111 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 3, ptr %111, align 8
-  %112 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %49, i64 %50, i32 noundef 55, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9985)
+  %112 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %49, i64 range(i64 -1, 7) %50, i32 noundef 55, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9985)
   %113 = load i32, ptr %107, align 4
   %114 = add i32 %113, -1
   store i32 %114, ptr %107, align 4
@@ -18131,7 +18131,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
@@ -18182,7 +18182,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
@@ -18233,7 +18233,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
@@ -18284,7 +18284,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %11, %18, %js_class_has_bytecode.exit.thread.i.i, %2, %10
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret { i64, i64 } { i64 0, i64 6 }
 }
@@ -18403,7 +18403,7 @@ JS_GetOpaque.exit.i:                              ; preds = %29, %28
   %57 = load i64, ptr %.0.i.i, align 8
   %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %59 = load i64, ptr %58, align 8
-  %60 = tail call fastcc i32 @JS_SetPrototypeInternal(ptr noundef nonnull %0, i64 %57, i64 %59, i64 %3, i64 %4, i32 noundef %5)
+  %60 = tail call fastcc i32 @JS_SetPrototypeInternal(ptr noundef nonnull %0, i64 %57, i64 %59, i64 %3, i64 %4, i32 noundef range(i32 0, 2) %5)
   br label %js_proxy_setPrototypeOf.exit
 
 61:                                               ; preds = %52
@@ -19531,7 +19531,7 @@ define dso_local { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %17 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %17, align 8
-  %18 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %12, i32 noundef %3)
+  %18 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
   %19 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %JS_FreeValue.exit
@@ -19540,7 +19540,7 @@ define dso_local { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   %21 = getelementptr i8, ptr %0, i64 24
   %.val.i224 = load ptr, ptr %21, align 8
-  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i224, ptr noundef %11, i32 noundef %3)
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i224, ptr noundef nonnull %11, i32 noundef %3)
   %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %JS_FreeValue.exit
@@ -19797,7 +19797,7 @@ JS_FreeValue.exit251:                             ; preds = %124, %132
 
 143:                                              ; preds = %141
   %.val.i227 = load ptr, ptr %95, align 8
-  %144 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i227, ptr noundef %9, i32 noundef %3)
+  %144 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i227, ptr noundef nonnull %9, i32 noundef %3)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %141, %143
@@ -20092,7 +20092,7 @@ JS_AtomIsNumericIndex.exit:                       ; preds = %188, %184, %180, %2
 290:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %.val.i240 = load ptr, ptr %95, align 8
-  %291 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i240, ptr noundef %8, i32 noundef %3)
+  %291 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i240, ptr noundef nonnull %8, i32 noundef %3)
   %292 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %291)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %JS_FreeValue.exit
@@ -20116,7 +20116,7 @@ define internal fastcc void @__JS_ThrowTypeErrorAtom(ptr noundef %0, i32 noundef
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
-  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %4, i32 noundef %1)
+  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
   %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6)
   ret void
 }
@@ -20130,7 +20130,7 @@ define internal fastcc void @JS_ThrowReferenceErrorUninitialized(ptr noundef %0,
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %3, i32 noundef %1)
+  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -20260,7 +20260,7 @@ define internal fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef %0, i3
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8
-  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %3, i32 noundef %1)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %3, i32 noundef %1)
   %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %5)
   ret void
 }
@@ -20410,7 +20410,7 @@ JS_AtomGetKind.exit:                              ; preds = %24, %28, %38, %39, 
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %53
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %62 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %6, i32 noundef %23)
+  %62 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %23)
   %63 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef nonnull %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %62)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %537
@@ -21573,7 +21573,7 @@ define internal fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr nounde
 79:                                               ; preds = %75
   %80 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %80, align 8
-  %81 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %6, i32 noundef %77)
+  %81 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %6, i32 noundef %77)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %75, %79
@@ -21648,7 +21648,7 @@ JS_DupValue.exit151:                              ; preds = %93, %99
 115:                                              ; preds = %113
   %116 = getelementptr i8, ptr %0, i64 24
   %.val.i152 = load ptr, ptr %116, align 8
-  %117 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i152, ptr noundef %5, i32 noundef %3)
+  %117 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i152, ptr noundef nonnull %5, i32 noundef %3)
   br label %JS_ThrowReferenceErrorUninitialized.exit153
 
 JS_ThrowReferenceErrorUninitialized.exit153:      ; preds = %113, %115
@@ -22917,7 +22917,7 @@ JS_FreeValue.exit:                                ; preds = %29, %32, %37
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %40 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %40, align 8
-  %41 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %12, i32 noundef %3)
+  %41 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %12, i32 noundef %3)
   %42 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   br label %set_value.exit
@@ -22945,7 +22945,7 @@ JS_FreeValue.exit302:                             ; preds = %43, %46, %51
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   %54 = getelementptr i8, ptr %0, i64 24
   %.val.i303 = load ptr, ptr %54, align 8
-  %55 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i303, ptr noundef %11, i32 noundef %3)
+  %55 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i303, ptr noundef nonnull %11, i32 noundef %3)
   %56 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %set_value.exit
@@ -23631,7 +23631,7 @@ JS_FreeValue.exit319:                             ; preds = %395, %398, %403
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   %406 = getelementptr i8, ptr %0, i64 24
   %.val.i320 = load ptr, ptr %406, align 8
-  %407 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i320, ptr noundef %10, i32 noundef %3)
+  %407 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i320, ptr noundef nonnull %10, i32 noundef %3)
   %408 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.106, ptr noundef nonnull %407)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %set_value.exit
@@ -23948,7 +23948,7 @@ is_strict_mode.exit:                              ; preds = %559
 565:                                              ; preds = %JS_FreeValue.exit330._crit_edge, %is_strict_mode.exit
   %.val.i337 = phi ptr [ %.val.i337.pre, %JS_FreeValue.exit330._crit_edge ], [ %.val.i333, %is_strict_mode.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %566 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i337, ptr noundef %9, i32 noundef %3)
+  %566 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i337, ptr noundef nonnull %9, i32 noundef %3)
   %567 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %566)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %set_value.exit
@@ -26751,7 +26751,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %29, %29, %29, %29
 
 JS_ThrowError.exit:                               ; preds = %22, %29, %js_class_has_bytecode.exit.thread.i.i, %14, %21
   %36 = phi i32 [ 0, %14 ], [ 1, %21 ], [ %35, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %22 ], [ 1, %29 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %2, ptr noundef %4, i32 noundef %36)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %36)
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %is_strict_mode.exit.thread
 
@@ -27314,7 +27314,7 @@ is_strict_mode.exit:                              ; preds = %8
 14:                                               ; preds = %._crit_edge, %is_strict_mode.exit
   %.val.i = phi ptr [ %.val.i.pre, %._crit_edge ], [ %.val, %is_strict_mode.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %15 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %4, i32 noundef %2)
+  %15 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %4, i32 noundef %2)
   %16 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %is_strict_mode.exit.thread
@@ -27994,7 +27994,7 @@ define dso_local i32 @JS_SetPropertyInt64(ptr noundef %0, i64 %1, i64 %2, i64 no
 
 12:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef %3) #42
+  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef range(i64 2147483648, 0) %3) #42
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #43
   %15 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %14)
   %16 = extractvalue { i64, i64 } %15, 1
@@ -31211,7 +31211,7 @@ define dso_local i32 @JS_DeletePropertyInt64(ptr noundef %0, i64 %1, i64 %2, i64
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef %3) #42
+  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef range(i64 2147483648, 0) %3) #42
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #43
   %15 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %14)
   %16 = extractvalue { i64, i64 } %15, 1
@@ -31566,7 +31566,7 @@ JS_GetOpaque.exit.thread:                         ; preds = %8, %4, %JS_GetOpaqu
   %19 = getelementptr %struct.JSClass, ptr %17, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef %5, i32 noundef %20)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
   %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %23
@@ -42122,7 +42122,7 @@ js_get_function_name.exit:                        ; preds = %__JS_AtomToValue.ex
   store i64 3, ptr %313, align 8
   store i32 0, ptr %27, align 8
   store i64 3, ptr %314, align 8
-  %4730 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4684, i64 %4686, i32 noundef 55, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170, ptr noundef nonnull byval(%struct.JSValue) align 8 %26, ptr noundef nonnull byval(%struct.JSValue) align 8 %27, i32 noundef 9985)
+  %4730 = call i32 @JS_DefineProperty(ptr noundef nonnull %.1, i64 %4684, i64 %4686, i32 noundef 55, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170, ptr noundef nonnull byval(%struct.JSValue) align 8 %26, ptr noundef nonnull byval(%struct.JSValue) align 8 %27, i32 noundef 9985)
   %4731 = trunc i64 %.sroa.7.0.i4170 to i32
   %4732 = icmp ugt i32 %4731, -12
   br i1 %4732, label %4733, label %JS_DefinePropertyValue.exit6527
@@ -50105,7 +50105,7 @@ find_export_entry.exit:                           ; preds = %15
 21:                                               ; preds = %20
   %22 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %22, align 8
-  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %8, i32 noundef %4)
+  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %8, i32 noundef %4)
   %24 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.178, ptr noundef nonnull %23)
   br label %js_resize_array.exit.thread
 
@@ -50113,8 +50113,8 @@ find_export_entry.exit:                           ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %26 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %26, align 8
-  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %7, i32 noundef %4)
-  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.178, ptr noundef nonnull %27) #45
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
+  %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.178, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %js_resize_array.exit.thread
 
@@ -50607,11 +50607,11 @@ js_build_module_ns.exit.thread40:                 ; preds = %JS_NewObjectClass.e
 .sink.split.i.i:                                  ; preds = %81, %79
   %.str.181.sink.i.i = phi ptr [ @.str.180, %81 ], [ @.str.179, %79 ]
   %.val19.i.i = load ptr, ptr %22, align 8
-  %82 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19.i.i, ptr noundef %5, i32 noundef %80)
+  %82 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19.i.i, ptr noundef nonnull %5, i32 noundef %80)
   %83 = getelementptr inbounds i8, ptr %1, i64 4
   %84 = load i32, ptr %83, align 4
   %.val.i.i = load ptr, ptr %22, align 8
-  %85 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef %6, i32 noundef %84)
+  %85 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %84)
   %86 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink.i.i, ptr noundef nonnull %82, ptr noundef nonnull %85)
   br label %js_resolve_export_throw_error.exit.i
 
@@ -52412,7 +52412,7 @@ bc_put_leb128.exit.i:                             ; preds = %.lr.ph.i.i.i, %24
   %46 = zext i32 %45 to i64
   %47 = getelementptr ptr, ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8
-  call fastcc void @JS_WriteString(ptr noundef %9, ptr noundef %48)
+  call fastcc void @JS_WriteString(ptr noundef nonnull %9, ptr noundef %48)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = load i32, ptr %29, align 8
   %50 = sext i32 %49 to i64
@@ -53275,7 +53275,7 @@ bc_get_leb128.exit.i:                             ; preds = %40, %38, %get_leb12
 
 75:                                               ; preds = %93, %.lr.ph.i
   %.02753.i = phi i32 [ 0, %.lr.ph.i ], [ %94, %93 ]
-  %76 = call fastcc ptr @JS_ReadString(ptr noundef %5)
+  %76 = call fastcc ptr @JS_ReadString(ptr noundef nonnull %5)
   %.not36.i = icmp eq ptr %76, null
   br i1 %.not36.i, label %JS_ReadObjectAtoms.exit.thread, label %77
 
@@ -54850,7 +54850,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %70
   br label %82
 
 string_buffer_putc16.exit.i:                      ; preds = %70
-  %81 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %8, i32 noundef %72)
+  %81 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %8, i32 noundef range(i32 0, -2147483648) %72)
   %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %string_buffer_putc16.exit.i._crit_edge, label %string_buffer_putc.exit
 
@@ -54905,7 +54905,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit
 
 107:                                              ; preds = %98, %85
-  %108 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %8, i32 noundef %.0.i22)
+  %108 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %8, i32 noundef range(i32 0, -2147483648) %.0.i22)
   br label %string_buffer_putc.exit
 
 string_buffer_putc.exit:                          ; preds = %string_buffer_putc16.exit.i, %91, %100, %107
@@ -55113,7 +55113,7 @@ string_buffer_putc16.exit.thread:                 ; preds = %12
   br label %23
 
 string_buffer_putc16.exit:                        ; preds = %4, %12
-  %22 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef %0, i32 noundef %6)
+  %22 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %6)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %string_buffer_putc16.exit10
 
@@ -55166,7 +55166,7 @@ string_buffer_putc16.exit:                        ; preds = %4, %12
   br label %string_buffer_putc16.exit10
 
 53:                                               ; preds = %43, %26
-  %54 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef %0, i32 noundef %.0)
+  %54 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %.0)
   br label %string_buffer_putc16.exit10
 
 string_buffer_putc16.exit10:                      ; preds = %53, %45, %35, %string_buffer_putc16.exit
@@ -56627,7 +56627,7 @@ json_parse_ident.exit:                            ; preds = %ident_realloc.exit.
   %. = select i1 %.not63, i32 0, i32 4
   %.72 = select i1 %.not63, i32 10, i32 0
   %178 = load ptr, ptr %0, align 8
-  %179 = call fastcc { i64, i64 } @js_atof2(ptr noundef %178, ptr noundef nonnull %24, ptr noundef nonnull %3, i32 noundef %.72, i32 noundef %., ptr noundef null)
+  %179 = call fastcc { i64, i64 } @js_atof2(ptr noundef %178, ptr noundef nonnull %24, ptr noundef nonnull %3, i32 noundef %.72, i32 noundef range(i32 0, 1285) %., ptr noundef null)
   %180 = extractvalue { i64, i64 } %179, 1
   %181 = and i64 %180, 4294967295
   %.not77 = icmp eq i64 %181, 6
@@ -56773,7 +56773,7 @@ json_parse_expect.exit.thread:                    ; preds = %48
   br label %.loopexit189
 
 json_parse_expect.exit:                           ; preds = %48
-  %51 = tail call fastcc i32 @json_next_token(ptr noundef %0)
+  %51 = tail call fastcc i32 @json_next_token(ptr noundef nonnull %0)
   %.not170 = icmp eq i32 %51, 0
   br i1 %.not170, label %52, label %.loopexit189
 
@@ -58293,7 +58293,7 @@ define internal fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %1,
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef %3) #42
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef range(i64 2147483648, 0) %3) #42
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #43
   %14 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %13)
   %15 = extractvalue { i64, i64 } %14, 1
@@ -64471,12 +64471,12 @@ add_closure_variables.exit.thread:                ; preds = %JS_DupAtom.exit99.i
   %416 = load i32, ptr %415, align 8
   %417 = getelementptr inbounds i8, ptr %74, i64 280
   store i32 %416, ptr %417, align 8
-  %418 = call fastcc i32 @next_token(ptr noundef %13)
+  %418 = call fastcc i32 @next_token(ptr noundef nonnull %13)
   %.not.i134 = icmp eq i32 %418, 0
   br i1 %.not.i134, label %419, label %js_parse_program.exit.thread
 
 419:                                              ; preds = %409
-  %420 = call fastcc i32 @js_parse_directives(ptr noundef %13)
+  %420 = call fastcc i32 @js_parse_directives(ptr noundef nonnull %13)
   %.not29.i = icmp eq i32 %420, 0
   br i1 %.not29.i, label %421, label %js_parse_program.exit.thread
 
@@ -64518,7 +64518,7 @@ add_closure_variables.exit.thread:                ; preds = %JS_DupAtom.exit99.i
   br i1 %.not32.i, label %442, label %440
 
 440:                                              ; preds = %438
-  %441 = call fastcc i32 @js_parse_source_element(ptr noundef %13)
+  %441 = call fastcc i32 @js_parse_source_element(ptr noundef nonnull %13)
   %.not34.i = icmp eq i32 %441, 0
   br i1 %.not34.i, label %438, label %js_parse_program.exit.thread, !llvm.loop !186
 
@@ -64535,9 +64535,9 @@ add_closure_variables.exit.thread:                ; preds = %JS_DupAtom.exit99.i
   br i1 %448, label %449, label %457
 
 449:                                              ; preds = %444
-  call fastcc void @emit_op(ptr noundef %13, i8 noundef zeroext 11)
-  call fastcc void @emit_op(ptr noundef %13, i8 noundef zeroext 17)
-  call fastcc void @emit_op(ptr noundef %13, i8 noundef zeroext 88)
+  call fastcc void @emit_op(ptr noundef nonnull %13, i8 noundef zeroext 11)
+  call fastcc void @emit_op(ptr noundef nonnull %13, i8 noundef zeroext 17)
+  call fastcc void @emit_op(ptr noundef nonnull %13, i8 noundef zeroext 88)
   %450 = getelementptr inbounds i8, ptr %74, i64 200
   %451 = load i32, ptr %450, align 8
   %452 = trunc i32 %451 to i16
@@ -64547,7 +64547,7 @@ add_closure_variables.exit.thread:                ; preds = %JS_DupAtom.exit99.i
   store i16 %452, ptr %11, align 2
   %454 = call i32 @dbuf_put(ptr noundef nonnull %453, ptr noundef nonnull %11, i64 noundef 2) #42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call fastcc void @emit_op(ptr noundef %13, i8 noundef zeroext 67)
+  call fastcc void @emit_op(ptr noundef nonnull %13, i8 noundef zeroext 67)
   %.val.i.i = load ptr, ptr %76, align 8
   %455 = getelementptr inbounds i8, ptr %.val.i.i, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -64557,7 +64557,7 @@ add_closure_variables.exit.thread:                ; preds = %JS_DupAtom.exit99.i
   br label %js_parse_program.exit
 
 457:                                              ; preds = %444
-  call fastcc void @emit_op(ptr noundef %13, i8 noundef zeroext 88)
+  call fastcc void @emit_op(ptr noundef nonnull %13, i8 noundef zeroext 88)
   %458 = getelementptr inbounds i8, ptr %74, i64 200
   %459 = load i32, ptr %458, align 8
   %460 = trunc i32 %459 to i16
@@ -64576,7 +64576,7 @@ js_parse_program.exit.thread:                     ; preds = %440, %433, %419, %4
 
 js_parse_program.exit:                            ; preds = %442, %449, %457
   %.sink = phi i32 [ 1, %457 ], [ 1, %449 ], [ 0, %442 ]
-  call fastcc void @emit_return(ptr noundef %13, i32 noundef %.sink)
+  call fastcc void @emit_return(ptr noundef nonnull %13, i32 noundef %.sink)
   br i1 %401, label %463, label %.thread146
 
 463:                                              ; preds = %js_parse_program.exit
@@ -65407,7 +65407,7 @@ is_math_mode.exit.thread:                         ; preds = %9, %is_math_mode.ex
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %44, %51
-  %55 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %6, i64 %3, i64 %4)
+  %55 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 %3, i64 %4)
   %.not58 = icmp eq ptr %55, null
   br i1 %.not58, label %56, label %69
 
@@ -65660,7 +65660,7 @@ define internal range(i32 -1, 1) i32 @js_binary_arith_bigint(ptr noundef %0, i32
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %23, %30
-  %34 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %7, i64 %3, i64 %4)
+  %34 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 %3, i64 %4)
   %.not130 = icmp eq ptr %34, null
   br i1 %.not130, label %JS_FreeBigInt.exit.thread, label %35
 
@@ -65680,7 +65680,7 @@ JS_ToBigInt.exit:                                 ; preds = %23, %30
   br label %JS_ToBigInt.exit142
 
 JS_ToBigInt.exit142:                              ; preds = %35, %41
-  %45 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %8, i64 %36, i64 %38)
+  %45 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 %36, i64 %38)
   %.not131 = icmp eq ptr %45, null
   br i1 %.not131, label %46, label %73
 
@@ -71203,7 +71203,7 @@ js_get_array_buffer.exit.thread:                  ; preds = %4, %8
   %15 = getelementptr i8, ptr %14, i64 764
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef %5, i32 noundef %16)
+  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %5, i32 noundef %16)
   %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %31
@@ -71264,7 +71264,7 @@ define internal fastcc ptr @js_get_array_buffer(ptr noundef %0, i64 %1, i64 %2) 
   %15 = getelementptr i8, ptr %14, i64 764
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef %4, i32 noundef %16)
+  %17 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %12, ptr noundef nonnull %4, i32 noundef %16)
   %18 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %22
@@ -72117,7 +72117,7 @@ js_get_array_buffer.exit.thread:                  ; preds = %5, %11
   %18 = getelementptr i8, ptr %17, i64 764
   %19 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef %7, i32 noundef %19)
+  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %7, i32 noundef %19)
   %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit
@@ -81165,7 +81165,7 @@ i64toa.exit:                                      ; preds = %.loopexit.i, %45
   %70 = load i8, ptr %9, align 16
   %71 = icmp eq i8 %70, 45
   %..i = select i1 %71, i32 1024, i32 2048
-  %72 = tail call i32 @fesetround(i32 noundef %..i) #42
+  %72 = tail call i32 @fesetround(i32 noundef range(i32 0, 2049) %..i) #42
   %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 128, ptr noundef nonnull @.str.123, i32 noundef %3, double noundef %.1) #42
   %74 = tail call i32 @fesetround(i32 noundef 0) #42
   br label %js_fcvt.exit
@@ -81332,7 +81332,7 @@ js_ecvt1.exit40.i:                                ; preds = %142, %js_ecvt1.exit
 
 149:                                              ; preds = %js_ecvt1.exit40.i
   %..i111 = select i1 %.not49.i, i32 1024, i32 2048
-  %150 = tail call i32 @fesetround(i32 noundef %..i111) #42
+  %150 = tail call i32 @fesetround(i32 noundef range(i32 0, 2049) %..i111) #42
   %151 = add i32 %3, -1
   %152 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.124, i32 noundef %151, double noundef %.1) #42
   %153 = tail call i32 @fesetround(i32 noundef 0) #42
@@ -81901,7 +81901,7 @@ is_math_mode.exit.thread:                         ; preds = %50, %is_math_mode.e
 
 54:                                               ; preds = %is_math_mode.exit, %is_math_mode.exit.thread
   %55 = phi i32 [ 133, %is_math_mode.exit.thread ], [ 645, %is_math_mode.exit ]
-  %56 = call fastcc { i64, i64 } @js_atof2(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %55, ptr noundef null)
+  %56 = call fastcc { i64, i64 } @js_atof2(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %6, i32 noundef 0, i32 noundef range(i32 0, 1285) %55, ptr noundef null)
   %57 = extractvalue { i64, i64 } %56, 0
   %58 = extractvalue { i64, i64 } %56, 1
   %59 = load ptr, ptr %6, align 8
@@ -82953,7 +82953,7 @@ JS_NewObjectProtoClass.exit.thread:               ; preds = %.loopexit101, %JS_N
   store i32 0, ptr %7, align 8
   %85 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 3, ptr %85, align 8
-  %86 = tail call i32 @JS_DefineProperty(ptr noundef %0, i64 %75, i64 %76, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 9985)
+  %86 = tail call i32 @JS_DefineProperty(ptr noundef %0, i64 %75, i64 range(i64 -1, 7) %76, i32 noundef 48, i64 %.sroa.011.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 9985)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -83011,7 +83011,7 @@ JS_AtomToString.exit:                             ; preds = %87, %106
   store i32 0, ptr %10, align 8
   %112 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 3, ptr %112, align 8
-  %113 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %75, i64 %76, i32 noundef 55, i64 %109, i64 %110, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9985)
+  %113 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %75, i64 range(i64 -1, 7) %76, i32 noundef 55, i64 %109, i64 %110, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9985)
   %114 = trunc i64 %110 to i32
   %115 = icmp ugt i32 %114, -12
   br i1 %115, label %116, label %JS_DefinePropertyValue.exit58
@@ -84374,7 +84374,7 @@ define internal fastcc void @JS_ThrowSyntaxErrorVarRedeclaration(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %4, align 8
-  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %3, i32 noundef %1)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
   %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.144, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret void
@@ -84420,7 +84420,7 @@ JS_DupValue.exit:                                 ; preds = %10, %13
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %8, align 8
-  %26 = call { i64, i64 } %21(ptr noundef nonnull %0, i64 %1, i64 %2, ptr noundef nonnull %18, i64 noundef %25, ptr noundef nonnull @.str.145, i32 noundef %5, i32 noundef %6) #42
+  %26 = call { i64, i64 } %21(ptr noundef nonnull %0, i64 %1, i64 %2, ptr noundef nonnull %18, i64 noundef %25, ptr noundef nonnull @.str.145, i32 noundef %5, i32 noundef range(i32 -1, 65535) %6) #42
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   br label %29
@@ -84578,7 +84578,7 @@ js_get_length32.exit:                             ; preds = %10
   br label %js_mallocz.exit.thread
 
 21:                                               ; preds = %16
-  %..i = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 1)
+  %..i = tail call noundef i32 @llvm.umax.i32(i32 %17, i32 range(i32 0, 65537) 1)
   %22 = shl nuw nsw i32 %..i, 4
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 24
@@ -84913,7 +84913,7 @@ JS_FreeValue.exit:                                ; preds = %36, %39, %44
 49:                                               ; preds = %JS_FreeValue.exit
   %50 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %50, align 8
-  %51 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %7, i32 noundef %47)
+  %51 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %47)
   br label %JS_ThrowReferenceErrorUninitialized.exit
 
 JS_ThrowReferenceErrorUninitialized.exit:         ; preds = %JS_FreeValue.exit, %49
@@ -84951,7 +84951,7 @@ JS_FreeValue.exit55:                              ; preds = %57, %60, %65
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %68 = getelementptr i8, ptr %0, i64 24
   %.val.i56 = load ptr, ptr %68, align 8
-  %69 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i56, ptr noundef %6, i32 noundef %1)
+  %69 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i56, ptr noundef nonnull %6, i32 noundef %1)
   %70 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109, ptr noundef nonnull %69)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %set_value.exit
@@ -88797,7 +88797,7 @@ define internal fastcc void @__JS_ThrowSyntaxErrorAtom(ptr noundef %0, i32 nound
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
-  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %4, i32 noundef %1)
+  %6 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %4, i32 noundef %1)
   %7 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6)
   ret void
 }
@@ -90140,7 +90140,7 @@ define internal fastcc void @JS_ThrowTypeErrorPrivateNotFound(ptr noundef %0, i3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %4, align 8
-  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %3, i32 noundef %1)
+  %5 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %3, i32 noundef %1)
   %6 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.153, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret void
@@ -91010,7 +91010,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %7, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1764
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef %8, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %js_get_length32.exit.thread
@@ -91346,7 +91346,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %JS_GetOpaque.exit, 
   %30 = getelementptr i8, ptr %29, i64 1484
   %31 = load i32, ptr %30, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  %32 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %27, ptr noundef %10, i32 noundef %31)
+  %32 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %27, ptr noundef nonnull %10, i32 noundef %31)
   %33 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %32)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %JS_FreeValue.exit312
@@ -91548,7 +91548,7 @@ JS_DupValue.exit327:                              ; preds = %117, %118
   br label %JS_DupValue.exit330
 
 JS_DupValue.exit330:                              ; preds = %123, %124
-  %128 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %2, i64 %3, i32 noundef %8)
+  %128 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %2, i64 %3, i32 noundef range(i32 0, 18) %8)
   br label %129
 
 129:                                              ; preds = %JS_DupValue.exit330, %JS_DupValue.exit327
@@ -91610,7 +91610,7 @@ JS_DupValue.exit333:                              ; preds = %143, %144
   br label %JS_DupValue.exit336
 
 JS_DupValue.exit336:                              ; preds = %149, %150
-  %154 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %4, i64 %5, i32 noundef %8)
+  %154 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %4, i64 %5, i32 noundef range(i32 0, 18) %8)
   br label %155
 
 155:                                              ; preds = %JS_DupValue.exit336, %JS_DupValue.exit333
@@ -91979,7 +91979,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %JS_GetOpaque.exit, 
   %27 = getelementptr i8, ptr %26, i64 1484
   %28 = load i32, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %29 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %24, ptr noundef %6, i32 noundef %28)
+  %29 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %24, ptr noundef nonnull %6, i32 noundef %28)
   %30 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %63
@@ -92860,11 +92860,11 @@ define internal fastcc void @js_resolve_export_throw_error(ptr noundef %0, i32 n
   %.str.181.sink = phi ptr [ @.str.181, %8 ], [ @.str.180, %7 ], [ @.str.179, %4 ]
   %9 = getelementptr i8, ptr %0, i64 24
   %.val19 = load ptr, ptr %9, align 8
-  %10 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19, ptr noundef %5, i32 noundef %3)
+  %10 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val19, ptr noundef nonnull %5, i32 noundef %3)
   %11 = getelementptr inbounds i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %.val = load ptr, ptr %9, align 8
-  %13 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %6, i32 noundef %12)
+  %13 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %6, i32 noundef %12)
   %14 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull %.str.181.sink, ptr noundef nonnull %10, ptr noundef nonnull %13)
   br label %15
 
@@ -94040,7 +94040,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %5, %10, %JS_GetOpaq
   %19 = getelementptr i8, ptr %18, i64 1964
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef %6, i32 noundef %20)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %6, i32 noundef %20)
   %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %JS_FreeValue.exit49
@@ -96929,7 +96929,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_WriteFunctionTag(ptr noundef non
   br label %31
 
 26:                                               ; preds = %2
-  %27 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %7, i32 noundef %22)
+  %27 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %22)
   %.not5.i = icmp eq i32 %27, 0
   br i1 %.not5.i, label %28, label %bc_put_atom.exit
 
@@ -97138,7 +97138,7 @@ bc_put_leb128.exit133:                            ; preds = %.lr.ph.i.i129, %100
   br label %126
 
 121:                                              ; preds = %.lr.ph
-  %122 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %6, i32 noundef %117)
+  %122 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %117)
   %.not5.i143 = icmp eq i32 %122, 0
   br i1 %.not5.i143, label %123, label %bc_put_atom.exit144
 
@@ -97253,7 +97253,7 @@ bc_put_leb128.exit156:                            ; preds = %.lr.ph.i.i152, %bc_
   br label %183
 
 178:                                              ; preds = %170
-  %179 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %5, i32 noundef %174)
+  %179 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %5, i32 noundef %174)
   %.not5.i167 = icmp eq i32 %179, 0
   br i1 %.not5.i167, label %180, label %bc_put_atom.exit168
 
@@ -97366,7 +97366,7 @@ js_malloc.exit.i:                                 ; preds = %._crit_edge
 234:                                              ; preds = %.lr.ph.i
   %235 = getelementptr i8, ptr %222, i64 1
   %.val.i = load i32, ptr %235, align 1
-  %236 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %4, i32 noundef %.val.i)
+  %236 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %.val.i)
   %.not36.i = icmp eq i32 %236, 0
   br i1 %.not36.i, label %237, label %242
 
@@ -97422,7 +97422,7 @@ JS_WriteFunctionBytecode.exit.thread:             ; preds = %242, %214, %218
   br label %269
 
 264:                                              ; preds = %258
-  %265 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %3, i32 noundef %260)
+  %265 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %260)
   %.not5.i187 = icmp eq i32 %265, 0
   br i1 %.not5.i187, label %266, label %bc_put_atom.exit188
 
@@ -97547,7 +97547,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_WriteModule(ptr noundef nonnull 
   br label %20
 
 15:                                               ; preds = %2
-  %16 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %7, i32 noundef %11)
+  %16 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %11)
   %.not5.i = icmp eq i32 %16, 0
   br i1 %.not5.i, label %17, label %bc_put_atom.exit
 
@@ -97619,7 +97619,7 @@ bc_put_leb128.exit:                               ; preds = %.lr.ph.i.i, %bc_put
   br label %50
 
 45:                                               ; preds = %38
-  %46 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %6, i32 noundef %41)
+  %46 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %41)
   %.not5.i66 = icmp eq i32 %46, 0
   br i1 %.not5.i66, label %47, label %bc_put_atom.exit67
 
@@ -97743,7 +97743,7 @@ bc_put_leb128.exit85:                             ; preds = %.lr.ph.i.i81, %88
   br label %105
 
 100:                                              ; preds = %bc_put_leb128.exit85
-  %101 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %5, i32 noundef %96)
+  %101 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %5, i32 noundef %96)
   %.not5.i95 = icmp eq i32 %101, 0
   br i1 %.not5.i95, label %102, label %bc_put_atom.exit96
 
@@ -97789,7 +97789,7 @@ bc_put_atom.exit96:                               ; preds = %100, %bc_put_leb128
   br label %123
 
 118:                                              ; preds = %112
-  %119 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %4, i32 noundef %114)
+  %119 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %114)
   %.not5.i106 = icmp eq i32 %119, 0
   br i1 %.not5.i106, label %120, label %bc_put_atom.exit107
 
@@ -97940,7 +97940,7 @@ bc_put_leb128.exit131:                            ; preds = %.lr.ph.i.i127, %168
   br label %188
 
 183:                                              ; preds = %bc_put_leb128.exit131
-  %184 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %3, i32 noundef %179)
+  %184 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %179)
   %.not5.i141 = icmp eq i32 %184, 0
   br i1 %.not5.i141, label %185, label %bc_put_atom.exit142
 
@@ -98549,7 +98549,7 @@ JS_AtomIsString.exit:                             ; preds = %28, %26
   br label %60
 
 55:                                               ; preds = %51
-  %56 = call fastcc i32 @bc_atom_to_idx(ptr noundef %0, ptr noundef %3, i32 noundef %25)
+  %56 = call fastcc i32 @bc_atom_to_idx(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %25)
   %.not5.i = icmp eq i32 %56, 0
   br i1 %.not5.i, label %57, label %bc_put_atom.exit
 
@@ -103916,7 +103916,7 @@ string_buffer_putc16.exit.thread.i.i:             ; preds = %160
   br label %172
 
 string_buffer_putc16.exit.i.i:                    ; preds = %160
-  %171 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %6, i32 noundef %162)
+  %171 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %6, i32 noundef range(i32 0, -2147483648) %162)
   %.not.i.i = icmp eq i32 %171, 0
   br i1 %.not.i.i, label %string_buffer_putc16.exit.i._crit_edge.i, label %string_buffer_putc.exit.thread19.i
 
@@ -103971,7 +103971,7 @@ string_buffer_putc16.exit.i._crit_edge.i:         ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread.i
 
 string_buffer_putc.exit.i:                        ; preds = %188, %175
-  %197 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %6, i32 noundef %.0.i.i)
+  %197 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %6, i32 noundef range(i32 0, -2147483648) %.0.i.i)
   %.not12.i = icmp eq i32 %197, 0
   br i1 %.not12.i, label %string_buffer_putc.exit.thread.i, label %string_buffer_putc.exit.thread19.i
 
@@ -104482,7 +104482,7 @@ js_get_regexp.exit.thread:                        ; preds = %25
   %33 = getelementptr i8, ptr %32, i64 724
   %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %35 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %30, ptr noundef %4, i32 noundef %34)
+  %35 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %30, ptr noundef nonnull %4, i32 noundef %34)
   %36 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %229
@@ -104712,7 +104712,7 @@ string_get.exit68:                                ; preds = %string_get.exit70.t
   br label %string_buffer_putc16.exit
 
 146:                                              ; preds = %137, %string_get.exit68
-  %147 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %5, i32 noundef %.049)
+  %147 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %5, i32 noundef range(i32 0, -2147483648) %.049)
   br label %string_buffer_putc16.exit
 
 string_buffer_putc16.exit:                        ; preds = %130, %139, %146
@@ -104757,7 +104757,7 @@ string_buffer_putc16.exit:                        ; preds = %130, %139, %146
   br label %string_buffer_putc16.exit77
 
 171:                                              ; preds = %162, %149
-  %172 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %5, i32 noundef %.047)
+  %172 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %5, i32 noundef range(i32 0, -2147483648) %.047)
   br label %string_buffer_putc16.exit77
 
 string_buffer_putc16.exit77:                      ; preds = %171, %164, %155, %string_buffer_putc16.exit
@@ -104924,7 +104924,7 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
   %34 = getelementptr i8, ptr %33, i64 724
   %35 = load i32, ptr %34, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %36 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %31, ptr noundef %5, i32 noundef %35)
+  %36 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %31, ptr noundef nonnull %5, i32 noundef %35)
   %37 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %36)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %46
@@ -104974,7 +104974,7 @@ js_get_regexp.exit.thread:                        ; preds = %5, %15
   %23 = getelementptr i8, ptr %22, i64 724
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef %10, i32 noundef %24)
+  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %10, i32 noundef %24)
   %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   br label %354
@@ -105770,7 +105770,7 @@ js_get_regexp.exit.thread:                        ; preds = %5, %11
   %19 = getelementptr i8, ptr %18, i64 724
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef %7, i32 noundef %20)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %7, i32 noundef %20)
   %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit107
@@ -110117,7 +110117,7 @@ js_get_regexp.exit.thread:                        ; preds = %5, %14
   %22 = getelementptr i8, ptr %21, i64 724
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef %8, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %287
@@ -111843,7 +111843,7 @@ JS_FreeValue.exit99.thread:                       ; preds = %7, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1844
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef %9, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %9, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %JS_FreeValue.exit100
@@ -112343,7 +112343,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %134
   br label %148
 
 string_buffer_putc16.exit.i:                      ; preds = %134
-  %147 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %8, i32 noundef %136)
+  %147 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %8, i32 noundef range(i32 0, -2147483648) %136)
   %.not.i = icmp eq i32 %147, 0
   br i1 %.not.i, label %148, label %string_buffer_putc.exit.thread
 
@@ -112391,7 +112391,7 @@ string_buffer_putc16.exit.i:                      ; preds = %134
   br label %.backedge
 
 string_buffer_putc.exit:                          ; preds = %163, %.thread92
-  %172 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %8, i32 noundef %.0.i)
+  %172 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %8, i32 noundef range(i32 0, -2147483648) %.0.i)
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %.backedge, label %string_buffer_putc.exit.thread
 
@@ -113292,7 +113292,7 @@ string_getc.exit:                                 ; preds = %68, %74, %79, %84
 
 112:                                              ; preds = %110
   %113 = add i32 %100, 2
-  %114 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %4, i32 noundef %113, i32 noundef %.0)
+  %114 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %4, i32 noundef %113, i32 noundef range(i32 -56613888, 10559488) %.0)
   %.not13.i51 = icmp eq i32 %114, 0
   br i1 %.not13.i51, label %._crit_edge78, label %string_buffer_putc8.exit
 
@@ -113781,7 +113781,7 @@ define internal fastcc i32 @JS_TryGetPropertyInt64(ptr noundef %0, i64 %1, i64 %
 
 18:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef %3) #42
+  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.110, i64 noundef range(i64 2147483648, 0) %3) #42
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #43
   %21 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %20)
   %22 = extractvalue { i64, i64 } %21, 1
@@ -118343,7 +118343,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %7, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %map_add_record.exit.thread58
@@ -118852,7 +118852,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %7, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %46
@@ -118934,7 +118934,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %7, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %36
@@ -118994,7 +118994,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %7, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %37
@@ -119059,7 +119059,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %22 = getelementptr %struct.JSClass, ptr %20, i64 %21, i32 1
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %7, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %7, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %.loopexit
@@ -119122,7 +119122,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %9, %JS_GetOpaqu
   %20 = getelementptr %struct.JSClass, ptr %18, i64 %19, i32 1
   %21 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef %5, i32 noundef %21)
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %16, ptr noundef nonnull %5, i32 noundef %21)
   %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %22) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %31
@@ -119183,7 +119183,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef %8, i32 noundef %25)
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %25)
   %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %.loopexit
@@ -119481,7 +119481,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef %7, i32 noundef %25)
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
   %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_FreeValue.exit
@@ -119903,7 +119903,7 @@ JS_GetOpaque.exit.i:                              ; preds = %13
   %25 = getelementptr %struct.JSClass, ptr %23, i64 %24, i32 1
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %21, ptr noundef %8, i32 noundef %26)
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %21, ptr noundef nonnull %8, i32 noundef %26)
   %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   store i32 0, ptr %5, align 4
@@ -122261,7 +122261,7 @@ JS_AtomToString.exit:                             ; preds = %113, %JS_DupValue.e
   store i64 3, ptr %26, align 8
   store i32 0, ptr %6, align 8
   store i64 3, ptr %27, align 8
-  %116 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %69, i64 %70, i32 noundef 48, i64 1, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %5, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 9985)
+  %116 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %69, i64 range(i64 -1, 7) %70, i32 noundef 48, i64 1, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %5, ptr noundef nonnull byval(%struct.JSValue) align 8 %6, i32 noundef 9985)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %117 = load ptr, ptr %9, align 8
@@ -122279,7 +122279,7 @@ JS_AtomToString.exit:                             ; preds = %113, %JS_DupValue.e
   store i64 3, ptr %28, align 8
   store i32 0, ptr %8, align 8
   store i64 3, ptr %29, align 8
-  %124 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %69, i64 %70, i32 noundef 55, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
+  %124 = tail call i32 @JS_DefineProperty(ptr noundef nonnull %0, i64 %69, i64 range(i64 -1, 7) %70, i32 noundef 55, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
   %125 = load i32, ptr %121, align 4
   %126 = add i32 %125, -1
   store i32 %126, ptr %121, align 4
@@ -128044,7 +128044,7 @@ JS_ToPrimitive.exit:                              ; preds = %80, %JS_FreeAtom.ex
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
-  %85 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %1, i64 %2, i32 noundef %.0)
+  %85 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %1, i64 %2, i32 noundef range(i32 0, 18) %.0)
   %86 = extractvalue { i64, i64 } %85, 0
   %.sroa.5.0.extract.shift18 = and i64 %86, -4294967296
   %87 = extractvalue { i64, i64 } %85, 1
@@ -129651,7 +129651,7 @@ string_get_digits.exit89.thread.i:                ; preds = %189, %166, %163
   store i32 %.120.i102.i, ptr %199, align 4
   store i32 %.1.i103.i, ptr %8, align 4
   %219 = getelementptr inbounds i8, ptr %9, i64 24
-  call fastcc void @string_get_milliseconds(ptr noundef readonly %11, ptr noundef %8, ptr noundef nonnull %219)
+  call fastcc void @string_get_milliseconds(ptr noundef nonnull readonly %11, ptr noundef %8, ptr noundef nonnull %219)
   %.pre152.i = load i32, ptr %8, align 4
   %.phi.trans.insert153.i = sext i32 %.pre152.i to i64
   %.phi.trans.insert154.i = getelementptr i8, ptr %11, i64 %.phi.trans.insert153.i
@@ -129666,7 +129666,7 @@ string_skip_char.exit83.thread.i:                 ; preds = %218, %192, %string_
 
 221:                                              ; preds = %string_skip_char.exit83.thread.i
   %222 = getelementptr inbounds i8, ptr %9, i64 32
-  %223 = call fastcc i32 @string_get_timezone(ptr noundef readonly %11, ptr noundef %8, ptr noundef nonnull %222, i32 noundef 1)
+  %223 = call fastcc i32 @string_get_timezone(ptr noundef nonnull readonly %11, ptr noundef %8, ptr noundef nonnull %222, i32 noundef 1)
   %.not60.i = icmp eq i32 %223, 0
   br i1 %.not60.i, label %js_date_parse_isostring.exit.thread, label %js_date_parse_isostring.exit
 
@@ -129747,7 +129747,7 @@ string_skip_spaces.exit.i:                        ; preds = %string_skip_spaces.
   br i1 %.not153.i, label %._crit_edge.i67, label %245
 
 245:                                              ; preds = %244
-  %246 = call fastcc i32 @string_get_timezone(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull %227, i32 noundef 0)
+  %246 = call fastcc i32 @string_get_timezone(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull %227, i32 noundef 0)
   %.not154.i = icmp eq i32 %246, 0
   %.promoted.i225.i.pre152 = load i32, ptr %6, align 4
   br i1 %.not154.i, label %._crit_edge.i67, label %string_get_milliseconds.exit.i
@@ -130265,7 +130265,7 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br label %.backedge.i
 
 517:                                              ; preds = %.lr.ph.i215.i
-  %518 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.406)
+  %518 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.406)
   %.not138.i = icmp eq i32 %518, 0
   br i1 %.not138.i, label %520, label %519
 
@@ -130274,12 +130274,12 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br label %.backedge.i
 
 520:                                              ; preds = %517
-  %521 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.407)
+  %521 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.407)
   %.not139.i = icmp eq i32 %521, 0
   br i1 %.not139.i, label %522, label %524
 
 522:                                              ; preds = %520
-  %523 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.408)
+  %523 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.408)
   %.not140.i = icmp eq i32 %523, 0
   br i1 %.not140.i, label %525, label %524
 
@@ -130288,12 +130288,12 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br label %.backedge.i
 
 525:                                              ; preds = %522
-  %526 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.409)
+  %526 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.409)
   %.not141.i = icmp eq i32 %526, 0
   br i1 %.not141.i, label %527, label %529
 
 527:                                              ; preds = %525
-  %528 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.410)
+  %528 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.410)
   %.not142.i = icmp eq i32 %528, 0
   br i1 %.not142.i, label %530, label %529
 
@@ -130302,12 +130302,12 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br label %.backedge.i
 
 530:                                              ; preds = %527
-  %531 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.411)
+  %531 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.411)
   %.not143.i = icmp eq i32 %531, 0
   br i1 %.not143.i, label %532, label %534
 
 532:                                              ; preds = %530
-  %533 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.412)
+  %533 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.412)
   %.not144.i = icmp eq i32 %533, 0
   br i1 %.not144.i, label %535, label %534
 
@@ -130316,7 +130316,7 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br label %.backedge.i
 
 535:                                              ; preds = %532
-  %536 = call fastcc i32 @string_match(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.413)
+  %536 = call fastcc i32 @string_match(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.413)
   %.not145.i = icmp eq i32 %536, 0
   br i1 %.not145.i, label %538, label %537
 
@@ -130367,7 +130367,7 @@ string_match.exit204.i:                           ; preds = %483, %497, %513
   br i1 %.not146.i, label %557, label %js_date_parse_otherstring.exit.thread
 
 557:                                              ; preds = %553
-  call fastcc void @string_skip_until(ptr noundef readonly %11, ptr noundef %6, ptr noundef nonnull @.str.414)
+  call fastcc void @string_skip_until(ptr noundef nonnull readonly %11, ptr noundef %6, ptr noundef nonnull @.str.414)
   %.promoted.i225.i.pre = load i32, ptr %6, align 4
   br label %string_get_milliseconds.exit.i
 
@@ -132790,7 +132790,7 @@ add_func_var.exit190.i:                           ; preds = %361, %350, %347, %3
   %382 = and i32 %381, 1
   %383 = lshr i32 %377, 4
   %384 = and i32 %383, 15
-  %385 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %.0149199.i, i32 noundef %379, i32 noundef %380, i32 noundef %382, i32 noundef %384)
+  %385 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %.0149199.i, i32 noundef %379, i32 noundef range(i32 0, 2) %380, i32 noundef range(i32 0, 2) %382, i32 noundef range(i32 0, 16) %384)
   %386 = getelementptr inbounds i8, ptr %375, i64 8
   %.0149.i = load i32, ptr %386, align 4
   %387 = icmp sgt i32 %.0149.i, -1
@@ -132846,7 +132846,7 @@ add_func_var.exit190.i:                           ; preds = %361, %350, %347, %3
   %409 = lshr i32 %408, 1
   %410 = and i32 %409, 1
   %411 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %412 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 1, i32 noundef %411, i32 noundef %405, i32 noundef 0, i32 noundef %410, i32 noundef 0)
+  %412 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 1, i32 noundef %411, i32 noundef %405, i32 noundef 0, i32 noundef range(i32 0, 2) %410, i32 noundef 0)
   %.pre.i = load i32, ptr %389, align 4
   br label %413
 
@@ -132880,7 +132880,7 @@ add_func_var.exit190.i:                           ; preds = %361, %350, %347, %3
   %429 = lshr i32 %428, 1
   %430 = and i32 %429, 1
   %431 = trunc nuw nsw i64 %indvars.iv216.i to i32
-  %432 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %431, i32 noundef %425, i32 noundef 0, i32 noundef %430, i32 noundef 0)
+  %432 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %431, i32 noundef %425, i32 noundef 0, i32 noundef range(i32 0, 2) %430, i32 noundef 0)
   %.pre225.i = load i32, ptr %397, align 4
   br label %433
 
@@ -132924,7 +132924,7 @@ is_var_in_arg_scope.exit.thread.i:                ; preds = %is_var_in_arg_scope
   %451 = lshr i32 %450, 1
   %452 = and i32 %451, 1
   %453 = trunc nuw nsw i64 %indvars.iv219.i to i32
-  %454 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %453, i32 noundef %445, i32 noundef 0, i32 noundef %452, i32 noundef 0)
+  %454 = tail call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %280, i32 noundef 1, i32 noundef 0, i32 noundef %453, i32 noundef %445, i32 noundef 0, i32 noundef range(i32 0, 2) %452, i32 noundef 0)
   %.pre226.i = load i32, ptr %393, align 4
   br label %455
 
@@ -133075,8 +133075,8 @@ find_closure_var.exit.thread.i:                   ; preds = %529, %539
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48)
   %540 = getelementptr i8, ptr %0, i64 24
   %.val.i.i = load ptr, ptr %540, align 8
-  %541 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef %48, i32 noundef %531)
-  %542 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.521, ptr noundef nonnull %541) #45
+  %541 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %48, i32 noundef %531)
+  %542 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.521, ptr noundef nonnull %541) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
   br label %add_module_variables.exit
 
@@ -133658,7 +133658,7 @@ JS_FreeAtomStruct.exit.i.i280.i:                  ; preds = %839, %830, %._crit_
   %860 = zext i16 %.val261.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
-  %861 = call fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef %39, ptr noundef %38, ptr noundef %1, i32 noundef %.val254.i, i32 noundef %860)
+  %861 = call fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef %39, ptr noundef %38, ptr noundef %1, i32 noundef %.val254.i, i32 noundef range(i32 0, 65536) %860)
   %862 = icmp slt i32 %861, 0
   br i1 %862, label %resolve_scope_private_field.exit.i, label %863
 
@@ -133828,7 +133828,7 @@ JS_DupAtom.exit67.i.i:                            ; preds = %922, %919
   br i1 %935, label %resolve_scope_private_field.exit.i, label %936
 
 936:                                              ; preds = %933
-  %937 = call fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef %39, ptr noundef %38, ptr noundef %1, i32 noundef %934, i32 noundef %860)
+  %937 = call fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef %39, ptr noundef %38, ptr noundef %1, i32 noundef %934, i32 noundef range(i32 0, 65536) %860)
   %938 = icmp sgt i32 %934, 226
   br i1 %938, label %939, label %JS_FreeAtom.exit.i.i
 
@@ -137518,7 +137518,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_directives(ptr noundef non
   %49 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %10, ptr %49, align 8
   store i32 %12, ptr %11, align 8
-  %50 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
+  %50 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %15, %1, %.critedge
@@ -137682,7 +137682,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %13
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4
-  %28 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  %28 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null)
   %.not22 = icmp eq i32 %28, 0
   br i1 %.not22, label %js_parse_import.exit.thread56, label %js_parse_export.exit.thread
 
@@ -137704,7 +137704,7 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %.token_is_pseudo_ke
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 536
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %38 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i24 = icmp eq i32 %38, 0
   br i1 %.not.i24, label %39, label %js_parse_export.exit.thread
 
@@ -137717,7 +137717,7 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %.token_is_pseudo_ke
   ]
 
 41:                                               ; preds = %39
-  %42 = tail call fastcc i32 @js_parse_class(ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  %42 = tail call fastcc i32 @js_parse_class(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1)
   br label %js_parse_export.exit
 
 43:                                               ; preds = %39
@@ -137747,11 +137747,11 @@ token_is_pseudo_keyword.exit44:                   ; preds = %43
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 28
   %57 = load i32, ptr %56, align 4
-  %58 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %55, i32 noundef %57, i32 noundef 1, ptr noundef null)
+  %58 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %55, i32 noundef %57, i32 noundef 1, ptr noundef null)
   br label %js_parse_export.exit
 
 token_is_pseudo_keyword.exit44.thread:            ; preds = %39, %43, %49, %token_is_pseudo_keyword.exit44
-  %59 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %59 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not135.i = icmp eq i32 %59, 0
   br i1 %.not135.i, label %60, label %js_parse_export.exit.thread
 
@@ -137807,7 +137807,7 @@ token_is_pseudo_keyword.exit44.thread:            ; preds = %39, %43, %49, %toke
   br label %JS_DupAtom.exit41
 
 JS_DupAtom.exit41:                                ; preds = %75, %78
-  %87 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %87 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not146.i = icmp eq i32 %87, 0
   br i1 %.not146.i, label %88, label %.loopexit
 
@@ -137827,7 +137827,7 @@ token_is_pseudo_keyword.exit40:                   ; preds = %91
   br i1 %.not.i39.not, label %95, label %token_is_pseudo_keyword.exit40.thread
 
 95:                                               ; preds = %token_is_pseudo_keyword.exit40
-  %96 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %96 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not148.i = icmp eq i32 %96, 0
   br i1 %.not148.i, label %97, label %.loopexit
 
@@ -137861,7 +137861,7 @@ token_is_pseudo_keyword.exit40:                   ; preds = %91
   br label %JS_DupAtom.exit37
 
 JS_DupAtom.exit37:                                ; preds = %104, %107
-  %116 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %116 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not150.i = icmp eq i32 %116, 0
   br i1 %.not150.i, label %JS_DupAtom.exit36, label %.loopexit
 
@@ -137905,12 +137905,12 @@ JS_DupAtom.exit36:                                ; preds = %118, %token_is_pseu
   br i1 %.not152.i, label %131, label %133
 
 131:                                              ; preds = %129
-  %132 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %132 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not153.i = icmp eq i32 %132, 0
   br i1 %.not153.i, label %67, label %js_parse_export.exit.thread, !llvm.loop !419
 
 133:                                              ; preds = %129, %67
-  %134 = tail call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 125)
+  %134 = tail call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 125)
   %.not154.i = icmp eq i32 %134, 0
   br i1 %.not154.i, label %135, label %js_parse_export.exit.thread
 
@@ -137930,7 +137930,7 @@ token_is_pseudo_keyword.exit35:                   ; preds = %138
   br i1 %.not.i34.not, label %142, label %token_is_pseudo_keyword.exit35.thread
 
 142:                                              ; preds = %token_is_pseudo_keyword.exit35
-  %143 = tail call fastcc i32 @js_parse_from_clause(ptr noundef %0)
+  %143 = tail call fastcc i32 @js_parse_from_clause(ptr noundef nonnull %0)
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %js_parse_export.exit.thread, label %145
 
@@ -137981,7 +137981,7 @@ token_is_pseudo_keyword.exit33:                   ; preds = %162
   br i1 %.not.i32.not, label %168, label %token_is_pseudo_keyword.exit33.thread
 
 168:                                              ; preds = %token_is_pseudo_keyword.exit33
-  %169 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %169 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not140.i = icmp eq i32 %169, 0
   br i1 %.not140.i, label %170, label %js_parse_export.exit.thread
 
@@ -138016,12 +138016,12 @@ token_is_pseudo_keyword.exit33:                   ; preds = %162
   br label %JS_DupAtom.exit
 
 JS_DupAtom.exit:                                  ; preds = %177, %180
-  %190 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %190 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not142.i = icmp eq i32 %190, 0
   br i1 %.not142.i, label %191, label %117
 
 191:                                              ; preds = %JS_DupAtom.exit
-  %192 = tail call fastcc i32 @js_parse_from_clause(ptr noundef %0)
+  %192 = tail call fastcc i32 @js_parse_from_clause(ptr noundef nonnull %0)
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %117, label %194
 
@@ -138043,7 +138043,7 @@ JS_DupAtom.exit:                                  ; preds = %177, %180
   br label %token_is_pseudo_keyword.exit35.thread
 
 token_is_pseudo_keyword.exit33.thread:            ; preds = %159, %162, %token_is_pseudo_keyword.exit33
-  %201 = tail call fastcc i32 @js_parse_from_clause(ptr noundef %0)
+  %201 = tail call fastcc i32 @js_parse_from_clause(ptr noundef nonnull %0)
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %js_parse_export.exit.thread, label %203
 
@@ -138067,7 +138067,7 @@ token_is_pseudo_keyword.exit33.thread:            ; preds = %159, %162, %token_i
   ]
 
 211:                                              ; preds = %209
-  %212 = tail call fastcc i32 @js_parse_class(ptr noundef %0, i32 noundef 0, i32 noundef 2)
+  %212 = tail call fastcc i32 @js_parse_class(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
   br label %js_parse_export.exit
 
 213:                                              ; preds = %209
@@ -138097,23 +138097,23 @@ token_is_pseudo_keyword.exit31:                   ; preds = %213
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %0, i64 28
   %227 = load i32, ptr %226, align 4
-  %228 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %225, i32 noundef %227, i32 noundef 2, ptr noundef null)
+  %228 = tail call fastcc i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, ptr noundef %225, i32 noundef %227, i32 noundef 2, ptr noundef null)
   br label %js_parse_export.exit
 
 token_is_pseudo_keyword.exit31.thread:            ; preds = %209, %213, %219, %token_is_pseudo_keyword.exit31
-  %229 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %229 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not137.i = icmp eq i32 %229, 0
   br i1 %.not137.i, label %230, label %js_parse_export.exit.thread
 
 230:                                              ; preds = %token_is_pseudo_keyword.exit31.thread
-  tail call fastcc void @set_object_name(ptr noundef %0, i32 noundef 22)
+  tail call fastcc void @set_object_name(ptr noundef nonnull %0, i32 noundef 22)
   %231 = load ptr, ptr %9, align 8
-  %232 = tail call fastcc i32 @define_var(ptr noundef %0, ptr noundef %231, i32 noundef 125, i32 noundef 1)
+  %232 = tail call fastcc i32 @define_var(ptr noundef nonnull %0, ptr noundef %231, i32 noundef 125, i32 noundef 1)
   %233 = icmp slt i32 %232, 0
   br i1 %233, label %js_parse_export.exit.thread, label %234
 
 234:                                              ; preds = %230
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -65)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -65)
   %.val.i29 = load ptr, ptr %9, align 8
   %235 = getelementptr inbounds i8, ptr %.val.i29, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -138132,7 +138132,7 @@ token_is_pseudo_keyword.exit31.thread:            ; preds = %209, %213, %219, %t
   br i1 %.not138.i, label %js_parse_export.exit.thread, label %token_is_pseudo_keyword.exit35.thread
 
 241:                                              ; preds = %60, %60, %60
-  %242 = tail call fastcc i32 @js_parse_var(ptr noundef %0, i32 noundef 1, i32 noundef %40, i32 noundef 1)
+  %242 = tail call fastcc i32 @js_parse_var(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %40, i32 noundef 1)
   br label %js_parse_export.exit
 
 243:                                              ; preds = %60
@@ -138140,7 +138140,7 @@ token_is_pseudo_keyword.exit31.thread:            ; preds = %209, %213, %219, %t
   br label %js_parse_export.exit.thread
 
 token_is_pseudo_keyword.exit35.thread:            ; preds = %152, %.preheader, %135, %138, %234, %206, %200, %token_is_pseudo_keyword.exit35
-  %245 = call fastcc i32 @js_parse_expect_semi(ptr noundef %0)
+  %245 = call fastcc i32 @js_parse_expect_semi(ptr noundef nonnull %0)
   br label %js_parse_export.exit
 
 js_parse_export.exit:                             ; preds = %41, %53, %211, %223, %241, %token_is_pseudo_keyword.exit35.thread
@@ -138171,7 +138171,7 @@ js_parse_export.exit:                             ; preds = %41, %53, %211, %223
   %254 = load ptr, ptr %9, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 536
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %257 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i25 = icmp eq i32 %257, 0
   br i1 %.not.i25, label %258, label %js_parse_export.exit.thread
 
@@ -138194,7 +138194,7 @@ js_parse_export.exit:                             ; preds = %41, %53, %211, %223
   br i1 %268, label %js_parse_export.exit.thread, label %269
 
 269:                                              ; preds = %262
-  %270 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %270 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not122.i = icmp eq i32 %270, 0
   br i1 %.not122.i, label %724, label %271
 
@@ -138307,7 +138307,7 @@ JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %316, %307, %._crit_
   %340 = load i32, ptr %339, align 8
   %341 = getelementptr i8, ptr %338, i64 24
   %.val.i.i = load ptr, ptr %341, align 8
-  %342 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef %6, i32 noundef %340)
+  %342 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i.i, ptr noundef nonnull %6, i32 noundef %340)
   %343 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %342)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %js_parse_export.exit.thread
@@ -138332,12 +138332,12 @@ JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %316, %307, %._crit_
   br label %JS_DupAtom.exit.i
 
 JS_DupAtom.exit.i:                                ; preds = %348, %344
-  %358 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %358 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not100.i = icmp eq i32 %358, 0
   br i1 %.not100.i, label %359, label %.loopexit.i
 
 359:                                              ; preds = %JS_DupAtom.exit.i
-  %360 = tail call fastcc i32 @add_import(ptr noundef %0, ptr noundef nonnull %256, i32 noundef %346, i32 noundef 22)
+  %360 = tail call fastcc i32 @add_import(ptr noundef nonnull %0, ptr noundef nonnull %256, i32 noundef %346, i32 noundef 22)
   %.not101.i = icmp eq i32 %360, 0
   br i1 %.not101.i, label %361, label %.loopexit.i
 
@@ -138348,7 +138348,7 @@ JS_DupAtom.exit.i:                                ; preds = %348, %344
   br i1 %.not102.i, label %363, label %721
 
 363:                                              ; preds = %361
-  %364 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %364 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not103.i = icmp eq i32 %364, 0
   br i1 %.not103.i, label %thread-pre-split.i, label %js_parse_export.exit.thread
 
@@ -138364,7 +138364,7 @@ thread-pre-split.i:                               ; preds = %363
   ]
 
 367:                                              ; preds = %365
-  %368 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %368 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not116.i = icmp eq i32 %368, 0
   br i1 %.not116.i, label %369, label %js_parse_export.exit.thread
 
@@ -138390,7 +138390,7 @@ token_is_pseudo_keyword.exit.thread.i:            ; preds = %token_is_pseudo_key
   br label %js_parse_export.exit.thread
 
 379:                                              ; preds = %token_is_pseudo_keyword.exit.i
-  %380 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %380 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not118.i = icmp eq i32 %380, 0
   br i1 %.not118.i, label %381, label %js_parse_export.exit.thread
 
@@ -138425,12 +138425,12 @@ token_is_pseudo_keyword.exit.thread.i:            ; preds = %token_is_pseudo_key
   br label %JS_DupAtom.exit123.i
 
 JS_DupAtom.exit123.i:                             ; preds = %391, %388
-  %401 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %401 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not120.i = icmp eq i32 %401, 0
   br i1 %.not120.i, label %402, label %.loopexit.i
 
 402:                                              ; preds = %JS_DupAtom.exit123.i
-  %403 = tail call fastcc i32 @add_import(ptr noundef %0, ptr noundef nonnull %256, i32 noundef %389, i32 noundef 126)
+  %403 = tail call fastcc i32 @add_import(ptr noundef nonnull %0, ptr noundef nonnull %256, i32 noundef %389, i32 noundef 126)
   %.not121.i = icmp eq i32 %403, 0
   br i1 %.not121.i, label %404, label %.loopexit.i
 
@@ -138439,7 +138439,7 @@ JS_DupAtom.exit123.i:                             ; preds = %391, %388
   br label %721
 
 405:                                              ; preds = %365
-  %406 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %406 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not104.i = icmp eq i32 %406, 0
   br i1 %.not104.i, label %.preheader187.i, label %js_parse_export.exit.thread
 
@@ -138483,7 +138483,7 @@ JS_DupAtom.exit123.i:                             ; preds = %391, %388
   br label %JS_DupAtom.exit125.i
 
 JS_DupAtom.exit125.i:                             ; preds = %421, %418
-  %430 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %430 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not107.i = icmp eq i32 %430, 0
   br i1 %.not107.i, label %431, label %JS_FreeAtom.exit138.i
 
@@ -138503,7 +138503,7 @@ token_is_pseudo_keyword.exit127.i:                ; preds = %434
   br i1 %.not.i126.not.i, label %438, label %token_is_pseudo_keyword.exit127.thread.i
 
 438:                                              ; preds = %token_is_pseudo_keyword.exit127.i
-  %439 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %439 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not109.i = icmp eq i32 %439, 0
   br i1 %.not109.i, label %440, label %JS_FreeAtom.exit138.i
 
@@ -138537,7 +138537,7 @@ token_is_pseudo_keyword.exit127.i:                ; preds = %434
   br label %JS_DupAtom.exit129.i
 
 JS_DupAtom.exit129.i:                             ; preds = %450, %447
-  %459 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %459 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not111.i = icmp eq i32 %459, 0
   br i1 %.not111.i, label %JS_DupAtom.exit148.i, label %.loopexit.i
 
@@ -138753,7 +138753,7 @@ token_is_pseudo_keyword.exit127.thread.i:         ; preds = %token_is_pseudo_key
 
 JS_DupAtom.exit148.i:                             ; preds = %584, %token_is_pseudo_keyword.exit127.thread.i, %JS_DupAtom.exit129.i
   %.1.i27 = phi i32 [ %448, %JS_DupAtom.exit129.i ], [ %419, %token_is_pseudo_keyword.exit127.thread.i ], [ %419, %584 ]
-  %593 = tail call fastcc i32 @add_import(ptr noundef %0, ptr noundef %256, i32 noundef %.1.i27, i32 noundef %419)
+  %593 = tail call fastcc i32 @add_import(ptr noundef nonnull %0, ptr noundef %256, i32 noundef %.1.i27, i32 noundef %419)
   %.not112.i = icmp eq i32 %593, 0
   br i1 %.not112.i, label %594, label %.loopexit.i
 
@@ -138952,17 +138952,17 @@ JS_FreeAtom.exit166.i:                            ; preds = %JS_FreeAtomStruct.e
   br i1 %.not113.i, label %717, label %719
 
 717:                                              ; preds = %JS_FreeAtom.exit166.i
-  %718 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %718 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not114.i = icmp eq i32 %718, 0
   br i1 %.not114.i, label %410, label %js_parse_export.exit.thread, !llvm.loop !421
 
 719:                                              ; preds = %JS_FreeAtom.exit166.i, %410
-  %720 = tail call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 125)
+  %720 = tail call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 125)
   %.not115.i = icmp eq i32 %720, 0
   br i1 %.not115.i, label %721, label %js_parse_export.exit.thread
 
 721:                                              ; preds = %719, %404, %365, %361
-  %722 = tail call fastcc i32 @js_parse_from_clause(ptr noundef %0)
+  %722 = tail call fastcc i32 @js_parse_from_clause(ptr noundef nonnull %0)
   %723 = icmp eq i32 %722, 0
   br i1 %723, label %js_parse_export.exit.thread, label %724
 
@@ -139108,7 +139108,7 @@ JS_FreeAtom.exit175.i:                            ; preds = %JS_FreeAtomStruct.e
   br label %js_parse_export.exit.thread
 
 js_parse_import.exit:                             ; preds = %._crit_edge.i
-  %805 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %805 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not20 = icmp eq i32 %805, 0
   br i1 %.not20, label %js_parse_import.exit.thread56, label %js_parse_export.exit.thread
 
@@ -140127,7 +140127,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %77
   br label %91
 
 string_buffer_putc16.exit.i:                      ; preds = %77
-  %90 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %3, i32 noundef %79)
+  %90 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %3, i32 noundef range(i32 0, -2147483648) %79)
   %.not.i47 = icmp eq i32 %90, 0
   br i1 %.not.i47, label %91, label %string_buffer_putc8.exit
 
@@ -140176,7 +140176,7 @@ string_buffer_putc16.exit.i:                      ; preds = %77
   br label %.backedge
 
 string_buffer_putc.exit:                          ; preds = %106, %.thread68
-  %115 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %3, i32 noundef %.0.i46)
+  %115 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %3, i32 noundef range(i32 0, -2147483648) %.0.i46)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %.backedge, label %string_buffer_putc8.exit
 
@@ -140739,7 +140739,7 @@ js_parse_expect.exit.thread:                      ; preds = %59
   br label %.loopexit636
 
 js_parse_expect.exit:                             ; preds = %59
-  %62 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %62 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not483 = icmp eq i32 %62, 0
   br i1 %.not483, label %63, label %.loopexit636
 
@@ -140948,7 +140948,7 @@ thread-pre-split:                                 ; preds = %2, %is_label.exit.t
   br i1 %.not578, label %155, label %157
 
 155:                                              ; preds = %152
-  %156 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %156 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not579 = icmp eq i32 %156, 0
   br i1 %.not579, label %157, label %.loopexit636
 
@@ -140975,7 +140975,7 @@ thread-pre-split:                                 ; preds = %2, %is_label.exit.t
   br label %.loopexit636
 
 166:                                              ; preds = %161
-  %167 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %167 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not572 = icmp eq i32 %167, 0
   br i1 %.not572, label %168, label %.loopexit636
 
@@ -141252,7 +141252,7 @@ new_label.exit739:                                ; preds = %269, %272, %js_real
 
 305:                                              ; preds = %303
   %306 = call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 106, i32 noundef %.0.i.i732)
-  %307 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef %0, i32 noundef 0)
+  %307 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not559 = icmp eq i32 %307, 0
   br i1 %.not559, label %308, label %.loopexit636
 
@@ -141533,7 +141533,7 @@ new_label.exit772:                                ; preds = %424, %427, %js_real
 458:                                              ; preds = %new_label.exit772
   call fastcc void @emit_label(ptr noundef %0, i32 noundef %.0.i.i765)
   call fastcc void @set_eval_ret_undefined(ptr noundef %0)
-  %459 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef %0, i32 noundef 0)
+  %459 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not553 = icmp eq i32 %459, 0
   br i1 %.not553, label %460, label %.loopexit636
 
@@ -141719,7 +141719,7 @@ new_label.exit772:                                ; preds = %424, %427, %js_real
 
 542:                                              ; preds = %523
   call fastcc void @emit_label(ptr noundef %0, i32 noundef %524)
-  %543 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %543 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not543 = icmp eq i32 %543, 0
   br i1 %.not543, label %544, label %.loopexit636
 
@@ -141749,7 +141749,7 @@ new_label.exit772:                                ; preds = %424, %427, %js_real
   %556 = load i64, ptr %555, align 8
   %557 = trunc i64 %556 to i32
   call fastcc void @emit_label(ptr noundef %0, i32 noundef %525)
-  %558 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %558 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not545 = icmp eq i32 %558, 0
   br i1 %.not545, label %559, label %.loopexit636
 
@@ -141775,7 +141775,7 @@ new_label.exit772:                                ; preds = %424, %427, %js_real
   %567 = load i64, ptr %566, align 8
   %568 = trunc i64 %567 to i32
   call fastcc void @emit_label(ptr noundef %0, i32 noundef %526)
-  %569 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef %0, i32 noundef 0)
+  %569 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not548 = icmp eq i32 %569, 0
   br i1 %.not548, label %570, label %.loopexit636
 
@@ -141989,7 +141989,7 @@ new_label.exit772:                                ; preds = %424, %427, %js_real
 .lr.ph:                                           ; preds = %670, %678
   %.1450655 = phi i32 [ %679, %678 ], [ %.0449, %670 ]
   call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 17)
-  %672 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %672 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not523 = icmp eq i32 %672, 0
   br i1 %.not523, label %673, label %.loopexit636
 
@@ -142481,7 +142481,7 @@ JS_DupAtom.exit617:                               ; preds = %781, %785
   %905 = call i32 @dbuf_put(ptr noundef nonnull %904, ptr noundef nonnull %8, i64 noundef 2) #42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call fastcc void @set_eval_ret_undefined(ptr noundef %0)
-  %906 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef %0, i32 noundef 0)
+  %906 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not500 = icmp eq i32 %906, 0
   br i1 %.not500, label %907, label %.loopexit636
 
@@ -142522,7 +142522,7 @@ thread-pre-split.thread.thread:                   ; preds = %28, %thread-pre-spl
   %918 = load i32, ptr %917, align 8
   %919 = getelementptr i8, ptr %916, i64 24
   %.val.i773 = load ptr, ptr %919, align 8
-  %920 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i773, ptr noundef %3, i32 noundef %918)
+  %920 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i773, ptr noundef nonnull %3, i32 noundef %918)
   %921 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %920)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %.loopexit636
@@ -142574,7 +142574,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %927
   %942 = load ptr, ptr %941, align 8
   %943 = getelementptr inbounds i8, ptr %0, i64 28
   %944 = load i32, ptr %943, align 4
-  %945 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef %942, i32 noundef %944, i32 noundef 0, ptr noundef null)
+  %945 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, ptr noundef %942, i32 noundef %944, i32 noundef 0, ptr noundef null)
   %.not496 = icmp eq i32 %945, 0
   br i1 %.not496, label %js_parse_expect_semi.exit.thread, label %.loopexit636
 
@@ -142608,13 +142608,13 @@ token_is_pseudo_keyword.exit:                     ; preds = %927
   %958 = load ptr, ptr %0, align 8
   %959 = getelementptr i8, ptr %958, i64 24
   %.val.i619 = load ptr, ptr %959, align 8
-  %960 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i619, ptr noundef %5, i32 noundef %957)
+  %960 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i619, ptr noundef nonnull %5, i32 noundef %957)
   %961 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.520, ptr noundef nonnull %960)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %.loopexit636
 
 token_is_pseudo_keyword.exit.thread:              ; preds = %924, %927, %thread-pre-split, %token_is_pseudo_keyword.exit, %933
-  %962 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %962 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not582 = icmp eq i32 %962, 0
   br i1 %.not582, label %963, label %.loopexit636
 
@@ -142662,7 +142662,7 @@ js_parse_expect_semi.exit.thread776:              ; preds = %979
   br label %.loopexit636
 
 js_parse_expect_semi.exit:                        ; preds = %977
-  %983 = call fastcc i32 @next_token(ptr noundef %0)
+  %983 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not583 = icmp eq i32 %983, 0
   br i1 %.not583, label %js_parse_expect_semi.exit.thread, label %.loopexit636
 
@@ -143004,7 +143004,7 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %48, %52, %61, %58, 
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr i8, ptr %86, i64 24
   %.val.i = load ptr, ptr %87, align 8
-  %88 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %36, i32 noundef %.pre)
+  %88 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %36, i32 noundef %.pre)
   %89 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %88)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36)
   br label %JS_FreeAtom.exit
@@ -143891,7 +143891,7 @@ JS_FreeAtomStruct.exit.i.i659:                    ; preds = %489, %480, %._crit_
   %597 = load i32, ptr %596, align 8
   %598 = getelementptr i8, ptr %595, i64 24
   %.val.i666 = load ptr, ptr %598, align 8
-  %599 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i666, ptr noundef %34, i32 noundef %597)
+  %599 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i666, ptr noundef nonnull %34, i32 noundef %597)
   %600 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %599)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34)
   br label %.loopexit
@@ -144203,7 +144203,7 @@ emit_op.exit672:                                  ; preds = %665, %672
   call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -84)
   %738 = call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 106, i32 noundef %734)
   call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
-  %739 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %739 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not553 = icmp eq i32 %739, 0
   br i1 %.not553, label %740, label %.loopexit
 
@@ -144296,7 +144296,7 @@ js_parse_expect.exit675.thread:                   ; preds = %.thread721
   br label %.loopexit
 
 js_parse_expect.exit675:                          ; preds = %.thread721
-  %768 = call fastcc i32 @next_token(ptr noundef %0)
+  %768 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not561 = icmp eq i32 %768, 0
   br i1 %.not561, label %637, label %.loopexit, !llvm.loop !431
 
@@ -144642,7 +144642,7 @@ emit_op.exit692:                                  ; preds = %._crit_edge, %908
   br i1 %.not579, label %946, label %.loopexit
 
 946:                                              ; preds = %944
-  %947 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %947 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not580 = icmp eq i32 %947, 0
   br i1 %.not580, label %948, label %.loopexit
 
@@ -144754,7 +144754,7 @@ emit_op.exit692:                                  ; preds = %._crit_edge, %908
   store i32 -125, ptr %937, align 8
   %1000 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %1000, align 8
-  call fastcc void @update_token_ident(ptr noundef %0)
+  call fastcc void @update_token_ident(ptr noundef nonnull %0)
   %.val622.pre = load ptr, ptr %40, align 8
   br label %reparse_ident_token.exit
 
@@ -144985,7 +144985,7 @@ define internal fastcc void @js_parse_error_reserved_identifier(ptr nocapture no
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 24
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef %2, i32 noundef %5)
+  %7 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val, ptr noundef nonnull %2, i32 noundef %5)
   %8 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %7)
   ret void
 }
@@ -146291,7 +146291,7 @@ token_is_pseudo_keyword.exit79.thread:            ; preds = %69, %72, %token_is_
   store i32 %8, ptr %83, align 4
   store ptr %10, ptr %14, align 8
   store i32 %12, ptr %11, align 8
-  %84 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
+  %84 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %.not70 = icmp eq i32 %84, 0
   %.048. = select i1 %.not70, i32 %.048, i32 -1
   ret i32 %.048.
@@ -146815,7 +146815,7 @@ emit_op.exit339:                                  ; preds = %emit_op.exit337, %2
   br label %301
 
 297:                                              ; preds = %289
-  %298 = call fastcc i32 @js_parse_postfix_expr(ptr noundef %0, i32 noundef 2)
+  %298 = call fastcc i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef 2)
   %.not296 = icmp eq i32 %298, 0
   br i1 %.not296, label %299, label %JS_FreeAtom.exit
 
@@ -147022,7 +147022,7 @@ js_parse_expect.exit.thread:                      ; preds = %388
   br label %JS_FreeAtom.exit
 
 js_parse_expect.exit:                             ; preds = %388
-  %391 = call fastcc i32 @next_token(ptr noundef %0)
+  %391 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not293 = icmp eq i32 %391, 0
   br i1 %.not293, label %.backedge.backedge, label %JS_FreeAtom.exit
 
@@ -147099,7 +147099,7 @@ emit_op.exit348:                                  ; preds = %400, %406
   br i1 %419, label %.loopexit, label %433
 
 420:                                              ; preds = %416
-  %421 = call fastcc i32 @js_parse_postfix_expr(ptr noundef %0, i32 noundef 2)
+  %421 = call fastcc i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef 2)
   %.not291 = icmp eq i32 %421, 0
   br i1 %.not291, label %422, label %.loopexit
 
@@ -147736,7 +147736,7 @@ emit_op.exit376:                                  ; preds = %731, %737
   %745 = getelementptr inbounds i8, ptr %732, i64 352
   store i32 %744, ptr %745, align 8
   %746 = call i32 @dbuf_putc(ptr noundef nonnull %733, i8 noundef zeroext 14) #42
-  %747 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %747 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not302 = icmp eq i32 %747, 0
   br i1 %.not302, label %748, label %thread-pre-split424
 
@@ -147773,7 +147773,7 @@ js_parse_expect.exit379.thread:                   ; preds = %753
   br label %JS_FreeAtom.exit
 
 js_parse_expect.exit379:                          ; preds = %753
-  %760 = call fastcc i32 @next_token(ptr noundef %0)
+  %760 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not303 = icmp eq i32 %760, 0
   br i1 %.not303, label %.backedge.backedge, label %JS_FreeAtom.exit
 
@@ -148106,7 +148106,7 @@ emit_op.exit393:                                  ; preds = %emit_op.exit391, %9
   br label %935
 
 931:                                              ; preds = %921
-  %932 = call fastcc i32 @js_parse_postfix_expr(ptr noundef %0, i32 noundef 2)
+  %932 = call fastcc i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef 2)
   %.not274 = icmp eq i32 %932, 0
   br i1 %.not274, label %933, label %JS_FreeAtom.exit
 
@@ -148296,7 +148296,7 @@ emit_op.exit405:                                  ; preds = %1022, %1028
   %1036 = getelementptr inbounds i8, ptr %1023, i64 352
   store i32 %1035, ptr %1036, align 8
   %1037 = call i32 @dbuf_putc(ptr noundef nonnull %1024, i8 noundef zeroext 14) #42
-  %1038 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %1038 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not278 = icmp eq i32 %1038, 0
   br i1 %.not278, label %1039, label %thread-pre-split424
 
@@ -148345,7 +148345,7 @@ js_parse_expect.exit408.thread:                   ; preds = %1055
   br label %JS_FreeAtom.exit
 
 js_parse_expect.exit408:                          ; preds = %1055
-  %1057 = call fastcc i32 @next_token(ptr noundef %0)
+  %1057 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not281 = icmp eq i32 %1057, 0
   br i1 %.not281, label %815, label %JS_FreeAtom.exit, !llvm.loop !439
 
@@ -148411,7 +148411,7 @@ emit_op.exit410:                                  ; preds = %1058, %1064
   br label %1090
 
 1090:                                             ; preds = %1089, %1088
-  %1091 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %1091 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not307 = icmp eq i32 %1091, 0
   br i1 %.not307, label %1092, label %JS_FreeAtom.exit
 
@@ -149775,7 +149775,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %100
   br label %114
 
 string_buffer_putc16.exit.i:                      ; preds = %100
-  %113 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %2, i32 noundef %102)
+  %113 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %2, i32 noundef range(i32 0, -2147483648) %102)
   %.not.i89 = icmp eq i32 %113, 0
   br i1 %.not.i89, label %114, label %string_buffer_putc8.exit
 
@@ -149825,7 +149825,7 @@ string_buffer_putc16.exit.i:                      ; preds = %100
   br label %.backedge
 
 string_buffer_putc.exit:                          ; preds = %129, %.thread105
-  %138 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %2, i32 noundef %.0.i88)
+  %138 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %2, i32 noundef range(i32 0, -2147483648) %.0.i88)
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %.backedge, label %string_buffer_putc8.exit
 
@@ -149904,7 +149904,7 @@ string_buffer_putc16.exit.thread.i97:             ; preds = %166
   br label %178
 
 string_buffer_putc16.exit.i94:                    ; preds = %166
-  %177 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %3, i32 noundef %168)
+  %177 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %3, i32 noundef range(i32 0, -2147483648) %168)
   %.not.i95 = icmp eq i32 %177, 0
   br i1 %.not.i95, label %string_buffer_putc16.exit.i94._crit_edge, label %string_buffer_putc8.exit
 
@@ -149959,7 +149959,7 @@ string_buffer_putc16.exit.i94._crit_edge:         ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit98.thread
 
 string_buffer_putc.exit98:                        ; preds = %181, %194
-  %203 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %3, i32 noundef %.0.i91)
+  %203 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %3, i32 noundef range(i32 0, -2147483648) %.0.i91)
   %.not81 = icmp eq i32 %203, 0
   br i1 %.not81, label %string_buffer_putc.exit98.thread, label %string_buffer_putc8.exit
 
@@ -151337,7 +151337,7 @@ JS_FreeValue.exit:                                ; preds = %129, %124, %118, %1
   br i1 %.not116, label %140, label %JS_FreeAtom.exit152
 
 140:                                              ; preds = %138
-  %141 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %141 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not117 = icmp eq i32 %141, 0
   br i1 %.not117, label %142, label %JS_FreeAtom.exit152
 
@@ -153020,17 +153020,17 @@ JS_FreeValue.exit532:                             ; preds = %187, %192, %197
   br i1 %.not463, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
 js_parse_expect.exit624:                          ; preds = %2
-  %202 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %202 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %202, 0
   br i1 %.not.i, label %203, label %js_parse_expr_paren.exit.thread
 
 203:                                              ; preds = %js_parse_expect.exit624
-  %204 = tail call fastcc i32 @js_parse_expr(ptr noundef %0)
+  %204 = tail call fastcc i32 @js_parse_expr(ptr noundef nonnull %0)
   %.not3.i = icmp eq i32 %204, 0
   br i1 %.not3.i, label %205, label %js_parse_expr_paren.exit.thread
 
 205:                                              ; preds = %203
-  %206 = tail call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 41)
+  %206 = tail call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 41)
   %.not4.i = icmp eq i32 %206, 0
   br i1 %.not4.i, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -153039,7 +153039,7 @@ js_parse_expect.exit624:                          ; preds = %2
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %0, i64 28
   %211 = load i32, ptr %210, align 4
-  %212 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef %209, i32 noundef %211, i32 noundef 0, ptr noundef null)
+  %212 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 0, ptr noundef %209, i32 noundef %211, i32 noundef 0, ptr noundef null)
   %.not457 = icmp eq i32 %212, 0
   br i1 %.not457, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -153110,7 +153110,7 @@ js_parse_expect.exit624:                          ; preds = %2
   %238 = load i32, ptr %233, align 8
   %239 = getelementptr i8, ptr %237, i64 24
   %.val.i533 = load ptr, ptr %239, align 8
-  %240 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i533, ptr noundef %71, i32 noundef %238)
+  %240 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i533, ptr noundef nonnull %71, i32 noundef %238)
   %241 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %240)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   br label %js_parse_expr_paren.exit.thread
@@ -153155,7 +153155,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %242
   br i1 %258, label %259, label %287
 
 259:                                              ; preds = %256
-  %260 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef %252, i32 noundef %254, i32 noundef 0, ptr noundef null)
+  %260 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 2, ptr noundef %252, i32 noundef %254, i32 noundef 0, ptr noundef null)
   %.not451 = icmp eq i32 %260, 0
   br i1 %.not451, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -153246,12 +153246,12 @@ JS_DupAtom.exit:                                  ; preds = %token_is_pseudo_key
 308:                                              ; preds = %305
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67)
   store i32 0, ptr %67, align 4
-  %309 = call fastcc i32 @next_token(ptr noundef %0)
+  %309 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i535 = icmp eq i32 %309, 0
   br i1 %.not.i535, label %310, label %js_parse_object_literal.exit.thread
 
 310:                                              ; preds = %308
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 11)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 11)
   %311 = getelementptr inbounds i8, ptr %0, i64 32
   %312 = getelementptr inbounds i8, ptr %0, i64 28
   %313 = getelementptr i8, ptr %0, i64 104
@@ -153271,12 +153271,12 @@ JS_DupAtom.exit:                                  ; preds = %token_is_pseudo_key
   br i1 %320, label %321, label %388
 
 321:                                              ; preds = %317
-  %322 = call fastcc i32 @next_token(ptr noundef %0)
+  %322 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not70.i = icmp eq i32 %322, 0
   br i1 %.not70.i, label %323, label %js_parse_object_literal.exit.thread
 
 323:                                              ; preds = %321
-  %324 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %324 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not71.i = icmp eq i32 %324, 0
   br i1 %.not71.i, label %325, label %js_parse_object_literal.exit.thread
 
@@ -153391,7 +153391,7 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br label %JS_FreeAtom.exit633
 
 388:                                              ; preds = %317
-  %389 = call fastcc i32 @js_parse_property_name(ptr noundef %0, ptr noundef %67, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %389 = call fastcc i32 @js_parse_property_name(ptr noundef nonnull %0, ptr noundef %67, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %390 = icmp slt i32 %389, 0
   br i1 %390, label %.loopexit, label %391
 
@@ -153400,9 +153400,9 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br i1 %392, label %393, label %401
 
 393:                                              ; preds = %391
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -70)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -70)
   %394 = load i32, ptr %67, align 4
-  call fastcc void @emit_atom(ptr noundef %0, i32 noundef %394)
+  call fastcc void @emit_atom(ptr noundef nonnull %0, i32 noundef %394)
   %395 = load ptr, ptr %313, align 8
   %396 = getelementptr inbounds i8, ptr %395, i64 224
   %397 = load i32, ptr %396, align 8
@@ -153412,8 +153412,8 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   store i16 %398, ptr %15, align 2
   %400 = call i32 @dbuf_put(ptr noundef nonnull %399, ptr noundef nonnull %15, i64 noundef 2) #42
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 76)
-  call fastcc void @emit_atom(ptr noundef %0, i32 noundef %394)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 76)
+  call fastcc void @emit_atom(ptr noundef nonnull %0, i32 noundef %394)
   br label %thread-pre-split649
 
 401:                                              ; preds = %391
@@ -153440,7 +153440,7 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
 .fold.split.i:                                    ; preds = %409, %407
   %.059.i = phi i32 [ %408, %407 ], [ 6, %409 ]
   %.058.i = phi i32 [ 0, %407 ], [ %spec.select970, %409 ]
-  %411 = call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef %.059.i, i32 noundef %.058.i, ptr noundef %318, i32 noundef %319, i32 noundef 0, ptr noundef null)
+  %411 = call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483646) %.059.i, i32 noundef range(i32 0, 4) %.058.i, ptr noundef %318, i32 noundef %319, i32 noundef 0, ptr noundef null)
   %.not69.i = icmp eq i32 %411, 0
   br i1 %.not69.i, label %412, label %.loopexit
 
@@ -153450,12 +153450,12 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br i1 %414, label %415, label %416
 
 415:                                              ; preds = %412
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 85)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 85)
   br label %417
 
 416:                                              ; preds = %412
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 84)
-  call fastcc void @emit_atom(ptr noundef %0, i32 noundef %413)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 84)
+  call fastcc void @emit_atom(ptr noundef nonnull %0, i32 noundef %413)
   br label %417
 
 417:                                              ; preds = %416, %415
@@ -153468,12 +153468,12 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br label %thread-pre-split649
 
 421:                                              ; preds = %401
-  %422 = call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 58)
+  %422 = call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 58)
   %.not66.i = icmp eq i32 %422, 0
   br i1 %.not66.i, label %423, label %.loopexit
 
 423:                                              ; preds = %421
-  %424 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %424 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not67.i = icmp eq i32 %424, 0
   br i1 %.not67.i, label %425, label %.loopexit
 
@@ -153485,9 +153485,9 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   ]
 
 427:                                              ; preds = %425
-  call fastcc void @set_object_name_computed(ptr noundef %0)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 81)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
+  call fastcc void @set_object_name_computed(ptr noundef nonnull %0)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 81)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
   br label %JS_FreeAtom.exit633
 
 428:                                              ; preds = %425
@@ -153499,13 +153499,13 @@ emit_op.exit635:                                  ; preds = %emit_op.exit637, %3
   br label %js_parse_object_literal.exit.thread
 
 431:                                              ; preds = %428
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 79)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 79)
   br label %JS_FreeAtom.exit633
 
 432:                                              ; preds = %425
-  call fastcc void @set_object_name(ptr noundef %0, i32 noundef %426)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 76)
-  call fastcc void @emit_atom(ptr noundef %0, i32 noundef %426)
+  call fastcc void @set_object_name(ptr noundef nonnull %0, i32 noundef %426)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 76)
+  call fastcc void @emit_atom(ptr noundef nonnull %0, i32 noundef %426)
   br label %thread-pre-split649
 
 thread-pre-split649:                              ; preds = %417, %393, %432
@@ -153614,12 +153614,12 @@ JS_FreeAtom.exit633:                              ; preds = %427, %431, %JS_Free
   br i1 %.not72.i, label %498, label %500
 
 498:                                              ; preds = %JS_FreeAtom.exit633
-  %499 = call fastcc i32 @next_token(ptr noundef %0)
+  %499 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not73.i = icmp eq i32 %499, 0
   br i1 %.not73.i, label %315, label %.loopexit, !llvm.loop !444
 
 500:                                              ; preds = %JS_FreeAtom.exit633, %315
-  %501 = call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 125)
+  %501 = call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 125)
   %.not74.i = icmp eq i32 %501, 0
   br i1 %.not74.i, label %js_parse_object_literal.exit, label %js_parse_object_literal.exit.thread
 
@@ -153730,7 +153730,7 @@ js_parse_object_literal.exit:                     ; preds = %500
   br label %js_parse_expr_paren.exit
 
 565:                                              ; preds = %305
-  %566 = call fastcc i32 @next_token(ptr noundef %0)
+  %566 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i538 = icmp eq i32 %566, 0
   br i1 %.not.i538, label %.preheader, label %js_parse_expr_paren.exit.thread
 
@@ -153749,7 +153749,7 @@ switch.early.test.i:                              ; preds = %.preheader, %577
   ]
 
 570:                                              ; preds = %switch.early.test.i
-  %571 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %571 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not59.i = icmp eq i32 %571, 0
   br i1 %.not59.i, label %572, label %js_parse_expr_paren.exit.thread
 
@@ -153762,7 +153762,7 @@ switch.early.test.i:                              ; preds = %.preheader, %577
   ]
 
 575:                                              ; preds = %572
-  %576 = call fastcc i32 @next_token(ptr noundef %0)
+  %576 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not61.i = icmp eq i32 %576, 0
   br i1 %.not61.i, label %577, label %js_parse_expr_paren.exit.thread
 
@@ -153781,7 +153781,7 @@ switch.early.test.i._crit_edge.loopexit:          ; preds = %572, %switch.early.
 
 switch.early.test.i._crit_edge:                   ; preds = %switch.early.test.i._crit_edge.loopexit, %.preheader
   %.052.i.lcssa = phi i32 [ 0, %.preheader ], [ %581, %switch.early.test.i._crit_edge.loopexit ]
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 38)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 38)
   %582 = trunc i32 %.052.i.lcssa to i16
   %583 = getelementptr i8, ptr %0, i64 104
   %.val.i540 = load ptr, ptr %583, align 8
@@ -153813,7 +153813,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
   br label %615
 
 591:                                              ; preds = %switch.early.test
-  %592 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %592 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not63.i = icmp eq i32 %592, 0
   br i1 %.not63.i, label %593, label %js_parse_expr_paren.exit.thread
 
@@ -153859,7 +153859,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
 615:                                              ; preds = %.thread796, %604
   %616 = phi i32 [ %590, %.thread796 ], [ %613, %604 ]
   %.1.i542799 = phi i32 [ 1, %.thread796 ], [ 0, %604 ]
-  %617 = call fastcc i32 @next_token(ptr noundef %0)
+  %617 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not64.i = icmp eq i32 %617, 0
   br i1 %.not64.i, label %._crit_edge787, label %js_parse_expr_paren.exit.thread
 
@@ -153887,15 +153887,15 @@ switch.early.test:                                ; preds = %switch.early.test.l
   br i1 %.not73.i550, label %js_parse_array_literal.exit, label %623
 
 623:                                              ; preds = %.loopexit700
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 17)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 1)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 17)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 1)
   %.val79.i = load ptr, ptr %583, align 8
   %624 = getelementptr inbounds i8, ptr %.val79.i, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.153.i734, ptr %7, align 4
   %625 = call i32 @dbuf_put(ptr noundef nonnull %624, ptr noundef nonnull %7, i64 noundef 4) #42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 67)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 67)
   %.val.i643 = load ptr, ptr %583, align 8
   %626 = getelementptr inbounds i8, ptr %.val.i643, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -153907,7 +153907,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
 .loopexit701:                                     ; preds = %switch.early.test, %._crit_edge744
   %.153.i735 = phi i32 [ 2147483647, %._crit_edge744 ], [ %.153.i742, %switch.early.test ]
   %.0.i541729 = phi i32 [ %.0.i541.lcssa, %._crit_edge744 ], [ %.0.i541743, %switch.early.test ]
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 1)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 1)
   %.val78.i = load ptr, ptr %583, align 8
   %628 = getelementptr inbounds i8, ptr %.val78.i, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -153927,22 +153927,22 @@ switch.early.test:                                ; preds = %switch.early.test.l
   ]
 
 633:                                              ; preds = %631
-  %634 = call fastcc i32 @next_token(ptr noundef %0)
+  %634 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not68.i547 = icmp eq i32 %634, 0
   br i1 %.not68.i547, label %635, label %js_parse_expr_paren.exit.thread
 
 635:                                              ; preds = %633
-  %636 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %636 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not69.i548 = icmp eq i32 %636, 0
   br i1 %.not69.i548, label %640, label %js_parse_expr_paren.exit.thread
 
 637:                                              ; preds = %631
-  %638 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %638 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not67.i549 = icmp eq i32 %638, 0
   br i1 %.not67.i549, label %639, label %js_parse_expr_paren.exit.thread
 
 639:                                              ; preds = %637
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 81)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 81)
   br label %640
 
 640:                                              ; preds = %631, %639, %635
@@ -153979,7 +153979,7 @@ emit_op.exit837:                                  ; preds = %640, %646
   br i1 %.not70.i544, label %657, label %659
 
 657:                                              ; preds = %emit_op.exit837
-  %658 = call fastcc i32 @next_token(ptr noundef %0)
+  %658 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not71.i546 = icmp eq i32 %658, 0
   br i1 %.not71.i546, label %631, label %js_parse_expr_paren.exit.thread, !llvm.loop !447
 
@@ -153989,8 +153989,8 @@ emit_op.exit837:                                  ; preds = %640, %646
   br i1 %.not72.i545, label %663, label %660
 
 660:                                              ; preds = %659
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 18)
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 67)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 18)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 67)
   %.val.i642 = load ptr, ptr %583, align 8
   %661 = getelementptr inbounds i8, ptr %.val.i642, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -154000,11 +154000,11 @@ emit_op.exit837:                                  ; preds = %640, %646
   br label %js_parse_array_literal.exit
 
 663:                                              ; preds = %659
-  call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
+  call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
   br label %js_parse_array_literal.exit
 
 js_parse_array_literal.exit:                      ; preds = %572, %.loopexit700, %623, %660, %663
-  %664 = call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 93)
+  %664 = call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 93)
   %.not443 = icmp eq i32 %664, 0
   br i1 %.not443, label %js_parse_expr_paren.exit, label %js_parse_expr_paren.exit.thread
 
@@ -154242,7 +154242,7 @@ token_is_pseudo_keyword.exit557.thread:           ; preds = %740, %743, %token_i
   br label %js_parse_expr_paren.exit.thread
 
 766:                                              ; preds = %763
-  %767 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %767 = tail call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not427 = icmp eq i32 %767, 0
   br i1 %.not427, label %768, label %js_parse_expr_paren.exit.thread
 
@@ -154691,7 +154691,7 @@ emit_op.exit573:                                  ; preds = %952, %958
   br i1 %975, label %983, label %976
 
 976:                                              ; preds = %974
-  %977 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %977 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not490 = icmp eq i32 %977, 0
   br i1 %.not490, label %978, label %js_parse_expr_paren.exit.thread
 
@@ -154708,7 +154708,7 @@ js_parse_expect.exit.thread:                      ; preds = %978
   br label %js_parse_expr_paren.exit.thread
 
 js_parse_expect.exit:                             ; preds = %978
-  %982 = call fastcc i32 @next_token(ptr noundef %0)
+  %982 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not491 = icmp eq i32 %982, 0
   br i1 %.not491, label %968, label %js_parse_expr_paren.exit.thread, !llvm.loop !450
 
@@ -154794,7 +154794,7 @@ emit_op.exit579:                                  ; preds = %emit_op.exit577, %1
   br i1 %.not495, label %1023, label %js_parse_expr_paren.exit.thread
 
 1023:                                             ; preds = %1021
-  %1024 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %1024 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not496 = icmp eq i32 %1024, 0
   br i1 %.not496, label %1025, label %js_parse_expr_paren.exit.thread
 
@@ -154828,7 +154828,7 @@ emit_op.exit581:                                  ; preds = %1025, %1031
   br label %1074
 
 1041:                                             ; preds = %1019
-  %1042 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %1042 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not494 = icmp eq i32 %1042, 0
   br i1 %.not494, label %1043, label %js_parse_expr_paren.exit.thread
 
@@ -154899,7 +154899,7 @@ js_parse_expect.exit588.thread:                   ; preds = %1074
   br label %js_parse_expr_paren.exit.thread
 
 js_parse_expect.exit588:                          ; preds = %1074
-  %1077 = call fastcc i32 @next_token(ptr noundef %0)
+  %1077 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not497 = icmp eq i32 %1077, 0
   br i1 %.not497, label %1019, label %js_parse_expr_paren.exit.thread, !llvm.loop !451
 
@@ -155517,7 +155517,7 @@ get_prev_opcode.exit612:                          ; preds = %1352, %1356
   br i1 %.not480, label %1366, label %js_parse_expr_paren.exit.thread
 
 1366:                                             ; preds = %1364
-  %1367 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %1367 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not481 = icmp eq i32 %1367, 0
   br i1 %.not481, label %1368, label %js_parse_expr_paren.exit.thread
 
@@ -155531,7 +155531,7 @@ js_parse_expect.exit615.thread:                   ; preds = %1368
   br label %js_parse_expr_paren.exit.thread
 
 js_parse_expect.exit615:                          ; preds = %1368
-  %1371 = call fastcc i32 @next_token(ptr noundef %0)
+  %1371 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not482 = icmp eq i32 %1371, 0
   br i1 %.not482, label %1372, label %js_parse_expr_paren.exit.thread
 
@@ -156097,7 +156097,7 @@ JS_FreeValue.exit169.us:                          ; preds = %151, %113, %109, %1
   br i1 %.not163.us, label %157, label %.loopexit
 
 157:                                              ; preds = %155
-  %158 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %158 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not164.us = icmp eq i32 %158, 0
   br i1 %.not164.us, label %159, label %.loopexit
 
@@ -156177,7 +156177,7 @@ JS_FreeValue.exit169.thread:                      ; preds = %184
   br i1 %.not163, label %193, label %.loopexit
 
 193:                                              ; preds = %191
-  %194 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %194 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not164 = icmp eq i32 %194, 0
   br i1 %.not164, label %195, label %.loopexit
 
@@ -156270,12 +156270,12 @@ js_parse_expect.exit.thread:                      ; preds = %1
   br label %12
 
 js_parse_expect.exit:                             ; preds = %1
-  %5 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %5 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %js_parse_expect.exit
-  %7 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %7 = tail call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %8, label %12
 
@@ -156289,7 +156289,7 @@ js_parse_expect.exit7.thread:                     ; preds = %8
   br label %12
 
 js_parse_expect.exit7:                            ; preds = %8
-  %11 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %11 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.fr = freeze i32 %11
   %.not4 = icmp ne i32 %.fr, 0
   %spec.select = sext i1 %.not4 to i32
@@ -156363,7 +156363,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_class(ptr noundef nonnull 
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr i8, ptr %49, i64 24
   %.val.i = load ptr, ptr %52, align 8
-  %53 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %25, i32 noundef %51)
+  %53 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %25, i32 noundef %51)
   %54 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %53)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   br label %JS_FreeAtom.exit512
@@ -156439,7 +156439,7 @@ JS_DupAtom.exit457:                               ; preds = %79, %76, %75
   br i1 %.not388, label %93, label %JS_FreeAtom.exit494
 
 93:                                               ; preds = %91
-  %94 = tail call fastcc i32 @js_parse_postfix_expr(ptr noundef %0, i32 noundef 2)
+  %94 = tail call fastcc i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef 2)
   %.not389 = icmp eq i32 %94, 0
   br i1 %.not389, label %112, label %JS_FreeAtom.exit494
 
@@ -156493,7 +156493,7 @@ js_parse_expect.exit.thread:                      ; preds = %116
   br label %JS_FreeAtom.exit494
 
 js_parse_expect.exit:                             ; preds = %116
-  %119 = call fastcc i32 @next_token(ptr noundef %0)
+  %119 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not391 = icmp eq i32 %119, 0
   br i1 %.not391, label %.critedge, label %JS_FreeAtom.exit494
 
@@ -157054,7 +157054,7 @@ find_private_class_field.exit472.thread:          ; preds = %301, %299, %293, %f
   br i1 %.not420, label %371, label %.loopexit
 
 371:                                              ; preds = %369
-  %372 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %372 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not421 = icmp eq i32 %372, 0
   br i1 %.not421, label %374, label %.loopexit
 
@@ -158111,7 +158111,7 @@ emit_op.exit19:                                   ; preds = %106, %112
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @js_parse_expr(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call fastcc i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %3 = tail call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not.i2 = icmp eq i32 %3, 0
   br i1 %.not.i2, label %.lr.ph, label %js_parse_expr2.exit
 
@@ -158132,7 +158132,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_expr(ptr noundef nonnull %
   br i1 %.not9.i, label %.lr.ph9, label %js_parse_expr2.exit
 
 .lr.ph9:                                          ; preds = %.lr.ph, %8
-  %12 = call fastcc i32 @next_token(ptr noundef %0)
+  %12 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not10.i = icmp eq i32 %12, 0
   br i1 %.not10.i, label %13, label %js_parse_expr2.exit
 
@@ -158163,7 +158163,7 @@ emit_op.exit:                                     ; preds = %13, %19
   %27 = getelementptr inbounds i8, ptr %14, i64 352
   store i32 %26, ptr %27, align 8
   %28 = call i32 @dbuf_putc(ptr noundef nonnull %15, i8 noundef zeroext 14) #42
-  %29 = call fastcc i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %29 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %8, label %js_parse_expr2.exit
 
@@ -158795,7 +158795,7 @@ define internal fastcc i32 @js_parse_class_default_ctor(ptr noundef nonnull %0, 
   store i32 %7, ptr %21, align 4
   store ptr %9, ptr %14, align 8
   store i32 %11, ptr %10, align 8
-  %22 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
+  %22 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %23 = or i32 %22, %.021
   ret i32 %23
 }
@@ -160584,7 +160584,7 @@ emit_op.exit:                                     ; preds = %650, %657
   %673 = load ptr, ptr %672, align 8
   %674 = getelementptr inbounds i8, ptr %0, i64 28
   %675 = load i32, ptr %674, align 4
-  %676 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef %673, i32 noundef %675, i32 noundef 0, ptr noundef null)
+  %676 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %673, i32 noundef %675, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 thread-pre-split:                                 ; preds = %668
@@ -160668,7 +160668,7 @@ thread-pre-split322:                              ; preds = %702
   br i1 %713, label %714, label %716
 
 714:                                              ; preds = %711, %702
-  %715 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 3, i32 noundef 2, ptr noundef %691, i32 noundef %693, i32 noundef 0, ptr noundef null)
+  %715 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 2, ptr noundef %691, i32 noundef %693, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 716:                                              ; preds = %711, %708, %705
@@ -160677,7 +160677,7 @@ thread-pre-split322:                              ; preds = %702
   store i32 %693, ptr %717, align 4
   store ptr %691, ptr %687, align 8
   store i32 %697, ptr %696, align 8
-  %718 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
+  %718 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %.not207 = icmp eq i32 %718, 0
   br i1 %.not207, label %728, label %js_parse_cond_expr.exit.thread
 
@@ -160696,7 +160696,7 @@ thread-pre-split322:                              ; preds = %702
   %724 = load ptr, ptr %723, align 8
   %725 = getelementptr inbounds i8, ptr %0, i64 28
   %726 = load i32, ptr %725, align 4
-  %727 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef %0, i32 noundef 3, i32 noundef 0, ptr noundef %724, i32 noundef %726, i32 noundef 0, ptr noundef null)
+  %727 = tail call fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 0, ptr noundef %724, i32 noundef %726, i32 noundef 0, ptr noundef null)
   br label %js_parse_cond_expr.exit.thread
 
 728:                                              ; preds = %677, %686, %686, %716, %.thread325
@@ -160711,7 +160711,7 @@ thread-pre-split322:                              ; preds = %702
 
 734:                                              ; preds = %731, %728
   %.0197 = phi i32 [ %733, %731 ], [ 0, %728 ]
-  %735 = tail call fastcc i32 @js_parse_logical_and_or(ptr noundef %0, i32 noundef -93, i32 noundef %1)
+  %735 = tail call fastcc i32 @js_parse_logical_and_or(ptr noundef nonnull %0, i32 noundef -93, i32 noundef range(i32 0, 2) %1)
   %.not.i312 = icmp eq i32 %735, 0
   br i1 %.not.i312, label %736, label %js_parse_cond_expr.exit.thread
 
@@ -160805,7 +160805,7 @@ new_label.exit.i:                                 ; preds = %js_resize_array.exi
   br label %785
 
 785:                                              ; preds = %835, %new_label.exit.i
-  %786 = call fastcc i32 @next_token(ptr noundef %0)
+  %786 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not15.i315 = icmp eq i32 %786, 0
   br i1 %.not15.i315, label %787, label %js_parse_cond_expr.exit.thread
 
@@ -160862,7 +160862,7 @@ emit_op.exit19.i:                                 ; preds = %808, %emit_op.exit.
   %816 = getelementptr inbounds i8, ptr %803, i64 352
   store i32 %815, ptr %816, align 8
   %817 = call i32 @dbuf_putc(ptr noundef nonnull %804, i8 noundef zeroext -79) #42
-  %818 = call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 106, i32 noundef %.0.i.i.i)
+  %818 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 106, i32 noundef %.0.i.i.i)
   %819 = load ptr, ptr %740, align 8
   %820 = getelementptr inbounds i8, ptr %819, i64 304
   %821 = getelementptr inbounds i8, ptr %819, i64 356
@@ -160889,7 +160889,7 @@ emit_op.exit21.i:                                 ; preds = %824, %emit_op.exit1
   %832 = getelementptr inbounds i8, ptr %819, i64 352
   store i32 %831, ptr %832, align 8
   %833 = call i32 @dbuf_putc(ptr noundef nonnull %820, i8 noundef zeroext 14) #42
-  %834 = call fastcc i32 @js_parse_expr_binary(ptr noundef %0, i32 noundef 8, i32 noundef %1)
+  %834 = call fastcc i32 @js_parse_expr_binary(ptr noundef nonnull %0, i32 noundef 8, i32 noundef range(i32 0, 2) %1)
   %.not16.i316 = icmp eq i32 %834, 0
   br i1 %.not16.i316, label %835, label %js_parse_cond_expr.exit.thread
 
@@ -160899,7 +160899,7 @@ emit_op.exit21.i:                                 ; preds = %824, %emit_op.exit1
   br i1 %.not17.i317, label %785, label %837
 
 837:                                              ; preds = %835
-  call fastcc void @emit_label(ptr noundef %0, i32 noundef %.0.i.i.i)
+  call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %.0.i.i.i)
   %.pr328 = load i32, ptr %53, align 8
   br label %js_parse_coalesce_expr.exit
 
@@ -160909,30 +160909,30 @@ js_parse_coalesce_expr.exit:                      ; preds = %837, %736
   br i1 %839, label %840, label %js_parse_cond_expr.exit
 
 840:                                              ; preds = %js_parse_coalesce_expr.exit
-  %841 = call fastcc i32 @next_token(ptr noundef %0)
+  %841 = call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not14.i = icmp eq i32 %841, 0
   br i1 %.not14.i, label %842, label %js_parse_cond_expr.exit.thread
 
 842:                                              ; preds = %840
-  %843 = call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 106, i32 noundef -1)
-  %844 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %843 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 106, i32 noundef -1)
+  %844 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not15.i = icmp eq i32 %844, 0
   br i1 %.not15.i, label %845, label %js_parse_cond_expr.exit.thread
 
 845:                                              ; preds = %842
-  %846 = call fastcc i32 @js_parse_expect(ptr noundef %0, i32 noundef 58)
+  %846 = call fastcc i32 @js_parse_expect(ptr noundef nonnull %0, i32 noundef 58)
   %.not16.i = icmp eq i32 %846, 0
   br i1 %.not16.i, label %847, label %js_parse_cond_expr.exit.thread
 
 847:                                              ; preds = %845
-  %848 = call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 108, i32 noundef -1)
-  call fastcc void @emit_label(ptr noundef %0, i32 noundef %843)
-  %849 = call fastcc i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef %1)
+  %848 = call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 108, i32 noundef -1)
+  call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %843)
+  %849 = call fastcc i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not17.i = icmp eq i32 %849, 0
   br i1 %.not17.i, label %850, label %js_parse_cond_expr.exit.thread
 
 850:                                              ; preds = %847
-  call fastcc void @emit_label(ptr noundef %0, i32 noundef %848)
+  call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %848)
   %.pre = load i32, ptr %53, align 8
   br label %js_parse_cond_expr.exit
 
@@ -161812,12 +161812,12 @@ get_prev_opcode.exit.thread:                      ; preds = %42, %54, %get_prev_
 55:                                               ; preds = %2
   %56 = getelementptr inbounds i8, ptr %0, i64 104
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %58 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %59, label %js_parse_delete.exit
 
 59:                                               ; preds = %55
-  %60 = tail call fastcc i32 @js_parse_unary(ptr noundef %0, i32 noundef 8)
+  %60 = tail call fastcc i32 @js_parse_unary(ptr noundef nonnull %0, i32 noundef 8)
   %.not69.i = icmp eq i32 %60, 0
   br i1 %.not69.i, label %61, label %js_parse_delete.exit
 
@@ -161858,7 +161858,7 @@ get_prev_opcode.exit83:                           ; preds = %61
   %76 = tail call { i64, i64 } @JS_AtomToValue(ptr noundef %75, i32 noundef %.val73.i)
   %77 = extractvalue { i64, i64 } %76, 0
   %78 = extractvalue { i64, i64 } %76, 1
-  %79 = tail call fastcc i32 @emit_push_const(ptr noundef %0, i64 %77, i64 %78, i32 noundef 1)
+  %79 = tail call fastcc i32 @emit_push_const(ptr noundef nonnull %0, i64 %77, i64 %78, i32 noundef 1)
   %80 = load ptr, ptr %0, align 8
   %81 = trunc i64 %78 to i32
   %82 = icmp ugt i32 %81, -12
@@ -161885,16 +161885,16 @@ JS_FreeValue.exit:                                ; preds = %72, %83, %88
   br i1 %.not71.i, label %92, label %js_parse_delete.exit
 
 92:                                               ; preds = %JS_FreeValue.exit
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -103)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -103)
   %93 = icmp sgt i32 %.067.i, -1
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = tail call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 108, i32 noundef -1)
-  tail call fastcc void @emit_label(ptr noundef %0, i32 noundef %.067.i)
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 10)
-  tail call fastcc void @emit_label(ptr noundef %0, i32 noundef %95)
+  %95 = tail call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 108, i32 noundef -1)
+  tail call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %.067.i)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 10)
+  tail call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %95)
   br label %96
 
 96:                                               ; preds = %94, %92
@@ -161905,7 +161905,7 @@ JS_FreeValue.exit:                                ; preds = %72, %83, %88
   %98 = getelementptr inbounds i8, ptr %57, i64 312
   store i64 %67, ptr %98, align 8
   store i32 -1, ptr %62, align 8
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -103)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -103)
   br label %js_parse_delete.exit
 
 99:                                               ; preds = %get_prev_opcode.exit83
@@ -161913,12 +161913,12 @@ JS_FreeValue.exit:                                ; preds = %72, %83, %88
   %.val72.i = load i32, ptr %100, align 1
   %101 = getelementptr inbounds i8, ptr %57, i64 312
   store i64 %67, ptr %101, align 8
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext -103)
-  %102 = tail call fastcc i32 @emit_goto(ptr noundef %0, i32 noundef 108, i32 noundef -1)
-  tail call fastcc void @emit_label(ptr noundef %0, i32 noundef %.val72.i)
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 10)
-  tail call fastcc void @emit_label(ptr noundef %0, i32 noundef %102)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext -103)
+  %102 = tail call fastcc i32 @emit_goto(ptr noundef nonnull %0, i32 noundef 108, i32 noundef -1)
+  tail call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %.val72.i)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 10)
+  tail call fastcc void @emit_label(ptr noundef nonnull %0, i32 noundef %102)
   store i32 -1, ptr %62, align 8
   br label %js_parse_delete.exit
 
@@ -161953,7 +161953,7 @@ JS_FreeValue.exit:                                ; preds = %72, %83, %88
   %115 = getelementptr inbounds i8, ptr %57, i64 312
   store i64 %67, ptr %115, align 8
   store i32 -1, ptr %62, align 8
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 48)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 48)
   %.val.i81 = load ptr, ptr %56, align 8
   %116 = getelementptr inbounds i8, ptr %.val.i81, i64 304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -161966,8 +161966,8 @@ JS_FreeValue.exit:                                ; preds = %72, %83, %88
   br label %js_parse_delete.exit
 
 get_prev_opcode.exit83.thread:                    ; preds = %get_prev_opcode.exit83, %61, %103, %103
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 14)
-  tail call fastcc void @emit_op(ptr noundef %0, i8 noundef zeroext 10)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 14)
+  tail call fastcc void @emit_op(ptr noundef nonnull %0, i8 noundef zeroext 10)
   br label %js_parse_delete.exit
 
 120:                                              ; preds = %2
@@ -162491,7 +162491,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_parse_var(ptr noundef nonnull %0
   %42 = load i32, ptr %28, align 8
   %43 = getelementptr i8, ptr %41, i64 24
   %.val.i = load ptr, ptr %43, align 8
-  %44 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %16, i32 noundef %42)
+  %44 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %16, i32 noundef %42)
   %45 = call i32 (ptr, ptr, ...) @js_parse_error(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.429, ptr noundef nonnull %44)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   br label %JS_FreeAtom.exit103
@@ -163338,7 +163338,7 @@ js_parse_expect.exit.thread:                      ; preds = %1
   br label %.loopexit
 
 js_parse_expect.exit:                             ; preds = %1
-  %5 = tail call fastcc i32 @next_token(ptr noundef %0)
+  %5 = tail call fastcc i32 @next_token(ptr noundef nonnull %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.loopexit
 
@@ -164071,7 +164071,7 @@ token_is_pseudo_keyword.exit.thread:              ; preds = %314, %.token_is_pse
   br i1 %335, label %JS_FreeAtom.exit, label %344
 
 token_is_pseudo_keyword.exit.thread.thread:       ; preds = %316, %token_is_pseudo_keyword.exit, %329, %token_is_pseudo_keyword.exit.thread
-  %336 = call fastcc i32 @js_parse_postfix_expr(ptr noundef %0, i32 noundef 2)
+  %336 = call fastcc i32 @js_parse_postfix_expr(ptr noundef nonnull %0, i32 noundef 2)
   %.not170 = icmp eq i32 %336, 0
   br i1 %.not170, label %337, label %JS_FreeAtom.exit
 
@@ -164394,12 +164394,12 @@ token_is_pseudo_keyword.exit256:                  ; preds = %490
   br i1 %.not185298, label %516, label %JS_FreeAtom.exit
 
 516:                                              ; preds = %.thread296
-  %517 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef %0, i32 noundef 1)
+  %517 = call fastcc range(i32 -1, 1) i32 @js_parse_assign_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not188 = icmp eq i32 %517, 0
   br i1 %.not188, label %520, label %JS_FreeAtom.exit
 
 518:                                              ; preds = %513
-  %519 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef %0, i32 noundef 1)
+  %519 = call fastcc range(i32 -1, 1) i32 @js_parse_expr2(ptr noundef nonnull %0, i32 noundef 1)
   %.not187 = icmp eq i32 %519, 0
   br i1 %.not187, label %524, label %JS_FreeAtom.exit
 
@@ -164493,7 +164493,7 @@ token_is_pseudo_keyword.exit256:                  ; preds = %490
 
 ._crit_edge:                                      ; preds = %566, %531
   call fastcc void @emit_label(ptr noundef %0, i32 noundef %.0.i.i207)
-  %572 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef %0, i32 noundef 0)
+  %572 = call fastcc range(i32 -1, 1) i32 @js_parse_statement_or_decl(ptr noundef nonnull %0, i32 noundef 0)
   %.not192 = icmp eq i32 %572, 0
   br i1 %.not192, label %573, label %JS_FreeAtom.exit
 
@@ -164622,7 +164622,7 @@ token_is_pseudo_keyword.exit:                     ; preds = %6
   %32 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %18, ptr %32, align 8
   store i32 %20, ptr %19, align 8
-  %33 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef %0)
+  %33 = tail call fastcc range(i32 -1, 1) i32 @next_token(ptr noundef nonnull %0)
   %.not19 = icmp eq i32 %33, 0
   %spec.select = select i1 %.not19, i32 %.1, i32 -1
   br label %token_is_pseudo_keyword.exit.thread
@@ -170148,7 +170148,7 @@ switch.early.test520:                             ; preds = %557
   %600 = and i32 %599, 1
   %601 = lshr i32 %597, 4
   %602 = and i32 %601, 15
-  %603 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select519572576, i32 noundef 1, i32 noundef 0, i32 noundef %.7571577, i32 noundef %2, i32 noundef %598, i32 noundef %600, i32 noundef %602)
+  %603 = call fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef %1, ptr noundef %spec.select519572576, i32 noundef 1, i32 noundef 0, i32 noundef %.7571577, i32 noundef %2, i32 noundef range(i32 0, 2) %598, i32 noundef range(i32 0, 2) %600, i32 noundef range(i32 0, 16) %602)
   br label %604
 
 604:                                              ; preds = %588, %579
@@ -171606,8 +171606,8 @@ find_private_class_field_all.exit:                ; preds = %19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %65 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %65, align 8
-  %66 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef %7, i32 noundef %4)
-  %67 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull readonly @.str.522, ptr noundef nonnull %66) #45
+  %66 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %.val.i, ptr noundef nonnull %7, i32 noundef %4)
+  %67 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowSyntaxError(ptr noundef %0, ptr noundef nonnull @.str.522, ptr noundef nonnull %66) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %72
 
@@ -172293,7 +172293,7 @@ JS_GetOpaque.exit.i:                              ; preds = %137
   %146 = getelementptr i8, ptr %145, i64 1484
   %147 = load i32, ptr %146, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %148 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %143, ptr noundef %5, i32 noundef %147)
+  %148 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %143, ptr noundef nonnull %5, i32 noundef %147)
   %149 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %148) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %150 = trunc i64 %124 to i32
@@ -172553,7 +172553,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %17, %19, %JS_GetOpa
   %31 = getelementptr i8, ptr %30, i64 1484
   %32 = load i32, ptr %31, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %33 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %28, ptr noundef %6, i32 noundef %32)
+  %33 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %28, ptr noundef nonnull %6, i32 noundef %32)
   %34 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %33) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %JS_FreeValue.exit
@@ -172753,7 +172753,7 @@ define internal fastcc { i64, i64 } @js_bigint_to_string1(ptr noundef %0, i64 %1
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %4, %8
-  %12 = call fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef %5, i64 %1, i64 %2)
+  %12 = call fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef nonnull %5, i64 %1, i64 %2)
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %JS_ThrowOutOfMemory.exit, label %13
 
@@ -173024,7 +173024,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %13, %16, %JS_GetOpa
   %25 = getelementptr i8, ptr %24, i64 1484
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %22, ptr noundef %8, i32 noundef %26)
+  %27 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %22, ptr noundef nonnull %8, i32 noundef %26)
   %28 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %27) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %JS_FreeValue.exit80
@@ -173562,7 +173562,7 @@ JS_ToIndex.exit.thread:                           ; preds = %JS_ToInt64Sat.exit.
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %36, %47
-  %51 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %8, i64 %42, i64 %44)
+  %51 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 %42, i64 %44)
   %.not45 = icmp eq ptr %51, null
   br i1 %.not45, label %52, label %58
 
@@ -173769,7 +173769,7 @@ define internal { i64, i64 } @js_bigint_div(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %35, %44
-  %48 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %7, i64 %39, i64 %41)
+  %48 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 %39, i64 %41)
   %.not106 = icmp eq ptr %48, null
   br i1 %.not106, label %JS_FreeBigInt.exit.thread, label %49
 
@@ -173790,7 +173790,7 @@ JS_ToBigInt.exit:                                 ; preds = %35, %44
   br label %JS_ToBigInt.exit120
 
 JS_ToBigInt.exit120:                              ; preds = %49, %56
-  %60 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %8, i64 %51, i64 %53)
+  %60 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 %51, i64 %53)
   %.not107 = icmp eq ptr %60, null
   br i1 %.not107, label %61, label %88
 
@@ -174168,7 +174168,7 @@ define internal { i64, i64 } @js_bigint_sqrt(ptr noundef %0, i64 %1, i64 %2, i32
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %34, %43
-  %47 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef %7, i64 %38, i64 %40)
+  %47 = call fastcc ptr @JS_ToBigIntFree(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 %38, i64 %40)
   %.not95 = icmp eq ptr %47, null
   br i1 %.not95, label %throw_bf_exception.exit.thread, label %48
 
@@ -174371,7 +174371,7 @@ define internal { i64, i64 } @js_bigint_op1(ptr noundef %0, i64 %1, i64 %2, i32 
   br label %JS_ToBigInt.exit
 
 JS_ToBigInt.exit:                                 ; preds = %6, %13
-  %17 = call fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef %7, i64 %8, i64 %10)
+  %17 = call fastcc ptr @JS_ToBigIntFree(ptr noundef %0, ptr noundef nonnull %7, i64 %8, i64 %10)
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %63, label %18
 
@@ -175841,7 +175841,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %96, %103, %JS_GetOp
   %112 = getelementptr i8, ptr %111, i64 1404
   %113 = load i32, ptr %112, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %114 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %109, ptr noundef %6, i32 noundef %113)
+  %114 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %109, ptr noundef nonnull %6, i32 noundef %113)
   %115 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %114) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %24
@@ -176134,7 +176134,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %39, %46, %JS_GetOpa
   %55 = getelementptr i8, ptr %54, i64 1404
   %56 = load i32, ptr %55, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %57 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %52, ptr noundef %7, i32 noundef %56)
+  %57 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %52, ptr noundef nonnull %7, i32 noundef %56)
   %58 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %57) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_NewBigFloat.exit.thread
@@ -176567,7 +176567,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %57, %64, %JS_GetOpa
   %73 = getelementptr i8, ptr %72, i64 1404
   %74 = load i32, ptr %73, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %75 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %70, ptr noundef %7, i32 noundef %74)
+  %75 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %70, ptr noundef nonnull %7, i32 noundef %74)
   %76 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %75) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_NewBigFloat.exit.thread
@@ -176908,7 +176908,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %8, %JS_GetOpaqu
   %17 = getelementptr i8, ptr %16, i64 1404
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %19 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %14, ptr noundef %5, i32 noundef %18)
+  %19 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %14, ptr noundef nonnull %5, i32 noundef %18)
   %20 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %19) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %48
@@ -177007,7 +177007,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %22 = getelementptr i8, ptr %21, i64 1404
   %23 = load i32, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef %8, i32 noundef %23)
+  %24 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %19, ptr noundef nonnull %8, i32 noundef %23)
   %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %24) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %98
@@ -177203,7 +177203,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %5, %9, %JS_GetOpaqu
   %18 = getelementptr i8, ptr %17, i64 1404
   %19 = load i32, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef %6, i32 noundef %19)
+  %20 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %6, i32 noundef %19)
   %21 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %20) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %23
@@ -187716,7 +187716,7 @@ string_buffer_init.exit:                          ; preds = %js_alloc_string.exi
 
 95:                                               ; preds = %92
   %96 = add i32 %93, 1
-  %97 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %7, i32 noundef %96, i32 noundef %.065)
+  %97 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %7, i32 noundef %96, i32 noundef range(i32 -56613888, 10559488) %.065)
   %.not13.i = icmp eq i32 %97, 0
   br i1 %.not13.i, label %._crit_edge97, label %string_buffer_putc8.exit
 
@@ -193963,7 +193963,7 @@ string_get.exit:                                  ; preds = %46, %50
   br i1 %.not75, label %63, label %.thread87
 
 63:                                               ; preds = %62
-  %64 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.748, i32 noundef %57, i64 noundef 11) #43
+  %64 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.748, i32 noundef range(i32 0, 256) %57, i64 noundef 11) #43
   %.not96 = icmp eq ptr %64, null
   %65 = add nsw i32 %.063108, 1
   %spec.select = select i1 %.not96, i32 %57, i32 37
@@ -194058,7 +194058,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %92
   br label %106
 
 string_buffer_putc16.exit.i:                      ; preds = %92
-  %105 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %94)
+  %105 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %94)
   %.not.i80 = icmp eq i32 %105, 0
   br i1 %.not.i80, label %106, label %string_buffer_putc.exit
 
@@ -194107,7 +194107,7 @@ string_buffer_putc16.exit.i:                      ; preds = %92
   br label %string_buffer_putc.exit
 
 130:                                              ; preds = %121, %.thread87
-  %131 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %.0.i)
+  %131 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %.0.i)
   br label %string_buffer_putc.exit
 
 string_buffer_putc.exit:                          ; preds = %string_buffer_putc16.exit.i, %114, %123, %130
@@ -194387,7 +194387,7 @@ string_get.exit:                                  ; preds = %69
   br i1 %or.cond17.i, label %isURIUnescaped.exit.thread157, label %87
 
 87:                                               ; preds = %82
-  %88 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.751, i32 noundef %83, i64 noundef 9) #43
+  %88 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.751, i32 noundef range(i32 0, 65536) %83, i64 noundef 9) #43
   %.not.i65 = icmp eq ptr %88, null
   br i1 %.not.i65, label %89, label %isURIUnescaped.exit.thread157
 
@@ -194395,7 +194395,7 @@ string_get.exit:                                  ; preds = %69
   br i1 %.not15.i, label %isURIUnescaped.exit, label %isURIUnescaped.exit.thread
 
 isURIUnescaped.exit:                              ; preds = %89
-  %90 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.748, i32 noundef %83, i64 noundef 11) #43
+  %90 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.748, i32 noundef range(i32 0, 256) %83, i64 noundef 11) #43
   %.not160 = icmp eq ptr %90, null
   br i1 %.not160, label %isURIUnescaped.exit.thread, label %isURIUnescaped.exit.thread157
 
@@ -194428,7 +194428,7 @@ isURIUnescaped.exit.thread157:                    ; preds = %82, %87, %isURIUnes
   br label %string_buffer_putc16.exit
 
 106:                                              ; preds = %isURIUnescaped.exit.thread157
-  %107 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %14, i32 noundef %83)
+  %107 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %14, i32 noundef range(i32 0, -2147483648) %83)
   br label %string_buffer_putc16.exit
 
 isURIUnescaped.exit.thread:                       ; preds = %89, %string_get.exit, %isURIUnescaped.exit
@@ -195208,7 +195208,7 @@ string_get.exit:                                  ; preds = %50
 
 isUnescaped.exit:                                 ; preds = %string_get.exit, %string_get.exit.thread
   %60 = phi i32 [ %55, %string_get.exit.thread ], [ %58, %string_get.exit ]
-  %61 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @isUnescaped.unescaped_chars, i32 noundef %60, i64 noundef 69) #43
+  %61 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @isUnescaped.unescaped_chars, i32 noundef range(i32 0, 65536) %60, i64 noundef 69) #43
   %.not32 = icmp eq ptr %61, null
   br i1 %.not32, label %80, label %62
 
@@ -195241,7 +195241,7 @@ isUnescaped.exit:                                 ; preds = %string_get.exit, %s
   br label %string_buffer_putc16.exit
 
 78:                                               ; preds = %62
-  %79 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %60)
+  %79 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %60)
   br label %string_buffer_putc16.exit
 
 80:                                               ; preds = %isUnescaped.exit
@@ -195803,7 +195803,7 @@ string_get_hex.exit65:                            ; preds = %138, %from_hex.exit
   br label %string_buffer_putc16.exit
 
 169:                                              ; preds = %160, %147
-  %170 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %6, i32 noundef %.0)
+  %170 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %6, i32 noundef range(i32 0, -2147483648) %.0)
   br label %string_buffer_putc16.exit
 
 string_buffer_putc16.exit:                        ; preds = %153, %162, %169
@@ -196091,7 +196091,7 @@ js_class_has_bytecode.exit.thread.i.i:            ; preds = %18, %18, %18, %18
 
 JS_ThrowError.exit:                               ; preds = %2, %10, %11, %18, %js_class_has_bytecode.exit.thread.i.i
   %25 = phi i32 [ 0, %2 ], [ 1, %10 ], [ %24, %js_class_has_bytecode.exit.thread.i.i ], [ 1, %11 ], [ 1, %18 ]
-  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 5, ptr noundef readonly %1, ptr noundef %3, i32 noundef %25)
+  call fastcc void @JS_ThrowError2(ptr noundef nonnull %0, i32 noundef 5, ptr noundef readonly %1, ptr noundef nonnull %3, i32 noundef %25)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -196234,7 +196234,7 @@ JS_ToInt32Sat.exit:                               ; preds = %JS_ToFloat64Free.ex
   %storemerge = phi i32 [ %64, %63 ], [ 0, %56 ]
   %.0 = phi i32 [ 5, %63 ], [ 4, %56 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  call fastcc void @js_dtoa1(ptr noundef %6, double noundef %48, i32 noundef 10, i32 noundef %storemerge, i32 noundef %.0)
+  call fastcc void @js_dtoa1(ptr noundef %6, double noundef %48, i32 noundef 10, i32 noundef %storemerge, i32 noundef range(i32 0, 6) %.0)
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #43
   %67 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %66)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
@@ -197517,7 +197517,7 @@ JS_ToInt32.exit:                                  ; preds = %35, %42
   br label %string_buffer_putc16.exit.thread
 
 string_buffer_putc16.exit:                        ; preds = %47, %62
-  %71 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %6, i32 noundef %49)
+  %71 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %6, i32 noundef range(i32 0, -2147483648) %49)
   %.not13 = icmp eq i32 %71, 0
   br i1 %.not13, label %string_buffer_putc16.exit.thread, label %72
 
@@ -197790,7 +197790,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %63
   br label %75
 
 string_buffer_putc16.exit.i:                      ; preds = %63
-  %74 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %65)
+  %74 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %65)
   %.not.i = icmp eq i32 %74, 0
   br i1 %.not.i, label %string_buffer_putc16.exit.i._crit_edge, label %string_buffer_putc.exit.thread42
 
@@ -197845,7 +197845,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread
 
 string_buffer_putc.exit:                          ; preds = %78, %91
-  %100 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %.0.i)
+  %100 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %.0.i)
   %.not32 = icmp eq i32 %100, 0
   br i1 %.not32, label %string_buffer_putc.exit.thread, label %string_buffer_putc.exit.thread42
 
@@ -202457,7 +202457,7 @@ JS_FreeValue.exit50:                              ; preds = %57, %61, %66
 
 77:                                               ; preds = %JS_FreeValue.exit50
   %78 = load ptr, ptr %7, align 8
-  %79 = tail call i32 @llvm.umin.i32(i32 %34, i32 %58)
+  %79 = tail call i32 @llvm.umin.i32(i32 range(i32 0, -2147483648) %34, i32 range(i32 0, -2147483648) %58)
   %.not22.i = icmp eq i32 %79, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -202481,7 +202481,7 @@ JS_FreeValue.exit50:                              ; preds = %57, %61, %66
   br i1 %.not.i, label %80, label %js_UTF32_compare.exit
 
 ._crit_edge.i:                                    ; preds = %80, %77
-  %.0.i = tail call i32 @llvm.ucmp.i32.i32(i32 %34, i32 %58)
+  %.0.i = tail call i32 @llvm.ucmp.i32.i32(i32 range(i32 0, -2147483648) %34, i32 range(i32 0, -2147483648) %58)
   br label %js_UTF32_compare.exit
 
 js_UTF32_compare.exit:                            ; preds = %.lr.ph.i, %._crit_edge.i
@@ -202812,7 +202812,7 @@ string_buffer_putc16.exit.thread.i:               ; preds = %145
   br label %157
 
 string_buffer_putc16.exit.i:                      ; preds = %145
-  %156 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %147)
+  %156 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %147)
   %.not.i47 = icmp eq i32 %156, 0
   br i1 %.not.i47, label %string_buffer_putc16.exit.i._crit_edge, label %string_buffer_putc.exit.thread68
 
@@ -202867,7 +202867,7 @@ string_buffer_putc16.exit.i._crit_edge:           ; preds = %string_buffer_putc1
   br label %string_buffer_putc.exit.thread
 
 string_buffer_putc.exit:                          ; preds = %160, %173
-  %182 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %.0.i46)
+  %182 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %.0.i46)
   %.not38 = icmp eq i32 %182, 0
   br i1 %.not38, label %string_buffer_putc.exit.thread, label %string_buffer_putc.exit.thread68
 
@@ -203444,7 +203444,7 @@ string_get.exit:                                  ; preds = %196, %200
   br label %string_buffer_puts8.exit107
 
 252:                                              ; preds = %243, %231
-  %253 = call fastcc i32 @string_buffer_putc_slow(ptr noundef %7, i32 noundef %204)
+  %253 = call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %7, i32 noundef range(i32 0, -2147483648) %204)
   br label %string_buffer_puts8.exit107
 
 string_buffer_puts8.exit107:                      ; preds = %252, %245, %236, %.loopexit.i.i96, %211
@@ -204252,7 +204252,7 @@ define internal fastcc range(i32 -1, 1) i32 @string_buffer_fill(ptr nocapture no
   br label %.backedge.us
 
 string_buffer_putc16.exit.us:                     ; preds = %.lr.ph.split.us
-  %33 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef %0, i32 noundef %1)
+  %33 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.backedge.us, label %.loopexit
 
@@ -204284,7 +204284,7 @@ string_buffer_putc16.exit.us:                     ; preds = %.lr.ph.split.us
   br label %.backedge
 
 string_buffer_putc16.exit:                        ; preds = %40, %.lr.ph.split
-  %47 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef %0, i32 noundef %1)
+  %47 = tail call fastcc i32 @string_buffer_putc_slow(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1)
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.backedge, label %.loopexit
 
@@ -204331,7 +204331,7 @@ JS_GetOpaque.exit.i:                              ; preds = %11
   %21 = getelementptr i8, ptr %20, i64 1804
   %22 = load i32, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef %8, i32 noundef %22)
+  %23 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %18, ptr noundef nonnull %8, i32 noundef %22)
   %24 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %23) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   store i32 0, ptr %5, align 4
@@ -205216,7 +205216,7 @@ JS_ToUint32.exit:                                 ; preds = %5, %12
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %18, i1 true)
+  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %18, i1 true)
   %22 = zext nneg i32 %21 to i64
   br label %23
 
@@ -208504,7 +208504,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %4, %8, %JS_GetOpaqu
   %19 = getelementptr %struct.JSClass, ptr %17, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef %5, i32 noundef %20)
+  %21 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %15, ptr noundef nonnull %5, i32 noundef %20)
   %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %21) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   br label %29
@@ -208564,7 +208564,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %13, %JS_GetOpaq
   %24 = getelementptr %struct.JSClass, ptr %22, i64 %23, i32 1
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef %7, i32 noundef %25)
+  %26 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %7, i32 noundef %25)
   %27 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %26) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %JS_ToInt64Clamp.exit
@@ -211774,7 +211774,7 @@ string_buffer_init.exit:                          ; preds = %js_alloc_string.exi
 
 79:                                               ; preds = %76
   %80 = add i32 %77, 1
-  %81 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %7, i32 noundef %80, i32 noundef %.0)
+  %81 = call fastcc i32 @string_buffer_realloc(ptr noundef nonnull %7, i32 noundef %80, i32 noundef range(i32 -56613888, 10559488) %.0)
   %.not13.i = icmp eq i32 %81, 0
   br i1 %.not13.i, label %._crit_edge97, label %string_buffer_putc8.exit
 
@@ -214295,7 +214295,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %11, %JS_GetOpaq
   %20 = getelementptr i8, ptr %19, i64 1284
   %21 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %17, ptr noundef %8, i32 noundef %21)
+  %22 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %17, ptr noundef nonnull %8, i32 noundef %21)
   %23 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %22) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %123
@@ -214550,7 +214550,7 @@ JS_GetOpaque2.exit.thread:                        ; preds = %6, %14, %JS_GetOpaq
   %23 = getelementptr i8, ptr %22, i64 1284
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef %8, i32 noundef %24)
+  %25 = call fastcc nonnull ptr @JS_AtomGetStrRT(ptr noundef readonly %20, ptr noundef nonnull %8, i32 noundef %24)
   %26 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef nonnull %25) #45
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %135

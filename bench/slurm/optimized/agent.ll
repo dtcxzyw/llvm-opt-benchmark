@@ -522,7 +522,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   %.021.ph79.i = phi i32 [ %70, %.lr.ph.i.backedge ], [ 4, %34 ]
   %36 = zext nneg i32 %.021.ph79.i to i64
   %37 = icmp eq i32 %.021.ph79.i, 4
-  %38 = call i64 @read(i32 noundef %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
+  %38 = call i64 @read(i32 noundef range(i32 0, -2147483648) %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %39, 0
   br i1 %37, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.split.us.i
@@ -550,7 +550,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   ]
 
 46:                                               ; preds = %44, %44
-  %47 = call i64 @read(i32 noundef %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
+  %47 = call i64 @read(i32 noundef range(i32 0, -2147483648) %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
   %48 = trunc i64 %47 to i32
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.split.us.i, label %.lr.ph77.i
@@ -578,7 +578,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   ]
 
 55:                                               ; preds = %53, %53
-  %56 = call i64 @read(i32 noundef %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
+  %56 = call i64 @read(i32 noundef range(i32 0, -2147483648) %21, ptr noundef %.020.ph81.i, i64 noundef %36) #10
   %57 = trunc i64 %56 to i32
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %.split43.us.i, label %.lr.ph61.preheader.i
@@ -644,7 +644,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   br label %81
 
 81:                                               ; preds = %79, %.outer._crit_edge.i, %34
-  %82 = call i32 @handle_tree_cmd(i32 noundef %21) #10
+  %82 = call i32 @handle_tree_cmd(i32 noundef range(i32 0, -2147483648) %21) #10
   br label %_handle_tree_request.exit
 
 _handle_tree_request.exit:                        ; preds = %.split43.us.i, %61, %.split.us.i, %64, %.split40.us.i, %67, %81

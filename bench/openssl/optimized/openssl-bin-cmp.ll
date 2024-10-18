@@ -1352,7 +1352,7 @@ if.then129:                                       ; preds = %if.then.i84, %cond.
 if.end134:                                        ; preds = %set_verbosity.exit88, %lor.lhs.false, %land.lhs.true62, %if.end53
   %74 = load ptr, ptr @bio_err, align 8
   %call135 = call i64 @BIO_ctrl(ptr noundef %74, i32 noundef 11, i64 noundef 0, ptr noundef null) #13
-  %call.i89 = call ptr @opt_init(i32 noundef %argc, ptr noundef nonnull %argv, ptr noundef nonnull @cmp_options) #13
+  %call.i89 = call ptr @opt_init(i32 noundef range(i32 2, -2147483648) %argc, ptr noundef nonnull %argv, ptr noundef nonnull @cmp_options) #13
   store ptr %call.i89, ptr @prog, align 8
   %call18.i = call i32 @opt_next() #13
   %cmp.not9.i = icmp eq i32 %call18.i, 0

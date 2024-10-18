@@ -253,7 +253,7 @@ _ZL21align_allocation_sizemm.exit.i.i:            ; preds = %.preheader.i.i.i
   %25 = load volatile ptr, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %25, ptr %15, align 8
-  %26 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr %25, ptr nonnull %23) #20, !srcloc !9
+  %26 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr %25, ptr nonnull align 8 dereferenceable(8) %23) #20, !srcloc !9
   %.not.i.i = icmp eq ptr %26, %25
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit, label %24, !llvm.loop !10
 
@@ -505,7 +505,7 @@ _Z19mspace_acquire_liveI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrie
   %46 = load volatile ptr, ptr %44, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %46, ptr %39, align 8
-  %47 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %39, ptr %46, ptr nonnull %44) #20, !srcloc !9
+  %47 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %39, ptr %46, ptr nonnull align 8 dereferenceable(8) %44) #20, !srcloc !9
   %.not.i.i.i = icmp eq ptr %47, %46
   br i1 %.not.i.i.i, label %_Z44mspace_allocate_transient_lease_to_live_listI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_P6Threadb.exit, label %45, !llvm.loop !10
 
@@ -575,7 +575,7 @@ define linkonce_odr hidden noundef ptr @_ZN19JfrEpochStorageHostI9JfrBuffer24Jfr
   %24 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %24, ptr %13, align 8
-  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %24, ptr nonnull %22) #20, !srcloc !9
+  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %24, ptr nonnull align 8 dereferenceable(8) %22) #20, !srcloc !9
   %.not.i.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i.i, label %_Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit.thread, label %23, !llvm.loop !10
 
@@ -1065,7 +1065,7 @@ define linkonce_odr hidden void @_ZN35VirtualThreadLocalCheckpointWriteOpI9JfrBu
   %30 = load ptr, ptr %1, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 %26, %31
-  %33 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %32, i64 noundef 8)
+  %33 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %32, i64 noundef 8)
   %.pre.i.i = load ptr, ptr %4, align 8
   br i1 %33, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.thread.i
 
@@ -1103,7 +1103,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = load ptr, ptr %1, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = sub i64 %44, %49
-  %51 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %50, i64 noundef 5)
+  %51 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %50, i64 noundef 5)
   %.pre.i.i.i = load ptr, ptr %4, align 8
   br i1 %51, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI13ReservedEventEEvT_.exit
 
@@ -1163,7 +1163,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %73 = load ptr, ptr %1, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %69, %74
-  %76 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %75, i64 noundef 5)
+  %76 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %75, i64 noundef 5)
   %.pre.i.i.i22 = load ptr, ptr %4, align 8
   br i1 %76, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i18, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEvT_.exit
 
@@ -1222,7 +1222,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %96 = load ptr, ptr %1, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = sub i64 %92, %97
-  %99 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %98, i64 noundef 5)
+  %99 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %98, i64 noundef 5)
   %.pre.i.i.i28 = load ptr, ptr %4, align 8
   br i1 %99, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i24, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI17JfrCheckpointTypeEEvT_.exit
 
@@ -1279,7 +1279,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %118 = load ptr, ptr %1, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = sub i64 %114, %119
-  %121 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %120, i64 noundef 5)
+  %121 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %120, i64 noundef 5)
   %.pre.i.i.i37 = load ptr, ptr %4, align 8
   br i1 %121, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i30, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEvT_.exit38
 
@@ -1336,7 +1336,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %140 = load ptr, ptr %1, align 8
   %141 = ptrtoint ptr %140 to i64
   %142 = sub i64 %136, %141
-  %143 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %142, i64 noundef 5)
+  %143 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %142, i64 noundef 5)
   %.pre.i.i.i44 = load ptr, ptr %4, align 8
   br i1 %143, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i40, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI9JfrTypeIdEEvT_.exit
 
@@ -1404,7 +1404,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %172 = load ptr, ptr %1, align 8
   %173 = ptrtoint ptr %172 to i64
   %174 = sub i64 %168, %173
-  %175 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %1, i64 noundef %174, i64 noundef 4)
+  %175 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %1, i64 noundef %174, i64 noundef 4)
   %.pre.i.i50 = load ptr, ptr %4, align 8
   br i1 %175, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i46, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.thread.i49
 
@@ -1497,7 +1497,7 @@ define linkonce_odr hidden void @_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceR
   br i1 %42, label %43, label %60
 
 43:                                               ; preds = %33
-  call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEv(ptr noundef nonnull align 8 dereferenceable(76) %25)
+  call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEv(ptr noundef nonnull align 8 dereferenceable(88) %25)
   %44 = icmp sgt i64 %36, 0
   br i1 %44, label %.lr.ph.i.i.i, label %_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11write_bytesEPvPKvl.exit
 
@@ -1599,7 +1599,7 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager5clearEv(ptr nocapture nound
   %5 = alloca %class.ReleaseWithExcisionOp, align 8
   tail call void @_ZN21JfrTraceIdLoadBarrier5clearEv() #20
   tail call void @_ZN20JfrCheckpointManager14clear_type_setEv(ptr nonnull align 8 poison)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1796,7 +1796,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9Disc
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %80, align 8
-  %93 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %89, ptr nonnull %.07.i, ptr nonnull %92) #20, !srcloc !9
+  %93 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %89, ptr nonnull %.07.i, ptr nonnull align 8 dereferenceable(8) %92) #20, !srcloc !9
   %94 = icmp eq ptr %93, %.07.i
   br i1 %94, label %_ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i, label %.preheader
 
@@ -1817,7 +1817,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9Disc
 _ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit.i.i: ; preds = %97, %91, %85
   %.sink.i.i.i = phi ptr [ %.1.i.i.i.i, %97 ], [ null, %91 ], [ %.07.i, %85 ]
   store ptr %.sink.i.i.i, ptr %81, align 8
-  %98 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull %.07.i)
+  %98 = call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %.07.i)
   %.not.old.i = icmp ne ptr %83, null
   %or.cond9.not.i = select i1 %98, i1 %.not.old.i, i1 false
   br i1 %or.cond9.not.i, label %.lr.ph.i, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE7iterateI18CompositeOperationI9DiscardOpI16DefaultDiscarderIS0_EE21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrievalS2_S2_Lb1EES2_E21CompositeOperationAndEEEvRT_.exit, !llvm.loop !23
@@ -2068,7 +2068,7 @@ define hidden void @_ZN20JfrCheckpointManager11on_rotationEv(ptr nocapture nound
   br i1 %6, label %.lr.ph.i, label %_ZN20JfrCheckpointManager14notify_threadsEv.exit, !llvm.loop !25
 
 _ZN20JfrCheckpointManager14notify_threadsEv.exit: ; preds = %.lr.ph.i, %1
-  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #20
+  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #20
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   ret void
 }
@@ -2090,7 +2090,7 @@ define hidden void @_ZN20JfrCheckpointManager14notify_threadsEv(ptr nocapture no
   br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #20
+  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #20
   ret void
 }
 
@@ -2760,7 +2760,7 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
   %35 = load volatile ptr, ptr %33, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %35, ptr %29, align 8
-  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, ptr %35, ptr nonnull %33) #20, !srcloc !9
+  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, ptr %35, ptr nonnull align 8 dereferenceable(8) %33) #20, !srcloc !9
   %.not.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit, label %34, !llvm.loop !10
 
@@ -3026,7 +3026,7 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   %18 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %18, ptr %12, align 8
-  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %18, ptr nonnull %16) #20, !srcloc !9
+  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %18, ptr nonnull align 8 dereferenceable(8) %16) #20, !srcloc !9
   %.not.i.i = icmp eq ptr %19, %18
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit, label %17, !llvm.loop !10
 
@@ -3461,7 +3461,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN31ReinitializeAllReleaseRetire
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7, ptr nonnull %1, ptr nonnull %11) #20, !srcloc !9
+  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7, ptr nonnull %1, ptr nonnull align 8 dereferenceable(8) %11) #20, !srcloc !9
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6exciseEPS0_S3_.exit, label %.preheader
 
@@ -3799,7 +3799,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 _ZL26calculate_event_size_bytesR14JfrChunkWriterPKhll.exit.i.i: ; preds = %81, %80, %79, %78, %77, %76, %75, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit.i.i.i
   %.0.i.i.i78.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit.i.i.i ], [ 2, %75 ], [ 3, %76 ], [ 4, %77 ], [ 5, %78 ], [ 6, %79 ], [ 7, %80 ], [ %..i.i.i77.i.i.i, %81 ]
   %82 = add i64 %.0.i.i.i78.i.i.i, %66
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %82)
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %82)
   %83 = load i32, ptr %10, align 8
   %.not.i.i.i.i.i = icmp eq i32 %83, -1
   br i1 %.not.i.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI13ReservedEventEEvT_.exit.i.i, label %84
@@ -3817,7 +3817,7 @@ _ZL26calculate_event_size_bytesR14JfrChunkWriterPKhll.exit.i.i: ; preds = %81, %
   %92 = load ptr, ptr %5, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = sub i64 %88, %93
-  %95 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %5, i64 noundef %94, i64 noundef 5)
+  %95 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %94, i64 noundef 5)
   %.pre.i.i.i.i.i = load ptr, ptr %8, align 8
   br i1 %95, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI13ReservedEventEEvT_.exit.i.i
 
@@ -3858,11 +3858,11 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI13ReservedEventEEvT_.exit.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI13ReservedEventEEPhPKT_mSD_.exit.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i.i.i, %91, %_ZL26calculate_event_size_bytesR14JfrChunkWriterPKhll.exit.i.i
   %.val.i.i = load i64, ptr %25, align 8
   %105 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i)
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %105)
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %105)
   %.val27.i.i = load i64, ptr %35, align 8
   %106 = tail call noundef i64 @llvm.bswap.i64(i64 %.val27.i.i)
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %106)
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %24)
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %106)
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %24)
   %.val28.i.i = load i32, ptr %51, align 4
   %107 = tail call noundef i32 @llvm.bswap.i32(i32 %.val28.i.i)
   %108 = load i32, ptr %10, align 8
@@ -3882,7 +3882,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %117 = load ptr, ptr %5, align 8
   %118 = ptrtoint ptr %117 to i64
   %119 = sub i64 %113, %118
-  %120 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %5, i64 noundef %119, i64 noundef 5)
+  %120 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %119, i64 noundef 5)
   %.pre.i.i.i37.i.i = load ptr, ptr %8, align 8
   br i1 %120, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i33.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEvT_.exit.i.i
 
@@ -3996,7 +3996,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %167 = load ptr, ptr %5, align 8
   %168 = ptrtoint ptr %167 to i64
   %169 = sub i64 %163, %168
-  %170 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %5, i64 noundef %169, i64 noundef 5)
+  %170 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef %169, i64 noundef 5)
   %.pre.i.i.i47.i.i = load ptr, ptr %8, align 8
   br i1 %170, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i39.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIjEEvT_.exit.i.i
 
@@ -4094,7 +4094,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %.val31.i.i = load i64, ptr %.014.i, align 8
   %208 = tail call noundef i64 @llvm.bswap.i64(i64 %.val31.i.i)
   %209 = add i64 %208, -32
-  tail call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEv(ptr noundef nonnull align 8 dereferenceable(76) %5)
+  tail call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   %210 = icmp sgt i64 %209, 0
   br i1 %210, label %.lr.ph.i.i.preheader.i.i, label %_ZL22write_checkpoint_eventR14JfrChunkWriterPKh.exit.i
 
@@ -4180,7 +4180,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = load ptr, ptr %0, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %11, %16
-  %18 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %17, i64 noundef 9)
+  %18 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %0, i64 noundef %17, i64 noundef 9)
   %.pre.i.i = load ptr, ptr %8, align 8
   br i1 %18, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeImEEvPKT_m.exit
 
@@ -4358,7 +4358,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = load ptr, ptr %0, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %11, %16
-  %18 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %17, i64 noundef 9)
+  %18 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %0, i64 noundef %17, i64 noundef 9)
   %.pre.i.i = load ptr, ptr %8, align 8
   br i1 %18, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvPKT_m.exit
 
@@ -4759,7 +4759,7 @@ _ZN14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE7processEPS1_.exit: ; preds 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %1, ptr nonnull %23) #20, !srcloc !9
+  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %1, ptr nonnull align 8 dereferenceable(8) %23) #20, !srcloc !9
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6exciseEPS0_S3_.exit, label %.preheader
 
@@ -4887,7 +4887,7 @@ _ZN14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE7processEPS1_.exit.thread: ;
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %20, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25, ptr nonnull %1, ptr nonnull %29) #20, !srcloc !9
+  %30 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25, ptr nonnull %1, ptr nonnull align 8 dereferenceable(8) %29) #20, !srcloc !9
   %31 = icmp eq ptr %30, %1
   br i1 %31, label %_ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit, label %.preheader
 
@@ -4908,7 +4908,7 @@ _ZN14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE7processEPS1_.exit.thread: ;
 _ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit: ; preds = %.thread, %27, %34
   %.sink.i = phi ptr [ %.1.i.i, %34 ], [ null, %27 ], [ %1, %.thread ]
   store ptr %.sink.i, ptr %22, align 8
-  %35 = tail call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull %1)
+  %35 = tail call noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EEE7processEPS4_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull %1)
   br label %36
 
 36:                                               ; preds = %_ZN14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE7processEPS1_.exit, %_ZN14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE7processEPS1_.exit.thread, %_ZN21ReleaseWithExcisionOpI14JfrMemorySpaceI20JfrCheckpointManager18JfrMspaceRetrieval13JfrLinkedListI9JfrBuffer11JfrCHeapObjES6_Lb1EES6_E7processEPS4_.exit
@@ -4954,7 +4954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9ReleaseOpI14JfrMemorySpaceI20
   %24 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store ptr %24, ptr %1, align 8
-  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %24, ptr nonnull %22) #20, !srcloc !9
+  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr %24, ptr nonnull align 8 dereferenceable(8) %22) #20, !srcloc !9
   %.not.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE3addEPS0_.exit.i.i, label %23, !llvm.loop !10
 
@@ -5034,7 +5034,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %28 = load ptr, ptr %0, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %24, %29
-  %31 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %30, i64 noundef 4)
+  %31 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %0, i64 noundef %30, i64 noundef 4)
   %.pre.i.i.i = load ptr, ptr %7, align 8
   br i1 %31, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE12write_paddedIjEEvT_.exit
 
@@ -5139,7 +5139,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %28 = load ptr, ptr %0, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %24, %29
-  %31 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %30, i64 noundef 8)
+  %31 = tail call noundef zeroext i1 @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11accommodateEmm(ptr noundef nonnull align 8 dereferenceable(77) %0, i64 noundef %30, i64 noundef 8)
   %.pre.i.i.i = load ptr, ptr %7, align 8
   br i1 %31, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE12write_paddedIlEEvT_.exit
 
@@ -5327,7 +5327,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16ReleaseRetiredOpI14MutexedWr
   %21 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 32
   %22 = add i64 %20, -32
   %23 = load ptr, ptr %18, align 8
-  tail call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11write_bytesEPvPKvl(ptr noundef nonnull align 8 dereferenceable(76) %14, ptr noundef %23, ptr noundef nonnull %21, i64 noundef %22)
+  tail call void @_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE11write_bytesEPvPKvl(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef %23, ptr noundef nonnull %21, i64 noundef %22)
   %24 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %20
   %25 = add i64 %20, %.01213.i.i.i
   %26 = load i32, ptr %15, align 4
@@ -5358,7 +5358,7 @@ _ZN14MutexedWriteOpI35VirtualThreadLocalCheckpointWriteOpI9JfrBufferEE7processEP
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr nonnull %1, ptr nonnull %39) #20, !srcloc !9
+  %40 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr nonnull %1, ptr nonnull align 8 dereferenceable(8) %39) #20, !srcloc !9
   %41 = icmp eq ptr %40, %1
   br i1 %41, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6exciseEPS0_S3_.exit, label %.preheader
 

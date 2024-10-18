@@ -1024,7 +1024,7 @@ cond.false.i193:                                  ; preds = %invoke.cont110
 
 invoke.cont112:                                   ; preds = %.noexc195, %invoke.cont110
   %110 = phi ptr [ %109, %invoke.cont110 ], [ %.pre.i194, %.noexc195 ]
-  %call.i197 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %110, ptr noundef nonnull align 8 dereferenceable(8) %startDate)
+  %call.i197 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %110, ptr noundef nonnull align 8 dereferenceable(8) %startDate)
           to label %call.i.noexc unwind label %lpad109
 
 call.i.noexc:                                     ; preds = %invoke.cont112
@@ -1050,7 +1050,7 @@ cond.false.i200:                                  ; preds = %invoke.cont116
 
 invoke.cont118:                                   ; preds = %.noexc202, %invoke.cont116
   %112 = phi ptr [ %111, %invoke.cont116 ], [ %.pre.i201, %.noexc202 ]
-  %call.i205 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef nonnull align 8 dereferenceable(8) %endDate)
+  %call.i205 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %112, ptr noundef nonnull align 8 dereferenceable(8) %endDate)
           to label %call.i.noexc204 unwind label %lpad109
 
 call.i.noexc204:                                  ; preds = %invoke.cont118

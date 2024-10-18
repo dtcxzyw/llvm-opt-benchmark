@@ -2356,7 +2356,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 define void @_ZThn16_N32pxrInternal_v0_24__pxrReserved__34HdsiPrimManagingSceneIndexObserverD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__34HdsiPrimManagingSceneIndexObserverD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 104) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 104) #19
   ret void
 }
 
@@ -3148,7 +3148,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.018, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.018, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i, label %.noexc8, label %11
 

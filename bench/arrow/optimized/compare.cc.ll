@@ -333,7 +333,7 @@ entry:
 if.then:                                          ; preds = %entry
   %diff_sink_.i = getelementptr inbounds i8, ptr %opts, i64 16
   %4 = load ptr, ptr %diff_sink_.i, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(32) %left, ptr noundef nonnull align 8 dereferenceable(32) %right, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef %3, ptr noundef %4)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(32) %left, ptr noundef nonnull align 8 dereferenceable(32) %right, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef %3, ptr noundef %4)
   %5 = load ptr, ptr %agg.tmp.ensured, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
@@ -632,13 +632,13 @@ sw.bb21.i:                                        ; preds = %if.end17
 sw.bb23.i:                                        ; preds = %if.end17
   %32 = getelementptr i8, ptr %left, i64 44
   %call24.val.i = load float, ptr %32, align 4, !noalias !4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_11FloatScalarE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, float %call24.val.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_11FloatScalarE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, float %call24.val.i)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb25.i:                                        ; preds = %if.end17
   %33 = getelementptr i8, ptr %left, i64 48
   %call26.val.i = load double, ptr %33, align 8, !noalias !4
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12DoubleScalarE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, double %call26.val.i)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12DoubleScalarE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, double %call26.val.i)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb27.i:                                        ; preds = %if.end17
@@ -866,14 +866,14 @@ sw.bb57.i:                                        ; preds = %if.end17
 sw.bb59.i:                                        ; preds = %if.end17
   %value.i78 = getelementptr inbounds i8, ptr %left, i64 48
   %value2.i79 = getelementptr inbounds i8, ptr %right, i64 48
-  %bcmp.i.i.i.i.i.i.i80 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %value.i78, ptr noundef nonnull dereferenceable(16) %value2.i79, i64 16), !noalias !85
+  %bcmp.i.i.i.i.i.i.i80 = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(16) %value.i78, ptr noundef nonnull align 8 dereferenceable(16) %value2.i79, i64 16), !noalias !85
   %tobool1.not.i.i.i.i.i.i.i81 = icmp eq i32 %bcmp.i.i.i.i.i.i.i80, 0
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
 sw.bb61.i:                                        ; preds = %if.end17
   %value.i75 = getelementptr inbounds i8, ptr %left, i64 48
   %value2.i = getelementptr inbounds i8, ptr %right, i64 48
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %value.i75, ptr noundef nonnull dereferenceable(32) %value2.i, i64 32), !noalias !88
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %value.i75, ptr noundef nonnull align 8 dereferenceable(32) %value2.i, i64 32), !noalias !88
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
@@ -926,11 +926,11 @@ sw.bb73.i:                                        ; preds = %if.end17
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
 sw.bb75.i:                                        ; preds = %if.end17
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12StructScalarE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %left)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12StructScalarE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(72) %left)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb77.i:                                        ; preds = %if.end17
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_17SparseUnionScalarE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(100) %left)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_17SparseUnionScalarE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(100) %left)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb79.i:                                        ; preds = %if.end17
@@ -942,7 +942,7 @@ sw.bb79.i:                                        ; preds = %if.end17
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit.thread
 
 sw.bb81.i:                                        ; preds = %if.end17
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_16DictionaryScalarE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(80) %left)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_16DictionaryScalarE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(34) %visitor, ptr noundef nonnull align 8 dereferenceable(80) %left)
   br label %_ZN5arrow17VisitScalarInlineINS_12_GLOBAL__N_119ScalarEqualsVisitorEJEEENS_6StatusERKNS_6ScalarEPT_DpOT0_.exit
 
 sw.bb83.i:                                        ; preds = %if.end17
@@ -7481,11 +7481,11 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   br i1 %call9.i.i.i, label %for.cond.i.i.i, label %return
 
 sw.bb76.i:                                        ; preds = %if.end17
-  call fastcc void @_ZN5arrow12_GLOBAL__N_117TypeEqualsVisitor5VisitERKNS_9UnionTypeE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(10) %visitor, ptr noundef nonnull align 8 dereferenceable(120) %left)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_117TypeEqualsVisitor5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(10) %visitor, ptr noundef nonnull align 8 dereferenceable(120) %left)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_117TypeEqualsVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb78.i:                                        ; preds = %if.end17
-  call fastcc void @_ZN5arrow12_GLOBAL__N_117TypeEqualsVisitor5VisitERKNS_9UnionTypeE(ptr noalias align 8 %error, ptr noundef nonnull align 8 dereferenceable(10) %visitor, ptr noundef nonnull align 8 dereferenceable(120) %left)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_117TypeEqualsVisitor5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 %error, ptr noundef nonnull align 8 dereferenceable(10) %visitor, ptr noundef nonnull align 8 dereferenceable(120) %left)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_117TypeEqualsVisitorEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb80.i:                                        ; preds = %if.end17
@@ -7806,7 +7806,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end14
   %14 = load ptr, ptr %data_.i260, align 8, !noalias !331
   %length.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i64, ptr %length.i, align 8, !noalias !331
-  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %13, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %os)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %13, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %os)
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %16 = load ptr, ptr %ref.tmp, align 8, !noalias !334
   store ptr %16, ptr %agg.result, align 8, !alias.scope !334
@@ -7840,7 +7840,7 @@ _ZN5arrow6StatusD2Ev.exit114:                     ; preds = %do.end39, %if.then4
   %23 = load ptr, ptr %data_.i263, align 8, !noalias !337
   %length.i264 = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i64, ptr %length.i264, align 8, !noalias !337
-  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, i64 noundef %22, i64 noundef 0, i64 noundef %24, ptr noundef nonnull %os)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_19PrintDiffERKNS_5ArrayES3_llllPSo(ptr noalias nonnull align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, i64 noundef %22, i64 noundef 0, i64 noundef %24, ptr noundef nonnull %os)
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %25 = load ptr, ptr %ref.tmp51, align 8, !noalias !340
   store ptr %25, ptr %agg.result, align 8, !alias.scope !340
@@ -8037,7 +8037,7 @@ do.end127:                                        ; preds = %invoke.cont116
   call void @llvm.experimental.noalias.scope.decl(metadata !356)
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %formatter, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp108, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %formatter, i8 0, i64 24, i1 false), !alias.scope !359
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %formatter, i8 0, i64 24, i1 false), !alias.scope !359
   %55 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !noalias !359
   store ptr %55, ptr %_M_invoker.i.i.i, align 8, !alias.scope !359
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp108, i64 24
@@ -8056,13 +8056,13 @@ if.then.i:                                        ; preds = %do.end127
 if.end.i:                                         ; preds = %do.end127
   %storage_.i.i182 = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %formatter, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i182, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %formatter, ptr noundef nonnull align 8 dereferenceable(32) %storage_.i.i182, i64 16, i1 false)
   store ptr %56, ptr %_M_manager.i.i.i.i, align 8, !alias.scope !359
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !359
   %_M_manager.i.i = getelementptr inbounds i8, ptr %formatter, i64 16
   %57 = load ptr, ptr %right_slice, align 8
   %58 = load ptr, ptr %left_slice, align 8
-  invoke void %55(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %57)
+  invoke void %55(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %formatter, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %57)
           to label %invoke.cont133 unwind label %lpad132
 
 invoke.cont133:                                   ; preds = %if.end.i
@@ -8071,7 +8071,7 @@ invoke.cont133:                                   ; preds = %if.end.i
   br i1 %tobool.not.i.i185, label %cleanup135, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont133
-  %call.i.i = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull align 8 dereferenceable(16) %formatter, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %formatter, ptr noundef nonnull align 8 dereferenceable(32) %formatter, i32 noundef 3)
           to label %cleanup135 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -8090,7 +8090,7 @@ lpad132:                                          ; preds = %if.end.i, %if.then.
   br i1 %tobool.not.i.i187, label %ehcleanup, label %if.then.i.i188
 
 if.then.i.i188:                                   ; preds = %lpad132
-  %call.i.i189 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull align 8 dereferenceable(16) %formatter, i32 noundef 3)
+  %call.i.i189 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %formatter, ptr noundef nonnull align 8 dereferenceable(32) %formatter, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i190
 
 terminate.lpad.i.i190:                            ; preds = %if.then.i.i188
@@ -8527,169 +8527,169 @@ do.body:                                          ; preds = %entry
   ]
 
 sw.bb2.i:                                         ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_11BooleanTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb4.i:                                         ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_8Int8TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_8Int8TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb6.i:                                         ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb8.i:                                         ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int16TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int16TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb10.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb12.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int32TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int32TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb14.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb16.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int64TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_9Int64TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb18.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb20.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr18is_primitive_ctypeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb22.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_9FloatTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_9FloatTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb24.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10DoubleTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10DoubleTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb26.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10BinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10BinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb28.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb30.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10BinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10BinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb32.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14BinaryViewTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb34.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15LargeBinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15LargeBinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb36.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15LargeBinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15LargeBinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb38.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb40.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_12DurationTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_12DurationTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb42.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Date32TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Date32TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb44.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Date64TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Date64TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb46.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_13TimestampTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_13TimestampTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb48.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Time32TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Time32TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb50.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Time64TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_10Time64TypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb52.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_24MonthDayNanoIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb54.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_17MonthIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb56.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitINS_19DayTimeIntervalTypeEEENSt9enable_ifIXsr16is_temporal_typeIT_EE5valueENS_6StatusEE4typeERKS5_(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb58.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb60.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_19FixedSizeBinaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(76) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb62.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_8ListTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_8ListTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb64.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_13LargeListTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_13LargeListTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb66.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_12ListViewTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_12ListViewTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb68.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17LargeListViewTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17LargeListViewTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb70.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_8ListTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_8ListTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb72.i:                                        ; preds = %do.body
   %2 = getelementptr inbounds i8, ptr %type, i64 72
   %type.val = load i32, ptr %2, align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17FixedSizeListTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, i32 %type.val)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17FixedSizeListTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, i32 %type.val)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb74.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10StructTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(80) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_10StructTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(80) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb76.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15SparseUnionTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_15SparseUnionTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb78.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DenseUnionTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DenseUnionTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(120) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb80.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DictionaryTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(105) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DictionaryTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(105) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb82.i:                                        ; preds = %do.body
-  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17RunEndEncodedTypeE(ptr noalias align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(72) %type)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_17RunEndEncodedTypeE(ptr noalias nonnull align 8 %_s, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(72) %type)
   br label %_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_119RangeDataEqualsImplEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_.exit
 
 sw.bb84.i:                                        ; preds = %do.body
@@ -13813,7 +13813,7 @@ for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
   %conv16.i.i.i.i = sext i32 %sub15.i.i.i.i to i64
   %add.ptr.i.i.i20.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %conv.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %conv11.i.i.i.i
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i.i20.i.i, ptr nonnull readonly %add.ptr2.i.i.i.i.i, i64 %conv16.i.i.i.i), !noalias !477
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i.i20.i.i, ptr nonnull readonly %add.ptr2.i.i.i.i.i, i64 range(i64 -2147483648, 2147483648) %conv16.i.i.i.i), !noalias !477
   %cmp.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %31 = zext i1 %cmp.i.i.i.i.i to i8
   br label %return.sink.split.i.i.i
@@ -13915,7 +13915,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13Comp
   %conv16.i17.i.i.i = sext i32 %sub15.i16.i.i.i to i64
   %add.ptr.i.i22.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 %conv.i13.i.i.i
   %add.ptr2.i.i23.i.i.i = getelementptr inbounds i8, ptr %cond.i.i8.i, i64 %conv11.i14.i.i.i
-  %bcmp.i.i24.i.i.i = call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i22.i.i.i, ptr nonnull readonly %add.ptr2.i.i23.i.i.i, i64 %conv16.i17.i.i.i), !noalias !477
+  %bcmp.i.i24.i.i.i = call i32 @bcmp(ptr nonnull readonly %add.ptr.i.i22.i.i.i, ptr nonnull readonly %add.ptr2.i.i23.i.i.i, i64 range(i64 -2147483648, 2147483648) %conv16.i17.i.i.i), !noalias !477
   %cmp.i.i25.i.i.i = icmp eq i32 %bcmp.i.i24.i.i.i, 0
   br i1 %cmp.i.i25.i.i.i, label %while.body.i.i.i, label %return.sink.split.i.i.i, !llvm.loop !481
 
@@ -18908,7 +18908,7 @@ sw.bb:                                            ; preds = %entry
   %left_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %left_.i, align 8, !noalias !616
   %null_count.i155 = getelementptr inbounds i8, ptr %left_span.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left_span.i, i8 0, i64 16, i1 false), !noalias !616
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %left_span.i, i8 0, i64 16, i1 false), !noalias !616
   store i64 -1, ptr %null_count.i155, align 8, !noalias !616
   %offset.i156 = getelementptr inbounds i8, ptr %left_span.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i156, i8 0, i64 104, i1 false), !noalias !616
@@ -18930,7 +18930,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit160:   ; preds = %sw.bb
   %right_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %right_.i, align 8, !noalias !616
   %null_count.i150 = getelementptr inbounds i8, ptr %right_span.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %right_span.i, i8 0, i64 16, i1 false), !noalias !616
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %right_span.i, i8 0, i64 16, i1 false), !noalias !616
   store i64 -1, ptr %null_count.i150, align 8, !noalias !616
   %offset.i151 = getelementptr inbounds i8, ptr %right_span.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i151, i8 0, i64 104, i1 false), !noalias !616
@@ -19237,7 +19237,7 @@ sw.bb4:                                           ; preds = %entry
   %left_.i8 = getelementptr inbounds i8, ptr %this, i64 16
   %52 = load ptr, ptr %left_.i8, align 8, !noalias !627
   %null_count.i365 = getelementptr inbounds i8, ptr %left_span.i2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left_span.i2, i8 0, i64 16, i1 false), !noalias !627
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %left_span.i2, i8 0, i64 16, i1 false), !noalias !627
   store i64 -1, ptr %null_count.i365, align 8, !noalias !627
   %offset.i366 = getelementptr inbounds i8, ptr %left_span.i2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i366, i8 0, i64 104, i1 false), !noalias !627
@@ -19255,7 +19255,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit370:   ; preds = %sw.bb4
   %right_.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %54 = load ptr, ptr %right_.i9, align 8, !noalias !627
   %null_count.i358 = getelementptr inbounds i8, ptr %right_span.i3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %right_span.i3, i8 0, i64 16, i1 false), !noalias !627
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %right_span.i3, i8 0, i64 16, i1 false), !noalias !627
   store i64 -1, ptr %null_count.i358, align 8, !noalias !627
   %offset.i359 = getelementptr inbounds i8, ptr %right_span.i3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i359, i8 0, i64 104, i1 false), !noalias !627
@@ -19562,7 +19562,7 @@ sw.bb5:                                           ; preds = %entry
   %left_.i54 = getelementptr inbounds i8, ptr %this, i64 16
   %100 = load ptr, ptr %left_.i54, align 8, !noalias !637
   %null_count.i530 = getelementptr inbounds i8, ptr %left_span.i48, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left_span.i48, i8 0, i64 16, i1 false), !noalias !637
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %left_span.i48, i8 0, i64 16, i1 false), !noalias !637
   store i64 -1, ptr %null_count.i530, align 8, !noalias !637
   %offset.i531 = getelementptr inbounds i8, ptr %left_span.i48, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i531, i8 0, i64 104, i1 false), !noalias !637
@@ -19580,7 +19580,7 @@ _ZN5arrow9ArraySpanC2ERKNS_9ArrayDataE.exit535:   ; preds = %sw.bb5
   %right_.i55 = getelementptr inbounds i8, ptr %this, i64 24
   %102 = load ptr, ptr %right_.i55, align 8, !noalias !637
   %null_count.i523 = getelementptr inbounds i8, ptr %right_span.i49, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %right_span.i49, i8 0, i64 16, i1 false), !noalias !637
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %right_span.i49, i8 0, i64 16, i1 false), !noalias !637
   store i64 -1, ptr %null_count.i523, align 8, !noalias !637
   %offset.i524 = getelementptr inbounds i8, ptr %right_span.i49, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %offset.i524, i8 0, i64 104, i1 false), !noalias !637
@@ -20664,7 +20664,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !651
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !651
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(24) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !651
 
 call.i.i.noexc.i:                                 ; preds = %entry
@@ -20724,7 +20724,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !654
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !654
-  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !654
 
 invoke.cont.i:                                    ; preds = %entry
@@ -20795,7 +20795,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %storage_.i, ptr noundef nonnull align 8 dereferenceable(32) %storage_.i, i32 noundef 3)
           to label %_ZN5arrow6ResultISt8functionIFNS_6StatusERKNS_5ArrayES5_S5_EEE7DestroyEv.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -21749,7 +21749,7 @@ entry:
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !679
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !679
-  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
+  %call.i.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(41) %args)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !679
 
 call.i.i.noexc.i:                                 ; preds = %entry

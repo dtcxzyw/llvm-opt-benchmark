@@ -653,7 +653,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %227, label %.lr.ph161.i, label %._crit_edge162.thread.i
 
 ._crit_edge162.thread.i:                          ; preds = %224
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %spec.select.i, ptr noundef %.0105.i)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %spec.select.i, ptr noundef %.0105.i)
   br label %._crit_edge170.i
 
 .lr.ph161.i:                                      ; preds = %224
@@ -664,7 +664,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %.0159.i = phi i32 [ 0, %.lr.ph161.i ], [ %243, %._crit_edge.i ]
   %.0107158.i = phi ptr [ %spec.select.i, %.lr.ph161.i ], [ %230, %._crit_edge.i ]
   %230 = getelementptr inbounds i8, ptr %.0107158.i, i64 4096
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %.0107158.i, ptr noundef %230)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %.0107158.i, ptr noundef %230)
   %231 = ptrtoint ptr %230 to i64
   %232 = sub i64 %228, %231
   %233 = lshr exact i64 %232, 2
@@ -684,7 +684,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %237 = sub nsw i64 0, %236
   %238 = getelementptr inbounds i32, ptr %.0106155.i, i64 %237
   %239 = getelementptr inbounds i32, ptr %.0106155.i, i64 %236
-  tail call fastcc void @ss_swapmerge(ptr noundef %0, ptr noundef %79, ptr noundef %238, ptr noundef %.0106155.i, ptr noundef %239, ptr noundef %spec.select122.i, i32 noundef %spec.select123.i)
+  tail call fastcc void @ss_swapmerge(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %238, ptr noundef %.0106155.i, ptr noundef %239, ptr noundef %spec.select122.i, i32 noundef %spec.select123.i)
   %240 = shl i32 %.0101157.i, 1
   %241 = lshr i32 %.0103156.i, 1
   %242 = and i32 %.0103156.i, 2
@@ -698,7 +698,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %245, label %229, label %.lr.ph169.preheader.i, !llvm.loop !16
 
 .lr.ph169.preheader.i:                            ; preds = %._crit_edge.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %230, ptr noundef %.0105.i)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %230, ptr noundef %.0105.i)
   br label %.lr.ph169.i
 
 .lr.ph169.i:                                      ; preds = %251, %.lr.ph169.preheader.i
@@ -713,7 +713,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   %248 = sext i32 %.1102166.i to i64
   %249 = sub nsw i64 0, %248
   %250 = getelementptr inbounds i32, ptr %.1108165.i, i64 %249
-  tail call fastcc void @ss_swapmerge(ptr noundef %0, ptr noundef %79, ptr noundef %250, ptr noundef %.1108165.i, ptr noundef %.0105.i, ptr noundef %.0110.i, i32 noundef %.0111.i)
+  tail call fastcc void @ss_swapmerge(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %250, ptr noundef %.1108165.i, ptr noundef %.0105.i, ptr noundef %.0110.i, i32 noundef %.0111.i)
   br label %251
 
 251:                                              ; preds = %247, %.lr.ph169.i
@@ -727,7 +727,7 @@ ss_isqrt.exit.thread.i:                           ; preds = %ss_isqrt.exit.i, %1
   br i1 %.099.i, label %ss_inplacemerge.exit.i, label %254
 
 254:                                              ; preds = %._crit_edge170.i
-  tail call fastcc void @ss_mintrosort(ptr noundef %0, ptr noundef %79, ptr noundef %.0105.i, ptr noundef %135)
+  tail call fastcc void @ss_mintrosort(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef %.0105.i, ptr noundef nonnull %135)
   br label %255
 
 255:                                              ; preds = %.loopexit.i.i, %254

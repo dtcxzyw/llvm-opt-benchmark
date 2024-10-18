@@ -447,7 +447,7 @@ define void @_Z17pleaseCiteGromacsP8_IO_FILE(ptr noundef %0) local_unnamed_addr 
   br i1 %9, label %_ZN12_GLOBAL__N_114writeSourceDoiEP8_IO_FILE.exit, label %10
 
 10:                                               ; preds = %7
-  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %2)
+  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %2)
   store i32 79, ptr %2, align 4
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %11, align 4
@@ -457,7 +457,7 @@ define void @_Z17pleaseCiteGromacsP8_IO_FILE(ptr noundef %0) local_unnamed_addr 
           to label %.noexc.i unwind label %28
 
 .noexc.i:                                         ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc9.i unwind label %28
 
 .noexc9.i:                                        ; preds = %.noexc.i
@@ -474,7 +474,7 @@ define void @_Z17pleaseCiteGromacsP8_IO_FILE(ptr noundef %0) local_unnamed_addr 
 17:                                               ; preds = %19, %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %.body.i
 
 19:                                               ; preds = %.noexc9.i

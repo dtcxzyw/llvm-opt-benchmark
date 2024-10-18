@@ -305,12 +305,12 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %checktab.exit
 
 checktab.exit:                                    ; preds = %entry, %land.lhs.true5.i, %if.else.i
-  %call.i41 = tail call i32 @lua_type(ptr noundef %L, i32 noundef %cond) #4
+  %call.i41 = tail call i32 @lua_type(ptr noundef %L, i32 noundef range(i32 1, 6) %cond) #4
   %cmp.not.i42 = icmp eq i32 %call.i41, 5
   br i1 %cmp.not.i42, label %checktab.exit49, label %if.then.i43
 
 if.then.i43:                                      ; preds = %checktab.exit
-  %call1.i44 = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %cond) #4
+  %call1.i44 = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef range(i32 1, 6) %cond) #4
   %tobool.not.i45 = icmp eq i32 %call1.i44, 0
   br i1 %tobool.not.i45, label %if.else.i48, label %land.lhs.true.i46
 
@@ -325,7 +325,7 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true.i46
   br label %checktab.exit49
 
 if.else.i48:                                      ; preds = %land.lhs.true.i46, %if.then.i43
-  tail call void @luaL_checktype(ptr noundef %L, i32 noundef %cond, i32 noundef 5) #4
+  tail call void @luaL_checktype(ptr noundef %L, i32 noundef range(i32 1, 6) %cond, i32 noundef 5) #4
   br label %checktab.exit49
 
 checktab.exit49:                                  ; preds = %checktab.exit, %land.lhs.true12.i, %if.else.i48

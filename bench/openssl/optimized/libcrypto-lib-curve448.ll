@@ -452,9 +452,9 @@ for.body.i.i:                                     ; preds = %for.inc9.i.i, %for.
   %tablec.010.i.i = phi ptr [ %arrayidx28, %for.end ], [ %incdec.ptr.i.i, %for.inc9.i.i ]
   %7 = icmp eq i64 %idx.addr.012.i.i, 0
   %conv.i.i.i = select i1 %7, i32 255, i32 0
-  %8 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i.i.i) #8, !srcloc !12
+  %8 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i.i.i) #8, !srcloc !12
   %not.i.i.i.i = xor i32 %conv.i.i.i, -1
-  %9 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i.i.i) #8, !srcloc !12
+  %9 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %not.i.i.i.i) #8, !srcloc !12
   %10 = trunc i32 %8 to i8
   br label %for.body4.i.i
 
@@ -502,7 +502,7 @@ for.body.i.i26:                                   ; preds = %for.body.i.i26, %co
 gf_cond_swap.exit.i:                              ; preds = %for.body.i.i26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %y.i.i)
   call void @gf_sub(ptr noundef nonnull %y.i.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i) #7
-  %15 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %conv20) #8, !srcloc !19
+  %15 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -134217729, 134217727) %conv20) #8, !srcloc !19
   %not.i.i.i.i29 = xor i64 %conv20, -1
   %16 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %not.i.i.i.i29) #8, !srcloc !19
   br label %for.body.i.i.i
@@ -1880,7 +1880,7 @@ prepare_wnaf_table.exit:                          ; preds = %for.body.i114
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %prepare_wnaf_table.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %combo, ptr noundef nonnull readonly align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %combo, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false)
   br label %return
 
 if.end:                                           ; preds = %prepare_wnaf_table.exit
@@ -2004,7 +2004,7 @@ if.then61:                                        ; preds = %if.then55
   %z2.i = getelementptr inbounds i8, ptr %arrayidx67, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i, i64 64, i1 false)
-  call fastcc void @add_niels_to_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx67, i32 noundef %land.ext74)
+  call fastcc void @add_niels_to_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx67, i32 noundef range(i32 0, 2) %land.ext74)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i)
   br label %if.end89
 
@@ -2019,7 +2019,7 @@ if.else75:                                        ; preds = %if.then55
   %z2.i132 = getelementptr inbounds i8, ptr %arrayidx81, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i130, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i132) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i130, i64 64, i1 false)
-  call fastcc void @sub_niels_from_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx81, i32 noundef %land.ext88)
+  call fastcc void @sub_niels_from_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx81, i32 noundef range(i32 0, 2) %land.ext88)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i130)
   br label %if.end89
 

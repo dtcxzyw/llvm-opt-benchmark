@@ -565,7 +565,7 @@ if.end160:                                        ; preds = %if.else145, %land.l
   %53 = load ptr, ptr %repo, align 8
   %index.i = getelementptr inbounds i8, ptr %53, i64 240
   %54 = load ptr, ptr %index.i, align 8
-  %call.i188 = call i32 @ie_match_stat(ptr noundef %54, ptr noundef nonnull %ce.0, ptr noundef nonnull %st127, i32 noundef %and) #14
+  %call.i188 = call i32 @ie_match_stat(ptr noundef %54, ptr noundef nonnull %ce.0, ptr noundef nonnull %st127, i32 noundef range(i32 0, 3) %and) #14
   %ce_mode.i189 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %55 = load i32, ptr %ce_mode.i189, align 4
   %and.i190 = and i32 %55, 61440
@@ -1646,7 +1646,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   %diffopt.i64.i = phi ptr [ %diffopt.i.i, %if.then35.i ], [ %diffopt.i.i, %land.lhs.true.i.i ], [ %diffopt.i59.i, %if.then35.thread.i ]
   %bf.cast142363.i = phi i32 [ %bf.cast.i, %if.then35.i ], [ %bf.cast.i, %land.lhs.true.i.i ], [ %bf.cast8.i, %if.then35.thread.i ]
   %lor.ext122662.i = phi i32 [ %lor.ext.i12, %if.then35.i ], [ %lor.ext.i12, %land.lhs.true.i.i ], [ 0, %if.then35.thread.i ]
-  %call10.i.i = call fastcc i32 @get_stat_data(ptr noundef %0, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext122662.i, i32 noundef %bf.cast142363.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i64.i)
+  %call10.i.i = call fastcc i32 @get_stat_data(ptr noundef %0, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef range(i32 0, 2) %lor.ext122662.i, i32 noundef range(i32 0, 2) %bf.cast142363.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i64.i)
   %cmp4.i.i = icmp slt i32 %call10.i.i, 0
   br i1 %cmp4.i.i, label %show_new_file.exit.i, label %if.end6.i.i
 
@@ -1681,7 +1681,7 @@ is_null_oid.exit.i.i:                             ; preds = %if.else.i.i.i.i, %i
   %25 = load i32, ptr %mode.i.i, align 4
   %26 = load i32, ptr %dirty_submodule.i.i, align 4
   %name.i.i.i = getelementptr inbounds i8, ptr %0, i64 108
-  tail call void @diff_addremove(ptr noundef nonnull %diffopt.i64.i, i32 noundef 43, i32 noundef %25, ptr noundef nonnull %20, i32 noundef %lnot.ext.i.i, ptr noundef nonnull %name.i.i.i, i32 noundef %26) #14
+  tail call void @diff_addremove(ptr noundef nonnull %diffopt.i64.i, i32 noundef 43, i32 noundef %25, ptr noundef nonnull %20, i32 noundef range(i32 0, 2) %lnot.ext.i.i, ptr noundef nonnull %name.i.i.i, i32 noundef %26) #14
   br label %show_new_file.exit.i
 
 show_new_file.exit.i:                             ; preds = %is_null_oid.exit.i.i, %if.end.i.i, %if.then.i.i
@@ -1731,7 +1731,7 @@ if.then.i61.i:                                    ; preds = %if.end49.i
   br label %show_modified.exit.i
 
 if.end.i42.i:                                     ; preds = %if.end49.i
-  %call.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i37.i, ptr noundef %mode.i36.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
+  %call.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i37.i, ptr noundef %mode.i36.i, i32 noundef range(i32 0, 2) %lor.ext.i12, i32 noundef range(i32 0, 2) %bf.cast.i, ptr noundef %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
   %cmp5.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end11.i.i
 
@@ -1815,7 +1815,7 @@ if.then22.i.i:                                    ; preds = %oideq.exit62.i.i, %
   br i1 %cmp.i.i.i, label %if.then.i63.i.i, label %st_add.exit.i.i
 
 if.then.i63.i.i:                                  ; preds = %if.then22.i.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 56, i64 noundef %conv.i43.i) #18
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 56, i64 noundef range(i64 -2147483648, 4294967296) %conv.i43.i) #18
   unreachable
 
 st_add.exit.i.i:                                  ; preds = %if.then22.i.i

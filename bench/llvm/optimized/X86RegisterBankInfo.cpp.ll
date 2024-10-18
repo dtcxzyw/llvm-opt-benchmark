@@ -194,7 +194,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19X86RegisterBankInfo16hasFPConstr
   br i1 %11, label %12, label %_ZL13isFPIntrinsicRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrE.exit
 
 12:                                               ; preds = %5
-  %13 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #12
+  %13 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
@@ -829,7 +829,7 @@ define dso_local void @_ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxs
 21:                                               ; preds = %19
   %22 = and i32 %18, 2147483647
   %23 = zext nneg i32 %22 to i64
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %9) #12
   %25 = icmp ugt i64 %24, %23
   br i1 %25, label %26, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -940,7 +940,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm19X86
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 456
   %20 = and i32 %16, 2147483647
   %21 = zext nneg i32 %20 to i64
-  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #12
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %19) #12
   %23 = icmp ugt i64 %22, %21
   br i1 %23, label %24, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -965,7 +965,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %18, %2
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 456
   %34 = and i32 %30, 2147483647
   %35 = zext nneg i32 %34 to i64
-  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #12
+  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %33) #12
   %37 = icmp ugt i64 %36, %35
   br i1 %37, label %38, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17
 
@@ -989,7 +989,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit17: ; preds = %_ZNK4llv
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 456
   %48 = and i32 %44, 2147483647
   %49 = zext nneg i32 %48 to i64
-  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #12
+  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %47) #12
   %51 = icmp ugt i64 %50, %49
   br i1 %51, label %52, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit19
 
@@ -1100,7 +1100,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm19X86
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %62 = and i32 %58, 2147483647
   %63 = zext nneg i32 %62 to i64
-  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #12
+  %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %61) #12
   %65 = icmp ugt i64 %64, %63
   br i1 %65, label %66, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -1127,8 +1127,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %51, %60, %
   %79 = zext i24 %78 to i32
   %80 = zext i24 %78 to i64
   %81 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %81, i64 noundef 4) #12
-  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %80)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %81, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %80)
   switch i16 %33, label %233 [
     i16 191, label %82
     i16 192, label %82
@@ -1158,7 +1158,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %51, %60, %
   %90 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %91 = and i32 %87, 2147483647
   %92 = zext nneg i32 %91 to i64
-  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #12
+  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %90) #12
   %94 = icmp ugt i64 %93, %92
   br i1 %94, label %95, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit116
 
@@ -1180,7 +1180,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit116: ; preds = %83, %89
   %103 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %104 = and i32 %100, 2147483647
   %105 = zext nneg i32 %104 to i64
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %103) #12
+  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %103) #12
   %107 = icmp ugt i64 %106, %105
   br i1 %107, label %108, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit118
 
@@ -1216,7 +1216,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit118: ; preds = %_ZNK4ll
   %126 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %127 = and i32 %123, 2147483647
   %128 = zext nneg i32 %127 to i64
-  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #12
+  %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %126) #12
   %130 = icmp ugt i64 %129, %128
   br i1 %130, label %131, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120
 
@@ -1237,7 +1237,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120: ; preds = %119, %1
 
 139:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120
   %140 = getelementptr inbounds nuw i8, ptr %31, i64 456
-  %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %140) #12
+  %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %140) #12
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit122
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit122: ; preds = %139, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit120
@@ -1256,11 +1256,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit122: ; preds = %139, %_
   store i32 %144, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %144, ptr %147, align 4
-  %148 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  %148 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, ptr noundef nonnull %150)
+  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %9, ptr noundef nonnull %150)
   br label %234
 
 151:                                              ; preds = %76, %76
@@ -1275,7 +1275,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit122: ; preds = %139, %_
   %158 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %159 = and i32 %155, 2147483647
   %160 = zext nneg i32 %159 to i64
-  %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %158) #12
+  %161 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %158) #12
   %162 = icmp ugt i64 %161, %160
   br i1 %162, label %163, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit124
 
@@ -1297,7 +1297,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit124: ; preds = %151, %1
   %171 = getelementptr inbounds nuw i8, ptr %31, i64 456
   %172 = and i32 %168, 2147483647
   %173 = zext nneg i32 %172 to i64
-  %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %171) #12
+  %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %171) #12
   %175 = icmp ugt i64 %174, %173
   br i1 %175, label %176, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit126
 
@@ -1437,8 +1437,8 @@ _ZNK4llvm19X86RegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19Machine
 
 234:                                              ; preds = %221, %233, %_ZNK4llvm19X86RegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoEj.exit, %210, %207, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit122, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit118, %82
   %235 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %235, i64 noundef 8) #12
-  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %80)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull %235, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(80) %19, i64 noundef %80)
   %236 = load i24, ptr %77, align 8
   %237 = icmp eq i24 %236, 0
   br i1 %237, label %.loopexit, label %.lr.ph.i
@@ -1504,7 +1504,7 @@ _ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15S
 
 270:                                              ; preds = %.loopexit, %_ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit
   %.1 = phi ptr [ %269, %.loopexit ], [ %266, %_ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit ]
-  %271 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #12
+  %271 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #12
   %272 = load ptr, ptr %19, align 8
   %273 = icmp eq ptr %272, %235
   br i1 %273, label %_ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit, label %274
@@ -1514,7 +1514,7 @@ _ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15S
   br label %_ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit: ; preds = %270, %274
-  %275 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  %275 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %276 = load ptr, ptr %4, align 8
   %277 = icmp eq ptr %276, %81
   br i1 %277, label %_ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.exit, label %278
@@ -1702,8 +1702,8 @@ define dso_local void @_ZNK4llvm19X86RegisterBankInfo27getInstrAlternativeMappin
   %33 = zext i24 %32 to i32
   %34 = zext i24 %32 to i64
   %35 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %35, i64 noundef 4) #12
-  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %34)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %35, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %36 = load i24, ptr %31, align 8
   %.not16.i = icmp eq i24 %36, 0
@@ -1736,7 +1736,7 @@ define dso_local void @_ZNK4llvm19X86RegisterBankInfo27getInstrAlternativeMappin
 49:                                               ; preds = %47
   %50 = and i32 %46, 2147483647
   %51 = zext nneg i32 %50 to i64
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #12
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(25) %37) #12
   %53 = icmp ugt i64 %52, %51
   br i1 %53, label %54, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
 
@@ -1764,8 +1764,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i: ; preds = %54, %49,
 _ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERKNS_19MachineRegisterInfoEbRNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEE.exit: ; preds = %.critedge.i, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %61 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %61, i64 noundef 8) #12
-  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %34)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %61, i64 noundef 8) #12
+  call void @_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo12ValueMappingEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(80) %7, i64 noundef %34)
   %62 = load i24, ptr %31, align 8
   %63 = icmp eq i24 %62, 0
   br i1 %63, label %.loopexit, label %.lr.ph.i26
@@ -1821,7 +1821,7 @@ _ZN4llvm19X86RegisterBankInfo26getInstrPartialMappingIdxsERKNS_12MachineInstrERK
   %90 = call noundef ptr @_ZNK4llvm16RegisterBankInfo18getOperandsMappingERKNS_15SmallVectorImplIPKNS0_12ValueMappingEEE(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %91 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false, i32 noundef 1, i32 noundef 1, ptr noundef %90, i32 noundef %33) #12
   %92 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %92, i64 noundef 4) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %92, i64 noundef 4) #12
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %94 = add i64 %93, 1
   %95 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
@@ -1845,7 +1845,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_16RegisterBankInfo18InstructionMappingELb
 
 _ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit: ; preds = %73, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_16RegisterBankInfo18InstructionMappingELb1EE9push_backES4_.exit
   %switch = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_16RegisterBankInfo18InstructionMappingELb1EE9push_backES4_.exit ], [ true, %73 ]
-  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #12
   %104 = load ptr, ptr %7, align 8
   %105 = icmp eq ptr %104, %61
   br i1 %105, label %_ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit, label %106
@@ -1855,7 +1855,7 @@ _ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15S
   br label %_ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_16RegisterBankInfo12ValueMappingELj8EED2Ev.exit: ; preds = %_ZN4llvm19X86RegisterBankInfo20getInstrValueMappingERKNS_12MachineInstrERKNS_15SmallVectorImplINS_22X86GenRegisterBankInfo17PartialMappingIdxEEERNS4_IPKNS_16RegisterBankInfo12ValueMappingEEE.exit, %106
-  %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %108 = load ptr, ptr %6, align 8
   %109 = icmp eq ptr %108, %35
   br i1 %109, label %_ZN4llvm11SmallVectorINS_22X86GenRegisterBankInfo17PartialMappingIdxELj4EED2Ev.exit, label %110
@@ -1924,7 +1924,7 @@ define linkonce_odr hidden void @_ZN4llvm19X86RegisterBankInfoD2Ev(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm19X86RegisterBankInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm16RegisterBankInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #12
+  tail call void @_ZN4llvm16RegisterBankInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 168) #13
   ret void
 }

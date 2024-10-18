@@ -819,7 +819,7 @@ lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_out.e
   br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
 
 if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_out.exit.i.i
-  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef %hw_as.i)
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %34 = load i8, ptr %mixing_engine.i.i, align 1
   %tobool4.i.i = trunc i8 %34 to i1
   %tobool6.i.i = icmp eq ptr %call2.i.i, null
@@ -909,7 +909,7 @@ while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %
   br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !8
 
 if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
-  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef %hw_as.i)
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
 
@@ -1778,7 +1778,7 @@ lor.lhs.false.i.i:                                ; preds = %audio_get_pdo_in.ex
   br i1 %tobool1.i.i, label %if.then.i.i61, label %if.end8.i.i
 
 if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, %audio_get_pdo_in.exit.i.i
-  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef %hw_as.i)
+  %call2.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %34 = load i8, ptr %mixing_engine.i.i, align 1
   %tobool4.i.i = trunc i8 %34 to i1
   %tobool6.i.i = icmp eq ptr %call2.i.i, null
@@ -1868,7 +1868,7 @@ while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %
   br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
-  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef %hw_as.i)
+  %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
 
@@ -2603,7 +2603,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %14 = load ptr, ptr %buffer.i.i, align 8
   %add.ptr.i.i = getelementptr %struct.st_sample, ptr %14, i64 %cond.i.i.i
   %sub6.i.i = sub i64 %9, %cond.i.i.i
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub6.i.i)
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %sub.i, i64 %sub6.i.i)
   store i64 %cond.i.i, ptr %frames_in.i.i, align 8
   %buffer7.i.i = getelementptr inbounds i8, ptr %sw, i64 80
   %15 = load ptr, ptr %buffer7.i.i, align 8
@@ -2826,7 +2826,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %14 = load ptr, ptr %cb.06.i.i, align 8
   %opaque.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 24
   %15 = load ptr, ptr %opaque.i.i, align 8
-  tail call void %14(ptr noundef %15, i32 noundef 0) #25
+  tail call void %14(ptr noundef %15, i32 noundef range(i32 0, 2) 0) #25
   %entries.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 32
   %cb.0.i.i = load ptr, ptr %entries.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %cb.0.i.i, null
@@ -3414,7 +3414,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i88.i, %f
   %39 = load ptr, ptr %cb.06.i.i.i.i, align 8
   %opaque.i.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i.i, i64 24
   %40 = load ptr, ptr %opaque.i.i.i.i, align 8
-  call void %39(ptr noundef %40, i32 noundef 1) #25
+  call void %39(ptr noundef %40, i32 noundef range(i32 0, 2) 1) #25
   %entries.i.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i.i, i64 32
   %cb.0.i.i.i.i = load ptr, ptr %entries.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %cb.0.i.i.i.i, null
@@ -3445,7 +3445,7 @@ for.body.i.i10.i.i:                               ; preds = %if.then.i6.i.i, %fo
   %43 = load ptr, ptr %cb.06.i.i11.i.i, align 8
   %opaque.i.i12.i.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i.i, i64 24
   %44 = load ptr, ptr %opaque.i.i12.i.i, align 8
-  call void %43(ptr noundef %44, i32 noundef 0) #25
+  call void %43(ptr noundef %44, i32 noundef range(i32 0, 2) 0) #25
   %entries.i.i13.i.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i.i, i64 32
   %cb.0.i.i14.i.i = load ptr, ptr %entries.i.i13.i.i, align 8
   %tobool.not.i.i15.i.i = icmp eq ptr %cb.0.i.i14.i.i, null
@@ -5833,7 +5833,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %9 = load ptr, ptr %cb.06.i.i, align 8
   %opaque.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 24
   %10 = load ptr, ptr %opaque.i.i, align 8
-  tail call void %9(ptr noundef %10, i32 noundef 0) #25
+  tail call void %9(ptr noundef %10, i32 noundef range(i32 0, 2) 0) #25
   %entries.i.i = getelementptr inbounds i8, ptr %cb.06.i.i, i64 32
   %cb.0.i.i = load ptr, ptr %entries.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %cb.0.i.i, null
@@ -6899,7 +6899,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %9 = load ptr, ptr %cb.06.i.i.i, align 8
   %opaque.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i, i64 24
   %10 = load ptr, ptr %opaque.i.i.i, align 8
-  tail call void %9(ptr noundef %10, i32 noundef 1) #25
+  tail call void %9(ptr noundef %10, i32 noundef range(i32 0, 2) 1) #25
   %entries.i.i.i = getelementptr inbounds i8, ptr %cb.06.i.i.i, i64 32
   %cb.0.i.i.i = load ptr, ptr %entries.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %cb.0.i.i.i, null
@@ -6930,7 +6930,7 @@ for.body.i.i10.i:                                 ; preds = %if.then.i6.i, %for.
   %13 = load ptr, ptr %cb.06.i.i11.i, align 8
   %opaque.i.i12.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i, i64 24
   %14 = load ptr, ptr %opaque.i.i12.i, align 8
-  tail call void %13(ptr noundef %14, i32 noundef 0) #25
+  tail call void %13(ptr noundef %14, i32 noundef range(i32 0, 2) 0) #25
   %entries.i.i13.i = getelementptr inbounds i8, ptr %cb.06.i.i11.i, i64 32
   %cb.0.i.i14.i = load ptr, ptr %entries.i.i13.i, align 8
   %tobool.not.i.i15.i = icmp eq ptr %cb.0.i.i14.i, null

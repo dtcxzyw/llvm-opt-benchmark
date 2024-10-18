@@ -303,14 +303,14 @@ define internal void @opcua_secrets_block_callback(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %12 = call ptr @strtok_r(ptr noundef nonnull %7, ptr noundef nonnull readonly @.str.74, ptr noundef nonnull %4) #11
+  %12 = call ptr @strtok_r(ptr noundef nonnull %7, ptr noundef nonnull @.str.74, ptr noundef nonnull %4) #11
   %.not3.i = icmp eq ptr %12, null
   br i1 %.not3.i, label %opcua_keylog_process_lines.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.04.i = phi ptr [ %13, %.lr.ph.i ], [ %12, %9 ]
   call fastcc void @opcua_keylog_process_line(ptr noundef %3, ptr noundef %.04.i)
-  %13 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.74, ptr noundef nonnull %4) #11
+  %13 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.74, ptr noundef nonnull %4) #11
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %opcua_keylog_process_lines.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -347,7 +347,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
   br i1 %.not, label %8, label %hex_to_bin.exit
 
 8:                                                ; preds = %2
-  %9 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull readonly @.str.34, ptr noundef nonnull %6) #11
+  %9 = call ptr @strtok_r(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #11
   %.not38 = icmp eq ptr %9, null
   br i1 %.not38, label %hex_to_bin.exit, label %.lr.ph
 
@@ -357,7 +357,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %.02636, ptr %10, align 8
-  %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.34, ptr noundef nonnull %6) #11
+  %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #11
   %12 = icmp ne ptr %11, null
   %13 = icmp samesign ult i64 %indvars.iv, 3
   %14 = select i1 %12, i1 %13, i1 false

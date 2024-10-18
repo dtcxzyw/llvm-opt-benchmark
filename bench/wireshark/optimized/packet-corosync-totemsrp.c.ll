@@ -346,9 +346,9 @@ corosync_totemsrp_get_guint32.exit:               ; preds = %62, %64
   %70 = load i32, ptr @ett_corosync_totemsrp_orf_token, align 4
   %71 = tail call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70) #4
   %72 = load i32, ptr @hf_corosync_totemsrp_orf_token_seq, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %.0) #4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %74 = load i32, ptr @hf_corosync_totemsrp_orf_token_token_seq, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %74, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %.0) #4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %74, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   br i1 %37, label %76, label %81
 
 76:                                               ; preds = %67
@@ -361,7 +361,7 @@ corosync_totemsrp_get_guint32.exit:               ; preds = %62, %64
 81:                                               ; preds = %67
   %82 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %83 = load i32, ptr @hf_corosync_totemsrp_orf_token_aru, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %83, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %.0) #4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %83, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %85 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #4
   br label %corosync_totemsrp_get_guint32.exit82.i
 
@@ -369,20 +369,20 @@ corosync_totemsrp_get_guint32.exit82.i:           ; preds = %81, %76
   %.0.i2.i = phi i32 [ %77, %76 ], [ %82, %81 ]
   %.0.i81.i = phi i32 [ %80, %76 ], [ %85, %81 ]
   %86 = load i32, ptr @hf_corosync_totemsrp_orf_token_aru_addr, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %86, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %.0) #4
-  %88 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %71, i32 noundef 24, i32 noundef %.0, ptr noundef nonnull %23, ptr noundef nonnull %24)
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %86, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
+  %88 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %71, i32 noundef 24, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %23, ptr noundef nonnull %24)
   %89 = add i32 %88, 24
   %90 = load i32, ptr @hf_corosync_totemsrp_orf_token_backlog, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef %.0) #4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %92 = add i32 %88, 28
   %93 = load i32, ptr @hf_corosync_totemsrp_orf_token_fcc, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef %.0) #4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %95 = add i32 %88, 32
   %96 = load i32, ptr @hf_corosync_totemsrp_orf_token_retrnas_flg, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %96, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef %.0) #4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %96, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %98 = add i32 %88, 36
   %99 = load i32, ptr @hf_corosync_totemsrp_orf_token_rtr_list_entries, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef %.0) #4
+  %100 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %101 = add i32 %88, 40
   br i1 %37, label %corosync_totemsrp_get_guint32.exit84.i, label %corosync_totemsrp_get_guint32.exit84.thread.i
 
@@ -422,7 +422,7 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %119 = add i32 %118, %.05.us.i
   %120 = load i32, ptr @hf_corosync_totemsrp_rtr_item_seq, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef -2147483648) #4
+  %121 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) -2147483648) #4
   %122 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %119) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.116, i64 noundef %116, i32 noundef %117, i32 noundef %122) #4
   %123 = add i32 %112, 12
@@ -443,10 +443,10 @@ dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_g
   %127 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %126, ptr noundef %0, i32 noundef %.05.i, i32 noundef -1, i32 noundef 0) #4
   %128 = load i32, ptr @ett_corosync_totemsrp_rtr_item, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %128) #4
-  %130 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %129, i32 noundef %.05.i, i32 noundef %.0, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  %130 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %129, i32 noundef %.05.i, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %21, ptr noundef nonnull %22)
   %131 = add i32 %130, %.05.i
   %132 = load i32, ptr @hf_corosync_totemsrp_rtr_item_seq, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef %.0) #4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %134 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %131) #4
   %135 = load i64, ptr %22, align 8
   %136 = load i32, ptr %21, align 4
@@ -478,7 +478,7 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   store ptr null, ptr %20, align 8
   %144 = load i32, ptr @hf_corosync_totemsrp_mcast, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %144, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %144, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %146 = load i32, ptr @ett_corosync_totemsrp_mcast, align 4
   %147 = tail call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #4
   %148 = load i32, ptr @hf_corosync_totemsrp_mcast_system_from, align 4
@@ -486,34 +486,34 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   %.not.i100 = icmp eq i32 %148, 0
   %149 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
   %150 = select i1 %.not.i100, i32 %149, i32 %148
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %150, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %150, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %152 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %153 = tail call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %152) #4
-  %154 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %153, i32 noundef 8, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %154 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %153, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %155 = add i32 %154, 8
   %156 = load i32, ptr %5, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef nonnull @.str.118, i32 noundef %156) #4
-  %157 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %153, i32 noundef %155, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %157 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %153, i32 noundef %155, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %158 = add i32 %157, %154
   call void @proto_item_set_len(ptr noundef %151, i32 noundef %158) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %159 = add i32 %158, 8
   %160 = load i32, ptr @hf_corosync_totemsrp_mcast_seq, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef %.0) #4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %162 = add i32 %158, 12
   %163 = load i32, ptr @hf_corosync_totemsrp_mcast_this_seqno, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 4, i32 noundef %.0) #4
+  %164 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %165 = add i32 %158, 16
-  %166 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %147, i32 noundef %165, i32 noundef %.0, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  %166 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %147, i32 noundef %165, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %167 = add i32 %166, %165
   %168 = load i64, ptr %19, align 8
   %169 = load i32, ptr %18, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.117, i64 noundef %168, i32 noundef %169) #4
   %170 = load i32, ptr @hf_corosync_totemsrp_mcast_node_id, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %170, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef %.0) #4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %170, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %172 = add i32 %167, 4
   %173 = load i32, ptr @hf_corosync_totemsrp_mcast_guarantee, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 4, i32 noundef %.0) #4
+  %174 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %175 = add i32 %167, 8
   %176 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %175) #4
   %177 = icmp eq i8 %33, 1
@@ -549,19 +549,19 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %178, %181
   %189 = tail call ptr @proto_item_add_subtree(ptr noundef %187, i32 noundef %188) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   %190 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
+  %191 = tail call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %192 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %193 = tail call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %192) #4
-  %194 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %193, i32 noundef 8, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
+  %194 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %193, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
   %195 = add i32 %194, 8
   %196 = load i32, ptr %15, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %191, ptr noundef nonnull @.str.118, i32 noundef %196) #4
-  %197 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %193, i32 noundef %195, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %197 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %193, i32 noundef %195, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %198 = add i32 %197, %194
   call void @proto_item_set_len(ptr noundef %191, i32 noundef %198) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %199 = add i32 %198, 8
-  %200 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %189, i32 noundef %199, i32 noundef %.0, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %200 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %189, i32 noundef %199, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %201 = load i64, ptr %17, align 8
   %202 = load i32, ptr %16, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %187, ptr noundef nonnull @.str.117, i64 noundef %201, i32 noundef %202) #4
@@ -573,25 +573,25 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %178, %181
 
 204:                                              ; preds = %corosync_totemsrp_get_guint32.exit
   %205 = load i32, ptr @hf_corosync_totemsrp_memb_join, align 4
-  %206 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %205, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %205, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %207 = load i32, ptr @ett_corosync_totemsrp_memb_join, align 4
   %208 = tail call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %207) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %209 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %211 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %212 = tail call ptr @proto_item_add_subtree(ptr noundef %210, i32 noundef %211) #4
-  %213 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %212, i32 noundef 8, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
+  %213 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %212, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   %214 = add i32 %213, 8
   %215 = load i32, ptr %14, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %210, ptr noundef nonnull @.str.118, i32 noundef %215) #4
-  %216 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %212, i32 noundef %214, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %216 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %212, i32 noundef %214, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %217 = add i32 %216, %213
   call void @proto_item_set_len(ptr noundef %210, i32 noundef %217) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %218 = add i32 %217, 8
   %219 = load i32, ptr @hf_corosync_totemsrp_memb_join_proc_list_entries, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 4, i32 noundef %.0) #4
+  %220 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %221 = add i32 %217, 12
   br i1 %37, label %222, label %227
 
@@ -605,7 +605,7 @@ dissect_corosync_totemsrp_mcast.exit:             ; preds = %178, %181
 227:                                              ; preds = %204
   %228 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %218) #4
   %229 = load i32, ptr @hf_corosync_totemsrp_memb_join_failed_list_entries, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %229, ptr noundef %0, i32 noundef %221, i32 noundef 4, i32 noundef %.0) #4
+  %230 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %229, ptr noundef %0, i32 noundef %221, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %231 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %221) #4
   br label %corosync_totemsrp_get_guint32.exit66.i
 
@@ -615,7 +615,7 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   %.0.i65.i = phi i32 [ %226, %222 ], [ %231, %227 ]
   %233 = add i32 %217, 16
   %234 = load i32, ptr @hf_corosync_totemsrp_memb_join_ring_seq, align 4
-  %235 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 8, i32 noundef %.0) #4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %236 = add i32 %217, 24
   %237 = load i32, ptr @ett_corosync_totemsrp_memb_join_proc_list, align 4
   %238 = call ptr @proto_item_add_subtree(ptr noundef %220, i32 noundef %237) #4
@@ -628,14 +628,14 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   %.0634.i = phi i32 [ %249, %.lr.ph.i ], [ 0, %corosync_totemsrp_get_guint32.exit66.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %239 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %240 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef %0, i32 noundef %.05.i90, i32 noundef -1, i32 noundef %.0) #4
+  %240 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef %0, i32 noundef %.05.i90, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %241 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %242 = call ptr @proto_item_add_subtree(ptr noundef %240, i32 noundef %241) #4
-  %243 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %242, i32 noundef %.05.i90, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
+  %243 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %242, i32 noundef %.05.i90, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
   %244 = add i32 %243, %.05.i90
   %245 = load i32, ptr %13, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %240, ptr noundef nonnull @.str.118, i32 noundef %245) #4
-  %246 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %242, i32 noundef %244, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %246 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %242, i32 noundef %244, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %247 = add i32 %246, %243
   call void @proto_item_set_len(ptr noundef %240, i32 noundef %247) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -656,14 +656,14 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   %.1646.i = phi i32 [ %262, %.lr.ph9.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %252 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %253 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %.17.i, i32 noundef -1, i32 noundef %.0) #4
+  %253 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %.17.i, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %254 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %255 = call ptr @proto_item_add_subtree(ptr noundef %253, i32 noundef %254) #4
-  %256 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %255, i32 noundef %.17.i, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
+  %256 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %255, i32 noundef %.17.i, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %257 = add i32 %256, %.17.i
   %258 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %253, ptr noundef nonnull @.str.118, i32 noundef %258) #4
-  %259 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %255, i32 noundef %257, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %259 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %255, i32 noundef %257, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %260 = add i32 %259, %256
   call void @proto_item_set_len(ptr noundef %253, i32 noundef %260) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -686,7 +686,7 @@ dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_
   %267 = load i32, ptr @ett_corosync_totemsrp_memb_commit_token, align 4
   %268 = tail call ptr @proto_item_add_subtree(ptr noundef %266, i32 noundef %267) #4
   %269 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_token_seq, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %.0) #4
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   br i1 %37, label %271, label %273
 
 271:                                              ; preds = %264
@@ -699,16 +699,16 @@ dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_
 
 corosync_totemsrp_get_guint32.exit.i:             ; preds = %273, %271
   %.0.i.i = phi i32 [ %272, %271 ], [ %274, %273 ]
-  %275 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %268, i32 noundef 12, i32 noundef %.0, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %275 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %268, i32 noundef 12, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %276 = add i32 %275, 12
   %277 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_retrans_flg, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %277, ptr noundef %0, i32 noundef %276, i32 noundef 4, i32 noundef %.0) #4
+  %278 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %277, ptr noundef %0, i32 noundef %276, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %279 = add i32 %275, 16
   %280 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_index, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef %.0) #4
+  %281 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %280, ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %282 = add i32 %275, 20
   %283 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_addr_entries, align 4
-  %284 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 4, i32 noundef %.0) #4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   br i1 %37, label %285, label %287
 
 285:                                              ; preds = %corosync_totemsrp_get_guint32.exit.i
@@ -730,14 +730,14 @@ corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %.0651.i = phi i32 [ %300, %.lr.ph.i94 ], [ 0, %corosync_totemsrp_get_guint32.exit69.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %290 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %290, ptr noundef %0, i32 noundef %.02.i, i32 noundef -1, i32 noundef %.0) #4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %290, ptr noundef %0, i32 noundef %.02.i, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %292 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %293 = call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292) #4
-  %294 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %.02.i, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %294 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %.02.i, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %295 = add i32 %294, %.02.i
   %296 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %291, ptr noundef nonnull @.str.118, i32 noundef %296) #4
-  %297 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %295, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  %297 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %295, i32 noundef range(i32 -2147483648, 1) %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %298 = add i32 %297, %294
   call void @proto_item_set_len(ptr noundef %291, i32 noundef %298) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -750,19 +750,19 @@ corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %.14.i = phi i32 [ %316, %.lr.ph5.i ], [ %299, %.lr.ph.i94 ]
   %.1663.i = phi i32 [ %317, %.lr.ph5.i ], [ 0, %.lr.ph.i94 ]
   %301 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry, align 4
-  %302 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %301, ptr noundef %0, i32 noundef %.14.i, i32 noundef -1, i32 noundef %.0) #4
+  %302 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %301, ptr noundef %0, i32 noundef %.14.i, i32 noundef -1, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %303 = load i32, ptr @ett_corosync_totemsrp_memb_commit_token_memb_entry, align 4
   %304 = call ptr @proto_item_add_subtree(ptr noundef %302, i32 noundef %303) #4
-  %305 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %304, i32 noundef %.14.i, i32 noundef %.0, ptr noundef null, ptr noundef null)
+  %305 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %304, i32 noundef %.14.i, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef null, ptr noundef null)
   %306 = add i32 %305, %.14.i
   %307 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry_aru, align 4
-  %308 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %307, ptr noundef %0, i32 noundef %306, i32 noundef 4, i32 noundef %.0) #4
+  %308 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %307, ptr noundef %0, i32 noundef %306, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %309 = add i32 %306, 4
   %310 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry_high_delivered, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %310, ptr noundef %0, i32 noundef %309, i32 noundef 4, i32 noundef %.0) #4
+  %311 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %310, ptr noundef %0, i32 noundef %309, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %312 = add i32 %306, 8
   %313 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry_received_flg, align 4
-  %314 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef 4, i32 noundef %.0) #4
+  %314 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.0) #4
   %315 = add i32 %305, 12
   call void @proto_item_set_len(ptr noundef %302, i32 noundef %315) #4
   %316 = add i32 %315, %.14.i
@@ -788,7 +788,7 @@ dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosyn
   %323 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %322, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
   %324 = load i32, ptr @ett_corosync_totemsrp_token_hold_cancel, align 4
   %325 = tail call ptr @proto_item_add_subtree(ptr noundef %323, i32 noundef %324) #4
-  %326 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %325, i32 noundef 8, i32 noundef %.0, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %326 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %325, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %.0, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %327 = load i64, ptr %8, align 8
   %328 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %323, ptr noundef nonnull @.str.117, i64 noundef %327, i32 noundef %328) #4

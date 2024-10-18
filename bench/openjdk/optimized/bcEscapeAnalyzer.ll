@@ -841,7 +841,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i:              ; preds = %31
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(160) %3) #12
   br i1 %36, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, label %46
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i, %31
@@ -1137,7 +1137,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %171
   %173 = load ptr, ptr %8, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 32
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %176 = tail call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(144) %8) #12
   br i1 %176, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %171
@@ -1181,7 +1181,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i122:         ; preds = %191
   %194 = load ptr, ptr %185, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(24) %185) #12
+  %197 = tail call noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(144) %185) #12
   br i1 %197, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i121, label %_ZN15ciInstanceKlass14is_initializedEv.exit123thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i121:  ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i122, %191
@@ -7782,7 +7782,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
 
 ._crit_edge277:                                   ; preds = %.lr.ph276
   %63 = lshr i32 %8, 2
-  %64 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %63, i32 noundef 8, ptr noundef %1) #12
+  %64 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %63, i32 noundef 8, ptr noundef nonnull %1) #12
   %65 = icmp sgt i32 %8, 3
   br i1 %65, label %.lr.ph16.preheader.i.i, label %_ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit
 
@@ -7798,7 +7798,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge277.t
   %70 = phi ptr [ %54, %._crit_edge277.thread ], [ %64, %._crit_edge277 ], [ %64, %.lr.ph16.preheader.i.i ]
   %71 = phi i32 [ %.neg, %._crit_edge277.thread ], [ %63, %._crit_edge277 ], [ %63, %.lr.ph16.preheader.i.i ]
   %72 = ptrtoint ptr %1 to i64
-  %73 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef %1) #12
+  %73 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %1) #12
   store i32 0, ptr %4, align 8
   %74 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 4, ptr %74, align 4
@@ -9129,7 +9129,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %19
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(24) %13) #12
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(144) %13) #12
   br i1 %25, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass14is_initializedEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %19
@@ -9214,7 +9214,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i25:          ; preds = %63
   %66 = load ptr, ptr %57, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(24) %57) #12
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(144) %57) #12
   br i1 %69, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i24, label %_ZN15ciInstanceKlass14is_initializedEv.exit26thread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i24:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i25, %63

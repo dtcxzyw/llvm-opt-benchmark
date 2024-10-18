@@ -524,7 +524,7 @@ define noundef ptr @_ZNK5faiss10IndexIVFPQ23get_InvertedListScannerEbPKNS_10IDSe
 10:                                               ; preds = %9
   %11 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %12, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %20
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %10
@@ -552,7 +552,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 22:                                               ; preds = %9
   %23 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %24 = getelementptr inbounds i8, ptr %23, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %24, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %24, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %32
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %22
@@ -592,7 +592,7 @@ common.resume:                                    ; preds = %96, %108, %121, %13
 35:                                               ; preds = %34
   %36 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %37 = getelementptr inbounds i8, ptr %36, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %37, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %37, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %45
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %35
@@ -620,7 +620,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 47:                                               ; preds = %34
   %48 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %49 = getelementptr inbounds i8, ptr %48, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %49, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %49, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %57
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %47
@@ -654,7 +654,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 60:                                               ; preds = %59
   %61 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %62 = getelementptr inbounds i8, ptr %61, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %62, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %62, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %70
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %60
@@ -682,7 +682,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 72:                                               ; preds = %59
   %73 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %74 = getelementptr inbounds i8, ptr %73, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %74, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %74, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %82
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %72
@@ -722,7 +722,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDec
 86:                                               ; preds = %85
   %87 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %88 = getelementptr inbounds i8, ptr %87, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %88, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %88, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %96
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %86
@@ -750,7 +750,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 98:                                               ; preds = %85
   %99 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %100 = getelementptr inbounds i8, ptr %99, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %100, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %100, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %108
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %98
@@ -784,7 +784,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDec
 111:                                              ; preds = %110
   %112 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %113 = getelementptr inbounds i8, ptr %112, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %113, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %113, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %121
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %111
@@ -812,7 +812,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDec
 123:                                              ; preds = %110
   %124 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %125 = getelementptr inbounds i8, ptr %124, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %125, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %125, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %133
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %123
@@ -846,7 +846,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDec
 136:                                              ; preds = %135
   %137 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %138 = getelementptr inbounds i8, ptr %137, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %138, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %138, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %146
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %136
@@ -874,7 +874,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDec
 148:                                              ; preds = %135
   %149 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #31
   %150 = getelementptr inbounds i8, ptr %149, i64 40
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %150, ptr noundef nonnull align 8 dereferenceable(528) %0)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(212) %150, ptr noundef nonnull align 8 dereferenceable(528) %0)
           to label %_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i unwind label %158
 
 _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EEC2ERKNS_10IndexIVFPQEbiPKNS_10IDSelectorE.exit.i.i: ; preds = %148
@@ -1030,7 +1030,7 @@ define linkonce_odr void @_ZThn40_N5faiss10IndexIVFPQD1Ev(ptr noundef %0) unname
 define linkonce_odr void @_ZThn40_N5faiss10IndexIVFPQD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss10IndexIVFPQD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(528) %2) #30
   ret void
 }
 
@@ -2800,11 +2800,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -2898,7 +2898,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -10667,7 +10667,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -18870,11 +18870,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -18968,7 +18968,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -33291,11 +33291,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -33389,7 +33389,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -47716,11 +47716,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -47814,7 +47814,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -62135,11 +62135,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -62314,7 +62314,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(212) %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -77798,11 +77798,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -77977,7 +77977,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(212) %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.59") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb1EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -93084,11 +93084,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -93182,7 +93182,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -106715,11 +106715,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -106813,7 +106813,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -120340,11 +120340,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -120438,7 +120438,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -133971,11 +133971,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -134069,7 +134069,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(212) %11, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %8)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE20scan_list_with_tableINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 35:                                               ; preds = %7
@@ -147596,11 +147596,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -147775,7 +147775,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMinIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(212) %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.80") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMinIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7
@@ -162607,11 +162607,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1EN
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %11 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables22precompute_list_tablesEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(184) %5)
+  %13 = tail call fastcc noundef float @_ZN5faiss12_GLOBAL__N_111QueryTables30precompute_list_table_pointersEv(ptr noundef nonnull align 8 dereferenceable(212) %5)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %10
@@ -162786,7 +162786,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metric
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
+  tail call fastcc void @_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE27Run_scan_list_polysemous_hcINS1_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEJPKS5_mPKhSA_EEENT_1TEiRSG_DpT0_(i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(212) %15, i64 noundef %1, ptr noundef %2, ptr noundef nonnull byval(%"struct.faiss::(anonymous namespace)::KnnSearchResults.84") align 8 %12)
   br label %_ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGenericEE22scan_list_with_pointerINS0_16KnnSearchResultsINS_4CMaxIflEELb0EEEEEvmPKhRT_.exit
 
 39:                                               ; preds = %7

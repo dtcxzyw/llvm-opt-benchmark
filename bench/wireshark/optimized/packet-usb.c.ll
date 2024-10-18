@@ -4087,7 +4087,7 @@ is_usb_standard_setup_request.exit.thread.i305:   ; preds = %is_usb_standard_set
   store i32 0, ptr %17, align 4
   %815 = load i32, ptr @hf_usb_bInterfaceClass, align 4
   %816 = zext i16 %.val to i32
-  %817 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %815, ptr noundef %0, i32 noundef %.0250, i32 noundef 0, i32 noundef %816) #11
+  %817 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %815, ptr noundef %0, i32 noundef range(i32 0, 256) %.0250, i32 noundef 0, i32 noundef %816) #11
   %.not.i.i310 = icmp eq ptr %817, null
   br i1 %.not.i.i310, label %proto_item_set_generated.exit.i312, label %818
 
@@ -4106,7 +4106,7 @@ is_usb_standard_setup_request.exit.thread.i305:   ; preds = %is_usb_standard_set
 
 proto_item_set_generated.exit.i312:               ; preds = %821, %818, %813
   %825 = load i32, ptr @hf_usb_iso_error_count, align 4
-  %826 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %825, ptr noundef %0, i32 noundef %.0250, i32 noundef 4, i32 noundef -2147483648) #11
+  %826 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %825, ptr noundef %0, i32 noundef range(i32 0, 256) %.0250, i32 noundef 4, i32 noundef -2147483648) #11
   %827 = add nuw nsw i32 %.0250, 4
   %828 = load i32, ptr @hf_usb_iso_numdesc, align 4
   %829 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %111, i32 noundef %828, ptr noundef %0, i32 noundef %827, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14) #11
@@ -4224,7 +4224,7 @@ dissect_linux_usb_iso_transfer.exit:              ; preds = %846, %._crit_edge.l
 
 899:                                              ; preds = %812
   %900 = load i32, ptr @hf_usb_win32_iso_start_frame, align 4
-  %901 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %900, ptr noundef %0, i32 noundef %.0250, i32 noundef 4, i32 noundef -2147483648) #11
+  %901 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %900, ptr noundef %0, i32 noundef range(i32 0, 256) %.0250, i32 noundef 4, i32 noundef -2147483648) #11
   %902 = add nuw nsw i32 %.0250, 4
   %903 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %902) #11
   %904 = load i32, ptr @hf_usb_win32_iso_num_packets, align 4
@@ -4376,7 +4376,7 @@ dissect_linux_usb_iso_transfer.exit:              ; preds = %846, %._crit_edge.l
   store i32 0, ptr %12, align 4
   %974 = load i32, ptr @hf_usb_bInterfaceClass, align 4
   %975 = zext i16 %.val285 to i32
-  %976 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %974, ptr noundef %0, i32 noundef %.0250, i32 noundef 0, i32 noundef %975) #11
+  %976 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %974, ptr noundef %0, i32 noundef range(i32 0, 256) %.0250, i32 noundef 0, i32 noundef %975) #11
   %.not.i.i321 = icmp eq ptr %976, null
   br i1 %.not.i.i321, label %proto_item_set_generated.exit.i323, label %977
 
@@ -4479,7 +4479,7 @@ dissect_usbip_iso_transfer.exit:                  ; preds = %1025, %proto_item_s
   %1031 = getelementptr inbounds i8, ptr %199, i64 36
   %1032 = load i16, ptr %1031, align 4
   %1033 = zext i16 %1032 to i32
-  %1034 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %1030, ptr noundef %0, i32 noundef %.0250, i32 noundef 0, i32 noundef %1033) #11
+  %1034 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %1030, ptr noundef %0, i32 noundef range(i32 0, 256) %.0250, i32 noundef 0, i32 noundef %1033) #11
   %.not.i.i331 = icmp eq ptr %1034, null
   br i1 %.not.i.i331, label %proto_item_set_generated.exit.i333, label %1035
 

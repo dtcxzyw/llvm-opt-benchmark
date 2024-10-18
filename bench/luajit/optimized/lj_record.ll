@@ -8295,7 +8295,7 @@ cond.end9:                                        ; preds = %cond.true7, %cond.f
   br i1 %tobool.not.i, label %if.then.i, label %fori_arg.exit
 
 if.then.i:                                        ; preds = %cond.end9
-  %call.i = tail call fastcc i32 @find_kinit(ptr noundef nonnull %J, ptr noundef nonnull %fori, i32 noundef %add11, i32 noundef %cond10)
+  %call.i = tail call fastcc i32 @find_kinit(ptr noundef nonnull %J, ptr noundef nonnull %fori, i32 noundef range(i32 1, 258) %add11, i32 noundef %cond10)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.then2.i, label %fori_arg.exit
 
@@ -8333,7 +8333,7 @@ fori_arg.exit:                                    ; preds = %cond.end9, %if.then
   br i1 %tobool.not.i62, label %if.then.i64, label %fori_arg.exit80
 
 if.then.i64:                                      ; preds = %fori_arg.exit
-  %call.i65 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %J, ptr noundef nonnull %fori, i32 noundef %add13, i32 noundef %cond10)
+  %call.i65 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %J, ptr noundef nonnull %fori, i32 noundef range(i32 1, 258) %add13, i32 noundef %cond10)
   %tobool1.not.i66 = icmp eq i32 %call.i65, 0
   br i1 %tobool1.not.i66, label %if.then2.i67, label %fori_arg.exit80
 

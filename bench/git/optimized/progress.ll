@@ -510,7 +510,7 @@ land.lhs.true.i:                                  ; preds = %if.end3
   br i1 %cmp.not.i, label %finish_if_sparse.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call fastcc void @display(ptr noundef %0, i64 noundef %3, ptr noundef null)
+  tail call fastcc void @display(ptr noundef nonnull %0, i64 noundef %3, ptr noundef null)
   br label %finish_if_sparse.exit
 
 finish_if_sparse.exit:                            ; preds = %if.end3, %land.lhs.true.i, %if.then.i
@@ -578,7 +578,7 @@ force_last_update.exit:                           ; preds = %if.then4, %throughp
   store volatile i32 1, ptr @progress_update, align 4
   %call5.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %msg) #11
   %12 = load i64, ptr %last_value, align 8
-  tail call fastcc void @display(ptr noundef %0, i64 noundef %12, ptr noundef %call5.i)
+  tail call fastcc void @display(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %call5.i)
   tail call void @free(ptr noundef %call5.i) #11
   br label %if.end5
 

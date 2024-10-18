@@ -2188,7 +2188,7 @@ if.end3.i.i:                                      ; preds = %if.then5.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then5.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.21, %if.then5.i ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, i32 noundef %lineno) #21
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, i32 noundef range(i32 -2147483647, -2147483648) %lineno) #21
   br label %parse_attr_line.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -2241,7 +2241,7 @@ if.end3.i57.i:                                    ; preds = %if.then24.i
 
 _.exit60.i:                                       ; preds = %if.end3.i57.i, %if.then24.i
   %retval.0.i59.i = phi ptr [ %call.i58.i, %if.end3.i57.i ], [ @.str.23, %if.then24.i ]
-  %call26.i = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %4, ptr noundef %retval.0.i59.i, ptr noundef %name.0.i, ptr noundef %src, i32 noundef %lineno) #21
+  %call26.i = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %4, ptr noundef %retval.0.i59.i, ptr noundef %name.0.i, ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno) #21
   br label %fail_return.i
 
 if.end27.i:                                       ; preds = %if.then22.i
@@ -2309,7 +2309,7 @@ report_invalid_attr.exit:                         ; preds = %if.then37.i, %if.en
   %13 = load ptr, ptr @stderr, align 8
   %buf.i27 = getelementptr inbounds i8, ptr %err.i, i64 16
   %14 = load ptr, ptr %buf.i27, align 8
-  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.27, ptr noundef %14, ptr noundef %src, i32 noundef %lineno) #23
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.27, ptr noundef %14, ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno) #23
   call void @strbuf_release(ptr noundef nonnull %err.i) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i)
   br label %fail_return.i
@@ -2330,7 +2330,7 @@ if.end40.i:                                       ; preds = %lor.lhs.false34.i, 
 for.body.i:                                       ; preds = %if.end40.i, %for.inc.i
   %cp.079.i = phi ptr [ %call44.i, %for.inc.i ], [ %add.ptr42.i, %if.end40.i ]
   %num_attr.078.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end40.i ]
-  %call44.i = call fastcc ptr @parse_attr(ptr noundef %src, i32 noundef %lineno, ptr noundef nonnull %cp.079.i, ptr noundef null)
+  %call44.i = call fastcc ptr @parse_attr(ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno, ptr noundef nonnull %cp.079.i, ptr noundef null)
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %fail_return.i, label %for.inc.i
 
@@ -2433,7 +2433,7 @@ for.body78.i:                                     ; preds = %for.body78.i, %for.
   %cp.182.i = phi ptr [ %20, %for.body78.lr.ph.i ], [ %call81.i, %for.body78.i ]
   %i.081.i = phi i64 [ 0, %for.body78.lr.ph.i ], [ %inc83.i, %for.body78.i ]
   %arrayidx80.i = getelementptr inbounds [0 x %struct.attr_state], ptr %state79.i, i64 0, i64 %i.081.i
-  %call81.i = call fastcc ptr @parse_attr(ptr noundef %src, i32 noundef %lineno, ptr noundef nonnull %cp.182.i, ptr noundef nonnull %arrayidx80.i)
+  %call81.i = call fastcc ptr @parse_attr(ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno, ptr noundef nonnull %cp.182.i, ptr noundef nonnull %arrayidx80.i)
   %inc83.i = add i64 %i.081.i, 1
   %22 = load i8, ptr %call81.i, align 1
   %tobool77.not.i = icmp eq i8 %22, 0
@@ -2622,7 +2622,7 @@ report_invalid_attr.exit:                         ; preds = %if.then22, %if.end3
   %10 = load ptr, ptr @stderr, align 8
   %buf.i = getelementptr inbounds i8, ptr %err.i, i64 16
   %11 = load ptr, ptr %buf.i, align 8
-  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.27, ptr noundef %11, ptr noundef %src, i32 noundef %lineno) #23
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.27, ptr noundef %11, ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno) #23
   call void @strbuf_release(ptr noundef nonnull %err.i) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i)
   br label %return
@@ -2795,7 +2795,7 @@ for.body.i:                                       ; preds = %if.end41, %for.body
   %cmp.i = icmp eq i8 %7, 10
   store i8 0, ptr %call2.i, align 1
   %inc.i = add nuw nsw i32 %lineno.09.i, 1
-  call fastcc void @handle_attr_line(ptr noundef %call.i25, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
+  call fastcc void @handle_attr_line(ptr noundef %call.i25, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef range(i32 2, 4) %flags)
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %idx.ext.i
   %8 = load i8, ptr %add.ptr.i, align 1
@@ -2851,7 +2851,7 @@ for.body.i:                                       ; preds = %if.end8, %for.body.
   %cmp.i = icmp eq i8 %4, 10
   store i8 0, ptr %call2.i, align 1
   %inc.i = add nuw nsw i32 %lineno.09.i, 1
-  call fastcc void @handle_attr_line(ptr noundef %call.i, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
+  call fastcc void @handle_attr_line(ptr noundef %call.i, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef range(i32 2, 4) %flags)
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %idx.ext.i
   %5 = load i8, ptr %add.ptr.i, align 1
@@ -2932,7 +2932,7 @@ land.lhs.true.i:                                  ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %for.inc
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i = tail call fastcc i32 @fill_one(ptr noundef nonnull %all_attrs, ptr noundef nonnull %7, i32 noundef %dec)
+  %call.i = tail call fastcc i32 @fill_one(ptr noundef nonnull %all_attrs, ptr noundef nonnull %7, i32 noundef range(i32 0, 2147483647) %dec)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i, %land.lhs.true.i, %if.then, %for.body

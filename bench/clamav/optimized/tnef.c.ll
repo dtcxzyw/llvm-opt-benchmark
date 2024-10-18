@@ -273,7 +273,7 @@ tnef_message.exit.thread:                         ; preds = %77
 
 93:                                               ; preds = %89
   %94 = sub nuw i64 %92, %63
-  %spec.select.i.i = call i64 @llvm.umin.i64(i64 %90, i64 %94)
+  %spec.select.i.i = call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %90, i64 %94)
   %95 = getelementptr inbounds i8, ptr %82, i64 104
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr %96(ptr noundef nonnull %82, i64 noundef %63, i64 noundef %spec.select.i.i, i32 noundef 0) #7
@@ -338,7 +338,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i59
   %117 = call i32 @llvm.umin.i32(i32 %.06081.i, i32 8192)
   %118 = zext nneg i32 %117 to i64
   %119 = sub nuw i64 %115, %.6
-  %spec.select.i73.i = call i64 @llvm.umin.i64(i64 %118, i64 %119)
+  %spec.select.i73.i = call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %118, i64 %119)
   %120 = load ptr, ptr %113, align 8
   %121 = call ptr %120(ptr noundef nonnull %82, i64 noundef %.6, i64 noundef %spec.select.i73.i, i32 noundef 0) #7
   %.not26.i74.i = icmp eq ptr %121, null

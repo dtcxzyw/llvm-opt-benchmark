@@ -186,7 +186,7 @@ if.then18:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch.i)
   %call.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef nonnull %12, ptr noundef nonnull %i, i32 noundef %add.i37, ptr noundef nonnull %ch.i)
   %14 = load i32, ptr %ch.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %14, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %14, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ch.i)
   %15 = and i8 %success.057, 1
   %tobool2327 = icmp ne i8 %15, 0
@@ -383,7 +383,7 @@ if.then18.i:                                      ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %char_value.i.i)
   %call.i.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef nonnull %spec, ptr noundef nonnull %i.i, i32 noundef %add.i37.i, ptr noundef nonnull %char_value.i.i)
   %14 = load i32, ptr %char_value.i.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %14, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %14, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %char_value.i.i)
   %15 = and i8 %success.057.i, 1
   %tobool2327.i = icmp ne i8 %15, 0

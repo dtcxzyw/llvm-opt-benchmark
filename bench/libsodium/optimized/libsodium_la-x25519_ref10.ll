@@ -895,7 +895,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %tempZ.i, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %tempZ.i, ptr noundef nonnull %tempZ.i) #6
-  call fastcc void @fe25519_mul(ptr noundef %pk, ptr noundef %tempX.i, ptr noundef %tempZ.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull %pk, ptr noundef %tempX.i, ptr noundef %tempZ.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempX.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempZ.i)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %q, ptr noundef nonnull %pk) #6

@@ -756,7 +756,7 @@ oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %i
   %algop.0.val.i.i.i.i = load i64, ptr %95, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
   %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4.i, i64 %..i.i.i.i.i)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp4.i, i64 %..i.i.i.i.i)
   %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %if.then55.loopexit.i.i, label %while.body.i.i
 
@@ -1709,7 +1709,7 @@ entry:
 
 sane_qsort.exit:                                  ; preds = %entry
   %conv = zext i32 %indexed_commits_nr to i64
-  tail call void @qsort(ptr noundef %indexed_commits, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @date_compare) #18
+  tail call void @qsort(ptr noundef %indexed_commits, i64 noundef range(i64 0, 4294967296) %conv, i64 noundef 8, ptr noundef nonnull @date_compare) #18
   %cmp = icmp ult i32 %indexed_commits_nr, 100
   br i1 %cmp, label %for.body.preheader, label %if.end
 

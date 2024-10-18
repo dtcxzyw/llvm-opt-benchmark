@@ -196,7 +196,7 @@ delete.notnull3.i:                                ; preds = %delete.end.i
   br label %_ZN7Imf_3_215Pxr24CompressorD2Ev.exit
 
 _ZN7Imf_3_215Pxr24CompressorD2Ev.exit:            ; preds = %delete.end.i, %delete.notnull3.i
-  tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
+  tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }

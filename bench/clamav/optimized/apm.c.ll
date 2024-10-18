@@ -68,7 +68,7 @@ define i32 @cli_scanapm(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 82)
   %13 = getelementptr inbounds i8, ptr %7, i64 104
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef nonnull %7, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #5
+  %15 = tail call ptr %14(ptr noundef nonnull %7, i64 noundef range(i64 0, 281470681677826) 0, i64 noundef %spec.select.i, i32 noundef 0) #5
   %.not26.i = icmp eq ptr %15, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -124,7 +124,7 @@ fmap_readn.exit.thread:                           ; preds = %12, %9, %fmap_readn
   %spec.select.i134 = tail call i64 @llvm.umin.i64(i64 %32, i64 136)
   %33 = getelementptr inbounds i8, ptr %20, i64 104
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr %34(ptr noundef nonnull %20, i64 noundef 512, i64 noundef %spec.select.i134, i32 noundef 0) #5
+  %35 = tail call ptr %34(ptr noundef nonnull %20, i64 noundef range(i64 0, 281470681677826) 512, i64 noundef %spec.select.i134, i32 noundef 0) #5
   %.not26.i135 = icmp eq ptr %35, null
   br i1 %.not26.i135, label %fmap_readn.exit137.thread, label %fmap_readn.exit137
 
@@ -161,7 +161,7 @@ fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_read
   %spec.select.i139 = tail call i64 @llvm.umin.i64(i64 %43, i64 136)
   %44 = getelementptr inbounds i8, ptr %41, i64 104
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr %45(ptr noundef nonnull %41, i64 noundef %.050, i64 noundef %spec.select.i139, i32 noundef 0) #5
+  %46 = tail call ptr %45(ptr noundef nonnull %41, i64 noundef range(i64 0, 281470681677826) %.050, i64 noundef %spec.select.i139, i32 noundef 0) #5
   %.not26.i140 = icmp eq ptr %46, null
   br i1 %.not26.i140, label %fmap_readn.exit142.thread, label %fmap_readn.exit142
 
@@ -290,7 +290,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   %spec.select.i144 = call i64 @llvm.umin.i64(i64 %107, i64 136)
   %108 = getelementptr inbounds i8, ptr %103, i64 104
   %109 = load ptr, ptr %108, align 8
-  %110 = call ptr %109(ptr noundef nonnull %103, i64 noundef %102, i64 noundef %spec.select.i144, i32 noundef 0) #5
+  %110 = call ptr %109(ptr noundef nonnull %103, i64 noundef range(i64 0, 281470681677826) %102, i64 noundef %spec.select.i144, i32 noundef 0) #5
   %.not26.i145 = icmp eq ptr %110, null
   br i1 %.not26.i145, label %fmap_readn.exit147.thread, label %fmap_readn.exit147
 
@@ -485,7 +485,7 @@ define internal fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, p
   %spec.select.i = call i64 @llvm.umin.i64(i64 %26, i64 136)
   %27 = getelementptr inbounds i8, ptr %22, i64 104
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr %28(ptr noundef nonnull %22, i64 noundef %21, i64 noundef %spec.select.i, i32 noundef 0) #5
+  %29 = call ptr %28(ptr noundef nonnull %22, i64 noundef range(i64 0, 281470681677826) %21, i64 noundef %spec.select.i, i32 noundef 0) #5
   %.not26.i = icmp eq ptr %29, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 

@@ -56,7 +56,7 @@ define i32 @cli_parsetiff(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %12, i64 4)
   %14 = getelementptr inbounds i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr %15(ptr noundef nonnull %10, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #5
+  %16 = tail call ptr %15(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) 0, i64 noundef range(i64 0, 13) %spec.select.i, i32 noundef 0) #5
   %.not26.i = icmp eq ptr %16, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -87,7 +87,7 @@ fmap_readn.exit:                                  ; preds = %13
   %23 = add i64 %21, -4
   %spec.select.i82 = tail call i64 @llvm.umin.i64(i64 %23, i64 4)
   %24 = load ptr, ptr %14, align 8
-  %25 = tail call ptr %24(ptr noundef nonnull %10, i64 noundef 4, i64 noundef %spec.select.i82, i32 noundef 0) #5
+  %25 = tail call ptr %24(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) 4, i64 noundef range(i64 0, 13) %spec.select.i82, i32 noundef 0) #5
   %.not26.i83 = icmp eq ptr %25, null
   br i1 %.not26.i83, label %fmap_readn.exit85.thread, label %fmap_readn.exit85
 
@@ -135,7 +135,7 @@ fmap_readn.exit85.thread:                         ; preds = %22, %19, %fmap_read
   %36 = sub nuw i64 %34, %33
   %spec.select.i87 = tail call i64 @llvm.umin.i64(i64 %36, i64 2)
   %37 = load ptr, ptr %14, align 8
-  %38 = tail call ptr %37(ptr noundef nonnull %10, i64 noundef %33, i64 noundef %spec.select.i87, i32 noundef 0) #5
+  %38 = tail call ptr %37(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) %33, i64 noundef range(i64 0, 13) %spec.select.i87, i32 noundef 0) #5
   %.not26.i88 = icmp eq ptr %38, null
   br i1 %.not26.i88, label %fmap_readn.exit90.thread, label %fmap_readn.exit90
 
@@ -172,7 +172,7 @@ fmap_readn.exit90.thread:                         ; preds = %35, %32, %fmap_read
   %47 = sub nuw i64 %45, %44
   %spec.select.i92 = tail call i64 @llvm.umin.i64(i64 %47, i64 12)
   %48 = load ptr, ptr %14, align 8
-  %49 = tail call ptr %48(ptr noundef nonnull %10, i64 noundef %44, i64 noundef %spec.select.i92, i32 noundef 0) #5
+  %49 = tail call ptr %48(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) %44, i64 noundef range(i64 0, 13) %spec.select.i92, i32 noundef 0) #5
   %.not26.i93 = icmp eq ptr %49, null
   br i1 %.not26.i93, label %fmap_readn.exit95.thread, label %fmap_readn.exit95
 
@@ -288,7 +288,7 @@ fmap_readn.exit95.thread:                         ; preds = %46, %.lr.ph, %fmap_
   %89 = sub nuw i64 %87, %86
   %spec.select.i97 = tail call i64 @llvm.umin.i64(i64 %89, i64 4)
   %90 = load ptr, ptr %14, align 8
-  %91 = tail call ptr %90(ptr noundef nonnull %10, i64 noundef %86, i64 noundef %spec.select.i97, i32 noundef 0) #5
+  %91 = tail call ptr %90(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) %86, i64 noundef range(i64 0, 13) %spec.select.i97, i32 noundef 0) #5
   %.not26.i98 = icmp eq ptr %91, null
   br i1 %.not26.i98, label %fmap_readn.exit100.thread, label %fmap_readn.exit100
 

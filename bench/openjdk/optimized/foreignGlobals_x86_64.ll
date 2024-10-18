@@ -335,7 +335,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %5, %9, %13
   %..i.i = select i1 %17, i64 20, i64 24
   %20 = select i1 %19, i64 16, i64 %..i.i
   %21 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull %15, i64 noundef %20) #10
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %20) #10
   %23 = load i8, ptr @UseCompressedClassPointers, align 1
   %24 = trunc i8 %23 to i1
   %25 = select i1 %24, i64 12, i64 16
@@ -362,7 +362,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %5, %9, %13
   %37 = shl nuw nsw i64 %indvars.iv.i, %.7.i12.i
   %38 = add nuw nsw i64 %36, %37
   %39 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %40 = tail call noundef ptr %39(ptr noundef nonnull %22, i64 noundef %38) #10
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %38) #10
   %41 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %40) #10
   %or.cond.i = icmp ult i32 %41, 32
   %spec.select.i = select i1 %or.cond.i, i32 %41, i32 -1
@@ -381,7 +381,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %5, %9, %13
   %51 = sub nuw nsw i32 32, %50
   %52 = shl nuw i32 1, %51
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %46, i32 %52
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE4pushERKS0_.exit.i
 
@@ -412,7 +412,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %62 = select i1 %60, i64 4, i64 8
   %63 = add nuw nsw i64 %61, %62
   %64 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %65 = tail call noundef ptr %64(ptr noundef nonnull %15, i64 noundef %63) #10
+  %65 = tail call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %63) #10
   %66 = load i8, ptr @UseCompressedClassPointers, align 1
   %67 = trunc i8 %66 to i1
   %68 = select i1 %67, i64 12, i64 16
@@ -439,7 +439,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %80 = shl nuw nsw i64 %indvars.iv.i22, %.7.i12.i24
   %81 = add nuw nsw i64 %79, %80
   %82 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %83 = tail call noundef ptr %82(ptr noundef nonnull %65, i64 noundef %81) #10
+  %83 = tail call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(16) %65, i64 noundef %81) #10
   %84 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %83) #10
   %or.cond.i86 = icmp ult i32 %84, 32
   %spec.select.i87 = select i1 %or.cond.i86, i32 %84, i32 -1
@@ -458,7 +458,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %94 = sub nuw nsw i32 32, %93
   %95 = shl nuw i32 1, %94
   %.0.i.i.i.i.i.i28 = select i1 %or.cond.i.i.i.i.i.i27, i32 %89, i32 %95
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %58, i32 noundef %.0.i.i.i.i.i.i28)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %58, i32 noundef %.0.i.i.i.i.i.i28)
   %.pre.i.i.i29 = load i32, ptr %58, align 8
   br label %_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE4pushERKS0_.exit.i
 
@@ -484,7 +484,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %..i.i30 = select i1 %104, i64 20, i64 24
   %107 = select i1 %106, i64 16, i64 %..i.i30
   %108 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %109 = tail call noundef ptr %108(ptr noundef nonnull %101, i64 noundef %107) #10
+  %109 = tail call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(16) %101, i64 noundef %107) #10
   %110 = load i8, ptr @UseCompressedClassPointers, align 1
   %111 = trunc i8 %110 to i1
   %112 = select i1 %111, i64 12, i64 16
@@ -511,7 +511,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %124 = shl nuw nsw i64 %indvars.iv.i34, %.7.i12.i36
   %125 = add nuw nsw i64 %123, %124
   %126 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %127 = tail call noundef ptr %126(ptr noundef nonnull %109, i64 noundef %125) #10
+  %127 = tail call noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(16) %109, i64 noundef %125) #10
   %128 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %127) #10
   %or.cond.i88 = icmp ult i32 %128, 32
   %spec.select.i89 = select i1 %or.cond.i88, i32 %128, i32 -1
@@ -530,7 +530,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %138 = sub nuw nsw i32 32, %137
   %139 = shl nuw i32 1, %138
   %.0.i.i.i.i.i.i41 = select i1 %or.cond.i.i.i.i.i.i40, i32 %133, i32 %139
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %102, i32 noundef %.0.i.i.i.i.i.i41)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %102, i32 noundef %.0.i.i.i.i.i.i41)
   %.pre.i.i.i42 = load i32, ptr %102, align 8
   br label %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE4pushERKS0_.exit.i37
 
@@ -561,7 +561,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %149 = select i1 %147, i64 4, i64 8
   %150 = add nuw nsw i64 %148, %149
   %151 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %152 = tail call noundef ptr %151(ptr noundef nonnull %101, i64 noundef %150) #10
+  %152 = tail call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(16) %101, i64 noundef %150) #10
   %153 = load i8, ptr @UseCompressedClassPointers, align 1
   %154 = trunc i8 %153 to i1
   %155 = select i1 %154, i64 12, i64 16
@@ -588,7 +588,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %167 = shl nuw nsw i64 %indvars.iv.i48, %.7.i12.i50
   %168 = add nuw nsw i64 %166, %167
   %169 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %170 = tail call noundef ptr %169(ptr noundef nonnull %152, i64 noundef %168) #10
+  %170 = tail call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(16) %152, i64 noundef %168) #10
   %171 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %170) #10
   %or.cond.i90 = icmp ult i32 %171, 32
   %spec.select.i91 = select i1 %or.cond.i90, i32 %171, i32 -1
@@ -607,7 +607,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %181 = sub nuw nsw i32 32, %180
   %182 = shl nuw i32 1, %181
   %.0.i.i.i.i.i.i55 = select i1 %or.cond.i.i.i.i.i.i54, i32 %176, i32 %182
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %145, i32 noundef %.0.i.i.i.i.i.i55)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %145, i32 noundef %.0.i.i.i.i.i.i55)
   %.pre.i.i.i56 = load i32, ptr %145, align 8
   br label %_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE4pushERKS0_.exit.i51
 
@@ -637,7 +637,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %191 = select i1 %189, i64 8, i64 16
   %192 = add nuw nsw i64 %190, %191
   %193 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %194 = tail call noundef ptr %193(ptr noundef nonnull %101, i64 noundef %192) #10
+  %194 = tail call noundef ptr %193(ptr noundef nonnull align 8 dereferenceable(16) %101, i64 noundef %192) #10
   %195 = load i8, ptr @UseCompressedClassPointers, align 1
   %196 = trunc i8 %195 to i1
   %197 = select i1 %196, i64 12, i64 16
@@ -655,7 +655,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %..i.i58 = select i1 %205, i64 20, i64 24
   %208 = select i1 %207, i64 16, i64 %..i.i58
   %209 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %210 = tail call noundef ptr %209(ptr noundef nonnull %202, i64 noundef %208) #10
+  %210 = tail call noundef ptr %209(ptr noundef nonnull align 8 dereferenceable(16) %202, i64 noundef %208) #10
   %211 = load i8, ptr @UseCompressedClassPointers, align 1
   %212 = trunc i8 %211 to i1
   %213 = select i1 %212, i64 12, i64 16
@@ -682,7 +682,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %225 = shl nuw nsw i64 %indvars.iv.i62, %.7.i12.i64
   %226 = add nuw nsw i64 %224, %225
   %227 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %228 = tail call noundef ptr %227(ptr noundef nonnull %210, i64 noundef %226) #10
+  %228 = tail call noundef ptr %227(ptr noundef nonnull align 8 dereferenceable(16) %210, i64 noundef %226) #10
   %229 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %228) #10
   %or.cond.i92 = icmp ult i32 %229, 32
   %spec.select.i93 = select i1 %or.cond.i92, i32 %229, i32 -1
@@ -701,7 +701,7 @@ _ZN14ForeignGlobals20parse_register_arrayI11XMMRegisterEEvP15objArrayOopDesc11St
   %239 = sub nuw nsw i32 32, %238
   %240 = shl nuw i32 1, %239
   %.0.i.i.i.i.i.i69 = select i1 %or.cond.i.i.i.i.i.i68, i32 %234, i32 %240
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %203, i32 noundef %.0.i.i.i.i.i.i69)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %203, i32 noundef %.0.i.i.i.i.i.i69)
   %.pre.i.i.i70 = load i32, ptr %203, align 8
   br label %_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE4pushERKS0_.exit.i65
 
@@ -732,7 +732,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %250 = select i1 %248, i64 4, i64 8
   %251 = add nuw nsw i64 %249, %250
   %252 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %253 = tail call noundef ptr %252(ptr noundef nonnull %202, i64 noundef %251) #10
+  %253 = tail call noundef ptr %252(ptr noundef nonnull align 8 dereferenceable(16) %202, i64 noundef %251) #10
   %254 = load i8, ptr @UseCompressedClassPointers, align 1
   %255 = trunc i8 %254 to i1
   %256 = select i1 %255, i64 12, i64 16
@@ -759,7 +759,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %268 = shl nuw nsw i64 %indvars.iv.i76, %.7.i12.i78
   %269 = add nuw nsw i64 %267, %268
   %270 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %271 = tail call noundef ptr %270(ptr noundef nonnull %253, i64 noundef %269) #10
+  %271 = tail call noundef ptr %270(ptr noundef nonnull align 8 dereferenceable(16) %253, i64 noundef %269) #10
   %272 = tail call noundef i32 @_ZN34jdk_internal_foreign_abi_VMStorage15index_or_offsetEP7oopDesc(ptr noundef %271) #10
   %or.cond.i94 = icmp ult i32 %272, 32
   %spec.select.i95 = select i1 %or.cond.i94, i32 %272, i32 -1
@@ -778,7 +778,7 @@ _ZN14ForeignGlobals20parse_register_arrayI8RegisterEEvP15objArrayOopDesc11Storag
   %282 = sub nuw nsw i32 32, %281
   %283 = shl nuw i32 1, %282
   %.0.i.i.i.i.i.i83 = select i1 %or.cond.i.i.i.i.i.i82, i32 %277, i32 %283
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %246, i32 noundef %.0.i.i.i.i.i.i83)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %246, i32 noundef %.0.i.i.i.i.i.i83)
   %.pre.i.i.i84 = load i32, ptr %246, align 8
   br label %_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE4pushERKS0_.exit.i79
 
@@ -1244,8 +1244,8 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %23, align 8
   store ptr null, ptr %24, align 8
   store i32 0, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 8 dereferenceable(21) %12, i64 21, i1 false)
-  call void %27(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %26) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
+  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26) #10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -1263,22 +1263,22 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
 75:                                               ; preds = %73
   %or.cond.i.i.i42 = icmp ult i64 %.sroa.2.0.copyload, 137438953472
   %spec.select.i.i.i43 = select i1 %or.cond.i.i.i42, i32 %.sroa.424.0.extract.trunc.i38, i32 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %13, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %76 = load ptr, ptr %26, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(40) %38) #10
+  call void %78(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %38) #10
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i.i43, ptr noundef nonnull %6) #10
   br label %_ZL12move_stack64P14MacroAssembler8Registeri7Address9VMStorage.exit
 
 79:                                               ; preds = %73
   %or.cond.i.i15.i40 = icmp ult i64 %.sroa.2.0.copyload, 137438953472
   %spec.select.i.i16.i41 = select i1 %or.cond.i.i15.i40, i32 %.sroa.424.0.extract.trunc.i38, i32 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %13, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %80 = load ptr, ptr %26, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(40) %37) #10
+  call void %82(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %37) #10
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i16.i41, ptr noundef nonnull %7) #10
   br label %_ZL12move_stack64P14MacroAssembler8Registeri7Address9VMStorage.exit
 
@@ -1287,11 +1287,11 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
 
 84:                                               ; preds = %83, %73
   %.0.i39 = phi i32 [ 0, %73 ], [ %4, %83 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, ptr noundef nonnull align 8 dereferenceable(21) %13, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %85 = load ptr, ptr %26, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(40) %28) #10
+  call void %87(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %28) #10
   call void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %8) #10
   %88 = add i32 %.0.i39, %.sroa.424.0.extract.trunc.i38
   store i32 4, ptr %9, align 8

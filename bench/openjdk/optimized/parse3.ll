@@ -1530,7 +1530,7 @@ _ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge: ; preds = %45, %_ZN8GraphKit
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %71, ptr noundef %69) #7
-  %73 = call noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %72, ptr noundef %68, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #7
+  %73 = call noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %72, ptr noundef %68, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #7
   br label %82
 
 74:                                               ; preds = %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge.thread, %_ZN8GraphKit12find_int_conEP4Nodei.exit._crit_edge
@@ -1773,7 +1773,7 @@ _ZN4NodenwEm.exit:                                ; preds = %211, %213
   br i1 %215, label %223, label %216
 
 216:                                              ; preds = %_ZN4NodenwEm.exit
-  call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, ptr noundef %.073) #7
+  call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef %.073) #7
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %217 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
   store i32 5, ptr %217, align 4
@@ -1978,7 +1978,7 @@ declare noundef ptr @_ZN11PhaseValues13find_int_typeEP4Node(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 2) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2) #7
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 44

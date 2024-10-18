@@ -565,11 +565,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %v, ptr noundef nonnull %tail, i64 noundef %size) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %v, ptr noundef nonnull %tail, i64 noundef range(i64 8, 0) %size) #10
   br label %trace_visit_next_list.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %v, ptr noundef nonnull %tail, i64 noundef %size) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %v, ptr noundef nonnull %tail, i64 noundef range(i64 8, 0) %size) #10
   br label %trace_visit_next_list.exit
 
 trace_visit_next_list.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -731,11 +731,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, i64 noundef %size) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, i64 noundef range(i64 4, 0) %size) #10
   br label %trace_visit_start_alternate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, i64 noundef %size) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, ptr noundef nonnull %v, ptr noundef %name, ptr noundef nonnull %obj, i64 noundef range(i64 4, 0) %size) #10
   br label %trace_visit_start_alternate.exit
 
 trace_visit_start_alternate.exit:                 ; preds = %if.end5, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

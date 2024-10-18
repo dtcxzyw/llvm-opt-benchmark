@@ -3793,7 +3793,7 @@ list_head.exit:                                   ; preds = %._crit_edge43, %16
   %46 = load ptr, ptr %34, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
-  %49 = call i64 %48(ptr noundef %1, i32 noundef %38, ptr noundef nonnull %6) #11
+  %49 = call i64 %48(ptr noundef %1, i32 noundef range(i32 -32768, 0) %38, ptr noundef nonnull %6) #11
   br label %slot_getsysattr.exit
 
 50:                                               ; preds = %35
@@ -3806,7 +3806,7 @@ list_head.exit:                                   ; preds = %._crit_edge43, %16
   br i1 %53, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %51
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %38) #11
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef range(i32 1, 32768) %38) #11
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %51, %slot_getsomeattrs.exit.i

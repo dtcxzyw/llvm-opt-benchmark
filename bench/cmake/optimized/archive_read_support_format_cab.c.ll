@@ -3398,7 +3398,7 @@ cab_read_ahead_cfdata_deflate.exit:               ; preds = %55, %63, %87, %121,
 
 369:                                              ; preds = %367, %359
   tail call void @free(ptr noundef %365) #18
-  %370 = tail call noalias ptr @calloc(i64 noundef %363, i64 noundef 1) #19
+  %370 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483392, 2147483648) %363, i64 noundef 1) #19
   store ptr %370, ptr %364, align 8
   %371 = icmp eq ptr %370, null
   br i1 %371, label %386, label %372
@@ -3408,7 +3408,7 @@ cab_read_ahead_cfdata_deflate.exit:               ; preds = %55, %63, %87, %121,
   br label %374
 
 373:                                              ; preds = %367
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %365, i8 0, i64 %363, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %365, i8 0, i64 range(i64 -2147483392, 2147483648) %363, i1 false)
   br label %374
 
 374:                                              ; preds = %373, %372

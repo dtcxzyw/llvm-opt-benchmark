@@ -1445,7 +1445,7 @@ if.end23:                                         ; preds = %if.end18
   %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i, ptr %ref.tmp27.sroa.2.0.m_body_mass_com.sroa_idx, align 4
   %m_body_I_body31 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body31, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body31, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body, i64 16, i1 false)
   %arrayidx7.i.i54 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i54, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 52
@@ -1456,7 +1456,7 @@ if.end23:                                         ; preds = %if.end18
   %m_parent_pos_parent_body_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parent_pos_parent_body_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_parent_pos_parent_child_ref, i64 16, i1 false)
   %m_body_T_parent_ref = getelementptr inbounds i8, ptr %arrayidx.i, i64 440
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_T_parent_ref, ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref, i64 16, i1 false)
   %arrayidx7.i.i56 = getelementptr inbounds i8, ptr %arrayidx.i, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i56, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i55, i64 16, i1 false)
   %arrayidx11.i.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 472

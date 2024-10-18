@@ -167,7 +167,7 @@ invoke.cont11.i:                                  ; preds = %.noexc4.i, %.noexc3
   %8 = getelementptr inbounds i8, ptr %ref.tmp9.i, i64 8
   %9 = extractvalue { i64, ptr } %call.i5.i, 1
   store ptr %9, ptr %8, align 8, !noalias !4
-  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.i)
+  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.i)
           to label %invoke.cont14.i unwind label %lpad12.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont11.i
@@ -189,7 +189,7 @@ invoke.cont16.i:                                  ; preds = %invoke.cont14.i, %e
   store i64 1, ptr %ref.tmp15.i, align 8, !noalias !4
   %12 = getelementptr inbounds i8, ptr %ref.tmp15.i, i64 8
   store ptr @.str.5, ptr %12, align 8, !noalias !4
-  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15.i)
+  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15.i)
           to label %_ZN6google8protobuf4util12_GLOBAL__N_110FormatTimeB5cxx11Eli.exit unwind label %lpad.i
 
 ehcleanup.i:                                      ; preds = %lpad12.i, %lpad.i
@@ -301,7 +301,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %timestamp, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %timestamp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf9TimestampaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i
@@ -1403,7 +1403,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i7
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d1, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf8DurationaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i7:                                       ; preds = %invoke.cont2.i
@@ -1526,7 +1526,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i7
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d1, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf8DurationaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i7:                                       ; preds = %invoke.cont2.i
@@ -1688,7 +1688,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i7
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf8Duration12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf8DurationaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i7:                                       ; preds = %invoke.cont2.i
@@ -1931,7 +1931,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf9TimestampaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i
@@ -2033,7 +2033,7 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i10.i, %i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %invoke.cont2.i
-  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZN6google8protobuf9TimestampaSEOS1_.exit unwind label %terminate.lpad.i
 
 if.else.i:                                        ; preds = %invoke.cont2.i

@@ -1476,7 +1476,7 @@ invoke.cont13:                                    ; preds = %.noexc, %lor.lhs.fa
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   %m_literals.i = getelementptr inbounds i8, ptr %call16, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call16, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call16, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %ls, align 8
   %33 = ptrtoint ptr %32 to i64
   store i64 %33, ptr %m_literals.i, align 8
@@ -1884,7 +1884,7 @@ invoke.cont39:                                    ; preds = %while.end.i.i, %inv
 
 invoke.cont40:                                    ; preds = %invoke.cont39
   %m_literals.i69 = getelementptr inbounds i8, ptr %call41, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call41, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call41, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr %ls30, align 8
   %84 = ptrtoint ptr %83 to i64
   store i64 %84, ptr %m_literals.i69, align 8
@@ -2752,7 +2752,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

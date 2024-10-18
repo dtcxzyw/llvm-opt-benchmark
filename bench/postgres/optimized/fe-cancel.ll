@@ -169,7 +169,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 1, ptr %4, align 4
-  %26 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %4, i32 noundef 4) #15
+  %26 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %4, i32 noundef 4) #15
   %27 = icmp sgt i32 %26, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %27, label %31, label %28

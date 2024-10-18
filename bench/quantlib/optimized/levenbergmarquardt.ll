@@ -2127,7 +2127,7 @@ invoke.cont501:                                   ; preds = %invoke.cont496
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i341
 
 if.then.i341:                                     ; preds = %invoke.cont501
-  %call.i342 = invoke noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(16) %lmdifJacFunction, ptr noundef nonnull align 8 dereferenceable(16) %lmdifJacFunction, i32 noundef 3)
+  %call.i342 = invoke noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(32) %lmdifJacFunction, ptr noundef nonnull align 8 dereferenceable(32) %lmdifJacFunction, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i341
@@ -2144,7 +2144,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont501, %if
   br i1 %tobool.not.i344, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit374, label %if.then.i345
 
 if.then.i345:                                     ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i346 = invoke noundef zeroext i1 %270(ptr noundef nonnull align 8 dereferenceable(16) %lmdifCostFunction, ptr noundef nonnull align 8 dereferenceable(16) %lmdifCostFunction, i32 noundef 3)
+  %call.i346 = invoke noundef zeroext i1 %270(ptr noundef nonnull align 8 dereferenceable(32) %lmdifCostFunction, ptr noundef nonnull align 8 dereferenceable(32) %lmdifCostFunction, i32 noundef 3)
           to label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit374 unwind label %terminate.lpad.i347
 
 terminate.lpad.i347:                              ; preds = %if.then.i345
@@ -2189,7 +2189,7 @@ ehcleanup504:                                     ; preds = %ehcleanup486, %ehcl
   br i1 %tobool.not.i379, label %_ZNSt14_Function_baseD2Ev.exit383, label %if.then.i380
 
 if.then.i380:                                     ; preds = %ehcleanup504
-  %call.i381 = invoke noundef zeroext i1 %274(ptr noundef nonnull align 8 dereferenceable(16) %lmdifJacFunction, ptr noundef nonnull align 8 dereferenceable(16) %lmdifJacFunction, i32 noundef 3)
+  %call.i381 = invoke noundef zeroext i1 %274(ptr noundef nonnull align 8 dereferenceable(32) %lmdifJacFunction, ptr noundef nonnull align 8 dereferenceable(32) %lmdifJacFunction, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit383 unwind label %terminate.lpad.i382
 
 terminate.lpad.i382:                              ; preds = %if.then.i380
@@ -2206,7 +2206,7 @@ _ZNSt14_Function_baseD2Ev.exit383:                ; preds = %ehcleanup504, %if.t
   br i1 %tobool.not.i385, label %_ZNSt14_Function_baseD2Ev.exit389, label %if.then.i386
 
 if.then.i386:                                     ; preds = %_ZNSt14_Function_baseD2Ev.exit383
-  %call.i387 = invoke noundef zeroext i1 %277(ptr noundef nonnull align 8 dereferenceable(16) %lmdifCostFunction, ptr noundef nonnull align 8 dereferenceable(16) %lmdifCostFunction, i32 noundef 3)
+  %call.i387 = invoke noundef zeroext i1 %277(ptr noundef nonnull align 8 dereferenceable(32) %lmdifCostFunction, ptr noundef nonnull align 8 dereferenceable(32) %lmdifCostFunction, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit389 unwind label %terminate.lpad.i388
 
 terminate.lpad.i388:                              ; preds = %if.then.i386

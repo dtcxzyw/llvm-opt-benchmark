@@ -324,7 +324,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %68, %_ZN17QArrayDat
   %76 = getelementptr inbounds i8, ptr %11, i64 112
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #11
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %59) #11
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #11
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %11) #11
   br label %77
 
 77:                                               ; preds = %_ZN7QStringD2Ev.exit, %_ZN20QStyleOptionViewItemD2Ev.exit
@@ -427,7 +427,7 @@ define linkonce_odr void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull a
           to label %18 unwind label %43
 
 18:                                               ; preds = %11
-  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %18

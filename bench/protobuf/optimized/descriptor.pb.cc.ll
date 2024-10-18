@@ -908,7 +908,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf17FileDescriptorSetE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -940,7 +940,7 @@ if.then.i15:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %if.then.i15, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -978,7 +978,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i
   br i1 %cmp.i.not.i.i.i, label %_ZN6google8protobuf17FileDescriptorSet10SharedDtorEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
           to label %_ZN6google8protobuf17FileDescriptorSet10SharedDtorEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
@@ -1357,7 +1357,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3)
   ret void
 }
 
@@ -1383,19 +1383,19 @@ invoke.cont:
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %message_type_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %message_type_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %message_type_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i16.i, align 8
   %enum_type_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enum_type_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i17.i, align 8
   %service_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %arena_.i.i.i18.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %service_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %service_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i18.i, align 8
   %extension_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %arena_.i.i.i19.i = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i19.i, align 8
   %public_dependency_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %public_dependency_.i.i, align 8
@@ -1463,7 +1463,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 .noexc30:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %message_type_.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %message_type_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %message_type_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i35, align 8
   %current_size_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %from, i64 56
   %7 = load i32, ptr %current_size_.i.i.i.i.i36, align 8
@@ -1478,7 +1478,7 @@ if.end.i.i.i38:                                   ; preds = %.noexc30
 invoke.cont.i:                                    ; preds = %.noexc30, %if.end.i.i.i38
   %enum_type_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enum_type_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i40, align 8
   %current_size_.i.i.i.i.i41 = getelementptr inbounds i8, ptr %from, i64 80
   %8 = load i32, ptr %current_size_.i.i.i.i.i41, align 8
@@ -1493,7 +1493,7 @@ if.end.i.i.i43:                                   ; preds = %invoke.cont.i
 invoke.cont9.i:                                   ; preds = %invoke.cont.i, %if.end.i.i.i43
   %service_.i = getelementptr inbounds i8, ptr %this, i64 96
   %arena_.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %service_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %service_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i45, align 8
   %current_size_.i.i.i.i.i46 = getelementptr inbounds i8, ptr %from, i64 104
   %9 = load i32, ptr %current_size_.i.i.i.i.i46, align 8
@@ -1508,7 +1508,7 @@ if.end.i.i.i48:                                   ; preds = %invoke.cont9.i
 invoke.cont13.i:                                  ; preds = %invoke.cont9.i, %if.end.i.i.i48
   %extension_.i = getelementptr inbounds i8, ptr %this, i64 120
   %arena_.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i50, align 8
   %current_size_.i.i.i.i.i51 = getelementptr inbounds i8, ptr %from, i64 128
   %10 = load i32, ptr %current_size_.i.i.i.i.i51, align 8
@@ -2146,7 +2146,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_11FileOptionsEEEPvPS1_PKv.exit: ; p
   br label %if.end41
 
 if.else:                                          ; preds = %if.then33
-  tail call void @_ZN6google8protobuf11FileOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  tail call void @_ZN6google8protobuf11FileOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(176) %50, ptr noundef nonnull align 8 dereferenceable(176) %51)
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_11FileOptionsEEEPvPS1_PKv.exit, %if.else, %if.end30
@@ -3768,7 +3768,7 @@ for.body.i.i:                                     ; preds = %if.then141, %for.bo
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_14SourceCodeInfoEEEmRKT_.exit: ; preds = %for.body.i.i, %if.then141
   %total_size.0.lcssa.i.i = phi i64 [ 0, %if.then141 ], [ %add9.i.i, %for.body.i.i ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %48, i64 40
-  %call11.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %total_size.0.lcssa.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call11.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef %total_size.0.lcssa.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i1.i = trunc i64 %call11.i.i to i32
   %or.i.i.i167 = or i32 %conv.i1.i, 1
   %56 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i167, i1 true)
@@ -3819,7 +3819,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf19FileDescriptorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
-  tail call void @_ZN6google8protobuf19FileDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf19FileDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(224) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4064,25 +4064,25 @@ entry:
   store i32 %4, ptr %3, align 4
   %dependency_ = getelementptr inbounds i8, ptr %this, i64 24
   %dependency_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %dependency_, ptr noundef nonnull %dependency_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %dependency_, ptr noundef nonnull %dependency_7)
   %message_type_ = getelementptr inbounds i8, ptr %this, i64 48
   %message_type_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %message_type_, ptr noundef nonnull %message_type_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %message_type_, ptr noundef nonnull %message_type_8)
   %enum_type_ = getelementptr inbounds i8, ptr %this, i64 72
   %enum_type_9 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %enum_type_, ptr noundef nonnull %enum_type_9)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_, ptr noundef nonnull %enum_type_9)
   %service_ = getelementptr inbounds i8, ptr %this, i64 96
   %service_10 = getelementptr inbounds i8, ptr %other, i64 96
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %service_, ptr noundef nonnull %service_10)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %service_, ptr noundef nonnull %service_10)
   %extension_ = getelementptr inbounds i8, ptr %this, i64 120
   %extension_11 = getelementptr inbounds i8, ptr %other, i64 120
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %extension_, ptr noundef nonnull %extension_11)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %extension_, ptr noundef nonnull %extension_11)
   %public_dependency_ = getelementptr inbounds i8, ptr %this, i64 144
   %public_dependency_12 = getelementptr inbounds i8, ptr %other, i64 144
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %public_dependency_, ptr noundef nonnull %public_dependency_12)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %public_dependency_, ptr noundef nonnull %public_dependency_12)
   %weak_dependency_ = getelementptr inbounds i8, ptr %this, i64 160
   %weak_dependency_13 = getelementptr inbounds i8, ptr %other, i64 160
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %weak_dependency_, ptr noundef nonnull %weak_dependency_13)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %weak_dependency_, ptr noundef nonnull %weak_dependency_13)
   %name_ = getelementptr inbounds i8, ptr %this, i64 176
   %name_14 = getelementptr inbounds i8, ptr %other, i64 176
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_14, align 8
@@ -4315,7 +4315,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_21ExtensionRangeOptionsEEEPvPS1_PKv
   br label %if.end12
 
 if.else:                                          ; preds = %if.then5
-  tail call void @_ZN6google8protobuf21ExtensionRangeOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  tail call void @_ZN6google8protobuf21ExtensionRangeOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) %7)
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_21ExtensionRangeOptionsEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -4794,7 +4794,7 @@ if.then.i.i:                                      ; preds = %if.end6.i
   br label %_ZN6google8protobuf30DescriptorProto_ExtensionRange5ClearEv.exit
 
 _ZN6google8protobuf30DescriptorProto_ExtensionRange5ClearEv.exit: ; preds = %if.end6.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf30DescriptorProto_ExtensionRange9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf30DescriptorProto_ExtensionRange9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf30DescriptorProto_ExtensionRange5ClearEv.exit
@@ -5424,31 +5424,31 @@ invoke.cont:
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %nested_type_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nested_type_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nested_type_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i16.i, align 8
   %enum_type_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i17.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enum_type_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i17.i, align 8
   %extension_range_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %arena_.i.i.i18.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_range_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_range_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i18.i, align 8
   %extension_.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %arena_.i.i.i19.i = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i19.i, align 8
   %oneof_decl_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %arena_.i.i.i20.i = getelementptr inbounds i8, ptr %this, i64 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %oneof_decl_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %oneof_decl_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i20.i, align 8
   %reserved_range_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %arena_.i.i.i21.i = getelementptr inbounds i8, ptr %this, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_range_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i21.i, align 8
   %reserved_name_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %arena_.i.i.i22.i = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_name_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i22.i, align 8
   %name_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i, align 8
@@ -5500,7 +5500,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 .noexc22:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %nested_type_.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nested_type_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nested_type_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i30, align 8
   %current_size_.i.i.i.i.i31 = getelementptr inbounds i8, ptr %from, i64 56
   %7 = load i32, ptr %current_size_.i.i.i.i.i31, align 8
@@ -5515,7 +5515,7 @@ if.end.i.i.i33:                                   ; preds = %.noexc22
 invoke.cont.i:                                    ; preds = %.noexc22, %if.end.i.i.i33
   %enum_type_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enum_type_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i35, align 8
   %current_size_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %from, i64 80
   %8 = load i32, ptr %current_size_.i.i.i.i.i36, align 8
@@ -5530,7 +5530,7 @@ if.end.i.i.i38:                                   ; preds = %invoke.cont.i
 invoke.cont9.i:                                   ; preds = %invoke.cont.i, %if.end.i.i.i38
   %extension_range_.i = getelementptr inbounds i8, ptr %this, i64 96
   %arena_.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_range_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_range_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i40, align 8
   %current_size_.i.i.i.i.i41 = getelementptr inbounds i8, ptr %from, i64 104
   %9 = load i32, ptr %current_size_.i.i.i.i.i41, align 8
@@ -5545,7 +5545,7 @@ if.end.i.i.i43:                                   ; preds = %invoke.cont9.i
 invoke.cont13.i:                                  ; preds = %invoke.cont9.i, %if.end.i.i.i43
   %extension_.i = getelementptr inbounds i8, ptr %this, i64 120
   %arena_.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extension_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extension_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i45, align 8
   %current_size_.i.i.i.i.i46 = getelementptr inbounds i8, ptr %from, i64 128
   %10 = load i32, ptr %current_size_.i.i.i.i.i46, align 8
@@ -5560,7 +5560,7 @@ if.end.i.i.i48:                                   ; preds = %invoke.cont13.i
 invoke.cont17.i:                                  ; preds = %invoke.cont13.i, %if.end.i.i.i48
   %oneof_decl_.i = getelementptr inbounds i8, ptr %this, i64 144
   %arena_.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %oneof_decl_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %oneof_decl_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i51, align 8
   %current_size_.i.i.i.i.i52 = getelementptr inbounds i8, ptr %from, i64 152
   %11 = load i32, ptr %current_size_.i.i.i.i.i52, align 8
@@ -5575,7 +5575,7 @@ if.end.i.i.i54:                                   ; preds = %invoke.cont17.i
 invoke.cont21.i:                                  ; preds = %invoke.cont17.i, %if.end.i.i.i54
   %reserved_range_.i = getelementptr inbounds i8, ptr %this, i64 168
   %arena_.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_range_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i56, align 8
   %current_size_.i.i.i.i.i57 = getelementptr inbounds i8, ptr %from, i64 176
   %12 = load i32, ptr %current_size_.i.i.i.i.i57, align 8
@@ -5590,7 +5590,7 @@ if.end.i.i.i59:                                   ; preds = %invoke.cont21.i
 invoke.cont25.i:                                  ; preds = %invoke.cont21.i, %if.end.i.i.i59
   %reserved_name_.i = getelementptr inbounds i8, ptr %this, i64 192
   %arena_.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_name_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i61, align 8
   %current_size_.i.i.i.i.i62 = getelementptr inbounds i8, ptr %from, i64 200
   %13 = load i32, ptr %current_size_.i.i.i.i.i62, align 8
@@ -5972,7 +5972,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_14MessageOptionsEEEPvPS1_PKv.exit: 
   br label %if.end34
 
 if.else:                                          ; preds = %if.then25
-  tail call void @_ZN6google8protobuf14MessageOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  tail call void @_ZN6google8protobuf14MessageOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull align 8 dereferenceable(88) %24)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_14MessageOptionsEEEPvPS1_PKv.exit, %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit
@@ -7073,7 +7073,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_29DescriptorProto_ReservedRangeEEEmRKT_.exit: ; preds = %for.body135, %if.end.i.i, %if.then9.i.i
   %total_size.0.i.i = phi i64 [ %add12.i.i, %if.then9.i.i ], [ %total_size.1.i.i, %if.end.i.i ], [ 0, %for.body135 ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %38, i64 20
-  %call15.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call15.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i.i151 = trunc i64 %call15.i.i to i32
   %or.i.i.i152 = or i32 %conv.i.i151, 1
   %47 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i152, i1 true)
@@ -7260,7 +7260,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 _ZNK6google8protobuf30DescriptorProto_ExtensionRange12ByteSizeLongEv.exit: ; preds = %entry, %if.end13.i, %if.then16.i
   %total_size.0.i = phi i64 [ %add19.i, %if.then16.i ], [ %total_size.2.i, %if.end13.i ], [ 0, %entry ]
   %_cached_size_.i = getelementptr inbounds i8, ptr %value, i64 20
-  %call22.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %value, i64 noundef %total_size.0.i, ptr noundef nonnull %_cached_size_.i)
+  %call22.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %value, i64 noundef %total_size.0.i, ptr noundef nonnull %_cached_size_.i)
   %conv.i = trunc i64 %call22.i to i32
   %or.i.i = or i32 %conv.i, 1
   %10 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i, i1 true)
@@ -7332,7 +7332,7 @@ if.then10.i:                                      ; preds = %if.end.i
 _ZNK6google8protobuf20OneofDescriptorProto12ByteSizeLongEv.exit: ; preds = %entry, %if.end.i, %if.then10.i
   %total_size.0.i = phi i64 [ %add13.i, %if.then10.i ], [ %total_size.1.i, %if.end.i ], [ 0, %entry ]
   %_cached_size_.i = getelementptr inbounds i8, ptr %value, i64 20
-  %call16.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %value, i64 noundef %total_size.0.i, ptr noundef nonnull %_cached_size_.i)
+  %call16.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %value, i64 noundef %total_size.0.i, ptr noundef nonnull %_cached_size_.i)
   %conv.i = trunc i64 %call16.i to i32
   %or.i.i = or i32 %conv.i, 1
   %8 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i, i1 true)
@@ -7353,7 +7353,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf15DescriptorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
-  tail call void @_ZN6google8protobuf15DescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf15DescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(232) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -7750,28 +7750,28 @@ entry:
   store i32 %4, ptr %3, align 4
   %field_ = getelementptr inbounds i8, ptr %this, i64 24
   %field_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %field_, ptr noundef nonnull %field_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %field_, ptr noundef nonnull %field_7)
   %nested_type_ = getelementptr inbounds i8, ptr %this, i64 48
   %nested_type_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %nested_type_, ptr noundef nonnull %nested_type_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %nested_type_, ptr noundef nonnull %nested_type_8)
   %enum_type_ = getelementptr inbounds i8, ptr %this, i64 72
   %enum_type_9 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %enum_type_, ptr noundef nonnull %enum_type_9)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %enum_type_, ptr noundef nonnull %enum_type_9)
   %extension_range_ = getelementptr inbounds i8, ptr %this, i64 96
   %extension_range_10 = getelementptr inbounds i8, ptr %other, i64 96
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %extension_range_, ptr noundef nonnull %extension_range_10)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %extension_range_, ptr noundef nonnull %extension_range_10)
   %extension_ = getelementptr inbounds i8, ptr %this, i64 120
   %extension_11 = getelementptr inbounds i8, ptr %other, i64 120
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %extension_, ptr noundef nonnull %extension_11)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %extension_, ptr noundef nonnull %extension_11)
   %oneof_decl_ = getelementptr inbounds i8, ptr %this, i64 144
   %oneof_decl_12 = getelementptr inbounds i8, ptr %other, i64 144
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %oneof_decl_, ptr noundef nonnull %oneof_decl_12)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %oneof_decl_, ptr noundef nonnull %oneof_decl_12)
   %reserved_range_ = getelementptr inbounds i8, ptr %this, i64 168
   %reserved_range_13 = getelementptr inbounds i8, ptr %other, i64 168
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_range_, ptr noundef nonnull %reserved_range_13)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_, ptr noundef nonnull %reserved_range_13)
   %reserved_name_ = getelementptr inbounds i8, ptr %this, i64 192
   %reserved_name_14 = getelementptr inbounds i8, ptr %other, i64 192
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_name_, ptr noundef nonnull %reserved_name_14)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_, ptr noundef nonnull %reserved_name_14)
   %name_ = getelementptr inbounds i8, ptr %this, i64 216
   %name_15 = getelementptr inbounds i8, ptr %other, i64 216
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_15, align 8
@@ -8504,7 +8504,7 @@ if.then.i.i:                                      ; preds = %if.end14.i
   br label %_ZN6google8protobuf33ExtensionRangeOptions_Declaration5ClearEv.exit
 
 _ZN6google8protobuf33ExtensionRangeOptions_Declaration5ClearEv.exit: ; preds = %if.end14.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf33ExtensionRangeOptions_Declaration9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf33ExtensionRangeOptions_Declaration9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf33ExtensionRangeOptions_Declaration5ClearEv.exit
@@ -8593,7 +8593,7 @@ invoke.cont:
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i4.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %uninterpreted_option_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i4.i, align 8
   %verification_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %verification_.i.i, align 8
@@ -8654,7 +8654,7 @@ if.end.i.i.i:                                     ; preds = %.noexc25
 invoke.cont.i:                                    ; preds = %.noexc25, %if.end.i.i.i
   %uninterpreted_option_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %uninterpreted_option_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i13, align 8
   %current_size_.i.i.i.i.i14 = getelementptr inbounds i8, ptr %from, i64 80
   %7 = load i32, ptr %current_size_.i.i.i.i.i14, align 8
@@ -8781,7 +8781,7 @@ terminate.lpad.i3.i.i:                            ; preds = %if.end.i2.i.i
 
 _ZN6google8protobuf21ExtensionRangeOptions10SharedDtorEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldINS0_19UninterpretedOptionEED2Ev.exit.i.i, %if.end.i2.i.i
   %8 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(92) %8) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -8890,7 +8890,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end16
 
 if.else:                                          ; preds = %if.then9
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %9)
   br label %if.end16
 
 if.end16:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -9278,7 +9278,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf21ExtensionRangeOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  tail call void @_ZN6google8protobuf21ExtensionRangeOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf21ExtensionRangeOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -9463,10 +9463,10 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %declaration_ = getelementptr inbounds i8, ptr %this, i64 48
   %declaration_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %declaration_, ptr noundef nonnull %declaration_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %declaration_, ptr noundef nonnull %declaration_6)
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 72
   %uninterpreted_option_7 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_7)
   %features_ = getelementptr inbounds i8, ptr %this, i64 96
   %features_8 = getelementptr inbounds i8, ptr %other, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
@@ -9975,7 +9975,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_12FieldOptionsEEEPvPS1_PKv.exit: ; 
   br label %if.end37
 
 if.else:                                          ; preds = %if.then29
-  tail call void @_ZN6google8protobuf12FieldOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  tail call void @_ZN6google8protobuf12FieldOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(144) %50, ptr noundef nonnull align 8 dereferenceable(144) %51)
   br label %if.end37
 
 if.end37:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_12FieldOptionsEEEPvPS1_PKv.exit, %if.else, %if.end26
@@ -11065,7 +11065,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf20FieldDescriptorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  tail call void @_ZN6google8protobuf20FieldDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf20FieldDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -11462,7 +11462,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_12OneofOptionsEEEPvPS1_PKv.exit: ; 
   br label %if.end18
 
 if.else:                                          ; preds = %if.then9
-  tail call void @_ZN6google8protobuf12OneofOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  tail call void @_ZN6google8protobuf12OneofOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %15)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_12OneofOptionsEEEPvPS1_PKv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
@@ -11827,7 +11827,7 @@ if.then.i.i:                                      ; preds = %if.end9.i
   br label %_ZN6google8protobuf20OneofDescriptorProto5ClearEv.exit
 
 _ZN6google8protobuf20OneofDescriptorProto5ClearEv.exit: ; preds = %if.end9.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf20OneofDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf20OneofDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf20OneofDescriptorProto5ClearEv.exit
@@ -12464,11 +12464,11 @@ invoke.cont:
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %reserved_range_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_range_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i6.i, align 8
   %reserved_name_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_name_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i7.i, align 8
   %name_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i, align 8
@@ -12520,7 +12520,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 .noexc22:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %reserved_range_.i = getelementptr inbounds i8, ptr %this, i64 48
   %arena_.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_range_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i15, align 8
   %current_size_.i.i.i.i.i16 = getelementptr inbounds i8, ptr %from, i64 56
   %7 = load i32, ptr %current_size_.i.i.i.i.i16, align 8
@@ -12535,7 +12535,7 @@ if.end.i.i.i18:                                   ; preds = %.noexc22
 invoke.cont.i:                                    ; preds = %.noexc22, %if.end.i.i.i18
   %reserved_name_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reserved_name_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i20, align 8
   %current_size_.i.i.i.i.i21 = getelementptr inbounds i8, ptr %from, i64 80
   %8 = load i32, ptr %current_size_.i.i.i.i.i21, align 8
@@ -12807,7 +12807,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_11EnumOptionsEEEPvPS1_PKv.exit: ; p
   br label %if.end24
 
 if.else:                                          ; preds = %if.then15
-  tail call void @_ZN6google8protobuf11EnumOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19)
+  tail call void @_ZN6google8protobuf11EnumOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %19)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_11EnumOptionsEEEPvPS1_PKv.exit, %_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_.exit
@@ -13393,7 +13393,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_37EnumDescriptorProto_EnumReservedRangeEEEmRKT_.exit: ; preds = %for.body25, %if.end.i.i, %if.then9.i.i
   %total_size.0.i.i = phi i64 [ %add12.i.i, %if.then9.i.i ], [ %total_size.1.i.i, %if.end.i.i ], [ 0, %for.body25 ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %10, i64 20
-  %call15.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call15.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i.i37 = trunc i64 %call15.i.i to i32
   %or.i.i.i38 = or i32 %conv.i.i37, 1
   %19 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i38, i1 true)
@@ -13517,7 +13517,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf19EnumDescriptorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  tail call void @_ZN6google8protobuf19EnumDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf19EnumDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -13678,13 +13678,13 @@ entry:
   store i32 %4, ptr %3, align 4
   %value_ = getelementptr inbounds i8, ptr %this, i64 24
   %value_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %value_, ptr noundef nonnull %value_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %value_, ptr noundef nonnull %value_7)
   %reserved_range_ = getelementptr inbounds i8, ptr %this, i64 48
   %reserved_range_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_range_, ptr noundef nonnull %reserved_range_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %reserved_range_, ptr noundef nonnull %reserved_range_8)
   %reserved_name_ = getelementptr inbounds i8, ptr %this, i64 72
   %reserved_name_9 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %reserved_name_, ptr noundef nonnull %reserved_name_9)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %reserved_name_, ptr noundef nonnull %reserved_name_9)
   %name_ = getelementptr inbounds i8, ptr %this, i64 96
   %name_10 = getelementptr inbounds i8, ptr %other, i64 96
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_10, align 8
@@ -13949,7 +13949,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_16EnumValueOptionsEEEPvPS1_PKv.exit
   br label %if.end17
 
 if.else:                                          ; preds = %if.then9
-  tail call void @_ZN6google8protobuf16EnumValueOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  tail call void @_ZN6google8protobuf16EnumValueOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(88) %15)
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_16EnumValueOptionsEEEPvPS1_PKv.exit, %if.else, %if.end
@@ -14395,7 +14395,7 @@ if.then.i.i:                                      ; preds = %if.end9.i
   br label %_ZN6google8protobuf24EnumValueDescriptorProto5ClearEv.exit
 
 _ZN6google8protobuf24EnumValueDescriptorProto5ClearEv.exit: ; preds = %if.end9.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf24EnumValueDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf24EnumValueDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf24EnumValueDescriptorProto5ClearEv.exit
@@ -14819,7 +14819,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_14ServiceOptionsEEEPvPS1_PKv.exit: 
   br label %if.end20
 
 if.else:                                          ; preds = %if.then11
-  tail call void @_ZN6google8protobuf14ServiceOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  tail call void @_ZN6google8protobuf14ServiceOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef nonnull align 8 dereferenceable(88) %17)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end, %if.else, %_ZN6google8protobuf5Arena13CopyConstructINS0_14ServiceOptionsEEEPvPS1_PKv.exit, %_ZN6google8protobuf16RepeatedPtrFieldINS0_21MethodDescriptorProtoEE9MergeFromERKS3_.exit
@@ -15326,7 +15326,7 @@ if.then.i.i:                                      ; preds = %if.end9.i
   br label %_ZN6google8protobuf22ServiceDescriptorProto5ClearEv.exit
 
 _ZN6google8protobuf22ServiceDescriptorProto5ClearEv.exit: ; preds = %if.end9.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf22ServiceDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf22ServiceDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf22ServiceDescriptorProto5ClearEv.exit
@@ -15487,7 +15487,7 @@ entry:
   store i32 %4, ptr %3, align 4
   %method_ = getelementptr inbounds i8, ptr %this, i64 24
   %method_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %method_, ptr noundef nonnull %method_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %method_, ptr noundef nonnull %method_7)
   %name_ = getelementptr inbounds i8, ptr %this, i64 48
   %name_8 = getelementptr inbounds i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %name_8, align 8
@@ -15867,7 +15867,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_13MethodOptionsEEEPvPS1_PKv.exit: ;
   br label %if.end27
 
 if.else:                                          ; preds = %if.then19
-  tail call void @_ZN6google8protobuf13MethodOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+  tail call void @_ZN6google8protobuf13MethodOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %33)
   br label %if.end27
 
 if.end27:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_13MethodOptionsEEEPvPS1_PKv.exit, %if.else, %if.end16
@@ -16454,7 +16454,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf21MethodDescriptorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  tail call void @_ZN6google8protobuf21MethodDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf21MethodDescriptorProto9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -16978,7 +16978,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i
 
 _ZN6google8protobuf11FileOptions5Impl_D2Ev.exit:  ; preds = %delete.end, %if.end.i.i
   %4 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(157) %4) #23
   ret void
 }
 
@@ -17433,7 +17433,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end68
 
 if.else:                                          ; preds = %if.then60
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %87, ptr noundef nonnull align 8 dereferenceable(72) %88)
   br label %if.end68
 
 if.end68:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.end57
@@ -18835,7 +18835,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf11FileOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(176) %this)
-  tail call void @_ZN6google8protobuf11FileOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf11FileOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(176) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -18862,7 +18862,7 @@ entry:
   store i32 %4, ptr %_has_bits_6, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
   %java_package_ = getelementptr inbounds i8, ptr %this, i64 72
   %java_package_9 = getelementptr inbounds i8, ptr %other, i64 72
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %java_package_9, align 8
@@ -19109,7 +19109,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf14MessageOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(69) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -19206,7 +19206,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end14
 
 if.else:                                          ; preds = %if.then7
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -19622,7 +19622,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf14MessageOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  tail call void @_ZN6google8protobuf14MessageOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf14MessageOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -19649,7 +19649,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
@@ -20255,11 +20255,11 @@ invoke.cont:
   store ptr %arena, ptr %arena_or_elements_.i.i.i, align 8
   %edition_defaults_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %edition_defaults_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %edition_defaults_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %uninterpreted_option_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %arena_.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %uninterpreted_option_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i6.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %add.ptr.i, i8 0, i64 28, i1 false)
@@ -20330,7 +20330,7 @@ _ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i.i: ; pre
 invoke.cont.i:                                    ; preds = %.noexc, %.noexc29
   %edition_defaults_.i = getelementptr inbounds i8, ptr %this, i64 64
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %edition_defaults_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %edition_defaults_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 72
   %9 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -20345,7 +20345,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont.i
 invoke.cont8.i:                                   ; preds = %invoke.cont.i, %if.end.i.i.i
   %uninterpreted_option_.i = getelementptr inbounds i8, ptr %this, i64 88
   %arena_.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %uninterpreted_option_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i17, align 8
   %current_size_.i.i.i.i.i18 = getelementptr inbounds i8, ptr %from, i64 96
   %10 = load i32, ptr %current_size_.i.i.i.i.i18, align 8
@@ -20602,7 +20602,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end18
 
 if.else:                                          ; preds = %if.then11
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %15)
   br label %if.end18
 
 if.end18:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -21331,7 +21331,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_27FieldOptions_EditionDefaultEEEmRKT_.exit: ; preds = %for.body20, %if.end.i.i, %if.then10.i.i
   %total_size.0.i.i = phi i64 [ %add14.i.i, %if.then10.i.i ], [ %total_size.1.i.i, %if.end.i.i ], [ 0, %for.body20 ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %11, i64 20
-  %call17.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call17.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i.i = trunc i64 %call17.i.i to i32
   %or.i.i.i45 = or i32 %conv.i.i, 1
   %21 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i45, i1 true)
@@ -21519,7 +21519,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf12FieldOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
-  tail call void @_ZN6google8protobuf12FieldOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf12FieldOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -21546,13 +21546,13 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %targets_ = getelementptr inbounds i8, ptr %this, i64 48
   %targets_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %targets_, ptr noundef nonnull %targets_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %targets_, ptr noundef nonnull %targets_6)
   %edition_defaults_ = getelementptr inbounds i8, ptr %this, i64 64
   %edition_defaults_7 = getelementptr inbounds i8, ptr %other, i64 64
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %edition_defaults_, ptr noundef nonnull %edition_defaults_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %edition_defaults_, ptr noundef nonnull %edition_defaults_7)
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 88
   %uninterpreted_option_8 = getelementptr inbounds i8, ptr %other, i64 88
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
   %features_ = getelementptr inbounds i8, ptr %this, i64 112
   %features_9 = getelementptr inbounds i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
@@ -21736,7 +21736,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf12OneofOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -21828,7 +21828,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end11
 
 if.else:                                          ; preds = %if.then
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end11
 
 if.end11:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %_ZN6google8protobuf16RepeatedPtrFieldINS0_19UninterpretedOptionEE9MergeFromERKS3_.exit
@@ -22025,7 +22025,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf12OneofOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  tail call void @_ZN6google8protobuf12OneofOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf12OneofOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -22052,7 +22052,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   %6 = load ptr, ptr %features_, align 8
@@ -22225,7 +22225,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf11EnumOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(67) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -22322,7 +22322,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end14
 
 if.else:                                          ; preds = %if.then7
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -22654,7 +22654,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf11EnumOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  tail call void @_ZN6google8protobuf11EnumOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf11EnumOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -22681,7 +22681,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
@@ -22869,7 +22869,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf16EnumValueOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -22966,7 +22966,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end14
 
 if.else:                                          ; preds = %if.then7
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -23256,7 +23256,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf16EnumValueOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  tail call void @_ZN6google8protobuf16EnumValueOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf16EnumValueOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -23283,7 +23283,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
@@ -23472,7 +23472,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf14ServiceOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -23569,7 +23569,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end14
 
 if.else:                                          ; preds = %if.then7
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -23822,7 +23822,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf14ServiceOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  tail call void @_ZN6google8protobuf14ServiceOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf14ServiceOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -23849,7 +23849,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
@@ -24037,7 +24037,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
 
 _ZN6google8protobuf13MethodOptions10SharedDtorEv.exit: ; preds = %delete.end.i, %if.end.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -24134,7 +24134,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end14
 
 if.else:                                          ; preds = %if.then7
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -24461,7 +24461,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf13MethodOptions5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  tail call void @_ZN6google8protobuf13MethodOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf13MethodOptions9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -24488,7 +24488,7 @@ entry:
   store i32 %4, ptr %_has_bits_4, align 4
   %uninterpreted_option_ = getelementptr inbounds i8, ptr %this, i64 48
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
   %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %features_, ptr noundef nonnull %features_7)
@@ -25895,7 +25895,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_28UninterpretedOption_NamePartEEEmRKT_.exit: ; preds = %for.body, %if.end.i.i
   %total_size.0.i.i = phi i64 [ 0, %for.body ], [ %spec.select.i.i, %if.end.i.i ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %4, i64 20
-  %call14.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call14.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i.i = trunc i64 %call14.i.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
   %12 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
@@ -26054,7 +26054,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf19UninterpretedOption5ClearEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  tail call void @_ZN6google8protobuf19UninterpretedOption9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf19UninterpretedOption9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26135,7 +26135,7 @@ entry:
   store i32 %4, ptr %3, align 4
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
   %name_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %name_, ptr noundef nonnull %name_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %name_, ptr noundef nonnull %name_7)
   %identifier_value_ = getelementptr inbounds i8, ptr %this, i64 48
   %identifier_value_8 = getelementptr inbounds i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %identifier_value_8, align 8
@@ -26260,7 +26260,7 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
   %1 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+  tail call void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #23
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -26868,7 +26868,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN6google8protobuf10FeatureSet5ClearEv.exit
 
 _ZN6google8protobuf10FeatureSet5ClearEv.exit:     ; preds = %if.end.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf10FeatureSet5ClearEv.exit
@@ -27104,7 +27104,7 @@ _ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit: ; pr
   br label %if.end12
 
 if.else:                                          ; preds = %if.then5
-  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  tail call void @_ZN6google8protobuf10FeatureSet9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %7)
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZN6google8protobuf5Arena13CopyConstructINS0_10FeatureSetEEEPvPS1_PKv.exit, %if.else, %if.then
@@ -27397,7 +27397,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault5ClearEv.exit
 
 _ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault5ClearEv.exit: ; preds = %if.end.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault5ClearEv.exit
@@ -27948,7 +27948,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEmRKT_.exit: ; preds = %for.body, %if.end.i.i, %if.then9.i.i
   %total_size.0.i.i = phi i64 [ %add13.i.i, %if.then9.i.i ], [ %total_size.1.i.i, %if.end.i.i ], [ 0, %for.body ]
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %4, i64 20
-  %call16.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
+  %call16.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef %total_size.0.i.i, ptr noundef nonnull %_cached_size_.i.i)
   %conv.i.i = trunc i64 %call16.i.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
   %12 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
@@ -28211,7 +28211,7 @@ entry:
   store i32 %4, ptr %3, align 4
   %defaults_ = getelementptr inbounds i8, ptr %this, i64 24
   %defaults_5 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %defaults_, ptr noundef nonnull %defaults_5)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %defaults_, ptr noundef nonnull %defaults_5)
   %minimum_edition_ = getelementptr inbounds i8, ptr %this, i64 48
   %minimum_edition_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
@@ -28265,7 +28265,7 @@ invoke.cont:
   store i32 0, ptr %_span_cached_byte_size_.i.i, align 8
   %leading_detached_comments_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leading_detached_comments_.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %leading_detached_comments_.i.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %leading_comments_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %leading_comments_.i.i, align 8
@@ -28356,7 +28356,7 @@ invoke.cont.i:                                    ; preds = %.noexc22, %.noexc16
   store i32 0, ptr %_span_cached_byte_size_.i, align 8
   %leading_detached_comments_.i = getelementptr inbounds i8, ptr %this, i64 72
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leading_detached_comments_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %leading_detached_comments_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 80
   %12 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -29297,7 +29297,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf23SourceCodeInfo_Location5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  tail call void @_ZN6google8protobuf23SourceCodeInfo_Location9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf23SourceCodeInfo_Location9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -29327,13 +29327,13 @@ entry:
   store i32 %4, ptr %3, align 4
   %path_ = getelementptr inbounds i8, ptr %this, i64 24
   %path_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %path_, ptr noundef nonnull %path_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %path_, ptr noundef nonnull %path_7)
   %span_ = getelementptr inbounds i8, ptr %this, i64 48
   %span_8 = getelementptr inbounds i8, ptr %other, i64 48
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %span_, ptr noundef nonnull %span_8)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %span_, ptr noundef nonnull %span_8)
   %leading_detached_comments_ = getelementptr inbounds i8, ptr %this, i64 72
   %leading_detached_comments_9 = getelementptr inbounds i8, ptr %other, i64 72
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %leading_detached_comments_, ptr noundef nonnull %leading_detached_comments_9)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %leading_detached_comments_, ptr noundef nonnull %leading_detached_comments_9)
   %leading_comments_ = getelementptr inbounds i8, ptr %this, i64 96
   %leading_comments_10 = getelementptr inbounds i8, ptr %other, i64 96
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %leading_comments_10, align 8
@@ -29365,7 +29365,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14SourceCodeInfoE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -29395,7 +29395,7 @@ if.then.i12:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %if.then.i12, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -29433,7 +29433,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i
   br i1 %cmp.i.not.i.i.i, label %_ZN6google8protobuf14SourceCodeInfo10SharedDtorEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
           to label %_ZN6google8protobuf14SourceCodeInfo10SharedDtorEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
@@ -29705,7 +29705,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3)
   ret void
 }
 
@@ -30539,7 +30539,7 @@ if.then.i.i:                                      ; preds = %if.end6.i
   br label %_ZN6google8protobuf28GeneratedCodeInfo_Annotation5ClearEv.exit
 
 _ZN6google8protobuf28GeneratedCodeInfo_Annotation5ClearEv.exit: ; preds = %if.end6.i, %if.then.i.i
-  tail call void @_ZN6google8protobuf28GeneratedCodeInfo_Annotation9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf28GeneratedCodeInfo_Annotation9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf28GeneratedCodeInfo_Annotation5ClearEv.exit
@@ -30569,7 +30569,7 @@ entry:
   store i32 %4, ptr %3, align 4
   %path_ = getelementptr inbounds i8, ptr %this, i64 24
   %path_7 = getelementptr inbounds i8, ptr %other, i64 24
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %path_, ptr noundef nonnull %path_7)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(16) %path_, ptr noundef nonnull %path_7)
   %source_file_ = getelementptr inbounds i8, ptr %this, i64 48
   %source_file_8 = getelementptr inbounds i8, ptr %other, i64 48
   %__tmp.sroa.0.0.copyload.i = load ptr, ptr %source_file_8, align 8
@@ -30615,7 +30615,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf17GeneratedCodeInfoE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -30645,7 +30645,7 @@ if.then.i12:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %if.then.i12, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -30683,7 +30683,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i
   br i1 %cmp.i.not.i.i.i, label %_ZN6google8protobuf17GeneratedCodeInfo10SharedDtorEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
           to label %_ZN6google8protobuf17GeneratedCodeInfo10SharedDtorEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
@@ -31007,7 +31007,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3)
   ret void
 }
 

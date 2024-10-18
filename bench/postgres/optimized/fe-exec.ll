@@ -1132,7 +1132,7 @@ pqSaveMessageField.exit:                          ; preds = %11, %25
   %33 = getelementptr inbounds i8, ptr %31, i64 8
   store i8 83, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %34, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
   %35 = getelementptr inbounds i8, ptr %10, i64 168
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %31, align 8
@@ -1148,7 +1148,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   store i8 86, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.17, i64 7, i1 false) #26
   %41 = getelementptr inbounds i8, ptr %10, i64 168
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %37, align 8

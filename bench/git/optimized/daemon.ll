@@ -1087,7 +1087,7 @@ if.then10.i.i.i:                                  ; preds = %if.then17.i.i.i.i, 
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i.i, %if.else14.i.i.i.i, %if.end.i.i.i.i
   %host.120.i.i.i = phi ptr [ %host.1.i.i.i, %if.then10.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr4.i.i.i, %if.else14.i.i.i.i ]
-  call fastcc void @sanitize_client(ptr noundef %hi.i, ptr noundef nonnull readonly %host.120.i.i.i)
+  call fastcc void @sanitize_client(ptr noundef nonnull %hi.i, ptr noundef nonnull readonly %host.120.i.i.i)
   call void @strbuf_tolower(ptr noundef nonnull %hi.i) #19
   %bf.load11.i.i.i = load i8, ptr %saw_extended_args.i.i.i, align 8
   %bf.clear12.i.i.i = and i8 %bf.load11.i.i.i, -2
@@ -1447,7 +1447,7 @@ do.cond.i74.i.i.i:                                ; preds = %do.body.i70.i.i.i
 
 if.then39.i.i.i:                                  ; preds = %do.body.i70.i.i.i
   store ptr %scevgep133.i.i.i, ptr %format.i.i.i, align 8
-  call fastcc void @lookup_hostname(ptr noundef %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
   %101 = load ptr, ptr %buf.i80.i.i.i, align 8
   %call.i.i.i49.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #20
   call void @strbuf_add(ptr noundef nonnull %expanded_path.i.i.i, ptr noundef %101, i64 noundef %call.i.i.i49.i) #19
@@ -1470,7 +1470,7 @@ do.cond.i85.i.i.i:                                ; preds = %do.body.i81.i.i.i
 
 if.then43.i.i.i:                                  ; preds = %do.body.i81.i.i.i
   store ptr %scevgep133.i.i.i, ptr %format.i.i.i, align 8
-  call fastcc void @lookup_hostname(ptr noundef %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
   %104 = load ptr, ptr %buf.i91.i.i.i, align 8
   %call.i92.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #20
   call void @strbuf_add(ptr noundef nonnull %expanded_path.i.i.i, ptr noundef %104, i64 noundef %call.i92.i.i.i) #19
@@ -1751,11 +1751,11 @@ land.lhs.true30.i.i:                              ; preds = %if.end28.i.i
   %buf6.i.i.i = getelementptr inbounds i8, ptr %hi.i, i64 16
   %127 = load ptr, ptr %buf6.i.i.i, align 8
   %call7.i.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %127) #19
-  call fastcc void @lookup_hostname(ptr noundef %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
   %buf.i.i27.i.i = getelementptr inbounds i8, ptr %hi.i, i64 40
   %128 = load ptr, ptr %buf.i.i27.i.i, align 8
   %call10.i28.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %128) #19
-  call fastcc void @lookup_hostname(ptr noundef %hi.i)
+  call fastcc void @lookup_hostname(ptr noundef nonnull %hi.i)
   %buf.i5.i.i.i = getelementptr inbounds i8, ptr %hi.i, i64 64
   %129 = load ptr, ptr %buf.i5.i.i.i, align 8
   %call13.i.i.i = call ptr @strvec_push(ptr noundef nonnull %child.i.i.i, ptr noundef %129) #19
@@ -1952,7 +1952,7 @@ for.end234:                                       ; preds = %for.body228, %if.en
   br i1 %tobool.not.i.i232, label %if.then.i.i260, label %for.body.i.i233
 
 if.then.i.i260:                                   ; preds = %for.end234
-  %call.i.i261 = call fastcc i32 @setup_named_sock(ptr noundef null, i32 noundef %spec.store.select4322326, ptr noundef %socklist.i)
+  %call.i.i261 = call fastcc i32 @setup_named_sock(ptr noundef null, i32 noundef %spec.store.select4322326, ptr noundef nonnull %socklist.i)
   br label %socksetup.exit.i
 
 for.body.i.i233:                                  ; preds = %for.end234, %for.inc.i.i234
@@ -1960,7 +1960,7 @@ for.body.i.i233:                                  ; preds = %for.end234, %for.in
   %145 = load ptr, ptr %listen_addr, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.string_list_item, ptr %145, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %arrayidx.i.i, align 8
-  %call3.i.i = call fastcc i32 @setup_named_sock(ptr noundef %146, i32 noundef %spec.store.select4322326, ptr noundef %socklist.i)
+  %call3.i.i = call fastcc i32 @setup_named_sock(ptr noundef %146, i32 noundef %spec.store.select4322326, ptr noundef nonnull %socklist.i)
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.then6.i.i, label %for.inc.i.i234
 
@@ -2247,7 +2247,7 @@ check_dead_children.exit.i.i.i:                   ; preds = %if.end6.i.i.i.i, %k
   br i1 %cmp1.not.i.i.i, label %if.end4.i.i.i, label %if.then2.i.i.i254
 
 if.then2.i.i.i254:                                ; preds = %check_dead_children.exit.i.i.i
-  %call3.i.i.i = call i32 @close(i32 noundef %call35.i.i245) #19
+  %call3.i.i.i = call i32 @close(i32 noundef range(i32 0, -2147483648) %call35.i.i245) #19
   call void (ptr, ...) @logerror(ptr noundef nonnull @.str.129)
   br label %handle.exit.i.i
 
@@ -2281,7 +2281,7 @@ if.end35.i.i.i:                                   ; preds = %if.end35.sink.split
   %191 = load ptr, ptr @cld_argv, align 8
   call void @strvec_pushv(ptr noundef nonnull %cld.i17.i.i, ptr noundef %191) #19
   store i32 %call35.i.i245, ptr %in.i.i.i, align 8
-  %call36.i.i.i = call i32 @dup(i32 noundef %call35.i.i245) #19
+  %call36.i.i.i = call i32 @dup(i32 noundef range(i32 0, -2147483648) %call35.i.i245) #19
   store i32 %call36.i.i.i, ptr %out.i.i.i240, align 4
   %call37.i.i.i = call i32 @start_command(ptr noundef nonnull %cld.i17.i.i) #19
   %tobool38.not.i.i.i = icmp eq i32 %call37.i.i.i, 0
@@ -3070,7 +3070,7 @@ set_reuse_addr.exit.thread:                       ; preds = %if.end19
   br label %if.end26
 
 set_reuse_addr.exit:                              ; preds = %if.end19
-  %call.i = call i32 @setsockopt(i32 noundef %call8, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i, i32 noundef 4) #19
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, 1024) %call8, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i)
   %tobool21.not = icmp eq i32 %call.i, 0
   br i1 %tobool21.not, label %if.end26, label %if.then22
@@ -3086,7 +3086,7 @@ if.then22:                                        ; preds = %set_reuse_addr.exit
 if.end26:                                         ; preds = %set_reuse_addr.exit.thread, %set_reuse_addr.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ka.i)
   store i32 1, ptr %ka.i, align 4
-  %call.i44 = call i32 @setsockopt(i32 noundef %call8, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %ka.i, i32 noundef 4) #19
+  %call.i44 = call i32 @setsockopt(i32 noundef range(i32 0, 1024) %call8, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %ka.i, i32 noundef 4) #19
   %cmp.i = icmp slt i32 %call.i44, 0
   br i1 %cmp.i, label %if.then.i, label %set_keep_alive.exit
 

@@ -112,22 +112,22 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define noundef ptr @_ZN18OpenImageIO_v2_6_024pnm_input_imageio_createEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN18OpenImageIO_v2_6_010ImageInputnwEm(i64 noundef 264)
-  invoke void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call)
+  invoke void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_08PNMInputE, i64 16), ptr %call, align 8
   %m_file_contents.i = getelementptr inbounds i8, ptr %call, i64 200
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_file_contents.i) #20
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents.i) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %m_file_contents.i, i8 0, i64 56, i1 false)
-  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(184) %call)
+  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(264) %call)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents.i) #20
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call) #20
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %call) #20
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1368,7 +1368,7 @@ if.end:                                           ; preds = %entry
 
 if.end17:                                         ; preds = %if.end
   %m_spec = getelementptr inbounds i8, ptr %this, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %newspec, ptr noundef nonnull align 8 dereferenceable(72) %m_spec, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %m_spec, i64 72, i1 false)
   %channelformats.i = getelementptr inbounds i8, ptr %newspec, i64 72
   %channelformats3.i = getelementptr inbounds i8, ptr %this, i64 80
   %call.i7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i)
@@ -1516,7 +1516,7 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit
 
 _ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit:     ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
   %m_y_next.i = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_y_next.i, align 8
   ret i1 true
@@ -1624,7 +1624,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   br label %_ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i
 
 _ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i:   ; preds = %if.end.i.i.i.i, %entry
-  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i
@@ -1640,7 +1640,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_file_contents) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents) #20
   tail call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #20
   ret void
 
@@ -1668,7 +1668,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
   br label %_ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i.i: ; preds = %if.end.i.i.i.i.i, %entry
-  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  invoke void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN18OpenImageIO_v2_6_08PNMInput4initEv.exit.i.i
@@ -1691,8 +1691,8 @@ terminate.lpad.i:                                 ; preds = %_ZN18OpenImageIO_v2
   unreachable
 
 _ZN18OpenImageIO_v2_6_08PNMInputD2Ev.exit:        ; preds = %invoke.cont.i, %if.then.i.i.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_file_contents.i) #20
-  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents.i) #20
+  tail call void @_ZN18OpenImageIO_v2_6_010ImageInputD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) #20
   tail call void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -1804,7 +1804,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #20
   ret void
 }
 
@@ -1838,7 +1838,7 @@ if.then.i:                                        ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i, %entry
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #20
   ret void
 }
 
@@ -2695,14 +2695,14 @@ invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15, ptr noundef nonnull align 1 dereferenceable(1) %__c) #20
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #20
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(24) %__c) #20
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #20
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -2760,7 +2760,7 @@ if.then.i.i.i4:                                   ; preds = %invoke.cont21
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont21, %if.then.i.i.i4
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #20
   br label %return
 

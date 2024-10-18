@@ -207,7 +207,7 @@ define linkonce_odr void @_ZThn16_N19WiresharkFileDialogD1Ev(ptr noundef %0) unn
 define linkonce_odr void @_ZThn16_N19WiresharkFileDialogD0Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN11QFileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #6
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #7
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %2) #7
   ret void
 }
 

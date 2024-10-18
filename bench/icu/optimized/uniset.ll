@@ -1450,7 +1450,7 @@ define void @_ZThn8_N6icu_7510UnicodeSetD0Ev(ptr noundef %this) unnamed_addr #13
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #23
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(200) %0) #23
   ret void
 }
 
@@ -2206,7 +2206,7 @@ if.then:                                          ; preds = %if.then3.i, %entry
   br i1 %cmp.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then
-  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %s, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
   %conv.i.i = zext i1 %cmp.i.i to i8
   br label %return
@@ -3663,7 +3663,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.not.i.i, label %if.then12.i, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.i
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.i: ; preds = %for.body.i
-  %call.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %call10.i, i32 noundef 0)
+  %call.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(64) %call10.i, i32 noundef 0)
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then12.i, label %for.inc.i
 
@@ -3726,7 +3726,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i, label %if.then12, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit: ; preds = %for.body
-  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %call10, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(64) %call10, i32 noundef 0)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then12, label %for.inc
 
@@ -3789,7 +3789,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.not.i.i.i, label %if.then12.i.i, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.i.i
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.i.i: ; preds = %for.body.i.i
-  %call.i.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %call10.i.i, i32 noundef 0)
+  %call.i.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(64) %call10.i.i, i32 noundef 0)
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then12.i.i, label %for.inc.i.i
 
@@ -4731,7 +4731,7 @@ if.then5:                                         ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i5, label %if.then8, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit: ; preds = %if.then5
-  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %s, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then8, label %return
 
@@ -6033,7 +6033,7 @@ if.then5:                                         ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i7, label %if.end21.critedge, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit: ; preds = %if.then5
-  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %s, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.end21.critedge, label %land.lhs.true
 
@@ -6589,7 +6589,7 @@ if.then5:                                         ; preds = %if.then3.i, %if.end
   br i1 %cmp.not.i7, label %if.else, label %_ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit: ; preds = %if.then5
-  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %s, i32 noundef 0)
+  %call.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(64) %s, i32 noundef 0)
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.else, label %if.then8
 

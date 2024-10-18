@@ -1387,7 +1387,7 @@ if.then8:                                         ; preds = %if.else
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %conv.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %1, ptr noundef %add.ptr.i)
@@ -1507,7 +1507,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDEPKNS1_15StringPrimitiveEEEclES2_S5_.exit: ; preds = %if.then
   %8 = load ptr, ptr %_M_invoker.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #16
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %acceptor, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
@@ -1930,7 +1930,7 @@ if.end:                                           ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %stdString) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %stdString, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %stdString, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
   %_M_string_length.i = getelementptr inbounds i8, ptr %stdString, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %stdString, ptr noundef %str.coerce0, ptr noundef %add.ptr.i)
@@ -1965,7 +1965,7 @@ if.else:                                          ; preds = %entry
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 134217728
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #16
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %6 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i8 = icmp ugt i64 %6, -844424930131969
@@ -2134,7 +2134,7 @@ if.else:                                          ; preds = %entry
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 117440512
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %8 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #16
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %9 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i11 = icmp ugt i64 %9, -844424930131969
@@ -2963,7 +2963,7 @@ if.end:                                           ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %stdString) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %stdString, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %stdString, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #16
   %_M_string_length.i = getelementptr inbounds i8, ptr %stdString, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %stdString, ptr noundef %str.coerce0, ptr noundef %add.ptr.i)
@@ -2996,7 +2996,7 @@ if.else:                                          ; preds = %entry
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #16
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %6 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i8 = icmp ugt i64 %6, -844424930131969
@@ -3163,7 +3163,7 @@ if.else:                                          ; preds = %entry
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 50331648
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %8 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #16
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   %9 = load i64, ptr %primHandle.coerce, align 8
   %cmp.i.i11 = icmp ugt i64 %9, -844424930131969

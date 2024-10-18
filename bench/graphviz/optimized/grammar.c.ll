@@ -925,13 +925,13 @@ appendnode.exit237:                               ; preds = %391, %394
   br i1 %408, label %gv_alloc.exit.i.i, label %409
 
 409:                                              ; preds = %403
-  %410 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %407) #18
+  %410 = call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 8193, 0) %407) #18
   %411 = icmp eq ptr %410, null
   br i1 %411, label %412, label %gv_alloc.exit.i.i
 
 412:                                              ; preds = %409
   %413 = load ptr, ptr @stderr, align 8
-  %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef nonnull @.str.13, i64 noundef %407) #19
+  %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef nonnull @.str.13, i64 noundef range(i64 8193, 0) %407) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
@@ -1144,13 +1144,13 @@ opensubg.exit:                                    ; preds = %480, %485
   br i1 %522, label %gv_alloc.exit.i, label %523
 
 523:                                              ; preds = %514
-  %524 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %521) #18
+  %524 = call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 8193, 0) %521) #18
   %525 = icmp eq ptr %524, null
   br i1 %525, label %526, label %gv_alloc.exit.i
 
 526:                                              ; preds = %523
   %527 = load ptr, ptr @stderr, align 8
-  %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.13, i64 noundef %521) #19
+  %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.13, i64 noundef range(i64 8193, 0) %521) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
@@ -1533,7 +1533,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @S, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr @agattr(ptr noundef %45, i32 noundef %.014, ptr noundef %43, ptr noundef null) #16
+  %46 = tail call ptr @agattr(ptr noundef %45, i32 noundef range(i32 0, 3) %.014, ptr noundef %43, ptr noundef null) #16
   store ptr %46, ptr %42, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
@@ -1541,7 +1541,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
 48:                                               ; preds = %.lr.ph.split.i
   %49 = load ptr, ptr @S, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @agattr(ptr noundef %50, i32 noundef %.014, ptr noundef %43, ptr noundef nonnull @.str.10) #16
+  %51 = tail call ptr @agattr(ptr noundef %50, i32 noundef range(i32 0, 3) %.014, ptr noundef %43, ptr noundef nonnull @.str.10) #16
   store ptr %51, ptr %42, align 8
   br label %52
 

@@ -66,7 +66,7 @@ land.lhs.true2:                                   ; preds = %_ZN8facebook5velox1
   br i1 %cmp.i10, label %land.lhs.true5, label %invoke.cont
 
 land.lhs.true5:                                   ; preds = %land.lhs.true2
-  %8 = tail call noundef ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #6
+  %8 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %6, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #6
   %9 = getelementptr i8, ptr %8, i64 224
   %call7.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %8, i64 232

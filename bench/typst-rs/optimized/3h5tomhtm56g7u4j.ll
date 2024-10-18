@@ -257,7 +257,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hba3943aeed84b1eeE(ptr noali
   %13 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  tail call void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..hash..Hash$GT$4hash17he155a93fa69a19f2E.llvm.2660168047844088129"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %.sroa.0.06, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
+  tail call void @"_ZN67_$LT$typst..visualize..color..Color$u20$as$u20$core..hash..Hash$GT$4hash17he155a93fa69a19f2E.llvm.2660168047844088129"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.06, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   %14 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
@@ -586,7 +586,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67
 define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.2660168047844088129"(ptr noundef nonnull align 16 %0) unnamed_addr #1 {
   %2 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i = inttoptr i64 %2 to ptr
-  %3 = tail call noundef i128 %.0.i.i(ptr noundef nonnull %0)
+  %3 = tail call noundef i128 %.0.i.i(ptr noundef nonnull align 16 %0)
   %4 = icmp eq i128 %3, 0
   br i1 %4, label %5, label %9
 
@@ -595,7 +595,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
   %7 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.2660168047844088129(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %.0.i1.i.i = inttoptr i64 %8 to ptr
-  tail call void %.0.i1.i.i(ptr noundef nonnull %0, i128 noundef %7)
+  tail call void %.0.i1.i.i(ptr noundef nonnull align 16 %0, i128 noundef %7)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -1349,7 +1349,7 @@ define hidden void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$cor
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 
@@ -1558,7 +1558,7 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6411atomic_load4FUNC17hf51fb62267361f34E monotonic, align 8
   %.0.i.i.i = inttoptr i64 %7 to ptr
-  %8 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull %6)
+  %8 = tail call noundef i128 %.0.i.i.i(ptr noundef nonnull align 16 %6)
   %9 = icmp eq i128 %8, 0
   br i1 %9, label %10, label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.2660168047844088129.exit"
 
@@ -1567,7 +1567,7 @@ define hidden void @"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$
   %12 = tail call noundef i128 @_ZN5typst4util4hash9hash_item17hfca31474057cdca5E.llvm.2660168047844088129(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   %13 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %.0.i1.i.i.i = inttoptr i64 %13 to ptr
-  tail call void %.0.i1.i.i.i(ptr noundef nonnull %6, i128 noundef %12)
+  tail call void %.0.i1.i.i.i(ptr noundef nonnull align 16 %6, i128 noundef %12)
   br label %"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.2660168047844088129.exit"
 
 "_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h1bd268da833e52c8E.llvm.2660168047844088129.exit": ; preds = %2, %10

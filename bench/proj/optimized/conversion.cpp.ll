@@ -792,7 +792,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD2Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #28
   ret void
 }
@@ -825,7 +825,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %11, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #28
   ret void
 }
@@ -859,7 +859,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
   ret void
 }
@@ -893,7 +893,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
   ret void
 }
@@ -927,7 +927,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
   ret void
 }
@@ -961,7 +961,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
   ret void
 }
@@ -990,7 +990,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD1Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -1027,9 +1027,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %11, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   ret void
 }
 
@@ -1062,9 +1062,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   ret void
 }
 
@@ -1097,9 +1097,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   ret void
 }
 
@@ -1132,9 +1132,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   ret void
 }
 
@@ -1167,9 +1167,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation10ConversionD0Ev.exit:    ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   ret void
 }
 
@@ -1256,7 +1256,7 @@ define linkonce_odr void @_ZN5osgeo4proj9operation10Conversion14nn_make_sharedIS
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void @_ZN5osgeo4proj9operation15SingleOperationC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation10ConversionE, i64 8), ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %11 unwind label %9
 
 9:                                                ; preds = %.noexc
@@ -7911,7 +7911,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 _ZN5osgeo4proj9operation10ConversionD2Ev.exit:    ; preds = %2, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i
   store ptr null, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %42) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %42) #28
   ret void
 }
 
@@ -7941,7 +7941,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #28
   ret void
 }
@@ -7972,7 +7972,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #28
   ret void
 }
@@ -8007,7 +8007,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
   ret void
 }
@@ -8043,7 +8043,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
   ret void
 }
@@ -8079,7 +8079,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
   ret void
 }
@@ -8115,7 +8115,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
   ret void
 }
@@ -8151,7 +8151,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
   ret void
 }
@@ -8182,7 +8182,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD1Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -8214,9 +8214,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %8, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %2) #27
   ret void
 }
 
@@ -8250,9 +8250,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %5) #27
   ret void
 }
 
@@ -8287,9 +8287,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #27
   ret void
 }
 
@@ -8324,9 +8324,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #27
   ret void
 }
 
@@ -8361,9 +8361,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #27
   ret void
 }
 
@@ -8398,9 +8398,9 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.
 
 _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5osgeo4proj9operation10Conversion7PrivateEEclEPS4_.exit.i.i.i.i.i
   store ptr null, ptr %13, align 8
-  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
+  tail call void @_ZN5osgeo4proj9operation15SingleOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation17InverseConversionE, i64 16)) #28
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #28
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #27
   ret void
 }
 
@@ -20499,7 +20499,7 @@ define linkonce_odr hidden void @_ZTvn24_n48_NK5osgeo4proj9operation17InverseCon
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZNK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
+  tail call void @_ZNK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef %1)
   ret void
 }
 
@@ -20522,7 +20522,7 @@ define linkonce_odr hidden void @_ZTvn56_n88_NK5osgeo4proj9operation17InverseCon
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZNK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
+  tail call void @_ZNK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef %1)
   ret void
 }
 

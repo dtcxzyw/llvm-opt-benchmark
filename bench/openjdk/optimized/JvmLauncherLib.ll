@@ -44,7 +44,7 @@ define hidden ptr @jvmLauncherCreateJvmlLauncherData(ptr nocapture noundef reado
 15:                                               ; preds = %8
   %16 = getelementptr i8, ptr %0, i64 16
   %.val29 = load ptr, ptr %16, align 8
-  %17 = tail call ptr %.val29(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef %6) #10
+  %17 = tail call ptr %.val29(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef range(i32 1, -2147483648) %6) #10
   %.not27 = icmp eq ptr %17, null
   br i1 %.not27, label %20, label %18
 

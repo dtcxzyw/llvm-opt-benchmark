@@ -177,8 +177,6 @@ $_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemEEvT_S3_ = comdat any
 
 $_ZNSt10shared_ptrIN3gmx10AwhHistoryEED2Ev = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx10AwhHistoryEEET_ = comdat any
-
 $_ZN3gmx10AwhHistoryD2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3gmx10AwhHistoryELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -441,7 +439,7 @@ _ZNSt6vectorIN3gmx9DimParamsESaIS1_EEC2ERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull align 8 dereferenceable(144) %26, i64 144, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 216
   %28 = getelementptr inbounds i8, ptr %1, i64 216
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %27, ptr noundef nonnull align 8 dereferenceable(216) %28, i64 40, i1 false)
   %29 = getelementptr inbounds i8, ptr %0, i64 256
   %30 = getelementptr inbounds i8, ptr %1, i64 256
   %31 = load ptr, ptr %30, align 8
@@ -670,7 +668,7 @@ _ZNSt10unique_ptrIN3gmx10BiasWriterESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %.not.i2, label %_ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZNSt10unique_ptrIN3gmx10BiasWriterESt14default_deleteIS1_EED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %30)
+  tail call void @_ZNKSt14default_deleteIN3gmx15CorrelationGridEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %30)
   br label %_ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx15CorrelationGridESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx10BiasWriterESt14default_deleteIS1_EED2Ev.exit, %31
@@ -1004,7 +1002,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .lr.ph:                                           ; preds = %3, %26
   %.017 = phi ptr [ %29, %26 ], [ %2, %3 ]
   %.sroa.09.016 = phi ptr [ %28, %26 ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.017, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.09.016, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.017, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.09.016, i64 48, i1 false)
   %4 = getelementptr inbounds i8, ptr %.017, i64 48
   %5 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 48
   %6 = getelementptr inbounds i8, ptr %.sroa.09.016, i64 56
@@ -1761,7 +1759,7 @@ define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_
   %.096 = phi i1 [ false, %104 ], [ true, %102 ]
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #24
   br i1 %.096, label %109, label %.body
@@ -1962,7 +1960,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %.0108 = phi i1 [ false, %185 ], [ true, %183 ]
   %189 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #24
   br i1 %.0108, label %190, label %.loopexit.split-lp307
@@ -2025,7 +2023,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %.0104 = phi i1 [ false, %207 ], [ true, %205 ]
   %211 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #24
   br i1 %.0104, label %212, label %.loopexit.split-lp307
@@ -2060,7 +2058,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
           to label %227 unwind label %.thread288
 
 227:                                              ; preds = %223
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %228 unwind label %.thread292
 
 228:                                              ; preds = %227
@@ -2105,7 +2103,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %.099 = phi i1 [ false, %232 ], [ true, %230 ]
   %238 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #24
   br label %239
 
@@ -3590,7 +3588,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -3607,7 +3605,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -3710,7 +3708,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   ret void
 }
 
@@ -3873,7 +3871,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx19BiasCoupledToSystemESaIS1_EED2Ev(p
   br label %_ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.05.i.i.i) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.05.i.i.i) #24
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 584
   %.not.i.i.i = icmp eq ptr %8, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !35
@@ -3902,7 +3900,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -4112,7 +4110,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx19BiasCoupledToSystemES2_SaIS1_EE
   br label %_ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i: ; preds = %35, %.lr.ph.i.i.i
-  call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.05.i.i.i) #24
+  call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.05.i.i.i) #24
   %36 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 584
   %.not.i.i.i = icmp eq ptr %36, %7
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !35
@@ -4199,7 +4197,7 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN3gmx19BiasCoupledToSystemE
   br label %_ZNSt15__new_allocatorIN3gmx19BiasCoupledToSystemEE7destroyIS1_EEvPT_.exit
 
 _ZNSt15__new_allocatorIN3gmx19BiasCoupledToSystemEE7destroyIS1_EEvPT_.exit: ; preds = %2, %5
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %1) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %1) #24
   ret void
 }
 
@@ -4220,7 +4218,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RS
   br label %_ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i: ; preds = %6, %.lr.ph.i.i
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.05.i.i) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.05.i.i) #24
   %7 = getelementptr inbounds i8, ptr %.05.i.i, i64 584
   %.not.i.i = icmp eq ptr %7, %1
   br i1 %.not.i.i, label %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemEEvT_S3_.exit, label %.lr.ph.i.i, !llvm.loop !35
@@ -4237,7 +4235,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN3gmx
 .lr.ph:                                           ; preds = %3, %27
   %.018 = phi ptr [ %30, %27 ], [ %2, %3 ]
   %.sroa.08.017 = phi ptr [ %29, %27 ], [ %0, %3 ]
-  invoke void @_ZN3gmx4BiasC2EOS0_(ptr noundef nonnull align 8 dereferenceable(556) %.018, ptr noundef nonnull align 8 dereferenceable(556) %.sroa.08.017)
+  invoke void @_ZN3gmx4BiasC2EOS0_(ptr noundef nonnull align 8 dereferenceable(584) %.018, ptr noundef nonnull align 8 dereferenceable(584) %.sroa.08.017)
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %.lr.ph
@@ -4301,7 +4299,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %13
 
 26:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.018) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.018) #24
   br label %.body
 
 27:                                               ; preds = %25, %.noexc4.i.i
@@ -4369,7 +4367,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemEEvT_S3_(ptr 
   br label %_ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i
 
 _ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i: ; preds = %5, %.lr.ph.i
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.05.i) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.05.i) #24
   %6 = getelementptr inbounds i8, ptr %.05.i, i64 584
   %.not.i = icmp eq ptr %6, %1
   br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3gmx19BiasCoupledToSystemEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !35
@@ -4410,7 +4408,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN3gmx19BiasCoupledToSystemEEvPT_.exit.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
-  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %.05.i.i.i.i) #24
+  tail call void @_ZN3gmx4BiasD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %.05.i.i.i.i) #24
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 584
   %.not.i.i.i.i = icmp eq ptr %10, %6
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
@@ -4837,166 +4835,119 @@ define void @_ZNK3gmx3Awh20initHistoryFromStateEv(ptr dead_on_unwind noalias wri
   %9 = getelementptr inbounds i8, ptr %4, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %73, label %12
+  br i1 %11, label %54, label %12
 
 12:                                               ; preds = %8, %2
   %13 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store ptr %13, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx10AwhHistoryEEET_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %13)
-  %15 = load ptr, ptr %0, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not.i.i = icmp eq ptr %18, %16
-  br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
+  store ptr null, ptr %14, align 8
+  %15 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+          to label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit unwind label %16
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %12, %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %24, %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i ], [ %16, %12 ]
-  %19 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 88
-  %20 = load ptr, ptr %19, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i, label %21
+16:                                               ; preds = %12
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
+  tail call void @_ZN3gmx10AwhHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #23
+  invoke void @__cxa_rethrow() #21
+          to label %25 unwind label %20
 
-21:                                               ; preds = %.lr.ph.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #23
-  br label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i
+20:                                               ; preds = %16
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %22
 
-_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i
-  %22 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i, label %23
+common.resume:                                    ; preds = %20, %53
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %53 ], [ %21, %20 ]
+  resume { ptr, i32 } %common.resume.op
 
-23:                                               ; preds = %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #23
-  br label %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #25
+  unreachable
 
-_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i: ; preds = %23, %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 112
-  %.not.i.i.i.i.i = icmp eq ptr %24, %18
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+25:                                               ; preds = %16
+  unreachable
 
-_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i
-  store ptr %16, ptr %17, align 8
-  %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre19 = load ptr, ptr %.pre, align 8
-  br label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
+_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12
+  %26 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 1, ptr %27, align 4
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx10AwhHistoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %15, align 8
+  %28 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %13, ptr %28, align 8
+  store ptr %15, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %13, i64 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %1, align 8
+  %.not20 = icmp eq ptr %31, %32
+  br i1 %.not20, label %.loopexit, label %33
 
-_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12, %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i
-  %25 = phi ptr [ %16, %12 ], [ %.pre19, %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i ]
-  %26 = phi ptr [ %16, %12 ], [ %.pre18, %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i ]
-  %27 = phi ptr [ %15, %12 ], [ %.pre, %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %1, align 8
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = sdiv exact i64 %33, 584
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
-  %36 = ptrtoint ptr %26 to i64
-  %37 = ptrtoint ptr %25 to i64
-  %38 = sub i64 %36, %37
-  %39 = sdiv exact i64 %38, 112
-  %40 = icmp ugt i64 %34, %39
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
-  %42 = sub nuw nsw i64 %34, %39
-  invoke void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %42)
+33:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
+  %34 = ptrtoint ptr %31 to i64
+  %35 = ptrtoint ptr %32 to i64
+  %36 = sub i64 %34, %35
+  %37 = sdiv exact i64 %36, 584
+  invoke void @_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %37)
           to label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
-43:                                               ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit
-  %44 = icmp ult i64 %34, %39
-  br i1 %44, label %45, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
-
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %25, i64 %34
-  %.not.i.i7 = icmp eq ptr %26, %46
-  br i1 %.not.i.i7, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i8
-
-.lr.ph.i.i.i.i.i8:                                ; preds = %45, %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13
-  %.05.i.i.i.i.i9 = phi ptr [ %52, %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 88
-  %48 = load ptr, ptr %47, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i10 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i10, label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i11, label %49
-
-49:                                               ; preds = %.lr.ph.i.i.i.i.i8
-  tail call void @_ZdlPv(ptr noundef nonnull %48) #23
-  br label %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i11
-
-_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i11: ; preds = %49, %.lr.ph.i.i.i.i.i8
-  %50 = load ptr, ptr %.05.i.i.i.i.i9, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i12 = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i12, label %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13, label %51
-
-51:                                               ; preds = %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i11
-  tail call void @_ZdlPv(ptr noundef nonnull %50) #23
-  br label %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13
-
-_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13: ; preds = %51, %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i11
-  %52 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i9, i64 112
-  %.not.i.i.i.i.i14 = icmp eq ptr %52, %26
-  br i1 %.not.i.i.i.i.i14, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i15, label %.lr.ph.i.i.i.i.i8, !llvm.loop !41
-
-_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i15: ; preds = %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i13
-  store ptr %46, ptr %35, align 8
-  br label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
-
-_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit: ; preds = %41, %43, %45, %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exit.i.i15
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %53, align 8
-  %.not = icmp eq ptr %55, %56
+_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit: ; preds = %33
+  %.pre = load ptr, ptr %29, align 8
+  %.pre19 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %.pre, %.pre19
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, %61
-  %57 = phi ptr [ %66, %61 ], [ %56, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
-  %.017 = phi i64 [ %62, %61 ], [ 0, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
-  %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds %"struct.gmx::BiasCoupledToSystem", ptr %58, i64 %.017
-  %60 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %57, i64 %.017
-  invoke void @_ZNK3gmx4Bias20initHistoryFromStateEPNS_14AwhBiasHistoryE(ptr noundef nonnull align 8 dereferenceable(556) %59, ptr noundef nonnull %60)
-          to label %61 unwind label %.loopexit16
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, %42
+  %38 = phi ptr [ %47, %42 ], [ %.pre19, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
+  %.017 = phi i64 [ %43, %42 ], [ 0, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds %"struct.gmx::BiasCoupledToSystem", ptr %39, i64 %.017
+  %41 = getelementptr inbounds %"struct.gmx::AwhBiasHistory", ptr %38, i64 %.017
+  invoke void @_ZNK3gmx4Bias20initHistoryFromStateEPNS_14AwhBiasHistoryE(ptr noundef nonnull align 8 dereferenceable(556) %40, ptr noundef nonnull %41)
+          to label %42 unwind label %.loopexit16
 
-61:                                               ; preds = %.lr.ph
-  %62 = add nuw i64 %.017, 1
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %63, align 8
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = sdiv exact i64 %69, 112
-  %71 = icmp ult i64 %62, %70
-  br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !42
+42:                                               ; preds = %.lr.ph
+  %43 = add nuw i64 %.017, 1
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %44, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = sdiv exact i64 %50, 112
+  %52 = icmp ult i64 %43, %51
+  br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 .loopexit16:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %53
 
-.loopexit.split-lp:                               ; preds = %41
+.loopexit.split-lp:                               ; preds = %33
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %53
 
-72:                                               ; preds = %.loopexit.split-lp, %.loopexit16
+53:                                               ; preds = %.loopexit.split-lp, %.loopexit16
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt10shared_ptrIN3gmx10AwhHistoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  resume { ptr, i32 } %lpad.phi
+  br label %common.resume
 
-73:                                               ; preds = %8
+54:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, %73
+.loopexit:                                        ; preds = %42, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, %54
   ret void
 }
 
@@ -5081,60 +5032,6 @@ _ZNSt12__shared_ptrIN3gmx10AwhHistoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx10AwhHistoryEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx10AwhHistoryELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #24
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN3gmx10AwhHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #21
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx10AwhHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
@@ -5166,7 +5063,7 @@ _ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i: ; preds = %7, %.lr.ph.i.i.
 _ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i: ; preds = %9, %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 112
   %.not.i.i.i.i = icmp eq ptr %10, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !42
 
 _ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8
@@ -5233,7 +5130,7 @@ _ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i: ; preds = %11, %.lr.ph.i
 _ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i: ; preds = %13, %_ZN3gmx22CorrelationGridHistoryD2Ev.exit.i.i.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 112
   %.not.i.i.i.i.i = icmp eq ptr %14, %8
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !42
 
 _ZSt8_DestroyIPN3gmx14AwhBiasHistoryES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3gmx14AwhBiasHistoryEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %3, align 8
@@ -5335,13 +5232,13 @@ _ZNKSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = 
   %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !alias.scope !46, !noalias !43
   store ptr %35, ptr %33, align 8, !alias.scope !43, !noalias !46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !46, !noalias !43
   %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %37, i64 48, i1 false), !alias.scope !48
   %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull align 8 dereferenceable(12) %39, i64 12, i1 false), !alias.scope !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 12, i1 false), !alias.scope !48
   %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
   %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
   %42 = load ptr, ptr %41, align 8, !alias.scope !46, !noalias !43
@@ -5464,7 +5361,7 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
   %.012 = phi i1 [ false, %37 ], [ true, %35 ]
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br i1 %.012, label %42, label %79
@@ -5873,7 +5770,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
-  %20 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.043.053.i.i.i.i.i, i64 noundef %1)
+  %20 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.043.053.i.i.i.i.i, i64 noundef range(i64 1, 0) %1)
   br i1 %20, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
@@ -5886,7 +5783,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i"
-  %26 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %21, i64 noundef %1)
+  %26 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %21, i64 noundef range(i64 1, 0) %1)
   br i1 %26, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i"
@@ -5899,7 +5796,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i24.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i"
-  %32 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %27, i64 noundef %1)
+  %32 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %27, i64 noundef range(i64 1, 0) %1)
   br i1 %32, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit23.thread.i.i.i.i.i"
@@ -5912,7 +5809,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i26.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i"
-  %38 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %33, i64 noundef %1)
+  %38 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %33, i64 noundef range(i64 1, 0) %1)
   br i1 %38, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit27.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit25.thread.i.i.i.i.i"
@@ -5945,7 +5842,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i28.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.i.i.i.i.i": ; preds = %43
-  %48 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.043.0.lcssa.i.i.i.i.i, i64 noundef %1)
+  %48 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.043.0.lcssa.i.i.i.i.i, i64 noundef range(i64 1, 0) %1)
   br i1 %48, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit29.i.i.i.i.i", %43
@@ -5962,7 +5859,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i30.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.i.i.i.i.i": ; preds = %50
-  %55 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.043.1.i.i.i.i.i, i64 noundef %1)
+  %55 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.043.1.i.i.i.i.i, i64 noundef range(i64 1, 0) %1)
   br i1 %55, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit31.i.i.i.i.i", %50
@@ -5979,7 +5876,7 @@ define noundef zeroext i1 @_ZNK3gmx3Awh28needForeignEnergyDifferencesEl(ptr noca
   br i1 %.not.i.i32.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.i.i.i.i.i": ; preds = %57
-  %62 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.043.2.i.i.i.i.i, i64 noundef %1)
+  %62 = tail call noundef zeroext i1 @_ZNK3gmx4Bias17isSampleCoordStepEl(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.043.2.i.i.i.i.i, i64 noundef range(i64 1, 0) %1)
   br i1 %62, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3gmx19BiasCoupledToSystemESt6vectorIS3_SaIS3_EEEEZNKS2_3Awh28needForeignEnergyDifferencesElE3$_0EbT_SC_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3gmx3Awh28needForeignEnergyDifferencesElE3$_0EclINS_17__normal_iteratorIPKNS2_19BiasCoupledToSystemESt6vectorIS8_SaIS8_EEEEEEbT_.exit33.i.i.i.i.i", %57
@@ -6055,7 +5952,7 @@ define void @_ZN3gmx16prepareAwhModuleEP8_IO_FILERK10t_inputrecP7t_statePK9t_com
   %.0 = phi i1 [ false, %25 ], [ true, %23 ]
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #24
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #24
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #24
   br i1 %.0, label %30, label %common.resume

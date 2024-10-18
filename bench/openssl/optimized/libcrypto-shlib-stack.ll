@@ -336,18 +336,18 @@ if.end5.i.i:                                      ; preds = %if.end.i
   %spec.select25.i.i = tail call i32 @llvm.smax.i32(i32 %current.addr.0.i24, i32 8)
   %div.i2654.i.i = udiv i32 %spec.select25.i.i, 5
   %rem.i.i.i = urem i32 %spec.select25.i.i, 5
-  %5 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %rem.i.i.i, i32 %spec.select.i.i)
+  %5 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %rem.i.i.i, i32 range(i32 -2147483648, 9) %spec.select.i.i)
   %6 = extractvalue { i32, i1 } %5, 1
   %tobool.not.i32.i.i = icmp sgt i32 %current.addr.0.i24, -1
   %cond.i33.i.i = select i1 %tobool.not.i32.i.i, i32 2147483647, i32 -2147483648
   %7 = extractvalue { i32, i1 } %5, 0
   %retval.0.i28.i.i = select i1 %6, i32 %cond.i33.i.i, i32 %7
-  %8 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %div.i2654.i.i, i32 %spec.select.i.i)
+  %8 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %div.i2654.i.i, i32 range(i32 -2147483648, 9) %spec.select.i.i)
   %9 = extractvalue { i32, i1 } %8, 1
   %10 = extractvalue { i32, i1 } %8, 0
   %retval.0.i36.i.i = select i1 %9, i32 %cond.i33.i.i, i32 %10
   %div.i43.i.i = sdiv i32 %retval.0.i28.i.i, 5
-  %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %retval.0.i36.i.i, i32 %div.i43.i.i)
+  %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %retval.0.i36.i.i, i32 range(i32 -429496729, 429496730) %div.i43.i.i)
   %12 = extractvalue { i32, i1 } %11, 1
   %13 = extractvalue { i32, i1 } %11, 0
   %14 = or i1 %6, %12
@@ -1023,7 +1023,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call.i = tail call fastcc i32 @sk_reserve(ptr noundef %st, i32 noundef 1, i32 noundef 0)
+  %call.i = tail call fastcc i32 @sk_reserve(ptr noundef nonnull %st, i32 noundef 1, i32 noundef 0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end5.i
 

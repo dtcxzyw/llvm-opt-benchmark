@@ -174,7 +174,7 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
 ._crit_edge:                                      ; preds = %45, %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %9, align 8
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %54) #15
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %54) #15
   %56 = load ptr, ptr %54, align 8
   %57 = getelementptr inbounds i8, ptr %9, i64 80
   %58 = icmp eq ptr %56, %57
@@ -245,7 +245,7 @@ _ZNSt10unique_ptrIN5clang13ScratchBufferESt14default_deleteIS1_EED2Ev.exit: ; pr
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN5clang13ScratchBufferESt14default_deleteIS1_EED2Ev.exit, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %7, %_ZNSt10unique_ptrIN5clang13ScratchBufferESt14default_deleteIS1_EED2Ev.exit ]
   %8 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef %.09.i.i.i, i64 noundef 40) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 40) #16
   %.not.i.i.i = icmp eq ptr %8, %0
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN5clang5TokenESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 

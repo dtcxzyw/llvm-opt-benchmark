@@ -7276,7 +7276,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %merge_groups, i64 %arrayctor.cur.idx
   %ChannelsMask.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 24
   store ptr null, ptr %ChannelsMask.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %arrayctor.cur.ptr, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayctor.cur.ptr, i8 0, i64 20, i1 false)
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 32
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 128
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop

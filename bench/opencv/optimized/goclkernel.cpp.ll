@@ -588,7 +588,7 @@ define void @_ZN2cv10GOCLKernelC2ERKSt8functionIFvRNS_11GOCLContextEEE(ptr nound
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN2cv11GOCLContextEEEC2ERKS4_.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %9 unwind label %13
 
 9:                                                ; preds = %7
@@ -607,7 +607,7 @@ define void @_ZN2cv10GOCLKernelC2ERKSt8functionIFvRNS_11GOCLContextEEE(ptr nound
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i unwind label %18
 
 18:                                               ; preds = %16
@@ -664,7 +664,7 @@ define void @_ZN2cv10GOCLKernel5applyERNS_11GOCLContextE(ptr noundef nonnull ali
 _ZNKSt8functionIFvRN2cv11GOCLContextEEEclES2_.exit: ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void
 }
 

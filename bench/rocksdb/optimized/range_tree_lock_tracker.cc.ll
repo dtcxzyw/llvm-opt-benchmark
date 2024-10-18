@@ -114,7 +114,7 @@ if.end:                                           ; preds = %entry
 lpad.i:                                           ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call5) #14
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %call5) #14
   tail call void @_ZdlPv(ptr noundef nonnull %call5) #15
   resume { ptr, i32 } %2
 
@@ -140,7 +140,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i.
 _ZNKSt14default_deleteIN7rocksdb13RangeLockListEEclEPS1_.exit.i.i: ; preds = %delete.notnull.i.i.i
   %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #14
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %3) #14
   tail call void @_ZdlPv(ptr noundef nonnull %3) #15
   %.pre = load ptr, ptr %range_list_, align 8
   br label %return
@@ -512,7 +512,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i.
 _ZNKSt14default_deleteIN7rocksdb13RangeLockListEEclEPS1_.exit.i.i: ; preds = %delete.notnull.i.i.i
   %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #14
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   br label %_ZNSt10unique_ptrIN7rocksdb13RangeLockListESt14default_deleteIS1_EE5resetEPS1_.exit
 
@@ -1449,7 +1449,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull.i.i
 _ZNKSt14default_deleteIN7rocksdb13RangeLockListEEclEPS1_.exit.i: ; preds = %delete.notnull.i.i
   %mutex_.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i) #14
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   br label %_ZNSt10unique_ptrIN7rocksdb13RangeLockListESt14default_deleteIS1_EED2Ev.exit
 
@@ -1481,7 +1481,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i.i.
 _ZNKSt14default_deleteIN7rocksdb13RangeLockListEEclEPS1_.exit.i.i: ; preds = %delete.notnull.i.i.i
   %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #14
-  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
+  tail call void @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   br label %_ZN7rocksdb20RangeTreeLockTrackerD2Ev.exit
 

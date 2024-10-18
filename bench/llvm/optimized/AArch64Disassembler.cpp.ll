@@ -1545,7 +1545,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit108.i: ; preds = %701, %699
   %709 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   store i32 0, ptr %37, align 8
   store i32 %693, ptr %1, align 8
-  %710 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %708, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %710 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %708, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %12)
   br label %_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit
 
 711:                                              ; preds = %_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread.i
@@ -1628,17 +1628,17 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i: ; preds = %741, %739
   %754 = getelementptr inbounds i8, ptr %751, i64 2
   %755 = getelementptr inbounds i8, ptr %751, i64 3
   %756 = load i8, ptr %754, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %35, i64 noundef 6) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %34, ptr noundef nonnull %35, i64 noundef 6) #13
   store i32 %732, ptr %13, align 8
-  %757 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %752, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  %757 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %752, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %14)
   %758 = load i8, ptr %14, align 1
   %759 = trunc i8 %758 to i1
   br i1 %759, label %760, label %762
 
 760:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %761 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %34)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 16, i1 false)
+  %761 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %36, ptr noundef nonnull align 8 dereferenceable(112) %34)
   br label %768
 
 762:                                              ; preds = %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i
@@ -1653,7 +1653,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i: ; preds = %741, %739
   %.2175.i = phi ptr [ %755, %760 ], [ %767, %762 ]
   %.250.i = phi i32 [ %757, %760 ], [ 3, %762 ]
   %.3.i = phi i32 [ %757, %760 ], [ %.0.i, %762 ]
-  %769 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #13
+  %769 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %34) #13
   %770 = load ptr, ptr %34, align 8
   %771 = icmp eq ptr %770, %35
   br i1 %771, label %_ZN4llvm6MCInstD2Ev.exit.i, label %772
@@ -2052,7 +2052,7 @@ _ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i: ; preds = %1
 
 _ZN4llvm19AArch64DisassemblerD2Ev.exit:           ; preds = %1, %_ZNKSt14default_deleteIKN4llvm11MCInstrInfoEEclEPS2_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
+  tail call void @_ZN4llvm14MCDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #15
   ret void
 }
@@ -26534,7 +26534,7 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %41
   br i1 %.not.i.i.i, label %_ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit, label %49, !llvm.loop !11
 
 _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit: ; preds = %49
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %4, ptr noundef nonnull dereferenceable(40) %48, i64 40)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %48, i64 40)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -28458,7 +28458,7 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit.thread: ; preds = %44
   br i1 %.not.i.i.i, label %_ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit, label %52, !llvm.loop !11
 
 _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit: ; preds = %52
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(40) %4, ptr noundef nonnull dereferenceable(40) %51, i64 40)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %51, i64 40)
   %.not7.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)

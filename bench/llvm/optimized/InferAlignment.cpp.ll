@@ -197,7 +197,7 @@ _ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIF
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
 
 94:                                               ; preds = %76
-  %95 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #8
+  %95 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i
 
 _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i: ; preds = %94, %89
@@ -275,7 +275,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %101, %98, %_ZNK4llv
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i104
 
 137:                                              ; preds = %117
-  %138 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #8
+  %138 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   br label %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i104
 
 _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit.i.i104: ; preds = %137, %132

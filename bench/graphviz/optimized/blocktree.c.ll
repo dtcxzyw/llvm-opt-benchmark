@@ -544,7 +544,7 @@ define internal fastcc ptr @makeBlock(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not.i.i.i, label %14, label %13
 
 13:                                               ; preds = %2
-  call fastcc void @agxbmore(ptr noundef %3, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %3, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %7, align 1
   br label %14
 
@@ -669,7 +669,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

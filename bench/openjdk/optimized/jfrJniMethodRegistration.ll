@@ -156,7 +156,7 @@ define hidden void @_ZN24JfrJniMethodRegistrationC2EP7JNIEnv_(ptr nocapture nonn
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull %1, ptr noundef nonnull @.str) #5
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str) #5
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %43, label %8
 
@@ -165,7 +165,7 @@ define hidden void @_ZN24JfrJniMethodRegistrationC2EP7JNIEnv_(ptr nocapture nonn
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 1720
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef i32 %11(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 67) #5
+  %12 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 67) #5
   %.not8 = icmp eq i32 %12, 0
   br i1 %.not8, label %39, label %13
 
@@ -240,7 +240,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %40 = load ptr, ptr %1, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 184
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull %1, ptr noundef nonnull %7) #5
+  call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7) #5
   br label %43
 
 43:                                               ; preds = %39, %2

@@ -1717,7 +1717,7 @@ invoke.cont183:                                   ; preds = %.noexc215, %invoke.
 
 invoke.cont185:                                   ; preds = %invoke.cont183
   store i64 %call186, ptr %ref.tmp180, align 8
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180, i1 noundef zeroext false)
           to label %.noexc217 unwind label %lpad182
 
 .noexc217:                                        ; preds = %invoke.cont185
@@ -1725,7 +1725,7 @@ invoke.cont185:                                   ; preds = %invoke.cont183
           to label %.noexc218 unwind label %lpad182
 
 .noexc218:                                        ; preds = %.noexc217
-  %call.i219 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180)
+  %call.i219 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp180)
           to label %call.i.noexc unwind label %lpad182
 
 call.i.noexc:                                     ; preds = %.noexc218
@@ -4126,7 +4126,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib27AnalyticSimpleChooserEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 360) #32
   ret void
 }
@@ -4266,7 +4266,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   unreachable
 
 _ZN8QuantLib27AnalyticSimpleChooserEngineD2Ev.exit: ; preds = %entry, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #27
+  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #27
   ret void
 }
 
@@ -4315,8 +4315,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib27AnalyticSimpleChooserEngineD0Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 360) #32
+  tail call void @_ZN8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEED2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 noundef 360) #32
   ret void
 }
 
@@ -4324,7 +4324,7 @@ _ZN8QuantLib27AnalyticSimpleChooserEngineD0Ev.exit: ; preds = %entry, %if.then.i
 define linkonce_odr void @_ZThn56_N8QuantLib13GenericEngineINS_19SimpleChooserOption9argumentsENS_14OneAssetOption7resultsEE6updateEv(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(344) %0)
   ret void
 }
 
@@ -4621,7 +4621,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8QuantLib6Option9argumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib19SimpleChooserOption9argumentsE, i64 8)) #27
+  call void @_ZN8QuantLib6Option9argumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %arguments_, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib19SimpleChooserOption9argumentsE, i64 8)) #27
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %entry
@@ -4812,7 +4812,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %24 = phi ptr [ %23, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull %add.ptr)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5321,7 +5321,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -5427,7 +5427,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %entry
   unreachable
 
 _ZN8QuantLib14OneAssetOption7resultsD0Ev.exit:    ; preds = %entry
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 

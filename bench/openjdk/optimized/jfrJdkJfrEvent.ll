@@ -369,7 +369,7 @@ _ZL23new_java_util_arraylistP10JavaThread.exit:   ; preds = %104
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 121:                                              ; preds = %109
-  %122 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %111, i64 noundef 8, i32 noundef 0) #10
+  %122 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %111, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %121, %119

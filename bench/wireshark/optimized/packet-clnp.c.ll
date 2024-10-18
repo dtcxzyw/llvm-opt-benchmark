@@ -445,7 +445,7 @@ define internal i32 @dissect_clnp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %set_address_tvb.exit, label %.split.i
 
 .split.i:                                         ; preds = %135
-  %140 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 10, i32 noundef %.pre-phi) #2
+  %140 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 10, i32 noundef range(i32 0, 255) %.pre-phi) #2
   br label %set_address_tvb.exit
 
 set_address_tvb.exit:                             ; preds = %135, %.split.i
@@ -512,7 +512,7 @@ set_address_tvb.exit:                             ; preds = %135, %.split.i
   br i1 %.not.i347, label %set_address_tvb.exit350, label %.split.i348
 
 .split.i348:                                      ; preds = %171
-  %174 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %164, i32 noundef %.pre-phi355) #2
+  %174 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 10, 257) %164, i32 noundef range(i32 0, 255) %.pre-phi355) #2
   br label %set_address_tvb.exit350
 
 set_address_tvb.exit350:                          ; preds = %171, %.split.i348

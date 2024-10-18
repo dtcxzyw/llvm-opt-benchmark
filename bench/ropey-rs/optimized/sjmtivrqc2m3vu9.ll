@@ -87,7 +87,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit": ; preds = %22
   %30 = extractvalue { i64, i1 } %28, 0
-  %31 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h811640c1eebda073E"(ptr noalias noundef align 8 dereferenceable(1000) %0, i64 noundef %30)
+  %31 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h811640c1eebda073E"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %0, i64 noundef %30)
   %32 = extractvalue { i64, i64 } %31, 0
   switch i64 %32, label %33 [
     i64 -9223372036854775807, label %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit._ZN8smallvec10infallible17hac02ab9634219958E.exit_crit_edge"
@@ -185,7 +185,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %"_ZN8smallvec17Sma
   br i1 %63, label %64, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit"
 
 64:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15"
-  tail call fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h0309535697760778E"(ptr noalias noundef align 8 dereferenceable(1000) %0)
+  tail call fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h0309535697760778E"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %0)
   %65 = load i8, ptr %0, align 8, !range !5, !alias.scope !22, !noundef !4
   %66 = trunc nuw i8 %65 to i1
   tail call void @llvm.assume(i1 %66)
@@ -1189,7 +1189,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
 
 29:                                               ; preds = %25
   %30 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %31 = tail call noalias noundef align 8 ptr @__rust_alloc(i64 noundef %26, i64 noundef 8) #18
+  %31 = tail call noalias noundef align 8 ptr @__rust_alloc(i64 noundef %26, i64 noundef range(i64 1, -9223372036854775807) 8) #18
   %32 = icmp eq ptr %31, null
   br i1 %32, label %45, label %38
 
@@ -1301,7 +1301,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
 
 25:                                               ; preds = %22
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %27 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %1, i64 noundef 1) #18
+  %27 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %1, i64 noundef range(i64 1, -9223372036854775807) 1) #18
   %28 = icmp eq ptr %27, null
   br i1 %28, label %38, label %33
 

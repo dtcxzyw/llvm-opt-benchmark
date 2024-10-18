@@ -29579,7 +29579,7 @@ for.body.i.i205:                                  ; preds = %invoke.cont314, %ca
   %from.addr.08.i.i = phi ptr [ %incdec.ptr2.i.i, %call.i.i.noexc225 ], [ %value, %invoke.cont314 ]
   %first.addr.09.i.i.ptr = getelementptr inbounds i8, ptr %entity, i64 %first.addr.09.i.i.idx
   %199 = load i32, ptr %first.addr.09.i.i.ptr, align 4, !tbaa !60
-  %call.i.i226 = invoke { ptr, i64 } @_ZN4entt13basic_storageIN4test13throwing_typeENS_6entityESaIS2_EvE15emplace_elementIJRKS2_EEEDaS3_bDpOT_(ptr noundef nonnull align 8 dereferenceable(96) %pool, i32 noundef %199, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %from.addr.08.i.i)
+  %call.i.i226 = invoke { ptr, i64 } @_ZN4entt13basic_storageIN4test13throwing_typeENS_6entityESaIS2_EvE15emplace_elementIJRKS2_EEEDaS3_bDpOT_(ptr noundef nonnull align 8 dereferenceable(176) %pool, i32 noundef %199, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %from.addr.08.i.i)
           to label %call.i.i.noexc225 unwind label %lpad321.loopexit.split-lp
 
 call.i.i.noexc225:                                ; preds = %for.body.i.i205
@@ -42297,7 +42297,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !685
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !685
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry
@@ -69001,7 +69001,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !685
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !685
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry
@@ -73372,7 +73372,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i138, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i, label %cond.true.i.i139
 
 cond.true.i.i139:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i143 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %construction.i, i64 noundef %cond.i.i134)
+  %call.i.i.i143 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %construction.i, i64 noundef %cond.i.i134)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i unwind label %lpad9
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i139, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
@@ -73495,7 +73495,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i159, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161, label %cond.true.i.i160
 
 cond.true.i.i160:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i150
-  %call.i.i.i190 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %destruction.i, i64 noundef %cond.i.i155)
+  %call.i.i.i190 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %destruction.i, i64 noundef %cond.i.i155)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161 unwind label %lpad17
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161: ; preds = %cond.true.i.i160, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i150
@@ -85300,7 +85300,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_
   %131 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !1506
   %sub.ptr.lhs.cast.i40.i = ptrtoint ptr %131 to i64
   %sub.ptr.sub.i42.i = sub i64 %sub.ptr.lhs.cast.i40.i, %sub.ptr.rhs.cast.i.i
-  %call.i.i.i110 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16basic_sparse_setINS1_6entityENS0_IS6_EEEEEEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, i64 noundef %count)
+  %call.i.i.i110 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16basic_sparse_setINS1_6entityENS0_IS6_EEEEEEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed.i.i, i64 noundef %count)
           to label %call.i.i.i.noexc unwind label %lpad17
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityEN4test18throwing_allocatorIS5_EEEEEEENS7_ISB_EEE11_M_allocateEm.exit.i
@@ -92783,7 +92783,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i138, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i, label %cond.true.i.i139
 
 cond.true.i.i139:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i143 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %construction.i, i64 noundef %cond.i.i134)
+  %call.i.i.i143 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %construction.i, i64 noundef %cond.i.i134)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i unwind label %lpad9
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i139, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
@@ -92906,7 +92906,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i159, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161, label %cond.true.i.i160
 
 cond.true.i.i160:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i150
-  %call.i.i.i190 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %destruction.i, i64 noundef %cond.i.i155)
+  %call.i.i.i190 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %destruction.i, i64 noundef %cond.i.i155)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161 unwind label %lpad17
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i161: ; preds = %cond.true.i.i160, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i150
@@ -102581,7 +102581,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i159, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i, label %cond.true.i.i160
 
 cond.true.i.i160:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i164 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %construction.i, i64 noundef %cond.i.i156)
+  %call.i.i.i164 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %construction.i, i64 noundef %cond.i.i156)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i unwind label %lpad4
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i160, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
@@ -102704,7 +102704,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i180, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182, label %cond.true.i.i181
 
 cond.true.i.i181:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i171
-  %call.i.i.i211 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %destruction.i, i64 noundef %cond.i.i176)
+  %call.i.i.i211 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %destruction.i, i64 noundef %cond.i.i176)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182 unwind label %lpad10
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182: ; preds = %cond.true.i.i181, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i171
@@ -104614,7 +104614,7 @@ invoke.cont300:                                   ; preds = %if.then297
 if.then302:                                       ; preds = %invoke.cont300
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp303) #24
   store i32 0, ptr %ref.tmp303, align 4, !tbaa !43
-  %call.i.i223 = invoke { ptr, i64 } @_ZN4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE15emplace_elementIJiEEEDaS1_bDpOT_(ptr noundef nonnull align 8 dereferenceable(168) %pool, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp303)
+  %call.i.i223 = invoke { ptr, i64 } @_ZN4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE15emplace_elementIJiEEEDaS1_bDpOT_(ptr noundef nonnull align 8 dereferenceable(320) %pool, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp303)
           to label %call.i.i.noexc unwind label %lpad304.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %if.then302
@@ -109459,7 +109459,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i159, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i, label %cond.true.i.i160
 
 cond.true.i.i160:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i164 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %construction.i, i64 noundef %cond.i.i156)
+  %call.i.i.i164 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %construction.i, i64 noundef %cond.i.i156)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i unwind label %lpad4
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i160, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i
@@ -109582,7 +109582,7 @@ _ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwi
   br i1 %cmp.not.i.i180, label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182, label %cond.true.i.i181
 
 cond.true.i.i181:                                 ; preds = %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i171
-  %call.i.i.i211 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %destruction.i, i64 noundef %cond.i.i176)
+  %call.i.i.i211 = invoke noundef ptr @_ZN4test18throwing_allocatorIN4entt8delegateIFvRNS1_14basic_registryINS1_6entityENS0_IS4_EEEES4_EEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %destruction.i, i64 noundef %cond.i.i176)
           to label %_ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182 unwind label %lpad10
 
 _ZNSt12_Vector_baseIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE11_M_allocateEm.exit.i182: ; preds = %cond.true.i.i181, %_ZNKSt6vectorIN4entt8delegateIFvRNS0_14basic_registryINS0_6entityEN4test18throwing_allocatorIS3_EEEES3_EEENS5_ISA_EEE12_M_check_lenEmPKc.exit.i171
@@ -111492,7 +111492,7 @@ invoke.cont300:                                   ; preds = %if.then297
 if.then302:                                       ; preds = %invoke.cont300
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i) #24
   store i32 0, ptr %ref.tmp.i.i, align 4, !tbaa !250
-  %call.i.i223 = invoke { ptr, i64 } @_ZN4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE15emplace_elementIJS2_EEEDaS3_bDpOT_(ptr noundef nonnull align 8 dereferenceable(168) %pool, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i)
+  %call.i.i223 = invoke { ptr, i64 } @_ZN4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE15emplace_elementIJS2_EEEDaS3_bDpOT_(ptr noundef nonnull align 8 dereferenceable(320) %pool, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i)
           to label %call.i.i.noexc unwind label %lpad304.loopexit.split-lp
 
 call.i.i.noexc:                                   ; preds = %if.then302

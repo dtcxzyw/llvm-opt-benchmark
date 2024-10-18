@@ -62,11 +62,11 @@ define hidden void @_ZN19XWeakRootsProcessorC2EP8XWorkers(ptr nocapture noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19XWeakRootsProcessor18process_weak_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XProcessWeakRootsTask, align 8
-  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull @.str) #6
+  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(616) %2, ptr noundef nonnull @.str) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21XProcessWeakRootsTask, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %3, i8 0, i64 576, i1 false)
-  call void @_ZN26XWeakOopStorageSetIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %3) #6
+  call void @_ZN26XWeakOopStorageSetIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(576) %3) #6
   %4 = getelementptr inbounds i8, ptr %2, i64 608
   store volatile i8 0, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -83,16 +83,16 @@ define hidden void @_ZN19XWeakRootsProcessor18process_weak_rootsEv(ptr nocapture
   %13 = getelementptr inbounds i8, ptr %2, i64 456
   %14 = getelementptr inbounds i8, ptr %2, i64 504
   %15 = getelementptr inbounds i8, ptr %2, i64 552
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #6
-  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %13) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %12) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(296) %10) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(344) %9) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %8) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %7) #6
+  call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %6) #6
   ret void
 }
 

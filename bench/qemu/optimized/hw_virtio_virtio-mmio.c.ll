@@ -206,11 +206,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv2) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 2) %conv2) #9
   br label %trace_virtio_mmio_setting_irq.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %conv2) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef range(i32 0, 2) %conv2) #9
   br label %trace_virtio_mmio_setting_irq.exit
 
 trace_virtio_mmio_setting_irq.exit:               ; preds = %while.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

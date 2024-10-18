@@ -1459,7 +1459,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$indexmap..map..Ind
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !595
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !595
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i": ; preds = %4, %1
@@ -3036,7 +3036,7 @@ define internal fastcc void @"_ZN4core3ptr171drop_in_place$LT$indexmap..map..Ind
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !1195
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1195
   br label %"_ZN4core3ptr181drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$alloc..vec..Vec$LT$wasmparser..validator..types..EntityType$GT$$GT$$GT$17h5070182949e0d15fE.exit"
 
 "_ZN4core3ptr181drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$alloc..vec..Vec$LT$wasmparser..validator..types..EntityType$GT$$GT$$GT$17h5070182949e0d15fE.exit": ; preds = %1, %4
@@ -3439,7 +3439,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$alloc..raw_vec..RawVec$LT$u8
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmparser..validator..Validator$GT$17hbb376f276ae561bdE"(ptr noalias noundef align 8 dereferenceable(1392) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$wasmparser..validator..types..TypeList$GT$17h72d484b97478cf13E"(ptr noalias noundef nonnull align 8 dereferenceable(744) %2)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$wasmparser..validator..types..TypeList$GT$17h72d484b97478cf13E"(ptr noalias noundef nonnull align 8 dereferenceable(760) %2)
           to label %"_ZN4core3ptr60drop_in_place$LT$wasmparser..validator..types..TypeAlloc$GT$17h9a8c6ebb0937d194E.llvm.510628653122287189.exit" unwind label %3
 
 3:                                                ; preds = %1
@@ -4030,7 +4030,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..core.
   tail call void @llvm.assume(i1 %126)
   %127 = sub nsw i64 0, %119
   %128 = getelementptr inbounds i8, ptr %.val.i.i, i64 %127
-  tail call void @__rust_dealloc(ptr noundef nonnull %128, i64 noundef %122, i64 noundef 16) #15, !noalias !1505
+  tail call void @__rust_dealloc(ptr noundef nonnull %128, i64 noundef %122, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1505
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %111, %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17he2d8c87942413002E.exit"
@@ -4335,7 +4335,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$wasmparser..validator..types
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %0, i64 720
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7ae8cc71e65dc509E(ptr noalias noundef nonnull align 8 dereferenceable(32) %46, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef 64, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7ae8cc71e65dc509E(ptr noalias noundef nonnull align 8 dereferenceable(48) %46, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef 64, i64 noundef 16)
           to label %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$wasmparser..readers..core..types..RecGroup$C$wasmparser..validator..types..RecGroupId$GT$$GT$$GT$17h2c807db3d39fb572E.exit" unwind label %99
 
 51:                                               ; preds = %43
@@ -4351,7 +4351,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$wasmparser..validator..types
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %0, i64 720
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7ae8cc71e65dc509E(ptr noalias noundef nonnull align 8 dereferenceable(32) %54, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef 64, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7ae8cc71e65dc509E(ptr noalias noundef nonnull align 8 dereferenceable(48) %54, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef 64, i64 noundef 16)
           to label %"_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$wasmparser..readers..core..types..RecGroup$C$wasmparser..validator..types..RecGroupId$GT$$GT$$GT$17h2c807db3d39fb572E.exit27" unwind label %60
 
 "_ZN4core3ptr178drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$wasmparser..readers..core..types..RecGroup$C$wasmparser..validator..types..RecGroupId$GT$$GT$$GT$17h2c807db3d39fb572E.exit": ; preds = %45, %49, %60
@@ -4623,7 +4623,7 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !1627
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1627
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %4, %1
@@ -4719,7 +4719,7 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %59)
   %60 = sub nsw i64 0, %52
   %61 = getelementptr inbounds i8, ptr %.val.i.i2, i64 %60
-  tail call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %55, i64 noundef 16) #15, !noalias !1683
+  tail call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %55, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1683
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i3"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i3": ; preds = %44, %"_ZN4core3ptr148drop_in_place$LT$indexmap..map..IndexMap$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$C$wasmparser..validator..types..EntityType$GT$$GT$17he5850aa62d7aa847E.exit"
@@ -4868,7 +4868,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !1749
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1749
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %4, %1
@@ -4941,7 +4941,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %51)
   %52 = sub nsw i64 0, %44
   %53 = getelementptr inbounds i8, ptr %.val.i.i7, i64 %52
-  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %47, i64 noundef 16) #15, !noalias !1785
+  tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %47, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1785
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i8"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i8": ; preds = %36, %"_ZN4core3ptr125drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$wasmparser..validator..types..ComponentEntityType$GT$$GT$17he513413217d24ddcE.exit"
@@ -5096,7 +5096,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %113)
   %114 = sub nsw i64 0, %106
   %115 = getelementptr inbounds i8, ptr %.val.i.i31, i64 %114
-  tail call void @__rust_dealloc(ptr noundef nonnull %115, i64 noundef %109, i64 noundef 16) #15, !noalias !1835
+  tail call void @__rust_dealloc(ptr noundef nonnull %115, i64 noundef %109, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !1835
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i32"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i32": ; preds = %98, %"_ZN4core3ptr123drop_in_place$LT$alloc..vec..Vec$LT$$LP$wasmparser..validator..types..ResourceId$C$alloc..vec..Vec$LT$usize$GT$$RP$$GT$$GT$17hd13c22d46bea5244E.exit29"
@@ -5774,7 +5774,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %86)
   %87 = sub nsw i64 0, %79
   %88 = getelementptr inbounds i8, ptr %.val.i.i, i64 %87
-  tail call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef %82, i64 noundef 16) #15, !noalias !2064
+  tail call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef %82, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2064
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %71, %"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..validator..types..ComponentTypeId$GT$$GT$17h3520581c4a506af5E.exit113"
@@ -5848,7 +5848,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %118)
   %119 = sub nsw i64 0, %111
   %120 = getelementptr inbounds i8, ptr %.val.i.i.i115, i64 %119
-  tail call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %114, i64 noundef 16) #15, !noalias !2103
+  tail call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %114, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2103
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i": ; preds = %103, %"_ZN4core3ptr125drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$wasmparser..validator..types..ComponentEntityType$GT$$GT$17he513413217d24ddcE.exit"
@@ -5921,7 +5921,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %150)
   %151 = sub nsw i64 0, %143
   %152 = getelementptr inbounds i8, ptr %.val.i.i117, i64 %151
-  tail call void @__rust_dealloc(ptr noundef nonnull %152, i64 noundef %146, i64 noundef 16) #15, !noalias !2139
+  tail call void @__rust_dealloc(ptr noundef nonnull %152, i64 noundef %146, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2139
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i118"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i118": ; preds = %135, %"_ZN4core3ptr95drop_in_place$LT$indexmap..set..IndexSet$LT$wasmparser..validator..names..ComponentName$GT$$GT$17h0284597eed208ab6E.exit"
@@ -5995,7 +5995,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %182)
   %183 = sub nsw i64 0, %175
   %184 = getelementptr inbounds i8, ptr %.val.i.i.i131, i64 %183
-  tail call void @__rust_dealloc(ptr noundef nonnull %184, i64 noundef %178, i64 noundef 16) #15, !noalias !2178
+  tail call void @__rust_dealloc(ptr noundef nonnull %184, i64 noundef %178, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2178
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i132"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i132": ; preds = %167, %"_ZN4core3ptr125drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$wasmparser..validator..types..ComponentEntityType$GT$$GT$17he513413217d24ddcE.exit129"
@@ -6069,7 +6069,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %214)
   %215 = sub nsw i64 0, %207
   %216 = getelementptr inbounds i8, ptr %.val.i.i.i145, i64 %215
-  tail call void @__rust_dealloc(ptr noundef nonnull %216, i64 noundef %210, i64 noundef 16) #15, !noalias !2217
+  tail call void @__rust_dealloc(ptr noundef nonnull %216, i64 noundef %210, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2217
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i146"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i146": ; preds = %199, %"_ZN4core3ptr95drop_in_place$LT$indexmap..set..IndexSet$LT$wasmparser..validator..names..ComponentName$GT$$GT$17h0284597eed208ab6E.exit143"
@@ -6144,7 +6144,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %248)
   %249 = sub nsw i64 0, %241
   %250 = getelementptr inbounds i8, ptr %.val.i.i.i152, i64 %249
-  tail call void @__rust_dealloc(ptr noundef nonnull %250, i64 noundef %244, i64 noundef 16) #15, !noalias !2235
+  tail call void @__rust_dealloc(ptr noundef nonnull %250, i64 noundef %244, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2235
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i153"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i153": ; preds = %233, %"_ZN4core3ptr165drop_in_place$LT$wasmparser..validator..component..append_only..IndexMapAppendOnly$LT$wasmparser..validator..types..ResourceId$C$alloc..vec..Vec$LT$usize$GT$$GT$$GT$17h095ffb72c2fd6e1bE.exit"
@@ -6191,7 +6191,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$wasmparser..validator..compo
   tail call void @llvm.assume(i1 %273)
   %274 = sub nsw i64 0, %266
   %275 = getelementptr inbounds i8, ptr %.val.i.i156, i64 %274
-  tail call void @__rust_dealloc(ptr noundef nonnull %275, i64 noundef %269, i64 noundef 16) #15, !noalias !2242
+  tail call void @__rust_dealloc(ptr noundef nonnull %275, i64 noundef %269, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2242
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i157"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i157": ; preds = %258, %"_ZN4core3ptr206drop_in_place$LT$wasmparser..validator..component..append_only..IndexMapAppendOnly$LT$wasmparser..validator..types..ResourceId$C$core..option..Option$LT$wasmparser..readers..core..types..ValType$GT$$GT$$GT$17hd3e004718b8284dbE.exit"
@@ -6457,7 +6457,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %22)
   %23 = sub nsw i64 0, %15
   %24 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %23
-  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %18, i64 noundef 16) #15, !noalias !2304
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %18, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2304
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i": ; preds = %7, %3
@@ -6531,7 +6531,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %55)
   %56 = sub nsw i64 0, %48
   %57 = getelementptr inbounds i8, ptr %.val.i.i.i3, i64 %56
-  tail call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %51, i64 noundef 16) #15, !noalias !2343
+  tail call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %51, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2343
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i4"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i4": ; preds = %40, %36
@@ -6633,7 +6633,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %95)
   %96 = sub nsw i64 0, %88
   %97 = getelementptr inbounds i8, ptr %.val.i.i.i11, i64 %96
-  tail call void @__rust_dealloc(ptr noundef nonnull %97, i64 noundef %91, i64 noundef 16) #15, !noalias !2395
+  tail call void @__rust_dealloc(ptr noundef nonnull %97, i64 noundef %91, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2395
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i12"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i12": ; preds = %80, %76
@@ -6707,7 +6707,7 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %128)
   %129 = sub nsw i64 0, %121
   %130 = getelementptr inbounds i8, ptr %.val.i.i.i20, i64 %129
-  tail call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef %124, i64 noundef 16) #15, !noalias !2434
+  tail call void @__rust_dealloc(ptr noundef nonnull %130, i64 noundef %124, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2434
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i21"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i21": ; preds = %113, %109
@@ -6956,7 +6956,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !2605
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2605
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %4, %1
@@ -7042,7 +7042,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %56)
   %57 = sub nsw i64 0, %49
   %58 = getelementptr inbounds i8, ptr %.val.i.i7, i64 %57
-  tail call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef %52, i64 noundef 16) #15, !noalias !2641
+  tail call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef %52, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2641
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i8"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i8": ; preds = %41, %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$wasmparser..validator..types..ResourceId$GT$$GT$17h95a1b0a83d369380E.exit5"
@@ -7167,7 +7167,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$$u5b$wasmparser..validator..
   tail call void @llvm.assume(i1 %26)
   %27 = sub nsw i64 0, %19
   %28 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %27
-  tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %22, i64 noundef 16) #15, !noalias !2668
+  tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %22, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2668
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i.i": ; preds = %11, %8
@@ -7287,7 +7287,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$indexmap..set..Inde
   tail call void @llvm.assume(i1 %19)
   %20 = sub nsw i64 0, %12
   %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef 16) #15, !noalias !2740
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2740
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i": ; preds = %4, %1
@@ -7423,7 +7423,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$wasmparser..validat
   tail call void @llvm.assume(i1 %38)
   %39 = sub nsw i64 0, %31
   %40 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %39
-  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %34, i64 noundef 16) #15, !noalias !2787
+  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %34, i64 noundef range(i64 0, -9223372036854775807) 16) #15, !noalias !2787
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc359110c9f40da93E.exit.i.i.i": ; preds = %23, %"_ZN4core3ptr122drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmparser..validator..types..AliasableResourceId$C$usize$GT$$GT$17h6c7990411d9a621fE.exit"

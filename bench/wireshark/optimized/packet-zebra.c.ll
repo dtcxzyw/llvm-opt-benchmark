@@ -836,11 +836,11 @@ proto_item_set_hidden.exit:                       ; preds = %26, %45, %48
   br label %dissect_zebra_request.exit
 
 133:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 134:                                              ; preds = %129, %129
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %.1330.i, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 135:                                              ; preds = %129, %129
@@ -948,11 +948,11 @@ zebra_hello.exit.i:                               ; preds = %129
   br label %dissect_zebra_request.exit
 
 176:                                              ; preds = %.thread333.i, %.thread333.i, %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 177:                                              ; preds = %.thread333.i, %.thread333.i, %.thread333.i, %.thread333.i
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %119, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 178:                                              ; preds = %.thread333.i, %.thread333.i
@@ -1008,15 +1008,15 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 204:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 2, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 205:                                              ; preds = %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 10, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 206:                                              ; preds = %.thread335.i, %.thread335.i, %.thread335.i, %.thread335.i
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext 5)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext 5)
   br label %dissect_zebra_request.exit
 
 207:                                              ; preds = %.thread335.i, %.thread335.i
@@ -1102,7 +1102,7 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 264:                                              ; preds = %.thread335.i
-  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 265:                                              ; preds = %170, %170, %170, %170
@@ -1117,7 +1117,7 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 268:                                              ; preds = %170, %170, %170, %170
-  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext %56)
+  tail call fastcc void @zebra_route(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115, i16 noundef zeroext %89, i8 noundef zeroext 0, i16 noundef zeroext %88, i8 noundef zeroext %56)
   br label %dissect_zebra_request.exit
 
 269:                                              ; preds = %170, %170
@@ -1196,7 +1196,7 @@ zebra_hello.exit64:                               ; preds = %.thread333.i
   br label %dissect_zebra_request.exit
 
 319:                                              ; preds = %170
-  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef %34, ptr noundef %0, i32 noundef %115)
+  tail call fastcc void @zebra_get_label_chunk(ptr noundef %91, i32 noundef range(i32 0, 2) %34, ptr noundef %0, i32 noundef %115)
   br label %dissect_zebra_request.exit
 
 dissect_zebra_request.exit:                       ; preds = %290, %282, %235, %227, %.thread333.i, %.thread335.i, %129, %130, %131, %132, %133, %134, %135, %136, %138, %144, %146, %152, %161, %162, %zebra_hello.exit.i, %167, %169, %170, %173, %174, %175, %176, %177, %178, %179, %188, %zebra_hello.exit64, %196, %197, %198, %201, %202, %203, %204, %205, %206, %207, %215, %224, %238, %244, %245, %246, %255, %258, %264, %265, %266, %267, %268, %269, %270, %279, %293, %299, %300, %301, %310, %313, %319

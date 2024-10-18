@@ -756,7 +756,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @register_interfaces.packet, i64 noundef 65535, ptr noundef nonnull @.str.109, i64 noundef 14) #16
-  %19 = tail call i64 @send(i32 noundef %15, ptr noundef nonnull @register_interfaces.packet, i64 noundef 4, i32 noundef 0) #16
+  %19 = tail call i64 @send(i32 noundef range(i32 0, -1) %15, ptr noundef nonnull @register_interfaces.packet, i64 noundef 4, i32 noundef 0) #16
   %20 = icmp slt i64 %19, 4
   br i1 %20, label %21, label %22
 
@@ -765,7 +765,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   br label %58
 
 22:                                               ; preds = %17
-  %23 = tail call i64 @send(i32 noundef %15, ptr noundef nonnull @.str.66, i64 noundef 14, i32 noundef 0) #16
+  %23 = tail call i64 @send(i32 noundef range(i32 0, -1) %15, ptr noundef nonnull @.str.66, i64 noundef 14, i32 noundef 0) #16
   %.not.i = icmp eq i64 %23, 14
   br i1 %.not.i, label %.preheader1.i, label %24
 
@@ -782,7 +782,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   %.0744.i = phi i64 [ %26, %25 ], [ 0, %22 ]
   %28 = getelementptr i8, ptr @register_interfaces.packet, i64 %.0744.i
   %29 = xor i64 %.0744.i, 65535
-  %30 = tail call i64 @recv(i32 noundef %15, ptr noundef %28, i64 noundef %29, i32 noundef 0) #16
+  %30 = tail call i64 @recv(i32 noundef range(i32 0, -1) %15, ptr noundef %28, i64 noundef %29, i32 noundef 0) #16
   %31 = icmp slt i64 %30, 1
   br i1 %31, label %32, label %25
 
@@ -831,7 +831,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   %52 = sub nsw i64 65535, %.15.i
   %spec.store.select1.i = call i64 @llvm.umin.i64(i64 %52, i64 2147483647)
   %53 = getelementptr i8, ptr @register_interfaces.packet, i64 %.15.i
-  %54 = call i64 @recv(i32 noundef %15, ptr noundef %53, i64 noundef %spec.store.select1.i, i32 noundef 0) #16
+  %54 = call i64 @recv(i32 noundef range(i32 0, -1) %15, ptr noundef %53, i64 noundef %spec.store.select1.i, i32 noundef 0) #16
   %55 = icmp slt i64 %54, 1
   br i1 %55, label %56, label %46
 
@@ -1015,7 +1015,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 
 125:                                              ; preds = %123
   %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.127, ptr noundef %120) #16
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %120, ptr noundef %11, ptr noundef nonnull @.str.128)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %120, ptr noundef nonnull %11, ptr noundef nonnull @.str.128)
   br label %127
 
 127:                                              ; preds = %125, %123, %118
@@ -1044,7 +1044,7 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   %137 = load ptr, ptr %6, align 8
   %138 = call ptr @g_match_info_fetch_named(ptr noundef %137, ptr noundef nonnull @.str.125) #16
   %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.127, ptr noundef %136) #16
-  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %136, ptr noundef %11, ptr noundef nonnull @.str.128)
+  call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %136, ptr noundef nonnull %11, ptr noundef nonnull @.str.128)
   call void @g_free(ptr noundef %138) #16
   call void @g_free(ptr noundef %136) #16
   br label %140
@@ -1343,17 +1343,17 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @new_fake_interface_for_list_dlts(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %3 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i.not = icmp eq i32 %3, 0
   br i1 %.not.i.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i18.not = icmp eq i32 %5, 0
   br i1 %.not.i18.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %7 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i19.not = icmp eq i32 %7, 0
   br i1 %.not.i19.not, label %8, label %9
 
@@ -1362,42 +1362,42 @@ define internal fastcc void @new_fake_interface_for_list_dlts(ptr noundef %0, pt
   br label %28
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not.i = icmp eq i32 %10, 0
   br i1 %.not.i.not.i, label %is_logcat_interface.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not.i = icmp eq i32 %12, 0
   br i1 %.not.i6.not.i, label %is_logcat_interface.exit.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not.i = icmp eq i32 %14, 0
   br i1 %.not.i7.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_interface.exit
 
 is_logcat_interface.exit:                         ; preds = %13
-  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8.i = icmp eq i32 %15, 0
   br i1 %.not.i8.i, label %is_logcat_interface.exit.thread, label %16
 
 16:                                               ; preds = %is_logcat_interface.exit
-  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not.i20 = icmp eq i32 %17, 0
   br i1 %.not.i.not.i20, label %is_logcat_interface.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not.i = icmp eq i32 %19, 0
   br i1 %.not.i8.not.i, label %is_logcat_interface.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %21 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not.i = icmp eq i32 %21, 0
   br i1 %.not.i9.not.i, label %is_logcat_interface.exit.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not.i = icmp eq i32 %23, 0
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 
@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 0, 8) i32 @list_config(ptr noundef %0) unnamed_
   br label %39
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i.not = icmp eq i32 %5, 0
   br i1 %.not.i.not, label %6, label %13
 
@@ -1451,17 +1451,17 @@ define internal fastcc range(i32 0, 8) i32 @list_config(ptr noundef %0) unnamed_
   br label %38
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i17.not = icmp eq i32 %14, 0
   br i1 %.not.i17.not, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i18.not = icmp eq i32 %16, 0
   br i1 %.not.i18.not, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(16) @.str.42, i64 noundef 15) #19
+  %18 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.42, i64 noundef 15) #19
   %.not.i19.not = icmp eq i32 %18, 0
   br i1 %.not.i19.not, label %19, label %22
 
@@ -1511,22 +1511,22 @@ define internal fastcc range(i32 0, 8) i32 @list_config(ptr noundef %0) unnamed_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
-  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not = icmp eq i32 %4, 0
   br i1 %.not.i6.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not = icmp eq i32 %6, 0
   br i1 %.not.i7.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8 = icmp eq i32 %8, 0
   br label %9
 
@@ -1577,22 +1577,22 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br i1 %26, label %106, label %27
 
 27:                                               ; preds = %get_serial_from_interface.exit
-  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i117.not = icmp eq i32 %28, 0
   br i1 %.not.i117.not, label %47, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i118.not = icmp eq i32 %30, 0
   br i1 %.not.i118.not, label %47, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i119.not = icmp eq i32 %32, 0
   br i1 %.not.i119.not, label %47, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i120.not = icmp eq i32 %34, 0
   br i1 %.not.i120.not, label %47, label %35
 
@@ -1812,22 +1812,22 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %get_serial_from_interface.exit
-  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not.i129 = icmp eq i32 %24, 0
   br i1 %.not.i.not.i129, label %select.unfold, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i8.not.i = icmp eq i32 %26, 0
   br i1 %.not.i8.not.i, label %select.unfold, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i9.not.i = icmp eq i32 %28, 0
   br i1 %.not.i9.not.i, label %select.unfold, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %30 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i10.not.i = icmp eq i32 %30, 0
   br i1 %.not.i10.not.i, label %select.unfold, label %interface_to_logbuf.exit
 
@@ -1846,7 +1846,7 @@ select.unfold:                                    ; preds = %29, %23, %25, %27
   br label %.loopexit.sink.split
 
 33:                                               ; preds = %select.unfold
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i130.not = icmp eq i32 %34, 0
   %.str.165..str.166 = select i1 %.not.i130.not, ptr @.str.166, ptr @.str.165
   %35 = select i1 %.not.i130.not, i32 251661312, i32 134220800
@@ -1992,22 +1992,22 @@ select.unfold:                                    ; preds = %29, %23, %25, %27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
-  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %4 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not = icmp eq i32 %4, 0
   br i1 %.not.i8.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not = icmp eq i32 %6, 0
   br i1 %.not.i9.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not = icmp eq i32 %8, 0
   br i1 %.not.i10.not, label %12, label %9
 
@@ -2638,7 +2638,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %58 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %57) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %59 = call i32 @setsockopt(i32 noundef %31, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %10, i32 noundef 16) #16
+  %59 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %31, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %10, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %60 = call i32 @connect(i32 noundef %31, ptr noundef nonnull %12, i32 noundef 16) #16
   %61 = icmp eq i32 %60, -1
@@ -2776,7 +2776,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %119 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %94) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %120 = call i32 @setsockopt(i32 noundef %112, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %9, i32 noundef 16) #16
+  %120 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %112, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %9, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %121 = call i32 @connect(i32 noundef %112, ptr noundef nonnull %12, i32 noundef 16) #16
   %122 = icmp eq i32 %121, -1
@@ -3454,9 +3454,9 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_add
   br label %78
 
 21:                                               ; preds = %1
-  %22 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 3) #16
+  %22 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3) #16
   %23 = or i32 %22, 2048
-  %24 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 4, i32 noundef %23) #16
+  %24 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %23) #16
   %25 = call i32 @connect(i32 noundef %15, ptr noundef nonnull %6, i32 noundef 16) #16
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %.critedge38
@@ -3501,12 +3501,12 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_add
   %48 = load i32, ptr %8, align 4
   %.not1 = icmp eq i32 %48, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %49 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 3) #16
+  %49 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3) #16
   %50 = and i32 %49, -2049
-  %51 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 4, i32 noundef %50) #16
+  %51 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %50) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %52 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %4, i32 noundef 16) #16
-  %53 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %4, i32 noundef 16) #16
+  %52 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %4, i32 noundef 16) #16
+  %53 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %4, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %.not1, label %67, label %60
 
@@ -3516,12 +3516,12 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_add
 
 .critedge:                                        ; preds = %54, %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %55 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 3) #16
+  %55 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3) #16
   %56 = and i32 %55, -2049
-  %57 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 4, i32 noundef %56) #16
+  %57 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %56) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %58 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %3, i32 noundef 16) #16
-  %59 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %3, i32 noundef 16) #16
+  %58 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %3, i32 noundef 16) #16
+  %59 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %3, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %60
 
@@ -3531,12 +3531,12 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_add
 
 .critedge38:                                      ; preds = %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %62 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 3) #16
+  %62 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3) #16
   %63 = and i32 %62, -2049
-  %64 = call i32 (i32, i32, ...) @fcntl(i32 noundef %15, i32 noundef 4, i32 noundef %63) #16
+  %64 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %63) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
-  %65 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %2, i32 noundef 16) #16
-  %66 = call i32 @setsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %2, i32 noundef 16) #16
+  %65 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %2, i32 noundef 16) #16
+  %66 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %2, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %67
 
@@ -3720,17 +3720,17 @@ declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unname
 define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.135, ptr noundef %1, ptr noundef nonnull %3) #16
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %3) #16
-  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(26) @.str.39, i64 noundef 25) #19
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.39, i64 noundef 25) #19
   %.not.i.not = icmp eq i32 %8, 0
   br i1 %.not.i.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(34) @.str.40, i64 noundef 33) #19
+  %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(34) @.str.40, i64 noundef 33) #19
   %.not.i25.not = icmp eq i32 %10, 0
   br i1 %.not.i25.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(30) @.str.41, i64 noundef 29) #19
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(30) @.str.41, i64 noundef 29) #19
   %.not.i26.not = icmp eq i32 %12, 0
   br i1 %.not.i26.not, label %13, label %14
 
@@ -3739,42 +3739,42 @@ define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr n
   br label %33
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(20) @.str.80, i64 noundef 19) #19
+  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not.i = icmp eq i32 %15, 0
   br i1 %.not.i.not.i, label %is_logcat_interface.exit.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(22) @.str.82, i64 noundef 21) #19
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(22) @.str.82, i64 noundef 21) #19
   %.not.i6.not.i = icmp eq i32 %17, 0
   br i1 %.not.i6.not.i, label %is_logcat_interface.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(21) @.str.84, i64 noundef 20) #19
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(21) @.str.84, i64 noundef 20) #19
   %.not.i7.not.i = icmp eq i32 %19, 0
   br i1 %.not.i7.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_interface.exit
 
 is_logcat_interface.exit:                         ; preds = %18
-  %20 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(22) @.str.86, i64 noundef 21) #19
+  %20 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(22) @.str.86, i64 noundef 21) #19
   %.not.i8.i = icmp eq i32 %20, 0
   br i1 %.not.i8.i, label %is_logcat_interface.exit.thread, label %21
 
 21:                                               ; preds = %is_logcat_interface.exit
-  %22 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(25) @.str.88, i64 noundef 24) #19
+  %22 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not.i27 = icmp eq i32 %22, 0
   br i1 %.not.i.not.i27, label %is_logcat_interface.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(27) @.str.89, i64 noundef 26) #19
+  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(27) @.str.89, i64 noundef 26) #19
   %.not.i8.not.i = icmp eq i32 %24, 0
   br i1 %.not.i8.not.i, label %is_logcat_interface.exit.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(26) @.str.90, i64 noundef 25) #19
+  %26 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(26) @.str.90, i64 noundef 25) #19
   %.not.i9.not.i = icmp eq i32 %26, 0
   br i1 %.not.i9.not.i, label %is_logcat_interface.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(27) @.str.91, i64 noundef 26) #19
+  %28 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(27) @.str.91, i64 noundef 26) #19
   %.not.i10.not.i = icmp eq i32 %28, 0
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 

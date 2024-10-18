@@ -385,7 +385,7 @@ declare ptr @avifROStreamCurrent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %avifFileTypeHasBrand.exit, label %.preheader.i
 
@@ -410,17 +410,17 @@ define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocaptu
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %9 = shl nsw i64 %indvars.iv.i, 2
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %.not11.i = icmp eq i32 %bcmp10.i, 0
   br i1 %.not11.i, label %avifFileTypeHasBrand.exit, label %7
 
 .loopexit:                                        ; preds = %7
-  %bcmp.i2 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %bcmp.i2 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %.not.i3 = icmp eq i32 %bcmp.i2, 0
   br i1 %.not.i3, label %avifFileTypeHasBrand.exit, label %.lr.ph.i6
 
 .loopexit.thread:                                 ; preds = %.preheader.i
-  %bcmp.i218 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %bcmp.i218 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %.not.i319 = icmp eq i32 %bcmp.i218, 0
   br label %avifFileTypeHasBrand.exit
 
@@ -434,7 +434,7 @@ define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocaptu
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i11, %13 ]
   %14 = shl nsw i64 %indvars.iv.i8, 2
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %bcmp10.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %15, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %bcmp10.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %15, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %.not11.i10 = icmp eq i32 %bcmp10.i9, 0
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i7
@@ -1082,7 +1082,7 @@ avifDecoderItemShouldBeSkipped.exit.i462:         ; preds = %229, %227
 242:                                              ; preds = %241, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %241 ]
   %243 = getelementptr inbounds %struct.avifProperty, ptr %240, i64 %indvars.iv.i.i.i
-  %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %243, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %243, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not.i.i.i = icmp eq i32 %bcmp.i.i88.i, 0
   br i1 %.not.i.i.i, label %avifPropertyArrayFind.exit.i.i, label %241
 
@@ -1187,7 +1187,7 @@ avifDecoderItemShouldBeSkipped.exit.thread.i453:  ; preds = %241, %avifDecoderIt
 280:                                              ; preds = %279, %.lr.ph.i.i93.i
   %indvars.iv.i.i95.i = phi i64 [ 0, %.lr.ph.i.i93.i ], [ %indvars.iv.next.i.i98.i, %279 ]
   %281 = getelementptr inbounds %struct.avifProperty, ptr %278, i64 %indvars.iv.i.i95.i
-  %bcmp.i.i96.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %281, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %bcmp.i.i96.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %281, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not.i.i97.i = icmp eq i32 %bcmp.i.i96.i, 0
   br i1 %.not.i.i97.i, label %avifPropertyArrayFind.exit.i100.i, label %279
 
@@ -1247,7 +1247,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
   br label %.thread.sink.split
 
 299:                                              ; preds = %._crit_edge132.i
-  %300 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef %216)
+  %300 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef nonnull %216)
   %.not83.i = icmp eq i32 %300, 0
   br i1 %.not83.i, label %.lr.ph137.preheader.i, label %301
 
@@ -1464,7 +1464,7 @@ avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderIt
 401:                                              ; preds = %400, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %400 ]
   %402 = getelementptr inbounds %struct.avifProperty, ptr %399, i64 %indvars.iv.i.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %402, ptr noundef nonnull readonly dereferenceable(4) @.str.64, i64 4)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %402, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %avifPropertyArrayFind.exit.i.i.i, label %400
 
@@ -1633,7 +1633,7 @@ avifPropertyArrayFind.exit.thread.i.i:            ; preds = %avifPropertyArrayFi
 464:                                              ; preds = %463, %.lr.ph.i.i41.i
   %indvars.iv.i.i43.i = phi i64 [ 0, %.lr.ph.i.i41.i ], [ %indvars.iv.next.i.i45.i, %463 ]
   %465 = getelementptr inbounds %struct.avifProperty, ptr %462, i64 %indvars.iv.i.i43.i
-  %bcmp.i.i44.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %465, ptr noundef nonnull readonly dereferenceable(4) @.str.64, i64 4)
+  %bcmp.i.i44.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %465, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
   %.not.i.i.i478 = icmp eq i32 %bcmp.i.i44.i, 0
   br i1 %.not.i.i.i478, label %avifPropertyArrayFind.exit.i49.i, label %463
 
@@ -1873,7 +1873,7 @@ avifPropertyArrayFind.exit117.thread.i:           ; preds = %avifPropertyArrayFi
 .lr.ph.i119.i:                                    ; preds = %.lr.ph.i119.i.preheader, %570
   %indvars.iv.i121.i = phi i64 [ %indvars.iv.next.i124.i, %570 ], [ 0, %.lr.ph.i119.i.preheader ]
   %571 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i121.i
-  %bcmp.i122.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %571, ptr noundef nonnull readonly dereferenceable(4) @.str.63, i64 4)
+  %bcmp.i122.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %571, ptr noundef nonnull dereferenceable(4) @.str.63, i64 4)
   %.not.i123.i = icmp eq i32 %bcmp.i122.i, 0
   br i1 %.not.i123.i, label %avifPropertyArrayFind.exit127.i, label %570
 
@@ -1949,7 +1949,7 @@ avifCodecConfigurationBoxGetDepth.exit.i:         ; preds = %579, %576
 .lr.ph.i131.i:                                    ; preds = %.loopexit.i487, %593
   %indvars.iv.i133.i = phi i64 [ %indvars.iv.next.i136.i, %593 ], [ 0, %.loopexit.i487 ]
   %594 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i133.i
-  %bcmp.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %594, ptr noundef nonnull readonly dereferenceable(4) @.str.17, i64 4)
+  %bcmp.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %594, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
   %.not.i135.i = icmp eq i32 %bcmp.i134.i, 0
   br i1 %.not.i135.i, label %.lr.ph.i141.i, label %593
 
@@ -1961,7 +1961,7 @@ avifCodecConfigurationBoxGetDepth.exit.i:         ; preds = %579, %576
 .lr.ph.i141.i:                                    ; preds = %.lr.ph.i131.i, %595
   %indvars.iv.i143.i = phi i64 [ %indvars.iv.next.i146.i, %595 ], [ 0, %.lr.ph.i131.i ]
   %596 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i143.i
-  %bcmp.i144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %596, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %596, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %.not.i145.i = icmp eq i32 %bcmp.i144.i, 0
   br i1 %.not.i145.i, label %avifPropertyArrayFind.exit149.i, label %595
 
@@ -3214,7 +3214,7 @@ avifDecoderDataCreate.exit.thread:                ; preds = %107, %avifDecoderCl
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %188 ]
   %190 = shl nsw i64 %indvars.iv.i.i, 2
   %191 = getelementptr inbounds i8, ptr %187, i64 %190
-  %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %191, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %191, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
   %.not11.i.i = icmp eq i32 %bcmp10.i.i, 0
   br i1 %.not11.i.i, label %avifFileTypeHasBrand.exit.i, label %188
 
@@ -3242,7 +3242,7 @@ avifFileTypeHasBrand.exit.i:                      ; preds = %189, %188, %.prehea
   %indvars.iv.i103.i = phi i64 [ 0, %.lr.ph.i101.i ], [ %indvars.iv.next.i106.i, %194 ]
   %196 = shl nsw i64 %indvars.iv.i103.i, 2
   %197 = getelementptr inbounds i8, ptr %193, i64 %196
-  %bcmp10.i104.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %197, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %bcmp10.i104.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %197, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
   %.not11.i105.i = icmp eq i32 %bcmp10.i104.i, 0
   br i1 %.not11.i105.i, label %avifFileTypeHasBrand.exit108.thread.i, label %194
 
@@ -4724,7 +4724,7 @@ select.unfold:                                    ; preds = %642, %654
 680:                                              ; preds = %679, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %679 ]
   %681 = getelementptr inbounds %struct.avifProperty, ptr %678, i64 %indvars.iv.i
-  %bcmp.i79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %681, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
+  %bcmp.i79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %681, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %.not.i80 = icmp eq i32 %bcmp.i79, 0
   br i1 %.not.i80, label %avifPropertyArrayFind.exit, label %679
 
@@ -4786,7 +4786,7 @@ avifPropertyArrayFind.exit:                       ; preds = %680
 .lr.ph.i84:                                       ; preds = %.lr.ph.i84.preheader, %707
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i89, %707 ], [ 0, %.lr.ph.i84.preheader ]
   %708 = getelementptr inbounds %struct.avifProperty, ptr %678, i64 %indvars.iv.i86
-  %bcmp.i87 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %708, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %bcmp.i87 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %708, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not.i88 = icmp eq i32 %bcmp.i87, 0
   br i1 %.not.i88, label %avifPropertyArrayFind.exit93, label %707
 
@@ -10633,7 +10633,7 @@ define internal fastcc range(i32 0, 27) i32 @avifCodecDecodeInputFillFromDecoder
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %20 = getelementptr inbounds %struct.avifProperty, ptr %17, i64 %indvars.iv.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %20, ptr noundef nonnull readonly dereferenceable(4) @.str.66, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %20, ptr noundef nonnull dereferenceable(4) @.str.66, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %avifPropertyArrayFind.exit, label %18
 
@@ -10703,7 +10703,7 @@ avifPropertyArrayFind.exit:                       ; preds = %19
 41:                                               ; preds = %40, %.lr.ph.i126
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i131, %40 ]
   %42 = getelementptr inbounds %struct.avifProperty, ptr %17, i64 %indvars.iv.i128
-  %bcmp.i129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %42, ptr noundef nonnull readonly dereferenceable(4) @.str.65, i64 4)
+  %bcmp.i129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %42, ptr noundef nonnull dereferenceable(4) @.str.65, i64 4)
   %.not.i130 = icmp eq i32 %bcmp.i129, 0
   br i1 %.not.i130, label %avifPropertyArrayFind.exit134, label %40
 

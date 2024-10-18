@@ -130,7 +130,7 @@ define internal void @_GLOBAL__sub_I_shell_compiler_meta.cpp() #6 section ".text
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #9
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN6casadi13ShellCompiler8meta_docB5cxx11E) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN6casadi13ShellCompiler8meta_docB5cxx11E) #9
   br label %.body.i
 
 13:                                               ; preds = %.noexc.i, %0

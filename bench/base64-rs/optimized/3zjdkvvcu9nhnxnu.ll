@@ -107,7 +107,7 @@ define noundef zeroext i1 @"_ZN85_$LT$base64..chunked_encoder..StringSink$u20$as
   br i1 %18, label %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7806e598d0c29468E.exit"
 
 19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h46081d10d61c1328E.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbc6c4daafa8fe838E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %15, i64 noundef %13), !noalias !16
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbc6c4daafa8fe838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %15, i64 noundef %13), !noalias !16
   %.pre.i.i = load i64, ptr %14, align 8, !alias.scope !11, !noalias !16
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h7806e598d0c29468E.exit"
 

@@ -583,7 +583,7 @@ show_setup_info.exit:                             ; preds = %171, %168, %proto_i
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %202
-  %208 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0246306, ptr noundef %204, i64 noundef %201) #6
+  %208 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %.0246306, ptr noundef %204, i64 noundef %201) #6
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %msrp_is_known_msrp_header.exit.preheader, label %211
 

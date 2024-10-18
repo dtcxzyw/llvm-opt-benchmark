@@ -679,7 +679,7 @@ declare noundef i32 @_ZNK3Lhs18get_indirect_levelEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZN9FactUnion9make_factEPK8Variablei(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 2)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef 2)
           to label %4 unwind label %35
 
 4:                                                ; preds = %2
@@ -780,7 +780,7 @@ define dso_local noundef nonnull ptr @_ZNK9FactUnion5cloneEv(ptr nocapture nound
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
-  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef 2)
+  invoke void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef 2)
           to label %7 unwind label %38
 
 7:                                                ; preds = %1
@@ -910,7 +910,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   %16 = getelementptr inbounds i8, ptr %.01325, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01325)
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 2)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef 2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %17, ptr %19, align 8
@@ -926,7 +926,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
 24:                                               ; preds = %44, %39, %34, %29, %.critedge
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #15
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %22
@@ -938,7 +938,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 88
   %32 = load ptr, ptr %31, align 8
-  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %27)
+  %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(12) %27)
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %29
@@ -979,7 +979,7 @@ _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %.noexc16, %.noexc18
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.thread.sink.split: ; preds = %.noexc, %.noexc18, %22, %.noexc17, %26, %_ZNK9FactUnion5implyERK4Fact.exit
   %.1.ph = phi i1 [ false, %_ZNK9FactUnion5implyERK4Fact.exit ], [ true, %26 ], [ true, %.noexc17 ], [ true, %22 ], [ true, %.noexc18 ], [ true, %.noexc ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #15
   br label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.thread: ; preds = %tailrecurse.i, %_ZNK8Variable21is_inside_union_fieldEv.exit.thread.sink.split
@@ -1114,7 +1114,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   %.01521 = phi i64 [ 0, %.lr.ph ], [ %42, %.thread ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.01521
   %13 = load ptr, ptr %12, align 8
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef 2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %4, align 8
   store ptr %13, ptr %8, align 8
   store i32 -2, ptr %9, align 8
@@ -1128,7 +1128,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 17:                                               ; preds = %36, %32, %24, %10
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %15
@@ -1172,7 +1172,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 
 .thread:                                          ; preds = %15, %30, %28, %36, %19
   %.1 = phi ptr [ %.022, %36 ], [ %.022, %19 ], [ %31, %30 ], [ null, %28 ], [ %.022, %15 ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   %42 = add nuw i64 %.01521, 1
   %43 = load ptr, ptr %5, align 8
   %44 = load ptr, ptr %2, align 8
@@ -1191,7 +1191,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.FactUnion, align 8
-  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
+  call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef 2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV9FactUnion, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8
@@ -1207,7 +1207,7 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
 10:                                               ; preds = %29, %24, %19, %14, %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %8
@@ -1219,7 +1219,7 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
-  %18 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %13)
+  %18 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(12) %13)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %14
@@ -1260,7 +1260,7 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
 
 _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %8, %34, %.noexc9, %.noexc8, %.noexc7, %12
   %35 = phi i1 [ false, %12 ], [ false, %34 ], [ true, %.noexc7 ], [ false, %.noexc8 ], [ true, %.noexc9 ], [ false, %8 ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   ret i1 %35
 }
 
@@ -1285,7 +1285,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9FactUnionD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

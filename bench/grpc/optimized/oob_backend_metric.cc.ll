@@ -282,7 +282,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %if.end.i.i.i unwind label %terminate.lpad.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i.i
@@ -1267,7 +1267,7 @@ if.then.i:                                        ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %.pr, align 8
   %2 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %.pr)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
@@ -1398,7 +1398,7 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core12Orca
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvPPN9grpc_core10Subchannel21DataProducerInterfaceEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i4 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3)
+  %call.i.i4 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i32 noundef 3)
           to label %_ZNSt8functionIFvPPN9grpc_core10Subchannel21DataProducerInterfaceEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1438,7 +1438,7 @@ if.then.i:                                        ; preds = %invoke.cont5
 if.then.i.i6:                                     ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i6, %if.then.i
@@ -1468,7 +1468,7 @@ lpad:                                             ; preds = %_ZN9grpc_core12Orca
   br i1 %tobool.not.i.i8, label %common.resume, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %lpad
-  %call.i.i10 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3)
+  %call.i.i10 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
@@ -1510,7 +1510,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -1666,7 +1666,7 @@ if.then.i4:                                       ; preds = %_ZN9grpc_core13RefC
 if.then.i.i8:                                     ; preds = %if.then.i4
   %vtable.i.i9 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %vtable.i.i9, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %if.end.i.i unwind label %terminate.lpad.i10
 
 if.end.i.i:                                       ; preds = %if.then.i.i8, %if.then.i4
@@ -2823,7 +2823,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core14Dual
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %if.end.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i

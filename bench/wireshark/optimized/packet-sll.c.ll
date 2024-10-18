@@ -518,7 +518,7 @@ define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture nounde
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %1, i64 112
-  %14 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %8, i32 noundef 4) #7
+  %14 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 5, 14) %8, i32 noundef 4) #7
   store i32 2, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 116
   store i32 4, ptr %15, align 4
@@ -561,7 +561,7 @@ copy_address_wmem.exit:                           ; preds = %12, %27
 
 35:                                               ; preds = %6
   %36 = getelementptr inbounds i8, ptr %1, i64 112
-  %37 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %8, i32 noundef 6) #7
+  %37 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 5, 14) %8, i32 noundef 6) #7
   store i32 1, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 116
   store i32 6, ptr %38, align 4

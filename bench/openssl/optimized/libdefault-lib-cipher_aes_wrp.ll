@@ -155,7 +155,7 @@ if.end32.i:                                       ; preds = %if.end17.thread.i, 
   %cond.i = select i1 %tobool37.not.i, ptr null, ptr %iv.i
   %block.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %4 = load ptr, ptr %block.i, align 8
-  %call.i = tail call i64 %2(ptr noundef nonnull %ks.i, ptr noundef %cond.i, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %inl, ptr noundef %4) #3
+  %call.i = tail call i64 %2(ptr noundef nonnull %ks.i, ptr noundef %cond.i, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef range(i64 1, 0) %inl, ptr noundef %4) #3
   %tobool38.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool38.not.i, label %if.then39.i, label %if.end40.i
 

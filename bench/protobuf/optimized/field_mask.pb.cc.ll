@@ -75,7 +75,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf9FieldMaskE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -107,7 +107,7 @@ if.then.i15:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %if.then.i15, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -574,7 +574,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3)
   ret void
 }
 

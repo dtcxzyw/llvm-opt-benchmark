@@ -864,7 +864,7 @@ if.end131:                                        ; preds = %for.end, %if.end93
   %32 = load i32, ptr %ai_addrlen132, align 8
   %conv = zext i32 %32 to i64
   %33 = load ptr, ptr @hiredisAllocFns, align 8
-  %call.i84 = call ptr %33(i64 noundef %conv) #10
+  %call.i84 = call ptr %33(i64 noundef range(i64 0, 4294967296) %conv) #10
   store ptr %call.i84, ptr %saddr, align 8
   %cmp136 = icmp eq ptr %call.i84, null
   br i1 %cmp136, label %oom, label %if.end139

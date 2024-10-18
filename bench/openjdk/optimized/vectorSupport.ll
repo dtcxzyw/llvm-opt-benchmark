@@ -314,7 +314,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %13
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %20 = sext i32 %.sroa.1.0.copyload.i to i64
   %21 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %22 = call noundef ptr %21(ptr noundef nonnull %19, i64 noundef %20) #8
+  %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %20) #8
   %23 = call noundef zeroext i8 @_ZN15java_lang_Class12as_BasicTypeEP7oopDescPP5Klass(ptr noundef %22, ptr noundef null) #8
   br label %24
 
@@ -546,7 +546,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %38
   %.sroa.1.0.copyload.i.i36 = load i32, ptr %.sroa.1.0..sroa_idx.i.i35, align 8
   %44 = sext i32 %.sroa.1.0.copyload.i.i36 to i64
   %45 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %46 = call noundef ptr %45(ptr noundef nonnull %43, i64 noundef %44) #8
+  %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %44) #8
   %47 = call noundef zeroext i8 @_ZN15java_lang_Class12as_BasicTypeEP7oopDescPP5Klass(ptr noundef %46, ptr noundef null) #8
   br label %_ZN13VectorSupport8klass2btEP13InstanceKlass.exit
 
@@ -676,7 +676,7 @@ _ZNK11RegisterMap8locationEP9VMRegImpli.exit:     ; preds = %81, %86, %88
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 118:                                              ; preds = %106
-  %119 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %108, i64 noundef 8, i32 noundef 0) #8
+  %119 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %108, i64 noundef 8, i32 noundef 0) #8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %118, %116
@@ -1530,7 +1530,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 1720
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i32 %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL44jdk_internal_vm_vector_VectorSupport_methods, i32 noundef 1) #8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL44jdk_internal_vm_vector_VectorSupport_methods, i32 noundef 1) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %32, label %30
 

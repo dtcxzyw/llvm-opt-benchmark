@@ -197,7 +197,7 @@ define void @_ZN8IOPlugin4openERK7QStringS2_RKNSt7__cxx114listIP9MeshModelSaIS6_
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %9, %7 ]
   %10 = load ptr, ptr %.09.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #23
   %.not.i.i = icmp eq ptr %10, %4
   br i1 %.not.i.i, label %_ZNSt7__cxx114listIiSaIiEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !5
 
@@ -219,7 +219,7 @@ _ZNSt7__cxx114listIiSaIiEE5clearEv.exit:          ; preds = %.lr.ph.i.i, %7
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i32, ptr %8, align 4
   store i32 %21, ptr %20, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %4) #25
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   %22 = load i64, ptr %12, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %12, align 8
@@ -1359,7 +1359,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

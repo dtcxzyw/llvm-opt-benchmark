@@ -163,7 +163,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(125) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(125) %1) #15
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #15
@@ -209,7 +209,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA125_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #15
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #15
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -236,7 +236,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #15
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #15
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -395,12 +395,12 @@ define noundef ptr @_Z32gmx_neutronstructurefactors_initPKc(ptr noundef %0) loca
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %13
 
 13:                                               ; preds = %10
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12) #15
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %12) #15
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   store ptr null, ptr %11, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #15
   %14 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 111, i64 noundef 10, i64 noundef 40)
           to label %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp
 
@@ -484,25 +484,25 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
   %52 = add nuw nsw i32 %.024.ph, 1
   %53 = zext nneg i32 %52 to i64
   %54 = load ptr, ptr %15, align 8
-  %55 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef %54, i64 noundef %53, i64 noundef 8)
+  %55 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef %54, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef 8)
           to label %56 unwind label %.loopexit.loopexit.split-lp
 
 56:                                               ; preds = %51
   store ptr %55, ptr %15, align 8
   %57 = load ptr, ptr %18, align 8
-  %58 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 134, ptr noundef %57, i64 noundef %53, i64 noundef 4)
+  %58 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 134, ptr noundef %57, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef 4)
           to label %59 unwind label %.loopexit.loopexit.split-lp
 
 59:                                               ; preds = %56
   store ptr %58, ptr %18, align 8
   %60 = load ptr, ptr %21, align 8
-  %61 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 135, ptr noundef %60, i64 noundef %53, i64 noundef 4)
+  %61 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 135, ptr noundef %60, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef 4)
           to label %62 unwind label %.loopexit.loopexit.split-lp
 
 62:                                               ; preds = %59
   store ptr %61, ptr %21, align 8
   %63 = load ptr, ptr %24, align 8
-  %64 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 136, ptr noundef %63, i64 noundef %53, i64 noundef 8)
+  %64 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 136, ptr noundef %63, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef 8)
           to label %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.loopexit.split-lp
 
 _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
@@ -555,7 +555,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
   %75 = load i32, ptr %14, align 8
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %15, align 8
-  %78 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 144, ptr noundef %77, i64 noundef %76, i64 noundef 8)
+  %78 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 144, ptr noundef %77, i64 noundef range(i64 -2147483648, 2147483648) %76, i64 noundef 8)
           to label %79 unwind label %.loopexit.split-lp
 
 79:                                               ; preds = %74
@@ -563,7 +563,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
   %80 = load i32, ptr %14, align 8
   %81 = sext i32 %80 to i64
   %82 = load ptr, ptr %18, align 8
-  %83 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 145, ptr noundef %82, i64 noundef %81, i64 noundef 4)
+  %83 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 145, ptr noundef %82, i64 noundef range(i64 -2147483648, 2147483648) %81, i64 noundef 4)
           to label %84 unwind label %.loopexit.split-lp
 
 84:                                               ; preds = %79
@@ -571,7 +571,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
   %85 = load i32, ptr %14, align 8
   %86 = sext i32 %85 to i64
   %87 = load ptr, ptr %21, align 8
-  %88 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 146, ptr noundef %87, i64 noundef %86, i64 noundef 4)
+  %88 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 146, ptr noundef %87, i64 noundef range(i64 -2147483648, 2147483648) %86, i64 noundef 4)
           to label %89 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %84
@@ -579,7 +579,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
   %90 = load i32, ptr %14, align 8
   %91 = sext i32 %90 to i64
   %92 = load ptr, ptr %24, align 8
-  %93 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 147, ptr noundef %92, i64 noundef %91, i64 noundef 8)
+  %93 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 147, ptr noundef %92, i64 noundef range(i64 -2147483648, 2147483648) %91, i64 noundef 8)
           to label %94 unwind label %.loopexit.split-lp
 
 94:                                               ; preds = %89
@@ -653,7 +653,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %25
 
 25:                                               ; preds = %22
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %24) #15
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %24) #15
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %22, %25
@@ -694,7 +694,7 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   %5 = getelementptr inbounds i8, ptr %0, i64 2320
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 158, i64 noundef %7, i64 noundef 8)
+  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 158, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef 8)
   store ptr %8, ptr %4, align 8
   store ptr %0, ptr %3, align 8
   %9 = load i32, ptr %5, align 8
@@ -800,7 +800,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   store i64 %20, ptr %19, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull %19, i64 noundef 63)
+  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %19, i64 noundef 63)
   %21 = getelementptr inbounds i8, ptr %19, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %22 = load i64, ptr %19, align 8
@@ -899,7 +899,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   store i32 %108, ptr %76, align 8
   %109 = getelementptr inbounds i8, ptr %76, i64 24
   %110 = sext i32 %108 to i64
-  %111 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 230, i64 noundef %110, i64 noundef 8)
+  %111 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 230, i64 noundef range(i64 -2147483648, 2147483648) %110, i64 noundef 8)
   store ptr %111, ptr %109, align 8
   br i1 %6, label %112, label %287
 
@@ -932,7 +932,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   store i64 %storemerge, ptr %18, align 8
   %129 = call noundef i32 @_Z23gmx_omp_get_max_threadsv()
   %130 = sext i32 %129 to i64
-  %131 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 245, i64 noundef %130, i64 noundef 8)
+  %131 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 245, i64 noundef range(i64 -2147483648, 2147483648) %130, i64 noundef 8)
   store ptr %131, ptr %16, align 8
   %132 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %130, i64 56)
   %133 = extractvalue { i64, i1 } %132, 1
@@ -949,7 +949,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 140:                                              ; preds = %142, %138
   %141 = phi ptr [ %136, %138 ], [ %198, %142 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
-  invoke void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull %141, i64 noundef 63)
+  invoke void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %141, i64 noundef 63)
           to label %142 unwind label %263
 
 142:                                              ; preds = %140
@@ -1033,14 +1033,14 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   %202 = getelementptr inbounds ptr, ptr %201, i64 %indvars.iv115
   %203 = load i32, ptr %76, align 8
   %204 = sext i32 %203 to i64
-  %205 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 249, i64 noundef %204, i64 noundef 8)
+  %205 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 249, i64 noundef range(i64 -2147483648, 2147483648) %204, i64 noundef 8)
   store ptr %205, ptr %202, align 8
   %206 = getelementptr inbounds %"class.gmx::ThreeFry2x64Fast", ptr %136, i64 %indvars.iv115
   %207 = call noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(ptr noundef nonnull align 8 dereferenceable(52) %19)
   store i64 %207, ptr %206, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %206, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull %206, i64 noundef 63)
+  call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull align 8 dereferenceable(52) %206, i64 noundef 63)
   %208 = getelementptr inbounds i8, ptr %206, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, i8 0, i64 16, i1 false)
   %209 = load i64, ptr %206, align 8
@@ -1187,7 +1187,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 287:                                              ; preds = %10
   %288 = call noundef i32 @_Z23gmx_omp_get_max_threadsv()
   %289 = sext i32 %288 to i64
-  %290 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 307, i64 noundef %289, i64 noundef 8)
+  %290 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 307, i64 noundef range(i64 -2147483648, 2147483648) %289, i64 noundef 8)
   store ptr %290, ptr %16, align 8
   %291 = icmp sgt i32 %288, 0
   br i1 %291, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1202,7 +1202,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   %293 = getelementptr inbounds ptr, ptr %292, i64 %indvars.iv
   %294 = load i32, ptr %76, align 8
   %295 = sext i32 %294 to i64
-  %296 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 310, i64 noundef %295, i64 noundef 8)
+  %296 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 310, i64 noundef range(i64 -2147483648, 2147483648) %295, i64 noundef 8)
   store ptr %296, ptr %293, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1309,7 +1309,7 @@ _Z21normalize_probabilityiPd.exit:                ; preds = %_Z21normalize_proba
   %326 = phi i32 [ %.pre, %_Z21normalize_probabilityiPd.exit.loopexit ], [ %.pre136, %317 ], [ %.pre136, %316 ]
   %327 = getelementptr inbounds i8, ptr %76, i64 16
   %328 = sext i32 %326 to i64
-  %329 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 362, i64 noundef %328, i64 noundef 8)
+  %329 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 362, i64 noundef range(i64 -2147483648, 2147483648) %328, i64 noundef 8)
   store ptr %329, ptr %327, align 8
   %330 = load i32, ptr %76, align 8
   %331 = icmp sgt i32 %330, 0
@@ -1585,7 +1585,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %10
   %68 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #15
   br i1 %.0.i, label %69, label %.body
@@ -1769,7 +1769,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit: ;
   %167 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #15
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #15
   br i1 %.0.i63, label %168, label %.body
@@ -2165,7 +2165,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   %.018 = phi i1 [ false, %15 ], [ true, %13 ]
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   br i1 %.018, label %.sink.split, label %37
@@ -2219,7 +2219,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #15
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   br i1 %.0, label %.sink.split, label %37
@@ -2313,7 +2313,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -2330,7 +2330,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -2433,7 +2433,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   ret void
 }
 
@@ -2497,7 +2497,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
@@ -2665,7 +2665,7 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EE
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
   br i1 %.0, label %19, label %21
@@ -2703,12 +2703,12 @@ define noundef ptr @_Z36convert_histogram_to_intensity_curveP35gmx_radial_distri
   store i32 %9, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = sext i32 %9 to i64
-  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str, i32 noundef 381, i64 noundef %11, i64 noundef 8)
+  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str, i32 noundef 381, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 8)
   store ptr %12, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = load i32, ptr %5, align 8
   %15 = sext i32 %14 to i64
-  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str, i32 noundef 382, i64 noundef %15, i64 noundef 8)
+  %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str, i32 noundef 382, i64 noundef range(i64 -2147483648, 2147483648) %15, i64 noundef 8)
   store ptr %16, ptr %13, align 8
   %17 = load i32, ptr %5, align 8
   %18 = icmp sgt i32 %17, 0

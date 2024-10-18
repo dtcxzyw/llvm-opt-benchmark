@@ -32,7 +32,7 @@ define hidden range(i32 0, 2) i32 @WebPToSDL(ptr noundef %0, i32 noundef %1) loc
 
 10:                                               ; preds = %8, %2
   %11 = zext i32 %1 to i64
-  %12 = call i32 @WebPGetFeaturesInternal(ptr noundef %0, i64 noundef %11, ptr noundef nonnull %3, i32 noundef 521) #4
+  %12 = call i32 @WebPGetFeaturesInternal(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %11, ptr noundef nonnull %3, i32 noundef 521) #4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %50
 

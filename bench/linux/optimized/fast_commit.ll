@@ -2175,7 +2175,7 @@ ext4_fc_write_inode.exit:                         ; preds = %276, %280
 406:                                              ; preds = %403
   %407 = getelementptr inbounds i8, ptr %404, i64 8
   %408 = load ptr, ptr %407, align 8
-  %409 = call i32 @__SCT__tp_func_ext4_fc_commit_stop(ptr noundef %408, ptr noundef %8, i32 noundef 0, i32 noundef %393, i32 noundef %1) #14
+  %409 = call i32 @__SCT__tp_func_ext4_fc_commit_stop(ptr noundef %408, ptr noundef %8, i32 noundef 0, i32 noundef range(i32 0, 4) %393, i32 noundef %1) #14
   br label %410
 
 410:                                              ; preds = %406, %403

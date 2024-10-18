@@ -270,7 +270,7 @@ clause_fetch.exit.i.i:                            ; preds = %112, %clause_fetch.
 clause_act_rescale.exit.i:                        ; preds = %clause_fetch.exit.i.i, %112
   %134 = load i32, ptr %105, align 8
   %135 = lshr i32 %134, 10
-  %136 = tail call range(i32 2048, 4194304) i32 @llvm.umax.i32(i32 %135, i32 2048)
+  %136 = tail call range(i32 2048, 4194304) i32 @llvm.umax.i32(i32 range(i32 0, 4194304) %135, i32 2048)
   store i32 %136, ptr %105, align 8
   br label %clause_act_bump.exit
 
@@ -1625,7 +1625,7 @@ clause_fetch.exit.i.i.i.i:                        ; preds = %199, %clause_fetch.
 clause_act_rescale.exit.i.i.i:                    ; preds = %clause_fetch.exit.i.i.i.i, %199
   %221 = load i32, ptr %19, align 8
   %222 = lshr i32 %221, 10
-  %223 = call range(i32 2048, 4194304) i32 @llvm.umax.i32(i32 %222, i32 2048)
+  %223 = call range(i32 2048, 4194304) i32 @llvm.umax.i32(i32 range(i32 0, 4194304) %222, i32 2048)
   store i32 %223, ptr %19, align 8
   %.pre303.i.i = load i32, ptr %168, align 4
   %.pre311.i.i = and i32 %.pre303.i.i, 1
@@ -3337,8 +3337,8 @@ solver_handle_conflict.exit:                      ; preds = %1019, %1050, %vec_u
   %1073 = and i64 %1072, 1152640029630136320
   %1074 = add nsw i64 %1073, -287948901175001088
   %1075 = or disjoint i64 %1074, %1071
-  %spec.select.i.i27.i = call i64 @llvm.umin.i64(i64 %1065, i64 %1075)
-  %spec.select39.i.i.i = call i64 @llvm.umax.i64(i64 %1065, i64 %1075)
+  %spec.select.i.i27.i = call i64 @llvm.umin.i64(i64 %1065, i64 range(i64 140737488355328, 0) %1075)
+  %spec.select39.i.i.i = call i64 @llvm.umax.i64(i64 %1065, i64 range(i64 140737488355328, 0) %1075)
   %1076 = lshr i64 %spec.select39.i.i.i, 32
   %1077 = and i64 %1076, 65535
   %1078 = lshr i64 %spec.select.i.i27.i, 32

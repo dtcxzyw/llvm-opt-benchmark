@@ -71,7 +71,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReader9readArrayINS_8code
   %.sroa.5 = alloca { ptr, i64, %"class.std::optional" }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %3) #10
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -557,7 +557,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview22DebugSymbolsSubsectionD0Ev(p
   br label %_ZN4llvm8codeview22DebugSymbolsSubsectionD2Ev.exit
 
 _ZN4llvm8codeview22DebugSymbolsSubsectionD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #13
   ret void
 }

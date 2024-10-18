@@ -3250,7 +3250,7 @@ proto_item_set_generated.exit110:                 ; preds = %634, %636, %639
 
 opensafety_packet_sender.exit.i:                  ; preds = %779, %778
   %781 = load i32, ptr @hf_oss_msg_sender, align 4
-  tail call fastcc void @opensafety_packet_node(ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %781, i16 noundef zeroext %744, i16 noundef zeroext %745, i16 noundef zeroext %747, i16 noundef zeroext %777)
+  tail call fastcc void @opensafety_packet_node(ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %781, i16 noundef zeroext range(i16 0, 1276) %744, i16 noundef zeroext %745, i16 noundef zeroext %747, i16 noundef zeroext %777)
   %782 = zext nneg i16 %744 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.371, i32 noundef %782, i32 noundef %782) #10
   br label %788
@@ -4549,7 +4549,7 @@ proto_item_set_generated.exit202.i:               ; preds = %1581, %1578, %1577
   store i8 -64, ptr %8, align 1
   store ptr null, ptr %9, align 8
   %1626 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 4) #10
-  %1627 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef 4, i32 noundef %1319, i32 noundef %1626) #10
+  %1627 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %1, i32 noundef 4, i32 noundef range(i32 1, 256) %1319, i32 noundef %1626) #10
   %1628 = load ptr, ptr @heur_opensafety_spdo_subdissector_list, align 8
   %1629 = call i32 @dissector_try_heuristic(ptr noundef %1628, ptr noundef %1627, ptr noundef %2, ptr noundef %1386, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
   %.not.i203.i = icmp eq i32 %1629, 0
@@ -5051,7 +5051,7 @@ opensafety_packet_sender.exit:                    ; preds = %opensafety_packet_s
   %18 = getelementptr inbounds i8, ptr %4, i64 28
   store i16 %5, ptr %18, align 4
   %19 = load i32, ptr @hf_oss_msg_sender, align 4
-  tail call fastcc void @opensafety_packet_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %19, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %9, i16 noundef zeroext %10)
+  tail call fastcc void @opensafety_packet_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %19, i16 noundef zeroext range(i16 0, 1276) %5, i16 noundef zeroext %6, i16 noundef zeroext %9, i16 noundef zeroext %10)
   %20 = zext nneg i16 %5 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.371, i32 noundef %20, i32 noundef %20) #10
   ret void

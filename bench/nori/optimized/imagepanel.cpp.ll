@@ -206,7 +206,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %20
   store i32 %7, ptr %6, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void %25(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %26
 
@@ -460,7 +460,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD2Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 168
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -514,7 +514,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD0Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 168
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -554,7 +554,7 @@ _ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_
   br label %_ZN7nanogui10ImagePanelD2Ev.exit
 
 _ZN7nanogui10ImagePanelD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i.i, %17
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #16
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

@@ -1779,7 +1779,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7GetTypeEv(ptr noundef
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 160
   %40 = load ptr, ptr %39, align 8
-  %41 = call noundef nonnull align 8 dereferenceable(16) ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %41 = call noundef nonnull align 8 dereferenceable(16) ptr %40(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit: ; preds = %29, %35
@@ -1844,7 +1844,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeNameB5cxx11E
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit: ; preds = %11, %12
@@ -1936,7 +1936,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12CastToTypeOfERKS0_S2
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load ptr, ptr %12, align 8
-  %14 = invoke noundef nonnull align 8 dereferenceable(16) ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %14 = invoke noundef nonnull align 8 dereferenceable(16) ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit.i unwind label %30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit.i: ; preds = %8, %3
@@ -1964,7 +1964,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %_ZN32pxrI
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %27
 
 27:                                               ; preds = %22
@@ -2000,7 +2000,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr 
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %12 unwind label %13
 
 12:                                               ; preds = %1, %7
@@ -2044,7 +2044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %7
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %18
 
 18:                                               ; preds = %13
@@ -2079,7 +2079,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInt
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %13 = tail call noundef nonnull align 8 dereferenceable(16) ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit: ; preds = %2, %7
@@ -2136,7 +2136,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit.i.i: ; preds = %
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 160
   %38 = load ptr, ptr %37, align 8, !noalias !20
-  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !20
+  %39 = tail call noundef nonnull align 8 dereferenceable(16) ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %0), !noalias !20
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %41 = ptrtoint ptr %39 to i64
   store i64 %41, ptr %3, align 8, !noalias !20
@@ -2186,7 +2186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit: ; preds = %_ZN32pxrIn
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread unwind label %61
 
 61:                                               ; preds = %56
@@ -2375,7 +2375,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit.i: ; preds = %_Z
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %17 = load ptr, ptr %16, align 8, !noalias !37
-  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !37
+  %18 = tail call noundef nonnull align 8 dereferenceable(16) ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %2), !noalias !37
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %20 = ptrtoint ptr %18 to i64
   store i64 %20, ptr %4, align 8, !noalias !37
@@ -2558,7 +2558,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERK
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %71, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void %72(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %73
 
 73:                                               ; preds = %68
@@ -2584,7 +2584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %62, %68
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load ptr, ptr %84, align 8
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.critedge30 unwind label %86
 
 86:                                               ; preds = %81
@@ -2619,7 +2619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %62, %68
   %96 = inttoptr i64 %95 to ptr
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 160
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef nonnull align 8 dereferenceable(16) ptr %98(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %99 = tail call noundef nonnull align 8 dereferenceable(16) ptr %98(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.pre = load ptr, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit
 
@@ -2635,7 +2635,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit: ; preds = %.cri
   %105 = inttoptr i64 %104 to ptr
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 160
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef nonnull align 8 dereferenceable(16) ptr %107(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %108 = tail call noundef nonnull align 8 dereferenceable(16) ptr %107(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit35
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit, %102
@@ -2856,7 +2856,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue8_FailGetEPFNS
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %45 = load ptr, ptr %44, align 8
-  %46 = invoke noundef nonnull align 8 dereferenceable(16) ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %46 = invoke noundef nonnull align 8 dereferenceable(16) ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit unwind label %55
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9GetTypeidEv.exit: ; preds = %29, %40
@@ -3359,7 +3359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7VtValueESaIS2_E
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = call noundef nonnull align 8 dereferenceable(8) ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.011, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7VtValueE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7VtValueE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7VtValueESaIS2_EELb0EEdeEv.exit, %23
@@ -6463,7 +6463,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistry
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_v.exit: ; preds = %2, %7
@@ -6488,7 +6488,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2tiB5cxx11, ptr %22, align 8
   %23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_.exit unwind label %24
 
 24:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit
@@ -6520,7 +6520,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Vt_CastRegistry
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit
 
 14:                                               ; preds = %2
@@ -6583,7 +6583,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIcE5valueEv.exit
 
 _ZNRSt8optionalIcE5valueEv.exit:                  ; preds = %7, %2
@@ -6612,7 +6612,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -6954,7 +6954,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIaE5valueEv.exit
 
 _ZNRSt8optionalIaE5valueEv.exit:                  ; preds = %7, %2
@@ -6983,7 +6983,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIabEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -7167,7 +7167,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %7, %2
@@ -7196,7 +7196,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; preds = %2, %7
@@ -7380,7 +7380,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %7, %2
@@ -7410,7 +7410,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -7601,7 +7601,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %7, %2
@@ -7631,7 +7631,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -7822,7 +7822,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -7852,7 +7852,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIibEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -8044,7 +8044,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %7, %2
@@ -8074,7 +8074,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -8266,7 +8266,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIblEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -8296,7 +8296,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -8487,7 +8487,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -8517,7 +8517,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -8708,7 +8708,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -8738,7 +8738,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -8929,7 +8929,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -8959,7 +8959,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIybEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -9150,7 +9150,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIbEERKT_v.exit: ; preds = %2, %7
@@ -9213,7 +9213,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -9590,7 +9590,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -9620,7 +9620,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -9814,7 +9814,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIbdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -9844,7 +9844,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdbEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -10037,7 +10037,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIaE5valueEv.exit
 
 _ZNRSt8optionalIaE5valueEv.exit:                  ; preds = %7, %2
@@ -10065,7 +10065,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIacEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIcE5valueEv.exit
 
 _ZNRSt8optionalIcE5valueEv.exit:                  ; preds = %7, %2
@@ -10093,7 +10093,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIchEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10129,7 +10129,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; preds = %2, %7
@@ -10165,7 +10165,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %7, %2
@@ -10194,7 +10194,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIscEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -10232,7 +10232,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIctEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10269,7 +10269,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -10310,7 +10310,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIciEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -10339,7 +10339,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIicEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -10377,7 +10377,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10414,7 +10414,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -10456,7 +10456,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIclEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -10485,7 +10485,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -10523,7 +10523,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10560,7 +10560,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -10602,7 +10602,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -10631,7 +10631,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -10669,7 +10669,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10706,7 +10706,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIycEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -10748,7 +10748,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
@@ -10811,7 +10811,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -11048,7 +11048,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -11077,7 +11077,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -11119,7 +11119,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -11148,7 +11148,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdcEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -11190,7 +11190,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIahEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11226,7 +11226,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; preds = %2, %7
@@ -11262,7 +11262,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIasEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %7, %2
@@ -11291,7 +11291,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -11329,7 +11329,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIatEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11366,7 +11366,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -11407,7 +11407,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIaiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -11436,7 +11436,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIiaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -11474,7 +11474,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIajEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11511,7 +11511,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -11553,7 +11553,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIalEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -11582,7 +11582,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -11620,7 +11620,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIamEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11657,7 +11657,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -11699,7 +11699,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIaxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -11728,7 +11728,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -11766,7 +11766,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIayEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11803,7 +11803,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -11845,7 +11845,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIaNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
@@ -11908,7 +11908,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -12145,7 +12145,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIafEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -12174,7 +12174,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -12216,7 +12216,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIadEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -12245,7 +12245,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdaEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -12287,7 +12287,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIsE5valueEv.exit
 
 _ZNRSt8optionalIsE5valueEv.exit:                  ; preds = %7, %2
@@ -12316,7 +12316,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIshEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -12357,7 +12357,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %7, %2
@@ -12386,7 +12386,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIthEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -12427,7 +12427,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -12456,7 +12456,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIihEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -12498,7 +12498,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %7, %2
@@ -12527,7 +12527,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -12569,7 +12569,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -12598,7 +12598,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -12640,7 +12640,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -12669,7 +12669,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -12711,7 +12711,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -12740,7 +12740,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -12782,7 +12782,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -12811,7 +12811,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -12853,7 +12853,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIhEERKT_v.exit: ; preds = %2, %7
@@ -12916,7 +12916,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -13141,7 +13141,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -13170,7 +13170,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -13212,7 +13212,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIhdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -13241,7 +13241,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdhEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -13283,7 +13283,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIstEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -13319,7 +13319,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -13355,7 +13355,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -13384,7 +13384,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIisEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -13422,7 +13422,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -13459,7 +13459,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -13500,7 +13500,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIslEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -13529,7 +13529,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -13567,7 +13567,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -13604,7 +13604,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -13646,7 +13646,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -13675,7 +13675,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -13713,7 +13713,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -13750,7 +13750,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIysEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -13792,7 +13792,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
@@ -13855,7 +13855,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -14092,7 +14092,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -14121,7 +14121,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -14163,7 +14163,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -14192,7 +14192,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdsEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -14234,7 +14234,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %7, %2
@@ -14263,7 +14263,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIitEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -14304,7 +14304,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %7, %2
@@ -14333,7 +14333,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -14374,7 +14374,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -14403,7 +14403,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIltEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -14445,7 +14445,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -14474,7 +14474,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -14516,7 +14516,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -14545,7 +14545,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -14587,7 +14587,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -14616,7 +14616,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIytEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -14658,7 +14658,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetItEERKT_v.exit: ; preds = %2, %7
@@ -14721,7 +14721,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -14946,7 +14946,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -14975,7 +14975,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIftEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -15017,7 +15017,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastItdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15046,7 +15046,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdtEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -15088,7 +15088,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIijEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -15124,7 +15124,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -15160,7 +15160,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIilEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15189,7 +15189,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIliEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -15227,7 +15227,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIimEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -15264,7 +15264,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -15305,7 +15305,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIixEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15334,7 +15334,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -15372,7 +15372,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIiyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -15409,7 +15409,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -15450,7 +15450,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIiNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
@@ -15513,7 +15513,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -15746,7 +15746,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIifEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -15775,7 +15775,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -15817,7 +15817,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIidEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15846,7 +15846,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdiEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -15888,7 +15888,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15917,7 +15917,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIljEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -15958,7 +15958,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -15987,7 +15987,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -16028,7 +16028,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -16057,7 +16057,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -16098,7 +16098,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -16127,7 +16127,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -16168,7 +16168,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIjEERKT_v.exit: ; preds = %2, %7
@@ -16231,7 +16231,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -16452,7 +16452,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -16481,7 +16481,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -16523,7 +16523,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIjdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -16552,7 +16552,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdjEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -16594,7 +16594,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -16630,7 +16630,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -16666,7 +16666,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -16694,7 +16694,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -16722,7 +16722,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -16758,7 +16758,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIylEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -16794,7 +16794,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
@@ -16857,7 +16857,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -17090,7 +17090,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -17119,7 +17119,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIflEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -17161,7 +17161,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIldEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -17190,7 +17190,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdlEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -17232,7 +17232,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -17268,7 +17268,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -17304,7 +17304,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -17332,7 +17332,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIymEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -17360,7 +17360,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetImEERKT_v.exit: ; preds = %2, %7
@@ -17423,7 +17423,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -17644,7 +17644,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -17673,7 +17673,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -17715,7 +17715,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastImdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -17744,7 +17744,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdmEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -17786,7 +17786,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -17822,7 +17822,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -17858,7 +17858,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
@@ -17921,7 +17921,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -18154,7 +18154,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -18183,7 +18183,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -18225,7 +18225,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -18254,7 +18254,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdxEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -18296,7 +18296,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIyEERKT_v.exit: ; preds = %2, %7
@@ -18359,7 +18359,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8pxr_half4halfEEERKT_v.exit: ; preds = %2, %7
@@ -18580,7 +18580,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIyfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -18609,7 +18609,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -18651,7 +18651,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIydEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -18680,7 +18680,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdyEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -18722,7 +18722,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -18753,7 +18753,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIfEERKT_v.exit: ; preds = %2, %7
@@ -18815,7 +18815,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastINS_8p
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -18847,7 +18847,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdNS_8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIdEERKT_v.exit: ; preds = %2, %7
@@ -18910,7 +18910,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIfdEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %13
 
 13:                                               ; preds = %7, %2
@@ -18939,7 +18939,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIdfEEN
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZNRSt8optionalIfE5valueEv.exit
 
 _ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %7, %2
@@ -18986,7 +18986,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 40) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit
 
@@ -19088,7 +19088,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23, !noalias !264
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRKS8_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !264
 
 8:                                                ; preds = %6
@@ -19113,7 +19113,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %12) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 40) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit.i.i
 
@@ -19208,7 +19208,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2tiB5cxx11, ptr %4, align 8, !alias.scope !267
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23, !noalias !267
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE19GetProxiedAsVtValueERKS7_.exit unwind label %6, !noalias !267
 
 6:                                                ; preds = %2
@@ -19671,7 +19671,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERK
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
@@ -19705,7 +19705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge unwind label %34
 
 ._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge: ; preds = %31
@@ -19743,7 +19743,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit: ; preds =
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
-  invoke void %49(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %49(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit unwind label %50
 
 50:                                               ; preds = %47
@@ -19772,7 +19772,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned
 59:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERS4_.exit
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit15 unwind label %62
 
 62:                                               ; preds = %59
@@ -19810,7 +19810,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit unwind label %59
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %14, %8
@@ -19844,7 +19844,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %14, %8
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge unwind label %34
 
 ._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge: ; preds = %31
@@ -19896,7 +19896,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo4MoveERNSt15aligned_stor
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo4MoveERNSt15aligned_storageILm8ELm8EE4typeES5_.exit
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit unwind label %56
 
 56:                                               ; preds = %53
@@ -20875,7 +20875,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolderEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 88) #24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !280
@@ -20896,7 +20896,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #23
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %10 = load ptr, ptr %3, align 8
   store ptr %10, ptr %9, align 8
@@ -20971,7 +20971,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolderEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i: ; preds = %37
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 88) #24
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolderEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev.exit
 
@@ -21321,7 +21321,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolderEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 88) #24
   br label %13
 

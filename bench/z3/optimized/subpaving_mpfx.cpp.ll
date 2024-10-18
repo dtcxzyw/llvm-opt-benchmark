@@ -4502,7 +4502,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #22
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #22
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -5132,7 +5132,7 @@ entry:
   %tobool.i.i = icmp ne i32 %2, 0
   %3 = and i32 %bf.load.i, 1073741824
   %tobool.i2.i = icmp ne i32 %3, 0
-  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %bf.clear.i, ptr noundef nonnull align 4 dereferenceable(4) %b, i1 noundef zeroext %tobool.i.i, i1 noundef zeroext %tobool.i2.i)
+  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %bf.clear.i, ptr noundef nonnull align 8 dereferenceable(32) %b, i1 noundef zeroext %tobool.i.i, i1 noundef zeroext %tobool.i2.i)
   ret void
 }
 
@@ -22735,7 +22735,7 @@ if.end.thread:                                    ; preds = %_ZNK9subpaving9cont
   %tobool.i.i.i = icmp ne i32 %24, 0
   %25 = and i32 %bf.load.i.i, 1073741824
   %tobool.i2.i.i = icmp ne i32 %25, 0
-  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %bf.clear.i.i, ptr noundef nonnull align 4 dereferenceable(4) %12, i1 noundef zeroext %tobool.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
+  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %bf.clear.i.i, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %tobool.i.i.i, i1 noundef zeroext %tobool.i2.i.i)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
   %cmp6.not62 = icmp eq ptr %21, null
   br i1 %cmp6.not62, label %if.then11, label %if.end8.thread
@@ -22750,7 +22750,7 @@ if.end8.thread:                                   ; preds = %if.end.thread, %if.
   %tobool.i.i.i42 = icmp ne i32 %28, 0
   %29 = and i32 %bf.load.i.i40, 1073741824
   %tobool.i2.i.i43 = icmp ne i32 %29, 0
-  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %bf.clear.i.i41, ptr noundef nonnull align 4 dereferenceable(4) %21, i1 noundef zeroext %tobool.i.i.i42, i1 noundef zeroext %tobool.i2.i.i43)
+  tail call void @_ZN9subpaving9context_tINS_11config_mpfxEE7displayERSoR12mpfx_managerRKNS_16display_var_procEjR4mpfxbb(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(85) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %bf.clear.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %21, i1 noundef zeroext %tobool.i.i.i42, i1 noundef zeroext %tobool.i2.i.i43)
   br label %if.then11
 
 if.then11:                                        ; preds = %if.end.thread, %if.end8.thread

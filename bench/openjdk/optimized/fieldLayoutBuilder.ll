@@ -153,7 +153,7 @@ define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr nocaptu
   %6 = load i32, ptr %5, align 4
   %7 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %7, i8 0, i64 16, i1 false)
   store i32 3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 -1, ptr %9, align 4
@@ -223,7 +223,7 @@ define hidden void @_ZN10FieldGroup13add_oop_fieldEi(ptr nocapture noundef nonnu
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_type2aelembytes, i64 48), align 16
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %4, i8 0, i64 16, i1 false)
   store i32 3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 -1, ptr %6, align 4
@@ -374,7 +374,7 @@ _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %.preheader
   %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %17 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
   %18 = getelementptr inbounds i8, ptr %16, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %16, i8 0, i64 16, i1 false)
   store i32 1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 20
   store i32 -1, ptr %19, align 4
@@ -513,7 +513,7 @@ _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %15
   %20 = trunc i8 %19 to i1
   %spec.select.i = select i1 %20, i32 12, i32 16
   %21 = getelementptr inbounds i8, ptr %18, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %18, i8 0, i64 16, i1 false)
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %18, i64 20
   store i32 -1, ptr %22, align 4
@@ -665,7 +665,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %45 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %46 = load i32, ptr %9, align 8
   %47 = getelementptr inbounds i8, ptr %45, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %45, i8 0, i64 16, i1 false)
   store i32 5, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 20
   store i32 -1, ptr %48, align 4
@@ -835,7 +835,7 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
   %119 = trunc i8 %118 to i1
   %spec.select.i = select i1 %119, i32 12, i32 16
   %120 = getelementptr inbounds i8, ptr %117, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %117, i8 0, i64 16, i1 false)
   store i32 1, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %117, i64 20
   %122 = getelementptr inbounds i8, ptr %117, i64 24
@@ -914,7 +914,7 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
   %20 = sub nsw i32 %12, %17
   %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %22 = getelementptr inbounds i8, ptr %21, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %21, i8 0, i64 16, i1 false)
   store i32 %7, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 20
   store i32 -1, ptr %23, align 4
@@ -964,7 +964,7 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
   %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %43 = load i32, ptr @ContendedPaddingWidth, align 4
   %44 = getelementptr inbounds i8, ptr %42, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %42, i8 0, i64 16, i1 false)
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 20
   store i32 -1, ptr %45, align 4
@@ -1983,7 +1983,7 @@ define hidden noundef ptr @_ZN18FieldLayoutBuilder29get_or_create_contended_grou
 ._crit_edge:                                      ; preds = %8, %2
   %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
   %16 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 28
   store i32 0, ptr %17, align 4
@@ -2067,7 +2067,7 @@ define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef non
   tail call void @_ZN11FieldLayout24initialize_static_layoutEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
   %27 = getelementptr inbounds i8, ptr %26, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   store i32 -1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 28
   store i32 0, ptr %28, align 4
@@ -2075,7 +2075,7 @@ define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef non
   store ptr %26, ptr %29, align 8
   %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
   %31 = getelementptr inbounds i8, ptr %30, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false)
   store i32 -1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 28
   store i32 0, ptr %32, align 4
@@ -2138,7 +2138,7 @@ define hidden void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef
 24:                                               ; preds = %22
   %25 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
   %26 = getelementptr inbounds i8, ptr %25, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   store i32 1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 28
   store i32 0, ptr %27, align 4
@@ -2199,7 +2199,7 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
 ._crit_edge.i:                                    ; preds = %49, %44
   %56 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
   %57 = getelementptr inbounds i8, ptr %56, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 24, i1 false)
   store i32 %45, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 28
   store i32 0, ptr %58, align 4
@@ -2392,7 +2392,7 @@ define hidden void @_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutR
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %7 = load i32, ptr @ContendedPaddingWidth, align 4
   %8 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %6, i8 0, i64 16, i1 false)
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 20
   store i32 -1, ptr %9, align 4
@@ -2471,7 +2471,7 @@ define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr nounde
   %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %18 = load i32, ptr @ContendedPaddingWidth, align 4
   %19 = getelementptr inbounds i8, ptr %17, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %17, i8 0, i64 16, i1 false)
   store i32 2, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 20
   store i32 -1, ptr %20, align 4
@@ -2767,7 +2767,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %1
   %161 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %162 = load i32, ptr @ContendedPaddingWidth, align 4
   %163 = getelementptr inbounds i8, ptr %161, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %161, i8 0, i64 16, i1 false)
   store i32 2, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %161, i64 20
   store i32 -1, ptr %164, align 4
@@ -3346,7 +3346,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %
   %438 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %439 = load i32, ptr @ContendedPaddingWidth, align 4
   %440 = getelementptr inbounds i8, ptr %438, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %438, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %438, i8 0, i64 16, i1 false)
   store i32 2, ptr %440, align 8
   %441 = getelementptr inbounds i8, ptr %438, i64 20
   store i32 -1, ptr %441, align 4

@@ -84,7 +84,7 @@ define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #18
+  %10 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, -9223372036854775807) %1) #18
   br label %_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.exit
 
 _ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.exit: ; preds = %6, %8
@@ -103,7 +103,7 @@ _ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.exit: ; preds = %6, %8
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define hidden noalias noundef nonnull align 8 ptr @"_ZN5alloc5boxed12Box$LT$T$GT$3new17h123adeed22cd73f8E.llvm.14391449521842213572"(ptr noalias nocapture noundef align 8 dereferenceable(80) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %3 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #18
+  %3 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 80, i64 noundef range(i64 1, -9223372036854775807) 8) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.14391449521842213572.exit
 
@@ -230,7 +230,7 @@ define hidden noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyh
   %6 = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8
-  %8 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef 80, i64 noundef 8) #18, !noalias !8
+  %8 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 80, i64 noundef range(i64 1, -9223372036854775807) 8) #18, !noalias !8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h123adeed22cd73f8E.llvm.14391449521842213572.exit"
 
@@ -300,7 +300,7 @@ define void @"_ZN67_$LT$ui_input..TextField$u20$as$u20$gpui..window..FocusableVi
   %6 = load i32, ptr %4, align 8, !range !11, !alias.scope !12, !noalias !15, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4, !alias.scope !12, !noalias !15, !noundef !4
-  %9 = tail call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17hae4c92be46b8f13bE.llvm.9200321324850197923"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i32 noundef %6, i32 noundef %8), !noalias !17
+  %9 = tail call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17hae4c92be46b8f13bE.llvm.9200321324850197923"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5, i32 noundef %6, i32 noundef %8), !noalias !17
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h154fa32c3fc2d14dE.exit.i"
 
@@ -368,7 +368,7 @@ define void @_ZN8ui_input9TextField12set_disabled17hfda45f08d6ca2866E(ptr noalia
   %11 = load i32, ptr %8, align 8, !range !11, !alias.scope !31, !noalias !32, !noundef !4
   %12 = getelementptr inbounds i8, ptr %0, i64 52
   %13 = load i32, ptr %12, align 4, !alias.scope !31, !noalias !32, !noundef !4
-  %14 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h61d85e3dceed1ae6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %11, i32 noundef %13), !noalias !26
+  %14 = tail call { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h61d85e3dceed1ae6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %11, i32 noundef %13), !noalias !26
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %_ZN4gpui3app10entity_map9EntityMap5lease17h44c4a5c07f3512e2E.exit.i
@@ -1015,7 +1015,7 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
 256:                                              ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h281aea534e02cb3bE.exit.i"
   %257 = getelementptr inbounds i8, ptr %19, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !alias.scope !157, !noalias !128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %19, ptr noundef nonnull align 8 dereferenceable(824) %16, i64 824, i1 false), !noalias !158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %19, ptr noundef nonnull align 8 dereferenceable(824) %16, i64 824, i1 false), !noalias !158
   %258 = getelementptr inbounds i8, ptr %19, i64 848
   store i8 0, ptr %258, align 8, !alias.scope !141, !noalias !158
   call void @llvm.lifetime.end.p0(i64 824, ptr nonnull %16), !noalias !146
@@ -1275,7 +1275,7 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
 336:                                              ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h281aea534e02cb3bE.exit.i51"
   %337 = getelementptr inbounds i8, ptr %13, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !alias.scope !208, !noalias !179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %13, ptr noundef nonnull align 8 dereferenceable(824) %11, i64 824, i1 false), !noalias !209
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %13, ptr noundef nonnull align 8 dereferenceable(824) %11, i64 824, i1 false), !noalias !209
   %338 = getelementptr inbounds i8, ptr %13, i64 848
   store i8 0, ptr %338, align 8, !alias.scope !192, !noalias !209
   call void @llvm.lifetime.end.p0(i64 824, ptr nonnull %11), !noalias !197
@@ -1661,7 +1661,7 @@ define void @"_ZN61_$LT$ui_input..TextField$u20$as$u20$gpui..element..Render$GT$
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !273
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !273
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !273
-  invoke void @_ZN2ui10components4icon4Icon3new17h288c1803d69a2cf5E(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %5, i8 noundef %456)
+  invoke void @_ZN2ui10components4icon4Icon3new17h288c1803d69a2cf5E(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %5, i8 noundef range(i8 0, -88) %456)
           to label %459 unwind label %462, !noalias !273
 
 459:                                              ; preds = %458

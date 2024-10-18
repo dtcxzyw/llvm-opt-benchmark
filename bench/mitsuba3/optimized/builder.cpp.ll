@@ -1512,7 +1512,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder4bindERKNS0_5Labe
   br label %44
 
 41:                                               ; preds = %29
-  %42 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1, ptr noundef null)
+  %42 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(410) %0, i32 noundef 1, ptr noundef null)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj.exit.thread
 

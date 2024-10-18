@@ -2183,7 +2183,7 @@ _ZN12Disassembler11is_abstractEv.exit.i:          ; preds = %50, %46
   %69 = ptrtoint ptr %43 to i64
   %gepdiff17 = sub nsw i64 %42, %39
   %70 = getelementptr inbounds i8, ptr %3, i64 40
-  %71 = call noundef ptr %67(i64 noundef %68, i64 noundef %69, ptr noundef nonnull %40, i64 noundef %gepdiff17, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull %3, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull %3, ptr noundef nonnull %70, i32 noundef 0) #12
+  %71 = call noundef ptr %67(i64 noundef %68, i64 noundef %69, ptr noundef nonnull %40, i64 noundef %gepdiff17, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull align 8 dereferenceable(583) %3, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull align 8 dereferenceable(583) %3, ptr noundef nonnull %70, i32 noundef 0) #12
   br label %_ZN10decode_env19decode_instructionsEPhS0_S0_.exit
 
 _ZN10decode_env19decode_instructionsEPhS0_S0_.exit: ; preds = %66, %57, %_ZN12Disassembler11is_abstractEv.exit.i, %44
@@ -2299,7 +2299,7 @@ _ZN12Disassembler11is_abstractEv.exit.i:          ; preds = %42, %39
   %59 = ptrtoint ptr %33 to i64
   %60 = ptrtoint ptr %36 to i64
   %gepdiff8 = sub nsw i64 %35, %32
-  %61 = call noundef ptr %58(i64 noundef %59, i64 noundef %60, ptr noundef nonnull %33, i64 noundef %gepdiff8, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull %3, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull %3, ptr noundef nonnull %19, i32 noundef 0) #12
+  %61 = call noundef ptr %58(i64 noundef %59, i64 noundef %60, ptr noundef nonnull %33, i64 noundef %gepdiff8, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull align 8 dereferenceable(583) %3, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull align 8 dereferenceable(583) %3, ptr noundef nonnull %19, i32 noundef 0) #12
   br label %_ZN10decode_env19decode_instructionsEPhS0_S0_.exit
 
 _ZN10decode_env19decode_instructionsEPhS0_S0_.exit: ; preds = %57, %49, %_ZN12Disassembler11is_abstractEv.exit.i, %37
@@ -2414,7 +2414,7 @@ _ZN12Disassembler11is_abstractEv.exit.i:          ; preds = %33, %30
   %51 = ptrtoint ptr %0 to i64
   %52 = ptrtoint ptr %1 to i64
   %53 = sub i64 %52, %51
-  %54 = call noundef ptr %50(i64 noundef %51, i64 noundef %52, ptr noundef %0, i64 noundef %53, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull %4, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull %4, ptr noundef nonnull %24, i32 noundef 0) #12
+  %54 = call noundef ptr %50(i64 noundef %51, i64 noundef %52, ptr noundef %0, i64 noundef %53, ptr noundef nonnull @_ZL12event_to_envPvPKcS_, ptr noundef nonnull align 8 dereferenceable(583) %4, ptr noundef nonnull @_ZL13printf_to_envPvPKcz, ptr noundef nonnull align 8 dereferenceable(583) %4, ptr noundef nonnull %24, i32 noundef 0) #12
   br label %_ZN10decode_env19decode_instructionsEPhS0_S0_.exit
 
 _ZN10decode_env19decode_instructionsEPhS0_S0_.exit: ; preds = %_ZN12Disassembler11is_abstractEv.exit.i, %40, %49

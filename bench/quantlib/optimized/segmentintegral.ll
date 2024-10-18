@@ -99,7 +99,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %if.end
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %6 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !14
-  %call2.i = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i16)
   store double %b, ptr %__args.addr.i16, align 8, !tbaa !10
@@ -113,7 +113,7 @@ if.then.i22:                                      ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit23:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit
   %8 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !14
-  %call2.i21 = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i16)
+  %call2.i21 = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i16)
   %add = fadd double %call2.i, %call2.i21
   %mul = fmul double %add, 5.000000e-01
@@ -142,7 +142,7 @@ if.then.i30:                                      ; preds = %for.body
 
 _ZNKSt8functionIFddEEclEd.exit31:                 ; preds = %for.body
   %11 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !14
-  %call2.i29 = call noundef double %11(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i24)
+  %call2.i29 = call noundef double %11(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i24)
   %add7 = fadd double %sum.036, %call2.i29
   %x.0 = fadd double %div, %x.037

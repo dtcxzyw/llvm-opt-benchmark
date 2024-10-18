@@ -21,7 +21,7 @@ $_ZN4LIEF3ELF27SymbolVersionAuxRequirementD0Ev = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKNS0_7details13Elf64_VernauxE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #0 align 2 {
-  tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
@@ -42,7 +42,7 @@ define void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKNS0_7details13Elf64_V
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementC2ERKNS0_7details13Elf32_VernauxE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #0 align 2 {
-  tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
@@ -86,7 +86,7 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementD2Ev(p
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #5
   ret void
 }
 
@@ -95,7 +95,7 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF27SymbolVersionAuxRequirementD0Ev(p
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF16SymbolVersionAuxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #5
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6
   ret void
 }

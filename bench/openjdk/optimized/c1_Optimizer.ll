@@ -1239,7 +1239,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %91, %93
   store ptr null, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, ptr noundef null) #15
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i, ptr noundef null) #15
   %124 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 96
   store i32 %56, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 104
@@ -1345,7 +1345,7 @@ _ZN11InstructionnwEm.exit91:                      ; preds = %160, %162
   store ptr null, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %.0.i.i.i90, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i90, ptr noundef null) #15
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i.i90, ptr noundef null) #15
   %189 = getelementptr inbounds i8, ptr %.0.i.i.i90, i64 96
   store i32 %2, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %.0.i.i.i90, i64 104
@@ -1397,7 +1397,7 @@ define linkonce_odr hidden void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noun
   store ptr %2, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %2) #15
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %2) #15
   %25 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %25, align 8
   %26 = load i32, ptr %17, align 8
@@ -1838,7 +1838,7 @@ define hidden void @_ZN9Optimizer33eliminate_conditional_expressionsEv(ptr nocap
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 0, ptr %8, align 8
-  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3) #15
+  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(28) %3) #15
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
@@ -1848,7 +1848,7 @@ define hidden void @_ZN9Optimizer33eliminate_conditional_expressionsEv(ptr nocap
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20SubstitutionResolver, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20SubstitutionResolver, i64 48), ptr %12, align 8
-  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2) #15
+  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   br label %13
 
 13:                                               ; preds = %10, %1
@@ -1892,7 +1892,7 @@ define hidden void @_ZN9Optimizer16eliminate_blocksEv(ptr nocapture noundef nonn
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %5, align 8
-  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %2) #15
+  call void @_ZN2IR16iterate_preorderEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(20) %2) #15
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
@@ -6426,7 +6426,7 @@ define linkonce_odr hidden void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10Bl
   store ptr %7, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %7) #15
+  tail call void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %7) #15
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %30, align 8
   %31 = load i32, ptr %22, align 8

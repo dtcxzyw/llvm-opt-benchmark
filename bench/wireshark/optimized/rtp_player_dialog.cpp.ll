@@ -701,7 +701,7 @@ $_ZZN18QMetaTypeIdQObjectIP8QCPGraphLi8EE14qt_metatype_idEvE11metatype_id = comd
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN15RtpPlayerDialog19openRtpPlayerDialogER7QWidgetR11CaptureFileP7QObjectb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.QMetaObject::Connection", align 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN15RtpPlayerDialog11init_mutex_E) #21
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog11init_mutex_E) #21
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %7
 
@@ -745,12 +745,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 19:                                               ; preds = %14, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %20 = phi ptr [ %.pre, %14 ], [ %8, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog11init_mutex_E) #21
+  %21 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog11init_mutex_E) #21
   ret ptr %20
 
 22:                                               ; preds = %17, %15
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %18, %17 ]
-  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog11init_mutex_E) #21
+  %23 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog11init_mutex_E) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -1597,7 +1597,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2I21QCPAxisTickerDateTimeTnNSt9enable_ifIXs
 403:                                              ; preds = %400
   %404 = getelementptr inbounds i8, ptr %399, i64 8
   %405 = load ptr, ptr %404, align 8
-  invoke void %405(ptr noundef nonnull %399)
+  invoke void %405(ptr noundef nonnull align 8 dereferenceable(16) %399)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %408
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %403, %400
@@ -2405,7 +2405,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI12QAudioDeviceEED2Ev.exit: ; preds = %._
   %722 = getelementptr inbounds i8, ptr %717, i64 32
   %723 = load ptr, ptr %722, align 8, !noalias !46
   %724 = getelementptr inbounds i8, ptr %717, i64 16
-  %725 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringbEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_bSt4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %723, ptr nonnull %724, ptr nonnull %82)
+  %725 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringbEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_bSt4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %723, ptr nonnull %724, ptr nonnull align 8 %82)
           to label %._crit_edge514 unwind label %726
 
 ._crit_edge514:                                   ; preds = %721
@@ -3210,7 +3210,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %996, %1003
   %1005 = load ptr, ptr %97, align 8
   %1006 = getelementptr inbounds i8, ptr %1005, i64 432
   %1007 = load ptr, ptr %1006, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 24, i1 false)
   store i64 2, ptr %979, align 8
   %1008 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %1007)
           to label %.noexc381 unwind label %1043
@@ -3405,7 +3405,7 @@ _ZN7QStringD2Ev.exit404:                          ; preds = %1053, %_ZN17QArrayD
           to label %_ZN15RtpPlayerDialog2trEPKcS1_i.exit406 unwind label %871
 
 _ZN15RtpPlayerDialog2trEPKcS1_i.exit406:          ; preds = %1084
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 24, i1 false)
   %1088 = getelementptr inbounds i8, ptr %87, i64 24
   store i64 2, ptr %1088, align 8
   %1089 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %1087)
@@ -6321,7 +6321,7 @@ _ZN7QStringD2Ev.exit625:                          ; preds = %887, %_ZN17QArrayDa
   %896 = getelementptr inbounds i8, ptr %0, i64 504
   store ptr %894, ptr %896, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 24, i1 false)
   %897 = getelementptr inbounds i8, ptr %113, i64 24
   store i64 2, ptr %897, align 8
   %898 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %894)
@@ -6360,7 +6360,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i627:   ; preds = %901
 _ZN7QStringD2Ev.exit629:                          ; preds = %901, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i627, %904
   %906 = load ptr, ptr %896, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 24, i1 false)
   %907 = getelementptr inbounds i8, ptr %115, i64 24
   store i64 2, ptr %907, align 8
   %908 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %906)
@@ -6399,7 +6399,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i635:   ; preds = %911
 _ZN7QStringD2Ev.exit637:                          ; preds = %911, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i635, %914
   %916 = load ptr, ptr %896, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 24, i1 false)
   %917 = getelementptr inbounds i8, ptr %117, i64 24
   store i64 2, ptr %917, align 8
   %918 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %916)
@@ -9593,7 +9593,7 @@ define linkonce_odr void @_ZN14QSharedPointerI13QCPAxisTickerED2Ev(ptr noundef n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -10065,7 +10065,7 @@ define void @_ZN15RtpPlayerDialog17fillAudioRateMenuEv(ptr nocapture noundef non
   %29 = getelementptr inbounds i8, ptr %28, i64 456
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN15RtpPlayerDialog16staticMetaObjectE, ptr noundef nonnull @.str.65, ptr noundef null, i32 noundef -1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %31, align 8
   %32 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
@@ -10363,7 +10363,7 @@ _ZN5QListIiE3endEv.exit45:                        ; preds = %_ZNK17QArrayDataPoi
           to label %138 unwind label %.loopexit
 
 138:                                              ; preds = %133
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store i64 2, ptr %132, align 8
   %139 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %137)
           to label %.noexc46 unwind label %148
@@ -10735,7 +10735,7 @@ define linkonce_odr void @_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev(ptr n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -11295,7 +11295,7 @@ define void @_ZN15RtpPlayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpPlayerDialog, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpPlayerDialog, i64 528), ptr %3, align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN15RtpPlayerDialog11init_mutex_E) #21
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog11init_mutex_E) #21
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %5
 
@@ -11400,7 +11400,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %35
   br label %47
 
 47:                                               ; preds = %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog11init_mutex_E) #21
+  %48 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog11init_mutex_E) #21
   %49 = getelementptr inbounds i8, ptr %0, i64 408
   call void @_ZN10QMultiHashIjP14RtpAudioStreamED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #21
   %50 = getelementptr inbounds i8, ptr %0, i64 320
@@ -11435,7 +11435,7 @@ _ZN5QListIP14RtpAudioStreamED2Ev.exit:            ; preds = %47, %_ZN17QArrayDat
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %57, i64 8
   %63 = load ptr, ptr %62, align 8
-  invoke void %63(ptr noundef nonnull %57)
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %57)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %66
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %61, %58
@@ -11469,7 +11469,7 @@ _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %_ZN5QListIP14R
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %70, i64 8
   %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull %70)
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %70)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i15 unwind label %79
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i15: ; preds = %74, %71
@@ -11539,7 +11539,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %95
-  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
+  call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #21
   ret void
 
 .loopexit:                                        ; preds = %19, %27, %31, %35
@@ -11621,7 +11621,7 @@ define void @_ZN15RtpPlayerDialogD0Ev(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZThn16_N15RtpPlayerDialogD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15RtpPlayerDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(448) %2) #24
   ret void
 }
 
@@ -11720,7 +11720,7 @@ define void @_ZN15RtpPlayerDialog12retapPacketsEv(ptr noundef nonnull align 8 de
   br label %19
 
 19:                                               ; preds = %18, %14
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %9, %19
@@ -11996,7 +11996,7 @@ _ZNK8QPointerI15RtpPlayerDialogE4dataEv.exit.thread: ; preds = %102, %104, %113
   br i1 %116, label %.invoke, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 .invoke:                                          ; preds = %91, %_ZNK8QPointerI15RtpPlayerDialogE4dataEv.exit.thread
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %95
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %.invoke, %_ZNK8QPointerI15RtpPlayerDialogE4dataEv.exit.thread, %91
@@ -12793,7 +12793,7 @@ define void @_ZN15RtpPlayerDialog13rescanPacketsEb(ptr noundef nonnull align 8 d
   br label %18
 
 18:                                               ; preds = %17, %13
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %18
@@ -13117,7 +13117,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i50:    ; preds = %.body
   br i1 %133, label %134, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 134:                                              ; preds = %130
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %130, %134
@@ -13490,7 +13490,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2ERKS1_.exit: ; preds = %103, %109
 119:                                              ; preds = %116
   %120 = getelementptr inbounds i8, ptr %115, i64 8
   %121 = load ptr, ptr %120, align 8
-  invoke void %121(ptr noundef nonnull %115)
+  invoke void %121(ptr noundef nonnull align 8 dereferenceable(16) %115)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %123
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %119, %116
@@ -13547,7 +13547,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2I21QCPAxisTickerDateTimeTnNSt9enable_ifIXs
 144:                                              ; preds = %141
   %145 = getelementptr inbounds i8, ptr %140, i64 8
   %146 = load ptr, ptr %145, align 8
-  invoke void %146(ptr noundef nonnull %140)
+  invoke void %146(ptr noundef nonnull align 8 dereferenceable(16) %140)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i163 unwind label %148
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i163: ; preds = %144, %141
@@ -13675,7 +13675,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %211
   %220 = xor i32 %.087841, -1
   %221 = add nsw i32 %93, %220
   %222 = call i64 @_ZN14RtpAudioStream15getAudioRoutingEv(ptr noundef nonnull align 8 dereferenceable(7680) %219)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
   store i64 2, ptr %154, align 8
   %223 = load ptr, ptr %215, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 32
@@ -13685,7 +13685,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %211
 
 226:                                              ; preds = %_ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 24, i1 false)
   store i64 2, ptr %155, align 8
   %227 = load ptr, ptr %215, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 32
@@ -13695,7 +13695,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %211
 
 230:                                              ; preds = %226
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 24, i1 false)
   store i64 2, ptr %156, align 8
   %231 = load ptr, ptr %215, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 32
@@ -13705,7 +13705,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %211
 
 234:                                              ; preds = %230
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   store i64 2, ptr %157, align 8
   %235 = load ptr, ptr %215, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 32
@@ -13715,7 +13715,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %211
 
 238:                                              ; preds = %234
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false)
   store i64 2, ptr %158, align 8
   %239 = load ptr, ptr %215, align 8
   %240 = getelementptr inbounds i8, ptr %239, i64 32
@@ -13780,7 +13780,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i169:    ; preds = %_ZN5QListIdED2Ev.ex
   br label %_ZN5QListIdED2Ev.exit171
 
 _ZN5QListIdED2Ev.exit171:                         ; preds = %_ZN5QListIdED2Ev.exit, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i169, %261
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP13RtpAudioGraphE8metaTypeE, ptr noundef nonnull %21)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP13RtpAudioGraphE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %263 = load ptr, ptr %215, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 32
   %265 = load ptr, ptr %264, align 8
@@ -14706,7 +14706,7 @@ _ZN7QStringD2Ev.exit320:                          ; preds = %547, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.not.i.i.i323 = icmp eq ptr %555, null
   %spec.select.i.i.i324 = select i1 %.not.i.i.i323, ptr @_ZN7QString6_emptyE, ptr %555
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %46, ptr noundef nonnull %47, ptr noundef nonnull %spec.select.i.i.i324, i64 noundef %556)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %46, ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull %spec.select.i.i.i324, i64 noundef %556)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %635
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %553
@@ -14894,7 +14894,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i345:    ; preds = %_ZN5QListIdED2Ev.ex
   br label %_ZN5QListIdED2Ev.exit347
 
 _ZN5QListIdED2Ev.exit347:                         ; preds = %_ZN5QListIdED2Ev.exit343, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i345, %611
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull %48)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %48)
           to label %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit unwind label %379
 
 _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit: ; preds = %_ZN5QListIdED2Ev.exit347
@@ -15200,7 +15200,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i387:    ; preds = %_ZN5QListIdED2Ev.ex
   br label %_ZN5QListIdED2Ev.exit389
 
 _ZN5QListIdED2Ev.exit389:                         ; preds = %_ZN5QListIdED2Ev.exit385, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i387, %706
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull %57)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit391 unwind label %379
 
 _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit391: ; preds = %_ZN5QListIdED2Ev.exit389
@@ -15414,7 +15414,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i415:    ; preds = %_ZN5QListIdED2Ev.ex
   br label %_ZN5QListIdED2Ev.exit417
 
 _ZN5QListIdED2Ev.exit417:                         ; preds = %_ZN5QListIdED2Ev.exit413, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i415, %777
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull %66)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %66)
           to label %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit419 unwind label %379
 
 _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit419: ; preds = %_ZN5QListIdED2Ev.exit417
@@ -15628,7 +15628,7 @@ _ZN17QArrayDataPointerIdE5derefEv.exit.i.i443:    ; preds = %_ZN5QListIdED2Ev.ex
   br label %_ZN5QListIdED2Ev.exit445
 
 _ZN5QListIdED2Ev.exit445:                         ; preds = %_ZN5QListIdED2Ev.exit441, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i443, %848
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull %75)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP8QCPGraphE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %75)
           to label %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit447 unwind label %379
 
 _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit447: ; preds = %_ZN5QListIdED2Ev.exit445
@@ -16460,7 +16460,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85:    ; preds = %137
   br label %_ZN7QStringD2Ev.exit87
 
 _ZN7QStringD2Ev.exit87:                           ; preds = %137, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i85, %140
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP14RtpAudioStreamE8metaTypeE, ptr noundef nonnull %19)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIP14RtpAudioStreamE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %_ZN8QVariant9fromValueIP14RtpAudioStreamEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit unwind label %.loopexit.split-lp
 
 _ZN8QVariant9fromValueIP14RtpAudioStreamEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit: ; preds = %_ZN7QStringD2Ev.exit87
@@ -16739,7 +16739,7 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %197, %_ZN17QArrayDa
           to label %.noexc120 unwind label %242
 
 228:                                              ; preds = %223
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
   store i64 2, ptr %204, align 8
   br label %.noexc120
 
@@ -17527,7 +17527,7 @@ _ZN5QListIP14RtpAudioStreamED2Ev.exit11:          ; preds = %45, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15RtpPlayerDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %4, label %58
 
@@ -17550,7 +17550,7 @@ define void @_ZN15RtpPlayerDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(pt
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %13, %9
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
           to label %_ZN15RtpPlayerDialog6lockUIEv.exit unwind label %.thread
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %4, %.noexc
@@ -17589,7 +17589,7 @@ _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %4, %.noexc
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.thread
   %lpad.phi24 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit29, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp30, %.loopexit.split-lp.loopexit.split-lp ]
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   resume { ptr, i32 } %lpad.phi24
 
 19:                                               ; preds = %17, %_ZN15RtpPlayerDialog6lockUIEv.exit
@@ -17684,7 +17684,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit.thread.i.i.i.i: ; 
   br i1 %56, label %57, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 57:                                               ; preds = %53
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %53, %57
@@ -17696,7 +17696,7 @@ _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %53, %57
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
 
 59:                                               ; preds = %_ZN15RtpPlayerDialog8unlockUIEv.exit
-  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %60 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit18:          ; preds = %58, %59
@@ -17847,7 +17847,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %21
   %29 = call noundef i32 @rtpstream_id_to_hash(ptr noundef nonnull %28)
   store i32 %29, ptr %5, align 4
   %30 = call noundef i64 @_ZN10QMultiHashIjP14RtpAudioStreamE6removeERKjRKS1_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %31 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %31, align 8
   %32 = load ptr, ptr %1, align 8
@@ -17893,7 +17893,7 @@ _ZNK8QVariant5valueIP13RtpAudioGraphEET_v.exit:   ; preds = %46
   br i1 %.not36, label %65, label %51
 
 51:                                               ; preds = %_ZNK8QVariant5valueIP13RtpAudioGraphEET_v.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
   %52 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 2, ptr %52, align 8
   %53 = load ptr, ptr %1, align 8
@@ -17935,7 +17935,7 @@ _ZNK8QVariant5valueIP8QCPGraphEET_v.exit:         ; preds = %65
   br i1 %.not37, label %85, label %70
 
 70:                                               ; preds = %_ZNK8QVariant5valueIP8QCPGraphEET_v.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
   %71 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %71, align 8
   %72 = load ptr, ptr %1, align 8
@@ -17977,7 +17977,7 @@ _ZNK8QVariant5valueIP8QCPGraphEET_v.exit42:       ; preds = %85
   br i1 %.not38, label %105, label %90
 
 90:                                               ; preds = %_ZNK8QVariant5valueIP8QCPGraphEET_v.exit42
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
   %91 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %91, align 8
   %92 = load ptr, ptr %1, align 8
@@ -18019,7 +18019,7 @@ _ZNK8QVariant5valueIP8QCPGraphEET_v.exit43:       ; preds = %105
   br i1 %.not39, label %125, label %110
 
 110:                                              ; preds = %_ZNK8QVariant5valueIP8QCPGraphEET_v.exit43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
   %111 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 2, ptr %111, align 8
   %112 = load ptr, ptr %1, align 8
@@ -18061,7 +18061,7 @@ _ZNK8QVariant5valueIP8QCPGraphEET_v.exit44:       ; preds = %125
   br i1 %.not40, label %145, label %130
 
 130:                                              ; preds = %_ZNK8QVariant5valueIP8QCPGraphEET_v.exit44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
   %131 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 2, ptr %131, align 8
   %132 = load ptr, ptr %1, align 8
@@ -18109,7 +18109,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15RtpPlayerDialog13addRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %3 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %4, label %48
 
@@ -18132,7 +18132,7 @@ define void @_ZN15RtpPlayerDialog13addRtpStreamsE5QListIP13_rtpstream_idE(ptr no
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %13, %9
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
           to label %_ZN15RtpPlayerDialog6lockUIEv.exit unwind label %.thread
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %4, %.noexc
@@ -18215,7 +18215,7 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE11needsDetachEv.exit.thread.i.i.i.i: ; 
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit, %.loopexit.split-lp, %.thread
   %lpad.phi19 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   resume { ptr, i32 } %lpad.phi19
 
 ._crit_edge:                                      ; preds = %35, %.preheader
@@ -18234,7 +18234,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit, %.loopex
   br i1 %46, label %47, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 47:                                               ; preds = %43
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %43, %47
@@ -18246,7 +18246,7 @@ _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %43, %47
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
 49:                                               ; preds = %_ZN15RtpPlayerDialog8unlockUIEv.exit
-  %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %50 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit13:          ; preds = %48, %49
@@ -18261,7 +18261,7 @@ define void @_ZN15RtpPlayerDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr
   %6 = alloca %class.QMetaType, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %class.QVariant, align 8
-  %9 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %9 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %10, label %232
 
@@ -18284,7 +18284,7 @@ define void @_ZN15RtpPlayerDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %19, %15
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
           to label %_ZN15RtpPlayerDialog6lockUIEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %10, %.noexc
@@ -18812,7 +18812,7 @@ _ZN15RtpPlayerDialog12updateGraphsEv.exit:        ; preds = %.noexc25
   br i1 %230, label %231, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 231:                                              ; preds = %227
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 232:                                              ; preds = %2
@@ -18820,7 +18820,7 @@ _ZN15RtpPlayerDialog12updateGraphsEv.exit:        ; preds = %.noexc25
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %231, %227
-  %233 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %233 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %232, %_ZN15RtpPlayerDialog8unlockUIEv.exit
@@ -18831,7 +18831,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %232, %_ZN15RtpPlaye
   br i1 %.not.i.i, label %234, label %_ZNSt11unique_lockISt5mutexED2Ev.exit30
 
 234:                                              ; preds = %.loopexit.split-lp
-  %235 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN15RtpPlayerDialog10run_mutex_E) #21
+  %235 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpPlayerDialog10run_mutex_E) #21
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit30
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit30:          ; preds = %.loopexit.split-lp, %234
@@ -19832,7 +19832,7 @@ define void @_ZN15RtpPlayerDialog41on_actionAudioRoutingMuteInvert_triggeredEv(p
   br label %12
 
 12:                                               ; preds = %11, %7
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %1, %12
@@ -19946,7 +19946,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit:           ; preds = %39, %_ZN17QArrayDat
   br i1 %51, label %52, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 52:                                               ; preds = %48
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %48, %52
@@ -19998,7 +19998,7 @@ define void @_ZN15RtpPlayerDialog31on_actionRemoveStream_triggeredEv(ptr noundef
   br label %12
 
 12:                                               ; preds = %11, %7
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %1, %12
@@ -20143,7 +20143,7 @@ _ZN15RtpPlayerDialog12updateGraphsEv.exit:        ; preds = %.noexc8
   br i1 %69, label %70, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 70:                                               ; preds = %66
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %66, %70
@@ -23367,7 +23367,7 @@ define void @_ZN15RtpPlayerDialog18changeAudioRoutingE12AudioRouting(ptr noundef
   br label %13
 
 13:                                               ; preds = %12, %8
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %13
@@ -23481,7 +23481,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit:           ; preds = %40, %_ZN17QArrayDat
   br i1 %52, label %53, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 53:                                               ; preds = %49
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
           to label %_ZN15RtpPlayerDialog8unlockUIEv.exit unwind label %.loopexit.split-lp
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %49, %53
@@ -23824,7 +23824,7 @@ define void @_ZN15RtpPlayerDialog42on_outputDeviceComboBox_currentTextChangedERK
   br label %15
 
 15:                                               ; preds = %14, %10
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %15
@@ -23935,7 +23935,7 @@ _ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit: ; preds = %._crit_edge, %60
   br i1 %63, label %64, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 64:                                               ; preds = %_ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
   br label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %_ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit, %64
@@ -23965,7 +23965,7 @@ define void @_ZN15RtpPlayerDialog37on_outputAudioRate_currentTextChangedERK7QStr
   br label %13
 
 13:                                               ; preds = %12, %8
-  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   br label %_ZN15RtpPlayerDialog6lockUIEv.exit
 
 _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %13
@@ -24058,7 +24058,7 @@ _ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit: ; preds = %._crit_edge, %57
   br i1 %60, label %61, label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 61:                                               ; preds = %_ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
   br label %_ZN15RtpPlayerDialog8unlockUIEv.exit
 
 _ZN15RtpPlayerDialog8unlockUIEv.exit:             ; preds = %_ZN15RtpPlayerDialog19cleanupMarkerStreamEv.exit, %61
@@ -37392,7 +37392,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit34, label %30
@@ -37753,7 +37753,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEEC2Em.exit, label %27
@@ -37946,7 +37946,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -40693,7 +40693,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit31, label %30
@@ -40970,7 +40970,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEEC2Em.exit, label %27
@@ -41128,7 +41128,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38

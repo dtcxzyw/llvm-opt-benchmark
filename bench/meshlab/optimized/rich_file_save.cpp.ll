@@ -101,7 +101,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %9, %_ZN9QtPrivate8R
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK12RichFileSave5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
-  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
@@ -140,7 +140,7 @@ define void @_ZNK12RichFileSave10stringTypeEv(ptr dead_on_unwind noalias nocaptu
 define noundef zeroext i1 @_ZN12RichFileSaveeqERK13RichParameter(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #9
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI12RichFileSave, i64 0) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.critedge, label %6
 

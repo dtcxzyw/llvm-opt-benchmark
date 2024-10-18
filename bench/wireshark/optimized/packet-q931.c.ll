@@ -2313,7 +2313,7 @@ dissect_q931_protocol_discriminator.exit:         ; preds = %46, %44, %38, %32, 
   br i1 %.not.i, label %128, label %126
 
 126:                                              ; preds = %114
-  %127 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.861, i32 noundef %115) #5
+  %127 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.861, i32 noundef range(i32 0, 256) %115) #5
   %.pre = add nuw nsw i32 %.0162, 4
   br label %dissect_q931_segmented_message_ie.exit
 
@@ -2812,7 +2812,7 @@ split:                                            ; preds = %154, %._crit_edge52
 
 175:                                              ; preds = %173
   %176 = load ptr, ptr %9, align 8
-  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %176, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.861, i32 noundef %.pre-phi530) #5
+  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %176, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.861, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   %.pre = add i32 %.0471, 3
   br label %dissect_q931_segmented_message_ie.exit
 
@@ -3105,10 +3105,10 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 336:                                              ; preds = %335
   %337 = load i32, ptr @hf_q931_display_information, align 4
   %338 = add i32 %.0471, 2
-  %339 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %337, ptr noundef %0, i32 noundef %338, i32 noundef %.pre-phi530, i32 noundef 0) #5
+  %339 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %337, ptr noundef %0, i32 noundef %338, i32 noundef range(i32 0, 256) %.pre-phi530, i32 noundef 0) #5
   %340 = call ptr @proto_tree_get_parent(ptr noundef %167) #5
   %341 = call ptr @wmem_packet_scope() #5
-  %342 = call ptr @tvb_format_text(ptr noundef %341, ptr noundef %0, i32 noundef %338, i32 noundef %.pre-phi530) #5
+  %342 = call ptr @tvb_format_text(ptr noundef %341, ptr noundef %0, i32 noundef %338, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %340, ptr noundef nonnull @.str.847, ptr noundef %342) #5
   br label %dissect_q931_change_status_ie.exit
 
@@ -3161,7 +3161,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
   br label %dissect_q931_change_status_ie.exit
 
 382:                                              ; preds = %343
-  %383 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %167, ptr noundef %1, ptr noundef nonnull @ei_q931_date_time, ptr noundef %0, i32 noundef %344, i32 noundef %.pre-phi530, ptr noundef nonnull @.str.850, i32 noundef %.pre-phi530) #5
+  %383 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %167, ptr noundef %1, ptr noundef nonnull @ei_q931_date_time, ptr noundef %0, i32 noundef %344, i32 noundef range(i32 0, 256) %.pre-phi530, ptr noundef nonnull @.str.850, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   br label %dissect_q931_change_status_ie.exit
 
 384:                                              ; preds = %split
@@ -3172,10 +3172,10 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 385:                                              ; preds = %384
   %386 = load i32, ptr @hf_q931_keypad_facility, align 4
   %387 = add i32 %.0471, 2
-  %388 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %386, ptr noundef %0, i32 noundef %387, i32 noundef %.pre-phi530, i32 noundef 0) #5
+  %388 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %386, ptr noundef %0, i32 noundef %387, i32 noundef range(i32 0, 256) %.pre-phi530, i32 noundef 0) #5
   %389 = call ptr @proto_tree_get_parent(ptr noundef %167) #5
   %390 = call ptr @wmem_packet_scope() #5
-  %391 = call ptr @tvb_format_text(ptr noundef %390, ptr noundef %0, i32 noundef %387, i32 noundef %.pre-phi530) #5
+  %391 = call ptr @tvb_format_text(ptr noundef %390, ptr noundef %0, i32 noundef %387, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %389, ptr noundef nonnull @.str.847, ptr noundef %391) #5
   br label %dissect_q931_change_status_ie.exit
 
@@ -3185,7 +3185,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 
 393:                                              ; preds = %392
   %394 = load ptr, ptr %9, align 8
-  %395 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %394, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.851, i32 noundef %.pre-phi530) #5
+  %395 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %394, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.851, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   br label %dissect_q931_change_status_ie.exit
 
 396:                                              ; preds = %392
@@ -3200,7 +3200,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 
 401:                                              ; preds = %400
   %402 = load ptr, ptr %9, align 8
-  %403 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %402, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.852, i32 noundef %.pre-phi530) #5
+  %403 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %402, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.852, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   br label %dissect_q931_change_status_ie.exit
 
 404:                                              ; preds = %400
@@ -3226,7 +3226,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 
 421:                                              ; preds = %417
   %422 = load i32, ptr @hf_q931_cumulative_transit_delay, align 4
-  %423 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %418, i32 noundef %.pre-phi530, ptr noundef %167, ptr noundef %419, i32 noundef %422)
+  %423 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %418, i32 noundef range(i32 0, 256) %.pre-phi530, ptr noundef %167, ptr noundef %419, i32 noundef %422)
   %424 = icmp slt i32 %423, 0
   br i1 %424, label %dissect_q931_change_status_ie.exit, label %425
 
@@ -3259,7 +3259,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
   %442 = load ptr, ptr %9, align 8
   %443 = add i32 %.0471, 2
   %444 = load i32, ptr @hf_q931_transit_delay, align 4
-  %445 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %443, i32 noundef %.pre-phi530, ptr noundef %167, ptr noundef %442, i32 noundef %444)
+  %445 = call fastcc i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %443, i32 noundef range(i32 0, 256) %.pre-phi530, ptr noundef %167, ptr noundef %442, i32 noundef %444)
   br label %dissect_q931_change_status_ie.exit
 
 446:                                              ; preds = %split
@@ -3397,7 +3397,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 
 519:                                              ; preds = %518
   %520 = load ptr, ptr %9, align 8
-  %521 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %520, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.856, i32 noundef %.pre-phi530) #5
+  %521 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %520, ptr noundef nonnull @ei_q931_invalid_length, ptr noundef nonnull @.str.856, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   br label %dissect_q931_change_status_ie.exit
 
 522:                                              ; preds = %518
@@ -3441,10 +3441,10 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 539:                                              ; preds = %538
   %540 = load i32, ptr @hf_q931_avaya_display, align 4
   %541 = add i32 %.0471, 2
-  %542 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %540, ptr noundef %0, i32 noundef %541, i32 noundef %.pre-phi530, i32 noundef 0) #5
+  %542 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %540, ptr noundef %0, i32 noundef %541, i32 noundef range(i32 0, 256) %.pre-phi530, i32 noundef 0) #5
   %543 = call ptr @proto_tree_get_parent(ptr noundef %167) #5
   %544 = call ptr @wmem_packet_scope() #5
-  %545 = call ptr @tvb_format_text(ptr noundef %544, ptr noundef %0, i32 noundef %541, i32 noundef %.pre-phi530) #5
+  %545 = call ptr @tvb_format_text(ptr noundef %544, ptr noundef %0, i32 noundef %541, i32 noundef range(i32 0, 256) %.pre-phi530) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %543, ptr noundef nonnull @.str.847, ptr noundef %545) #5
   br label %dissect_q931_change_status_ie.exit
 

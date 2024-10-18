@@ -553,7 +553,7 @@ land.lhs.true.tail:                               ; preds = %sub_148
 
 if.then14:                                        ; preds = %while.body, %sub_148, %land.lhs.true.tail
   store i32 0, ptr %status, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %newpath)
   store i32 0, ptr %len.i, align 8
   %9 = load ptr, ptr %newpath, align 8
   store i8 0, ptr %9, align 1
@@ -562,7 +562,7 @@ if.then14:                                        ; preds = %while.body, %sub_14
 
 common.resume:                                    ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %newpath) #13
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then14
@@ -650,16 +650,16 @@ invoke.cont45.thread:                             ; preds = %if.then.i, %if.else
   br label %cleanup.thread
 
 cleanup.thread44:                                 ; preds = %if.else.i, %invoke.cont38
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %newpath) #13
   br label %if.end53
 
 cleanup.thread:                                   ; preds = %invoke.cont38, %invoke.cont45.thread
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %newpath) #13
   br label %while.end
 
 cleanup:                                          ; preds = %if.then22
   %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %call24) #17
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %newpath) #13
   br label %return
 
 if.end53:                                         ; preds = %cleanup.thread44, %land.lhs.true.tail, %while.body.tail

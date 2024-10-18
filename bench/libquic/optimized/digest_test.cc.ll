@@ -98,7 +98,7 @@ for.body:                                         ; preds = %entry, %for.inc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digest_len.i)
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx.i)
+  call void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %ctx.i)
   %0 = load ptr, ptr %arrayidx, align 16
   %func.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %func.i, align 8
@@ -146,7 +146,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.i:       ; preds = %invoke.cont144.i, %
 
 lpad.i:                                           ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.i, %lpad.loopexit.split-lp.loopexit.i, %lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit58.i, %lpad.loopexit.i ], [ %lpad.loopexit60.i, %lpad.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp61.i, %lpad.loopexit.split-lp.loopexit.split-lp.i ]
-  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx.i)
+  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %ctx.i)
           to label %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %lpad.i
@@ -542,7 +542,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit:        ; preds = %for.end.i9
 
 cleanup.i:                                        ; preds = %if.end104.i, %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread, %_ZL13CompareDigestPK10TestVectorPKhm.exit, %_ZL13CompareDigestPK10TestVectorPKhm.exit40, %if.then120.i, %invoke.cont101.i, %if.then95.i, %if.then83.i, %if.then68.i, %if.then50.i, %if.then41.i, %invoke.cont28.i, %if.then23.i, %if.then14.i, %if.then.i
   %tobool.not = phi i1 [ true, %if.then14.i ], [ true, %if.then68.i ], [ true, %if.then95.i ], [ true, %if.then120.i ], [ true, %if.then83.i ], [ true, %if.then50.i ], [ true, %if.then41.i ], [ true, %if.then23.i ], [ true, %if.then.i ], [ true, %invoke.cont28.i ], [ true, %invoke.cont101.i ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit40 ], [ true, %_ZL13CompareDigestPK10TestVectorPKhm.exit ], [ false, %_ZL13CompareDigestPK10TestVectorPKhm.exit.thread ], [ false, %if.end104.i ]
-  %call.i55.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx.i)
+  %call.i55.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %ctx.i)
           to label %_ZL10TestDigestPK10TestVector.exit unwind label %terminate.lpad.i56.i
 
 terminate.lpad.i56.i:                             ; preds = %cleanup.i

@@ -499,7 +499,7 @@ _ZN4node10StreamPipeD2Ev.exit:                    ; preds = %entry, %if.end5.i.i
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %writable_listener_.i) #12
   %readable_listener_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %readable_listener_.i) #12
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #12
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }

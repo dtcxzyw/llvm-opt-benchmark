@@ -1182,11 +1182,11 @@ XXH3_mergeAccs.exit.i:                            ; preds = %83
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %1, i64 552
   %109 = load i64, ptr %108, align 8
-  %110 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
+  %110 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef range(i64 0, 241) %12, i64 noundef %109, ptr noundef nonnull @XXH3_kSecret)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 111:                                              ; preds = %103
-  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
+  %112 = tail call fastcc i64 @XXH3_64bits_internal(ptr noundef nonnull readonly %106, i64 noundef range(i64 0, 241) %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   br label %XXH_INLINE_XXH3_64bits_digest.exit
 
 XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit.i, %107, %111
@@ -1660,13 +1660,13 @@ XXH3_mergeAccs.exit29.i:                          ; preds = %106
   br i1 %.not.i, label %136, label %132
 
 132:                                              ; preds = %128
-  %133 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef %130, ptr noundef nonnull @XXH3_kSecret)
+  %133 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef range(i64 0, 241) %12, i64 noundef range(i64 1, 0) %130, ptr noundef nonnull @XXH3_kSecret)
   %134 = extractvalue { i64, i64 } %133, 0
   %135 = extractvalue { i64, i64 } %133, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit
 
 136:                                              ; preds = %128
-  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef %12, i64 noundef 0, ptr noundef nonnull readonly %10)
+  %137 = tail call fastcc { i64, i64 } @XXH3_128bits_internal(ptr noundef nonnull readonly %131, i64 noundef range(i64 0, 241) %12, i64 noundef 0, ptr noundef nonnull readonly %10)
   %138 = extractvalue { i64, i64 } %137, 0
   %139 = extractvalue { i64, i64 } %137, 1
   br label %XXH_INLINE_XXH3_128bits_digest.exit

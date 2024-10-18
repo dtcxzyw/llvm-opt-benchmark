@@ -121,7 +121,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %md_ctx.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sig_len.i)
   call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias align 8 %pkey.i)
-  invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
+  invoke void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -304,11 +304,11 @@ if.then.i31.i.i49.i:                              ; preds = %_ZNSt6vectorIhSaIhE
 
 invoke.cont39.i:                                  ; preds = %if.then.i31.i.i49.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i47.i, %if.end38.i
   %sig.sroa.0.3.i = phi ptr [ %call5.i.i.i.i.i56.i, %if.then.i31.i.i49.i ], [ %call5.i.i.i.i.i56.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i47.i ], [ %sig.sroa.0.2.i, %if.end38.i ]
-  %call.i58.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i58.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %call.i.noexc.i unwind label %lpad29.i
 
 call.i.noexc.i:                                   ; preds = %invoke.cont39.i
-  invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i)
+  invoke void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %invoke.cont40.i unwind label %lpad29.i
 
 invoke.cont40.i:                                  ; preds = %call.i.noexc.i
@@ -352,7 +352,7 @@ if.then.i.i.i61.i:                                ; preds = %cleanup.i
 
 cleanup64.i:                                      ; preds = %if.then.i.i.i61.i, %cleanup.i, %if.then25.i, %invoke.cont17.i, %invoke.cont12.i, %invoke.cont7.i, %invoke.cont.i
   %retval.0.i = phi i1 [ false, %if.then25.i ], [ false, %invoke.cont12.i ], [ false, %invoke.cont7.i ], [ false, %invoke.cont.i ], [ false, %invoke.cont17.i ], [ %retval.1.i, %cleanup.i ], [ %retval.1.i, %if.then.i.i.i61.i ]
-  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %cleanup64.i
@@ -380,7 +380,7 @@ terminate.lpad.i64.i:                             ; preds = %if.then.i63.i
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i5.i, %lpad29.i, %lpad29.thread.i, %lpad1.i
   %.pn.i = phi { ptr, i32 } [ %2, %lpad1.i ], [ %lpad.thr_comm.i, %lpad29.thread.i ], [ %lpad.thr_comm.split-lp.i, %lpad29.i ], [ %lpad.thr_comm.split-lp.i, %if.then.i.i.i5.i ]
-  %call.i65.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i)
+  %call.i65.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i)
           to label %ehcleanup66.i unwind label %terminate.lpad.i66.i
 
 terminate.lpad.i66.i:                             ; preds = %ehcleanup.i
@@ -416,7 +416,7 @@ if.end:                                           ; preds = %_ZL22TestEVP_Digest
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %md_ctx.i2)
   call fastcc void @_ZL17LoadExampleRSAKeyv(ptr noalias align 8 %pkey.i1)
-  invoke void @EVP_MD_CTX_init(ptr noundef nonnull %md_ctx.i2)
+  invoke void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i2)
           to label %invoke.cont.i6 unwind label %lpad.i3
 
 invoke.cont.i6:                                   ; preds = %if.end
@@ -460,7 +460,7 @@ lpad.i3:                                          ; preds = %if.end
 lpad2.i:                                          ; preds = %lor.lhs.false13.i, %lor.lhs.false8.i, %invoke.cont3.i, %lor.lhs.false.i8
   %22 = landingpad { ptr, i32 }
           cleanup
-  %call.i.i9 = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i2)
+  %call.i.i9 = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i2)
           to label %ehcleanup.i4 unwind label %terminate.lpad.i.i10
 
 terminate.lpad.i.i10:                             ; preds = %lpad2.i
@@ -472,7 +472,7 @@ terminate.lpad.i.i10:                             ; preds = %lpad2.i
 
 cleanup.i12:                                      ; preds = %invoke.cont15.i, %invoke.cont10.i, %invoke.cont6.i, %invoke.cont.i6
   %retval.0.i13 = phi i1 [ false, %invoke.cont10.i ], [ false, %invoke.cont6.i ], [ false, %invoke.cont.i6 ], [ %tobool17.not.i, %invoke.cont15.i ]
-  %call.i2.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %md_ctx.i2)
+  %call.i2.i = invoke noundef i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %md_ctx.i2)
           to label %_ZN20ScopedOpenSSLContextI13env_md_ctx_stiXadL_Z15EVP_MD_CTX_initEEXadL_Z18EVP_MD_CTX_cleanupEEED2Ev.exit4.i unwind label %terminate.lpad.i3.i
 
 terminate.lpad.i3.i:                              ; preds = %cleanup.i12
@@ -1051,7 +1051,7 @@ _ZL28TestEVPMarshalEmptyPublicKeyv.exit.thread:   ; preds = %if.end17
   br label %if.then19
 
 if.end.i80:                                       ; preds = %if.end17
-  invoke void @CBB_zero(ptr noundef nonnull %cbb.i)
+  invoke void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb.i)
           to label %invoke.cont.i84 unwind label %lpad.i81
 
 invoke.cont.i84:                                  ; preds = %if.end.i80
@@ -1075,7 +1075,7 @@ lpad.i81:                                         ; preds = %if.end.i80
 lpad2.i86:                                        ; preds = %if.end17.i97, %if.end11.i93, %invoke.cont.i84
   %104 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb.i)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb.i)
           to label %ehcleanup.i82 unwind label %terminate.lpad.i.i87
 
 terminate.lpad.i.i87:                             ; preds = %lpad2.i86
@@ -1105,7 +1105,7 @@ if.end17.i97:                                     ; preds = %invoke.cont12.i95
 
 cleanup.i90:                                      ; preds = %if.end17.i97, %if.then14.i, %if.then8.i
   %retval.1.i91 = phi i1 [ false, %if.then8.i ], [ false, %if.then14.i ], [ true, %if.end17.i97 ]
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb.i)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb.i)
           to label %if.then.i.i92 unwind label %terminate.lpad.i2.i
 
 terminate.lpad.i2.i:                              ; preds = %cleanup.i90

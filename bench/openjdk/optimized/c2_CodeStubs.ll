@@ -73,7 +73,7 @@ define hidden void @_ZN14C2CodeStubList4emitER17C2_MacroAssembler(ptr nocapture 
   %29 = getelementptr inbounds i8, ptr %18, i64 96
   %30 = getelementptr inbounds i8, ptr %18, i64 176
   %31 = load ptr, ptr %30, align 8
-  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %31, ptr noundef nonnull %29, i32 noundef %15) #5
+  tail call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %31, ptr noundef nonnull align 8 dereferenceable(88) %29, i32 noundef %15) #5
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
@@ -136,7 +136,7 @@ define hidden void @_ZN10C2CodeStub16add_to_stub_listEv(ptr noundef nonnull alig
   %25 = sub nuw nsw i32 32, %24
   %26 = shl nuw i32 1, %25
   %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %20, i32 %26
-  tail call void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %.0.i.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %.0.i.i.i.i.i.i)
   %.pre.i.i.i = load i32, ptr %14, align 8
   br label %_ZN11PhaseOutput8add_stubEP10C2CodeStub.exit
 

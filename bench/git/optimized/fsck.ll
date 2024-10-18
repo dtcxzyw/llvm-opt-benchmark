@@ -819,7 +819,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %8, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp5, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %while.end.i, label %while.body.i
 
@@ -1184,7 +1184,7 @@ oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.
   %algop.0.val.i.i.i = load i64, ptr %54, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
   %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp3, i64 %..i.i.i.i)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %byval-temp3, i64 %..i.i.i.i)
   %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 
@@ -2821,7 +2821,7 @@ for.cond.backedge.i.i:                            ; preds = %do.cond.i.i.i, %if.
 
 if.then55.i.i:                                    ; preds = %if.end52.i.i
   store i64 %dec.i.i.i, ptr %nr.i.i.i, align 8
-  call fastcc void @name_stack_push(ptr noundef %df_dup_candidates.i, ptr noundef %36)
+  call fastcc void @name_stack_push(ptr noundef nonnull %df_dup_candidates.i, ptr noundef %36)
   br label %verify_ordered.exit.i
 
 verify_ordered.exit.loopexit.i:                   ; preds = %for.cond.backedge.i.i, %name_stack_pop.exit.i.i

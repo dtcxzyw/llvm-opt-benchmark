@@ -309,7 +309,7 @@ define hidden noundef ptr @_ZN17MemoryFileTracker9make_fileEPKc(ptr noundef nonn
   %.idx.i.i = phi i64 [ 0, %2 ], [ %.add.i.i, %6 ]
   %.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
   %7 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %7, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 24
   %8 = icmp eq i64 %.add.i.i, 672
@@ -395,7 +395,7 @@ define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nocap
   %29 = add nsw i32 %.lcssa.i.i.i, -1
   store i32 %29, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 680
-  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %30)
+  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %1) #10
   br label %31
 
@@ -422,7 +422,7 @@ define hidden noundef zeroext i1 @_ZN17MemoryFileTracker8Instance10initializeE17
 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %0, 3
-  tail call void @_ZN22NativeCallStackStorageC1Ebi(ptr noundef nonnull align 8 dereferenceable(96) %4, i1 noundef zeroext %7, i32 noundef 4099) #10
+  tail call void @_ZN22NativeCallStackStorageC1Ebi(ptr noundef nonnull align 8 dereferenceable(112) %4, i1 noundef zeroext %7, i32 noundef 4099) #10
   %8 = getelementptr inbounds i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 22, i32 noundef 0) #10
@@ -452,7 +452,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance15allocate_memoryEPNS_10Memor
   br i1 %11, label %12, label %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @_ZN22NativeCallStackStorage3putERK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
+  %13 = tail call i32 @_ZN22NativeCallStackStorage3putERK15NativeCallStack(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   br label %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i
 
 _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i: ; preds = %12, %5
@@ -535,7 +535,7 @@ define hidden noundef ptr @_ZN17MemoryFileTracker8Instance9make_fileEPKc(ptr nou
   %.idx.i.i.i = phi i64 [ 0, %1 ], [ %.add.i.i.i, %6 ]
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i
   %7 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %7, align 8
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
   %8 = icmp eq i64 %.add.i.i.i, 672
@@ -623,7 +623,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance9free_fileEPNS_10MemoryFileE(
   %29 = add nsw i32 %.lcssa.i.i.i.i, -1
   store i32 %29, ptr %5, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 680
-  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(28) %30)
+  tail call void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
   br label %_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE.exit
 
@@ -659,7 +659,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance20print_all_reports_onEP12out
   %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @_ZN17MemoryFileTracker8Instance8_trackerE, align 8
-  tail call void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef readonly %11, ptr noundef %0, i64 noundef %1)
+  tail call void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef readonly %11, ptr noundef nonnull %0, i64 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %4, align 4
   %14 = sext i32 %13 to i64
@@ -771,14 +771,14 @@ _ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17MemoryFileTracker8Instance6LockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN17MemoryFileTracker8Instance6_mutexE, align 8
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #10
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17MemoryFileTracker8Instance6LockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN17MemoryFileTracker8Instance6_mutexE, align 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #10
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #10
   ret void
 }
 

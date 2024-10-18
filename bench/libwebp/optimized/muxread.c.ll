@@ -939,7 +939,7 @@ MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %30
   %68 = call i32 @ChunkGetIdFromTag(i32 noundef %67) #6
   %69 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 %68, ptr %69, align 4
-  %70 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
+  %70 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   br label %MuxGetFrameInternal.exit
 
 MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal.exit.sink.split, %24, %20, %7, %3

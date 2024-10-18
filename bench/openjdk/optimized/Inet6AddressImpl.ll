@@ -786,8 +786,8 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
   store i32 61440, ptr %10, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 2, ptr %16, align 4
-  %106 = call i32 @setsockopt(i32 noundef %49, i32 noundef 255, i32 noundef 7, ptr noundef nonnull %16, i32 noundef 4) #11
-  %107 = call i32 @setsockopt(i32 noundef %49, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %10, i32 noundef 4) #11
+  %106 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %49, i32 noundef 255, i32 noundef 7, ptr noundef nonnull %16, i32 noundef 4) #11
+  %107 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %49, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %10, i32 noundef 4) #11
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %109, label %112
 
@@ -802,7 +802,7 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %112
-  %115 = call i32 @setsockopt(i32 noundef %49, i32 noundef 41, i32 noundef 16, ptr noundef nonnull %9, i32 noundef 4) #11
+  %115 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %49, i32 noundef 41, i32 noundef 16, ptr noundef nonnull %9, i32 noundef 4) #11
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %120
 
@@ -817,7 +817,7 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
   br i1 %.not.i34, label %127, label %121
 
 121:                                              ; preds = %120
-  %122 = call i32 @bind(i32 noundef %49, ptr nonnull %.0, i32 noundef 28) #11
+  %122 = call i32 @bind(i32 noundef range(i32 0, -1) %49, ptr nonnull %.0, i32 noundef 28) #11
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %127
 
@@ -830,9 +830,9 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
 127:                                              ; preds = %121, %120
   %128 = call i32 @getpid() #11
   %129 = trunc i32 %128 to i16
-  %130 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %49, i32 noundef 3) #11
+  %130 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %49, i32 noundef 3) #11
   %131 = or i32 %130, 2048
-  %132 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %49, i32 noundef 4, i32 noundef %131) #11
+  %132 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %49, i32 noundef 4, i32 noundef %131) #11
   %133 = getelementptr inbounds i8, ptr %12, i64 1
   %134 = call zeroext i16 @htons(i16 noundef zeroext %129) #13
   %135 = getelementptr inbounds i8, ptr %12, i64 4
@@ -855,7 +855,7 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
   %144 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   store i16 0, ptr %138, align 2
-  %145 = call i64 @sendto(i32 noundef %49, ptr noundef nonnull %12, i64 noundef 24, i32 noundef 0, ptr nonnull %21, i32 noundef 28) #11
+  %145 = call i64 @sendto(i32 noundef range(i32 0, -1) %49, ptr noundef nonnull %12, i64 noundef 24, i32 noundef 0, ptr nonnull %21, i32 noundef 28) #11
   %146 = and i64 %145, 2147483648
   %.not58.i = icmp eq i64 %146, 0
   br i1 %.not58.i, label %151, label %147
@@ -879,13 +879,13 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
 
 153:                                              ; preds = %170, %151
   %.052.i = phi i32 [ %152, %151 ], [ %154, %170 ]
-  %154 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef %49, i32 noundef 1, i32 noundef %.052.i) #11
+  %154 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef range(i32 0, -1) %49, i32 noundef 1, i32 noundef %.052.i) #11
   %155 = icmp sgt i32 %154, -1
   br i1 %155, label %156, label %.thread.i
 
 156:                                              ; preds = %153
   store i32 28, ptr %11, align 4
-  %157 = call i64 @recvfrom(i32 noundef %49, ptr noundef nonnull %13, i64 noundef 1500, i32 noundef 0, ptr nonnull %14, ptr noundef nonnull %11) #11
+  %157 = call i64 @recvfrom(i32 noundef range(i32 0, -1) %49, ptr noundef nonnull %13, i64 noundef 1500, i32 noundef 0, ptr nonnull %14, ptr noundef nonnull %11) #11
   %158 = trunc i64 %157 to i32
   %159 = icmp sgt i32 %158, 7
   %160 = load i8, ptr %13, align 16
@@ -920,7 +920,7 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
 
 ping6.exit:                                       ; preds = %147, %147, %.thread.i, %166, %168, %109, %117, %124, %150
   %.0.i35 = phi i8 [ 0, %109 ], [ 0, %117 ], [ 0, %124 ], [ 0, %150 ], [ 1, %168 ], [ 1, %166 ], [ 0, %.thread.i ], [ 0, %147 ], [ 0, %147 ]
-  %173 = call i32 @close(i32 noundef %49) #11
+  %173 = call i32 @close(i32 noundef range(i32 0, -1) %49) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)

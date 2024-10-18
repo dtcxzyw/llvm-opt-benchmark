@@ -1329,7 +1329,7 @@ _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i: ; preds = %22
   %72 = load ptr, ptr %2, align 8
   %73 = load ptr, ptr %4, align 8
   %74 = load ptr, ptr %3, align 8
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %68, i32 noundef 2, ptr noundef %70)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(64) %68, i32 noundef 2, ptr noundef %70)
           to label %75 unwind label %80
 
 75:                                               ; preds = %71
@@ -2344,7 +2344,7 @@ define dso_local void @_ZN12StatementForD0Ev(ptr noundef nonnull align 8 derefer
   br label %_ZN12StatementForD2Ev.exit
 
 _ZN12StatementForD2Ev.exit:                       ; preds = %25, %29
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

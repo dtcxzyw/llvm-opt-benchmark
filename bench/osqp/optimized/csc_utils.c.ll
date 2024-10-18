@@ -1365,7 +1365,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 csc_done.exit.sink.split:                         ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us123, %.loopexit.us.us, %.loopexit.us.us.us, %csc_cumsum.exit, %._crit_edge.thread, %32, %35
   %.sink = phi ptr [ %19, %35 ], [ %19, %32 ], [ %20, %._crit_edge.thread ], [ %20, %csc_cumsum.exit ], [ %20, %.loopexit.us.us.us ], [ %20, %.loopexit.us.us ], [ %20, %.loopexit.us.us123 ], [ %20, %.loopexit.us ], [ %20, %.loopexit ]
   %.0.ph = phi ptr [ null, %35 ], [ null, %32 ], [ %19, %._crit_edge.thread ], [ %19, %csc_cumsum.exit ], [ %19, %.loopexit.us.us.us ], [ %19, %.loopexit.us.us ], [ %19, %.loopexit.us.us123 ], [ %19, %.loopexit.us ], [ %19, %.loopexit ]
-  tail call void @free(ptr noundef %.sink) #17
+  tail call void @free(ptr noundef nonnull %.sink) #17
   br label %csc_done.exit
 
 csc_done.exit:                                    ; preds = %csc_done.exit.sink.split, %23

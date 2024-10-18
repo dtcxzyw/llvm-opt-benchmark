@@ -2624,7 +2624,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %42, 3
   %48 = and i32 %47, 255
-  %49 = call noundef range(i32 0, 8) i32 @llvm.umin.i32(i32 %48, i32 7)
+  %49 = call noundef range(i32 0, 8) i32 @llvm.umin.i32(i32 range(i32 0, 256) %48, i32 7)
   %50 = shl nuw nsw i32 %49, 28
   %51 = sub nuw nsw i32 1879048192, %50
   %52 = sext i32 %46 to i64
@@ -3444,7 +3444,7 @@ define void @sat_solver3_rollback(ptr noundef %0) local_unnamed_addr #2 {
 43:                                               ; preds = %33
   %.val.i.i = load i32, ptr %28, align 4
   store i32 %.val.i.i, ptr %40, align 4
-  tail call fastcc void @veci_push(ptr noundef nonnull %27, i32 noundef %37)
+  tail call fastcc void @veci_push(ptr noundef nonnull %27, i32 noundef range(i32 -1073741824, 1073741824) %37)
   %44 = load ptr, ptr %26, align 8
   %.val.i.i.i = load ptr, ptr %29, align 8
   %45 = getelementptr inbounds i32, ptr %44, i64 %39
@@ -6732,7 +6732,7 @@ define internal fastcc void @sat_solver3_canceluntil(ptr nocapture noundef %0, i
 60:                                               ; preds = %50
   %.val.i = load i32, ptr %45, align 4
   store i32 %.val.i, ptr %57, align 4
-  tail call fastcc void @veci_push(ptr noundef nonnull %44, i32 noundef %54)
+  tail call fastcc void @veci_push(ptr noundef nonnull %44, i32 noundef range(i32 -1073741824, 1073741824) %54)
   %61 = load ptr, ptr %43, align 8
   %.val.i.i = load ptr, ptr %46, align 8
   %62 = getelementptr inbounds i32, ptr %61, i64 %56
@@ -6984,7 +6984,7 @@ clause_read.exit:                                 ; preds = %3, %4
   br i1 %40, label %41, label %var_set_tag.exit
 
 41:                                               ; preds = %36
-  tail call fastcc void @veci_push(ptr noundef nonnull %26, i32 noundef %31)
+  tail call fastcc void @veci_push(ptr noundef nonnull %26, i32 noundef range(i32 -1073741824, 1073741824) %31)
   %.pre.i = load ptr, ptr %25, align 8
   br label %var_set_tag.exit
 
@@ -7096,7 +7096,7 @@ var_set_tag.exit:                                 ; preds = %36, %41
   br i1 %98, label %99, label %var_set_tag.exit67
 
 99:                                               ; preds = %95
-  tail call fastcc void @veci_push(ptr noundef nonnull %67, i32 noundef %90)
+  tail call fastcc void @veci_push(ptr noundef nonnull %67, i32 noundef range(i32 -1073741824, 1073741824) %90)
   %.pre.i66 = load ptr, ptr %64, align 8
   br label %var_set_tag.exit67
 
@@ -7143,7 +7143,7 @@ clause_read.exit72:                               ; preds = %87
   br i1 %122, label %123, label %var_set_tag.exit74
 
 123:                                              ; preds = %118
-  tail call fastcc void @veci_push(ptr noundef nonnull %67, i32 noundef %113)
+  tail call fastcc void @veci_push(ptr noundef nonnull %67, i32 noundef range(i32 -1073741824, 1073741824) %113)
   %.pre.i73 = load ptr, ptr %64, align 8
   br label %var_set_tag.exit74
 

@@ -1609,7 +1609,7 @@ get_publications_str.exit:                        ; preds = %15, %2, %.lr.ph.i
   br i1 %45, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %43
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %36, i32 noundef 1) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %36, i32 noundef range(i32 1, 3) 1) #10
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %43, %slot_getsomeattrs.exit.i
@@ -1831,7 +1831,7 @@ get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
   br i1 %60, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %58
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef 1) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 1, 3) 1) #10
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %58, %slot_getsomeattrs.exit.i
@@ -2090,7 +2090,7 @@ get_publications_str.exit33:                      ; preds = %44, %33, %.lr.ph.i2
   br i1 %75, label %slot_getsomeattrs.exit.i.us, label %slot_getattr.exit.us
 
 slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph.split.us
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef 1) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef range(i32 1, 3) 1) #10
   br label %slot_getattr.exit.us
 
 slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph.split.us
@@ -2103,7 +2103,7 @@ slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.e
   br i1 %81, label %slot_getsomeattrs.exit.i34.us, label %slot_getattr.exit35.us
 
 slot_getsomeattrs.exit.i34.us:                    ; preds = %slot_getattr.exit.us
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef 2) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef range(i32 1, 3) 2) #10
   br label %slot_getattr.exit35.us
 
 slot_getattr.exit35.us:                           ; preds = %slot_getsomeattrs.exit.i34.us, %slot_getattr.exit.us
@@ -2133,7 +2133,7 @@ slot_getattr.exit35.us:                           ; preds = %slot_getsomeattrs.e
   br i1 %97, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph.split
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef 1) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef range(i32 1, 3) 1) #10
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %.lr.ph.split, %slot_getsomeattrs.exit.i
@@ -2146,7 +2146,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph.split, %slot
   br i1 %103, label %slot_getsomeattrs.exit.i34, label %slot_getattr.exit35
 
 slot_getsomeattrs.exit.i34:                       ; preds = %slot_getattr.exit
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef 2) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %67, i32 noundef range(i32 1, 3) 2) #10
   br label %slot_getattr.exit35
 
 slot_getattr.exit35:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i34

@@ -5221,7 +5221,7 @@ dmp_dec_del_time.exit.thread.i:                   ; preds = %dmp_dec_del_time.ex
   %1017 = icmp samesign ult i32 %1016, 61
   %1018 = select i1 %1017, ptr @.str.724, ptr @.str.550
   %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i = select i1 %1017, ptr @p1_NonDeliveryReasonCode_vals, ptr @non_del_reason
-  %1019 = tail call ptr @val_to_str_const(i32 noundef %1016, ptr noundef nonnull %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i, ptr noundef nonnull @.str.450) #13
+  %1019 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 64) %1016, ptr noundef nonnull %p1_NonDeliveryReasonCode_vals.non_del_reason.i.i, ptr noundef nonnull @.str.450) #13
   %1020 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %929, i32 noundef %1015, ptr noundef %0, i32 noundef %.9516, i32 noundef 1, i32 noundef %924, ptr noundef nonnull @.str.723, ptr noundef nonnull %1018, ptr noundef %1019, i32 noundef %1016) #13
   %1021 = load i32, ptr @ett_report_reason, align 4
   %1022 = tail call ptr @proto_item_add_subtree(ptr noundef %1020, i32 noundef %1021) #13
@@ -5245,7 +5245,7 @@ dmp_dec_del_time.exit.thread.i:                   ; preds = %dmp_dec_del_time.ex
   %1039 = icmp samesign ult i32 %1038, 124
   %1040 = select i1 %1039, ptr @.str.724, ptr @.str.550
   %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i = select i1 %1039, ptr @p1_NonDeliveryDiagnosticCode_vals, ptr @non_del_diagn
-  %1041 = tail call ptr @val_to_str_const(i32 noundef %1038, ptr noundef nonnull %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i, ptr noundef nonnull @.str.450) #13
+  %1041 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 128) %1038, ptr noundef nonnull %p1_NonDeliveryDiagnosticCode_vals.non_del_diagn.i.i, ptr noundef nonnull @.str.450) #13
   %1042 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %929, i32 noundef %1037, ptr noundef %0, i32 noundef %1025, i32 noundef 1, i32 noundef %1027, ptr noundef nonnull @.str.725, ptr noundef nonnull %1040, ptr noundef %1041, i32 noundef %1038) #13
   %1043 = load i32, ptr @ett_report_diagn, align 4
   %1044 = tail call ptr @proto_item_add_subtree(ptr noundef %1042, i32 noundef %1043) #13
@@ -5257,7 +5257,7 @@ dmp_dec_del_time.exit.thread.i:                   ; preds = %dmp_dec_del_time.ex
   %.0157.i = phi i32 [ %938, %dmp_dec_del_time.exit.thread167.i ], [ %938, %dmp_dec_del_time.exit.thread.i ], [ %1028, %1006 ]
   %.0.i452 = phi i32 [ %966, %dmp_dec_del_time.exit.thread167.i ], [ %966, %dmp_dec_del_time.exit.thread.i ], [ %1025, %1006 ]
   %1048 = add i32 %.0.i452, 1
-  %1049 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %929, i32 noundef %1048, ptr noundef %5, i32 noundef 1)
+  %1049 = call fastcc i32 @dissect_dmp_address(ptr noundef %0, ptr noundef %1, ptr noundef %929, i32 noundef %1048, ptr noundef nonnull %5, i32 noundef 1)
   %.not164.i = icmp eq i32 %.0157.i, 0
   br i1 %.not164.i, label %dissect_dmp_report.exit, label %1050
 
@@ -5489,7 +5489,7 @@ dmp_dec_exp_time.exit.thread124.i:                ; preds = %dmp_dec_exp_time.ex
   %1176 = zext i8 %1174 to i32
   %1177 = icmp ult i8 %1174, 16
   %1178 = select i1 %1177, ptr @.str.737, ptr @.str.550
-  %1179 = tail call ptr @val_to_str_const(i32 noundef %1176, ptr noundef nonnull @p22_NonReceiptReasonField_vals, ptr noundef nonnull @.str.379) #13
+  %1179 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 256) %1176, ptr noundef nonnull @p22_NonReceiptReasonField_vals, ptr noundef nonnull @.str.379) #13
   %1180 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1078, i32 noundef %1175, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef %1176, ptr noundef nonnull @.str.736, ptr noundef nonnull %1178, ptr noundef %1179, i32 noundef %1176) #13
   %1181 = add i32 %.6, 1
   %1182 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1181) #13
@@ -5501,11 +5501,11 @@ dmp_dec_exp_time.exit.thread124.i:                ; preds = %dmp_dec_exp_time.ex
   br i1 %1187, label %1188, label %1190
 
 1188:                                             ; preds = %1173
-  %1189 = tail call ptr @val_to_str_const(i32 noundef %1184, ptr noundef nonnull @p22_DiscardReasonField_vals, ptr noundef nonnull @.str.379) #13
+  %1189 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 256) %1184, ptr noundef nonnull @p22_DiscardReasonField_vals, ptr noundef nonnull @.str.379) #13
   br label %discard_reason_str.exit.i
 
 1190:                                             ; preds = %1173
-  %1191 = tail call ptr @val_to_str_const(i32 noundef %1184, ptr noundef nonnull @discard_reason, ptr noundef nonnull @.str.450) #13
+  %1191 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 256) %1184, ptr noundef nonnull @discard_reason, ptr noundef nonnull @.str.450) #13
   br label %discard_reason_str.exit.i
 
 discard_reason_str.exit.i:                        ; preds = %1190, %1188

@@ -504,7 +504,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..semaphore..Semaphore..acquire_many_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75d1eefa108ca0cfE"(ptr noundef nonnull align 8 %9) #15
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$tokio..sync..semaphore..Semaphore..acquire_many_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75d1eefa108ca0cfE"(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
           to label %common.resume unwind label %45
 
 45:                                               ; preds = %43

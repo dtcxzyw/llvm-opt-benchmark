@@ -4026,7 +4026,7 @@ entry:
 define linkonce_odr void @_ZThn8_N8QuantLib15BlackCalculator10CalculatorD0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 56) #30
   ret void
 }
 
@@ -4040,7 +4040,7 @@ entry:
 define linkonce_odr void @_ZThn16_N8QuantLib15BlackCalculator10CalculatorD0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 56) #30
   ret void
 }
 
@@ -4054,7 +4054,7 @@ entry:
 define linkonce_odr void @_ZThn24_N8QuantLib15BlackCalculator10CalculatorD0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 56) #30
   ret void
 }
 
@@ -4068,7 +4068,7 @@ entry:
 define linkonce_odr void @_ZThn32_N8QuantLib15BlackCalculator10CalculatorD0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 56) #30
   ret void
 }
 
@@ -4082,7 +4082,7 @@ entry:
 define linkonce_odr void @_ZThn40_N8QuantLib15BlackCalculator10CalculatorD0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #30
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef 56) #30
   ret void
 }
 

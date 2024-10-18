@@ -1598,7 +1598,7 @@ define void @_ZNK17TrafficTypesModel4dataERK11QModelIndexi(ptr dead_on_unwind no
   br i1 %or.cond, label %15, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %14, align 8
   br label %_ZN19TrafficTypesRowDataD2Ev.exit
@@ -1714,7 +1714,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15:    ; preds = %43
           to label %_ZN7QStringD2Ev.exit unwind label %49
 
 60:                                               ; preds = %51, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %61 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %61, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1768,7 +1768,7 @@ define void @_ZNK17TrafficTypesModel10headerDataEiN2Qt11OrientationEi(ptr dead_o
   br i1 %or.cond3, label %10, label %12
 
 10:                                               ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %11, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1818,7 +1818,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %20, %_ZN17QArrayDat
   resume { ptr, i32 } %21
 
 26:                                               ; preds = %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %27, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -2401,7 +2401,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %3
           to label %_ZNK11QModelIndex4dataEi.exit15 unwind label %42
 
 27:                                               ; preds = %20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !26
   %28 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %28, align 8, !alias.scope !26
   br label %_ZNK11QModelIndex4dataEi.exit15
@@ -3019,7 +3019,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %13
 
 17:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   %18 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3) #19
-  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
           to label %_ZN20TrafficListSortModel9setFilterE7QString.exit unwind label %23
 
 _ZN20TrafficListSortModel9setFilterE7QString.exit: ; preds = %_ZN7QStringC2ERKS_.exit, %17

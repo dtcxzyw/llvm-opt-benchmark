@@ -2470,7 +2470,7 @@ land.lhs.true:                                    ; preds = %while.cond
 
 while.body:                                       ; preds = %land.lhs.true
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %block, ptr noundef nonnull align 8 dereferenceable(20) %second, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %block, ptr noundef nonnull align 8 dereferenceable(40) %second, i64 20, i1 false)
   %block3.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 64
   %5 = load i64, ptr %block3.i, align 8
   store i64 %5, ptr %block.i, align 8
@@ -2611,7 +2611,7 @@ land.rhs:                                         ; preds = %_ZN8proxygen12QPACK
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   %3 = load ptr, ptr %_M_left.i.i, align 8
   %second = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %block, ptr noundef nonnull align 8 dereferenceable(20) %second, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %block, ptr noundef nonnull align 8 dereferenceable(40) %second, i64 20, i1 false)
   %block3.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i64, ptr %block3.i, align 8
   store i64 %4, ptr %block.i, align 8
@@ -3078,7 +3078,7 @@ if.then.i.i.i.i8:                                 ; preds = %_ZNK5folly10IOBufQu
   br label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit
 
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %invoke.cont26, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i8
-  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ackEncoder) #19
+  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %ackEncoder) #19
   br label %return
 
 lpad:                                             ; preds = %invoke.cont9, %invoke.cont, %cond.false6
@@ -3319,7 +3319,7 @@ if.then.i.i.i.i6:                                 ; preds = %_ZNK5folly10IOBufQu
   br label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit
 
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %invoke.cont22, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i6
-  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ackEncoder) #19
+  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %ackEncoder) #19
   ret void
 
 lpad:                                             ; preds = %cleanup.done, %cond.false4, %cond.true
@@ -3524,7 +3524,7 @@ if.then.i.i.i.i7:                                 ; preds = %_ZNK5folly10IOBufQu
   br label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit
 
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %invoke.cont34, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i7
-  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %ackEncoder) #19
+  call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(132) %ackEncoder) #19
   ret void
 
 lpad31:                                           ; preds = %while.end

@@ -38,7 +38,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %2
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 -1, ptr %9, align 4
@@ -77,7 +77,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %20 = trunc i64 %0 to i32
   store i32 %20, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %6, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 2
@@ -268,7 +268,7 @@ _ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_trait
   br i1 %117, label %.sink.split.i.i.i.i.i, label %118
 
 118:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %114)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %114)
   %119 = load i64, ptr %3, align 8
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %.sink.split.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
@@ -371,7 +371,7 @@ tailrecurse.i.i.i.i:                              ; preds = %151, %.critedge.i.i
   br i1 %157, label %_ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBufferE.exit.thread, label %.lr.ph74.i.i.i.i
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread.i.i.i.i: ; preds = %.critedge.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %141
-  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %137)
+  call fastcc void @_ZN12_GLOBAL__N_19Demangler10parseLNameEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %137)
   %.pr.i.i.pre.i = load i64, ptr %4, align 8
   br label %.critedge.i.i.i
 

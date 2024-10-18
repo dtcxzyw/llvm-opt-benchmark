@@ -2294,7 +2294,7 @@ _read_signal.exit.i:                              ; preds = %.split37.us.i.i
   br i1 %.011.ph.i.i, label %_on_signal.exit.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %._crit_edge.i.i82, %199
-  %218 = call ptr @strsignal(i32 noundef %197) #17
+  %218 = call ptr @strsignal(i32 noundef range(i32 1, -2147483648) %197) #17
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__._on_signal, ptr noundef %218) #17
   br label %_on_signal.exit.i
 

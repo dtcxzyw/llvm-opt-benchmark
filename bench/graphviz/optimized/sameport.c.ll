@@ -105,7 +105,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %.lr.ph.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
-  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i, ptr noundef %.047196)
+  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i, ptr noundef nonnull %.047196)
   br label %sameedge.exit
 
 ._crit_edge.i:                                    ; preds = %30, %29
@@ -204,7 +204,7 @@ same_list_append.exit.i:                          ; preds = %edge_list_append.ex
 
 76:                                               ; preds = %.lr.ph.i68
   %.sroa.2.0..sroa_idx.i86 = getelementptr inbounds i8, ptr %73, i64 8
-  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i86, ptr noundef %.047196)
+  tail call fastcc void @edge_list_append(ptr noundef nonnull %.sroa.2.0..sroa_idx.i86, ptr noundef nonnull %.047196)
   br label %sameedge.exit
 
 ._crit_edge.i73:                                  ; preds = %71, %70

@@ -1258,7 +1258,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271: ; preds = %._crit_ed
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 256, ptr noundef nonnull %6)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN10rcIntArrayC2Ei.exit unwind label %47
 
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit271
@@ -2822,7 +2822,7 @@ _ZN8rcRegionD2Ev.exit:                            ; preds = %_ZN10rcIntArrayD2Ev
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 0, ptr %13, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 32, ptr noundef nonnull %13)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %400 unwind label %.loopexit.split-lp682.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 400:                                              ; preds = %._crit_edge754
@@ -2830,7 +2830,7 @@ _ZN8rcRegionD2Ev.exit:                            ; preds = %_ZN10rcIntArrayD2Ev
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 32, ptr noundef nonnull %12)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZN10rcIntArrayC2Ei.exit295 unwind label %417
 
 _ZN10rcIntArrayC2Ei.exit295:                      ; preds = %400
@@ -5536,7 +5536,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.critedge, %184
   %246 = load i64, ptr %240, align 8
   %247 = icmp sgt i64 %246, 4611686018427387902
   %248 = shl nsw i64 %246, 1
-  %..i.i.us.i = tail call i64 @llvm.smax.i64(i64 %248, i64 %245)
+  %..i.i.us.i = tail call i64 @llvm.smax.i64(i64 %248, i64 range(i64 -9223372036854775807, -9223372036854775808) %245)
   %.0.i.i.us.i = select i1 %247, i64 9223372036854775807, i64 %..i.i.us.i
   %249 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc257 unwind label %.loopexit385
@@ -6082,7 +6082,7 @@ _ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryEL11rcAllocHint1EE8pop_backEv.
   %500 = add nsw i64 %457, 1
   %501 = icmp sgt i64 %457, 4611686018427387902
   %502 = shl nsw i64 %457, 1
-  %..i.i = tail call i64 @llvm.smax.i64(i64 %502, i64 %500)
+  %..i.i = tail call i64 @llvm.smax.i64(i64 %502, i64 range(i64 -9223372036854775807, -9223372036854775808) %500)
   %.0.i.i = select i1 %501, i64 9223372036854775807, i64 %..i.i
   %503 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc318 unwind label %.loopexit381
@@ -6665,7 +6665,7 @@ define internal fastcc void @_ZL13expandRegionsitR20rcCompactHeightfieldPtS1_R12
   %56 = load i64, ptr %19, align 8
   %57 = icmp sgt i64 %56, 4611686018427387902
   %58 = shl nsw i64 %56, 1
-  %..i.i.us = tail call i64 @llvm.smax.i64(i64 %58, i64 %54)
+  %..i.i.us = tail call i64 @llvm.smax.i64(i64 %58, i64 range(i64 -9223372036854775807, -9223372036854775808) %54)
   %.0.i.i.us = select i1 %57, i64 9223372036854775807, i64 %..i.i.us
   %59 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %60 = icmp eq ptr %59, null
@@ -7507,7 +7507,7 @@ _ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267: ; preds = %._crit_ed
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 256, ptr noundef nonnull %11)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 256, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %_ZN10rcIntArrayC2Ei.exit unwind label %51
 
 _ZN10rcIntArrayC2Ei.exit:                         ; preds = %_ZL15paintRectRegioniiiitR20rcCompactHeightfieldPt.exit267
@@ -8040,7 +8040,7 @@ _ZN8rcRegionD2Ev.exit.i:                          ; preds = %_ZN10rcIntArrayD2Ev
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 32, ptr noundef nonnull %6)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN10rcIntArrayC2Ei.exit.i unwind label %352
 
 _ZN10rcIntArrayC2Ei.exit.i:                       ; preds = %368
@@ -8934,7 +8934,7 @@ _ZL19addUniqueConnectionR8rcRegioni.exit.us.i:    ; preds = %_ZN10rcIntArrayixEi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 32, ptr noundef nonnull %5)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN10rcIntArrayC2Ei.exit303.i unwind label %.loopexit.split-lp658.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN10rcIntArrayC2Ei.exit303.i:                    ; preds = %742
@@ -11378,7 +11378,7 @@ define internal fastcc void @_ZN12rcVectorBaseIN12_GLOBAL__N_115LevelStackEntryE
   %15 = load i64, ptr %4, align 8
   %16 = icmp sgt i64 %15, 4611686018427387902
   %17 = shl nsw i64 %15, 1
-  %..i = tail call i64 @llvm.smax.i64(i64 %17, i64 %13)
+  %..i = tail call i64 @llvm.smax.i64(i64 %17, i64 range(i64 -9223372036854775807, -9223372036854775808) %13)
   %.0.i = select i1 %16, i64 9223372036854775807, i64 %..i
   %18 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %19 = icmp eq ptr %18, null

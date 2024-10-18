@@ -54,7 +54,7 @@ declare void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq14plain_client_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1504) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %this) #10
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %this) #10
   ret void
 }
 
@@ -85,7 +85,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %msg_, ptr noundef nonnull @_ZN3zmqL15initiate_prefixE, i64 noundef 9)
+  tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %msg_, ptr noundef nonnull @_ZN3zmqL15initiate_prefixE, i64 noundef 9)
   store i32 3, ptr %_state, align 8
   br label %sw.epilog
 

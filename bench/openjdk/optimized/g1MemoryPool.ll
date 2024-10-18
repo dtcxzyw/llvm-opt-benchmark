@@ -71,7 +71,7 @@ define hidden void @_ZN17G1MemoryPoolSuperC2EP15G1CollectedHeapPKcmmb(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10G1EdenPoolC2EP15G1CollectedHeapm(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull @.str, i32 noundef 1, i64 noundef %2, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext true) #5
+  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull @.str, i32 noundef 1, i64 noundef %2, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext true) #5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17G1MemoryPoolSuper, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = getelementptr inbounds i8, ptr %1, i64 952
@@ -99,7 +99,7 @@ declare void @_ZN19G1MonitoringSupport23eden_space_memory_usageEmm(ptr dead_on_u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14G1SurvivorPoolC2EP15G1CollectedHeapm(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull @.str.4, i32 noundef 1, i64 noundef %2, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext true) #5
+  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull @.str.4, i32 noundef 1, i64 noundef %2, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext true) #5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17G1MemoryPoolSuper, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = getelementptr inbounds i8, ptr %1, i64 952
@@ -127,7 +127,7 @@ declare void @_ZN19G1MonitoringSupport27survivor_space_memory_usageEmm(ptr dead_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12G1OldGenPoolC2EP15G1CollectedHeapmm(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
-  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef nonnull @.str.5, i32 noundef 1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext true) #5
+  tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull @.str.5, i32 noundef 1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext true) #5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV17G1MemoryPoolSuper, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = getelementptr inbounds i8, ptr %1, i64 952

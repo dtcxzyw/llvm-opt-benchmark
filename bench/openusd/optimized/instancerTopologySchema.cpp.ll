@@ -662,8 +662,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14HdVectorSchemacvbEv.exit: ; preds = %30
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 32, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %.pre, ptr %48, align 8
   store ptr null, ptr %49, align 8
@@ -1274,7 +1274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i102: ; preds = %278, %26
   br i1 %.not.i.i97, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i96, label %292
 
 292:                                              ; preds = %288
-  invoke void %291(ptr noundef nonnull %289)
+  invoke void %291(ptr noundef nonnull align 8 dereferenceable(16) %289)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i96 unwind label %293
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i96: ; preds = %292, %288, %285, %._crit_edge.i106, %256
@@ -4770,7 +4770,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %.lr.ph, %16, 
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit, label %43
 
 43:                                               ; preds = %39
-  tail call void %42(ptr noundef nonnull %40)
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %40)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit: ; preds = %43, %39, %36, %7, %._crit_edge

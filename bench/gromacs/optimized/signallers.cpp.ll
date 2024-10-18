@@ -171,7 +171,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
 _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   %20 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %22 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
@@ -204,7 +204,7 @@ define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD2Ev(ptr noundef nonnu
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -253,7 +253,7 @@ define linkonce_odr void @_ZN3gmx23NeighborSearchSignallerD0Ev(ptr noundef nonnu
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -359,7 +359,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %16, %20
 _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   %35 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %36(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %37 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
@@ -392,7 +392,7 @@ define linkonce_odr void @_ZN3gmx17LastStepSignallerD2Ev(ptr noundef nonnull ali
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -441,7 +441,7 @@ define linkonce_odr void @_ZN3gmx17LastStepSignallerD0Ev(ptr noundef nonnull ali
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -508,7 +508,7 @@ define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD1Ev(ptr noundef %0) un
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -557,7 +557,7 @@ define linkonce_odr void @_ZThn8_N3gmx17LastStepSignallerD0Ev(ptr noundef %0) un
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -587,7 +587,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 _ZN3gmx17LastStepSignallerD0Ev.exit:              ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i, %15
   %16 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %16) #17
   ret void
 }
 
@@ -668,7 +668,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
 _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   %27 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %29 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
@@ -701,7 +701,7 @@ define linkonce_odr void @_ZN3gmx16LoggingSignallerD2Ev(ptr noundef nonnull alig
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -750,7 +750,7 @@ define linkonce_odr void @_ZN3gmx16LoggingSignallerD0Ev(ptr noundef nonnull alig
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -817,7 +817,7 @@ define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD1Ev(ptr noundef %0) unn
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -866,7 +866,7 @@ define linkonce_odr void @_ZThn8_N3gmx16LoggingSignallerD0Ev(ptr noundef %0) unn
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -896,7 +896,7 @@ _ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 _ZN3gmx16LoggingSignallerD0Ev.exit:               ; preds = %_ZSt8_DestroyIPSt8functionIFvldEES2_EvT_S4_RSaIT0_E.exit.i.i.i, %15
   %16 = getelementptr inbounds i8, ptr %0, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %16) #17
   ret void
 }
 
@@ -1046,7 +1046,7 @@ _Z11do_per_stepll.exit42:                         ; preds = %_Z11do_per_stepll.e
 _ZNKSt8functionIFvldEEclEld.exit:                 ; preds = %.lr.ph
   %56 = getelementptr inbounds i8, ptr %.sroa.052.065, i64 24
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.065, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.052.065, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %58 = getelementptr inbounds i8, ptr %.sroa.052.065, i64 32
@@ -1099,7 +1099,7 @@ _Z11do_per_stepll.exit45:                         ; preds = %_Z11do_per_stepll.e
 _ZNKSt8functionIFvldEEclEld.exit47:               ; preds = %.lr.ph68
   %76 = getelementptr inbounds i8, ptr %.sroa.048.067, i64 24
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.048.067, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %77(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.048.067, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %78 = getelementptr inbounds i8, ptr %.sroa.048.067, i64 32
@@ -1132,7 +1132,7 @@ define linkonce_odr void @_ZN3gmx19TrajectorySignallerD2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -1176,7 +1176,7 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
   br i1 %.not.i.i.i.i.i.i.i4, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i.i2
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5 unwind label %24
 
 24:                                               ; preds = %22
@@ -1243,7 +1243,7 @@ define linkonce_odr void @_ZThn8_N3gmx19TrajectorySignallerD1Ev(ptr noundef %0) 
 define linkonce_odr void @_ZThn8_N3gmx19TrajectorySignallerD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3gmx19TrajectorySignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #17
   ret void
 }
 
@@ -1370,7 +1370,7 @@ _Z11do_per_stepll.exit35:                         ; preds = %_Z11do_per_stepll.e
 _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   %51 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %53 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
@@ -1406,7 +1406,7 @@ _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds
 _ZNKSt8functionIFvldEEclEld.exit.i41:             ; preds = %.lr.ph.i38
   %60 = getelementptr inbounds i8, ptr %.sroa.01.05.i39, i64 24
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i39, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i39, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %62 = getelementptr inbounds i8, ptr %.sroa.01.05.i39, i64 32
@@ -1442,7 +1442,7 @@ _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43: ; pre
 _ZNKSt8functionIFvldEEclEld.exit.i48:             ; preds = %.lr.ph.i45
   %69 = getelementptr inbounds i8, ptr %.sroa.01.05.i46, i64 24
   %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i46, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i46, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %71 = getelementptr inbounds i8, ptr %.sroa.01.05.i46, i64 32
@@ -1475,7 +1475,7 @@ define linkonce_odr void @_ZN3gmx15EnergySignallerD2Ev(ptr noundef nonnull align
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i, label %8
 
 8:                                                ; preds = %.lr.ph.i.i.i.i
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i unwind label %10
 
 10:                                               ; preds = %8
@@ -1519,7 +1519,7 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt8f
   br i1 %.not.i.i.i.i.i.i.i4, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i.i2
-  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i3, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i5 unwind label %24
 
 24:                                               ; preds = %22
@@ -1563,7 +1563,7 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EED2Ev.exit11: ; preds = %_ZSt8_DestroyIPSt
   br i1 %.not.i.i.i.i.i.i.i15, label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i16, label %36
 
 36:                                               ; preds = %.lr.ph.i.i.i.i13
-  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i14, i32 noundef 3)
+  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i14, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvldEEEvPT_.exit.i.i.i.i16 unwind label %38
 
 38:                                               ; preds = %36
@@ -1655,7 +1655,7 @@ define linkonce_odr void @_ZThn8_N3gmx15EnergySignallerD1Ev(ptr noundef %0) unna
 define linkonce_odr void @_ZThn8_N3gmx15EnergySignallerD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3gmx15EnergySignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   ret void
 }
 
@@ -1697,7 +1697,7 @@ define linkonce_odr void @_ZThn16_N3gmx15EnergySignallerD1Ev(ptr noundef %0) unn
 define linkonce_odr void @_ZThn16_N3gmx15EnergySignallerD0Ev(ptr noundef %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx15EnergySignallerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   ret void
 }
 

@@ -129,7 +129,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define void @_ZThn16_N8EqHandleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8EqHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %2) #15
   ret void
 }
 

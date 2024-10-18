@@ -550,7 +550,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16424) %78, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i26 = icmp eq ptr %81, %82
   br i1 %.not.i.i.i.i.i26, label %.noexc28.thread, label %89
 
@@ -728,7 +728,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16424) %13, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %.not.i.i.i.i.i, label %.noexc9.thread, label %23
 
@@ -1445,7 +1445,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %40 = load ptr, ptr %39, align 8, !noalias !12
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false), !noalias !12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16424) %37, i8 0, i64 24, i1 false), !noalias !12
   %43 = load ptr, ptr %27, align 8
   %44 = load ptr, ptr %31, align 8
   %45 = load ptr, ptr %34, align 8

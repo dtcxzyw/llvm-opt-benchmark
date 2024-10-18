@@ -480,7 +480,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %if.end65 unwind label %lpad5.loopexit.loopexit
 
 if.end65:                                         ; preds = %invoke.cont62, %invoke.cont55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %25 = load i32, ptr %mnUnits.i, align 8
   %cmp.i.i.i = icmp eq i32 %25, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -660,7 +660,7 @@ if.then.i:                                        ; preds = %.noexc
   br label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %if.then.i, %.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %40 = load i32, ptr %mnUnits.i.i.i90, align 8
   %cmp.i.i.i91 = icmp eq i32 %40, 1
   br i1 %cmp.i.i.i91, label %if.then2.i.i.i113, label %if.else.i.i.i92
@@ -779,7 +779,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %if.end77 unwind label %lpad5.loopexit.loopexit
 
 if.end77:                                         ; preds = %invoke.cont74, %invoke.cont67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %55 = load i32, ptr %mnUnits.i, align 8
   %cmp.i.i.i118 = icmp eq i32 %55, 1
   br i1 %cmp.i.i.i118, label %if.then2.i.i.i136, label %if.else.i.i.i119
@@ -867,7 +867,7 @@ if.then.i133:                                     ; preds = %.noexc137
   br label %invoke.cont78
 
 invoke.cont78:                                    ; preds = %if.then.i133, %.noexc137
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %62 = load i32, ptr %mnUnits.i.i.i90, align 8
   %cmp.i.i.i140 = icmp eq i32 %62, 1
   br i1 %cmp.i.i.i140, label %if.then2.i.i.i165, label %if.else.i.i.i141
@@ -1071,7 +1071,7 @@ entry:
   %agg.tmp10.i.i = alloca %"class.std::reverse_iterator.120", align 8
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -1147,7 +1147,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TestFindEndEaERN2EA4StdC9Stopwat
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -3284,7 +3284,7 @@ for.inc:                                          ; preds = %invoke.cont25, %_ZN
   br i1 %exitcond.not, label %for.end, label %for.body7, !llvm.loop !31
 
 for.end:                                          ; preds = %for.inc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %166 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %166, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -3370,7 +3370,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.i
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i621 = getelementptr inbounds i8, ptr %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i.i.i
   %stdVectorUint32.sroa.20.7 = select i1 %cmp.i.not.i.i.i, ptr %stdVectorUint32.sroa.20.2, ptr %add.ptr.i.i.i621
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %174 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i626 = icmp eq i32 %174, 1
   br i1 %cmp.i.i.i626, label %if.then2.i.i.i643, label %if.else.i.i.i627
@@ -3468,7 +3468,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %if.end80 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end80:                                         ; preds = %invoke.cont77, %.noexc644
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %183 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i647 = icmp eq i32 %183, 1
   br i1 %cmp.i.i.i647, label %if.then2.i.i.i690, label %if.else.i.i.i648
@@ -3554,7 +3554,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit.i
   %sub.ptr.sub.i.i.i686 = sub i64 %sub.ptr.lhs.cast.i.i.i684, %sub.ptr.rhs.cast.i.i.i685
   %add.ptr.i.i.i687 = getelementptr inbounds i8, ptr %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i.i.i686
   %stdVectorUint64.sroa.20.6 = select i1 %cmp.i.not.i.i.i682, ptr %stdVectorUint64.sroa.20.2, ptr %add.ptr.i.i.i687
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %191 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i694 = icmp eq i32 %191, 1
   br i1 %cmp.i.i.i694, label %if.then2.i.i.i734, label %if.else.i.i.i695
@@ -3652,7 +3652,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %if.end92 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end92:                                         ; preds = %invoke.cont89, %.noexc735
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %200 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i739 = icmp eq i32 %200, 1
   br i1 %cmp.i.i.i739, label %if.then2.i.i.i778, label %if.else.i.i.i740
@@ -3809,7 +3809,7 @@ invoke.cont.i.i.i.i775:                           ; preds = %_ZSt8_DestroyI10Tes
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %invoke.cont.i.i.i.i775, %.noexc779
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %218 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i782 = icmp eq i32 %218, 1
   br i1 %cmp.i.i.i782, label %if.then2.i.i.i820, label %if.else.i.i.i783
@@ -3970,7 +3970,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 
 if.end104:                                        ; preds = %invoke.cont101, %invoke.cont94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %233 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i825 = icmp eq i32 %233, 1
   br i1 %cmp.i.i.i825, label %if.then2.i.i.i843, label %if.else.i.i.i826
@@ -4034,7 +4034,7 @@ invoke.cont105:                                   ; preds = %_ZSt11min_elementIN
   %call8.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %it.i) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %it.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i846)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %242 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i848 = icmp eq i32 %242, 1
   br i1 %cmp.i.i.i848, label %if.then2.i.i.i866, label %if.else.i.i.i849
@@ -4113,7 +4113,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %if.end116 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end116:                                        ; preds = %invoke.cont113, %invoke.cont106
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %252 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i871 = icmp eq i32 %252, 1
   br i1 %cmp.i.i.i871, label %if.then2.i.i.i889, label %if.else.i.i.i872
@@ -4164,7 +4164,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_
 
 invoke.cont117:                                   ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit.i
   %call7.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %__n.0.lcssa.i.i.i) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %257 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i893 = icmp eq i32 %257, 1
   br i1 %cmp.i.i.i893, label %if.then2.i.i.i912, label %if.else.i.i.i894
@@ -4276,7 +4276,7 @@ _ZN10TestObjectaSERKS_.exit946:                   ; preds = %invoke.cont125, %in
   %frombool.i945 = and i8 %275, 1
   store i8 %frombool.i945, ptr %mbThrowOnCopy4.i944, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i948)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %276 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i950 = icmp eq i32 %276, 1
   br i1 %cmp.i.i.i950, label %if.then2.i.i.i970, label %if.else.i.i.i951
@@ -4333,7 +4333,7 @@ invoke.cont146:                                   ; preds = %_ZSt13adjacent_find
   %call8.i967 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %it.i948) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %it.i948)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i973)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %284 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i975 = icmp eq i32 %284, 1
   br i1 %cmp.i.i.i975, label %if.then2.i.i.i995, label %if.else.i.i.i976
@@ -4445,14 +4445,14 @@ invoke.cont164:                                   ; preds = %if.end157, %.noexc1
   %sub.ptr.rhs.cast.i1013 = ptrtoint ptr %296 to i64
   %sub.ptr.sub.i1014 = sub i64 %sub.ptr.lhs.cast.i1012, %sub.ptr.rhs.cast.i1013
   %add.ptr = getelementptr inbounds i8, ptr %296, i64 %sub.ptr.sub.i1014
-  invoke void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEE20DoAssignFromIteratorIPS1_Lb0EEEvT_S6_NS_26random_access_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %eaVectorTO, ptr noundef %296, ptr noundef %add.ptr)
+  invoke void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEE20DoAssignFromIteratorIPS1_Lb0EEEvT_S6_NS_26random_access_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %eaVectorTO, ptr noundef nonnull %296, ptr noundef nonnull %add.ptr)
           to label %invoke.cont168 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont168:                                   ; preds = %invoke.cont164
   %298 = load ptr, ptr %stdVectorTO, align 8
   %299 = load ptr, ptr %_M_finish.i.i143, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i1025)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %300 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1027 = icmp eq i32 %300, 1
   br i1 %cmp.i.i.i1027, label %if.then2.i.i.i1047, label %if.else.i.i.i1028
@@ -4535,7 +4535,7 @@ invoke.cont173:                                   ; preds = %while.end.i
   %309 = load ptr, ptr %eaVectorTO, align 8
   %310 = load ptr, ptr %mpEnd.i160, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i1058)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %311 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i1060 = icmp eq i32 %311, 1
   br i1 %cmp.i.i.i1060, label %if.then2.i.i.i1086, label %if.else.i.i.i1061
@@ -4650,7 +4650,7 @@ _ZN5eastl10VectorBaseIjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i: ; preds = %in
           to label %if.end.i.i.i.i.i.i.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN5eastl10VectorBaseIjNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i.i.i1114, ptr align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i1097, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i.i.i1114, ptr nonnull align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i1097, i1 false)
   %tobool.not.i.i.i.i1112 = icmp eq ptr %eaVectorUint32.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i1112, label %_ZN5eastl10VectorBaseIjNS_9allocatorEE6DoFreeEPjm.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i
 
@@ -4673,7 +4673,7 @@ if.then24.i.i.i:                                  ; preds = %if.else.i.i.i1106
   br i1 %cmp.i.i.i.i15.i.i.i, label %invoke.cont204, label %if.end.i.i.i.i16.i.i.i
 
 if.end.i.i.i.i16.i.i.i:                           ; preds = %if.then24.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %eaVectorUint32.sroa.0.4, ptr align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i1097, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %eaVectorUint32.sroa.0.4, ptr nonnull align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i1097, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %eaVectorUint32.sroa.0.4, i64 %sub.ptr.sub.i1097
   br label %invoke.cont204
 
@@ -4683,7 +4683,7 @@ if.else29.i.i.i:                                  ; preds = %if.else.i.i.i1106
   br i1 %cmp.i.i.i.i17.i.i.i, label %_ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit22.i.i.i, label %if.end.i.i.i.i18.i.i.i
 
 if.end.i.i.i.i18.i.i.i:                           ; preds = %if.else29.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %eaVectorUint32.sroa.0.4, ptr align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub21.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %eaVectorUint32.sroa.0.4, ptr nonnull align 4 %stdVectorUint32.sroa.0.4, i64 %sub.ptr.sub21.i.i.i, i1 false)
   br label %_ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit22.i.i.i
 
 _ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit22.i.i.i:   ; preds = %if.end.i.i.i.i18.i.i.i, %if.else29.i.i.i
@@ -4697,7 +4697,7 @@ invoke.cont204:                                   ; preds = %_ZN5eastl10VectorBa
   %eaVectorUint32.sroa.24.6 = phi ptr [ %add.ptr.i.i.i1113, %_ZN5eastl10VectorBaseIjNS_9allocatorEE6DoFreeEPjm.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i16.i.i.i ], [ %eaVectorUint32.sroa.0.4, %if.then24.i.i.i ], [ %add.ptr.i.i.i.i.i.i1111, %_ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit22.i.i.i ]
   %eaVectorUint32.sroa.0.8 = phi ptr [ %call.i.i.i.i.i.i.i1114, %_ZN5eastl10VectorBaseIjNS_9allocatorEE6DoFreeEPjm.exit.i.i.i ], [ %eaVectorUint32.sroa.0.4, %if.end.i.i.i.i16.i.i.i ], [ %eaVectorUint32.sroa.0.4, %if.then24.i.i.i ], [ %eaVectorUint32.sroa.0.4, %_ZN5eastl4copyIPjS1_EET0_T_S3_S2_.exit22.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i1123)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %320 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1125 = icmp eq i32 %320, 1
   br i1 %cmp.i.i.i1125, label %if.then2.i.i.i1160, label %if.else.i.i.i1126
@@ -4780,7 +4780,7 @@ invoke.cont209:                                   ; preds = %while.end.i1145
   %sub.ptr.div.i1169 = ashr exact i64 %sub.ptr.sub.i1168, 2
   %add.ptr215 = getelementptr inbounds i32, ptr %eaVectorUint32.sroa.0.8, i64 %sub.ptr.div.i1169
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %it.i1171)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %327 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i1173 = icmp eq i32 %327, 1
   br i1 %cmp.i.i.i1173, label %if.then2.i.i.i1206, label %if.else.i.i.i1174
@@ -4892,7 +4892,7 @@ _ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i: ; preds = %in
           to label %if.end.i.i.i.i.i.i.i1249 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit
 
 if.end.i.i.i.i.i.i.i1249:                         ; preds = %_ZN5eastl10VectorBaseImNS_9allocatorEE10DoAllocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i.i.i.i.i.i1255, ptr align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i1217, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %call.i.i.i.i.i.i.i1255, ptr nonnull align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i1217, i1 false)
   %tobool.not.i.i.i.i1251 = icmp eq ptr %eaVectorUint64.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i1251, label %_ZN5eastl10VectorBaseImNS_9allocatorEE6DoFreeEPmm.exit.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i1252
 
@@ -4914,7 +4914,7 @@ if.then24.i.i.i1232:                              ; preds = %if.else.i.i.i1227
   br i1 %cmp.i.not4.i.i.i, label %invoke.cont240, label %if.end.i.i.i.i16.i.i.i1234
 
 if.end.i.i.i.i16.i.i.i1234:                       ; preds = %if.then24.i.i.i1232
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %eaVectorUint64.sroa.0.4, ptr align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i1217, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %eaVectorUint64.sroa.0.4, ptr nonnull align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i1217, i1 false)
   %add.ptr.i.i.i.i.i.i.i1235 = getelementptr inbounds i8, ptr %eaVectorUint64.sroa.0.4, i64 %sub.ptr.sub.i1217
   br label %invoke.cont240
 
@@ -4923,7 +4923,7 @@ if.else29.i.i.i1237:                              ; preds = %if.else.i.i.i1227
   br i1 %cmp.not4.i.i, label %_ZN5eastl4copyIPmS1_EET0_T_S3_S2_.exit22.i.i.i, label %if.end.i.i.i.i18.i.i.i1240
 
 if.end.i.i.i.i18.i.i.i1240:                       ; preds = %if.else29.i.i.i1237
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %eaVectorUint64.sroa.0.4, ptr align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub21.i.i.i1230, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %eaVectorUint64.sroa.0.4, ptr nonnull align 8 %stdVectorUint64.sroa.0.4, i64 %sub.ptr.sub21.i.i.i1230, i1 false)
   br label %_ZN5eastl4copyIPmS1_EET0_T_S3_S2_.exit22.i.i.i
 
 _ZN5eastl4copyIPmS1_EET0_T_S3_S2_.exit22.i.i.i:   ; preds = %if.end.i.i.i.i18.i.i.i1240, %if.else29.i.i.i1237
@@ -4937,7 +4937,7 @@ invoke.cont240:                                   ; preds = %_ZN5eastl10VectorBa
   %eaVectorUint64.sroa.24.7 = phi ptr [ %add.ptr.i.i.i1253, %_ZN5eastl10VectorBaseImNS_9allocatorEE6DoFreeEPmm.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i1235, %if.end.i.i.i.i16.i.i.i1234 ], [ %eaVectorUint64.sroa.0.4, %if.then24.i.i.i1232 ], [ %add.ptr.i.i.i.i.i.i1246, %_ZN5eastl4copyIPmS1_EET0_T_S3_S2_.exit22.i.i.i ]
   %eaVectorUint64.sroa.0.8 = phi ptr [ %call.i.i.i.i.i.i.i1255, %_ZN5eastl10VectorBaseImNS_9allocatorEE6DoFreeEPmm.exit.i.i.i ], [ %eaVectorUint64.sroa.0.4, %if.end.i.i.i.i16.i.i.i1234 ], [ %eaVectorUint64.sroa.0.4, %if.then24.i.i.i1232 ], [ %eaVectorUint64.sroa.0.4, %_ZN5eastl4copyIPmS1_EET0_T_S3_S2_.exit22.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %itPair.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %334 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1265 = icmp eq i32 %334, 1
   br i1 %cmp.i.i.i1265, label %if.then2.i.i.i1307, label %if.else.i.i.i1266
@@ -5078,7 +5078,7 @@ invoke.cont245:                                   ; preds = %while.end.i1285
   %sub.ptr.div.i1316 = ashr exact i64 %sub.ptr.sub.i1315, 3
   %add.ptr251 = getelementptr inbounds i64, ptr %eaVectorUint64.sroa.0.8, i64 %sub.ptr.div.i1316
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %itPair.i1318)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %347 = load i32, ptr %mnUnits.i.i.i625, align 8
   %cmp.i.i.i1320 = icmp eq i32 %347, 1
   br i1 %cmp.i.i.i1320, label %if.then2.i.i.i1363, label %if.else.i.i.i1321
@@ -5752,7 +5752,7 @@ _ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit119: ; preds = %for.bo
 for.body:                                         ; preds = %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit119, %for.inc
   %cmp60 = phi i1 [ false, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit119 ], [ true, %for.inc ]
   %cmp = phi i1 [ true, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit119 ], [ false, %for.inc ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %11 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %11, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -5789,7 +5789,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
 invoke.cont54:                                    ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
   %15 = lshr i32 %call.i.i.i.i.i.i.i, 31
   %call11.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %15) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %16 = load i32, ptr %mnUnits.i.i.i123, align 8
   %cmp.i.i.i124 = icmp eq i32 %16, 1
   br i1 %cmp.i.i.i124, label %if.then2.i.i.i136, label %if.else.i.i.i125
@@ -5923,7 +5923,7 @@ lpad53:                                           ; preds = %lpad53.loopexit.spl
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont65, %invoke.cont59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %33 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i148 = icmp eq i32 %33, 1
   br i1 %cmp.i.i.i148, label %if.then2.i.i.i162, label %if.else.i.i.i149
@@ -5979,7 +5979,7 @@ _ZSt23lexicographical_compareIPaS0_EbT_S1_T0_S2_.exit.i: ; preds = %if.end.i.i.i
 
 invoke.cont75:                                    ; preds = %_ZSt23lexicographical_compareIPaS0_EbT_S1_T0_S2_.exit.i
   %call1.i159 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %retval.0.i.i.i.i.i.i158) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %39 = load i32, ptr %mnUnits.i.i.i123, align 8
   %cmp.i.i.i177 = icmp eq i32 %39, 1
   br i1 %cmp.i.i.i177, label %if.then2.i.i.i205, label %if.else.i.i.i178
@@ -6032,7 +6032,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %if.end98 unwind label %lpad53.loopexit
 
 if.end98:                                         ; preds = %invoke.cont95, %invoke.cont88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %44 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i211 = icmp eq i32 %44, 1
   br i1 %cmp.i.i.i211, label %if.then2.i.i.i243, label %if.else.i.i.i212
@@ -6095,7 +6095,7 @@ _ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vec
 
 invoke.cont115:                                   ; preds = %_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEES7_EbT_S8_T0_S9_.exit.i
   %call11.i240 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %retval.0.i.i.i.i.i.i239) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %51 = load i32, ptr %mnUnits.i.i.i123, align 8
   %cmp.i.i.i248 = icmp eq i32 %51, 1
   br i1 %cmp.i.i.i248, label %if.then2.i.i.i267, label %if.else.i.i.i249
@@ -6477,7 +6477,7 @@ _ZN5eastl6vectorImNS_9allocatorEEC2EmRKS1_.exit:  ; preds = %invoke.cont14
 for.body:                                         ; preds = %_ZN5eastl6vectorImNS_9allocatorEEC2EmRKS1_.exit, %for.inc
   %cmp34 = phi i1 [ false, %_ZN5eastl6vectorImNS_9allocatorEEC2EmRKS1_.exit ], [ true, %for.inc ]
   %cmp = phi i1 [ true, %_ZN5eastl6vectorImNS_9allocatorEEC2EmRKS1_.exit ], [ false, %for.inc ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -6513,7 +6513,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.ex
 invoke.cont29:                                    ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i
   %5 = load i32, ptr %call5.i.i.i.i2.i.i34, align 4
   %call10.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i62 = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i62, label %if.then2.i.i.i74, label %if.else.i.i.i63
@@ -6606,7 +6606,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad28
   br label %ehcleanup150
 
 if.end:                                           ; preds = %invoke.cont39, %invoke.cont33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %16 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i79 = icmp eq i32 %16, 1
   br i1 %cmp.i.i.i79, label %if.then2.i.i.i97, label %if.else.i.i.i80
@@ -6642,7 +6642,7 @@ _ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
 invoke.cont54:                                    ; preds = %_ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit.i
   %20 = load i32, ptr %call5.i.i.i.i2.i.i34, align 4
   %call10.i94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %20) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %21 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i102 = icmp eq i32 %21, 1
   br i1 %cmp.i.i.i102, label %if.then2.i.i.i116, label %if.else.i.i.i103
@@ -6695,7 +6695,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %if.end68 unwind label %lpad28.loopexit
 
 if.end68:                                         ; preds = %invoke.cont65, %invoke.cont58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %27 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i121 = icmp eq i32 %27, 1
   br i1 %cmp.i.i.i121, label %if.then2.i.i.i135, label %if.else.i.i.i122
@@ -6741,7 +6741,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
 
 invoke.cont78:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
   %call5.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i53) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %31 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i139 = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i139, label %if.then2.i.i.i151, label %if.else.i.i.i140
@@ -6780,7 +6780,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i147:        ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont82:                                    ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i147
   %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %call.i.i.i.i.i59) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %36 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i155 = icmp eq i32 %36, 1
   br i1 %cmp.i.i.i155, label %if.then2.i.i.i174, label %if.else.i.i.i156
@@ -6826,7 +6826,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
 
 invoke.cont92:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i170
   %call5.i171 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i53) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %40 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i180 = icmp eq i32 %40, 1
   br i1 %cmp.i.i.i180, label %if.then2.i.i.i197, label %if.else.i.i.i181
@@ -6893,7 +6893,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %if.end114 unwind label %lpad28.loopexit
 
 if.end114:                                        ; preds = %invoke.cont111, %if.end104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %46 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i209 = icmp eq i32 %46, 1
   br i1 %cmp.i.i.i209, label %if.then2.i.i.i221, label %if.else.i.i.i210
@@ -6939,7 +6939,7 @@ _ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEimET_S7_T0_RKT1_
 
 invoke.cont121:                                   ; preds = %_ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEimET_S7_T0_RKT1_.exit.i
   %call4.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i53) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i230 = icmp eq i32 %50, 1
   br i1 %cmp.i.i.i230, label %if.then2.i.i.i243, label %if.else.i.i.i231
@@ -6978,7 +6978,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i238:        ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont126:                                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i238
   %call1.i240 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %call.i.i.i.i.i59) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %55 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i251 = icmp eq i32 %55, 1
   br i1 %cmp.i.i.i251, label %if.then2.i.i.i273, label %if.else.i.i.i252
@@ -7024,7 +7024,7 @@ _ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEimET_S7_T0_RKT1_
 
 invoke.cont134:                                   ; preds = %_ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEimET_S7_T0_RKT1_.exit.i269
   %call4.i270 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i53) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %59 = load i32, ptr %mnUnits.i.i.i61, align 8
   %cmp.i.i.i283 = icmp eq i32 %59, 1
   br i1 %cmp.i.i.i283, label %if.then2.i.i.i297, label %if.else.i.i.i284
@@ -7177,7 +7177,7 @@ invoke.cont4:                                     ; preds = %entry
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %stdVectorChar, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #9
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorChar, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorChar, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull dereferenceable(100000) ptr @_Znwm(i64 noundef 100000) #18
           to label %invoke.cont7 unwind label %lpad.i.i
@@ -7185,7 +7185,7 @@ invoke.cont4:                                     ; preds = %entry
 lpad.i.i:                                         ; preds = %invoke.cont4
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %stdVectorChar) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorChar) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #9
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i675
 
@@ -7240,7 +7240,7 @@ _ZN5eastl6vectorIbNS_9allocatorEEC2EmRKS1_.exit:  ; preds = %invoke.cont11
 
 for.body:                                         ; preds = %invoke.cont230, %_ZN5eastl6vectorIbNS_9allocatorEEC2EmRKS1_.exit
   %cmp31 = phi i1 [ false, %_ZN5eastl6vectorIbNS_9allocatorEEC2EmRKS1_.exit ], [ true, %invoke.cont230 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %2 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -7276,7 +7276,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont26:                                    ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
   %call5.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i60) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i85 = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i85, label %if.then2.i.i.i97, label %if.else.i.i.i86
@@ -7360,7 +7360,7 @@ if.end:                                           ; preds = %invoke.cont36, %inv
   %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %16 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i103 = icmp eq i32 %16, 1
   br i1 %cmp.i.i.i103, label %if.then2.i.i.i116, label %if.else.i.i.i104
@@ -7403,7 +7403,7 @@ _ZSt4fillIPccEvT_S1_RKT0_.exit.i:                 ; preds = %if.then.i.i.i3.i, %
 
 invoke.cont43:                                    ; preds = %_ZSt4fillIPccEvT_S1_RKT0_.exit.i
   %call.i113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %14) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %20 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i123 = icmp eq i32 %20, 1
   br i1 %cmp.i.i.i123, label %if.then2.i.i.i136, label %if.else.i.i.i124
@@ -7444,7 +7444,7 @@ invoke.cont49:                                    ; preds = %_ZN2EA4StdC9Stopwat
   %sub.ptr.lhs.cast.i140 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i141 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %26 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i145 = icmp eq i32 %26, 1
   br i1 %cmp.i.i.i145, label %if.then2.i.i.i164, label %if.else.i.i.i146
@@ -7487,7 +7487,7 @@ _ZSt4fillIPccEvT_S1_RKT0_.exit.i160:              ; preds = %if.then.i.i.i3.i156
 
 invoke.cont55:                                    ; preds = %_ZSt4fillIPccEvT_S1_RKT0_.exit.i160
   %call.i161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %24) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %30 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i172 = icmp eq i32 %30, 1
   br i1 %cmp.i.i.i172, label %if.then2.i.i.i188, label %if.else.i.i.i173
@@ -7541,7 +7541,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
 if.end71:                                         ; preds = %invoke.cont68, %invoke.cont61
   %35 = load ptr, ptr %stdVectorChar, align 8
   %36 = load ptr, ptr %_M_finish.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %37 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i194 = icmp eq i32 %37, 1
   br i1 %cmp.i.i.i194, label %if.then2.i.i.i207, label %if.else.i.i.i195
@@ -7587,7 +7587,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit
 
 invoke.cont81:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit.i
   %call5.i204 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %35) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %41 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i211 = icmp eq i32 %41, 1
   br i1 %cmp.i.i.i211, label %if.then2.i.i.i227, label %if.else.i.i.i212
@@ -7625,7 +7625,7 @@ invoke.cont85:                                    ; preds = %_ZN2EA4StdC9Stopwat
   %call.i224 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
   %45 = load ptr, ptr %stdVectorChar, align 8
   %46 = load ptr, ptr %_M_finish.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %47 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i232 = icmp eq i32 %47, 1
   br i1 %cmp.i.i.i232, label %if.then2.i.i.i251, label %if.else.i.i.i233
@@ -7671,7 +7671,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit
 
 invoke.cont95:                                    ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit.i247
   %call5.i248 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %45) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %51 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i256 = icmp eq i32 %51, 1
   br i1 %cmp.i.i.i256, label %if.then2.i.i.i272, label %if.else.i.i.i257
@@ -7725,7 +7725,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 if.end109:                                        ; preds = %invoke.cont106, %invoke.cont99
   %56 = load ptr, ptr %stdVectorChar, align 8
   %57 = load ptr, ptr %_M_finish.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %58 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i278 = icmp eq i32 %58, 1
   br i1 %cmp.i.i.i278, label %if.then2.i.i.i297, label %if.else.i.i.i279
@@ -7771,7 +7771,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit
 
 invoke.cont119:                                   ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit.i293
   %call5.i294 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %56) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %62 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i302 = icmp eq i32 %62, 1
   br i1 %cmp.i.i.i302, label %if.then2.i.i.i318, label %if.else.i.i.i303
@@ -7809,7 +7809,7 @@ invoke.cont123:                                   ; preds = %_ZN2EA4StdC9Stopwat
   %call.i315 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
   %66 = load ptr, ptr %stdVectorChar, align 8
   %67 = load ptr, ptr %_M_finish.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %68 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i323 = icmp eq i32 %68, 1
   br i1 %cmp.i.i.i323, label %if.then2.i.i.i342, label %if.else.i.i.i324
@@ -7855,7 +7855,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit
 
 invoke.cont133:                                   ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEcEvT_S7_RKT0_.exit.i338
   %call5.i339 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %66) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %72 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i347 = icmp eq i32 %72, 1
   br i1 %cmp.i.i.i347, label %if.then2.i.i.i363, label %if.else.i.i.i348
@@ -7907,7 +7907,7 @@ invoke.cont144:                                   ; preds = %invoke.cont142
           to label %if.end147 unwind label %_ZNSt6vectorIbSaIbEED2Ev.exit670.thread782.loopexit
 
 if.end147:                                        ; preds = %invoke.cont144, %invoke.cont137
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %77 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i372 = icmp eq i32 %77, 1
   br i1 %cmp.i.i.i372, label %if.then2.i.i.i385, label %if.else.i.i.i373
@@ -7943,7 +7943,7 @@ _ZSt4fillIPbbEvT_S1_RKT0_.exit.i:                 ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont153:                                   ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit.i
   %call.i382 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %81 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i392 = icmp eq i32 %81, 1
   br i1 %cmp.i.i.i392, label %if.then2.i.i.i406, label %if.else.i.i.i393
@@ -7979,7 +7979,7 @@ _ZN5eastl4fillIPbbEEvT_S2_RKT0_.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont159:                                   ; preds = %_ZN5eastl4fillIPbbEEvT_S2_RKT0_.exit.i
   %call.i403 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %85 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i413 = icmp eq i32 %85, 1
   br i1 %cmp.i.i.i413, label %if.then2.i.i.i432, label %if.else.i.i.i414
@@ -8015,7 +8015,7 @@ _ZSt4fillIPbbEvT_S1_RKT0_.exit.i428:              ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont165:                                   ; preds = %_ZSt4fillIPbbEvT_S1_RKT0_.exit.i428
   %call.i429 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %89 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i440 = icmp eq i32 %89, 1
   br i1 %cmp.i.i.i440, label %if.then2.i.i.i459, label %if.else.i.i.i441
@@ -8067,7 +8067,7 @@ invoke.cont178:                                   ; preds = %invoke.cont176
           to label %if.end181 unwind label %_ZNSt6vectorIbSaIbEED2Ev.exit670.thread782.loopexit
 
 if.end181:                                        ; preds = %invoke.cont178, %invoke.cont171
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %94 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i468 = icmp eq i32 %94, 1
   br i1 %cmp.i.i.i468, label %if.then2.i.i.i481, label %if.else.i.i.i469
@@ -8103,7 +8103,7 @@ _ZSt6fill_nIPcicET_S1_T0_RKT1_.exit.i:            ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont185:                                   ; preds = %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit.i
   %call1.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %98 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i488 = icmp eq i32 %98, 1
   br i1 %cmp.i.i.i488, label %if.then2.i.i.i501, label %if.else.i.i.i489
@@ -8139,7 +8139,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i496:        ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont190:                                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i496
   %call1.i498 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %102 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i508 = icmp eq i32 %102, 1
   br i1 %cmp.i.i.i508, label %if.then2.i.i.i525, label %if.else.i.i.i509
@@ -8175,7 +8175,7 @@ _ZSt6fill_nIPcicET_S1_T0_RKT1_.exit.i521:         ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont195:                                   ; preds = %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit.i521
   %call1.i522 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i71) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %106 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i533 = icmp eq i32 %106, 1
   br i1 %cmp.i.i.i533, label %if.then2.i.i.i547, label %if.else.i.i.i534
@@ -8227,7 +8227,7 @@ invoke.cont207:                                   ; preds = %invoke.cont205
           to label %if.end210 unwind label %lpad25
 
 if.end210:                                        ; preds = %invoke.cont207, %invoke.cont200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %111 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i556 = icmp eq i32 %111, 1
   br i1 %cmp.i.i.i556, label %if.then2.i.i.i571, label %if.else.i.i.i557
@@ -8263,7 +8263,7 @@ _ZSt6fill_nIPbibET_S1_T0_RKT1_.exit.i:            ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont215:                                   ; preds = %_ZSt6fill_nIPbibET_S1_T0_RKT1_.exit.i
   %call1.i568 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %115 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i578 = icmp eq i32 %115, 1
   br i1 %cmp.i.i.i578, label %if.then2.i.i.i593, label %if.else.i.i.i579
@@ -8299,7 +8299,7 @@ _ZN5eastl6fill_nIPbibEET_S2_T0_RKT1_.exit.i:      ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont220:                                   ; preds = %_ZN5eastl6fill_nIPbibEET_S2_T0_RKT1_.exit.i
   %call1.i588 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %119 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i600 = icmp eq i32 %119, 1
   br i1 %cmp.i.i.i600, label %if.then2.i.i.i618, label %if.else.i.i.i601
@@ -8335,7 +8335,7 @@ _ZSt6fill_nIPbibET_S1_T0_RKT1_.exit.i614:         ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont225:                                   ; preds = %_ZSt6fill_nIPbibET_S1_T0_RKT1_.exit.i614
   %call1.i615 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call.i.i.i.i.i81) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %123 = load i32, ptr %mnUnits.i.i.i84, align 8
   %cmp.i.i.i626 = icmp eq i32 %123, 1
   br i1 %cmp.i.i.i626, label %if.then2.i.i.i643, label %if.else.i.i.i627
@@ -8398,7 +8398,7 @@ if.then.i.i.i653:                                 ; preds = %_ZN5eastl6vectorIcN
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %_ZN5eastl6vectorIcNS_9allocatorEED2Ev.exit, %if.then.i.i.i653
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %stdVectorChar) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorChar) #9
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i61) #16
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i60) #16
   ret void
@@ -8470,7 +8470,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #9
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #9
   ret void
 }
 
@@ -8613,7 +8613,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI8L
   %1 = load ptr, ptr %call, align 8
   %2 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %3 = load ptr, ptr %call1, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %4, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -8692,7 +8692,7 @@ _ZN12_GLOBAL__N_111TestCopyStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vecto
   %11 = load ptr, ptr %call9, align 8
   %12 = load ptr, ptr %mpEnd.i7.i, align 8
   %13 = load ptr, ptr %call14, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %14 = load i32, ptr %mnUnits.i.i.i63, align 8
   %cmp.i.i.i64 = icmp eq i32 %14, 1
   br i1 %cmp.i.i.i64, label %if.then2.i.i.i79, label %if.else.i.i.i65
@@ -8957,7 +8957,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119TestCopyBackwardStdIN9__gnu_cxx1
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -9042,7 +9042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118TestCopyBackwardEaIP8LargePODS2_
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -9209,7 +9209,7 @@ call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %for.body.i.i
   store i64 %inc4.i.i.i.i.i.i.i.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 24
   store i64 %inc3.i.i.i.i.i.i.i.i, ptr %mId.i.i.i.i.i.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i, ptr noundef nonnull %stdListTO) #9
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i, ptr noundef nonnull align 8 dereferenceable(24) %stdListTO) #9
   %4 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %4, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -9316,7 +9316,7 @@ for.body:                                         ; preds = %_ZN5eastl6vectorI10
   %cmp22 = phi i1 [ false, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit ], [ true, %for.inc ]
   %cmp = phi i1 [ true, %_ZN5eastl6vectorI10TestObjectNS_9allocatorEEC2EmRKS2_.exit ], [ false, %for.inc ]
   %11 = load ptr, ptr %stdListTO, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %12 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %12, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -9426,7 +9426,7 @@ invoke.cont18:                                    ; preds = %_ZSt7reverseISt14_L
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %call5.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %_M_storage.i.i.i) #9
   %26 = load ptr, ptr %eaListTO, align 8, !noalias !89
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %27 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i143 = icmp eq i32 %27, 1
   br i1 %cmp.i.i.i143, label %if.then2.i.i.i156, label %if.else.i.i.i144
@@ -9583,7 +9583,7 @@ lpad17:                                           ; preds = %lpad17.loopexit.spl
 if.end:                                           ; preds = %invoke.cont27, %invoke.cont21
   %46 = load ptr, ptr %stdVectorTO, align 8
   %47 = load ptr, ptr %_M_finish.i.i7.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %48 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i159 = icmp eq i32 %48, 1
   br i1 %cmp.i.i.i159, label %if.then2.i.i.i189, label %if.else.i.i.i160
@@ -9698,7 +9698,7 @@ invoke.cont38:                                    ; preds = %_ZSt7reverseIN9__gn
   %call5.i170 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %46) #9
   %69 = load ptr, ptr %eaVectorTO, align 8
   %70 = load ptr, ptr %mpEnd.i7.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %71 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i192 = icmp eq i32 %71, 1
   br i1 %cmp.i.i.i192, label %if.then2.i.i.i220, label %if.else.i.i.i193
@@ -10094,7 +10094,7 @@ for.body.i.i263:                                  ; preds = %call5.i.i.i.i.i.i.i
 call5.i.i.i.i.i.i.i.noexc.i271:                   ; preds = %for.body.i.i263
   %_M_storage.i.i.i.i.i.i272 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i265, i64 16
   store i32 0, ptr %_M_storage.i.i.i.i.i.i272, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i265, ptr noundef nonnull %stdListIntLarge) #9
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i265, ptr noundef nonnull align 8 dereferenceable(24) %stdListIntLarge) #9
   %117 = load i64, ptr %_M_size.i.i.i.i.i262, align 8
   %add.i.i.i.i.i273 = add i64 %117, 1
   store i64 %add.i.i.i.i.i273, ptr %_M_size.i.i.i.i.i262, align 8
@@ -10112,7 +10112,7 @@ lpad2.i266:                                       ; preds = %for.body.i.i263
 while.body.i.i.i268:                              ; preds = %lpad2.i266, %while.body.i.i.i268
   %__cur.05.i.i.i269 = phi ptr [ %120, %while.body.i.i.i268 ], [ %119, %lpad2.i266 ]
   %120 = load ptr, ptr %__cur.05.i.i.i269, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i269) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i269) #16
   %cmp.not.i.i.i270 = icmp eq ptr %120, %stdListIntLarge
   br i1 %cmp.not.i.i.i270, label %ehcleanup704, label %while.body.i.i.i268, !llvm.loop !102
 
@@ -10243,7 +10243,7 @@ for.body.i.i325:                                  ; preds = %call5.i.i.i.i.i.i.i
 call5.i.i.i.i.i.i.i.noexc.i334:                   ; preds = %for.body.i.i325
   %_M_storage.i.i.i.i.i.i335 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i327, i64 16
   store i32 0, ptr %_M_storage.i.i.i.i.i.i335, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i327, ptr noundef nonnull %stdListIntSmall) #9
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i327, ptr noundef nonnull align 8 dereferenceable(24) %stdListIntSmall) #9
   %131 = load i64, ptr %_M_size.i.i.i.i.i324, align 8
   %add.i.i.i.i.i336 = add i64 %131, 1
   store i64 %add.i.i.i.i.i336, ptr %_M_size.i.i.i.i.i324, align 8
@@ -10261,7 +10261,7 @@ lpad2.i328:                                       ; preds = %for.body.i.i325
 while.body.i.i.i330:                              ; preds = %lpad2.i328, %while.body.i.i.i330
   %__cur.05.i.i.i331 = phi ptr [ %134, %while.body.i.i.i330 ], [ %133, %lpad2.i328 ]
   %134 = load ptr, ptr %__cur.05.i.i.i331, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i331) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i331) #16
   %cmp.not.i.i.i332 = icmp eq ptr %134, %stdListIntSmall
   br i1 %cmp.not.i.i.i332, label %ehcleanup700, label %while.body.i.i.i330, !llvm.loop !102
 
@@ -10407,7 +10407,7 @@ call5.i.i.i.i.i.i.i.noexc.i416:                   ; preds = %for.body.i.i412
   store i64 %inc4.i.i.i.i.i.i.i.i422, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i.i.i.i.i.i.i.i423 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i414, i64 24
   store i64 %inc3.i.i.i.i.i.i.i.i421, ptr %mId.i.i.i.i.i.i.i.i423, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i414, ptr noundef nonnull %stdListTOLarge) #9
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i414, ptr noundef nonnull align 8 dereferenceable(24) %stdListTOLarge) #9
   %148 = load i64, ptr %_M_size.i.i.i.i.i411, align 8
   %add.i.i.i.i.i424 = add i64 %148, 1
   store i64 %add.i.i.i.i.i424, ptr %_M_size.i.i.i.i.i411, align 8
@@ -10728,7 +10728,7 @@ call5.i.i.i.i.i.i.i.noexc.i536:                   ; preds = %for.body.i.i532
   store i64 %inc4.i.i.i.i.i.i.i.i542, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %mId.i.i.i.i.i.i.i.i543 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i534, i64 24
   store i64 %inc3.i.i.i.i.i.i.i.i541, ptr %mId.i.i.i.i.i.i.i.i543, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i534, ptr noundef nonnull %stdListTOSmall) #9
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i534, ptr noundef nonnull align 8 dereferenceable(24) %stdListTOSmall) #9
   %177 = load i64, ptr %_M_size.i.i.i.i.i531, align 8
   %add.i.i.i.i.i544 = add i64 %177, 1
   store i64 %add.i.i.i.i.i544, ptr %_M_size.i.i.i.i.i531, align 8
@@ -11077,7 +11077,7 @@ while.body.i.i.i689:                              ; preds = %while.body.i.i.i689
 
 invoke.cont314:                                   ; preds = %while.body.i.i.i689, %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit
   %207 = phi ptr [ %eaSlistIntLarge.sroa.0.0.eaSlistIntLarge.sroa.0.0.eaSlistIntLarge.sroa.0.0.eaSlistIntLarge.sroa.0.0.1508, %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit ], [ %206, %while.body.i.i.i689 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %208 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i694 = icmp eq i32 %208, 1
   br i1 %cmp.i.i.i694, label %if.then2.i.i.i708, label %if.else.i.i.i695
@@ -11264,7 +11264,7 @@ lpad302:                                          ; preds = %lpad302.loopexit.sp
   br label %ehcleanup689
 
 invoke.cont336:                                   ; preds = %invoke.cont321, %invoke.cont316
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %236 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i717 = icmp eq i32 %236, 1
   br i1 %cmp.i.i.i717, label %if.then2.i.i.i737, label %if.else.i.i.i718
@@ -11427,7 +11427,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EE
 
 invoke.cont351:                                   ; preds = %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18SizedPODILm32EEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i
   %call10.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i1.i.i255) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %240 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i745 = icmp eq i32 %240, 1
   br i1 %cmp.i.i.i745, label %if.then2.i.i.i773, label %if.else.i.i.i746
@@ -11601,7 +11601,7 @@ invoke.cont401:                                   ; preds = %invoke.cont399
           to label %if.else5.i.i.i799 unwind label %lpad302.loopexit
 
 if.else5.i.i.i799:                                ; preds = %invoke.cont401, %invoke.cont394
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %257 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i809 = icmp eq i32 %257, 1
   br i1 %cmp.i.i.i809, label %if.then2.i.i.i822, label %if.else.i.i.i810
@@ -11640,7 +11640,7 @@ call.i.i.noexc:                                   ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont431:                                   ; preds = %call.i.i.noexc
   %call10.i819 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i303) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %261 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i833 = icmp eq i32 %261, 1
   br i1 %cmp.i.i.i833, label %if.then2.i.i.i850, label %if.else.i.i.i834
@@ -11775,7 +11775,7 @@ invoke.cont481:                                   ; preds = %invoke.cont479
           to label %if.else5.i.i.i901 unwind label %lpad302.loopexit
 
 if.else5.i.i.i901:                                ; preds = %invoke.cont481, %invoke.cont474
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %278 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i912 = icmp eq i32 %278, 1
   br i1 %cmp.i.i.i912, label %if.then2.i.i.i925, label %if.else.i.i.i913
@@ -11814,7 +11814,7 @@ call.i.i.noexc926:                                ; preds = %_ZN2EA4StdC9Stopwat
 
 invoke.cont511:                                   ; preds = %call.i.i.noexc926
   %call10.i922 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i382) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %282 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i938 = icmp eq i32 %282, 1
   br i1 %cmp.i.i.i938, label %if.then2.i.i.i956, label %if.else.i.i.i939
@@ -11895,7 +11895,7 @@ while.body.i.i.i972:                              ; preds = %if.end524, %while.b
 
 invoke.cont536:                                   ; preds = %while.body.i.i.i972, %while.body3.i.i.i966.preheader, %while.cond1.preheader.i.i.i964
   %it.sroa.0.0.i971 = phi ptr [ %287, %while.cond1.preheader.i.i.i964 ], [ %289, %while.body3.i.i.i966.preheader ], [ %291, %while.body.i.i.i972 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %292 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i978 = icmp eq i32 %292, 1
   br i1 %cmp.i.i.i978, label %if.then2.i.i.i992, label %if.else.i.i.i979
@@ -11994,7 +11994,7 @@ if.end564:                                        ; preds = %invoke.cont561, %in
   %div57386 = lshr i64 %sub.ptr.div.i1018, 1
   %305 = getelementptr %struct.TestObject, ptr %303, i64 %div57386
   %add.ptr.i.i.i.i1025 = getelementptr i8, ptr %305, i64 -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %306 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1034 = icmp eq i32 %306, 1
   br i1 %cmp.i.i.i1034, label %if.then2.i.i.i1047, label %if.else.i.i.i1035
@@ -12042,7 +12042,7 @@ invoke.cont591:                                   ; preds = %call.i.i.noexc1048
   %div58987 = lshr i64 %sub.ptr.div.i1054, 1
   %312 = getelementptr %struct.TestObject, ptr %310, i64 %div58987
   %add.ptr.i.i.i1055 = getelementptr i8, ptr %312, i64 -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %313 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i1059 = icmp eq i32 %313, 1
   br i1 %cmp.i.i.i1059, label %if.then2.i.i.i1076, label %if.else.i.i.i1060
@@ -12129,7 +12129,7 @@ while.body.i.i.i1091:                             ; preds = %if.end604, %while.b
 
 invoke.cont616:                                   ; preds = %while.body.i.i.i1091, %while.body3.i.i.i1085.preheader, %while.cond1.preheader.i.i.i1083
   %it.sroa.0.0.i1090 = phi ptr [ %318, %while.cond1.preheader.i.i.i1083 ], [ %320, %while.body3.i.i.i1085.preheader ], [ %322, %while.body.i.i.i1091 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %323 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1098 = icmp eq i32 %323, 1
   br i1 %cmp.i.i.i1098, label %if.then2.i.i.i1112, label %if.else.i.i.i1099
@@ -12228,7 +12228,7 @@ if.end644:                                        ; preds = %invoke.cont641, %in
   %div65390 = lshr i64 %sub.ptr.div.i1141, 1
   %336 = getelementptr %struct.TestObject, ptr %334, i64 %div65390
   %add.ptr.i.i.i.i1148 = getelementptr i8, ptr %336, i64 -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %337 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i1158 = icmp eq i32 %337, 1
   br i1 %cmp.i.i.i1158, label %if.then2.i.i.i1171, label %if.else.i.i.i1159
@@ -12276,7 +12276,7 @@ invoke.cont671:                                   ; preds = %call.i.i.noexc1172
   %div66991 = lshr i64 %sub.ptr.div.i1179, 1
   %343 = getelementptr %struct.TestObject, ptr %341, i64 %div66991
   %add.ptr.i.i.i1180 = getelementptr i8, ptr %343, i64 -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %344 = load i32, ptr %mnUnits.i.i.i142, align 8
   %cmp.i.i.i1184 = icmp eq i32 %344, 1
   br i1 %cmp.i.i.i1184, label %if.then2.i.i.i1202, label %if.else.i.i.i1185
@@ -12688,7 +12688,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit:         ; preds = %_ZN5eastl9allocator
 while.body.i.i.i1375:                             ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit, %while.body.i.i.i1375
   %__cur.05.i.i.i1376 = phi ptr [ %388, %while.body.i.i.i1375 ], [ %387, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit ]
   %388 = load ptr, ptr %__cur.05.i.i.i1376, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i1376) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i1376) #16
   %cmp.not.i.i.i1377 = icmp eq ptr %388, %stdListIntSmall
   br i1 %cmp.not.i.i.i1377, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %while.body.i.i.i1375, !llvm.loop !102
 
@@ -12721,7 +12721,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1392:     ; preds = %_ZN5eastl9allocator
 while.body.i.i.i1394:                             ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1392, %while.body.i.i.i1394
   %__cur.05.i.i.i1395 = phi ptr [ %392, %while.body.i.i.i1394 ], [ %391, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1392 ]
   %392 = load ptr, ptr %__cur.05.i.i.i1395, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i1395) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i1395) #16
   %cmp.not.i.i.i1396 = icmp eq ptr %392, %stdListIntLarge
   br i1 %cmp.not.i.i.i1396, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit1398, label %while.body.i.i.i1394, !llvm.loop !102
 
@@ -12820,7 +12820,7 @@ ehcleanup699:                                     ; preds = %_ZN5eastl9allocator
 while.body.i.i.i1422:                             ; preds = %ehcleanup699, %while.body.i.i.i1422
   %__cur.05.i.i.i1423 = phi ptr [ %397, %while.body.i.i.i1422 ], [ %396, %ehcleanup699 ]
   %397 = load ptr, ptr %__cur.05.i.i.i1423, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i1423) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i1423) #16
   %cmp.not.i.i.i1424 = icmp eq ptr %397, %stdListIntSmall
   br i1 %cmp.not.i.i.i1424, label %ehcleanup700, label %while.body.i.i.i1422, !llvm.loop !102
 
@@ -12861,7 +12861,7 @@ ehcleanup703:                                     ; preds = %_ZN5eastl9allocator
 while.body.i.i.i1442:                             ; preds = %ehcleanup703, %while.body.i.i.i1442
   %__cur.05.i.i.i1443 = phi ptr [ %401, %while.body.i.i.i1442 ], [ %400, %ehcleanup703 ]
   %401 = load ptr, ptr %__cur.05.i.i.i1443, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i1443) #16
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i1443) #16
   %cmp.not.i.i.i1444 = icmp eq ptr %401, %stdListIntLarge
   br i1 %cmp.not.i.i.i1444, label %ehcleanup704, label %while.body.i.i.i1442, !llvm.loop !102
 
@@ -13058,7 +13058,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TestRotateStdISt14_List_iterator
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -13213,7 +13213,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIterat
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -13366,7 +13366,7 @@ entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %tmp = alloca %"struct.eastl::ListIterator", align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -14014,7 +14014,7 @@ for.body.i.i.i.i276:                              ; preds = %for.body.i.i.i.i266
 invoke.cont104:                                   ; preds = %for.body.i.i.i.i276
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i112118, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i, i64 40000, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i120126, ptr noundef nonnull align 4 dereferenceable(40000) %call.i.i.i.i.i4753, i64 40000, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %50, 1
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -14094,7 +14094,7 @@ _ZSt5mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_S6_ET1_T_S8_T0
 
 invoke.cont126:                                   ; preds = %_ZSt5mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_S6_ET1_T_S8_T0_S9_S7_.exit.i
   %call16.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef nonnull %call5.i.i.i.i2.i.i65) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %56 = load i32, ptr %mnUnits.i.i.i301, align 8
   %cmp.i.i.i302 = icmp eq i32 %56, 1
   br i1 %cmp.i.i.i302, label %if.then2.i.i.i317, label %if.else.i.i.i303
@@ -14347,7 +14347,7 @@ for.end191:                                       ; preds = %_ZN10TestObjectD2Ev
   %103 = load ptr, ptr %_M_finish.i.i7.i70, align 8
   %104 = load ptr, ptr %_M_finish.i.i7.i88, align 8
   %105 = load ptr, ptr %stdVecOutTestObject, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %106 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i409 = icmp eq i32 %106, 1
   br i1 %cmp.i.i.i409, label %if.then2.i.i.i422, label %if.else.i.i.i410
@@ -14556,7 +14556,7 @@ invoke.cont212:                                   ; preds = %call.i.i.noexc
   %131 = load ptr, ptr %eaVecBTestObject, align 8
   %132 = load ptr, ptr %mpEnd.i7.i159, align 8
   %133 = load ptr, ptr %eaVecOutTestObject, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %134 = load i32, ptr %mnUnits.i.i.i301, align 8
   %cmp.i.i.i429 = icmp eq i32 %134, 1
   br i1 %cmp.i.i.i429, label %if.then2.i.i.i442, label %if.else.i.i.i430

@@ -605,7 +605,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %196 unwind label %.loopexit303
 
 196:                                              ; preds = %194
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %195) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %195) #16
   %scevgep.i = getelementptr inbounds i8, ptr %195, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %scevgep.i, i8 0, i64 264, i1 false)
   %197 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18

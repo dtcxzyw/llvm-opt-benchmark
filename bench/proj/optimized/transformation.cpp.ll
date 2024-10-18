@@ -822,7 +822,7 @@ define void @_ZTv0_n24_N5osgeo4proj9operation14TransformationD0Ev(ptr noundef %0
   tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @_ZTTN5osgeo4proj9operation14TransformationE) #23
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   ret void
 }
 
@@ -836,7 +836,7 @@ define void @_ZTvn16_n24_N5osgeo4proj9operation14TransformationD0Ev(ptr noundef 
   tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation14TransformationE) #23
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   ret void
 }
 
@@ -850,7 +850,7 @@ define void @_ZTvn24_n24_N5osgeo4proj9operation14TransformationD0Ev(ptr noundef 
   tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation14TransformationE) #23
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   ret void
 }
 
@@ -864,7 +864,7 @@ define void @_ZTvn48_n24_N5osgeo4proj9operation14TransformationD0Ev(ptr noundef 
   tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation14TransformationE) #23
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   ret void
 }
 
@@ -878,7 +878,7 @@ define void @_ZTvn56_n24_N5osgeo4proj9operation14TransformationD0Ev(ptr noundef 
   tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @_ZTTN5osgeo4proj9operation14TransformationE) #23
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   ret void
 }
 
@@ -13079,7 +13079,7 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationD2Ev(ptr noun
 define hidden void @_ZN5osgeo4proj9operation21InverseTransformationD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #23
   ret void
@@ -13089,7 +13089,7 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationD1Ev(ptr noun
 define hidden void @_ZThn24_N5osgeo4proj9operation21InverseTransformationD1Ev(ptr noundef nonnull %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #23
   ret void
@@ -13103,7 +13103,7 @@ define hidden void @_ZTv0_n24_N5osgeo4proj9operation21InverseTransformationD1Ev(
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %7 = getelementptr inbounds i8, ptr %5, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
   ret void
@@ -13118,7 +13118,7 @@ define hidden void @_ZTvn16_n24_N5osgeo4proj9operation21InverseTransformationD1E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
   ret void
@@ -13133,7 +13133,7 @@ define hidden void @_ZTvn24_n24_N5osgeo4proj9operation21InverseTransformationD1E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
   ret void
@@ -13148,7 +13148,7 @@ define hidden void @_ZTvn48_n24_N5osgeo4proj9operation21InverseTransformationD1E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
   ret void
@@ -13163,7 +13163,7 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation21InverseTransformationD1E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
   ret void
@@ -13173,7 +13173,7 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation21InverseTransformationD1E
 define hidden void @_ZN5osgeo4proj9operation21InverseTransformationD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
@@ -13184,10 +13184,10 @@ define hidden void @_ZN5osgeo4proj9operation21InverseTransformationD0Ev(ptr noun
 define hidden void @_ZThn24_N5osgeo4proj9operation21InverseTransformationD0Ev(ptr noundef nonnull %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %2) #24
   ret void
 }
 
@@ -13199,10 +13199,10 @@ define hidden void @_ZTv0_n24_N5osgeo4proj9operation21InverseTransformationD0Ev(
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %7 = getelementptr inbounds i8, ptr %5, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %5) #24
   ret void
 }
 
@@ -13215,10 +13215,10 @@ define hidden void @_ZTvn16_n24_N5osgeo4proj9operation21InverseTransformationD0E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #24
   ret void
 }
 
@@ -13231,10 +13231,10 @@ define hidden void @_ZTvn24_n24_N5osgeo4proj9operation21InverseTransformationD0E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #24
   ret void
 }
 
@@ -13247,10 +13247,10 @@ define hidden void @_ZTvn48_n24_N5osgeo4proj9operation21InverseTransformationD0E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #24
   ret void
 }
 
@@ -13263,10 +13263,10 @@ define hidden void @_ZTvn56_n24_N5osgeo4proj9operation21InverseTransformationD0E
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @_ZN5osgeo4proj9operation26InverseCoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 104)) #23
-  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
+  tail call void @_ZN5osgeo4proj9operation14TransformationD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN5osgeo4proj9operation21InverseTransformationE, i64 8)) #23
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(49) %6) #24
   ret void
 }
 
@@ -14091,7 +14091,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation14TransformationEED2Ev.exit: ; preds = %
   br label %366
 
 329:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj9operation14TransformationEED2Ev.exit
-  invoke void @_ZNK5osgeo4proj9operation15SingleOperation25exportTransformationToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
+  invoke void @_ZNK5osgeo4proj9operation15SingleOperation25exportTransformationToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
           to label %_ZNK5osgeo4proj9operation14Transformation12_exportToWKTEPNS0_2io12WKTFormatterE.exit unwind label %327
 
 _ZNK5osgeo4proj9operation14Transformation12_exportToWKTEPNS0_2io12WKTFormatterE.exit: ; preds = %329, %320
@@ -14749,7 +14749,7 @@ define hidden void @_ZTvn24_n48_NK5osgeo4proj9operation14Transformation12_export
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZNK5osgeo4proj9operation15SingleOperation25exportTransformationToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %1)
+  tail call void @_ZNK5osgeo4proj9operation15SingleOperation25exportTransformationToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
   ret void
 }
 
@@ -15686,7 +15686,7 @@ define linkonce_odr hidden void @_ZTvn56_n88_NK5osgeo4proj9operation21InverseTra
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
-  tail call void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
+  tail call void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef %1)
   ret void
 }
 

@@ -148,7 +148,7 @@ define void @_ZNK10open_spiel6bridge8Contract8ToStringB5cxx11Ev(ptr dead_on_unwi
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %19, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc16 unwind label %22
 
 .noexc16:                                         ; preds = %.noexc
@@ -158,7 +158,7 @@ define void @_ZNK10open_spiel6bridge8Contract8ToStringB5cxx11Ev(ptr dead_on_unwi
 20:                                               ; preds = %.noexc16
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #9
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   br label %.body
 
 22:                                               ; preds = %.noexc, %18

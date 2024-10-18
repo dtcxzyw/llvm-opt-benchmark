@@ -237,7 +237,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120STLAlgorithmModelingE, i64 16), ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @constinit.3, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %3, i32 noundef 2, ptr nonnull %4, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull readonly align 8 dereferenceable(60) %3, i64 16, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -299,7 +299,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %108 = getelementptr inbounds i8, ptr %2, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @constinit.3, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %5, i32 noundef 2, ptr nonnull %6, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %108, ptr noundef nonnull readonly align 8 dereferenceable(60) %5, i64 16, i1 false)
   %109 = getelementptr inbounds i8, ptr %2, i64 96
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -361,7 +361,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %133 = getelementptr inbounds i8, ptr %2, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @constinit.6, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef 2, ptr nonnull %8, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %133, ptr noundef nonnull readonly align 8 dereferenceable(60) %7, i64 16, i1 false)
   %134 = getelementptr inbounds i8, ptr %2, i64 176
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -423,7 +423,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %158 = getelementptr inbounds i8, ptr %2, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @constinit.6, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %9, i32 noundef 2, ptr nonnull %10, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull readonly align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %158, ptr noundef nonnull readonly align 8 dereferenceable(60) %9, i64 16, i1 false)
   %159 = getelementptr inbounds i8, ptr %2, i64 256
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -485,7 +485,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %183 = getelementptr inbounds i8, ptr %2, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) @constinit.9, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %11, i32 noundef 2, ptr nonnull %12, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull readonly align 8 dereferenceable(16) %11, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %183, ptr noundef nonnull readonly align 8 dereferenceable(60) %11, i64 16, i1 false)
   %184 = getelementptr inbounds i8, ptr %2, i64 336
   %185 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %186 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -547,7 +547,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %208 = getelementptr inbounds i8, ptr %2, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) @constinit.9, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef 2, ptr nonnull %14, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull readonly align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %208, ptr noundef nonnull readonly align 8 dereferenceable(60) %13, i64 16, i1 false)
   %209 = getelementptr inbounds i8, ptr %2, i64 416
   %210 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %211 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -609,7 +609,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %233 = getelementptr inbounds i8, ptr %2, i64 480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %15, i32 noundef 2, ptr nonnull %16, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull readonly align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %233, ptr noundef nonnull readonly align 8 dereferenceable(60) %15, i64 16, i1 false)
   %234 = getelementptr inbounds i8, ptr %2, i64 496
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %236 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -671,7 +671,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %258 = getelementptr inbounds i8, ptr %2, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %17, i32 noundef 2, ptr nonnull %18, i64 2, i64 4294967301, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull readonly align 8 dereferenceable(16) %17, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %258, ptr noundef nonnull readonly align 8 dereferenceable(60) %17, i64 16, i1 false)
   %259 = getelementptr inbounds i8, ptr %2, i64 576
   %260 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -733,7 +733,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %283 = getelementptr inbounds i8, ptr %2, i64 640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) @constinit.13, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %19, i32 noundef 2, ptr nonnull %20, i64 2, i64 4294967302, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull readonly align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %283, ptr noundef nonnull readonly align 8 dereferenceable(60) %19, i64 16, i1 false)
   %284 = getelementptr inbounds i8, ptr %2, i64 656
   %285 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %286 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -795,7 +795,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %308 = getelementptr inbounds i8, ptr %2, i64 720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) @constinit.17, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %21, i32 noundef 2, ptr nonnull %22, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %308, ptr noundef nonnull readonly align 8 dereferenceable(60) %21, i64 16, i1 false)
   %309 = getelementptr inbounds i8, ptr %2, i64 736
   %310 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %311 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -857,7 +857,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %333 = getelementptr inbounds i8, ptr %2, i64 800
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) @constinit.17, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %23, i32 noundef 2, ptr nonnull %24, i64 2, i64 4294967301, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %333, ptr noundef nonnull readonly align 8 dereferenceable(16) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %333, ptr noundef nonnull readonly align 8 dereferenceable(60) %23, i64 16, i1 false)
   %334 = getelementptr inbounds i8, ptr %2, i64 816
   %335 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %336 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -919,7 +919,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %358 = getelementptr inbounds i8, ptr %2, i64 880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) @constinit.17, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %25, i32 noundef 2, ptr nonnull %26, i64 2, i64 4294967302, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %358, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %358, ptr noundef nonnull readonly align 8 dereferenceable(60) %25, i64 16, i1 false)
   %359 = getelementptr inbounds i8, ptr %2, i64 896
   %360 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %361 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -981,7 +981,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %383 = getelementptr inbounds i8, ptr %2, i64 960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) @constinit.20, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %27, i32 noundef 2, ptr nonnull %28, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %383, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %383, ptr noundef nonnull readonly align 8 dereferenceable(60) %27, i64 16, i1 false)
   %384 = getelementptr inbounds i8, ptr %2, i64 976
   %385 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %386 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -1043,7 +1043,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %408 = getelementptr inbounds i8, ptr %2, i64 1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) @constinit.20, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %29, i32 noundef 2, ptr nonnull %30, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %408, ptr noundef nonnull readonly align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %408, ptr noundef nonnull readonly align 8 dereferenceable(60) %29, i64 16, i1 false)
   %409 = getelementptr inbounds i8, ptr %2, i64 1056
   %410 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %411 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -1105,7 +1105,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %433 = getelementptr inbounds i8, ptr %2, i64 1120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) @constinit.23, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %31, i32 noundef 2, ptr nonnull %32, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %433, ptr noundef nonnull readonly align 8 dereferenceable(16) %31, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %433, ptr noundef nonnull readonly align 8 dereferenceable(60) %31, i64 16, i1 false)
   %434 = getelementptr inbounds i8, ptr %2, i64 1136
   %435 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %436 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -1167,7 +1167,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %458 = getelementptr inbounds i8, ptr %2, i64 1200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) @constinit.23, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %33, i32 noundef 2, ptr nonnull %34, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %458, ptr noundef nonnull readonly align 8 dereferenceable(16) %33, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %458, ptr noundef nonnull readonly align 8 dereferenceable(60) %33, i64 16, i1 false)
   %459 = getelementptr inbounds i8, ptr %2, i64 1216
   %460 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %461 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -1229,7 +1229,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %483 = getelementptr inbounds i8, ptr %2, i64 1280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) @constinit.28, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %35, i32 noundef 2, ptr nonnull %36, i64 2, i64 4294967299, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %483, ptr noundef nonnull readonly align 8 dereferenceable(16) %35, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %483, ptr noundef nonnull readonly align 8 dereferenceable(60) %35, i64 16, i1 false)
   %484 = getelementptr inbounds i8, ptr %2, i64 1296
   %485 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %486 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -1291,7 +1291,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %508 = getelementptr inbounds i8, ptr %2, i64 1360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) @constinit.28, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %37, i32 noundef 2, ptr nonnull %38, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %508, ptr noundef nonnull readonly align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %508, ptr noundef nonnull readonly align 8 dereferenceable(60) %37, i64 16, i1 false)
   %509 = getelementptr inbounds i8, ptr %2, i64 1376
   %510 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %511 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -1353,7 +1353,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %533 = getelementptr inbounds i8, ptr %2, i64 1440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) @constinit.28, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %39, i32 noundef 2, ptr nonnull %40, i64 2, i64 4294967301, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %533, ptr noundef nonnull readonly align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %533, ptr noundef nonnull readonly align 8 dereferenceable(60) %39, i64 16, i1 false)
   %534 = getelementptr inbounds i8, ptr %2, i64 1456
   %535 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %536 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -1415,7 +1415,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %558 = getelementptr inbounds i8, ptr %2, i64 1520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) @constinit.28, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %41, i32 noundef 2, ptr nonnull %42, i64 2, i64 4294967302, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %558, ptr noundef nonnull readonly align 8 dereferenceable(16) %41, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %558, ptr noundef nonnull readonly align 8 dereferenceable(60) %41, i64 16, i1 false)
   %559 = getelementptr inbounds i8, ptr %2, i64 1536
   %560 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %561 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -1477,7 +1477,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %583 = getelementptr inbounds i8, ptr %2, i64 1600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) @constinit.32, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %43, i32 noundef 2, ptr nonnull %44, i64 2, i64 4294967300, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %583, ptr noundef nonnull readonly align 8 dereferenceable(16) %43, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %583, ptr noundef nonnull readonly align 8 dereferenceable(60) %43, i64 16, i1 false)
   %584 = getelementptr inbounds i8, ptr %2, i64 1616
   %585 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %586 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -1539,7 +1539,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %608 = getelementptr inbounds i8, ptr %2, i64 1680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) @constinit.32, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %45, i32 noundef 2, ptr nonnull %46, i64 2, i64 4294967301, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %608, ptr noundef nonnull readonly align 8 dereferenceable(16) %45, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %608, ptr noundef nonnull readonly align 8 dereferenceable(60) %45, i64 16, i1 false)
   %609 = getelementptr inbounds i8, ptr %2, i64 1696
   %610 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %611 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -1601,7 +1601,7 @@ _ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingE
   %633 = getelementptr inbounds i8, ptr %2, i64 1760
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) @constinit.32, i64 32, i1 false)
   call void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %47, i32 noundef 2, ptr nonnull %48, i64 2, i64 4294967302, i64 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %633, ptr noundef nonnull readonly align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %633, ptr noundef nonnull readonly align 8 dereferenceable(60) %47, i64 16, i1 false)
   %634 = getelementptr inbounds i8, ptr %2, i64 1776
   %635 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %636 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -1674,7 +1674,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.012.i.i.i.i.i.i.i.i.i = phi ptr [ %688, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS2_14CheckerContextEPKNS1_8CallExprEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ %660, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i.idx.i.i = phi i64 [ %.0811.i.i.i.i.i.i.i.add.i.i, %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS2_14CheckerContextEPKNS1_8CallExprEEEJRKSD_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.0811.i.i.i.i.i.i.i.idx.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.012.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16, i1 false)
   %663 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i.i, i64 16
   %664 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 16
   %665 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.ptr.i.i, i64 24
@@ -3110,7 +3110,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgori
   br label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS0_14CheckerContextEPKNS_8CallExprEEED2Ev.exit
 
 _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS0_14CheckerContextEPKNS_8CallExprEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS2_14CheckerContextEPKNS1_8CallExprEEESD_EvT_SF_RSaIT0_E.exit.i.i, %19
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   ret void
 }
 
@@ -3182,7 +3182,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgori
   br label %_ZN12_GLOBAL__N_120STLAlgorithmModelingD2Ev.exit
 
 _ZN12_GLOBAL__N_120STLAlgorithmModelingD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120STLAlgorithmModelingEKFbRNS2_14CheckerContextEPKNS1_8CallExprEEESD_EvT_SF_RSaIT0_E.exit.i.i.i, %19
-  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void @_ZN5clang15ProgramPointTagD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #16
   ret void
 }
@@ -3434,7 +3434,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135: ; preds 
 
 128:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135
   store ptr %126, ptr %23, align 8, !alias.scope !17
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %126) #14, !noalias !17
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %126) #14, !noalias !17
   br label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit
 
 129:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135
@@ -3443,7 +3443,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135: ; preds 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
   %133 = load ptr, ptr %132, align 8, !noalias !17
   store ptr %126, ptr %12, align 8, !noalias !17
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %126) #14, !noalias !17
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %126) #14, !noalias !17
   call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %23, ptr noundef nonnull align 8 dereferenceable(56) %133, ptr noundef nonnull %12, ptr %.fca.0.extract41, i8 %.fca.1.extract42, i1 noundef zeroext true) #14
   %134 = load ptr, ptr %12, align 8, !noalias !17
   %.not.i.i.i = icmp eq ptr %134, null
@@ -3623,7 +3623,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit160: ; preds 
 
 205:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit160
   store ptr %203, ptr %30, align 8, !alias.scope !20
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %203) #14, !noalias !20
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %203) #14, !noalias !20
   br label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit167
 
 206:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit160
@@ -3632,7 +3632,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit160: ; preds 
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 104
   %210 = load ptr, ptr %209, align 8, !noalias !20
   store ptr %203, ptr %9, align 8, !noalias !20
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %203) #14, !noalias !20
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %203) #14, !noalias !20
   call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %30, ptr noundef nonnull align 8 dereferenceable(56) %210, ptr noundef nonnull %9, ptr %.fca.0.extract8, i8 %.fca.1.extract9, i1 noundef zeroext true) #14
   %211 = load ptr, ptr %9, align 8, !noalias !20
   %.not.i.i.i166 = icmp eq ptr %211, null

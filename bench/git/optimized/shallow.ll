@@ -181,7 +181,7 @@ if.then.i:                                        ; preds = %if.then2
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 8, i64 noundef %conv) #11
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.19, i64 noundef 8, i64 noundef range(i64 -2147483646, 2147483647) %conv) #11
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then.i

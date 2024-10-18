@@ -459,7 +459,7 @@ if.then38:                                        ; preds = %for.body
 
 if.then.i53:                                      ; preds = %if.then38
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %reinit.i.i)
-  call void @_ZN3sat6solver13attach_clauseERNS_6clauseERb(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 1 dereferenceable(1) %reinit.i.i)
+  call void @_ZN3sat6solver13attach_clauseERNS_6clauseERb(ptr noundef nonnull align 8 dereferenceable(4520) %this, ptr noundef nonnull align 4 dereferenceable(20) %43, ptr noundef nonnull align 1 dereferenceable(1) %reinit.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %reinit.i.i)
   br label %for.cond.backedge
 
@@ -479,7 +479,7 @@ _ZN3sat6solver9mk_clauseERK7svectorINS_7literalEjENS_6statusE.exit.i: ; preds = 
   store i32 2, ptr %agg.tmp.i.i, align 8
   store i32 -1, ptr %m_orig.i.i2.i, align 4
   store ptr null, ptr %m_hint.i.i3.i, align 8
-  %call3.i.i = call noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %retval.0.i.i.i58, ptr noundef %44, ptr noundef nonnull %agg.tmp.i.i)
+  %call3.i.i = call noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4520) %this, i32 noundef %retval.0.i.i.i58, ptr noundef %44, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   br label %for.cond.backedge
 
@@ -543,7 +543,7 @@ if.end65:                                         ; preds = %if.then56, %if.else
   br i1 %tobool.not.i59, label %if.else.i62, label %if.then.i60
 
 if.then.i60:                                      ; preds = %if.end65
-  call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull align 4 dereferenceable(20) %47)
+  call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4520) %this, ptr noundef nonnull align 4 dereferenceable(20) %47)
   br label %_ZN3sat10proof_trim3delERK7svectorINS_7literalEjEPNS_6clauseE.exit
 
 if.else.i62:                                      ; preds = %if.end65
@@ -561,7 +561,7 @@ if.then.i.i67:                                    ; preds = %_ZNK6vectorIN3sat7l
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %48, align 4
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %48, i64 4
   %agg.tmp3.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i11.i.i, align 4
-  call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i.i, i32 %agg.tmp3.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
+  call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4520) %this, i32 %agg.tmp.sroa.0.0.copyload.i.i, i32 %agg.tmp3.sroa.0.0.copyload.i.i, i1 noundef zeroext true)
   br label %_ZN3sat10proof_trim3delERK7svectorINS_7literalEjEPNS_6clauseE.exit
 
 if.end.i.i66:                                     ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i.i, %if.else.i62
@@ -586,7 +586,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE4backEv.exit.i.i:  ; preds = %_ZNK6vectorIPN3sat6
   %53 = zext i32 %52 to i64
   %arrayidx.i1.i.i.i = getelementptr inbounds ptr, ptr %50, i64 %53
   %54 = load ptr, ptr %arrayidx.i1.i.i.i, align 8
-  call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull align 4 dereferenceable(20) %54)
+  call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4520) %this, ptr noundef nonnull align 4 dereferenceable(20) %54)
   %55 = load ptr, ptr %m_value.i.i, align 8
   %arrayidx.i14.i.i = getelementptr inbounds i8, ptr %55, i64 -4
   %56 = load i32, ptr %arrayidx.i14.i.i, align 4
@@ -2338,7 +2338,7 @@ if.then.i:                                        ; preds = %_ZNK6vectorIN3sat7l
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %0, align 4
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %0, i64 4
   %agg.tmp3.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i11.i, align 4
-  tail call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, i32 %agg.tmp3.sroa.0.0.copyload.i, i1 noundef zeroext true)
+  tail call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4520) %this, i32 %agg.tmp.sroa.0.0.copyload.i, i32 %agg.tmp3.sroa.0.0.copyload.i, i1 noundef zeroext true)
   br label %if.end
 
 if.end.i:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %if.else
@@ -2364,7 +2364,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE4backEv.exit.i:    ; preds = %_ZNK6vectorIPN3sat6
   %5 = zext i32 %4 to i64
   %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %2, i64 %5
   %6 = load ptr, ptr %arrayidx.i1.i.i, align 8
-  tail call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull align 4 dereferenceable(20) %6)
+  tail call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4520) %this, ptr noundef nonnull align 4 dereferenceable(20) %6)
   %7 = load ptr, ptr %m_value.i, align 8
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i14.i, align 4
@@ -5121,7 +5121,7 @@ if.then.i:                                        ; preds = %_ZNK6vectorIN3sat7l
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %3, align 4
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %3, i64 4
   %agg.tmp3.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i11.i, align 4
-  tail call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 %agg.tmp.sroa.0.0.copyload.i, i32 %agg.tmp3.sroa.0.0.copyload.i, i1 noundef zeroext true)
+  tail call void @_ZN3sat6solver17detach_bin_clauseENS_7literalES1_b(ptr noundef nonnull align 8 dereferenceable(4520) %this, i32 %agg.tmp.sroa.0.0.copyload.i, i32 %agg.tmp3.sroa.0.0.copyload.i, i1 noundef zeroext true)
   br label %_ZN3sat10proof_trim3delERK7svectorINS_7literalEjE.exit
 
 if.end.i:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
@@ -5147,7 +5147,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE4backEv.exit.i:    ; preds = %_ZNK6vectorIPN3sat6
   %8 = zext i32 %7 to i64
   %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %5, i64 %8
   %9 = load ptr, ptr %arrayidx.i1.i.i, align 8
-  tail call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4408) %this, ptr noundef nonnull align 4 dereferenceable(20) %9)
+  tail call void @_ZN3sat6solver13detach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(4520) %this, ptr noundef nonnull align 4 dereferenceable(20) %9)
   %10 = load ptr, ptr %m_value.i, align 8
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i14.i, align 4
@@ -5387,7 +5387,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

@@ -2137,7 +2137,7 @@ for.end53:                                        ; preds = %for.body48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Y.i, i64 40, i1 false)
   %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z.i, i64 40, i1 false)
-  call fastcc void @ge_p2_dbl(ptr noundef %r, ptr noundef nonnull %q.i)
+  call fastcc void @ge_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   call fastcc void @fe_mul(ptr noundef nonnull %s, ptr noundef nonnull readonly %r, ptr noundef nonnull readonly %T.i30)
   %Y.i34 = getelementptr inbounds i8, ptr %s, i64 40
@@ -5598,7 +5598,7 @@ x25519_ge_p3_to_cached.exit.i:                    ; preds = %for.body.i9.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Y.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Y.i.i, i64 40, i1 false)
   %Z.i.i.i = getelementptr inbounds i8, ptr %q.i.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %Z.i.i.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %Z9.i.i, i64 40, i1 false)
-  call fastcc void @ge_p2_dbl(ptr noundef %t.i, ptr noundef nonnull %q.i.i)
+  call fastcc void @ge_p2_dbl(ptr noundef nonnull %t.i, ptr noundef nonnull %q.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i)
   %T.i75.i = getelementptr inbounds i8, ptr %t.i, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %A2.i, ptr noundef nonnull readonly %t.i, ptr noundef nonnull readonly %T.i75.i)

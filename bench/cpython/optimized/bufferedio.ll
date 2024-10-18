@@ -1231,7 +1231,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1263,7 +1263,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -4398,7 +4398,7 @@ if.then.i.i65.i:                                  ; preds = %cond.end.thread.i.i
   %pos6.i.i.i = getelementptr inbounds i8, ptr %self, i64 64
   %81 = load i64, ptr %pos6.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %80, i64 %81
-  %call.i.i66.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i.i.i, i64 noundef %6) #10
+  %call.i.i66.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i.i.i, i64 noundef range(i64 0, -9223372036854775808) %6) #10
   %cmp7.not.i.i67.i = icmp eq ptr %call.i.i66.i, null
   br i1 %cmp7.not.i.i67.i, label %_bufferedreader_read_generic.exit.i, label %if.then8.i.i.i
 
@@ -4411,7 +4411,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i65.i
 if.end.i69.i:                                     ; preds = %cond.end.thread.i.i, %cond.end.thread179.i.i, %cond.end.i104.i
   %cond123.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i104.i ], [ %sub.i62.i, %cond.end.thread179.i.i ]
   %cond123.fr.i.i = freeze i64 %cond123.i.i
-  %call6.i70.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %6) #10
+  %call6.i70.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef range(i64 0, -9223372036854775808) %6) #10
   store ptr %call6.i70.i, ptr %res.i.i, align 8
   %cmp7.i71.i = icmp eq ptr %call6.i70.i, null
   br i1 %cmp7.i71.i, label %_bufferedreader_read_generic.exit.i, label %if.end9.i.i
@@ -5350,7 +5350,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5382,7 +5382,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then

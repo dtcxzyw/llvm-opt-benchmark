@@ -80,7 +80,7 @@ _ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i: ; pred
 .critedge.i.i:                                    ; preds = %26, %23
   %.0.lcssa.i.i = phi i32 [ %27, %26 ], [ %.07.i.i, %23 ]
   %29 = zext nneg i32 %.0.lcssa.i.i to i64
-  invoke void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %29)
+  invoke void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %29)
           to label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit unwind label %30
 
 30:                                               ; preds = %.critedge.i.i

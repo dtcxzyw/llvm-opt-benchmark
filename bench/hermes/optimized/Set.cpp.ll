@@ -485,7 +485,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKin
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKindE49EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
   %14 = inttoptr i64 %and.i.i.i.i.i6 to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %data_.i, ptr noundef %14) #5
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %data_.i, ptr noundef %14) #5
   br label %_ZN6hermes2vm17JSMapIteratorImplILNS0_8CellKindE49EE18initializeIteratorERNS0_7RuntimeENS0_6HandleINS0_9JSMapImplILS2_47EEEEENS0_13IterationKindE.exit
 
 _ZN6hermes2vm17JSMapIteratorImplILNS0_8CellKindE49EE18initializeIteratorERNS0_7RuntimeENS0_6HandleINS0_9JSMapImplILS2_47EEEEENS0_13IterationKindE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKindE49EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit, %if.then.i.i.i.i
@@ -843,7 +843,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKin
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKindE49EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
   %14 = inttoptr i64 %and.i.i.i.i.i6 to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %data_.i, ptr noundef %14) #5
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %data_.i, ptr noundef %14) #5
   br label %_ZN6hermes2vm17JSMapIteratorImplILNS0_8CellKindE49EE18initializeIteratorERNS0_7RuntimeENS0_6HandleINS0_9JSMapImplILS2_47EEEEENS0_13IterationKindE.exit
 
 _ZN6hermes2vm17JSMapIteratorImplILNS0_8CellKindE49EE18initializeIteratorERNS0_7RuntimeENS0_6HandleINS0_9JSMapImplILS2_47EEEEENS0_13IterationKindE.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_17JSMapIteratorImplILNS0_8CellKindE49EEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit, %if.then.i.i.i.i
@@ -1004,7 +1004,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_14OrderedHashMapEEENS0_6HandleIT_
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_14OrderedHashMapEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i
   %18 = inttoptr i64 %and.i.i.i.i.i to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %storage_.i, ptr noundef %18) #5
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %storage_.i, ptr noundef %18) #5
   br label %_ZN6hermes2vm9GCPointerINS0_14OrderedHashMapEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit.i
 
 _ZN6hermes2vm9GCPointerINS0_14OrderedHashMapEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_14OrderedHashMapEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i
@@ -1507,7 +1507,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %itr_, ptr noundef %call3.i) #5
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %itr_, ptr noundef %call3.i) #5
   br label %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit: ; preds = %if.then, %if.then.i.i.i

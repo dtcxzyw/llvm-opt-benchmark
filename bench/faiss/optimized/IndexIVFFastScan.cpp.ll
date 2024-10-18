@@ -3836,7 +3836,7 @@ define void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKflPfPlRKNS0
 49:                                               ; preds = %.thread, %47, %45
   %50 = phi i32 [ %48, %47 ], [ %.pr, %45 ], [ %.pr, %.thread ]
   %.0 = phi i1 [ false, %47 ], [ false, %45 ], [ %44, %.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
   %51 = getelementptr inbounds i8, ptr %17, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   %52 = getelementptr inbounds i8, ptr %17, i64 16
@@ -4151,7 +4151,7 @@ define void @_ZNK5faiss16IndexIVFFastScan28range_search_dispatch_implemElPKffRNS
 
 32:                                               ; preds = %.sink.split, %25
   %.pr = phi i32 [ %27, %25 ], [ %., %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %33 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, i8 0, i64 48, i1 false)
   %34 = icmp sgt i64 %1, 1
@@ -7282,7 +7282,7 @@ define internal void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKfl
   %52 = getelementptr inbounds float, ptr %49, i64 %51
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i64, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   store i64 %46, ptr %33, align 8
   store i64 %48, ptr %34, align 8
@@ -7310,7 +7310,7 @@ _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQ
   %65 = sext i32 %64 to i64
   %66 = mul i64 %46, %65
   %67 = getelementptr inbounds float, ptr %61, i64 %66
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_125CoarseQuantizedWithBuffer8quantizeEPKNS_5IndexElPKf(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull %60, i64 noundef %62, ptr noundef %67)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_125CoarseQuantizedWithBuffer8quantizeEPKNS_5IndexElPKf(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull %60, i64 noundef %62, ptr noundef %67)
           to label %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit.thread._ZN5faiss12_GLOBAL__N_120CoarseQuantizedSlice14quantize_sliceEPKNS_5IndexEPKf.exit_crit_edge unwind label %108
 
 _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit.thread._ZN5faiss12_GLOBAL__N_120CoarseQuantizedSlice14quantize_sliceEPKNS_5IndexEPKf.exit_crit_edge: ; preds = %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit.thread
@@ -16584,7 +16584,7 @@ define internal void @_ZNK5faiss16IndexIVFFastScan28range_search_dispatch_implem
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = mul nsw i64 %43, %indvars.iv.next
   %49 = sdiv i64 %48, %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   store i64 %47, ptr %33, align 8
   store i64 %49, ptr %34, align 8
@@ -16611,7 +16611,7 @@ _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQ
   %60 = sext i32 %59 to i64
   %61 = mul i64 %47, %60
   %62 = getelementptr inbounds float, ptr %56, i64 %61
-  invoke fastcc void @_ZN5faiss12_GLOBAL__N_125CoarseQuantizedWithBuffer8quantizeEPKNS_5IndexElPKf(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull %55, i64 noundef %57, ptr noundef %62)
+  invoke fastcc void @_ZN5faiss12_GLOBAL__N_125CoarseQuantizedWithBuffer8quantizeEPKNS_5IndexElPKf(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull %55, i64 noundef %57, ptr noundef %62)
           to label %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSlice14quantize_sliceEPKNS_5IndexEPKf.exit unwind label %.loopexit
 
 _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSlice14quantize_sliceEPKNS_5IndexEPKf.exit: ; preds = %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit, %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit.thread
@@ -16626,7 +16626,7 @@ _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSlice14quantize_sliceEPKNS_5IndexEPKf.ex
 67:                                               ; preds = %65
   %68 = load float, ptr %11, align 4
   %69 = load ptr, ptr %38, align 8
-  invoke void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMaxItlEELb1EEC2ERNS_17RangeSearchResultEfm(ptr noundef nonnull align 8 dereferenceable(184) %66, ptr noundef nonnull align 8 dereferenceable(48) %69, float noundef %68, i64 noundef 0)
+  invoke void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMaxItlEELb1EEC2ERNS_17RangeSearchResultEfm(ptr noundef nonnull align 8 dereferenceable(192) %66, ptr noundef nonnull align 8 dereferenceable(48) %69, float noundef %68, i64 noundef 0)
           to label %_ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %.loopexit
 
 _ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %67
@@ -16640,7 +16640,7 @@ _ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EE5res
 72:                                               ; preds = %70
   %73 = load float, ptr %11, align 4
   %74 = load ptr, ptr %38, align 8
-  invoke void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMinItlEELb1EEC2ERNS_17RangeSearchResultEfm(ptr noundef nonnull align 8 dereferenceable(184) %71, ptr noundef nonnull align 8 dereferenceable(48) %74, float noundef %73, i64 noundef 0)
+  invoke void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMinItlEELb1EEC2ERNS_17RangeSearchResultEfm(ptr noundef nonnull align 8 dereferenceable(192) %71, ptr noundef nonnull align 8 dereferenceable(48) %74, float noundef %73, i64 noundef 0)
           to label %_ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EE5resetEPS1_.exit41 unwind label %.loopexit
 
 _ZNSt10unique_ptrIN5faiss24SIMDResultHandlerToFloatESt14default_deleteIS1_EE5resetEPS1_.exit41: ; preds = %72
@@ -16751,7 +16751,7 @@ _ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceD2Ev.exit: ; preds = %_ZNSt6vectorI
   br label %_ZN5faiss24RangeSearchPartialResultD2Ev.exit
 
 _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %115, %118
-  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #22
+  call void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %15) #22
   ret void
 
 .loopexit:                                        ; preds = %65, %70, %89, %90, %_ZN5faiss12_GLOBAL__N_120CoarseQuantizedSliceC2ERKNS_16IndexIVFFastScan15CoarseQuantizedEmm.exit.thread, %67, %72

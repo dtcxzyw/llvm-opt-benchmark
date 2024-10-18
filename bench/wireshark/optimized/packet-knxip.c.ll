@@ -1823,7 +1823,7 @@ define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, 
   %25 = load i32, ptr @ett_hpai, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %25) #9
   %27 = load i32, ptr @hf_knxip_structure_length, align 4
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef %17, ptr noundef nonnull @.str.317, i32 noundef %17) #9
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef range(i32 1, 256) %17, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %17) #9
   %29 = add i32 %18, %10
   %30 = add i32 %10, 1
   %.not.not = icmp eq i8 %16, 8
@@ -2067,7 +2067,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
   %25 = load i32, ptr @ett_dib, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #9
   %27 = load i32, ptr @hf_knxip_structure_length, align 4
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.317, i32 noundef %15) #9
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef range(i32 1, 256) %15, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %15) #9
   %29 = add i32 %13, 1
   %30 = icmp ult i32 %12, %15
   br i1 %30, label %31, label %33
@@ -2248,7 +2248,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   %58 = load i32, ptr @ett_dib, align 4
   %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #9
   %60 = load i32, ptr @hf_knxip_structure_length, align 4
-  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.317, i32 noundef %53) #9
+  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef range(i32 1, 256) %53, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %53) #9
   %62 = add i32 %47, 1
   %63 = icmp uge i32 %48, %53
   br i1 %63, label %67, label %64
@@ -3299,7 +3299,7 @@ define internal fastcc void @dissect_cri(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = load i32, ptr @ett_cri, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %24) #9
   %26 = load i32, ptr @hf_knxip_structure_length, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.317, i32 noundef %16) #9
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef range(i32 1, 256) %16, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %16) #9
   %28 = icmp slt i32 %10, %16
   br i1 %28, label %29, label %32
 
@@ -3520,7 +3520,7 @@ define internal fastcc void @dissect_crd(ptr noundef %0, ptr noundef %1, ptr nou
   %23 = load i32, ptr @ett_crd, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %23) #9
   %25 = load i32, ptr @hf_knxip_structure_length, align 4
-  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.317, i32 noundef %15) #9
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef range(i32 1, 256) %15, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %15) #9
   %27 = icmp slt i32 %9, %15
   br i1 %27, label %28, label %31
 
@@ -3742,7 +3742,7 @@ define internal fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef %1,
   %25 = load i32, ptr @ett_cnhdr, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %25) #9
   %27 = load i32, ptr @hf_knxip_structure_length, align 4
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.317, i32 noundef %16) #9
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef range(i32 1, 256) %16, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %16) #9
   %29 = add i32 %17, %9
   %30 = add i32 %9, 1
   %31 = icmp eq i8 %15, 4
@@ -3986,7 +3986,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_loss(ptr nound
   %22 = load i32, ptr @ett_loss, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %22) #9
   %24 = load i32, ptr @hf_knxip_structure_length, align 4
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.317, i32 noundef %14) #9
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef range(i32 1, 256) %14, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %14) #9
   %26 = add i32 %21, %7
   %27 = add i32 %7, 1
   %.not = icmp eq i8 %13, 4
@@ -4105,7 +4105,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_routing_busy(ptr nound
   %22 = load i32, ptr @ett_loss, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %22) #9
   %24 = load i32, ptr @hf_knxip_structure_length, align 4
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.317, i32 noundef %14) #9
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef range(i32 1, 256) %14, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %14) #9
   %26 = add i32 %15, %7
   %27 = add i32 %7, 1
   %.not = icmp eq i8 %13, 6
@@ -4233,7 +4233,7 @@ define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef 
   %24 = load i32, ptr @ett_loss, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %24) #9
   %26 = load i32, ptr @hf_knxip_structure_length, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %16, ptr noundef nonnull @.str.317, i32 noundef %16) #9
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef range(i32 1, 256) %16, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %16) #9
   %28 = add i32 %17, %9
   %29 = add i32 %9, 1
   %30 = icmp slt i32 %10, %16
@@ -4802,7 +4802,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %.0102133, i64 12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @knxip_ccm_calc_cbc_mac(ptr noundef nonnull %8, ptr noundef nonnull %76, ptr noundef %61, i32 noundef %58, ptr noundef null, i32 noundef 0, ptr noundef %70, i8 noundef zeroext 14) #9
+  call void @knxip_ccm_calc_cbc_mac(ptr noundef nonnull %8, ptr noundef nonnull %76, ptr noundef %61, i32 noundef range(i32 0, 256) %58, ptr noundef null, i32 noundef 0, ptr noundef %70, i8 noundef zeroext 14) #9
   %77 = call ptr @knxip_ccm_encrypt(ptr noundef nonnull %8, ptr noundef nonnull %76, ptr noundef null, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %70, i8 noundef zeroext 14) #9
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %71, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %.not125 = icmp eq i32 %bcmp.i, 0
@@ -4840,7 +4840,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   %indvars.iv = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next, %83 ]
   %88 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @knxip_ccm_calc_cbc_mac(ptr noundef nonnull %7, ptr noundef %88, ptr noundef %61, i32 noundef %58, ptr noundef null, i32 noundef 0, ptr noundef %81, i8 noundef zeroext 14) #9
+  call void @knxip_ccm_calc_cbc_mac(ptr noundef nonnull %7, ptr noundef %88, ptr noundef %61, i32 noundef range(i32 0, 256) %58, ptr noundef null, i32 noundef 0, ptr noundef %81, i8 noundef zeroext 14) #9
   %89 = call ptr @knxip_ccm_encrypt(ptr noundef nonnull %7, ptr noundef %88, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %81, i8 noundef zeroext 14) #9
   %bcmp.i124 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %82, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not126 = icmp eq i32 %bcmp.i124, 0

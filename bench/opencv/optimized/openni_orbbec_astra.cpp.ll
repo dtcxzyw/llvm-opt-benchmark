@@ -400,7 +400,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i50: ; preds = %119
 143:                                              ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit
   store ptr %7, ptr %12, align 8
   store i8 0, ptr %127, align 8
-  %144 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #13
+  %144 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   %.not.i.i.i = icmp eq i32 %144, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %145
 
@@ -480,7 +480,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %143
   br i1 %.not.i, label %.invoke191, label %163
 
 163:                                              ; preds = %161
-  %164 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %162) #13
+  %164 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %162) #13
   %.not.i.i58 = icmp eq i32 %164, 0
   br i1 %.not.i.i58, label %_ZNSt11unique_lockISt5mutexE4lockEv.exit, label %.invoke191
 
@@ -537,7 +537,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %188 = getelementptr inbounds i8, ptr %185, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %188) #13
-  call void @_ZdlPv(ptr noundef %185) #16
+  call void @_ZdlPv(ptr noundef nonnull %185) #16
   br label %243, !llvm.loop !7
 
 189:                                              ; preds = %_ZN5FrameC2ERKS_.exit
@@ -568,7 +568,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %195) #13
   %198 = getelementptr inbounds i8, ptr %195, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %198) #13
-  call void @_ZdlPv(ptr noundef %195) #16
+  call void @_ZdlPv(ptr noundef nonnull %195) #16
   br label %243, !llvm.loop !7
 
 199:                                              ; preds = %191
@@ -579,7 +579,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %200) #13
   %203 = getelementptr inbounds i8, ptr %200, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %203) #13
-  call void @_ZdlPv(ptr noundef %200) #16
+  call void @_ZdlPv(ptr noundef nonnull %200) #16
   %204 = load ptr, ptr %6, align 8
   %205 = load i64, ptr %97, align 8
   %206 = add i64 %205, -1
@@ -587,7 +587,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %204) #13
   %207 = getelementptr inbounds i8, ptr %204, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %207) #13
-  call void @_ZdlPv(ptr noundef %204) #16
+  call void @_ZdlPv(ptr noundef nonnull %204) #16
   %208 = load i8, ptr %127, align 8
   %209 = trunc i8 %208 to i1
   br i1 %209, label %211, label %210
@@ -605,7 +605,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   br i1 %.not.i65, label %215, label %213
 
 213:                                              ; preds = %211
-  %214 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %212) #13
+  %214 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %212) #13
   store i8 0, ptr %127, align 8
   br label %215
 
@@ -762,7 +762,7 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   br i1 %.not.i.i67, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %255
 
 255:                                              ; preds = %253
-  %256 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %254) #13
+  %256 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %254) #13
   store i8 0, ptr %127, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -783,7 +783,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.critedge4, %253, %
   br i1 %.not.i.i68, label %_ZNSt11unique_lockISt5mutexED2Ev.exit69, label %263
 
 263:                                              ; preds = %261
-  %264 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %262) #13
+  %264 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %262) #13
   store i8 0, ptr %127, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit69
 
@@ -825,7 +825,7 @@ _ZNSt6threadD2Ev.exit73:                          ; preds = %_ZNSt6threadD2Ev.ex
   %270 = load ptr, ptr %.09.i.i.i, align 8
   %271 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %271) #13
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #16
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #16
   %.not.i.i.i74 = icmp eq ptr %270, %6
   br i1 %.not.i.i.i74, label %_ZNSt7__cxx114listI5FrameSaIS1_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !9
 
@@ -839,7 +839,7 @@ _ZNSt7__cxx114listI5FrameSaIS1_EED2Ev.exit:       ; preds = %.lr.ph.i.i.i, %_ZNS
   %273 = load ptr, ptr %.09.i.i.i77, align 8
   %274 = getelementptr inbounds i8, ptr %.09.i.i.i77, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %274) #13
-  call void @_ZdlPv(ptr noundef %.09.i.i.i77) #16
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i77) #16
   %.not.i.i.i78 = icmp eq ptr %273, %5
   br i1 %.not.i.i.i78, label %_ZNSt7__cxx114listI5FrameSaIS1_EED2Ev.exit79, label %.lr.ph.i.i.i76, !llvm.loop !9
 
@@ -954,7 +954,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listI5FrameSaIS1_EED2Ev(ptr nound
   %3 = load ptr, ptr %.09.i.i, align 8
   %4 = getelementptr inbounds i8, ptr %.09.i.i, i64 24
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
-  tail call void @_ZdlPv(ptr noundef %.09.i.i) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #16
   %.not.i.i = icmp eq ptr %3, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseI5FrameSaIS1_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !9
 
@@ -995,7 +995,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1073,7 +1073,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %12, align 8
-  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %33) #13
+  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   %.not.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i, label %35
 
@@ -1098,7 +1098,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i: ; preds = %32
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #13
   %43 = getelementptr inbounds i8, ptr %41, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #13
-  call void @_ZdlPv(ptr noundef %41) #16
+  call void @_ZdlPv(ptr noundef nonnull %41) #16
   %.pre.i.i.i.i.i = load ptr, ptr %13, align 8
   br label %44
 
@@ -1122,12 +1122,12 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i: ; 
   br label %.body.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %.noexc6.i.i.i.i.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull %45) #13
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(24) %45) #13
   %51 = getelementptr inbounds i8, ptr %45, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 1
   store i64 %53, ptr %51, align 8
-  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
+  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   %55 = load ptr, ptr %14, align 8
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %55) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
@@ -1144,7 +1144,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i: ; 
 
 .body.i.i.i.i.i:                                  ; preds = %57, %_ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %58, %57 ], [ %50, %_ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i ]
-  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
+  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   br label %60
 
 60:                                               ; preds = %.body.i.i.i.i.i, %30, %.loopexit.split-lp.i.i.i.i.i, %.loopexit10.i.i.i.i.i
@@ -1192,7 +1192,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -1270,7 +1270,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ4mainE3
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %12, align 8
-  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %33) #13
+  %34 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   %.not.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i, label %35
 
@@ -1295,7 +1295,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i.i: ; preds = %32
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #13
   %43 = getelementptr inbounds i8, ptr %41, i64 24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #13
-  call void @_ZdlPv(ptr noundef %41) #16
+  call void @_ZdlPv(ptr noundef nonnull %41) #16
   %.pre.i.i.i.i.i = load ptr, ptr %13, align 8
   br label %44
 
@@ -1319,12 +1319,12 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i: ; 
   br label %.body.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %.noexc6.i.i.i.i.i
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull %45) #13
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(24) %45) #13
   %51 = getelementptr inbounds i8, ptr %45, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 1
   store i64 %53, ptr %51, align 8
-  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
+  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   %55 = load ptr, ptr %14, align 8
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %55) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
@@ -1341,7 +1341,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i: ; 
 
 .body.i.i.i.i.i:                                  ; preds = %57, %_ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %58, %57 ], [ %50, %_ZNSt15__allocated_ptrISaISt10_List_nodeI5FrameEEED2Ev.exit9.i.i.i.i.i.i.i.i ]
-  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
+  %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #13
   br label %60
 
 60:                                               ; preds = %.body.i.i.i.i.i, %30, %.loopexit.split-lp.i.i.i.i.i, %.loopexit10.i.i.i.i.i

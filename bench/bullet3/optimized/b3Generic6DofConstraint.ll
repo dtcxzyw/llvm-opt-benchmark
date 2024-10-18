@@ -59,7 +59,7 @@ invoke.cont2:
   tail call void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64) %this, i32 noundef 6, i32 noundef %rbA, i32 noundef %rbB)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23b3Generic6DofConstraint, i64 16), ptr %this, align 16
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 16 dereferenceable(16) %frameInA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 16 dereferenceable(64) %frameInA, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %frameInA, i64 16
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
@@ -70,7 +70,7 @@ invoke.cont2:
   %m_origin3.i = getelementptr inbounds i8, ptr %frameInA, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i, ptr noundef nonnull align 16 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 16 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 16 dereferenceable(64) %frameInB, i64 16, i1 false)
   %arrayidx6.i.i1 = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx8.i.i2 = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i2, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i.i1, i64 16, i1 false)
@@ -82,7 +82,7 @@ invoke.cont2:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i5, ptr noundef nonnull align 16 dereferenceable(16) %m_origin3.i6, i64 16, i1 false)
   %m_linearLimits = getelementptr inbounds i8, ptr %this, i64 192
   %m_stopERP17.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_linearLimits, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(188) %m_linearLimits, i8 0, i64 64, i1 false)
   store float 0x3FC99999A0000000, ptr %m_stopERP17.i, align 16
   %arrayidx2.i14.i = getelementptr inbounds i8, ptr %this, i64 260
   store float 0x3FC99999A0000000, ptr %arrayidx2.i14.i, align 4
@@ -1438,7 +1438,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i, align 4, !alias.scope !34
   %m_origin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(80) %arrayidx, i64 16, i1 false)
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %m_rbB, align 8
   %idxprom3 = sext i32 %8 to i64
@@ -1505,7 +1505,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i53 = getelementptr inbounds i8, ptr %ref.tmp2, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i53, align 4, !alias.scope !37
   %m_origin.i.i54 = getelementptr inbounds i8, ptr %ref.tmp2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i54, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i54, ptr noundef nonnull readonly align 16 dereferenceable(80) %arrayidx4, i64 16, i1 false)
   call void @_ZN23b3Generic6DofConstraint19calculateTransformsERK11b3TransformS2_PK15b3RigidBodyData(ptr noundef nonnull align 16 dereferenceable(824) %this, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp2, ptr noundef %bodies)
   store i32 0, ptr %info, align 4
   %nub = getelementptr inbounds i8, ptr %info, i64 4
@@ -1735,7 +1735,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i, align 4, !alias.scope !42
   %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull readonly align 16 dereferenceable(80) %arrayidx, i64 16, i1 false)
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %m_rbB, align 8
   %idxprom2 = sext i32 %8 to i64
@@ -1802,7 +1802,7 @@ entry:
   %arrayidx4.i6.i.i.i.i.i61 = getelementptr inbounds i8, ptr %transB, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i.i.i61, align 4, !alias.scope !45
   %m_origin.i.i62 = getelementptr inbounds i8, ptr %transB, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i62, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i.i62, ptr noundef nonnull readonly align 16 dereferenceable(80) %arrayidx3, i64 16, i1 false)
   %m_linVel = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %m_linVel10 = getelementptr inbounds i8, ptr %arrayidx3, i64 32
   %m_angVel = getelementptr inbounds i8, ptr %arrayidx, i64 48
@@ -3112,7 +3112,7 @@ entry:
 define dso_local void @_ZN23b3Generic6DofConstraint9setFramesERK11b3TransformS2_PK15b3RigidBodyData(ptr nocapture noundef nonnull align 16 dereferenceable(824) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %frameA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %frameB, ptr nocapture noundef readonly %bodies) local_unnamed_addr #2 align 2 {
 entry:
   %m_frameInA = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_frameInA, ptr noundef nonnull align 16 dereferenceable(16) %frameA, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 16 dereferenceable(64) %frameA, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %frameA, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -3123,7 +3123,7 @@ entry:
   %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 16 dereferenceable(16) %m_origin.i, i64 16, i1 false)
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 16 dereferenceable(16) %frameB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %m_frameInB, ptr noundef nonnull align 16 dereferenceable(64) %frameB, i64 16, i1 false)
   %arrayidx5.i.i1 = getelementptr inbounds i8, ptr %frameB, i64 16
   %arrayidx7.i.i2 = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx7.i.i2, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx5.i.i1, i64 16, i1 false)

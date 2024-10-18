@@ -1708,7 +1708,7 @@ define internal fastcc noundef range(i32 1, -2147483648) i32 @decode_params(ptr 
 
 151:                                              ; preds = %142
   %152 = load i32, ptr @hf_ocp1_params, align 4
-  %153 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %152, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %153 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %152, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaRoot.exit
 
 decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %151
@@ -2079,7 +2079,7 @@ decode_params_OcaRoot.exit:                       ; preds = %124, %137, %144, %1
 
 352:                                              ; preds = %343
   %353 = load i32, ptr @hf_ocp1_params, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %353, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %354 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %353, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaDeviceManager.exit
 
 decode_params_OcaDeviceManager.exit:              ; preds = %.lr.ph366.i, %158, %165, %178, %187, %197, %206, %214, %223, %232, %241, %250, %257, %264, %274, %286, %293, %302, %._crit_edge.i, %345, %352
@@ -2196,7 +2196,7 @@ decode_params_OcaDeviceManager.exit:              ; preds = %.lr.ph366.i, %158, 
 
 421:                                              ; preds = %410
   %422 = load i32, ptr @hf_ocp1_params, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %422, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %423 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %422, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaSecurityManager.exit
 
 decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %421
@@ -2382,7 +2382,7 @@ decode_params_OcaSecurityManager.exit:            ; preds = %358, %385, %414, %4
 
 548:                                              ; preds = %514
   %549 = load i32, ptr @hf_ocp1_params, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %549, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %550 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %549, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaFirmwareManager.exit
 
 decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i116, %428, %463, %472, %496, %518, %548
@@ -2674,7 +2674,7 @@ decode_params_OcaFirmwareManager.exit:            ; preds = %.lr.ph.i116, %428, 
 
 781:                                              ; preds = %772
   %782 = load i32, ptr @hf_ocp1_params, align 4
-  %783 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %782, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %783 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %782, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaSubscriptionManager.exit
 
 decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %740, %776, %781
@@ -2837,7 +2837,7 @@ decode_params_OcaSubscriptionManager.exit:        ; preds = %555, %630, %664, %7
 
 863:                                              ; preds = %856
   %864 = load i32, ptr @hf_ocp1_params, align 4
-  %865 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %864, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %865 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %864, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaPowerManager.exit
 
 decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.ph147.i, %787, %796, %803, %821, %841, %858, %863
@@ -2991,7 +2991,7 @@ decode_params_OcaPowerManager.exit:               ; preds = %.lr.ph.i124, %.lr.p
 
 939:                                              ; preds = %921
   %940 = load i32, ptr @hf_ocp1_params, align 4
-  %941 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %940, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %941 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %940, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaNetworkManager.exit
 
 decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.ph141.i, %.lr.ph145.i, %.lr.ph149.i, %869, %887, %905, %923, %939
@@ -3106,7 +3106,7 @@ decode_params_OcaNetworkManager.exit:             ; preds = %.lr.ph.i129, %.lr.p
 
 996:                                              ; preds = %978
   %997 = load i32, ptr @hf_ocp1_params, align 4
-  %998 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %997, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %998 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %997, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaMediaClockManager.exit
 
 decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i135, %.lr.ph108.i, %.lr.ph112.i, %945, %963, %980, %996
@@ -3274,7 +3274,7 @@ decode_params_OcaMediaClockManager.exit:          ; preds = %.lr.ph.i135, %.lr.p
 
 1080:                                             ; preds = %1075
   %1081 = load i32, ptr @hf_ocp1_params, align 4
-  %1082 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1081, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1082 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1081, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaLibraryManager.exit
 
 decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i143, %1002, %1011, %1023, %1030, %1038, %1045, %1049, %1072, %1077, %1080
@@ -3291,7 +3291,7 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i143, %1002,
 
 1083:                                             ; preds = %154
   %1084 = load i32, ptr @hf_ocp1_params, align 4
-  %1085 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1084, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1085 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1084, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %1458
 
 1086:                                             ; preds = %154
@@ -3410,7 +3410,7 @@ decode_params_OcaLibraryManager.exit:             ; preds = %.lr.ph.i143, %1002,
 
 1144:                                             ; preds = %1139
   %1145 = load i32, ptr @hf_ocp1_params, align 4
-  %1146 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1145, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1146 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1145, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaDeviceTimeManager.exit
 
 decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i151, %1089, %1097, %1104, %1122, %1129, %1136, %1141, %1144
@@ -3826,7 +3826,7 @@ decode_params_OcaDeviceTimeManager.exit:          ; preds = %.lr.ph.i151, %1089,
 
 1401:                                             ; preds = %1394
   %1402 = load i32, ptr @hf_ocp1_params, align 4
-  %1403 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1402, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1403 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1402, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaTaskManager.exit
 
 decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i162, %1324, %.lr.ph395.i, %1150, %1158, %1184, %1214, %1245, %1252, %1257, %1263, %1280, %._crit_edge.i165, %1338, %1356, %1385, %1396, %1401, %1268, %1344, %1368
@@ -3908,7 +3908,7 @@ decode_params_OcaTaskManager.exit:                ; preds = %.lr.ph.i162, %1324,
 
 1428:                                             ; preds = %1404
   %1429 = load i32, ptr @hf_ocp1_params, align 4
-  %1430 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1429, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1430 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1429, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaCodingManager.exit
 
 decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph63.i, %._crit_edge.i174, %1428
@@ -3949,7 +3949,7 @@ decode_params_OcaCodingManager.exit:              ; preds = %.lr.ph63.i, %._crit
 
 1449:                                             ; preds = %1439
   %1450 = load i32, ptr @hf_ocp1_params, align 4
-  %1451 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1450, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #6
+  %1451 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %1450, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef 0) #6
   br label %decode_params_OcaDiagnosticManager.exit
 
 decode_params_OcaDiagnosticManager.exit:          ; preds = %1434, %1442, %1449

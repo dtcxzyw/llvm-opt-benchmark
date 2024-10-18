@@ -574,7 +574,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
 invoke.cont15:                                    ; preds = %invoke.cont13
   %fullName.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %0 = load ptr, ptr %fullName.i, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName)
           to label %.noexc unwind label %lpad16
 
 .noexc:                                           ; preds = %invoke.cont15
@@ -588,7 +588,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #10
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #10
   br label %lpad16.body
 
 invoke.cont19:                                    ; preds = %.noexc
@@ -666,7 +666,7 @@ lpad20.loopexit.split-lp:                         ; preds = %invoke.cont19
 
 lpad20:                                           ; preds = %lpad20.loopexit.split-lp, %lpad20.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #10
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #10
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont27, %invoke.cont21
@@ -1062,7 +1062,7 @@ define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev(
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 792
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #10
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #10
   %beforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert) #10
   %afterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 664
@@ -1091,7 +1091,7 @@ define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD0Ev(
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 16), ptr %this, align 8
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 792
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #10
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName.i) #10
   %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #10
   %afterPrefixInsert.i = getelementptr inbounds i8, ptr %this, i64 664
@@ -1111,7 +1111,7 @@ _ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit: ; preds = %arraydest
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency2.i) #10
   %fCurrency1.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency1.i) #10
-  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #10
+  tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(856) %this) #10
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #10
   ret void
 }

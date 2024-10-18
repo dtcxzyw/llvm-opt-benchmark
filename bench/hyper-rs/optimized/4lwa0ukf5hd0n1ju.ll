@@ -178,7 +178,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he50ff36318313e8aE.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %19
   %.0.i.i.i = phi i8 [ %22, %19 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit ]
   %23 = getelementptr inbounds i8, ptr %6, i64 20
-  %24 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h19072bbcd7d03f21E.llvm.4793779776936200877(ptr noundef nonnull %23, i8 noundef 0), !noalias !62
+  %24 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h19072bbcd7d03f21E.llvm.4793779776936200877(ptr noundef nonnull align 1 %23, i8 noundef 0), !noalias !62
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h33b222dedd73d0cdE.exit", label %25
 

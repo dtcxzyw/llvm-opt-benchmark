@@ -53,7 +53,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoIdentifyStream(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %11 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %6, i32 noundef -1, ptr noundef %5, ptr noundef %4)
+  %11 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %6, i32 noundef -1, ptr noundef %5, ptr noundef %4)
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %13, label %ParseFtyp.exit
@@ -245,7 +245,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr
   store i32 0, ptr %11, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(244) %12, i8 0, i64 244, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
-  %20 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef -1, ptr noundef %11, ptr noundef %9)
+  %20 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %9)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %.thread
 
@@ -293,7 +293,7 @@ define hidden range(i32 0, 4) i32 @AvifInfoGetFeaturesStream(ptr noundef %0, ptr
 
 53:                                               ; preds = %AvifInfoInternalSkip.exit.thread.i.i, %29
   %.036.i.i = phi i32 [ %28, %29 ], [ %484, %AvifInfoInternalSkip.exit.thread.i.i ]
-  %54 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef %.036.i.i, ptr noundef %11, ptr noundef %8)
+  %54 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.036.i.i, ptr noundef nonnull %11, ptr noundef %8)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %ParseFile.exit.thread17
 
@@ -399,7 +399,7 @@ AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.preheader.i.i
 
 98:                                               ; preds = %AvifInfoInternalSkip.exit.thread.i.i.i, %85
   %.070.i.i.i = phi i32 [ %86, %85 ], [ %381, %AvifInfoInternalSkip.exit.thread.i.i.i ]
-  %99 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef %.070.i.i.i, ptr noundef %11, ptr noundef %7)
+  %99 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.070.i.i.i, ptr noundef nonnull %11, ptr noundef %7)
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %ParseIprp.exit.i.i
 
@@ -426,7 +426,7 @@ AvifInfoInternalReadBigEndian.exit.i.i:           ; preds = %.preheader.i.i
   %108 = phi i8 [ %.promoted398, %103 ], [ %273, %AvifInfoInternalSkip.exit.thread.i.i.i.i ]
   %.0116.i.i.i.i = phi i32 [ 1, %103 ], [ %274, %AvifInfoInternalSkip.exit.thread.i.i.i.i ]
   %.0115.i.i.i.i = phi i32 [ %102, %103 ], [ %276, %AvifInfoInternalSkip.exit.thread.i.i.i.i ]
-  %109 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef %.0115.i.i.i.i, ptr noundef %11, ptr noundef %6)
+  %109 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.0115.i.i.i.i, ptr noundef nonnull %11, ptr noundef %6)
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %ParseIpco.exit.i.i.i
 
@@ -1096,7 +1096,7 @@ AvifInfoInternalReadBigEndian.exit111.i.i.i:      ; preds = %AvifInfoInternalRea
 346:                                              ; preds = %.loopexit.i.i.i
   %347 = load i8, ptr %40, align 2
   %348 = zext i8 %347 to i32
-  %349 = call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef %12, i32 noundef %348, i32 noundef 0)
+  %349 = call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %12, i32 noundef %348, i32 noundef 0)
   %350 = icmp eq i32 %349, 0
   br i1 %350, label %351, label %357
 
@@ -1217,7 +1217,7 @@ ParseIprp.exit.i.i:                               ; preds = %98
 
 389:                                              ; preds = %AvifInfoInternalGetPrimaryItemFeatures.exit.thread.i.i.i, %384
   %.046.i.i.i = phi i32 [ %385, %384 ], [ %466, %AvifInfoInternalGetPrimaryItemFeatures.exit.thread.i.i.i ]
-  %390 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef %.046.i.i.i, ptr noundef %11, ptr noundef %5)
+  %390 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef %.046.i.i.i, ptr noundef nonnull %11, ptr noundef %5)
   %391 = icmp eq i32 %390, 0
   br i1 %391, label %392, label %ParseIref.exit.i.i
 
@@ -1359,7 +1359,7 @@ AvifInfoInternalReadBigEndian.exit69.i.i.i:       ; preds = %AvifInfoInternalRea
 442:                                              ; preds = %.loopexit.i86.i.i
   %443 = load i8, ptr %40, align 2
   %444 = zext i8 %443 to i32
-  %445 = call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef %12, i32 noundef %444, i32 noundef 0)
+  %445 = call fastcc i32 @AvifInfoInternalGetItemFeatures(ptr noundef nonnull %12, i32 noundef %444, i32 noundef 0)
   %446 = icmp eq i32 %445, 0
   br i1 %446, label %447, label %AvifInfoInternalGetPrimaryItemFeatures.exit.thread.i.i.i
 
@@ -1516,7 +1516,7 @@ AvifInfoInternalSkip.exit.thread.i.i:             ; preds = %480, %._crit_edge.i
   br label %AvifInfoInternalSkip.exit.i
 
 AvifInfoInternalSkip.exit.i:                      ; preds = %496, %._crit_edge.i.i, %487
-  %498 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef readonly %10, i32 noundef -1, ptr noundef %11, ptr noundef %9)
+  %498 = call fastcc i32 @AvifInfoInternalParseBox(ptr noundef nonnull readonly %10, i32 noundef -1, ptr noundef nonnull %11, ptr noundef %9)
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %27, label %.thread
 

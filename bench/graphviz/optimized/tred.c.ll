@@ -28,7 +28,7 @@ define void @graphviz_tred(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %5 = add nsw i32 %4, 1
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 1
-  %8 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %7) #13
+  %8 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -4294967294, 4294967295) %7) #13
   %9 = icmp ne i32 %5, 0
   %10 = icmp eq ptr %8, null
   %or.cond3.i.i = and i1 %9, %10
@@ -36,7 +36,7 @@ define void @graphviz_tred(ptr noundef %0, ptr nocapture noundef readonly %1) lo
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %7) #14
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef range(i64 -4294967294, 4294967295) %7) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 

@@ -2728,7 +2728,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %_build_key.exit.i
 
 262:                                              ; preds = %256
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i.i = load ptr, ptr %10, align 8
   br label %_build_key.exit.i
 
@@ -2769,7 +2769,7 @@ _build_key.exit.i:                                ; preds = %262, %260
   br label %_build_key.exit24.i
 
 279:                                              ; preds = %273
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.88, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.88, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i23.i = load ptr, ptr %9, align 8
   br label %_build_key.exit24.i
 
@@ -2807,7 +2807,7 @@ _build_key.exit24.i:                              ; preds = %279, %277
   br label %_build_key.exit27.i
 
 295:                                              ; preds = %290
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.90, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.90, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i26.i = load ptr, ptr %8, align 8
   br label %_build_key.exit27.i
 
@@ -2845,7 +2845,7 @@ _build_key.exit27.i:                              ; preds = %295, %293
   br label %_build_key.exit30.i
 
 311:                                              ; preds = %306
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.91, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.91, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i29.i = load ptr, ptr %7, align 8
   br label %_build_key.exit30.i
 
@@ -2889,7 +2889,7 @@ _build_key.exit30.i:                              ; preds = %311, %309
   br label %_build_key.exit33.i
 
 330:                                              ; preds = %325
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.92, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.92, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i32.i = load ptr, ptr %6, align 8
   br label %_build_key.exit33.i
 
@@ -2935,7 +2935,7 @@ _build_key.exit33.i:                              ; preds = %330, %328
   br label %_build_key.exit36.i
 
 349:                                              ; preds = %344
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.93, i32 noundef %254) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.93, i32 noundef range(i32 -2147483647, -2147483648) %254) #16
   %.pre.i35.i = load ptr, ptr %5, align 8
   br label %_build_key.exit36.i
 

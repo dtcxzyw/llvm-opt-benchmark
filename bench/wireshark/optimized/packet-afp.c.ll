@@ -5510,8 +5510,8 @@ define internal fastcc range(i32 2, 311) i32 @parse_vol_bitmap(ptr noundef %0, p
 10:                                               ; preds = %4
   %11 = load i32, ptr @hf_afp_vol_attribute, align 4
   %12 = load i32, ptr @ett_afp_vol_attribute, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @decode_vol_attribute.bitmaps, i32 noundef 0) #7
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #7
+  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 7) %2, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @decode_vol_attribute.bitmaps, i32 noundef 0) #7
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef range(i32 2, 7) %2) #7
   %15 = add nuw nsw i32 %2, 2
   br label %16
 
@@ -6366,7 +6366,7 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
 
 60:                                               ; preds = %53
   %61 = add i32 %.0227274, 16
-  %62 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %61, i32 noundef %7) #7
+  %62 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %61, i32 noundef range(i32 0, -2147483647) %7) #7
   %switch.selectcmp.i = icmp eq i16 %62, -257
   %switch.select.i = select i1 %switch.selectcmp.i, i32 -2147483648, i32 -1
   %switch.selectcmp7.i = icmp eq i16 %62, -2
@@ -6464,7 +6464,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
 111:                                              ; preds = %23
   %112 = load i32, ptr @ett_afp_spotlight_query_line, align 4
   %113 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0227274, i32 noundef 8, i32 noundef %112, ptr noundef null, ptr noundef nonnull @.str.759) #7
-  %114 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef %7) #7
+  %114 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef range(i32 0, -2147483647) %7) #7
   %115 = lshr i64 %114, 32
   %116 = trunc nuw i64 %115 to i32
   %.not.i = icmp ult i64 %114, 4294967296
@@ -6475,7 +6475,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   %.01315.i = phi i32 [ %119, %.lr.ph.i ], [ 0, %111 ]
   %.0.i245 = add i32 %.0.in16.i, 8
   %117 = load i32, ptr @hf_afp_int64, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %117, ptr noundef %0, i32 noundef %.0.i245, i32 noundef 8, i32 noundef %7) #7
+  %118 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %117, ptr noundef %0, i32 noundef %.0.i245, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7) #7
   %119 = add nuw i32 %.01315.i, 1
   %exitcond.not.i = icmp eq i32 %119, %116
   br i1 %exitcond.not.i, label %spotlight_int64.exit, label %.lr.ph.i, !llvm.loop !16
@@ -6488,7 +6488,7 @@ spotlight_int64.exit:                             ; preds = %.lr.ph.i, %111
 122:                                              ; preds = %23
   %123 = load i32, ptr @ett_afp_spotlight_query_line, align 4
   %124 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0227274, i32 noundef 8, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.540) #7
-  %125 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef %7) #7
+  %125 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef range(i32 0, -2147483647) %7) #7
   %126 = lshr i64 %125, 32
   %127 = trunc nuw i64 %126 to i32
   %.not.i246 = icmp ult i64 %125, 4294967296
@@ -6516,7 +6516,7 @@ spotlight_uuid.exit:                              ; preds = %.lr.ph.i247, %122
 135:                                              ; preds = %23
   %136 = load i32, ptr @ett_afp_spotlight_query_line, align 4
   %137 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0227274, i32 noundef 8, i32 noundef %136, ptr noundef null, ptr noundef nonnull @.str.761) #7
-  %138 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef %7) #7
+  %138 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef range(i32 0, -2147483647) %7) #7
   %139 = lshr i64 %138, 32
   %140 = trunc nuw i64 %139 to i32
   %.not.i249 = icmp ult i64 %138, 4294967296
@@ -6527,7 +6527,7 @@ spotlight_uuid.exit:                              ; preds = %.lr.ph.i247, %122
   %.01315.i252 = phi i32 [ %143, %.lr.ph.i250 ], [ 0, %135 ]
   %.0.i253 = add i32 %.0.in16.i251, 8
   %141 = load i32, ptr @hf_afp_float, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %141, ptr noundef %0, i32 noundef %.0.i253, i32 noundef 8, i32 noundef %7) #7
+  %142 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %141, ptr noundef %0, i32 noundef %.0.i253, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7) #7
   %143 = add nuw i32 %.01315.i252, 1
   %exitcond.not.i254 = icmp eq i32 %143, %140
   br i1 %exitcond.not.i254, label %spotlight_float.exit, label %.lr.ph.i250, !llvm.loop !18
@@ -6559,7 +6559,7 @@ spotlight_float.exit:                             ; preds = %.lr.ph.i250, %135
 
 156:                                              ; preds = %154
   %157 = add i32 %.0227274, 16
-  %158 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %157, i32 noundef %7) #7
+  %158 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %157, i32 noundef range(i32 0, -2147483647) %7) #7
   %switch.selectcmp.i256 = icmp eq i16 %158, -257
   %switch.select.i257 = select i1 %switch.selectcmp.i256, i32 -2147483648, i32 -1
   %switch.selectcmp7.i258 = icmp eq i16 %158, -2
@@ -6616,7 +6616,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
 
 188:                                              ; preds = %182
   %189 = add i32 %.0227274, 8
-  %190 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %189, i32 noundef %7) #7
+  %190 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %189, i32 noundef range(i32 0, -2147483647) %7) #7
   %191 = trunc i64 %190 to i32
   %192 = and i32 %191, 65535
   %193 = lshr i32 %191, 16
@@ -6637,7 +6637,7 @@ spotlight_get_utf16_string_byte_order.exit260:    ; preds = %154, %156
   %202 = add nsw i32 %.02022.i, -1
   %.0.i262 = add i32 %.0.in23.i, 8
   %203 = load i32, ptr @hf_afp_cnid, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %203, ptr noundef %0, i32 noundef %.0.i262, i32 noundef 8, i32 noundef %7) #7
+  %204 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %203, ptr noundef %0, i32 noundef %.0.i262, i32 noundef 8, i32 noundef range(i32 0, -2147483647) %7) #7
   %.not.i263 = icmp eq i32 %202, 0
   br i1 %.not.i263, label %spotlight_CNID_array.exit, label %.lr.ph.i261, !llvm.loop !19
 
@@ -6648,7 +6648,7 @@ spotlight_CNID_array.exit:                        ; preds = %.lr.ph.i261, %188, 
 
 207:                                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %208 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef %7) #7
+  %208 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.0227274, i32 noundef range(i32 0, -2147483647) %7) #7
   %209 = lshr i64 %208, 32
   %210 = trunc nuw i64 %209 to i32
   %211 = icmp ugt i64 %208, 90194313215
@@ -6667,7 +6667,7 @@ spotlight_date.exit.thread:                       ; preds = %207
   %.025.i = phi i32 [ %218, %.lr.ph.i265 ], [ 0, %.preheader.i ]
   %.022.in24.i = phi i32 [ %.022.i, %.lr.ph.i265 ], [ %.0227274, %.preheader.i ]
   %.022.i = add i32 %.022.in24.i, 8
-  %213 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.022.i, i32 noundef %7) #7
+  %213 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.022.i, i32 noundef range(i32 0, -2147483647) %7) #7
   %214 = lshr i64 %213, 24
   %215 = add nsw i64 %214, -280878921600
   store i64 %215, ptr %9, align 8

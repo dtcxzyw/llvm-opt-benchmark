@@ -341,7 +341,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i: ; pre
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha0f5f60dcba6196eE.exit.i.i": ; preds = %68
   %76 = load ptr, ptr %7, align 8, !alias.scope !24, !noalias !27, !nonnull !5, !align !35, !noundef !5
   %77 = load ptr, ptr %6, align 8, !alias.scope !27, !noalias !24, !nonnull !5, !align !35, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %76, ptr nonnull readonly %77, i64 %23), !alias.scope !66, !noalias !48
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %76, ptr nonnull readonly align 1 %77, i64 %23), !alias.scope !66, !noalias !48
   %78 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %78, label %"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf22474f97d8b3e5E.exit", label %39
 

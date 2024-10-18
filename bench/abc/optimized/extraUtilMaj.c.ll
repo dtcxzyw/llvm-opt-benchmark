@@ -3872,7 +3872,7 @@ Abc_Clock.exit81:                                 ; preds = %._crit_edge100, %12
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %170
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.27, i32 noundef %175) #21
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.27, i32 noundef range(i32 0, 16) %175) #21
   br label %Vec_MemDumpDigit.exit.i.i
 
 179:                                              ; preds = %170

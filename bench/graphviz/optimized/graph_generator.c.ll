@@ -1516,7 +1516,7 @@ makePath.exit:                                    ; preds = %.lr.ph.i60, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @makeTreeGen(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #16
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 49) 48) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 
@@ -1595,7 +1595,7 @@ gv_alloc.exit:                                    ; preds = %1
 genCnt.exit:                                      ; preds = %31, %gv_alloc.exit
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %34, align 8
-  %35 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #16
+  %35 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 49) 16) #16
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %mkTree.exit
 

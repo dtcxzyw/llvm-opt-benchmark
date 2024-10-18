@@ -653,7 +653,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not.i, label %if.then.i, label %if.end2.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
+  %call.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp.not.i = icmp eq i32 %call.i, 0
   %..i = select i1 %cmp.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -691,7 +691,7 @@ land.lhs.true15.i.i:                              ; preds = %land.lhs.true11.i.i
 ends_with.exit.i.i:                               ; preds = %land.lhs.true15.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %call.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -3
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull readonly dereferenceable(3) @.str.26, i64 3)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %add.ptr2.i.i.i, ptr noundef nonnull dereferenceable(3) @.str.26, i64 3)
   %cmp4.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp4.i.not.i.i, label %if.then8.i, label %check_path.exit.i
 
@@ -701,7 +701,7 @@ check_path.exit.i:                                ; preds = %ends_with.exit.i.i,
   br i1 %tobool7.not.not.i, label %for.cond.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %check_path.exit.i, %ends_with.exit.i.i, %land.lhs.true11.i.i, %land.lhs.true7.i.i, %land.lhs.true4.i.i, %if.end2.i
-  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
+  %call9.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp10.not.i = icmp eq i32 %call9.i, 0
   %.17.i = select i1 %cmp10.not.i, i32 0, i32 -902
   br label %on_request_recv.exit
@@ -719,7 +719,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp18.i, label %if.then20.i, label %if.end26.i
 
 if.then20.i:                                      ; preds = %for.end.i
-  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef %call)
+  %call21.i = tail call fastcc i32 @error_reply(ptr noundef %session, ptr noundef nonnull %call)
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   %.18.i = select i1 %cmp22.not.i, i32 0, i32 -902
   br label %on_request_recv.exit

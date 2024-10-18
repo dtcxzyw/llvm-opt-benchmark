@@ -82,7 +82,7 @@ _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %5
 
 14:                                               ; preds = %_Z12qobject_castIP7QWidgetET_P7QObject.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %15 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ProgressFrame16staticMetaObjectE, i32 1)
+  %15 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ProgressFrame16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP13ProgressFrameEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %20
 
 _ZNK7QObject9findChildIP13ProgressFrameEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %14
@@ -524,7 +524,7 @@ define void @destroy_progress_dlg(ptr nocapture noundef readonly %0) local_unnam
   %3 = getelementptr inbounds i8, ptr %2, i64 128
   store i32 -1, ptr %3, align 8
   tail call void @_ZN13ProgressFrame9setHiddenEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
-  tail call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  tail call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(152) %2)
   ret void
 }
 
@@ -791,7 +791,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %104, %_ZN17QArrayDa
           to label %.noexc unwind label %112
 
 .noexc:                                           ; preds = %109
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %_ZN13ProgressFrame4hideEv.exit unwind label %112
 
 _ZN13ProgressFrame4hideEv.exit:                   ; preds = %.noexc
@@ -1360,7 +1360,7 @@ define void @_ZN13ProgressFrameD0Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZThn16_N13ProgressFrameD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN13ProgressFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(152) %2) #12
   ret void
 }
 
@@ -1413,7 +1413,7 @@ define void @_ZN13ProgressFrame14addToButtonBoxEP16QDialogButtonBoxP7QObject(ptr
   %8 = alloca %"class.QMetaObject::Connection", align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %10 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ProgressFrame16staticMetaObjectE, i32 1)
+  %10 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ProgressFrame16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP13ProgressFrameEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %17
 
 _ZNK7QObject9findChildIP13ProgressFrameEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %2
@@ -1555,9 +1555,9 @@ declare void @_ZN7QWidget15setMaximumWidthEi(ptr noundef nonnull align 8 derefer
 define void @_ZN13ProgressFrame18captureFileClosingEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN13ProgressFrame9setHiddenEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
-  %3 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null)
-  %4 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef null)
-  %5 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null)
+  %3 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef null)
+  %4 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef null)
+  %5 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null)
   call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %2, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
   ret void

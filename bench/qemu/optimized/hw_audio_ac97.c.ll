@@ -1183,7 +1183,7 @@ if.then17:                                        ; preds = %while.body
   %conv1.i = zext i32 %add.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i, i32 1, ptr noundef nonnull %b.i, i64 noundef 8, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv1.i, i32 1, ptr noundef nonnull %b.i, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %12 = load i32, ptr %b.i, align 4
   %and.i57 = and i32 %12, -4
@@ -1229,7 +1229,7 @@ if.end28:                                         ; preds = %if.then20
   %conv1.i63 = zext i32 %add.i62 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i65 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i63, i32 1, ptr noundef nonnull %b.i58, i64 noundef 8, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i65 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv1.i63, i32 1, ptr noundef nonnull %b.i58, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %24 = load i32, ptr %b.i58, align 4
   %and.i67 = and i32 %24, -4
@@ -1262,7 +1262,7 @@ while.body.i79:                                   ; preds = %if.end21.i, %while.
   %conv14.i = zext nneg i32 %27 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i80 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv13.i, i32 1, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i80 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv13.i, i32 1, ptr noundef nonnull %tmpbuf.i, i64 noundef range(i64 -2147483648, 2147483648) %conv14.i, i1 noundef zeroext false) #7
   %28 = load ptr, ptr %voice_po.i78, align 16
   %call17.i = call i64 @AUD_write(ptr noundef %28, ptr noundef nonnull %tmpbuf.i, i64 noundef %conv14.i) #7
   %conv18.i = trunc i64 %call17.i to i32
@@ -1324,7 +1324,7 @@ if.end24.i101:                                    ; preds = %while.body.i96
   %conv27.i = ashr exact i64 %sext.i, 32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i102 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv25.i, i32 1, ptr noundef nonnull %tmpbuf.i87, i64 noundef %conv27.i, i1 noundef zeroext true) #7
+  %call.i.i.i.i.i102 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv25.i, i32 1, ptr noundef nonnull %tmpbuf.i87, i64 noundef range(i64 -2147483648, 2147483648) %conv27.i, i1 noundef zeroext true) #7
   %sub.i103 = sub i32 %temp.028.i, %conv21.i99
   %add.i104 = add i32 %addr.029.i, %conv21.i99
   %add29.i = add i32 %nread.027.i, %conv21.i99
@@ -1385,7 +1385,7 @@ if.else:                                          ; preds = %if.then56
   %conv1.i113 = zext i32 %add.i112 to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i115 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv1.i113, i32 1, ptr noundef nonnull %b.i108, i64 noundef 8, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i115 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv1.i113, i32 1, ptr noundef nonnull %b.i108, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
   store i32 1, ptr %bd_valid, align 4
   %45 = load i32, ptr %b.i108, align 4
   %and.i117 = and i32 %45, -4
@@ -1770,7 +1770,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %bus_master_as.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef %conv1.i.i, i32 1, ptr noundef nonnull %b.i.i, i64 noundef 8, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv1.i.i, i32 1, ptr noundef nonnull %b.i.i, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
   %bd_valid.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   store i32 1, ptr %bd_valid.i.i, align 4
   %8 = load i32, ptr %b.i.i, align 4
@@ -1868,7 +1868,7 @@ if.else37.i:                                      ; preds = %if.else.i
   %bus_master_as.i.i.i.i47.i = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   fence seq_cst
-  %call.i.i.i.i.i48.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i47.i, i64 noundef %conv1.i46.i, i32 1, ptr noundef nonnull %b.i41.i, i64 noundef 8, i1 noundef zeroext false) #7
+  %call.i.i.i.i.i48.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i47.i, i64 noundef range(i64 0, 4294967296) %conv1.i46.i, i32 1, ptr noundef nonnull %b.i41.i, i64 noundef range(i64 -2147483648, 2147483648) 8, i1 noundef zeroext false) #7
   %bd_valid.i49.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 12
   store i32 1, ptr %bd_valid.i49.i, align 4
   %21 = load i32, ptr %b.i41.i, align 4

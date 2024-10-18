@@ -418,7 +418,7 @@ define internal i32 @dissect_packetbb(ptr noundef %0, ptr noundef %1, ptr nounde
 
 46:                                               ; preds = %44
   %47 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %48 = tail call fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i32 noundef %.0, i32 noundef %47, i8 noundef signext 0, i32 noundef 0)
+  %48 = tail call fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i32 noundef range(i32 0, 4) %.0, i32 noundef %47, i8 noundef signext 0, i32 noundef 0)
   br label %dissect_pbb_header.exit
 
 dissect_pbb_header.exit:                          ; preds = %44, %46
@@ -623,14 +623,14 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %159
-  %163 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef %.4147.i, i32 noundef %160, ptr noundef nonnull @.str.170) #6
+  %163 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef range(i32 0, 65535) %.4147.i, i32 noundef %160, ptr noundef nonnull @.str.170) #6
   %164 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %dissect_pbb_addressblock.exit.i
 
 165:                                              ; preds = %159
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %5, i8 0, i64 %155, i1 false)
   %166 = add nuw nsw i32 %.4147.i, 1
-  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4147.i) #6
+  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 65535) %.4147.i) #6
   %168 = add nuw nsw i32 %.4147.i, 2
   %169 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %166) #6
   %170 = zext i8 %169 to i32
@@ -642,7 +642,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %172, label %173, label %176
 
 173:                                              ; preds = %171
-  %174 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef %149, i32 noundef 0, ptr noundef nonnull @.str.174) #6
+  %174 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef range(i32 0, 65536) %149, i32 noundef 0, ptr noundef nonnull @.str.174) #6
   %175 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %dissect_pbb_addressblock.exit.i
 
@@ -691,7 +691,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %198, label %199, label %202
 
 199:                                              ; preds = %197
-  %200 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef %149, i32 noundef 0, ptr noundef nonnull @.str.176) #6
+  %200 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef range(i32 0, 65536) %149, i32 noundef 0, ptr noundef nonnull @.str.176) #6
   %201 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %dissect_pbb_addressblock.exit.i
 
@@ -726,7 +726,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %220, label %221, label %224
 
 221:                                              ; preds = %219
-  %222 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef %149, i32 noundef 0, ptr noundef nonnull @.str.176) #6
+  %222 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %1, ptr noundef nonnull @ei_packetbb_error, ptr noundef %0, i32 noundef range(i32 0, 65536) %149, i32 noundef 0, ptr noundef nonnull @.str.176) #6
   %223 = call i32 @tvb_reported_length(ptr noundef %0) #6
   br label %dissect_pbb_addressblock.exit.i
 
@@ -808,12 +808,12 @@ dissect_pbb_addressblock.exit.thread.i:           ; preds = %262
 
 267:                                              ; preds = %262
   %268 = load i32, ptr @hf_packetbb_addr, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %268, ptr noundef %0, i32 noundef %.4147.i, i32 noundef %.2.i.i, i32 noundef 0) #6
+  %269 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %268, ptr noundef %0, i32 noundef range(i32 0, 65535) %.4147.i, i32 noundef %.2.i.i, i32 noundef 0) #6
   %270 = load i32, ptr @ett_packetbb_addr, align 4
   %271 = call ptr @proto_item_add_subtree(ptr noundef %269, i32 noundef %270) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %269, ptr noundef nonnull @.str.179, i32 noundef %252) #6
   %272 = load i32, ptr @hf_packetbb_addr_num, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %0, i32 noundef %.4147.i, i32 noundef 1, i32 noundef 0) #6
+  %273 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %0, i32 noundef range(i32 0, 65535) %.4147.i, i32 noundef 1, i32 noundef 0) #6
   %274 = load i32, ptr @hf_packetbb_addr_flags, align 4
   %275 = load i32, ptr @ett_packetbb_addr_flags, align 4
   %276 = call ptr @proto_tree_add_bitmask(ptr noundef %271, ptr noundef %0, i32 noundef %166, i32 noundef %274, i32 noundef %275, ptr noundef nonnull @dissect_pbb_addressblock.flags, i32 noundef 0) #6
@@ -931,7 +931,7 @@ default.unreachable:                              ; preds = %302
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %302, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %332, %293
-  %335 = call fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1, ptr noundef %271, i32 noundef %263, i32 noundef %149, i8 noundef signext %167, i32 noundef 2)
+  %335 = call fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1, ptr noundef %271, i32 noundef %263, i32 noundef range(i32 0, 65536) %149, i8 noundef signext %167, i32 noundef 2)
   br label %dissect_pbb_addressblock.exit.i
 
 dissect_pbb_addressblock.exit.i:                  ; preds = %._crit_edge.i.i, %238, %233, %221, %210, %199, %186, %181, %173, %162
@@ -1217,7 +1217,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
 
 131:                                              ; preds = %126
   %132 = load i32, ptr @hf_packetbb_tlv_contseqnum, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %132, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %132, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 ._crit_edge.i:                                    ; preds = %125
@@ -1237,7 +1237,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
 
 134:                                              ; preds = %126, %._crit_edge.i
   %135 = load i32, ptr @hf_packetbb_tlv_intervaltime, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %135, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %135, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5) #6
   %138 = lshr i8 %137, 3
   %139 = and i8 %137, 7
@@ -1255,7 +1255,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
 
 149:                                              ; preds = %126, %._crit_edge.i
   %150 = load i32, ptr @hf_packetbb_tlv_validitytime, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %150, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %150, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   %152 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5) #6
   %153 = lshr i8 %152, 3
   %154 = and i8 %152, 7
@@ -1288,17 +1288,17 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
 
 173:                                              ; preds = %126, %._crit_edge.i
   %174 = load i32, ptr @hf_packetbb_tlv_icv, align 4
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %174, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %174, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 176:                                              ; preds = %126, %._crit_edge.i
   %177 = load i32, ptr @hf_packetbb_tlv_timestamp, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %177, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %177, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 179:                                              ; preds = %._crit_edge.i
   %180 = load i32, ptr @ett_packetbb_tlv_linkmetric, align 4
-  %181 = tail call ptr @proto_tree_add_subtree(ptr noundef %67, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.132) #6
+  %181 = tail call ptr @proto_tree_add_subtree(ptr noundef %67, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.132) #6
   %182 = load i32, ptr @hf_packetbb_tlv_linkmetric_flags_linkin, align 4
   %183 = tail call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %182, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0) #6
   %184 = load i32, ptr @hf_packetbb_tlv_linkmetric_flags_linkout, align 4
@@ -1323,17 +1323,17 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
 
 200:                                              ; preds = %._crit_edge.i
   %201 = load i32, ptr @hf_packetbb_tlv_mpr, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %201, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %201, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 203:                                              ; preds = %126, %._crit_edge.i
   %204 = load i32, ptr @hf_packetbb_tlv_nbraddrtype, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %204, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %204, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 206:                                              ; preds = %126, %._crit_edge.i
   %207 = load i32, ptr @hf_packetbb_tlv_gateway, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %207, ptr noundef %0, i32 noundef %.5, i32 noundef %60, i32 noundef 0) #6
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %207, ptr noundef %0, i32 noundef %.5, i32 noundef range(i32 1, 65536) %60, i32 noundef 0) #6
   br label %dissect_pbb_tlvvalue.exit
 
 dissect_pbb_tlvvalue.exit:                        ; preds = %126, %127, %131, %._crit_edge.i, %134, %149, %164, %167, %170, %173, %176, %179, %200, %203, %206

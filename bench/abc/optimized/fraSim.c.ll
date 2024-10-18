@@ -1196,7 +1196,7 @@ Fra_SmlAssignConst.exit:                          ; preds = %Fra_SmlAssignConst.
   %52 = load i32, ptr %51, align 4
   %53 = shl nsw i32 %52, 5
   %54 = add nsw i32 %53, -1
-  %55 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val69, i32 %54)
+  %55 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val69, i32 range(i32 -2147483648, 2147483647) %54)
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph105, label %.critedge4
 

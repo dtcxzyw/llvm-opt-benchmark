@@ -123,7 +123,7 @@ cleanup.done35.critedge.i:                        ; preds = %cleanup.done14.i
   br label %cleanup.done35.i
 
 cleanup.done35.i:                                 ; preds = %cleanup.done35.critedge.i, %cleanup.action34.i
-  %call44.i = call ptr @ures_open_75(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %localStatus)
+  %call44.i = call ptr @ures_open_75(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
   store ptr %call44.i, ptr %rb.i, align 8
   %1 = load i32, ptr %localStatus, align 4
   %cmp.i.i3 = icmp slt i32 %1, 1

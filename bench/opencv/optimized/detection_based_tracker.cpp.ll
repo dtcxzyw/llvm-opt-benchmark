@@ -614,7 +614,7 @@ define noundef zeroext i1 @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork3
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #23
+  %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %8
 
@@ -705,7 +705,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %26
   br i1 %.not.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %34
 
 34:                                               ; preds = %.body.thread
-  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #23
+  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.body, %.body.thread, %34
@@ -723,7 +723,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.body, %.body.threa
   br i1 %.not.i.i6, label %_ZNSt11unique_lockISt5mutexED2Ev.exit7, label %39
 
 39:                                               ; preds = %.thread
-  %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %38) #23
+  %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %38) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit7
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit7:           ; preds = %36, %.thread, %39
@@ -764,7 +764,7 @@ define hidden noundef ptr @_ZN2cv31workcycleObjectDetectorFunctionEPv(ptr nounde
 
 17:                                               ; preds = %.sink.split, %1
   %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %18) #23
+  %19 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %18) #23
   %.not.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i.i.i, label %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork4initEv.exit, label %20
 
@@ -784,7 +784,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork4initEv.exit: ; preds = %17
   store volatile i8 0, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #23
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #23
+  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %18) #23
   br label %45
 
 26:                                               ; preds = %2
@@ -898,7 +898,7 @@ define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork23workcycleObje
   store ptr %34, ptr %5, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 0, ptr %35, align 8
-  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %34) #23
+  %36 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %34) #23
   %.not.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i, label %38, label %37
 
@@ -998,7 +998,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit.thread: ; 
   br i1 %.not.i, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #23
+  %66 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %64) #23
   store i8 0, ptr %35, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
 
@@ -1071,7 +1071,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit27.thread: 
   br i1 %93, label %.invoke, label %94
 
 94:                                               ; preds = %91
-  %95 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %90) #23
+  %95 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %90) #23
   %.not.i.i = icmp eq i32 %95, 0
   br i1 %.not.i.i, label %96, label %.invoke
 
@@ -1153,7 +1153,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit36.thread: 
   br i1 %.not.i37, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit39, label %124
 
 124:                                              ; preds = %122
-  %125 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %123) #23
+  %125 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %123) #23
   store i8 0, ptr %35, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit39
 
@@ -1210,7 +1210,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit41.thread: 
   br i1 %148, label %.invoke, label %149
 
 149:                                              ; preds = %146
-  %150 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %145) #23
+  %150 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %145) #23
   %.not.i.i43 = icmp eq i32 %150, 0
   br i1 %.not.i.i43, label %151, label %.invoke
 
@@ -1268,7 +1268,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit49.thread: 
   br i1 %.not.i50, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit52, label %171
 
 171:                                              ; preds = %169
-  %172 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %170) #23
+  %172 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %170) #23
   store i8 0, ptr %35, align 8
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit52
 
@@ -1295,7 +1295,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit35:     ; preds = %_ZN2cv21DetectionBa
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit.sink.split: ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit35, %101
   %.sink = phi ptr [ %102, %101 ], [ %.pr, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit35 ]
-  %177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #23
+  %177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #23
   store i8 0, ptr %35, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -1323,7 +1323,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt11unique_lockI
   br i1 %.not.i.i57, label %_ZNSt11unique_lockISt5mutexED2Ev.exit58, label %185
 
 185:                                              ; preds = %183
-  %186 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %184) #23
+  %186 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %184) #23
   store i8 0, ptr %35, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit58
 
@@ -1493,7 +1493,7 @@ define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork4stopEv(ptr nou
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %3) #23
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
@@ -1514,7 +1514,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit: ; preds =
   br i1 %11, label %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit.thread, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
 
 _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit
-  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #23
+  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   store volatile i32 4, ptr %7, align 4
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
@@ -1531,7 +1531,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %_ZN2cv21DetectionBa
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #23
+  %20 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %18) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %13, %17, %19
@@ -1563,7 +1563,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork9isWorkingEv.exit.thread: ; 
   br i1 %.not.i2, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit4, label %29
 
 29:                                               ; preds = %27
-  %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #23
+  %30 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
 _ZNSt11unique_lockISt5mutexE6unlockEv.exit4:      ; preds = %27
@@ -1576,7 +1576,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit4:      ; preds = %27
   br i1 %.not.i.i5, label %_ZNSt11unique_lockISt5mutexED2Ev.exit6, label %34
 
 34:                                               ; preds = %32
-  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #23
+  %35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %33) #23
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit6
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit6:           ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, %29, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit4, %32, %34
@@ -1586,7 +1586,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit6:           ; preds = %_ZNSt11unique_lockI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork13resetTrackingEv(ptr noundef nonnull align 8 dereferenceable(320) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #23
+  %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
   %.not.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %4
 
@@ -1620,7 +1620,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %15, %10
   %16 = getelementptr inbounds i8, ptr %0, i64 200
   store volatile i8 0, ptr %16, align 8
-  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #23
+  %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
   ret void
 }
 
@@ -1659,7 +1659,7 @@ define noundef zeroext i1 @_ZN2cv21DetectionBasedTracker21SeparateDetectionWork3
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %19) #23
+  %20 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %19) #23
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %21
 
@@ -1752,12 +1752,12 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %18
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %38, %63
-  %67 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #23
+  %67 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %19) #23
   br label %69
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit18:          ; preds = %30, %65
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %66, %65 ]
-  %68 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #23
+  %68 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %19) #23
   br label %70
 
 69:                                               ; preds = %12, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -4131,7 +4131,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4
 
 266:                                              ; preds = %264
   %267 = load ptr, ptr %1, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 24, i1 false)
   store i32 1, ptr %63, align 8
   store i32 0, ptr %64, align 4
   %268 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -4161,7 +4161,7 @@ _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE9push_backEOS2_.
   %278 = getelementptr inbounds i8, ptr %274, i64 16
   %279 = load ptr, ptr %66, align 8
   store ptr %279, ptr %278, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 24, i1 false)
   %280 = getelementptr inbounds i8, ptr %274, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %280, ptr noundef nonnull align 8 dereferenceable(12) %63, i64 12, i1 false)
   %281 = load ptr, ptr %11, align 8
@@ -4306,7 +4306,7 @@ _ZN2cv21DetectionBasedTracker13TrackedObjectD2Ev.exit: ; preds = %_ZNSt6vectorIN
   %344 = load ptr, ptr %343, align 8
   store ptr %344, ptr %339, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %337, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0910.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv21DetectionBasedTracker13TrackedObjectaSEOS1_.exit.i.i.i.i.i.i.i, label %345
 
 345:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -5128,7 +5128,7 @@ define void @_ZN2cv21DetectionBasedTracker13resetTrackingEv(ptr nocapture nounde
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 40
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #23
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   %.not.i.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %7
 
@@ -5162,7 +5162,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %4
 _ZN2cv21DetectionBasedTracker21SeparateDetectionWork13resetTrackingEv.exit: ; preds = %13, %18
   %19 = getelementptr inbounds i8, ptr %3, i64 200
   store volatile i8 0, ptr %19, align 8
-  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #23
+  %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   br label %21
 
 21:                                               ; preds = %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork13resetTrackingEv.exit, %1
@@ -5229,7 +5229,7 @@ _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE9push_backEOS2_.
   store ptr %9, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %9, ptr %18, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
   %20 = load ptr, ptr %13, align 8
@@ -5288,7 +5288,7 @@ define noundef zeroext i1 @_ZN2cv21DetectionBasedTracker13setParametersERKNS0_10
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %7, i64 40
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %9) #23
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
   %.not.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i.i, label %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork13setParametersERKNS0_10ParametersE.exit, label %11
 
@@ -5300,7 +5300,7 @@ _ZN2cv21DetectionBasedTracker21SeparateDetectionWork13setParametersERKNS0_10Para
   %12 = getelementptr inbounds i8, ptr %7, i64 312
   %13 = load i64, ptr %1, align 4
   store i64 %13, ptr %12, align 8
-  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %9) #23
+  %14 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #23
   br label %15
 
 15:                                               ; preds = %_ZN2cv21DetectionBasedTracker21SeparateDetectionWork13setParametersERKNS0_10ParametersE.exit, %5
@@ -5349,7 +5349,7 @@ define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tuple
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFPvS3_ES3_EEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -5641,7 +5641,7 @@ _ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allo
   %30 = getelementptr inbounds i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds i8, ptr %24, i64 24
   %33 = getelementptr inbounds i8, ptr %2, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %33, i64 12, i1 false)
@@ -5663,7 +5663,7 @@ _ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_M_allo
   %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %40 = load ptr, ptr %39, align 8, !alias.scope !55, !noalias !52
   store ptr %40, ptr %38, align 8, !alias.scope !52, !noalias !55
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !55, !noalias !52
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !55, !noalias !52
   %41 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false), !alias.scope !57
@@ -5693,7 +5693,7 @@ _ZNSt6vectorIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EE11_S_relocateEPS
   %51 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
   %52 = load ptr, ptr %51, align 8, !alias.scope !62, !noalias !59
   store ptr %52, ptr %50, align 8, !alias.scope !59, !noalias !62
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
   %54 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false), !alias.scope !64

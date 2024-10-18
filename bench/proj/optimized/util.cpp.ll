@@ -1348,7 +1348,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj4util17ArrayOfBaseObject14nn_make
 6:                                                ; preds = %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
+  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #26
   br label %.body
 
 8:                                                ; preds = %.noexc
@@ -1461,8 +1461,8 @@ define void @_ZN5osgeo4proj4util11PropertyMapD2Ev(ptr nocapture noundef nonnull 
   %6 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 16
   %7 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 48
   tail call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i.i.i) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i.i.i) #27
   %.not.i.i.i.i.i.i = icmp eq ptr %5, %2
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj4util11PropertyMap7PrivateEEclEPS4_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !70
 
@@ -1551,8 +1551,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.014) #26
   %17 = getelementptr inbounds i8, ptr %.sroa.06.014, i64 48
   tail call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  tail call void @_ZdlPv(ptr noundef %.sroa.06.014) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.06.014) #27
   br label %.loopexit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10: ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
@@ -1716,7 +1716,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %65 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %3 ]
   %66 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %67 = getelementptr inbounds i8, ptr %66, i64 16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEEEEED2Ev.exit10.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %._crit_edge
@@ -1753,7 +1753,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11
   resume { ptr, i32 } %81
 
 _ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEESaISB_EE12emplace_backIJRKS6_RKSA_EEEvDpOT_.exit: ; preds = %.noexc.i.i.i, %76, %79
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull %65) #26
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(24) %65) #26
   %82 = getelementptr inbounds i8, ptr %65, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, 1
@@ -2067,7 +2067,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 ._crit_edge:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread14, %3
   %81 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %82 = getelementptr inbounds i8, ptr %81, i64 16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEEEEED2Ev.exit10.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %._crit_edge
@@ -2104,7 +2104,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11
   resume { ptr, i32 } %96
 
 _ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEESaISB_EE12emplace_backIJRKS6_RKN7dropbox6oxygen2nnISt10shared_ptrINS9_10BoxedValueEEEEEEEvDpOT_.exit: ; preds = %.noexc.i.i.i, %91, %94
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull %0) #26
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   %97 = getelementptr inbounds i8, ptr %0, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, 1
@@ -3515,7 +3515,7 @@ _ZNSt10shared_ptrIN5osgeo4proj4util11GenericNameEEC2ERKS4_.exit.i: ; preds = %14
 
 .body:                                            ; preds = %27, %25
   %.pn.i = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  tail call void @_ZNSt10shared_ptrIN5osgeo4proj4util11GenericNameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
+  tail call void @_ZNSt10shared_ptrIN5osgeo4proj4util11GenericNameEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #27
   resume { ptr, i32 } %.pn.i
 
@@ -3531,7 +3531,7 @@ define void @_ZN5osgeo4proj4util9NameSpaceD2Ev(ptr noundef nonnull align 8 deref
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj4util9NameSpace7PrivateESt14default_deleteIS4_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj4util9NameSpace7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %2)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj4util9NameSpace7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2)
   br label %_ZNSt10unique_ptrIN5osgeo4proj4util9NameSpace7PrivateESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj4util9NameSpace7PrivateESt14default_deleteIS4_EED2Ev.exit: ; preds = %1, %3
@@ -3728,7 +3728,7 @@ _ZNSt10shared_ptrIN5osgeo4proj4util9LocalNameEED2Ev.exit: ; preds = %_ZNSt10shar
 define linkonce_odr hidden void @_ZN5osgeo4proj4util9NameSpace14nn_make_sharedIS2_JRKS2_EEEN7dropbox6oxygen2nnISt10shared_ptrIT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.66") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
   %4 = load ptr, ptr %1, align 8
-  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_4util9NameSpace7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.55") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %4)
+  invoke void @_ZN5osgeo4proj8internal11make_uniqueINS0_4util9NameSpace7PrivateEJRS5_EEESt10unique_ptrIT_St14default_deleteIS8_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.55") align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(88) %4)
           to label %_ZN5osgeo4proj4util9NameSpaceC2ERKS2_.exit unwind label %20
 
 _ZN5osgeo4proj4util9NameSpaceC2ERKS2_.exit:       ; preds = %2
@@ -4305,7 +4305,7 @@ common.resume:                                    ; preds = %19, %6
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %common.resume
 
 _ZN5osgeo4proj4util11GenericNameC2Ev.exit:        ; preds = %2
@@ -4455,7 +4455,7 @@ common.resume:                                    ; preds = %126, %7
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %common.resume
 
 _ZN5osgeo4proj4util11GenericNameC2Ev.exit:        ; preds = %3
@@ -4827,7 +4827,7 @@ common.resume:                                    ; preds = %.body, %6
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
+  tail call void @_ZN5osgeo4proj4util10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %common.resume
 
 _ZN5osgeo4proj4util11GenericNameC2ERKS2_.exit:    ; preds = %2
@@ -4875,7 +4875,7 @@ _ZNSt10shared_ptrIN5osgeo4proj4util9NameSpaceEEC2ERKS4_.exit.i.i: ; preds = %22,
 .body.i:                                          ; preds = %_ZNSt10shared_ptrIN5osgeo4proj4util9NameSpaceEEC2ERKS4_.exit.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN5osgeo4proj4util9NameSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #26, !noalias !141
+  tail call void @_ZNSt10shared_ptrIN5osgeo4proj4util9NameSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #26, !noalias !141
   tail call void @_ZdlPv(ptr noundef nonnull %11) #27, !noalias !141
   br label %.body
 
@@ -6139,7 +6139,7 @@ define hidden void @_ZN5osgeo4proj4util25InvalidValueTypeExceptionC2EPKc(ptr nou
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %6
 
 _ZN5osgeo4proj4util9ExceptionC2EPKc.exit:         ; preds = %2
@@ -6159,7 +6159,7 @@ define hidden void @_ZN5osgeo4proj4util25InvalidValueTypeExceptionC2ERKNSt7__cxx
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %5
 
 _ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -6172,7 +6172,7 @@ define void @_ZN5osgeo4proj4util25InvalidValueTypeExceptionD2Ev(ptr noundef nonn
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4util9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   ret void
 }
 
@@ -6194,7 +6194,7 @@ define void @_ZN5osgeo4proj4util25InvalidValueTypeExceptionC2ERKS2_(ptr noundef 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %6
 
 _ZN5osgeo4proj4util9ExceptionC2ERKS2_.exit:       ; preds = %2
@@ -6216,7 +6216,7 @@ define hidden void @_ZN5osgeo4proj4util29UnsupportedOperationExceptionC2EPKc(ptr
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %6
 
 _ZN5osgeo4proj4util9ExceptionC2EPKc.exit:         ; preds = %2
@@ -6236,7 +6236,7 @@ define hidden void @_ZN5osgeo4proj4util29UnsupportedOperationExceptionC2ERKNSt7_
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %5
 
 _ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -6249,7 +6249,7 @@ define void @_ZN5osgeo4proj4util29UnsupportedOperationExceptionD2Ev(ptr noundef 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4util9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   ret void
 }
 
@@ -6271,7 +6271,7 @@ define void @_ZN5osgeo4proj4util29UnsupportedOperationExceptionC2ERKS2_(ptr noun
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %6
 
 _ZN5osgeo4proj4util9ExceptionC2ERKS2_.exit:       ; preds = %2
@@ -6641,8 +6641,8 @@ define linkonce_odr hidden void @_ZNSt7__cxx1110_List_baseISt4pairINS_12basic_st
   %4 = getelementptr inbounds i8, ptr %.09.i, i64 16
   %5 = getelementptr inbounds i8, ptr %.09.i, i64 48
   tail call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  tail call void @_ZdlPv(ptr noundef %.09.i) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i) #27
   %.not.i = icmp eq ptr %3, %0
   br i1 %.not.i, label %_ZNSt7__cxx1110_List_baseISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEESaISB_EE8_M_clearEv.exit, label %.lr.ph.i, !llvm.loop !70
 
@@ -6669,7 +6669,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listISt4pairINS_12basic_stringIcS
 .noexc:                                           ; preds = %.lr.ph.i
   %7 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 16
   %8 = getelementptr inbounds i8, ptr %6, i64 16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEEEEED2Ev.exit9.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %.noexc
@@ -6707,7 +6707,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11
   br label %.body
 
 _ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj4util15BaseObjectNNPtrEESaISB_EE12emplace_backIJRKSB_EEEvDpOT_.exit.i: ; preds = %21, %18, %.noexc.i.i.i.i
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %0) #26
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   %24 = load i64, ptr %4, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %4, align 8

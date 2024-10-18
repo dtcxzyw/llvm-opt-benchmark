@@ -120,7 +120,7 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i: ;
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load i64, ptr %39, align 8, !alias.scope !67, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %5)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 range(i64 1, 0) %5)
   %41 = sub i64 %40, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
   store i64 %41, ptr %39, align 8, !alias.scope !67
   %42 = sub i64 %5, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i
@@ -684,7 +684,7 @@ define void @_ZN6statrs12distribution9empirical9Empirical6remove17h6f5827aef5888
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !176
   %50 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 32, i1 false), !noalias !176
-  %51 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %51 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
   %52 = extractvalue { ptr, ptr } %51, 1
   store i64 %44, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !176
@@ -1543,7 +1543,7 @@ define void @_ZN6statrs8generate10log_spaced17h21fef67d00b51230E(ptr dead_on_unw
 
 23:                                               ; preds = %4
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %25 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #19
+  %25 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef range(i64 1, -9223372036854775807) 8) #19
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.exit
 

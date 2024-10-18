@@ -1206,9 +1206,9 @@ if.end8:                                          ; preds = %if.end
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22, !noalias !8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #20, !noalias !8
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20, !noalias !8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #20, !noalias !8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #20, !noalias !8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 2)), !noalias !8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20, !noalias !8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20, !noalias !8
   %start_time.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store double %div, ptr %start_time.i.i, align 8, !noalias !8
   %duration.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -1591,7 +1591,7 @@ do.end14:                                         ; preds = %_ZNK2v820FunctionCa
   %conv = trunc i64 %call10 to i32
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRN4node9HistogramEEZNS0_11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS5_5ValueEEEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4node9HistogramEEZNS0_11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS5_5ValueEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   store i64 1000, ptr %ref.tmp16, align 8
@@ -1605,7 +1605,7 @@ do.end14:                                         ; preds = %_ZNK2v820FunctionCa
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end14
-  %call.i.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3) #20
+  %call.i.i = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #20
   br label %_ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit
 
 _ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit:   ; preds = %do.end14, %if.then.i.i
@@ -3441,7 +3441,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 
 for.body:                                         ; preds = %for.cond
   %add.ptr16 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
-  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr16) #20
+  %call4.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr16) #20
   br i1 %call4.i, label %if.then.i23, label %for.cond, !llvm.loop !16
 
 if.end21:                                         ; preds = %for.cond, %entry
@@ -3475,7 +3475,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i8 = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i8) #20
+  %call4.i.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i8) #20
   br i1 %call4.i.i.i.i, label %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i.i, %for.cond.i.i
@@ -3690,12 +3690,12 @@ if.then:                                          ; preds = %entry
 
 for.body.i.preheader:                             ; preds = %if.then
   %add.ptr.i30 = getelementptr inbounds i8, ptr %1, i64 8
-  %call4.i.i31 = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i30) #20
+  %call4.i.i31 = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i30) #20
   br i1 %call4.i.i31, label %if.end, label %if.end4.i
 
 for.body.i:                                       ; preds = %if.end4.i
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
-  %call4.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i) #20
+  %call4.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #20
   br i1 %call4.i.i, label %if.end, label %if.end4.i, !llvm.loop !19
 
 if.end4.i:                                        ; preds = %for.body.i.preheader, %for.body.i
@@ -3740,7 +3740,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %i
 
 _ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i: ; preds = %for.cond.i
   %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.0.i, i64 8
-  %call4.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i15) #20
+  %call4.i.i.i = tail call noundef zeroext i1 @_ZNK4node12CleanupQueue19CleanupHookCallback5EqualclERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i15) #20
   br i1 %call4.i.i.i, label %if.end11, label %if.end3.i
 
 if.end3.i:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4node12CleanupQueue19CleanupHookCallbackES3_NS_9_IdentityENS3_5EqualENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS3_mRKNS_16_Hash_node_valueIS3_Lb1EEE.exit.i, %for.cond.i
@@ -4343,7 +4343,7 @@ entry:
   br i1 %cmp.not.i.i, label %"_ZZN4node11performance24MarkGarbageCollectionEndEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPvEN3$_0D2Ev.exit", label %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEEclEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %"_ZZN4node11performance24MarkGarbageCollectionEndEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPvEN3$_0D2Ev.exit"
 
@@ -4376,7 +4376,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %"_ZZN4node11performance24MarkGarbageCollectionEndEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPvEN3$_0D2Ev.exit.i", label %_ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEEclEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4node11performance16PerformanceEntryINS1_24GCPerformanceEntryTraitsEEEEclEPS4_.exit.i.i.i: ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   br label %"_ZZN4node11performance24MarkGarbageCollectionEndEPN2v87IsolateENS1_6GCTypeENS1_15GCCallbackFlagsEPvEN3$_0D2Ev.exit.i"
 
@@ -4571,7 +4571,7 @@ entry:
   %arg_type.i.i.i.i = alloca i8, align 1
   %arg_value.i.i.i.i = alloca i64, align 8
   %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 40
-  tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
+  tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #20
   %call.i44.i.i.i = tail call i64 @uv_hrtime() #20
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %0 = load i64, ptr %prev_.i.i.i.i, align 8
@@ -4717,7 +4717,7 @@ if.end14.i.i.i:                                   ; preds = %_ZN4node7tracing16T
   br i1 %tobool17.not.i.i.i, label %do.body25.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end14.i.i.i
-  call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #20
   %histogram_.i55.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %19 = load ptr, ptr %histogram_.i55.i.i.i, align 8
   %call2.i56.i.i.i = call i64 @hdr_min(ptr noundef %19) #20
@@ -4805,7 +4805,7 @@ if.end30.i.i.i:                                   ; preds = %_ZN4node7tracing16T
   br i1 %tobool33.not.i.i.i, label %do.body41.i.i.i, label %if.then34.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.end30.i.i.i
-  call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #20
   %histogram_.i90.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %29 = load ptr, ptr %histogram_.i90.i.i.i, align 8
   %call2.i91.i.i.i = call i64 @hdr_max(ptr noundef %29) #20
@@ -4893,7 +4893,7 @@ if.end46.i.i.i:                                   ; preds = %_ZN4node7tracing16T
   br i1 %tobool49.not.i.i.i, label %do.body57.i.i.i, label %if.then50.i.i.i
 
 if.then50.i.i.i:                                  ; preds = %if.end46.i.i.i
-  call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #20
   %histogram_.i125.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %39 = load ptr, ptr %histogram_.i125.i.i.i, align 8
   %call2.i126.i.i.i = call double @hdr_mean(ptr noundef %39) #20
@@ -4981,7 +4981,7 @@ if.end62.i.i.i:                                   ; preds = %_ZN4node7tracing16T
   br i1 %tobool65.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %if.then66.i.i.i
 
 if.then66.i.i.i:                                  ; preds = %if.end62.i.i.i
-  call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
+  call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i) #20
   %histogram_.i159.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %49 = load ptr, ptr %histogram_.i159.i.i.i, align 8
   %call2.i160.i.i.i = call double @hdr_stddev(ptr noundef %49) #20

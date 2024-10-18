@@ -238,7 +238,7 @@ define dso_local range(i64 0, 2) i64 @pg_terminate_backend(ptr nocapture noundef
   br i1 %51, label %52, label %pg_wait_until_termination.exit
 
 52:                                               ; preds = %50
-  %53 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i64 noundef %29, i32 noundef %4, i64 noundef %29) #8
+  %53 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i64 noundef range(i64 1, 2147483648) %29, i32 noundef %4, i64 noundef range(i64 1, 2147483648) %29) #8
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 200, ptr noundef nonnull @__func__.pg_wait_until_termination) #8
   br label %pg_wait_until_termination.exit
 

@@ -50,7 +50,7 @@ define void @_RINvCseBw3mChBYfU_3hex6encodeINtCshTjWJoR5NBV_13generic_array12Gen
           to label %_RINvXs1_CseBw3mChBYfU_3hexINtCshTjWJoR5NBV_13generic_array12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB1a_IB1a_IB1a_IB1a_IB1a_NtB1c_5UTermNtNtB1e_3bit2B1ENtB2n_2B0EB2B_EB2B_EB2B_EB2B_EENtB6_5ToHex10encode_hexNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env.exit unwind label %10, !noalias !20
 
 9:                                                ; preds = %.noexc.i.i
-  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0, i64 noundef %8)
+  invoke void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handlehNtNtBa_5alloc6GlobalECs5g6BnGVOFtV_12regex_syntax(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 0, i64 noundef %8)
           to label %.noexc4.i.i unwind label %10, !noalias !20
 
 10:                                               ; preds = %9, %.noexc4.i.i, %2
@@ -176,7 +176,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5merge5mergeNtNtC
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %51, label %12
 
@@ -337,7 +337,7 @@ _RNvYNCNkNvNvMNtNtCsapf13pIxsjn_3std4hash6randomNtBb_11RandomState3new4KEYS0s_0I
 15:                                               ; preds = %10
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner16drop_inner_tableTNtNtCs68wO5nsWeTG_5alloc6string6StringB1d_ENtNtB1h_5alloc6GlobalECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.4.0..sroa_idx, i64 noundef 48, i64 noundef 16)
+  invoke void @_RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner16drop_inner_tableTNtNtCs68wO5nsWeTG_5alloc6string6StringB1d_ENtNtB1h_5alloc6GlobalECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.4.0..sroa_idx, i64 noundef 48, i64 noundef 16)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsapf13pIxsjn_3std3env4VarsECsff1zCjKRl2o_13turborepo_env.exit unwind label %18
 
 17:                                               ; preds = %10

@@ -1144,7 +1144,7 @@ if.then.i:                                        ; preds = %if.then60
   br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.then60
-  %call.i33 = call ptr @ngettext(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i64 noundef %call4) #17
+  %call.i33 = call ptr @ngettext(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i64 noundef range(i64 1, 0) %call4) #17
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i, %if.end.i
@@ -1337,7 +1337,7 @@ if.then.i30:                                      ; preds = %if.then57
   br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.then57
-  %call.i28 = call ptr @ngettext(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i64 noundef %call6) #17
+  %call.i28 = call ptr @ngettext(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i64 noundef range(i64 1, 0) %call6) #17
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i30, %if.end.i
@@ -1576,7 +1576,7 @@ if.then.i40:                                      ; preds = %if.then45
   br label %Q_.exit
 
 if.end.i37:                                       ; preds = %if.then45
-  %call.i38 = call ptr @ngettext(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i64 noundef %call5) #17
+  %call.i38 = call ptr @ngettext(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i64 noundef range(i64 1, 0) %call5) #17
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i40, %if.end.i37

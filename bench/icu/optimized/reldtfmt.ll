@@ -653,11 +653,11 @@ if.then67:                                        ; preds = %invoke.cont63
 lpad61:                                           ; preds = %invoke.cont62, %invoke.cont60
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #15
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %sink) #15
   br label %ehcleanup72
 
 cleanup:                                          ; preds = %invoke.cont63, %if.then67
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #15
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %sink) #15
   %cmp.not.i = icmp eq ptr %call3, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 
@@ -2247,7 +2247,7 @@ declare noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgum
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_118RelDateFmtDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #7 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #15
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #15
   ret void
 }

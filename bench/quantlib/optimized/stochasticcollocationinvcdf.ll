@@ -467,7 +467,7 @@ if.then.i.i36:                                    ; preds = %invoke.cont5.i
 
 if.end.i.i:                                       ; preds = %invoke.cont5.i
   %69 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !46, !noalias !31
-  %call2.i9.i = invoke noundef double %69(ptr noundef nonnull align 8 dereferenceable(16) %invCDF, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  %call2.i9.i = invoke noundef double %69(ptr noundef nonnull align 8 dereferenceable(32) %invCDF, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %invoke.cont7.i unwind label %lpad2.loopexit.i, !noalias !31
 
 invoke.cont7.i:                                   ; preds = %if.end.i.i
@@ -1085,7 +1085,7 @@ cond.true.i.i:                                    ; preds = %entry
   store i8 0, ptr %del.i.i.i, align 8, !tbaa !71
   store ptr %call.i.i, ptr %pn.i, align 8, !tbaa !54
   %storage_.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  invoke void @_ZN8QuantLib13Interpolation12templateImplIPKdS3_EC2ERKS3_S6_S6_i(ptr noundef nonnull align 8 dereferenceable(32) %storage_.i, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, i32 noundef 2)
+  invoke void @_ZN8QuantLib13Interpolation12templateImplIPKdS3_EC2ERKS3_S6_S6_i(ptr noundef nonnull align 8 dereferenceable(64) %storage_.i, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, i32 noundef 2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i.i
@@ -2852,7 +2852,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib6detail25LagrangeInterpolationImplIPKdS3_ED0Ev.exit
 
 _ZN8QuantLib6detail25LagrangeInterpolationImplIPKdS3_ED0Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 64) #24
   ret void
 }
 

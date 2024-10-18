@@ -437,7 +437,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i: ; preds = %_ZNK5ZX
   %.idx.i.i = phi i64 [ 0, %167 ], [ %.add.i.i, %173 ]
   %.ptr.i.i = getelementptr inbounds i8, ptr %41, i64 %.idx.i.i
   %169 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i.i, i8 0, i64 40, i1 false), !noalias !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr.i.i, i8 0, i64 40, i1 false), !noalias !9
   store double 0x7FF8000000000000, ptr %169, align 8, !noalias !9
   %170 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 48
   store double 0x7FF8000000000000, ptr %170, align 8, !noalias !9
@@ -671,7 +671,7 @@ _ZN5ZXing14RegressionLine5resetEv.exit.i.i:       ; preds = %274, %270
   store double %282, ptr %187, align 8, !noalias !15
   store i32 1, ptr %188, align 8, !noalias !15
   %283 = fneg double %282
-  %284 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix10EdgeTracer9traceLineENS_6PointTIdEERNS_14RegressionLineE(ptr noundef nonnull align 8 dereferenceable(52) %34, double %283, double %281, ptr noundef nonnull align 8 dereferenceable(64) %41)
+  %284 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix10EdgeTracer9traceLineENS_6PointTIdEERNS_14RegressionLineE(ptr noundef nonnull align 8 dereferenceable(52) %34, double %283, double %281, ptr noundef nonnull align 8 dereferenceable(256) %41)
           to label %.noexc50.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc50.i:                                       ; preds = %279
@@ -725,14 +725,14 @@ _ZN5ZXing10DataMatrix16DMRegressionLine7reverseEv.exit.i.i: ; preds = %.lr.ph.i.
   store double %303, ptr %186, align 8, !noalias !15
   store double %304, ptr %187, align 8, !noalias !15
   %305 = fneg double %303
-  %306 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix10EdgeTracer9traceLineENS_6PointTIdEERNS_14RegressionLineE(ptr noundef nonnull align 8 dereferenceable(52) %34, double %304, double %305, ptr noundef nonnull align 8 dereferenceable(64) %41)
+  %306 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix10EdgeTracer9traceLineENS_6PointTIdEERNS_14RegressionLineE(ptr noundef nonnull align 8 dereferenceable(52) %34, double %304, double %305, ptr noundef nonnull align 8 dereferenceable(256) %41)
           to label %.noexc52.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc52.i:                                       ; preds = %_ZN5ZXing10DataMatrix16DMRegressionLine7reverseEv.exit.i.i
   br i1 %306, label %307, label %.backedge.i.i
 
 307:                                              ; preds = %.noexc52.i
-  %308 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine16truncateIfLShapeEv(ptr noundef nonnull align 8 dereferenceable(64) %41)
+  %308 = invoke noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine16truncateIfLShapeEv(ptr noundef nonnull align 8 dereferenceable(256) %41)
           to label %.noexc53.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc53.i:                                       ; preds = %307
@@ -945,7 +945,7 @@ _ZN5ZXing10DataMatrix10EdgeTracer25updateDirectionFromOriginENS_6PointTIdEE.exit
   %414 = fdiv double %.sroa.2.0.copyload.i.i.i, %.sroa.speculated.i.i.i226.i.i
   store double %413, ptr %190, align 8, !noalias !15
   store double %414, ptr %191, align 8, !noalias !15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %212, i8 0, i64 16, i1 false), !noalias !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %212, i8 0, i64 16, i1 false), !noalias !15
   store double 0x7FF8000000000000, ptr %194, align 8, !noalias !15
   store double 0x7FF8000000000000, ptr %195, align 8, !noalias !15
   store double 0x7FF8000000000000, ptr %196, align 8, !noalias !15

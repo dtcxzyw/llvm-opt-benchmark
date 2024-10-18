@@ -866,7 +866,7 @@ invoke.cont28.i:                                  ; preds = %invoke.cont25.i
 if.then.i.i15:                                    ; preds = %invoke.cont28.i
   %vtable.i.i = load ptr, ptr %call5, align 8
   %30 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %call5)
+  invoke void %30(ptr noundef nonnull align 8 dereferenceable(153) %call5)
           to label %if.end.i.i14 unwind label %lpad5.i
 
 if.end.i.i14:                                     ; preds = %if.then.i.i15, %invoke.cont28.i
@@ -921,7 +921,7 @@ call.i.noexc.i:                                   ; preds = %invoke.cont49.i
   %closure_.i.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   %33 = extractvalue { ptr, i32 } %call50.i, 1
   %34 = extractvalue { ptr, i32 } %call50.i, 0
-  invoke void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcherC1EPS0_19grpc_polling_entityP23grpc_connectivity_stateP12grpc_closureS7_(ptr noundef nonnull align 8 dereferenceable(73) %call.i10.i, ptr noundef nonnull %call16.i, ptr %34, i32 %33, ptr noundef nonnull %state_.i, ptr noundef nonnull %on_complete_9.i, ptr noundef nonnull %closure_.i.i)
+  invoke void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcherC1EPS0_19grpc_polling_entityP23grpc_connectivity_stateP12grpc_closureS7_(ptr noundef nonnull align 8 dereferenceable(73) %call.i10.i, ptr noundef nonnull align 8 dereferenceable(616) %call16.i, ptr %34, i32 %33, ptr noundef nonnull %state_.i, ptr noundef nonnull %on_complete_9.i, ptr noundef nonnull %closure_.i.i)
           to label %invoke.cont7 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %call.i.noexc.i
@@ -1383,7 +1383,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit11:      ; preds = %if.end16
 if.then.i:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit11
   %vtable.i = load ptr, ptr %arg, align 8
   %23 = load ptr, ptr %vtable.i, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %arg)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %arg)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit11
@@ -1500,7 +1500,7 @@ if.else.i:                                        ; preds = %invoke.cont23
 
 _ZZN9grpc_core12_GLOBAL__N_112StateWatcher10StartTimerENS_9TimestampEENUlvE_D2Ev.exit: ; preds = %if.else.i, %invoke.cont23
   %12 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %12(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp16) #19
+  call void %12(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp16, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp16) #19
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1523,7 +1523,7 @@ lpad22:                                           ; preds = %invoke.cont20
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull %agg.tmp16) #19
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp16, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp16) #19
   call fastcc void @_ZZN9grpc_core12_GLOBAL__N_112StateWatcher10StartTimerENS_9TimestampEENUlvE_D2Ev(ptr null) #19
   br label %ehcleanup27
 
@@ -1800,7 +1800,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %this.0.val, align 8
   %1 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
@@ -1961,7 +1961,7 @@ call2.i.noexc.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call2.i.noexc.i.i.i.i.i
   %on_complete_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 88
-  invoke void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcher36RemoveWatcherFromExternalWatchersMapEPS0_P12grpc_closureb(ptr noundef nonnull %call2.i5.i.i.i.i.i, ptr noundef nonnull %on_complete_.i.i.i.i.i.i, i1 noundef zeroext true)
+  invoke void @_ZN9grpc_core13ClientChannel27ExternalConnectivityWatcher36RemoveWatcherFromExternalWatchersMapEPS0_P12grpc_closureb(ptr noundef nonnull align 8 dereferenceable(616) %call2.i5.i.i.i.i.i, ptr noundef nonnull %on_complete_.i.i.i.i.i.i, i1 noundef zeroext true)
           to label %invoke.cont4.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 invoke.cont4.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %call2.i.noexc.i.i.i.i.i
@@ -1980,7 +1980,7 @@ if.then.i8.i.i.i.i.i:                             ; preds = %invoke.cont4.i.i.i.
 if.then.i.i11.i.i.i.i.i:                          ; preds = %if.then.i8.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %21)
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %if.end.i.i10.i.i.i.i.i unwind label %lpad2.i.i.i.i.i
 
 if.end.i.i10.i.i.i.i.i:                           ; preds = %if.then.i.i11.i.i.i.i.i, %if.then.i8.i.i.i.i.i
@@ -2175,7 +2175,7 @@ if.then.i.i:                                      ; preds = %sw.bb1
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %call.val.pr, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %call.val.pr)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %call.val.pr)
           to label %if.end.i.i.i unwind label %terminate.lpad.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i.i

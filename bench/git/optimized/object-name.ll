@@ -2298,7 +2298,7 @@ if.end.i:                                         ; preds = %if.then99
   br i1 %tobool11, label %return, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call fastcc void @diagnose_invalid_index_path(ptr noundef nonnull %repo, i32 noundef %stage.0, ptr noundef %prefix, ptr noundef %cp.1)
+  tail call fastcc void @diagnose_invalid_index_path(ptr noundef nonnull %repo, i32 noundef range(i32 0, 4) %stage.0, ptr noundef %prefix, ptr noundef %cp.1)
   br label %return
 
 if.end103:                                        ; preds = %if.then99

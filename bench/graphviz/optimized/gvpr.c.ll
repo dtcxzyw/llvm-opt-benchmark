@@ -310,7 +310,7 @@ getOptarg.exit.thread67.i.i:                      ; preds = %.preheader.i.i.i
   br i1 %60, label %getOptarg.exit.i.i, label %getOptarg.exit.thread.i.i
 
 getOptarg.exit.thread.i.i:                        ; preds = %59
-  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %51) #21, !noalias !4
+  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef range(i32 -128, 128) %51) #21, !noalias !4
   store ptr null, ptr @optarg, align 8, !noalias !4
   br label %.thread70.i.thread
 
@@ -389,7 +389,7 @@ agxblen.exit.i.i.i.i.i:                           ; preds = %80
   unreachable
 
 88:                                               ; preds = %80
-  call fastcc void @agxbputc(ptr noundef %8)
+  call fastcc void @agxbputc(ptr noundef nonnull %8)
   %89 = load ptr, ptr %8, align 8, !noalias !4
   br label %concat.exit.i.i.i
 
@@ -428,7 +428,7 @@ agxblen.exit.i.i53.i.i.i:                         ; preds = %96
   unreachable
 
 104:                                              ; preds = %96
-  call fastcc void @agxbputc(ptr noundef %7)
+  call fastcc void @agxbputc(ptr noundef nonnull %7)
   %105 = load ptr, ptr %7, align 8, !noalias !4
   br label %concat.exit55.i.i.i
 
@@ -822,7 +822,7 @@ getOptarg.exit40.thread81.i.i:                    ; preds = %.preheader.i35.i.i
   br i1 %238, label %getOptarg.exit40.i.i, label %getOptarg.exit40.thread.i.i
 
 getOptarg.exit40.thread.i.i:                      ; preds = %237
-  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %51) #21, !noalias !4
+  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef range(i32 -128, 128) %51) #21, !noalias !4
   store ptr null, ptr @optarg, align 8, !noalias !4
   br label %.thread70.i.thread
 
@@ -1029,7 +1029,7 @@ getOptarg.exit49.thread93.i.i:                    ; preds = %.preheader.i44.i.i
   br i1 %291, label %getOptarg.exit49.i.i, label %getOptarg.exit49.thread.i.i
 
 getOptarg.exit49.thread.i.i:                      ; preds = %290
-  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %51) #21, !noalias !4
+  call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef range(i32 -128, 128) %51) #21, !noalias !4
   store ptr null, ptr @optarg, align 8, !noalias !4
   br label %.thread70.i.thread
 
@@ -1567,7 +1567,7 @@ scanArgs.exit:                                    ; preds = %.thread, %329, %.th
 
 487:                                              ; preds = %482
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.28, ptr noundef %486, i32 noundef %484)
-  call fastcc void @agxbputc(ptr noundef %5)
+  call fastcc void @agxbputc(ptr noundef nonnull %5)
   %.val.i.i.i171 = load i8, ptr %423, align 1
   %.not.i.i.i172 = icmp eq i8 %.val.i.i.i171, -1
   br i1 %.not.i.i.i172, label %488, label %agxbclear.exit.i.i
@@ -2116,7 +2116,7 @@ travBFS.exit.i:                                   ; preds = %nextNode.exit.i.i
 
 doCleanup.exit113.i:                              ; preds = %.lr.ph.i110.i, %683, %682
   store i8 1, ptr getelementptr inbounds (i8, ptr @DFSfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @DFSfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @DFSfns)
   br label %traverse.exit
 
 689:                                              ; preds = %533
@@ -2139,7 +2139,7 @@ doCleanup.exit113.i:                              ; preds = %.lr.ph.i110.i, %683
 
 doCleanup.exit118.i:                              ; preds = %.lr.ph.i115.i, %690, %689
   store i8 1, ptr getelementptr inbounds (i8, ptr @FWDfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @FWDfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @FWDfns)
   br label %traverse.exit
 
 696:                                              ; preds = %533
@@ -2162,7 +2162,7 @@ doCleanup.exit118.i:                              ; preds = %.lr.ph.i115.i, %690
 
 doCleanup.exit123.i:                              ; preds = %.lr.ph.i120.i, %697, %696
   store i8 1, ptr getelementptr inbounds (i8, ptr @REVfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @REVfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @REVfns)
   br label %traverse.exit
 
 703:                                              ; preds = %533
@@ -2185,7 +2185,7 @@ doCleanup.exit123.i:                              ; preds = %.lr.ph.i120.i, %697
 
 doCleanup.exit128.i:                              ; preds = %.lr.ph.i125.i, %704, %703
   store i8 2, ptr getelementptr inbounds (i8, ptr @DFSfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @DFSfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @DFSfns)
   br label %traverse.exit
 
 710:                                              ; preds = %533
@@ -2208,7 +2208,7 @@ doCleanup.exit128.i:                              ; preds = %.lr.ph.i125.i, %704
 
 doCleanup.exit133.i:                              ; preds = %.lr.ph.i130.i, %711, %710
   store i8 2, ptr getelementptr inbounds (i8, ptr @FWDfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @FWDfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @FWDfns)
   br label %traverse.exit
 
 717:                                              ; preds = %533
@@ -2231,7 +2231,7 @@ doCleanup.exit133.i:                              ; preds = %.lr.ph.i130.i, %711
 
 doCleanup.exit138.i:                              ; preds = %.lr.ph.i135.i, %718, %717
   store i8 2, ptr getelementptr inbounds (i8, ptr @REVfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @REVfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @REVfns)
   br label %traverse.exit
 
 724:                                              ; preds = %533
@@ -2254,7 +2254,7 @@ doCleanup.exit138.i:                              ; preds = %.lr.ph.i135.i, %718
 
 doCleanup.exit143.i:                              ; preds = %.lr.ph.i140.i, %725, %724
   store i8 3, ptr getelementptr inbounds (i8, ptr @DFSfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @DFSfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @DFSfns)
   br label %traverse.exit
 
 731:                                              ; preds = %533
@@ -2277,7 +2277,7 @@ doCleanup.exit143.i:                              ; preds = %.lr.ph.i140.i, %725
 
 doCleanup.exit148.i:                              ; preds = %.lr.ph.i145.i, %732, %731
   store i8 3, ptr getelementptr inbounds (i8, ptr @FWDfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @FWDfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @FWDfns)
   br label %traverse.exit
 
 738:                                              ; preds = %533
@@ -2300,17 +2300,17 @@ doCleanup.exit148.i:                              ; preds = %.lr.ph.i145.i, %732
 
 doCleanup.exit153.i:                              ; preds = %.lr.ph.i150.i, %739, %738
   store i8 3, ptr getelementptr inbounds (i8, ptr @REVfns, i64 17), align 1
-  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef readonly %452, ptr noundef nonnull @REVfns)
+  call fastcc void @travDFS(ptr noundef %477, ptr noundef %479, ptr noundef nonnull readonly %452, ptr noundef nonnull @REVfns)
   br label %traverse.exit
 
 745:                                              ; preds = %533
-  call fastcc void @travNodes(ptr noundef nonnull %477, ptr noundef %479, ptr noundef readonly %452)
-  call fastcc void @travEdges(ptr noundef nonnull %477, ptr noundef %479, ptr noundef readonly %452)
+  call fastcc void @travNodes(ptr noundef nonnull %477, ptr noundef %479, ptr noundef nonnull readonly %452)
+  call fastcc void @travEdges(ptr noundef nonnull %477, ptr noundef %479, ptr noundef nonnull readonly %452)
   br label %traverse.exit
 
 746:                                              ; preds = %533
-  call fastcc void @travEdges(ptr noundef nonnull %477, ptr noundef %479, ptr noundef readonly %452)
-  call fastcc void @travNodes(ptr noundef nonnull %477, ptr noundef %479, ptr noundef readonly %452)
+  call fastcc void @travEdges(ptr noundef nonnull %477, ptr noundef %479, ptr noundef nonnull readonly %452)
+  call fastcc void @travNodes(ptr noundef nonnull %477, ptr noundef %479, ptr noundef nonnull readonly %452)
   br label %traverse.exit
 
 traverse.exit:                                    ; preds = %.loopexit.i.i, %533, %536, %travBFS.exit.i, %doCleanup.exit113.i, %doCleanup.exit118.i, %doCleanup.exit123.i, %doCleanup.exit128.i, %doCleanup.exit133.i, %doCleanup.exit138.i, %doCleanup.exit143.i, %doCleanup.exit148.i, %doCleanup.exit153.i, %745, %746

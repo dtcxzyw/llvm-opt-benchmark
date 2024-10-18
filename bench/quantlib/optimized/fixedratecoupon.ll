@@ -1092,7 +1092,7 @@ entry:
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !33
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %1 = load ptr, ptr %vfn.i, align 8
-  %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %call.i = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %rate_.i = getelementptr inbounds i8, ptr %this, i64 80
   %accrualStartDate_.i = getelementptr inbounds i8, ptr %this, i64 32
   %accrualEndDate_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3539,7 +3539,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit145:       ; preds = %invoke.cont156, %if
   store ptr %97, ptr %_M_right.i.i.i.i.i.i3.i, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %call157, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %call157, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %ref, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call157, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, double noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %ref, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont160 unwind label %cleanup.action169
 
 invoke.cont160:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit145
@@ -4060,7 +4060,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit268:       ; preds = %invoke.cont238, %if
   store ptr %176, ptr %_M_right.i.i.i.i.i.i3.i275, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i276 = getelementptr inbounds i8, ptr %call239, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i276, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %call239, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate180, double noundef %nominal.0, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call239, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate180, double noundef %nominal.0, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont242 unwind label %cleanup.action251
 
 invoke.cont242:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit268
@@ -4632,7 +4632,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit483:       ; preds = %invoke.cont363, %if
   store ptr %266, ptr %_M_right.i.i.i.i.i.i3.i490, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i491 = getelementptr inbounds i8, ptr %call364, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i491, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %call364, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call364, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont367 unwind label %cleanup.action376
 
 invoke.cont367:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit483
@@ -4908,7 +4908,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit572:       ; preds = %invoke.cont399, %if
   store ptr %304, ptr %_M_right.i.i.i.i.i.i3.i579, align 8, !tbaa !15
   %_M_node_count.i.i.i.i.i.i4.i580 = getelementptr inbounds i8, ptr %call400, i64 240
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4.i580, align 8, !tbaa !16
-  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %call400, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %ref380, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
+  invoke void @_ZN8QuantLib6CouponC2ERKNS_4DateEdS3_S3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %call400, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15FixedRateCouponE, i64 8), ptr noundef nonnull align 8 dereferenceable(8) %paymentDate270, double noundef %nominal.1, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %ref380, ptr noundef nonnull align 8 dereferenceable(8) %exCouponDate)
           to label %invoke.cont403 unwind label %cleanup.action412
 
 invoke.cont403:                                   ; preds = %_ZN8QuantLib12InterestRateC2ERKS0_.exit572
@@ -6330,7 +6330,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %12 = phi ptr [ %11, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull %add.ptr7.i)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr7.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -6437,7 +6437,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib15FixedRateCouponD0Ev(ptr noundef %th
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib15FixedRateCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 248) #32
   ret void
 }
 
@@ -6460,7 +6460,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib15FixedRateCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #29
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(136) %2, i64 noundef 248) #32
   ret void
 }
 

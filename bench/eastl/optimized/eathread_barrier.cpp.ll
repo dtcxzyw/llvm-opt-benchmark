@@ -69,7 +69,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %if.then10.i, label %if.end
 
 if.then10.i:                                      ; preds = %if.then.i
-  %call12.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #10
+  %call12.i = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef null) #10
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
 
@@ -94,7 +94,7 @@ if.then.i10:                                      ; preds = %land.lhs.true
   br i1 %cmp.i16, label %if.then10.i20, label %if.end
 
 if.then10.i20:                                    ; preds = %if.then.i10
-  %call12.i21 = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #10
+  %call12.i21 = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef null) #10
   %cmp13.i22 = icmp eq i32 %call12.i21, 0
   br i1 %cmp13.i22, label %if.then14.i25, label %if.else.i23
 
@@ -174,7 +174,7 @@ if.then.i:
   br i1 %cmp.i, label %if.then10.i, label %_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit
 
 if.then10.i:                                      ; preds = %if.then.i
-  %call12.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #10
+  %call12.i = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef null) #10
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.then14.i, label %if.else.i
 
@@ -338,7 +338,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i16.i, label %if.then10.i20.i, label %return
 
 if.then10.i20.i:                                  ; preds = %if.then
-  %call12.i21.i = tail call i32 @pthread_cond_init(ptr noundef nonnull %call1, ptr noundef null) #10
+  %call12.i21.i = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %call1, ptr noundef null) #10
   %cmp13.i22.i = icmp eq i32 %call12.i21.i, 0
   br i1 %cmp13.i22.i, label %if.then14.i25.i, label %if.else.i23.i
 
@@ -360,7 +360,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i16.i6, label %if.then10.i20.i7, label %return
 
 if.then10.i20.i7:                                 ; preds = %if.else
-  %call12.i21.i8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %call2, ptr noundef null) #10
+  %call12.i21.i8 = tail call i32 @pthread_cond_init(ptr noundef nonnull align 8 dereferenceable(112) %call2, ptr noundef null) #10
   %cmp13.i22.i9 = icmp eq i32 %call12.i21.i8, 0
   br i1 %cmp13.i22.i9, label %if.then14.i25.i12, label %if.else.i23.i10
 
@@ -403,7 +403,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %mMutex.i = getelementptr inbounds i8, ptr %pBarrier, i64 48
   %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i) #10
-  %call4.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %pBarrier) #10
+  %call4.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull align 8 dereferenceable(112) %pBarrier) #10
   br label %_ZN2EA6Thread7BarrierD2Ev.exit
 
 _ZN2EA6Thread7BarrierD2Ev.exit:                   ; preds = %if.then, %if.then.i
@@ -426,7 +426,7 @@ delete.notnull:                                   ; preds = %if.else
 if.then.i6:                                       ; preds = %delete.notnull
   %mMutex.i7 = getelementptr inbounds i8, ptr %pBarrier, i64 48
   %call.i8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i7) #10
-  %call4.i9 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %pBarrier) #10
+  %call4.i9 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull align 8 dereferenceable(112) %pBarrier) #10
   br label %_ZN2EA6Thread7BarrierD2Ev.exit10
 
 _ZN2EA6Thread7BarrierD2Ev.exit10:                 ; preds = %delete.notnull, %if.then.i6

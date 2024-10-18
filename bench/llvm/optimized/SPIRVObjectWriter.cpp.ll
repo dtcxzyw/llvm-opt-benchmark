@@ -269,7 +269,7 @@ _ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i.i: ; pr
 
 _ZN4llvm17SPIRVObjectWriterD2Ev.exit:             ; preds = %1, %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #9
+  tail call void @_ZN4llvm14MCObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #11
   ret void
 }

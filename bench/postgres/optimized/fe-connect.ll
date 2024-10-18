@@ -452,7 +452,7 @@ recognized_connection_string.exit.i:              ; preds = %23
   br i1 %.not164.i, label %.critedge.i, label %recognized_connection_string.exit.thread.i
 
 recognized_connection_string.exit.thread.i:       ; preds = %recognized_connection_string.exit.i, %23, %.split.i
-  %27 = tail call fastcc ptr @parse_connection_string(ptr noundef nonnull %17, ptr noundef %7, i1 noundef zeroext false)
+  %27 = tail call fastcc ptr @parse_connection_string(ptr noundef nonnull %17, ptr noundef nonnull %7, i1 noundef zeroext false)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %conninfo_array_parse.exit.thread, label %.critedge.i
 
@@ -560,7 +560,7 @@ conninfo_init.exit.i:                             ; preds = %conninfo_init.exit.
   br i1 %.not.i105.i, label %._crit_edge.i106.i, label %.lr.ph.i103.i, !llvm.loop !7
 
 ._crit_edge.i106.i:                               ; preds = %.lr.ph.i103.i, %.preheader.i101.i
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef nonnull %29) #23
   %65 = icmp eq ptr %.1195.i, null
   br i1 %65, label %conninfo_array_parse.exit.thread, label %.preheader.i108.i
 
@@ -651,7 +651,7 @@ conninfo_init.exit.i:                             ; preds = %conninfo_init.exit.
   br i1 %.not.i119.i, label %PQconninfoFree.exit121.i, label %.lr.ph.i117.i, !llvm.loop !7
 
 PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.preheader.i115.i
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef nonnull %29) #23
   %97 = load ptr, ptr %.1195.i, align 8
   %.not7.i123.i = icmp eq ptr %97, null
   br i1 %.not7.i123.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i124.i
@@ -688,7 +688,7 @@ PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.pr
   br i1 %.not.i133.i, label %._crit_edge.i134.i, label %.lr.ph.i131.i, !llvm.loop !7
 
 ._crit_edge.i134.i:                               ; preds = %.lr.ph.i131.i, %.preheader.i129.i, %.preheader165.i
-  tail call void @free(ptr noundef %.1195.i) #23
+  tail call void @free(ptr noundef nonnull %.1195.i) #23
   br label %PQconninfoFree.exit135.i
 
 109:                                              ; preds = %71
@@ -717,7 +717,7 @@ PQconninfoFree.exit121.i:                         ; preds = %.lr.ph.i117.i, %.pr
   br i1 %.not.i140.i, label %PQconninfoFree.exit142.i, label %.lr.ph.i138.i, !llvm.loop !7
 
 PQconninfoFree.exit142.i:                         ; preds = %.lr.ph.i138.i, %.preheader.i136.i
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef nonnull %29) #23
   %118 = icmp eq ptr %.1195.i, null
   br i1 %118, label %conninfo_array_parse.exit.thread, label %.preheader.i143.i
 
@@ -862,7 +862,7 @@ conninfo_getval.exit.thread.i:                    ; preds = %150, %155, %conninf
   br i1 %.not.i23, label %PQconninfoFree.exit, label %.lr.ph.i, !llvm.loop !7
 
 PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.preheader.i22
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef nonnull %29) #23
   br label %pqConnectDBStart.exit
 
 .preheader.i24:                                   ; preds = %conninfo_getval.exit.thread.i
@@ -881,7 +881,7 @@ PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not.i28, label %PQconninfoFree.exit30, label %.lr.ph.i26, !llvm.loop !7
 
 PQconninfoFree.exit30:                            ; preds = %.lr.ph.i26, %.preheader.i24
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef nonnull %29) #23
   %172 = tail call zeroext i1 @pqConnectOptions2(ptr noundef nonnull %4)
   br i1 %172, label %173, label %pqConnectDBStart.exit
 
@@ -2981,7 +2981,7 @@ conninfo_getval.exit.thread.i:                    ; preds = %17, %22, %conninfo_
   br i1 %.not.i11, label %PQconninfoFree.exit, label %.lr.ph.i, !llvm.loop !7
 
 PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.preheader.i
-  tail call void @free(ptr noundef %4) #23
+  tail call void @free(ptr noundef nonnull %4) #23
   br label %40
 
 .preheader.i12:                                   ; preds = %conninfo_getval.exit.thread.i
@@ -3000,7 +3000,7 @@ PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.not.i16, label %PQconninfoFree.exit18, label %.lr.ph.i14, !llvm.loop !7
 
 PQconninfoFree.exit18:                            ; preds = %.lr.ph.i14, %.preheader.i12
-  tail call void @free(ptr noundef %4) #23
+  tail call void @free(ptr noundef nonnull %4) #23
   br label %40
 
 40:                                               ; preds = %PQconninfoFree.exit18, %PQconninfoFree.exit, %6
@@ -3228,7 +3228,7 @@ conninfo_init.exit:                               ; preds = %11, %conninfo_init.
   br i1 %.not.i8, label %PQconninfoFree.exit, label %.lr.ph.i, !llvm.loop !7
 
 PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.preheader.i7
-  call void @free(ptr noundef %6) #23
+  call void @free(ptr noundef nonnull %6) #23
   br label %23
 
 23:                                               ; preds = %conninfo_init.exit.thread, %conninfo_init.exit, %PQconninfoFree.exit
@@ -3322,7 +3322,7 @@ pqGetHomeDirectory.exit.i:                        ; preds = %26, %23
   br i1 %.not22.i, label %35, label %40
 
 35:                                               ; preds = %32, %21
-  %36 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef %0, ptr noundef %1, ptr noundef %4)
+  %36 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4)
   %37 = load i8, ptr %4, align 1
   %38 = trunc i8 %37 to i1
   %39 = icmp ne i32 %36, 0
@@ -3340,7 +3340,7 @@ pqGetHomeDirectory.exit.i:                        ; preds = %26, %23
   br i1 %.not24.i, label %45, label %47
 
 45:                                               ; preds = %40
-  %46 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef %0, ptr noundef %1, ptr noundef %4)
+  %46 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4)
   %.not25.i = icmp eq i32 %46, 0
   br i1 %.not25.i, label %._crit_edge.i, label %parseServiceInfo.exit
 
@@ -6564,7 +6564,7 @@ conninfo_find.exit.thread.i.i.i:                  ; preds = %53, %48
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i.i.i:                         ; preds = %.lr.ph.i.i.i.i
-  %56 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %39, ptr noundef %1)
+  %56 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %39, ptr noundef nonnull %1)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.preheader.i13.critedge.i, label %conninfo_storeval.exit.i.i
 
@@ -6616,7 +6616,7 @@ conninfo_find.exit.thread.i184.i.i:               ; preds = %72, %67
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i186.i.i:                      ; preds = %.lr.ph.i.i181.i.i
-  %75 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %65, ptr noundef %1)
+  %75 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %65, ptr noundef nonnull %1)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.preheader.i13.critedge.i, label %conninfo_storeval.exit189.i.i
 
@@ -6789,7 +6789,7 @@ conninfo_find.exit.thread.i196.i.i:               ; preds = %129, %124
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i198.i.i:                      ; preds = %.lr.ph.i.i193.i.i
-  %132 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %122, ptr noundef %1)
+  %132 = call fastcc ptr @conninfo_uri_decode(ptr noundef nonnull %122, ptr noundef nonnull %1)
   %133 = icmp eq ptr %132, null
   br i1 %133, label %.preheader.i13.critedge.i, label %conninfo_storeval.exit201.i.i
 
@@ -6807,7 +6807,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not170.i.i, label %141, label %139
 
 139:                                              ; preds = %136
-  %140 = call fastcc ptr @conninfo_storeval(ptr noundef %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %137, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
+  %140 = call fastcc ptr @conninfo_storeval(ptr noundef nonnull %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %137, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not171.i.i = icmp eq ptr %140, null
   br i1 %.not171.i.i, label %.preheader.i13.critedge.i, label %141
 
@@ -6840,7 +6840,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not174.i.i, label %151, label %149
 
 149:                                              ; preds = %.critedge18.i.i
-  %150 = call fastcc ptr @conninfo_storeval(ptr noundef %11, ptr noundef nonnull @.str.118, ptr noundef nonnull %143, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
+  %150 = call fastcc ptr @conninfo_storeval(ptr noundef nonnull %11, ptr noundef nonnull @.str.118, ptr noundef nonnull %143, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not175.i.i = icmp eq ptr %150, null
   br i1 %.not175.i.i, label %.preheader.i13.critedge.i, label %151
 
@@ -6852,7 +6852,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
 
 152:                                              ; preds = %151
   %153 = getelementptr i8, ptr %.11.i.i, i64 1
-  %154 = call fastcc zeroext i1 @conninfo_uri_parse_params(ptr noundef %153, ptr noundef %11, ptr noundef %1)
+  %154 = call fastcc zeroext i1 @conninfo_uri_parse_params(ptr noundef %153, ptr noundef nonnull %11, ptr noundef nonnull %1)
   br i1 %154, label %conninfo_uri_parse_options.exit.i, label %.preheader.i13.critedge.i
 
 conninfo_uri_parse_options.exit.i:                ; preds = %152, %151
@@ -6885,7 +6885,7 @@ conninfo_uri_parse_options.exit.i:                ; preds = %152, %151
   br i1 %.not.i14.i, label %PQconninfoFree.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 PQconninfoFree.exit.i:                            ; preds = %.lr.ph.i.i, %.preheader.i13.critedge.i
-  call void @free(ptr noundef %11) #23
+  call void @free(ptr noundef nonnull %11) #23
   br label %conninfo_uri_parse.exit
 
 160:                                              ; preds = %conninfo_uri_parse_options.exit.i
@@ -6908,7 +6908,7 @@ PQconninfoFree.exit.i:                            ; preds = %.lr.ph.i.i, %.prehe
   br i1 %.not.i19.i, label %PQconninfoFree.exit21.i, label %.lr.ph.i17.i, !llvm.loop !7
 
 PQconninfoFree.exit21.i:                          ; preds = %.lr.ph.i17.i, %.preheader.i15.i
-  call void @free(ptr noundef %11) #23
+  call void @free(ptr noundef nonnull %11) #23
   br label %conninfo_uri_parse.exit
 
 uri_prefix_length.exit:                           ; preds = %8
@@ -6974,7 +6974,7 @@ conninfo_init.exit.i13:                           ; preds = %conninfo_init.exit.
   br i1 %.not.i97.i, label %PQconninfoFree.exit.i18, label %.lr.ph.i.i16, !llvm.loop !7
 
 PQconninfoFree.exit.i18:                          ; preds = %.lr.ph.i.i16, %.preheader.i96.i
-  tail call void @free(ptr noundef %167) #23
+  tail call void @free(ptr noundef nonnull %167) #23
   br label %conninfo_uri_parse.exit
 
 187:                                              ; preds = %.backedge125.i, %.lr.ph152.i
@@ -7062,7 +7062,7 @@ PQconninfoFree.exit.i18:                          ; preds = %.lr.ph.i.i16, %.pre
   br i1 %.not.i102.i, label %PQconninfoFree.exit104.i, label %.lr.ph.i100.i, !llvm.loop !7
 
 PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.preheader.i98.i
-  tail call void @free(ptr noundef %167) #23
+  tail call void @free(ptr noundef nonnull %167) #23
   tail call void @free(ptr noundef %178) #23
   br label %conninfo_uri_parse.exit
 
@@ -7171,7 +7171,7 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
   br i1 %.not.i109.i, label %PQconninfoFree.exit111.i, label %.lr.ph.i107.i, !llvm.loop !7
 
 PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.preheader.i105.i
-  tail call void @free(ptr noundef %167) #23
+  tail call void @free(ptr noundef nonnull %167) #23
   tail call void @free(ptr noundef %178) #23
   br label %conninfo_uri_parse.exit
 
@@ -7196,7 +7196,7 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
 
 262:                                              ; preds = %260, %.loopexit.i
   %.8.i = phi ptr [ %.6.i, %.loopexit.i ], [ %261, %260 ]
-  %263 = tail call fastcc ptr @conninfo_storeval(ptr noundef %167, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %263 = tail call fastcc ptr @conninfo_storeval(ptr noundef %167, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not95.i = icmp eq ptr %263, null
   br i1 %.not95.i, label %.preheader.i112.i, label %.backedge125.i
 
@@ -7216,7 +7216,7 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
   br i1 %.not.i116.i, label %PQconninfoFree.exit118.i, label %.lr.ph.i114.i, !llvm.loop !7
 
 PQconninfoFree.exit118.i:                         ; preds = %.lr.ph.i114.i, %.preheader.i112.i
-  tail call void @free(ptr noundef %167) #23
+  tail call void @free(ptr noundef nonnull %167) #23
   tail call void @free(ptr noundef %178) #23
   br label %conninfo_uri_parse.exit
 

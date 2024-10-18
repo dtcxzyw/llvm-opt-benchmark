@@ -735,7 +735,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZThn16_N5osgeo4proj2cs8MeridianD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs8MeridianD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -743,7 +743,7 @@ define void @_ZThn16_N5osgeo4proj2cs8MeridianD0Ev(ptr noundef %0) unnamed_addr #
 define void @_ZThn24_N5osgeo4proj2cs8MeridianD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs8MeridianD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -751,7 +751,7 @@ define void @_ZThn24_N5osgeo4proj2cs8MeridianD0Ev(ptr noundef %0) unnamed_addr #
 define void @_ZThn40_N5osgeo4proj2cs8MeridianD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs8MeridianD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -771,7 +771,7 @@ define void @_ZN5osgeo4proj2cs8Meridian6createERKNS0_6common5AngleE(ptr dead_on_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs8Meridian14nn_make_sharedIS2_JRKNS0_6common5AngleEEEEN7dropbox6oxygen2nnISt10shared_ptrIT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %2
@@ -804,7 +804,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs8Meridian14nn_make_sharedIS2_J
 .body.i:                                          ; preds = %10, %8
   %eh.lpad-body.i = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 12:                                               ; preds = %.noexc.i
@@ -1216,7 +1216,7 @@ define void @_ZN5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef nonnull ali
 define void @_ZThn16_N5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs20CoordinateSystemAxisD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -1224,7 +1224,7 @@ define void @_ZThn16_N5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef %0) u
 define void @_ZThn24_N5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs20CoordinateSystemAxisD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -1232,7 +1232,7 @@ define void @_ZThn24_N5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef %0) u
 define void @_ZThn40_N5osgeo4proj2cs20CoordinateSystemAxisD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs20CoordinateSystemAxisD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -1447,7 +1447,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs8MeridianEEaSERKS4_.exit: ; preds = %23, %_ZNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5osgeo4proj2cs20CoordinateSystemAxis14nn_make_sharedIS2_JEEEN7dropbox6oxygen2nnISt10shared_ptrIT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.67") align 8 %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %1
@@ -1481,7 +1481,7 @@ define linkonce_odr void @_ZN5osgeo4proj2cs20CoordinateSystemAxis14nn_make_share
 .body.i:                                          ; preds = %9, %7
   %eh.lpad-body.i = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
   br label %.body
 
 11:                                               ; preds = %.noexc.i
@@ -2382,7 +2382,7 @@ _ZNK5osgeo4proj4util8CodeListeqERKS2_.exit77.thread92: ; preds = %_ZNK5osgeo4pro
 ; Function Attrs: uwtable
 define hidden void @_ZThn24_NK5osgeo4proj2cs20CoordinateSystemAxis12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
-  tail call void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis12_exportToWKTEPNS0_2io12WKTFormatterEib(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @_ZNK5osgeo4proj2cs20CoordinateSystemAxis12_exportToWKTEPNS0_2io12WKTFormatterEib(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1, i32 noundef 0, i1 noundef zeroext false)
   ret void
 }
 
@@ -3384,7 +3384,7 @@ define void @_ZN5osgeo4proj2cs16CoordinateSystemD2Ev(ptr noundef nonnull align 8
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj2cs16CoordinateSystem7PrivateESt14default_deleteIS4_EED2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZNSt10unique_ptrIN5osgeo4proj2cs16CoordinateSystem7PrivateESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5osgeo4proj2cs16CoordinateSystem7PrivateESt14default_deleteIS4_EED2Ev.exit: ; preds = %1, %7
@@ -4135,13 +4135,13 @@ define void @_ZN5osgeo4proj2cs11SphericalCSD2Ev(ptr noundef nonnull align 8 dere
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -4177,7 +4177,7 @@ define void @_ZN5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef nonnull align 8 dere
 define void @_ZThn16_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs11SphericalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -4185,7 +4185,7 @@ define void @_ZThn16_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_ad
 define void @_ZThn24_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs11SphericalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -4193,13 +4193,13 @@ define void @_ZThn24_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_ad
 define void @_ZThn40_N5osgeo4proj2cs11SphericalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs11SphericalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs11SphericalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4215,7 +4215,7 @@ define hidden void @_ZN5osgeo4proj2cs11SphericalCSC2ERKSt6vectorIN7dropbox6oxyge
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -4589,7 +4589,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs11SphericalCS14nn_make_sharedIS2_JRSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -4608,7 +4608,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11SphericalCS14nn_make_sharedI
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -5205,13 +5205,13 @@ define void @_ZN5osgeo4proj2cs13EllipsoidalCSD2Ev(ptr noundef nonnull align 8 de
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -5247,7 +5247,7 @@ define void @_ZN5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef nonnull align 8 de
 define void @_ZThn16_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs13EllipsoidalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -5255,7 +5255,7 @@ define void @_ZThn16_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_
 define void @_ZThn24_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs13EllipsoidalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -5263,13 +5263,13 @@ define void @_ZThn24_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_
 define void @_ZThn40_N5osgeo4proj2cs13EllipsoidalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs13EllipsoidalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs13EllipsoidalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5285,7 +5285,7 @@ define hidden void @_ZN5osgeo4proj2cs13EllipsoidalCSC2ERKSt6vectorIN7dropbox6oxy
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -5632,7 +5632,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs13EllipsoidalCS14nn_make_sharedIS2_JRSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.103") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -5651,7 +5651,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs13EllipsoidalCS14nn_make_share
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -8361,13 +8361,13 @@ define void @_ZN5osgeo4proj2cs10VerticalCSD2Ev(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -8403,7 +8403,7 @@ define void @_ZN5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef nonnull align 8 deref
 define void @_ZThn16_N5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs10VerticalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -8411,7 +8411,7 @@ define void @_ZThn16_N5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef %0) unnamed_add
 define void @_ZThn24_N5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs10VerticalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -8419,7 +8419,7 @@ define void @_ZThn24_N5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef %0) unnamed_add
 define void @_ZThn40_N5osgeo4proj2cs10VerticalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs10VerticalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -8489,7 +8489,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
 _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %29, %26, %.noexc3.i
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %18, ptr %31, align 8
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %.noexc unwind label %117
 
 32:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
@@ -8513,7 +8513,7 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #26
-  call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   br label %.body5
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %.noexc
@@ -9257,13 +9257,13 @@ define void @_ZN5osgeo4proj2cs11CartesianCSD2Ev(ptr noundef nonnull align 8 dere
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -9299,7 +9299,7 @@ define void @_ZN5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef nonnull align 8 dere
 define void @_ZThn16_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs11CartesianCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -9307,7 +9307,7 @@ define void @_ZThn16_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_ad
 define void @_ZThn24_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs11CartesianCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -9315,13 +9315,13 @@ define void @_ZThn24_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_ad
 define void @_ZThn40_N5osgeo4proj2cs11CartesianCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs11CartesianCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs11CartesianCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9337,7 +9337,7 @@ define hidden void @_ZN5osgeo4proj2cs11CartesianCSC2ERKSt6vectorIN7dropbox6oxyge
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -9684,7 +9684,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs11CartesianCS14nn_make_sharedIS2_JRSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -9703,7 +9703,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs11CartesianCS14nn_make_sharedI
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -13516,13 +13516,13 @@ define void @_ZN5osgeo4proj2cs8AffineCSD2Ev(ptr noundef nonnull align 8 derefere
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -13558,7 +13558,7 @@ define void @_ZN5osgeo4proj2cs8AffineCSD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs8AffineCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -13566,7 +13566,7 @@ define void @_ZThn16_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #
 define void @_ZThn24_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs8AffineCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -13574,13 +13574,13 @@ define void @_ZThn24_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #
 define void @_ZThn40_N5osgeo4proj2cs8AffineCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs8AffineCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs8AffineCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13596,7 +13596,7 @@ define hidden void @_ZN5osgeo4proj2cs8AffineCSC2ERKSt6vectorIN7dropbox6oxygen2nn
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -13943,7 +13943,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs8AffineCS14nn_make_sharedIS2_JRSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -13962,7 +13962,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs8AffineCS14nn_make_sharedIS2_J
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -14972,13 +14972,13 @@ define void @_ZN5osgeo4proj2cs9OrdinalCSD2Ev(ptr noundef nonnull align 8 derefer
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -15014,7 +15014,7 @@ define void @_ZN5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs9OrdinalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -15022,7 +15022,7 @@ define void @_ZThn16_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr 
 define void @_ZThn24_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs9OrdinalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -15030,13 +15030,13 @@ define void @_ZThn24_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr 
 define void @_ZThn40_N5osgeo4proj2cs9OrdinalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs9OrdinalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs9OrdinalCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15052,7 +15052,7 @@ define hidden void @_ZN5osgeo4proj2cs9OrdinalCSC2ERKSt6vectorIN7dropbox6oxygen2n
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -15083,7 +15083,7 @@ define void @_ZN5osgeo4proj2cs9OrdinalCS6createERKNS0_4util11PropertyMapERKSt6ve
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs9OrdinalCS14nn_make_sharedIS2_JRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.119") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -15102,7 +15102,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs9OrdinalCS14nn_make_sharedIS2_
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -15261,13 +15261,13 @@ define void @_ZN5osgeo4proj2cs12ParametricCSD2Ev(ptr noundef nonnull align 8 der
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -15303,7 +15303,7 @@ define void @_ZN5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef nonnull align 8 der
 define void @_ZThn16_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs12ParametricCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -15311,7 +15311,7 @@ define void @_ZThn16_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_a
 define void @_ZThn24_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs12ParametricCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -15319,13 +15319,13 @@ define void @_ZThn24_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_a
 define void @_ZThn40_N5osgeo4proj2cs12ParametricCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs12ParametricCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj2cs12ParametricCSC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15341,7 +15341,7 @@ define hidden void @_ZN5osgeo4proj2cs12ParametricCSC2ERKSt6vectorIN7dropbox6oxyg
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   resume { ptr, i32 } %8
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %2
@@ -15632,7 +15632,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj2cs12ParametricCS14nn_make_sharedIS2_JSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISB_EEEEENS7_IS8_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.123") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
@@ -15651,7 +15651,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj2cs12ParametricCS14nn_make_shared
   %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #26
   br label %.body
 
 10:                                               ; preds = %.noexc
@@ -16289,13 +16289,13 @@ define void @_ZN5osgeo4proj2cs10TemporalCSD2Ev(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit
 
 _ZN5osgeo4proj2cs16CoordinateSystemD2Ev.exit:     ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -16410,7 +16410,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2E
 _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %29, %26, %.noexc3.i
   %31 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %18, ptr %31, align 8
-  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN5osgeo4proj6common16IdentifiedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %.noexc unwind label %117
 
 32:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEEC2ERKS8_.exit
@@ -16434,7 +16434,7 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #26
-  call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   br label %.body5
 
 _ZN5osgeo4proj2cs16CoordinateSystemC2ERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_20CoordinateSystemAxisEEEESaISA_EE.exit: ; preds = %.noexc
@@ -16648,13 +16648,13 @@ define void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD2Ev(ptr noundef nonnull align
   br i1 %.not.i.i.i, label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit
 
 _ZN5osgeo4proj2cs10TemporalCSD2Ev.exit:           ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -16690,7 +16690,7 @@ define void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef nonnull align
 define void @_ZThn16_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -16698,7 +16698,7 @@ define void @_ZThn16_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unn
 define void @_ZThn24_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -16706,7 +16706,7 @@ define void @_ZThn24_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unn
 define void @_ZThn40_N5osgeo4proj2cs18DateTimeTemporalCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -16920,13 +16920,13 @@ define void @_ZN5osgeo4proj2cs15TemporalCountCSD2Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i, label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit
 
 _ZN5osgeo4proj2cs10TemporalCSD2Ev.exit:           ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -16962,7 +16962,7 @@ define void @_ZN5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef nonnull align 8 
 define void @_ZThn16_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs15TemporalCountCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -16970,7 +16970,7 @@ define void @_ZThn16_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unname
 define void @_ZThn24_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs15TemporalCountCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -16978,7 +16978,7 @@ define void @_ZThn24_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unname
 define void @_ZThn40_N5osgeo4proj2cs15TemporalCountCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs15TemporalCountCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -17192,13 +17192,13 @@ define void @_ZN5osgeo4proj2cs17TemporalMeasureCSD2Ev(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)
+  tail call void @_ZNKSt14default_deleteIN5osgeo4proj2cs16CoordinateSystem7PrivateEEclEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %6)
   br label %_ZN5osgeo4proj2cs10TemporalCSD2Ev.exit
 
 _ZN5osgeo4proj2cs10TemporalCSD2Ev.exit:           ; preds = %1, %7
   store ptr null, ptr %5, align 8
   tail call void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
+  tail call void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #26
   ret void
 }
 
@@ -17234,7 +17234,7 @@ define void @_ZN5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef nonnull align 
 define void @_ZThn16_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj2cs17TemporalMeasureCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -17242,7 +17242,7 @@ define void @_ZThn16_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unna
 define void @_ZThn24_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   tail call void @_ZN5osgeo4proj2cs17TemporalMeasureCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -17250,7 +17250,7 @@ define void @_ZThn24_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unna
 define void @_ZThn40_N5osgeo4proj2cs17TemporalMeasureCSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5osgeo4proj2cs17TemporalMeasureCSD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
   ret void
 }
 
@@ -18338,7 +18338,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -18423,7 +18423,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %7) #25
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE10_Auto_nodeD2Ev.exit
 
@@ -18760,7 +18760,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %6
 
@@ -18785,7 +18785,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -18870,7 +18870,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %7) #25
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE10_Auto_nodeD2Ev.exit
 
@@ -19205,7 +19205,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %6
 
@@ -19221,7 +19221,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11ch
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -19306,7 +19306,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   tail call void @_ZdlPv(ptr noundef nonnull %7) #25
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE10_Auto_nodeD2Ev.exit
 
@@ -19641,7 +19641,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   br label %6
 

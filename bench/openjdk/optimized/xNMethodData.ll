@@ -127,14 +127,14 @@ define hidden noundef zeroext i1 @_ZNK16XNMethodDataOops18has_non_immediatesEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12XNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
-  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
+  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store volatile ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
-  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
+  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   store volatile ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
@@ -150,8 +150,8 @@ define hidden void @_ZN12XNMethodDataD2Ev(ptr noundef nonnull align 8 dereferenc
   %3 = load volatile ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
-  tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
+  tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
+  tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   ret void
 }
 
@@ -184,7 +184,7 @@ define hidden noundef ptr @_ZN12XNMethodData9swap_oopsEP16XNMethodDataOops(ptr n
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #8
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   store volatile ptr %4, ptr %5, align 8
   br label %9
 
@@ -200,7 +200,7 @@ define hidden noundef ptr @_ZN12XNMethodData9swap_oopsEP16XNMethodDataOops(ptr n
 
 15:                                               ; preds = %9
   store volatile ptr null, ptr %5, align 8
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #8
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   br label %_ZN7XLockerI14XReentrantLockED2Ev.exit
 
 _ZN7XLockerI14XReentrantLockED2Ev.exit:           ; preds = %9, %15

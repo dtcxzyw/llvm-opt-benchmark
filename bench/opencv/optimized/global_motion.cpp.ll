@@ -1337,7 +1337,7 @@ define internal void @_ZN2cv9videostabL35estimateGlobMotionLeastSquaresRigidEiPN
   store i32 -2130640891, ptr %10, align 8
   %86 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %6, ptr %86, align 8
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #22
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %9) #22
   %87 = getelementptr inbounds i8, ptr %9, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %87) #22
   %88 = getelementptr inbounds i8, ptr %9, i64 192
@@ -1350,7 +1350,7 @@ define internal void @_ZN2cv9videostabL35estimateGlobMotionLeastSquaresRigidEiPN
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %88) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %87) #22
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #22
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %9) #22
   br label %.body59
 
 _ZN2cv3SVDC2ERKNS_11_InputArrayEi.exit:           ; preds = %80
@@ -1509,7 +1509,7 @@ _ZN2cv3SVDC2ERKNS_11_InputArrayEi.exit:           ; preds = %80
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %88) #22
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %87) #22
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #22
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %9) #22
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   ret void
 

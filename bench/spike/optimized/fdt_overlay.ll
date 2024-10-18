@@ -87,7 +87,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %37 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef %.02030.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %37 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %.02030.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not.i.i = icmp eq ptr %37, null
   %38 = load i32, ptr %6, align 4
   br i1 %.not.i.i, label %39, label %.preheader.i.i
@@ -202,7 +202,7 @@ overlay_update_local_references.exit.thread:      ; preds = %23, %overlay_update
 97:                                               ; preds = %95
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %91)
   store i32 %rev.i.i.i.i, ptr %3, align 4
-  %98 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %1, i32 noundef %93, ptr noundef nonnull %65, i32 noundef %74, i32 noundef %78, ptr noundef nonnull %3, i32 noundef 4) #8
+  %98 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %1, i32 noundef %93, ptr noundef nonnull %65, i32 noundef range(i32 1, 0) %74, i32 noundef %78, ptr noundef nonnull %3, i32 noundef 4) #8
   br label %overlay_fixup_one_phandle.exit.i.i
 
 overlay_fixup_one_phandle.exit.thread.i.i:        ; preds = %95, %92, %90, %87, %81
@@ -435,7 +435,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %67, label %get_path_len.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %65
-  %68 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %3) #8
+  %68 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %61, ptr noundef nonnull %3) #8
   %.not20.i = icmp eq ptr %68, null
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -562,7 +562,7 @@ define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr no
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %8 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %7) #8
+  %8 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %7) #8
   %.not.i = icmp eq ptr %8, null
   %9 = load i32, ptr %7, align 4
   br i1 %.not.i, label %overlay_phandle_add_offset.exit, label %10
@@ -582,9 +582,9 @@ define internal fastcc range(i32 0, -1) i32 @overlay_adjust_node_phandles(ptr no
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %13)
+  %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %13)
   store i32 %rev.i.i.i, ptr %6, align 4
-  %17 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %6, i32 noundef 4) #8
+  %17 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str, ptr noundef nonnull %6, i32 noundef 4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %overlay_phandle_add_offset.exit
 
@@ -602,7 +602,7 @@ overlay_phandle_add_offset.exit:                  ; preds = %3, %16
 
 19:                                               ; preds = %overlay_phandle_add_offset.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %20 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #8
+  %20 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #8
   %.not.i29 = icmp eq ptr %20, null
   %21 = load i32, ptr %5, align 4
   br i1 %.not.i29, label %overlay_phandle_add_offset.exit35, label %22
@@ -622,9 +622,9 @@ overlay_phandle_add_offset.exit:                  ; preds = %3, %16
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %rev.i.i.i34 = call noundef i32 @llvm.bswap.i32(i32 %25)
+  %rev.i.i.i34 = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -1) %25)
   store i32 %rev.i.i.i34, ptr %4, align 4
-  %29 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, i32 noundef 4) #8
+  %29 = call i32 @fdt_setprop_inplace(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, i32 noundef 4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %overlay_phandle_add_offset.exit35
 
@@ -812,7 +812,7 @@ define internal fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %7 = call ptr @fdt_getprop(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #8
+  %7 = call ptr @fdt_getprop(ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %overlay_get_target_phandle.exit.thread29, label %8
 

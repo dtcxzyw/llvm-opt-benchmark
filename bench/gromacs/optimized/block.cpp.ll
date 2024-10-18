@@ -114,7 +114,7 @@ define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef %0, i32 noun
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = sext i32 %12 to i64
   %16 = load ptr, ptr %14, align 8
-  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef %16, i64 noundef %15, i64 noundef 4)
+  %17 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef %16, i64 noundef range(i64 -2147483647, 2147483648) %15, i64 noundef 4)
   store ptr %17, ptr %14, align 8
   %.not20 = icmp slt i32 %1, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph.preheader

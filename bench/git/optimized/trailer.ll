@@ -1000,7 +1000,7 @@ sw.bb2.i.i.i:                                     ; preds = %if.end17.i.i
 
 sw.bb3.i.i.i:                                     ; preds = %if.end17.i.i
   call fastcc void @apply_item_command(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i)
-  %call.i18.i.i = call fastcc i32 @check_if_different(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 1, ptr noundef readnone %head)
+  %call.i18.i.i = call fastcc i32 @check_if_different(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 1, ptr noundef nonnull readnone %head)
   %tobool.not.i19.i.i = icmp eq i32 %call.i18.i.i, 0
   br i1 %tobool.not.i19.i.i, label %if.else.i.i.i, label %if.then.i.i.i86
 
@@ -1031,7 +1031,7 @@ if.else.i.i.i:                                    ; preds = %sw.bb3.i.i.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end17.i.i
   call fastcc void @apply_item_command(ptr noundef %pos.025.i.i, ptr noundef nonnull %pos.023.i)
-  %call5.i.i.i = call fastcc i32 @check_if_different(ptr noundef %cond22.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 0, ptr noundef readnone %head)
+  %call5.i.i.i = call fastcc i32 @check_if_different(ptr noundef %cond22.i.i, ptr noundef nonnull %pos.023.i, i32 noundef 0, ptr noundef nonnull readnone %head)
   %tobool6.not.i.i.i = icmp eq i32 %call5.i.i.i, 0
   br i1 %tobool6.not.i.i.i, label %if.else8.i.i.i, label %if.then7.i.i.i
 
@@ -1280,7 +1280,7 @@ for.body.i104:                                    ; preds = %print_all.exit, %fo
   %value.i.i108 = getelementptr inbounds i8, ptr %pos.08.i105, i64 24
   %139 = load ptr, ptr %value.i.i108, align 8
   call void @free(ptr noundef %139) #16
-  call void @free(ptr noundef %pos.08.i105) #16
+  call void @free(ptr noundef nonnull %pos.08.i105) #16
   %cmp.not.i109 = icmp eq ptr %p.0.i, %head
   br i1 %cmp.not.i109, label %free_all.exit, label %for.body.i104, !llvm.loop !15
 
@@ -3027,7 +3027,7 @@ for.body.i:                                       ; preds = %for.cond.i
 for.end.i:                                        ; preds = %for.cond.i
   %call2.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 80) #16
   %conf3.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %conf3.i, ptr noundef nonnull readonly align 8 dereferenceable(48) @default_conf_info, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %conf3.i, ptr noundef nonnull align 8 dereferenceable(48) @default_conf_info, i64 48, i1 false)
   %6 = load ptr, ptr @default_conf_info, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %xstrdup_or_null.exit.i.i, label %cond.true.i.i.i

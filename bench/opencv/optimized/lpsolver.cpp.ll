@@ -1329,7 +1329,7 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit108:               ; preds = %523
   br label %_ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit
 
 542:                                              ; preds = %.noexc109
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull %54)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(96) %54)
           to label %_ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit unwind label %.loopexit.split-lp
 
 _ZN2cv3Mat5beginIdEENS_12MatIterator_IT_EEv.exit: ; preds = %541, %542
@@ -1779,7 +1779,7 @@ define internal fastcc noundef range(i32 -2, 2) i32 @_ZN2cvL13inner_simplexERNS_
   br label %_ZN2cv4Mat_IdE5beginEv.exit
 
 59:                                               ; preds = %56
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull %0)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.pre = load ptr, ptr %14, align 8
   %.pre93 = load i64, ptr %19, align 8
   %.pre94 = load ptr, ptr %21, align 8
@@ -1986,7 +1986,7 @@ _ZN2cv12MatIterator_IdEppEi.exit:                 ; preds = %122, %123, %127
   br label %_ZN2cv4Mat_IdE5beginEv.exit59
 
 136:                                              ; preds = %133
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull %1)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(96) %1)
   br label %_ZN2cv4Mat_IdE5beginEv.exit59
 
 _ZN2cv4Mat_IdE5beginEv.exit59:                    ; preds = %135, %136
@@ -2000,7 +2000,7 @@ _ZN2cv4Mat_IdE5beginEv.exit59:                    ; preds = %135, %136
   br label %_ZN2cv4Mat_IdE5beginEv.exit60
 
 139:                                              ; preds = %_ZN2cv4Mat_IdE5beginEv.exit59
-  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull %1)
+  call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(96) %1)
   br label %_ZN2cv4Mat_IdE5beginEv.exit60
 
 _ZN2cv4Mat_IdE5beginEv.exit60:                    ; preds = %138, %139

@@ -964,7 +964,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %43 = sext i16 %29 to i32
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %43) #6
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %43) #6
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 

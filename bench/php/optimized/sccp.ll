@@ -861,7 +861,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %266, %261, %259, %2
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %371
-  %377 = call fastcc i32 @remove_call(ptr noundef readonly %8, ptr noundef nonnull %291, ptr noundef nonnull %294)
+  %377 = call fastcc i32 @remove_call(ptr noundef nonnull readonly %8, ptr noundef nonnull %291, ptr noundef nonnull %294)
   br label %383
 
 378:                                              ; preds = %371
@@ -986,7 +986,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %266, %261, %259, %2
   br i1 %441, label %442, label %444
 
 442:                                              ; preds = %427
-  %443 = call fastcc i32 @remove_call(ptr noundef readonly %8, ptr noundef nonnull %291, ptr noundef nonnull %294)
+  %443 = call fastcc i32 @remove_call(ptr noundef nonnull readonly %8, ptr noundef nonnull %291, ptr noundef nonnull %294)
   br label %try_remove_definition.exit
 
 444:                                              ; preds = %427

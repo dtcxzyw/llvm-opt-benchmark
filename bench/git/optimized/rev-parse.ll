@@ -223,7 +223,7 @@ if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.print_path.buf.112, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parsed.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.print_path.buf.112, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %parsed.i, ptr noundef nonnull @.str.100, i64 noundef 6) #17
-  %call.i = call i32 @parse_options(i32 noundef %sub, ptr noundef nonnull %arrayidx, ptr noundef %prefix, ptr noundef nonnull @cmd_parseopt.parseopt_opts, ptr noundef nonnull @cmd_parseopt.parseopt_usage, i32 noundef 1) #17
+  %call.i = call i32 @parse_options(i32 noundef range(i32 1, 2147483647) %sub, ptr noundef nonnull %arrayidx, ptr noundef %prefix, ptr noundef nonnull @cmd_parseopt.parseopt_opts, ptr noundef nonnull @cmd_parseopt.parseopt_usage, i32 noundef 1) #17
   %cmp.i = icmp slt i32 %call.i, 1
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
@@ -286,7 +286,7 @@ if.then8.i:                                       ; preds = %do.body.i
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then8.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 8, i64 noundef %conv.i) #18
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #18
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then8.i
@@ -379,7 +379,7 @@ if.then44.i:                                      ; preds = %do.body40.i
   br i1 %mul.ov.i72.i, label %if.then.i74.i, label %st_mult.exit75.i
 
 if.then.i74.i:                                    ; preds = %if.then44.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 88, i64 noundef %conv58.i) #18
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 88, i64 noundef range(i64 -2147483648, 2147483648) %conv58.i) #18
   unreachable
 
 st_mult.exit75.i:                                 ; preds = %if.then44.i
@@ -599,7 +599,7 @@ if.then158.i:                                     ; preds = %while.end153.i
   br i1 %mul.ov.i88.i, label %if.then.i90.i, label %st_mult.exit91.i
 
 if.then.i90.i:                                    ; preds = %if.then158.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 88, i64 noundef %conv172.i) #18
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 88, i64 noundef range(i64 -2147483648, 2147483648) %conv172.i) #18
   unreachable
 
 st_mult.exit91.i:                                 ; preds = %if.then158.i

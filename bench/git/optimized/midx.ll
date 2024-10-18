@@ -2482,7 +2482,7 @@ if.then.i52.i:                                    ; preds = %for.body20.i
 
 if.end.i54.i:                                     ; preds = %if.then.i52.i, %for.body20.i
   %start.0.i55.i = phi i32 [ %call.i.i151, %if.then.i52.i ], [ 0, %for.body20.i ]
-  %call1.i.i = call i32 @get_pack_fanout(ptr noundef %120, i32 noundef %118) #23
+  %call1.i.i = call i32 @get_pack_fanout(ptr noundef %120, i32 noundef range(i32 0, 256) %118) #23
   %cmp22.i.i = icmp ult i32 %start.0.i55.i, %call1.i.i
   br i1 %cmp22.i.i, label %for.body.lr.ph.i56.i, label %midx_fanout_add_pack_fanout.exit.i
 
@@ -2586,7 +2586,7 @@ if.then.i85.i:                                    ; preds = %if.then30.i
 if.end.i88.i:                                     ; preds = %if.then30.i, %if.then.i85.i
   %.pre-phi = phi i32 [ %127, %if.then.i85.i ], [ 0, %if.then30.i ]
   %start.0.i89.i = phi i32 [ %call.i87.i, %if.then.i85.i ], [ 0, %if.then30.i ]
-  %call1.i90.i = call i32 @get_pack_fanout(ptr noundef %126, i32 noundef %.pre-phi) #23
+  %call1.i90.i = call i32 @get_pack_fanout(ptr noundef %126, i32 noundef range(i32 0, 256) %.pre-phi) #23
   %cmp22.i91.i = icmp ult i32 %start.0.i89.i, %call1.i90.i
   br i1 %cmp22.i91.i, label %for.body.i96.i, label %if.end31.i
 

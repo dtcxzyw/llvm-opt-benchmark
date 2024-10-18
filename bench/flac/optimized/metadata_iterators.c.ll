@@ -3376,7 +3376,7 @@ if.end.i66:                                       ; preds = %cond.end.i
   %tempfile_path_prefix.i = getelementptr inbounds i8, ptr %iterator, i64 16
   %26 = load ptr, ptr %tempfile_path_prefix.i, align 8
   %status7.i = getelementptr inbounds i8, ptr %iterator, i64 176
-  %call8.i = call fastcc i32 @open_tempfile_(ptr noundef %25, ptr noundef %26, ptr noundef %tempfile, ptr noundef %tempfilename, ptr noundef nonnull %status7.i)
+  %call8.i = call fastcc i32 @open_tempfile_(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename, ptr noundef nonnull %status7.i)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %if.end11.i
 
@@ -3691,7 +3691,7 @@ if.end22.i:                                       ; preds = %if.end16.i
   br i1 %cmp32.not.i, label %if.end36.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end22.i
-  call fastcc void @cleanup_tempfile_(ptr noundef %tempfile, ptr noundef %tempfilename)
+  call fastcc void @cleanup_tempfile_(ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename)
   store i32 7, ptr %status7.i, align 8
   br label %simple_iterator_copy_file_postfix_.exit.thread
 
@@ -3701,7 +3701,7 @@ if.end36.i:                                       ; preds = %if.end22.i
   br i1 %cmp38.not.i, label %if.end43.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end36.i
-  call fastcc void @cleanup_tempfile_(ptr noundef %tempfile, ptr noundef %tempfilename)
+  call fastcc void @cleanup_tempfile_(ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename)
   store i32 8, ptr %status7.i, align 8
   br label %simple_iterator_copy_file_postfix_.exit.thread
 
@@ -3709,7 +3709,7 @@ if.end43.i:                                       ; preds = %if.end36.i, %if.end
   %49 = load ptr, ptr %iterator, align 8
   %call45.i = tail call i32 @fclose(ptr noundef %49)
   %50 = load ptr, ptr %filename.i, align 8
-  %call47.i = call fastcc i32 @transport_tempfile_(ptr noundef %50, ptr noundef %tempfile, ptr noundef %tempfilename, ptr noundef nonnull %status7.i)
+  %call47.i = call fastcc i32 @transport_tempfile_(ptr noundef %50, ptr noundef nonnull %tempfile, ptr noundef nonnull %tempfilename, ptr noundef nonnull %status7.i)
   %tobool48.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool48.not.i, label %simple_iterator_copy_file_postfix_.exit.thread, label %if.end50.i
 
@@ -5215,7 +5215,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %write_metadata_block_header_cb_.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !15
 
 write_metadata_block_header_cb_.exit.i.i:         ; preds = %for.body.i.i.i.i
-  %call.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i.i, i64 noundef 1, i64 noundef 4, ptr noundef %call.i20) #28
+  %call.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i.i, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %call.i20) #28
   %cmp5.not.i.not.i.i = icmp eq i64 %call.i.i.i, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i.i)
   br i1 %cmp5.not.i.not.i.i, label %if.end5.i.i, label %chain_rewrite_metadata_in_place_.exit
@@ -5351,7 +5351,7 @@ for.body.i47.i.i.i:                               ; preds = %for.body.i47.i.i.i,
 write_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %for.body.i47.i.i.i
   %md5sum.i.i.i = getelementptr inbounds i8, ptr %37, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %add.ptr.i46.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %md5sum.i.i.i, i64 16, i1 false)
-  %call.i.i19.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i4.i, i64 noundef 1, i64 noundef 34, ptr noundef %call.i20) #28
+  %call.i.i19.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i4.i, i64 noundef 1, i64 noundef 34, ptr noundef nonnull %call.i20) #28
   %cmp.not.i.i20.i = icmp eq i64 %call.i.i19.i, 34
   %..i.i.i = zext i1 %cmp.not.i.i20.i to i32
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %buffer.i.i4.i)
@@ -5373,14 +5373,14 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %sw.bb1.i.i, %for.cond.i.i.i
   %i.02.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %sw.bb1.i.i ]
-  %call.i27.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef 1024, ptr noundef %call.i20) #28
+  %call.i27.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %call.i20) #28
   %cmp2.not.i.i.i = icmp eq i64 %call.i27.i.i, 1024
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %write_metadata_block_data_padding_cb_.exit.i.i
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i, %sw.bb1.i.i
   %rem.i.i.i = and i32 %47, 1023
   %conv.i28.i.i = zext nneg i32 %rem.i.i.i to i64
-  %call4.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef %conv.i28.i.i, ptr noundef %call.i20) #28
+  %call4.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i26.i.i, i64 noundef 1, i64 noundef %conv.i28.i.i, ptr noundef nonnull %call.i20) #28
   %cmp6.not.i.i.i = icmp eq i64 %call4.i.i.i, %conv.i28.i.i
   %..i29.i.i = zext i1 %cmp6.not.i.i.i to i32
   br label %write_metadata_block_data_padding_cb_.exit.i.i
@@ -5394,7 +5394,7 @@ sw.bb4.i.i:                                       ; preds = %if.end5.i.i
   %data5.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %length6.i.i = getelementptr inbounds i8, ptr %37, i64 8
   %48 = load i32, ptr %length6.i.i, align 8
-  %call.i31.i.i = tail call i64 @fwrite(ptr noundef nonnull %data5.i.i, i64 noundef 1, i64 noundef %conv.i30.i.i, ptr noundef %call.i20) #28
+  %call.i31.i.i = tail call i64 @fwrite(ptr noundef nonnull %data5.i.i, i64 noundef 1, i64 noundef %conv.i30.i.i, ptr noundef nonnull %call.i20) #28
   %cmp.not.i32.i.i = icmp eq i64 %call.i31.i.i, %conv.i30.i.i
   br i1 %cmp.not.i32.i.i, label %if.end.i.i7.i, label %chain_rewrite_metadata_in_place_.exit
 
@@ -5403,7 +5403,7 @@ if.end.i.i7.i:                                    ; preds = %sw.bb4.i.i
   %data.i.i.i = getelementptr inbounds i8, ptr %37, i64 24
   %49 = load ptr, ptr %data.i.i.i, align 8
   %conv3.i.i.i = zext i32 %sub.i34.i.i to i64
-  %call4.i35.i.i = tail call i64 @fwrite(ptr noundef %49, i64 noundef 1, i64 noundef %conv3.i.i.i, ptr noundef %call.i20) #28
+  %call4.i35.i.i = tail call i64 @fwrite(ptr noundef %49, i64 noundef 1, i64 noundef %conv3.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp6.not.i36.i.i = icmp eq i64 %call4.i35.i.i, %conv3.i.i.i
   %..i37.i.i = zext i1 %cmp6.not.i36.i.i to i32
   br label %write_metadata_block_data_cb_.exit.i
@@ -5480,7 +5480,7 @@ for.body.i20.i.i.i:                               ; preds = %for.body.i20.i.i.i,
   br i1 %exitcond.not.i28.i.i.i, label %pack_uint32_.exit.i50.i.i, label %for.body.i20.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit.i50.i.i:                        ; preds = %for.body.i20.i.i.i
-  %call.i51.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i38.i.i, i64 noundef 1, i64 noundef 18, ptr noundef %call.i20) #28
+  %call.i51.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i38.i.i, i64 noundef 1, i64 noundef 18, ptr noundef nonnull %call.i20) #28
   %cmp11.not.i.i.i = icmp eq i64 %call.i51.i.i, 18
   br i1 %cmp11.not.i.i.i, label %for.cond.i53.i.i, label %write_metadata_block_data_seektable_cb_.exit.i.i
 
@@ -5511,7 +5511,7 @@ for.body.i.i55.i.i:                               ; preds = %for.body.i.i55.i.i,
   br i1 %exitcond.not.i.i60.i.i, label %pack_uint32_little_endian_.exit.i.i.i, label %for.body.i.i55.i.i, !llvm.loop !25
 
 pack_uint32_little_endian_.exit.i.i.i:            ; preds = %for.body.i.i55.i.i, %sw.bb11.i.i
-  %call.i62.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef %call.i20) #28
+  %call.i62.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef nonnull %call.i20) #28
   %cmp.not.i63.i.i = icmp eq i64 %call.i62.i.i, %conv.i61.i.i
   br i1 %cmp.not.i63.i.i, label %if.end.i65.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
@@ -5520,7 +5520,7 @@ if.end.i65.i.i:                                   ; preds = %pack_uint32_little_
   %58 = load ptr, ptr %entry6.i.i.i, align 8
   %59 = load i32, ptr %data12.i.i, align 8
   %conv9.i.i.i = zext i32 %59 to i64
-  %call10.i.i.i = tail call i64 @fwrite(ptr noundef %58, i64 noundef 1, i64 noundef %conv9.i.i.i, ptr noundef %call.i20) #28
+  %call10.i.i.i = tail call i64 @fwrite(ptr noundef %58, i64 noundef 1, i64 noundef %conv9.i.i.i, ptr noundef nonnull %call.i20) #28
   %60 = load i32, ptr %data12.i.i, align 8
   %conv13.i.i.i = zext i32 %60 to i64
   %cmp14.not.i.i.i = icmp eq i64 %call10.i.i.i, %conv13.i.i.i
@@ -5547,7 +5547,7 @@ for.body.i33.i.i.i:                               ; preds = %for.body.i33.i.i.i,
   br i1 %exitcond.not.i41.i.i.i, label %pack_uint32_little_endian_.exit42.i.i.i, label %for.body.i33.i.i.i, !llvm.loop !25
 
 pack_uint32_little_endian_.exit42.i.i.i:          ; preds = %for.body.i33.i.i.i, %if.end17.i.i.i
-  %call21.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv20.i.i.i, ptr noundef %call.i20) #28
+  %call21.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv20.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp23.not.i.i.i = icmp eq i64 %call21.i.i.i, %conv20.i.i.i
   br i1 %cmp23.not.i.i.i, label %for.cond.preheader.i.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
@@ -5566,7 +5566,7 @@ for.body.preheader.i.i.i:                         ; preds = %for.body.lr.ph.i66.
 
 for.body.us.i.i.i:                                ; preds = %for.body.lr.ph.i66.i.i, %for.cond.us.i.i.i
   %indvars.iv131.i.i = phi i64 [ %indvars.iv.next132.i.i, %for.cond.us.i.i.i ], [ 0, %for.body.lr.ph.i66.i.i ]
-  %call34.us.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef %call.i20) #28
+  %call34.us.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef nonnull %call.i20) #28
   %cmp36.not.us.i.i.i = icmp eq i64 %call34.us.i.i.i, %conv.i61.i.i
   br i1 %cmp36.not.us.i.i.i, label %if.end39.us.i.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
@@ -5584,7 +5584,7 @@ if.end39.us.i.i.i:                                ; preds = %for.body.us.i.i.i
   %66 = load ptr, ptr %entry43.us.i.i.i, align 8
   %67 = load i32, ptr %arrayidx42.us.i.i.i, align 8
   %conv48.us.i.i.i = zext i32 %67 to i64
-  %call49.us.i.i.i = tail call i64 @fwrite(ptr noundef %66, i64 noundef 1, i64 noundef %conv48.us.i.i.i, ptr noundef %call.i20) #28
+  %call49.us.i.i.i = tail call i64 @fwrite(ptr noundef %66, i64 noundef 1, i64 noundef %conv48.us.i.i.i, ptr noundef nonnull %call.i20) #28
   %68 = load ptr, ptr %comments.i.i.i, align 8
   %arrayidx52.us.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %68, i64 %indvars.iv131.i.i
   %69 = load i32, ptr %arrayidx52.us.i.i.i, align 8
@@ -5619,7 +5619,7 @@ for.body.i44.i.i.i:                               ; preds = %for.body.i44.i.i.i,
   br i1 %exitcond.not.i52.i.i.i, label %pack_uint32_little_endian_.exit53.loopexit.i.i.i, label %for.body.i44.i.i.i, !llvm.loop !25
 
 pack_uint32_little_endian_.exit53.loopexit.i.i.i: ; preds = %for.body.i44.i.i.i
-  %call34.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef %call.i20) #28
+  %call34.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i54.i.i, i64 noundef 1, i64 noundef %conv.i61.i.i, ptr noundef nonnull %call.i20) #28
   %cmp36.not.i.i.i = icmp eq i64 %call34.i.i.i, %conv.i61.i.i
   br i1 %cmp36.not.i.i.i, label %if.end39.i.i.i, label %write_metadata_block_data_vorbis_comment_cb_.exit.i.i
 
@@ -5630,7 +5630,7 @@ if.end39.i.i.i:                                   ; preds = %pack_uint32_little_
   %75 = load ptr, ptr %entry43.i.i.i, align 8
   %76 = load i32, ptr %arrayidx42.i.i.i, align 8
   %conv48.i.i.i = zext i32 %76 to i64
-  %call49.i.i.i = tail call i64 @fwrite(ptr noundef %75, i64 noundef 1, i64 noundef %conv48.i.i.i, ptr noundef %call.i20) #28
+  %call49.i.i.i = tail call i64 @fwrite(ptr noundef %75, i64 noundef 1, i64 noundef %conv48.i.i.i, ptr noundef nonnull %call.i20) #28
   %77 = load ptr, ptr %comments.i.i.i, align 8
   %arrayidx52.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %77, i64 %indvars.iv.i.i
   %78 = load i32, ptr %arrayidx52.i.i.i, align 8
@@ -5646,7 +5646,7 @@ write_metadata_block_data_vorbis_comment_cb_.exit.i.i: ; preds = %if.end39.i.i.i
 sw.bb14.i.i:                                      ; preds = %if.end5.i.i
   %data15.i.i = getelementptr inbounds i8, ptr %37, i64 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buffer.i71.i.i)
-  %call.i73.i.i = tail call i64 @fwrite(ptr noundef nonnull %data15.i.i, i64 noundef 1, i64 noundef %conv.i72.i.i, ptr noundef %call.i20) #28
+  %call.i73.i.i = tail call i64 @fwrite(ptr noundef nonnull %data15.i.i, i64 noundef 1, i64 noundef %conv.i72.i.i, ptr noundef nonnull %call.i20) #28
   %cmp.not.i74.i.i = icmp eq i64 %call.i73.i.i, %conv.i72.i.i
   br i1 %cmp.not.i74.i.i, label %if.end.i76.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5671,7 +5671,7 @@ for.body.i.i78.i.i:                               ; preds = %for.body.i.i78.i.i,
   br i1 %exitcond.not.i.i86.i.i, label %pack_uint64_.exit.i87.i.i, label %for.body.i.i78.i.i, !llvm.loop !24
 
 pack_uint64_.exit.i87.i.i:                        ; preds = %for.body.i.i78.i.i, %if.end.i76.i.i
-  %call7.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i.i.i.i, ptr noundef %call.i20) #28
+  %call7.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp9.not.i.i.i = icmp eq i64 %call7.i.i.i, %idx.ext.i.i.i.i
   br i1 %cmp9.not.i.i.i, label %if.end12.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5689,7 +5689,7 @@ if.then16.i.i.i:                                  ; preds = %if.end12.i.i.i
   br label %if.end19.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %if.then16.i.i.i, %if.end12.i.i.i
-  %call22.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv15.i.i.i, ptr noundef %call.i20) #28
+  %call22.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv15.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp24.not.i.i.i = icmp eq i64 %call22.i.i.i, %conv15.i.i.i
   br i1 %cmp24.not.i.i.i, label %if.end27.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5714,7 +5714,7 @@ for.body.i90.i.i.i:                               ; preds = %for.body.i90.i.i.i,
   br i1 %exitcond.not.i98.i.i.i, label %pack_uint32_.exit.i88.i.i, label %for.body.i90.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit.i88.i.i:                        ; preds = %for.body.i90.i.i.i, %if.end27.i.i.i
-  %call32.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i88.i.i.i, ptr noundef %call.i20) #28
+  %call32.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i88.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp34.not.i.i.i = icmp eq i64 %call32.i.i.i, %idx.ext.i88.i.i.i
   br i1 %cmp34.not.i.i.i, label %for.cond.preheader.i89.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5750,7 +5750,7 @@ for.body.i103.i.i.i:                              ; preds = %for.body.i103.i.i.i
   br i1 %exitcond.not.i111.i.i.i, label %pack_uint64_.exit112.i.i.i, label %for.body.i103.i.i.i, !llvm.loop !24
 
 pack_uint64_.exit112.i.i.i:                       ; preds = %for.body.i103.i.i.i, %for.body.i91.i.i
-  %call45.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i101.i.i.i, ptr noundef %call.i20) #28
+  %call45.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i101.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp47.not.i.i.i = icmp eq i64 %call45.i.i.i, %idx.ext.i101.i.i.i
   br i1 %cmp47.not.i.i.i, label %if.end50.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5773,13 +5773,13 @@ for.body.i117.i.i.i:                              ; preds = %for.body.i117.i.i.i
   br i1 %exitcond.not.i125.i.i.i, label %pack_uint32_.exit126.i.i.i, label %for.body.i117.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit126.i.i.i:                       ; preds = %for.body.i117.i.i.i, %if.end50.i.i.i
-  %call56.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i115.i.i.i, ptr noundef %call.i20) #28
+  %call56.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i115.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp58.not.i.i.i = icmp eq i64 %call56.i.i.i, %idx.ext.i115.i.i.i
   br i1 %cmp58.not.i.i.i, label %if.end61.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
 if.end61.i.i.i:                                   ; preds = %pack_uint32_.exit126.i.i.i
   %isrc.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 9
-  %call65.i.i.i = tail call i64 @fwrite(ptr noundef nonnull %isrc.i.i.i, i64 noundef 1, i64 noundef %conv64.i.i.i, ptr noundef %call.i20) #28
+  %call65.i.i.i = tail call i64 @fwrite(ptr noundef nonnull %isrc.i.i.i, i64 noundef 1, i64 noundef %conv64.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp67.not.i.i.i = icmp eq i64 %call65.i.i.i, %conv64.i.i.i
   br i1 %cmp67.not.i.i.i, label %if.end70.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5790,7 +5790,7 @@ if.end70.i.i.i:                                   ; preds = %if.end61.i.i.i
   %88 = and i8 %bf.load.i.i.i, 3
   %mask.i.i.i = tail call i8 @llvm.bitreverse.i8(i8 %88)
   store i8 %mask.i.i.i, ptr %buffer.i71.i.i, align 16
-  %call85.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv75.i.i.i, ptr noundef %call.i20) #28
+  %call85.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv75.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp87.not.i.i.i = icmp eq i64 %call85.i.i.i, %conv75.i.i.i
   br i1 %cmp87.not.i.i.i, label %if.end90.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5813,7 +5813,7 @@ for.body.i131.i.i.i:                              ; preds = %for.body.i131.i.i.i
   br i1 %exitcond.not.i139.i.i.i, label %pack_uint32_.exit140.i.i.i, label %for.body.i131.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit140.i.i.i:                       ; preds = %for.body.i131.i.i.i, %if.end90.i.i.i
-  %call96.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i129.i.i.i, ptr noundef %call.i20) #28
+  %call96.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i129.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp98.not.i.i.i = icmp eq i64 %call96.i.i.i, %idx.ext.i129.i.i.i
   br i1 %cmp98.not.i.i.i, label %for.cond102.preheader.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5856,7 +5856,7 @@ for.body.i145.i.i.i:                              ; preds = %for.body.i145.i.i.i
   br i1 %exitcond.not.i153.i.i.i, label %pack_uint64_.exit154.i.i.i, label %for.body.i145.i.i.i, !llvm.loop !24
 
 pack_uint64_.exit154.i.i.i:                       ; preds = %for.body.i145.i.i.i, %for.body107.i.i.i
-  %call115.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i143.i.i.i, ptr noundef %call.i20) #28
+  %call115.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i143.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp117.not.i.i.i = icmp eq i64 %call115.i.i.i, %idx.ext.i143.i.i.i
   br i1 %cmp117.not.i.i.i, label %if.end120.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5879,13 +5879,13 @@ for.body.i159.i.i.i:                              ; preds = %for.body.i159.i.i.i
   br i1 %exitcond.not.i167.i.i.i, label %pack_uint32_.exit168.i.i.i, label %for.body.i159.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit168.i.i.i:                       ; preds = %for.body.i159.i.i.i, %if.end120.i.i.i
-  %call127.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i157.i.i.i, ptr noundef %call.i20) #28
+  %call127.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %idx.ext.i157.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp129.not.i.i.i = icmp eq i64 %call127.i.i.i, %idx.ext.i157.i.i.i
   br i1 %cmp129.not.i.i.i, label %if.end132.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
 if.end132.i.i.i:                                  ; preds = %pack_uint32_.exit168.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %buffer.i71.i.i, i8 0, i64 %conv135.i.i.i, i1 false)
-  %call138.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv135.i.i.i, ptr noundef %call.i20) #28
+  %call138.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i71.i.i, i64 noundef 1, i64 noundef %conv135.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp140.not.i.i.i = icmp eq i64 %call138.i.i.i, %conv135.i.i.i
   br i1 %cmp140.not.i.i.i, label %for.cond102.i.i.i, label %write_metadata_block_data_cuesheet_cb_.exit.i.i
 
@@ -5923,7 +5923,7 @@ for.body.i.i100.i.i:                              ; preds = %for.body.i.i100.i.i
   br i1 %exitcond.not.i.i108.i.i, label %pack_uint32_.exit.i109.i.i, label %for.body.i.i100.i.i, !llvm.loop !15
 
 pack_uint32_.exit.i109.i.i:                       ; preds = %for.body.i.i100.i.i, %sw.bb17.i.i
-  %call.i110.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i.i98.i.i, ptr noundef %call.i20) #28
+  %call.i110.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i.i98.i.i, ptr noundef nonnull %call.i20) #28
   %cmp.not.i111.i.i = icmp eq i64 %call.i110.i.i, %idx.ext.i.i98.i.i
   br i1 %cmp.not.i111.i.i, label %if.end.i113.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -5950,13 +5950,13 @@ for.body.i73.i.i.i:                               ; preds = %for.body.i73.i.i.i,
   br i1 %exitcond.not.i81.i.i.i, label %pack_uint32_.exit82.i.i.i, label %for.body.i73.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit82.i.i.i:                        ; preds = %for.body.i73.i.i.i, %if.end.i113.i.i
-  %call10.i114.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i71.i.i.i, ptr noundef %call.i20) #28
+  %call10.i114.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i71.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp12.not.i.i.i = icmp eq i64 %call10.i114.i.i, %idx.ext.i71.i.i.i
   br i1 %cmp12.not.i.i.i, label %if.end15.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
 if.end15.i.i.i:                                   ; preds = %pack_uint32_.exit82.i.i.i
   %100 = load ptr, ptr %mime_type.i.i.i, align 8
-  %call17.i.i.i = tail call i64 @fwrite(ptr noundef %100, i64 noundef 1, i64 noundef %call5.i.i.i, ptr noundef %call.i20) #28
+  %call17.i.i.i = tail call i64 @fwrite(ptr noundef %100, i64 noundef 1, i64 noundef %call5.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp18.not.i.i.i = icmp eq i64 %call17.i.i.i, %call5.i.i.i
   br i1 %cmp18.not.i.i.i, label %if.end21.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -5983,13 +5983,13 @@ for.body.i87.i.i.i:                               ; preds = %for.body.i87.i.i.i,
   br i1 %exitcond.not.i95.i.i.i, label %pack_uint32_.exit96.i.i.i, label %for.body.i87.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit96.i.i.i:                        ; preds = %for.body.i87.i.i.i, %if.end21.i.i.i
-  %call28.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i85.i.i.i, ptr noundef %call.i20) #28
+  %call28.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i85.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp30.not.i.i.i = icmp eq i64 %call28.i.i.i, %idx.ext.i85.i.i.i
   br i1 %cmp30.not.i.i.i, label %if.end33.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
 if.end33.i.i.i:                                   ; preds = %pack_uint32_.exit96.i.i.i
   %102 = load ptr, ptr %description.i.i.i, align 8
-  %call35.i.i.i = tail call i64 @fwrite(ptr noundef %102, i64 noundef 1, i64 noundef %call23.i.i.i, ptr noundef %call.i20) #28
+  %call35.i.i.i = tail call i64 @fwrite(ptr noundef %102, i64 noundef 1, i64 noundef %call23.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp36.not.i115.i.i = icmp eq i64 %call35.i.i.i, %call23.i.i.i
   br i1 %cmp36.not.i115.i.i, label %if.end39.i116.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6014,7 +6014,7 @@ for.body.i101.i.i.i:                              ; preds = %for.body.i101.i.i.i
   br i1 %exitcond.not.i109.i.i.i, label %pack_uint32_.exit110.i.i.i, label %for.body.i101.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit110.i.i.i:                       ; preds = %for.body.i101.i.i.i, %if.end39.i116.i.i
-  %call44.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i99.i.i.i, ptr noundef %call.i20) #28
+  %call44.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i99.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp46.not.i.i.i = icmp eq i64 %call44.i.i.i, %idx.ext.i99.i.i.i
   br i1 %cmp46.not.i.i.i, label %if.end49.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6039,7 +6039,7 @@ for.body.i115.i.i.i:                              ; preds = %for.body.i115.i.i.i
   br i1 %exitcond.not.i123.i.i.i, label %pack_uint32_.exit124.i.i.i, label %for.body.i115.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit124.i.i.i:                       ; preds = %for.body.i115.i.i.i, %if.end49.i.i.i
-  %call54.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i113.i.i.i, ptr noundef %call.i20) #28
+  %call54.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i113.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp56.not.i.i.i = icmp eq i64 %call54.i.i.i, %idx.ext.i113.i.i.i
   br i1 %cmp56.not.i.i.i, label %if.end59.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6064,7 +6064,7 @@ for.body.i129.i.i.i:                              ; preds = %for.body.i129.i.i.i
   br i1 %exitcond.not.i137.i.i.i, label %pack_uint32_.exit138.i.i.i, label %for.body.i129.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit138.i.i.i:                       ; preds = %for.body.i129.i.i.i, %if.end59.i.i.i
-  %call64.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i127.i.i.i, ptr noundef %call.i20) #28
+  %call64.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i127.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp66.not.i.i.i = icmp eq i64 %call64.i.i.i, %idx.ext.i127.i.i.i
   br i1 %cmp66.not.i.i.i, label %if.end69.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6089,7 +6089,7 @@ for.body.i143.i.i.i:                              ; preds = %for.body.i143.i.i.i
   br i1 %exitcond.not.i151.i.i.i, label %pack_uint32_.exit152.i.i.i, label %for.body.i143.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit152.i.i.i:                       ; preds = %for.body.i143.i.i.i, %if.end69.i.i.i
-  %call74.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i141.i.i.i, ptr noundef %call.i20) #28
+  %call74.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i141.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp76.not.i.i.i = icmp eq i64 %call74.i.i.i, %idx.ext.i141.i.i.i
   br i1 %cmp76.not.i.i.i, label %if.end79.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6114,7 +6114,7 @@ for.body.i157.i.i.i:                              ; preds = %for.body.i157.i.i.i
   br i1 %exitcond.not.i165.i.i.i, label %pack_uint32_.exit166.i.i.i, label %for.body.i157.i.i.i, !llvm.loop !15
 
 pack_uint32_.exit166.i.i.i:                       ; preds = %for.body.i157.i.i.i, %if.end79.i.i.i
-  %call84.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i155.i.i.i, ptr noundef %call.i20) #28
+  %call84.i.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i95.i.i, i64 noundef 1, i64 noundef %idx.ext.i155.i.i.i, ptr noundef nonnull %call.i20) #28
   %cmp86.not.i.i.i = icmp eq i64 %call84.i.i.i, %idx.ext.i155.i.i.i
   br i1 %cmp86.not.i.i.i, label %if.end89.i.i.i, label %write_metadata_block_data_picture_cb_.exit.i.i
 
@@ -6123,7 +6123,7 @@ if.end89.i.i.i:                                   ; preds = %pack_uint32_.exit16
   %108 = load ptr, ptr %data.i117.i.i, align 8
   %109 = load i32, ptr %data_length.i.i.i, align 8
   %conv91.i.i.i = zext i32 %109 to i64
-  %call92.i.i.i = tail call i64 @fwrite(ptr noundef %108, i64 noundef 1, i64 noundef %conv91.i.i.i, ptr noundef %call.i20) #28
+  %call92.i.i.i = tail call i64 @fwrite(ptr noundef %108, i64 noundef 1, i64 noundef %conv91.i.i.i, ptr noundef nonnull %call.i20) #28
   %110 = load i32, ptr %data_length.i.i.i, align 8
   %conv94.i.i.i = zext i32 %110 to i64
   %cmp95.not.i.i.i = icmp eq i64 %call92.i.i.i, %conv94.i.i.i
@@ -6141,7 +6141,7 @@ sw.default.i.i:                                   ; preds = %if.end5.i.i
   %111 = load i32, ptr %length21.i.i, align 8
   %data20.val.i.i = load ptr, ptr %data20.i.i, align 8
   %conv.i120.i.i = zext i32 %111 to i64
-  %call.i121.i.i = tail call i64 @fwrite(ptr noundef %data20.val.i.i, i64 noundef 1, i64 noundef %conv.i120.i.i, ptr noundef %call.i20) #28
+  %call.i121.i.i = tail call i64 @fwrite(ptr noundef %data20.val.i.i, i64 noundef 1, i64 noundef %conv.i120.i.i, ptr noundef nonnull %call.i20) #28
   %cmp.not.i122.i.i = icmp eq i64 %call.i121.i.i, %conv.i120.i.i
   %..i123.i.i = zext i1 %cmp.not.i122.i.i to i32
   br label %write_metadata_block_data_cb_.exit.i

@@ -582,7 +582,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %123 = getelementptr inbounds i8, ptr %121, i64 8
   store ptr %1, ptr %123, align 8
   %124 = load i32, ptr %29, align 4
-  %125 = call fastcc i32 @cabd_read_headers(ptr noundef nonnull %23, ptr noundef %17, ptr noundef %121, i64 noundef %106, i32 noundef %124, i32 noundef 1)
+  %125 = call fastcc i32 @cabd_read_headers(ptr noundef nonnull %23, ptr noundef nonnull %17, ptr noundef %121, i64 noundef %106, i32 noundef %124, i32 noundef 1)
   %.not136.i = icmp eq i32 %125, 0
   br i1 %.not136.i, label %127, label %126
 

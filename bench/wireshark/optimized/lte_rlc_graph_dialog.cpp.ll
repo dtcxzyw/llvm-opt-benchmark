@@ -3487,7 +3487,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %44
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #19
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #19
   ret void
 }
 
@@ -3509,7 +3509,7 @@ define void @_ZN17LteRlcGraphDialogD0Ev(ptr noundef nonnull align 8 dereferencea
 define void @_ZThn16_N17LteRlcGraphDialogD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN17LteRlcGraphDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(268) %2) #20
   ret void
 }
 
@@ -3847,7 +3847,7 @@ _ZN17QArrayDataPointerI12QCPGraphDataE5derefEv.exit.i.i.i: ; preds = %_ZN17QArra
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %46, i64 8
   %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull %46)
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(16) %46)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %80
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %75, %72
@@ -6453,7 +6453,7 @@ define void @_ZN17LteRlcGraphDialog13keyPressEventEP9QKeyEvent(ptr noundef nonnu
   br label %_ZN17LteRlcGraphDialog9zoomYAxisEb.exit
 
 _ZN17LteRlcGraphDialog9zoomYAxisEb.exit:          ; preds = %106, %103, %97, %91, %41, %29, %44, %13, %25, %115, %107, %54, %53, %51, %49, %48, %47, %46, %45, %9, %8, %2
-  tail call void @_ZN7QDialog13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1)
+  tail call void @_ZN7QDialog13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef nonnull %1)
   ret void
 }
 

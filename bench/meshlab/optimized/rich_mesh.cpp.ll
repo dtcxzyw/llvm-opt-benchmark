@@ -42,7 +42,7 @@ declare void @_ZNK13RichParameter17fillToXMLDocumentER12QDomDocumentb(ptr dead_o
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK8RichMesh5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
-  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
@@ -69,7 +69,7 @@ define void @_ZNK8RichMesh10stringTypeEv(ptr dead_on_unwind noalias nocapture wr
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8RichMesheqERK13RichParameter(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #2 align 2 {
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichMesh, i64 0) #9
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(56) %1, ptr nonnull @_ZTI13RichParameter, ptr nonnull @_ZTI8RichMesh, i64 0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %4
 

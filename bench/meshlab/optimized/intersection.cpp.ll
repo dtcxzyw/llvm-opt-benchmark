@@ -2551,7 +2551,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %244, %248, %252, %_
   br i1 %or.cond5.i, label %463, label %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit
 
 463:                                              ; preds = %448
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %392, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %392, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %355, ptr noundef nonnull align 8 dereferenceable(16) %408, i64 16, i1 false)
   %.not.i.i97 = icmp eq ptr %382, %381
   br i1 %.not.i.i97, label %466, label %464

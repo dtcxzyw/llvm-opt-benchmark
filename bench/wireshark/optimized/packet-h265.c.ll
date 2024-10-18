@@ -1778,7 +1778,7 @@ define internal fastcc void @dissect_h265_seq_parameter_set_rbsp(ptr noundef %0,
   store i32 %134, ptr %6, align 4
   %136 = ashr i32 %134, 3
   %137 = load i32, ptr @ett_h265_ref_pic_set, align 4
-  %138 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %136, i32 noundef 1, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.679, i32 noundef %135) #8
+  %138 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %136, i32 noundef 1, i32 noundef %137, ptr noundef null, ptr noundef nonnull @.str.679, i32 noundef range(i32 0, 64) %135) #8
   %.not.i = icmp eq i8 %.1288, 0
   br i1 %.not.i, label %.critedge.i, label %139
 

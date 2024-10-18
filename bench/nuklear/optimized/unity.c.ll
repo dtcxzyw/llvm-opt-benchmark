@@ -9287,7 +9287,7 @@ if.end:                                           ; preds = %entry
   %mul = shl nsw i64 %conv5, 2
   %add = add nsw i64 %mul, 32
   %0 = load ptr, ptr %b, align 8
-  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef %add, i64 noundef 8)
+  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -8589934560, 8589934621) %add, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %for.end, label %if.end8
 
@@ -9371,7 +9371,7 @@ if.end:                                           ; preds = %entry
   %mul = shl nsw i64 %conv2, 2
   %add = add nsw i64 %mul, 32
   %0 = load ptr, ptr %b, align 8
-  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef %add, i64 noundef 8)
+  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -8589934560, 8589934621) %add, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %for.end, label %if.end5
 
@@ -9454,7 +9454,7 @@ if.end:                                           ; preds = %entry
   %mul = shl nsw i64 %conv5, 2
   %add = add nsw i64 %mul, 32
   %0 = load ptr, ptr %b, align 8
-  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef %add, i64 noundef 8)
+  %call.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -8589934560, 8589934621) %add, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %for.end, label %if.end8
 
@@ -10031,31 +10031,143 @@ if.end44:                                         ; preds = %if.end.if.end44_cri
   %9 = load ptr, ptr %font, align 8
   %call = tail call float %7(ptr %9, float noundef %8, ptr noundef nonnull %string, i32 noundef %length) #52
   %cmp46 = fcmp ogt float %call, %r.sroa.7.8.vec.extract49.pre-phi
-  br i1 %cmp46, label %if.then48, label %if.end54
+  br i1 %cmp46, label %if.end4.i, label %if.end54
 
-if.then48:                                        ; preds = %if.end44
+if.end4.i:                                        ; preds = %if.end44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %unicode.i)
-  store i32 0, ptr %unicode.i, align 4
-  %call.i = call i32 @nk_utf_decode(ptr noundef nonnull %string, ptr noundef nonnull %unicode.i, i32 noundef %length)
-  %tobool.not34.i = icmp ne i32 %call.i, 0
+  store i32 65533, ptr %unicode.i, align 4
+  %10 = load i8, ptr %string, align 1
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
+  %indvars.iv79.i = phi i32 [ %indvars.iv.next80.i, %for.inc.i.i ], [ -2, %if.end4.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.end4.i ]
+  %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i
+  %11 = load i8, ptr %arrayidx.i.i, align 1
+  %and8.i.i = and i8 %11, %10
+  %arrayidx3.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i.i
+  %12 = load i8, ptr %arrayidx3.i.i, align 1
+  %cmp5.i.i = icmp eq i8 %and8.i.i, %12
+  br i1 %cmp5.i.i, label %nk_utf_decode_byte.exit.i, label %for.inc.i.i
+
+for.inc.i.i:                                      ; preds = %for.body.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
+  %indvars.iv.next80.i = add nsw i32 %indvars.iv79.i, 1
+  br i1 %exitcond.not.i.i, label %nk_utf_decode.exit, label %for.body.i.i, !llvm.loop !19
+
+nk_utf_decode_byte.exit.i:                        ; preds = %for.body.i.i
+  %13 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %14 = add i32 %13, -1
+  %or.cond1.i = icmp ult i32 %14, 3
+  br i1 %or.cond1.i, label %for.cond.preheader.i, label %nk_utf_decode.exit
+
+for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.exit.i
+  %not.i.i = xor i8 %11, -1
+  %and12.i.i = and i8 %10, %not.i.i
+  %conv14.i.i = zext i8 %and12.i.i to i32
+  %cmp859.i = icmp sgt i32 %length, 1
+  %cmp960.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  %15 = select i1 %cmp859.i, i1 %cmp960.i, i1 false
+  br i1 %15, label %for.body.preheader.i, label %for.end.i
+
+for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+  %16 = add nsw i32 %length, -2
+  %umin.i = tail call i32 @llvm.umin.i32(i32 %indvars.iv79.i, i32 %16)
+  %17 = add nuw nsw i32 %umin.i, 2
+  %wide.trip.count.i = zext nneg i32 %17 to i64
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %udecoded.063.i = phi i32 [ %conv14.i.i, %for.body.preheader.i ], [ %or.i, %for.inc.i ]
+  %arrayidx10.i = getelementptr inbounds i8, ptr %string, i64 %indvars.iv.i
+  %18 = load i8, ptr %arrayidx10.i, align 1
+  br label %for.body.i15.i
+
+for.body.i15.i:                                   ; preds = %for.inc.i21.i, %for.body.i
+  %indvars.iv.i16.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i22.i, %for.inc.i21.i ]
+  %arrayidx.i17.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i16.i
+  %19 = load i8, ptr %arrayidx.i17.i, align 1
+  %and8.i18.i = and i8 %19, %18
+  %arrayidx3.i19.i = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %indvars.iv.i16.i
+  %20 = load i8, ptr %arrayidx3.i19.i, align 1
+  %cmp5.i20.i = icmp eq i8 %and8.i18.i, %20
+  br i1 %cmp5.i20.i, label %nk_utf_decode_byte.exit30.i, label %for.inc.i21.i
+
+for.inc.i21.i:                                    ; preds = %for.body.i15.i
+  %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i16.i, 1
+  %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 5
+  br i1 %exitcond.not.i23.i, label %return.loopexit.i, label %for.body.i15.i, !llvm.loop !19
+
+nk_utf_decode_byte.exit30.i:                      ; preds = %for.body.i15.i
+  %cmp12.not.i = icmp eq i64 %indvars.iv.i16.i, 0
+  br i1 %cmp12.not.i, label %for.inc.i, label %return.loopexit83.i
+
+for.inc.i:                                        ; preds = %nk_utf_decode_byte.exit30.i
+  %not.i27.i = xor i8 %19, -1
+  %and12.i28.i = and i8 %18, %not.i27.i
+  %conv14.i29.i = zext i8 %and12.i28.i to i32
+  %shl.i = shl i32 %udecoded.063.i, 6
+  %or.i = or i32 %shl.i, %conv14.i29.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !20
+
+for.end.loopexit.i:                               ; preds = %for.inc.i
+  %cmp9.i = icmp ult i32 %17, %13
+  br i1 %cmp9.i, label %if.end51.thread73, label %if.end18.i
+
+for.end.i:                                        ; preds = %for.cond.preheader.i
+  br i1 %cmp960.i, label %if.end51.thread73, label %if.end18.i
+
+if.end18.i:                                       ; preds = %for.end.i, %for.end.loopexit.i
+  %udecoded.0.lcssa82.i = phi i32 [ %or.i, %for.end.loopexit.i ], [ %conv14.i.i, %for.end.i ]
+  store i32 %udecoded.0.lcssa82.i, ptr %unicode.i, align 4
+  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
+  %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
+  %21 = load i32, ptr %arrayidx.i31.i, align 4
+  %cmp.not.i.i = icmp ugt i32 %21, %udecoded.0.lcssa82.i
+  br i1 %cmp.not.i.i, label %if.then7.i34.i, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %if.end18.i
+  %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
+  %22 = load i32, ptr %arrayidx2.i.i, align 4
+  %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa82.i, %22
+  %23 = add i32 %udecoded.0.lcssa82.i, -55296
+  %or.cond.i.i = icmp ult i32 %23, 2047
+  %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
+  br i1 %or.cond11.i.i, label %if.then7.i34.i, label %nk_utf_decode.exit
+
+if.then7.i34.i:                                   ; preds = %land.lhs.true.i.i, %if.end18.i
+  store i32 65533, ptr %unicode.i, align 4
+  br label %nk_utf_decode.exit
+
+return.loopexit.i:                                ; preds = %for.inc.i21.i
+  %indvars76.le93.i = trunc i64 %indvars.iv.i to i32
+  br label %nk_utf_decode.exit
+
+return.loopexit83.i:                              ; preds = %nk_utf_decode_byte.exit30.i
+  %indvars76.le.i = trunc i64 %indvars.iv.i to i32
+  br label %nk_utf_decode.exit
+
+nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %land.lhs.true.i.i, %if.then7.i34.i, %return.loopexit.i, %return.loopexit83.i
+  %retval.0.i63 = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %13, %if.then7.i34.i ], [ %13, %land.lhs.true.i.i ], [ %indvars76.le93.i, %return.loopexit.i ], [ %indvars76.le.i, %return.loopexit83.i ], [ 1, %for.inc.i.i ]
+  %tobool.not34.i = icmp ne i32 %retval.0.i63, 0
   %cmp135.i = fcmp ogt float %r.sroa.7.8.vec.extract49.pre-phi, 0.000000e+00
   %or.cond36.i = and i1 %cmp135.i, %tobool.not34.i
   %cmp237.i = icmp sgt i32 %length, 0
   %or.cond3138.i = and i1 %cmp237.i, %or.cond36.i
-  br i1 %or.cond3138.i, label %while.body.i, label %if.end51.thread66
+  br i1 %or.cond3138.i, label %while.body.i, label %if.end51.thread73
 
-if.end51.thread66:                                ; preds = %if.then48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i)
-  br label %return
-
-while.body.i:                                     ; preds = %if.then48, %while.body.i
-  %len.042.i = phi i32 [ %add.i, %while.body.i ], [ 0, %if.then48 ]
-  %glyph_len.039.i = phi i32 [ %call14.i, %while.body.i ], [ %call.i, %if.then48 ]
+while.body.i:                                     ; preds = %nk_utf_decode.exit, %while.body.i
+  %len.042.i = phi i32 [ %add.i, %while.body.i ], [ 0, %nk_utf_decode.exit ]
+  %glyph_len.039.i = phi i32 [ %call14.i, %while.body.i ], [ %retval.0.i63, %nk_utf_decode.exit ]
   %add.i = add nsw i32 %glyph_len.039.i, %len.042.i
-  %10 = load ptr, ptr %width, align 8
-  %11 = load float, ptr %height, align 8
-  %12 = load ptr, ptr %font, align 8
-  %call4.i = call float %10(ptr %12, float noundef %11, ptr noundef nonnull %string, i32 noundef %add.i) #52
+  %24 = load ptr, ptr %width, align 8
+  %25 = load float, ptr %height, align 8
+  %26 = load ptr, ptr %font, align 8
+  %call4.i = call float %24(ptr %26, float noundef %25, ptr noundef nonnull %string, i32 noundef %add.i) #52
   %idxprom12.i = sext i32 %add.i to i64
   %arrayidx13.i = getelementptr inbounds i8, ptr %string, i64 %idxprom12.i
   %sub.i = sub nsw i32 %length, %add.i
@@ -10067,40 +10179,44 @@ while.body.i:                                     ; preds = %if.then48, %while.b
   %or.cond31.i = and i1 %cmp2.i, %or.cond.i
   br i1 %or.cond31.i, label %while.body.i, label %if.end51, !llvm.loop !45
 
+if.end51.thread73:                                ; preds = %nk_utf_decode.exit, %for.end.i, %for.end.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i)
+  br label %return
+
 if.end51:                                         ; preds = %while.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %unicode.i)
   %tobool52.not = icmp eq i32 %add.i, 0
   br i1 %tobool52.not, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.end44, %if.end51
-  %length.addr.065 = phi i32 [ %add.i, %if.end51 ], [ %length, %if.end44 ]
-  %13 = sext i32 %length.addr.065 to i64
-  %add57 = add nsw i64 %13, 57
-  %14 = load ptr, ptr %b, align 8
-  %call.i61 = call fastcc ptr @nk_buffer_alloc(ptr noundef %14, i32 noundef 0, i64 noundef %add57, i64 noundef 8)
+  %length.addr.072 = phi i32 [ %add.i, %if.end51 ], [ %length, %if.end44 ]
+  %27 = sext i32 %length.addr.072 to i64
+  %add57 = add nsw i64 %27, 57
+  %28 = load ptr, ptr %b, align 8
+  %call.i61 = call fastcc ptr @nk_buffer_alloc(ptr noundef %28, i32 noundef 0, i64 noundef range(i64 -8589934560, 8589934621) %add57, i64 noundef 8)
   %tobool1.not.i = icmp eq ptr %call.i61, null
   br i1 %tobool1.not.i, label %return, label %if.end61
 
 if.end61:                                         ; preds = %if.end54
-  %15 = load ptr, ptr %b, align 8
-  %memory5.i = getelementptr inbounds i8, ptr %15, i64 64
-  %16 = load ptr, ptr %memory5.i, align 8
+  %29 = load ptr, ptr %b, align 8
+  %memory5.i = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = load ptr, ptr %memory5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i61 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %last.i = getelementptr inbounds i8, ptr %b, i64 56
   store i64 %sub.ptr.sub.i, ptr %last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i61, i64 %add57
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
-  %17 = ptrtoint ptr %add.ptr6.i to i64
-  %and.i = and i64 %17, -8
+  %31 = ptrtoint ptr %add.ptr6.i to i64
+  %and.i = and i64 %31, -8
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub9.i = sub i64 %and.i, %sub.ptr.rhs.cast8.i
   store i32 16, ptr %call.i61, align 8
-  %18 = load ptr, ptr %b, align 8
-  %allocated.i = getelementptr inbounds i8, ptr %18, i64 88
-  %19 = load i64, ptr %allocated.i, align 8
-  %add.i62 = add i64 %19, %sub.ptr.sub9.i
+  %32 = load ptr, ptr %b, align 8
+  %allocated.i = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load i64, ptr %allocated.i, align 8
+  %add.i62 = add i64 %33, %sub.ptr.sub9.i
   %next.i = getelementptr inbounds i8, ptr %call.i61, i64 8
   store i64 %add.i62, ptr %next.i, align 8
   %end.i = getelementptr inbounds i8, ptr %b, i64 48
@@ -10131,17 +10247,17 @@ if.end61:                                         ; preds = %if.end54
   %font74 = getelementptr inbounds i8, ptr %call.i61, i64 16
   store ptr %font, ptr %font74, align 8
   %length75 = getelementptr inbounds i8, ptr %call.i61, i64 44
-  store i32 %length.addr.065, ptr %length75, align 4
-  %20 = load float, ptr %height, align 8
+  store i32 %length.addr.072, ptr %length75, align 4
+  %34 = load float, ptr %height, align 8
   %height77 = getelementptr inbounds i8, ptr %call.i61, i64 40
-  store float %20, ptr %height77, align 8
+  store float %34, ptr %height77, align 8
   %string78 = getelementptr inbounds i8, ptr %call.i61, i64 48
-  %call80 = call fastcc ptr @nk_memcopy(ptr noundef nonnull %string78, ptr noundef nonnull %string, i64 noundef %13)
-  %arrayidx = getelementptr inbounds [1 x i8], ptr %string78, i64 0, i64 %13
+  %call80 = call fastcc ptr @nk_memcopy(ptr noundef nonnull %string78, ptr noundef nonnull %string, i64 noundef %27)
+  %arrayidx = getelementptr inbounds [1 x i8], ptr %string78, i64 0, i64 %27
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
-return:                                           ; preds = %if.end54, %if.end51.thread66, %if.end51, %if.then11, %lor.lhs.false14, %lor.lhs.false17, %land.lhs.true29, %entry, %lor.lhs.false4, %if.end61
+return:                                           ; preds = %if.end54, %if.end51.thread73, %if.end51, %if.then11, %lor.lhs.false14, %lor.lhs.false17, %land.lhs.true29, %entry, %lor.lhs.false4, %if.end61
   ret void
 }
 
@@ -15345,7 +15461,7 @@ sw.bb352:                                         ; preds = %for.body
   %img500.sroa.8.0.copyload = load i16, ptr %img500.sroa.8.0.img.sroa_idx, align 1
   %img500.sroa.9.0.img.sroa_idx = getelementptr inbounds i8, ptr %cmd.0536, i64 42
   %img500.sroa.9.0.copyload = load i16, ptr %img500.sroa.9.0.img.sroa_idx, align 1
-  tail call fastcc void @nk_draw_list_push_image(ptr noundef %draw_list, ptr %img500.sroa.0.0.copyload)
+  tail call fastcc void @nk_draw_list_push_image(ptr noundef nonnull %draw_list, ptr %img500.sroa.0.0.copyload)
   %cmp.i.i = icmp eq i16 %img500.sroa.4.0.copyload, 0
   %cmp3.i.not.i = icmp eq i16 %img500.sroa.5.0.copyload, 0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp3.i.not.i, i1 false
@@ -15376,7 +15492,7 @@ if.then2.i502:                                    ; preds = %sw.bb352
   %add45.i = fadd float %conv359, %conv363
   %retval.sroa.0.0.vec.insert.i23.i = insertelement <2 x float> poison, float %add42.i, i64 0
   %retval.sroa.0.4.vec.insert.i24.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i23.i, float %add45.i, i64 1
-  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i24.i, <2 x float> %uv.sroa.0.4.vec.insert.i, <2 x float> %uv.sroa.3.12.vec.insert.i, i32 %303)
+  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i24.i, <2 x float> %uv.sroa.0.4.vec.insert.i, <2 x float> %uv.sroa.3.12.vec.insert.i, i32 %303)
   br label %lor.lhs.false2.i
 
 if.else.i510:                                     ; preds = %sw.bb352
@@ -15384,7 +15500,7 @@ if.else.i510:                                     ; preds = %sw.bb352
   %add59.i = fadd float %conv359, %conv363
   %retval.sroa.0.0.vec.insert.i27.i = insertelement <2 x float> poison, float %add56.i, i64 0
   %retval.sroa.0.4.vec.insert.i28.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i27.i, float %add59.i, i64 1
-  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i28.i, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, i32 %303)
+  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i28.i, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, i32 %303)
   br label %lor.lhs.false2.i
 
 sw.bb365:                                         ; preds = %for.body
@@ -17055,7 +17171,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %.val.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %24, i64 8
   %.val248.i = load ptr, ptr %25, align 8
-  %call.i134 = tail call ptr %.val248.i(ptr %.val.i, ptr noundef null, i64 noundef %mul38.i) #52
+  %call.i134 = tail call ptr %.val248.i(ptr %.val.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul38.i) #52
   %cmp40.i = icmp eq ptr %call.i134, null
   br i1 %cmp40.i, label %stbtt__GetGlyphShapeTT.exit, label %if.end43.i
 
@@ -17791,7 +17907,7 @@ for.end461.i:                                     ; preds = %for.body398.i
   %.val249.i = load ptr, ptr %79, align 8
   %80 = getelementptr i8, ptr %79, i64 8
   %.val250.i = load ptr, ptr %80, align 8
-  %call.i11 = tail call ptr %.val250.i(ptr %.val249.i, ptr noundef null, i64 noundef %mul464.i) #52
+  %call.i11 = tail call ptr %.val250.i(ptr %.val249.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul464.i) #52
   %tobool467.not.i = icmp eq ptr %call.i11, null
   br i1 %tobool467.not.i, label %if.then468.i, label %if.end477.i
 
@@ -17889,7 +18005,7 @@ if.then.i:                                        ; preds = %if.else
   %.val.i8 = load ptr, ptr %90, align 8
   %91 = getelementptr i8, ptr %90, i64 8
   %.val6.i = load ptr, ptr %91, align 8
-  %call.i.i = tail call ptr %.val6.i(ptr %.val.i8, ptr noundef null, i64 noundef %mul.i7) #52
+  %call.i.i = tail call ptr %.val6.i(ptr %.val.i8, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul.i7) #52
   store ptr %call.i.i, ptr %pvertices, align 8
   %pvertices2.i = getelementptr inbounds i8, ptr %output_ctx.i, i64 40
   store ptr %call.i.i, ptr %pvertices2.i, align 8
@@ -20348,7 +20464,7 @@ if.end7.i:                                        ; preds = %for.end.i
   %userdata.val.i = load ptr, ptr %userdata, align 8
   %1 = getelementptr i8, ptr %userdata, i64 8
   %userdata.val78.i = load ptr, ptr %1, align 8
-  %call.i.i = tail call ptr %userdata.val78.i(ptr %userdata.val.i, ptr noundef null, i64 noundef %mul9.i) #52
+  %call.i.i = tail call ptr %userdata.val78.i(ptr %userdata.val.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul9.i) #52
   %cmp10.i = icmp eq ptr %call.i.i, null
   br i1 %cmp10.i, label %stbtt_FlattenCurves.exit.thread, label %for.body17.us.i
 
@@ -20365,7 +20481,7 @@ if.then20.us.i:                                   ; preds = %for.body17.us.i
   %mul22.us.i = shl nsw i64 %conv21.us.i, 3
   %userdata.val79.us.i = load ptr, ptr %userdata, align 8
   %userdata.val80.us.i = load ptr, ptr %1, align 8
-  %call.i85.us.i = tail call ptr %userdata.val80.us.i(ptr %userdata.val79.us.i, ptr noundef null, i64 noundef %mul22.us.i) #52
+  %call.i85.us.i = tail call ptr %userdata.val80.us.i(ptr %userdata.val79.us.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul22.us.i) #52
   %cmp24.us.i = icmp eq ptr %call.i85.us.i, null
   br i1 %cmp24.us.i, label %error.i, label %if.end28.us.i
 
@@ -20542,7 +20658,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i20
   %28 = mul nsw i64 %27, 20
   %userdata.val.i14 = load ptr, ptr %userdata, align 8
   %userdata.val63.i = load ptr, ptr %1, align 8
-  %call.i.i15 = tail call ptr %userdata.val63.i(ptr %userdata.val.i14, ptr noundef null, i64 noundef %28) #52
+  %call.i.i15 = tail call ptr %userdata.val63.i(ptr %userdata.val.i14, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %28) #52
   %cmp2.i = icmp eq ptr %call.i.i15, null
   br i1 %cmp2.i, label %stbtt__rasterize.exit, label %for.body7.lr.ph.i
 
@@ -20733,7 +20849,7 @@ for.inc86.i:                                      ; preds = %for.inc83.i, %for.b
 
 for.end88.i:                                      ; preds = %for.inc86.i, %for.inc86.us.i
   %n.1.lcssa.i = phi i32 [ %n.2.lcssa.us.i, %for.inc86.us.i ], [ %n.2.lcssa.i, %for.inc86.i ]
-  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef %call.i.i15, i32 noundef %n.1.lcssa.i)
+  tail call fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %call.i.i15, i32 noundef %n.1.lcssa.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %t.sroa.3.i.i.i)
   %cmp18.i.i.i = icmp sgt i32 %n.1.lcssa.i, 1
   br i1 %cmp18.i.i.i, label %for.body.preheader.i.i.i, label %stbtt__sort_edges.exit.i
@@ -20808,7 +20924,7 @@ if.then.i.i:                                      ; preds = %stbtt__sort_edges.e
   %mul2.i.i = shl nuw nsw i64 %conv.i.i, 2
   %userdata.val.i.i = load ptr, ptr %userdata, align 8
   %userdata.val63.i.i = load ptr, ptr %1, align 8
-  %call.i.i.i = tail call ptr %userdata.val63.i.i(ptr %userdata.val.i.i, ptr noundef null, i64 noundef %mul2.i.i) #52
+  %call.i.i.i = tail call ptr %userdata.val63.i.i(ptr %userdata.val.i.i, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul2.i.i) #52
   %.pre.i.i = load i32, ptr %result, align 8
   br label %if.end.i.i
 
@@ -22941,7 +23057,7 @@ if.then25:                                        ; preds = %if.end20
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val21 = load ptr, ptr %16, align 8
-  %call.i26 = call ptr %.val21(ptr %.val, ptr noundef null, i64 noundef %conv) #52
+  %call.i26 = call ptr %.val21(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %conv) #52
   store ptr %call.i26, ptr %pixels, align 8
   %tobool32.not = icmp eq ptr %call.i26, null
   %.pre31 = load ptr, ptr %vertices, align 8
@@ -23288,7 +23404,7 @@ entry:
   %mul = shl nsw i64 %conv, 4
   %alloc_context.val = load ptr, ptr %alloc_context, align 8
   %alloc_context.val36 = load ptr, ptr %0, align 8
-  %call.i43 = tail call ptr %alloc_context.val36(ptr %alloc_context.val, ptr noundef null, i64 noundef %mul) #52
+  %call.i43 = tail call ptr %alloc_context.val36(ptr %alloc_context.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul) #52
   %cmp = icmp eq ptr %call.i, null
   %cmp3 = icmp eq ptr %call.i43, null
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
@@ -25452,7 +25568,7 @@ for.end34:                                        ; preds = %entry, %for.end34.l
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val37 = load ptr, ptr %11, align 8
-  %call.i = tail call ptr %.val37(ptr %.val, ptr noundef null, i64 noundef %n.0.lcssa) #52
+  %call.i = tail call ptr %.val37(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %n.0.lcssa) #52
   %cmp35 = icmp eq ptr %call.i, null
   br i1 %cmp35, label %return, label %if.end
 
@@ -27464,14 +27580,14 @@ if.end19:                                         ; preds = %if.then18, %if.end1
   %.val361 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val362 = load ptr, ptr %13, align 8
-  %call.i367 = call ptr %.val362(ptr %.val361, ptr noundef null, i64 noundef %conv) #52
+  %call.i367 = call ptr %.val362(ptr %.val361, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %conv) #52
   %conv21 = sext i32 %call to i64
   %mul22 = shl nsw i64 %conv21, 2
   %14 = load ptr, ptr %info, align 8
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   %.val360 = load ptr, ptr %15, align 8
-  %call.i368 = call ptr %.val360(ptr %.val, ptr noundef null, i64 noundef %mul22) #52
+  %call.i368 = call ptr %.val360(ptr %.val, ptr noundef null, i64 noundef range(i64 -51539607552, 51539607529) %mul22) #52
   %cmp26411 = icmp sgt i32 %call, 0
   %.pre.pre = load ptr, ptr %verts, align 8
   br i1 %cmp26411, label %for.body.lr.ph, label %for.cond137.preheader
@@ -37494,7 +37610,7 @@ if.then381:                                       ; preds = %land.lhs.true377
   br label %if.end386
 
 if.end386:                                        ; preds = %if.then356, %if.then347, %if.then381, %land.lhs.true377, %if.end373, %if.else54
-  %call.i262 = tail call fastcc ptr @nk_create_page_element(ptr noundef %ctx)
+  %call.i262 = tail call fastcc ptr @nk_create_page_element(ptr noundef nonnull %ctx)
   %tobool.not.i263 = icmp eq ptr %call.i262, null
   br i1 %tobool.not.i263, label %nk_create_panel.exit, label %if.end.i264
 
@@ -39047,7 +39163,7 @@ if.end52.i.i:                                     ; preds = %if.then19.i.i, %if.
   %sub137.i.i = fsub float %add133.i.i, %add127.i.i
   %empty_east.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %sub137.i.i, i64 0
   %empty_east.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %empty_east.sroa.3.8.vec.insert.i.i, float %cond.i403.i, i64 1
-  %call141.i.i = call fastcc float @nk_scrollbar_behavior(ptr noundef %state250.i, ptr noundef %cond.i32, i32 noundef %scroll_has_scrolling.0.i, ptr noundef %scroll.i.i, ptr noundef %cursor.i.i, <2 x float> %empty_west.sroa.0.4.vec.insert.i.i, <2 x float> %empty_west.sroa.3.12.vec.insert.i.i, <2 x float> %empty_east.sroa.0.4.vec.insert.i.i, <2 x float> %empty_east.sroa.3.12.vec.insert.i.i, float noundef %cond82.i.i, float noundef %conv269.i, float noundef %cond59.i.i, i32 noundef 1)
+  %call141.i.i = call fastcc float @nk_scrollbar_behavior(ptr noundef nonnull %state250.i, ptr noundef %cond.i32, i32 noundef range(i32 0, 2) %scroll_has_scrolling.0.i, ptr noundef %scroll.i.i, ptr noundef %cursor.i.i, <2 x float> %empty_west.sroa.0.4.vec.insert.i.i, <2 x float> %empty_west.sroa.3.12.vec.insert.i.i, <2 x float> %empty_east.sroa.0.4.vec.insert.i.i, <2 x float> %empty_east.sroa.3.12.vec.insert.i.i, float noundef %cond82.i.i, float noundef %conv269.i, float noundef %cond59.i.i, i32 noundef 1)
   %div142.i.i = fdiv float %call141.i.i, %conv269.i
   %104 = tail call float @llvm.fmuladd.f32(float %div142.i.i, float %96, float %95)
   store float %104, ptr %cursor.i.i, align 8
@@ -39068,7 +39184,7 @@ if.end150.i.i:                                    ; preds = %if.then148.i.i, %if
   %scroll.val67.i.i = load <2 x float>, ptr %90, align 8
   %cursor.val.i.i = load <2 x float>, ptr %cursor.i.i, align 8
   %cursor.val68.i.i = load <2 x float>, ptr %w90.i.i, align 8
-  tail call fastcc void @nk_draw_scrollbar(ptr noundef %buffer.i26, i32 noundef %107, ptr noundef %scrollh.i, <2 x float> %scroll.val.i.i, <2 x float> %scroll.val67.i.i, <2 x float> %cursor.val.i.i, <2 x float> %cursor.val68.i.i)
+  tail call fastcc void @nk_draw_scrollbar(ptr noundef nonnull %buffer.i26, i32 noundef %107, ptr noundef nonnull %scrollh.i, <2 x float> %scroll.val.i.i, <2 x float> %scroll.val67.i.i, <2 x float> %cursor.val.i.i, <2 x float> %cursor.val68.i.i)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 6496
   %108 = load ptr, ptr %draw_end.i.i, align 8
   %tobool151.not.i.i = icmp eq ptr %108, null
@@ -43403,7 +43519,7 @@ if.end:                                           ; preds = %entry
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %9, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
   %draw_begin = getelementptr inbounds i8, ptr %style, i64 200
   %11 = load ptr, ptr %draw_begin, align 8
   %tobool6.not = icmp eq ptr %11, null
@@ -43417,7 +43533,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then7, %if.end
   %13 = load i32, ptr %state, align 4
-  %call.i20 = call fastcc ptr @nk_draw_button(ptr noundef %out, ptr noundef readonly %bounds, i32 noundef %13, ptr noundef %style)
+  %call.i20 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %13, ptr noundef nonnull %style)
   %14 = load i32, ptr %call.i20, align 8
   %cmp.i = icmp eq i32 %14, 0
   %data.i = getelementptr inbounds i8, ptr %call.i20, i64 8
@@ -43841,7 +43957,7 @@ if.end:                                           ; preds = %entry
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %12, i64 0
   %13 = tail call float @llvm.fmuladd.f32(float %11, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %13, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
   %14 = load float, ptr %y7.i, align 4
   %add = fadd float %3, %14
   %15 = tail call float @llvm.fmuladd.f32(float %14, float -2.000000e+00, float %2)
@@ -43891,7 +44007,7 @@ if.then41:                                        ; preds = %if.end26
 
 if.end43:                                         ; preds = %if.then41, %if.end26
   %29 = load i32, ptr %state, align 4
-  %call.i29 = call fastcc ptr @nk_draw_button(ptr noundef %out, ptr noundef readonly %bounds, i32 noundef %29, ptr noundef %style)
+  %call.i29 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %29, ptr noundef nonnull %style)
   %30 = load i32, ptr %call.i29, align 8
   %cmp.i = icmp eq i32 %30, 0
   %data.i = getelementptr inbounds i8, ptr %call.i29, i64 8
@@ -44220,7 +44336,7 @@ if.end:                                           ; preds = %entry
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %9, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
   %div = fmul float %6, 5.000000e-01
   %add = fadd float %add12.i, %div
   %height = getelementptr inbounds i8, ptr %font, i64 8
@@ -44264,7 +44380,7 @@ if.then26:                                        ; preds = %if.end24
 
 if.end28:                                         ; preds = %if.then26, %if.end24
   %19 = load i32, ptr %state, align 4
-  %call.i24 = call fastcc ptr @nk_draw_button(ptr noundef %out, ptr noundef readonly %bounds, i32 noundef %19, ptr noundef %style)
+  %call.i24 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %19, ptr noundef nonnull %style)
   %20 = load i32, ptr %call.i24, align 8
   %cmp.i = icmp eq i32 %20, 0
   %data.i = getelementptr inbounds i8, ptr %call.i24, i64 8
@@ -44315,7 +44431,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %if.end28, %if.end.i
   %23 = or disjoint i32 %22, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %23, %col.sroa.9.0.extract.shift.i.i
   %24 = load i32, ptr %text_background.i, align 8
-  tail call fastcc void @nk_draw_symbol(ptr noundef %out, i32 noundef %symbol, <2 x float> %tri.sroa.0.0.vec.insert, <2 x float> %tri.sroa.4.12.vec.insert, i32 %24, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 0.000000e+00, ptr noundef nonnull %font)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %out, i32 noundef %symbol, <2 x float> %tri.sroa.0.0.vec.insert, <2 x float> %tri.sroa.4.12.vec.insert, i32 %24, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 0.000000e+00, ptr noundef nonnull %font)
   %cmp.i51.i = fcmp olt float %6, 0.000000e+00
   %mul.b.sroa.14.12.vec.extract.i.i = select i1 %cmp.i51.i, float 0.000000e+00, float %6
   %25 = load float, ptr %height, align 8
@@ -44916,7 +45032,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %or.cond24.i, label %if.end34.i, label %return
 
 if.end34.i:                                       ; preds = %land.end.i
-  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %4, <2 x float> %6, i32 noundef 64)
+  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %4, <2 x float> %6, i32 noundef 64)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return, label %if.end38.i
 
@@ -45042,7 +45158,7 @@ cond.end:                                         ; preds = %lor.lhs.false11, %i
   %bounds.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
   %17 = tail call float @llvm.fmuladd.f32(float %15, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i.i)
   %bounds.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i.i, float %17, i64 1
-  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i.i, <2 x float> %bounds.sroa.3.12.vec.insert.i.i, ptr noundef %cond, i32 noundef 0)
+  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i.i, <2 x float> %bounds.sroa.3.12.vec.insert.i.i, ptr noundef %cond, i32 noundef 0)
   %image_padding.i = getelementptr inbounds i8, ptr %ctx, i64 1064
   %18 = load float, ptr %image_padding.i, align 8
   %add.i = fadd float %add4.i.i, %18
@@ -45068,7 +45184,7 @@ if.then13.i:                                      ; preds = %cond.end
 
 if.end15.i:                                       ; preds = %if.then13.i, %cond.end
   %26 = load i32, ptr %last_widget_state, align 4
-  %call.i22.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer, ptr noundef readonly %bounds.i, i32 noundef %26, ptr noundef %menu_button)
+  %call.i22.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull readonly %bounds.i, i32 noundef %26, ptr noundef nonnull %menu_button)
   %color_factor_background.i.i = getelementptr inbounds i8, ptr %ctx, i64 1020
   %27 = load float, ptr %color_factor_background.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %27, 1.000000e+00
@@ -45078,7 +45194,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %cond.
   %29 = mul nuw nsw i32 %28, 65793
   %30 = or disjoint i32 %29, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %30
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly align 8 %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 1104
   %31 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %31, null
@@ -45152,7 +45268,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %or.cond24.i, label %if.end34.i, label %return
 
 if.end34.i:                                       ; preds = %land.end.i
-  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %4, <2 x float> %6, i32 noundef 64)
+  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %4, <2 x float> %6, i32 noundef 64)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return, label %if.end38.i
 
@@ -45274,7 +45390,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %or.cond24.i, label %if.end34.i, label %return
 
 if.end34.i:                                       ; preds = %land.end.i
-  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
+  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return, label %if.end38.i
 
@@ -45345,7 +45461,7 @@ if.end:                                           ; preds = %entry
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %9, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %in, i32 noundef %behavior)
   %draw_begin = getelementptr inbounds i8, ptr %style, i64 200
   %11 = load ptr, ptr %draw_begin, align 8
   %tobool6.not = icmp eq ptr %11, null
@@ -45359,7 +45475,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then7, %if.end
   %13 = load i32, ptr %state, align 4
-  %call.i20 = call fastcc ptr @nk_draw_button(ptr noundef %out, ptr noundef readonly %bounds, i32 noundef %13, ptr noundef %style)
+  %call.i20 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %out, ptr noundef nonnull readonly %bounds, i32 noundef %13, ptr noundef nonnull %style)
   %14 = load i32, ptr %call.i20, align 8
   %cmp.i = icmp eq i32 %14, 0
   %data.i = getelementptr inbounds i8, ptr %call.i20, i64 8
@@ -45409,7 +45525,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.end9, %if.end.i.
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %out, i32 noundef %symbol, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef nonnull %font)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %out, i32 noundef %symbol, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef nonnull %font)
   %draw_end = getelementptr inbounds i8, ptr %style, i64 208
   %16 = load ptr, ptr %draw_end, align 8
   %tobool10.not = icmp eq ptr %16, null
@@ -45532,7 +45648,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %or.cond24.i, label %if.end34.i, label %return
 
 if.end34.i:                                       ; preds = %land.end.i
-  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
+  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return, label %if.end38.i
 
@@ -45680,7 +45796,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %land.l
   br i1 %or.cond24.i, label %if.end34.i, label %return
 
 if.end34.i:                                       ; preds = %land.end.i
-  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
+  %call35.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 32, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %5, <2 x float> %7, i32 noundef 64)
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %return, label %if.end38.i
 
@@ -48964,7 +49080,7 @@ if.end.i187.i:                                    ; preds = %if.else142.i
   %touch.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %97, i64 0
   %98 = tail call float @llvm.fmuladd.f32(float %96, float 2.000000e+00, float %93)
   %touch.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i.i, float %98, i64 1
-  %call.i.i37 = call fastcc i32 @nk_button_behavior(ptr noundef %dummy.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond46.i, i32 noundef 0)
+  %call.i.i37 = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %dummy.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond46.i, i32 noundef 0)
   %tobool24.not.i.i = icmp eq i32 %call.i.i37, 0
   br i1 %tobool24.not.i.i, label %if.end27.i.i, label %if.then25.i.i
 
@@ -48991,7 +49107,7 @@ if.then29.i.i:                                    ; preds = %if.end27.i.i
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end27.i.i
   %102 = phi i32 [ %.pre.i38, %if.then29.i.i ], [ %99, %if.end27.i.i ]
   %103 = load i32, ptr %dummy.i, align 4
-  tail call fastcc void @nk_draw_selectable(ptr noundef %buffer.i, i32 noundef %103, ptr noundef readonly %selectable.i, i32 noundef %102, <2 x float> %label.sroa.0.4.vec.insert.i, <2 x float> %label.sroa.4.12.vec.insert.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %title, i32 noundef %siz.0.lcssa.i27, i32 noundef 17, ptr noundef nonnull %92)
+  tail call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %103, ptr noundef nonnull readonly %selectable.i, i32 noundef %102, <2 x float> %label.sroa.0.4.vec.insert.i, <2 x float> %label.sroa.4.12.vec.insert.i, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %title, i32 noundef %siz.0.lcssa.i27, i32 noundef 17, ptr noundef nonnull %92)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %104 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %104, null
@@ -50939,7 +51055,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -51006,7 +51122,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -51076,7 +51192,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -51146,7 +51262,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %w.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
@@ -51196,7 +51312,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %h.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 12
@@ -51264,7 +51380,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -51388,7 +51504,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -51491,7 +51607,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef nonnull readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -53279,7 +53395,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false15.i, 
   %6 = load <2 x float>, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  %call18.i = tail call fastcc i32 @nk_do_button_text(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %title, i32 noundef %len, i32 noundef %3, i32 noundef %4, ptr noundef %button, ptr noundef %cond.i, ptr noundef %5)
+  %call18.i = tail call fastcc i32 @nk_do_button_text(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %title, i32 noundef %len, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %button, ptr noundef %cond.i, ptr noundef %5)
   br label %nk_button_text_styled.exit
 
 nk_button_text_styled.exit:                       ; preds = %lor.lhs.false2.i, %lor.lhs.false4.i, %if.end.i, %cond.end.i
@@ -53438,7 +53554,7 @@ cond.end.i.i:                                     ; preds = %lor.lhs.false15.i.i
   %8 = load <2 x float>, ptr %bounds.i.i, align 8
   %9 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %10 = load <2 x float>, ptr %9, align 8
-  %call18.i.i = tail call fastcc i32 @nk_do_button_text(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %8, <2 x float> %10, ptr noundef %title, i32 noundef %siz.0.lcssa.i, i32 noundef %5, i32 noundef %6, ptr noundef %button.i, ptr noundef %cond.i.i, ptr noundef %7)
+  %call18.i.i = tail call fastcc i32 @nk_do_button_text(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %8, <2 x float> %10, ptr noundef %title, i32 noundef %siz.0.lcssa.i, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %button.i, ptr noundef %cond.i.i, ptr noundef %7)
   br label %nk_button_text_styled.exit.i
 
 nk_button_text_styled.exit.i:                     ; preds = %cond.end.i.i, %if.end.i.i, %lor.lhs.false4.i.i, %lor.lhs.false2.i.i
@@ -53524,7 +53640,7 @@ cond.end:                                         ; preds = %lor.lhs.false13, %i
   %bounds.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %9, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i)
   %bounds.sroa.3.12.vec.insert.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i, float %10, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef %3)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> %bounds.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef %3)
   %11 = load i32, ptr %last_widget_state, align 8
   %call21 = call fastcc ptr @nk_draw_button(ptr noundef %buffer, ptr noundef %bounds, i32 noundef %11, ptr noundef %button)
   br label %return
@@ -53884,7 +54000,7 @@ if.end.i:                                         ; preds = %cond.end
   %bounds.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
   %17 = tail call float @llvm.fmuladd.f32(float %15, float 2.000000e+00, float %r.sroa.5.12.vec.extract.i.i)
   %bounds.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %bounds.sroa.3.8.vec.insert.i.i, float %17, i64 1
-  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i.i, <2 x float> %bounds.sroa.3.12.vec.insert.i.i, ptr noundef %cond, i32 noundef %3)
+  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %bounds.sroa.0.4.vec.insert.i.i, <2 x float> %bounds.sroa.3.12.vec.insert.i.i, ptr noundef %cond, i32 noundef %3)
   %image_padding.i = getelementptr inbounds i8, ptr %style, i64 168
   %18 = load float, ptr %image_padding.i, align 8
   %add.i = fadd float %add4.i.i, %18
@@ -53910,7 +54026,7 @@ if.then13.i:                                      ; preds = %if.end.i
 
 if.end15.i:                                       ; preds = %if.then13.i, %if.end.i
   %26 = load i32, ptr %last_widget_state, align 4
-  %call.i22.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer, ptr noundef readonly %bounds.i, i32 noundef %26, ptr noundef %style)
+  %call.i22.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer, ptr noundef nonnull readonly %bounds.i, i32 noundef %26, ptr noundef nonnull %style)
   %color_factor_background.i.i = getelementptr inbounds i8, ptr %style, i64 124
   %27 = load float, ptr %color_factor_background.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %27, 1.000000e+00
@@ -53920,7 +54036,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.en
   %29 = mul nuw nsw i32 %28, 65793
   %30 = or disjoint i32 %29, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %30
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly align 8 %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %style, i64 208
   %31 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %31, null
@@ -54607,7 +54723,7 @@ if.end:                                           ; preds = %entry
   %and.i = and i32 %14, 2
   %..i = or disjoint i32 %and.i, 4
   store i32 %..i, ptr %state, align 4
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %state, <2 x float> %bounds.sroa.0.4.vec.insert, <2 x float> %bounds.sroa.3.12.vec.insert, ptr noundef %in, i32 noundef 0)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %state, <2 x float> %bounds.sroa.0.4.vec.insert, <2 x float> %bounds.sroa.3.12.vec.insert, ptr noundef %in, i32 noundef 0)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end4.i, label %if.end4.thread.i
 
@@ -56029,7 +56145,7 @@ if.end.i:                                         ; preds = %cond.end
   %bounds.sroa.4.12.vec.extract.i = extractelement <2 x float> %6, i64 1
   %11 = tail call float @llvm.fmuladd.f32(float %9, float 2.000000e+00, float %bounds.sroa.4.12.vec.extract.i)
   %touch.sroa.3.12.vec.insert.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i, float %11, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %touch.sroa.0.4.vec.insert.i, <2 x float> %touch.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef 0)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %touch.sroa.0.4.vec.insert.i, <2 x float> %touch.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef 0)
   %tobool24.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool24.not.i, label %if.end27.i, label %if.then25.i
 
@@ -56055,7 +56171,7 @@ if.then29.i:                                      ; preds = %if.end27.i
 if.end31.i:                                       ; preds = %if.then29.i, %if.end27.i
   %15 = load i32, ptr %last_widget_state, align 4
   %16 = load i32, ptr %value, align 4
-  tail call fastcc void @nk_draw_selectable(ptr noundef %buffer, i32 noundef %15, ptr noundef readonly %selectable, i32 noundef %16, <2 x float> %4, <2 x float> %6, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  tail call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %15, ptr noundef nonnull readonly %selectable, i32 noundef %16, <2 x float> %4, <2 x float> %6, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %17 = load ptr, ptr %draw_end.i, align 8
   %tobool32.not.i = icmp eq ptr %17, null
@@ -56326,7 +56442,7 @@ if.end.i:                                         ; preds = %cond.end
   %bounds.sroa.7.12.vec.extract54.i = extractelement <2 x float> %6, i64 1
   %11 = tail call float @llvm.fmuladd.f32(float %9, float 2.000000e+00, float %bounds.sroa.7.12.vec.extract54.i)
   %touch.sroa.3.12.vec.insert.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i, float %11, i64 1
-  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %touch.sroa.0.4.vec.insert.i, <2 x float> %touch.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef 0)
+  %call.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %touch.sroa.0.4.vec.insert.i, <2 x float> %touch.sroa.3.12.vec.insert.i, ptr noundef %cond, i32 noundef 0)
   %tobool24.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool24.not.i, label %if.end27.i, label %if.then25.i
 
@@ -56393,7 +56509,7 @@ if.then68.i:                                      ; preds = %if.end53.i
 if.end70.i:                                       ; preds = %if.then68.i, %if.end53.i
   %26 = load i32, ptr %last_widget_state, align 4
   %27 = load i32, ptr %value, align 4
-  call fastcc void @nk_draw_selectable(ptr noundef %buffer, i32 noundef %26, ptr noundef readonly %selectable, i32 noundef %27, <2 x float> %4, <2 x float> %6, ptr noundef nonnull %icon.i, ptr noundef null, i32 noundef %sym, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer, i32 noundef %26, ptr noundef nonnull readonly %selectable, i32 noundef %27, <2 x float> %4, <2 x float> %6, ptr noundef nonnull %icon.i, ptr noundef null, i32 noundef %sym, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %28 = load ptr, ptr %draw_end.i, align 8
   %tobool71.not.i = icmp eq ptr %28, null
@@ -56516,7 +56632,7 @@ if.end.i.i:                                       ; preds = %cond.end.i
   %bounds.sroa.4.12.vec.extract.i.i = extractelement <2 x float> %6, i64 1
   %10 = tail call float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float %bounds.sroa.4.12.vec.extract.i.i)
   %touch.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i.i, float %10, i64 1
-  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond.i, i32 noundef 0)
+  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond.i, i32 noundef 0)
   %tobool24.not.i.i = icmp eq i32 %call.i.i, 0
   %tobool26.not.i.i = icmp eq i32 %value, 0
   %lnot.ext.i.i = zext i1 %tobool26.not.i.i to i32
@@ -56534,7 +56650,7 @@ if.then29.i.i:                                    ; preds = %if.end.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
   %13 = load i32, ptr %last_widget_state.i, align 4
-  tail call fastcc void @nk_draw_selectable(ptr noundef %buffer.i, i32 noundef %13, ptr noundef readonly %selectable.i, i32 noundef %value.addr.0, <2 x float> %4, <2 x float> %6, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
+  tail call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %13, ptr noundef nonnull readonly %selectable.i, i32 noundef %value.addr.0, <2 x float> %4, <2 x float> %6, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %3)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %14 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %14, null
@@ -56647,7 +56763,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false16.i, 
   %6 = load <2 x float>, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %value, ptr noundef nonnull %img2, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %5)
+  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %value, ptr noundef nonnull align 8 %img2, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %5)
   br label %nk_selectable_image_text.exit
 
 nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %lor.lhs.false.i, %lor.lhs.false2.i, %if.end.i, %cond.end.i
@@ -56745,7 +56861,7 @@ if.end.i.i:                                       ; preds = %cond.end.i
   %bounds.sroa.4.12.vec.extract.i.i = extractelement <2 x float> %8, i64 1
   %12 = tail call float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float %bounds.sroa.4.12.vec.extract.i.i)
   %touch.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %touch.sroa.3.8.vec.insert.i.i, float %12, i64 1
-  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond.i, i32 noundef 0)
+  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state.i, <2 x float> %touch.sroa.0.4.vec.insert.i.i, <2 x float> %touch.sroa.3.12.vec.insert.i.i, ptr noundef %cond.i, i32 noundef 0)
   %tobool24.not.i.i = icmp eq i32 %call.i.i, 0
   %tobool26.not.i.i = icmp eq i32 %value, 0
   %lnot.ext.i.i = zext i1 %tobool26.not.i.i to i32
@@ -56763,7 +56879,7 @@ if.then29.i.i:                                    ; preds = %if.end.i.i
 
 if.end31.i.i:                                     ; preds = %if.then29.i.i, %if.end.i.i
   %15 = load i32, ptr %last_widget_state.i, align 4
-  tail call fastcc void @nk_draw_selectable(ptr noundef %buffer.i, i32 noundef %15, ptr noundef readonly %selectable.i, i32 noundef %value.addr.0, <2 x float> %6, <2 x float> %8, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %5)
+  tail call fastcc void @nk_draw_selectable(ptr noundef nonnull %buffer.i, i32 noundef %15, ptr noundef nonnull readonly %selectable.i, i32 noundef %value.addr.0, <2 x float> %6, <2 x float> %8, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %5)
   %draw_end.i.i = getelementptr inbounds i8, ptr %ctx, i64 2016
   %16 = load ptr, ptr %draw_end.i.i, align 8
   %tobool32.not.i.i = icmp eq ptr %16, null
@@ -56850,7 +56966,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false16.i, 
   %6 = load <2 x float>, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %value.addr, ptr noundef nonnull %img2, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %5)
+  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %str, i32 noundef %siz.0.lcssa.i, i32 noundef %align, ptr noundef nonnull %value.addr, ptr noundef nonnull align 8 %img2, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %5)
   %.pre = load i32, ptr %value.addr, align 4
   br label %nk_selectable_image_text.exit
 
@@ -56911,7 +57027,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false16.i, 
   %4 = load <2 x float>, ptr %bounds.i, align 8
   %5 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %4, <2 x float> %6, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %value.addr, ptr noundef nonnull %img1, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %3)
+  %call18.i = call fastcc i32 @nk_do_selectable_image(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %4, <2 x float> %6, ptr noundef %str, i32 noundef %len, i32 noundef %align, ptr noundef nonnull %value.addr, ptr noundef nonnull align 8 %img1, ptr noundef %selectable.i, ptr noundef %cond.i, ptr noundef %3)
   %.pre = load i32, ptr %value.addr, align 4
   br label %nk_selectable_image_text.exit
 
@@ -63856,7 +63972,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
   ]
 
 if.then2.i.i:                                     ; preds = %land.lhs.true.i.i
-  %call.i.i = call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %edit.sroa.0.4.vec.insert.i, <2 x float> %edit.sroa.5.12.vec.insert.i, ptr noundef nonnull %cond, i32 noundef 0)
+  %call.i.i = call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %edit.sroa.0.4.vec.insert.i, <2 x float> %edit.sroa.5.12.vec.insert.i, ptr noundef nonnull %cond, i32 noundef 0)
   %tobool3.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end.i.i.i.i.i, label %if.end23.sink.split.i.i
 
@@ -64332,7 +64448,7 @@ if.end142.i:                                      ; preds = %if.then138.i, %nk_d
   %sym_left.i = getelementptr inbounds i8, ptr %ctx, i64 3248
   %123 = load i32, ptr %sym_left.i, align 8
   %dec_button.i = getelementptr inbounds i8, ptr %ctx, i64 4464
-  %call143.i = call fastcc i32 @nk_do_button_symbol(ptr noundef %last_widget_state, ptr noundef nonnull %buffer51, <2 x float> %left.sroa.0.4.vec.insert.i, <2 x float> %left.sroa.5.8.vec.insert.i, i32 noundef %123, i32 noundef %10, ptr noundef nonnull %dec_button.i, ptr noundef %cond, ptr noundef nonnull %9)
+  %call143.i = call fastcc i32 @nk_do_button_symbol(ptr noundef nonnull %last_widget_state, ptr noundef nonnull %buffer51, <2 x float> %left.sroa.0.4.vec.insert.i, <2 x float> %left.sroa.5.8.vec.insert.i, i32 noundef %123, i32 noundef %10, ptr noundef nonnull %dec_button.i, ptr noundef %cond, ptr noundef nonnull %9)
   %tobool144.not.i = icmp eq i32 %call143.i, 0
   br i1 %tobool144.not.i, label %if.end260.i, label %if.then145.i
 
@@ -64397,7 +64513,7 @@ if.end260.i:                                      ; preds = %sw.bb221.i, %sw.bb1
   %sym_right.i = getelementptr inbounds i8, ptr %ctx, i64 3252
   %137 = load i32, ptr %sym_right.i, align 4
   %inc_button.i = getelementptr inbounds i8, ptr %ctx, i64 4248
-  %call261.i = call fastcc i32 @nk_do_button_symbol(ptr noundef %last_widget_state, ptr noundef nonnull %buffer51, <2 x float> %right.sroa.0.0.vec.insert.i, <2 x float> %left.sroa.5.8.vec.insert.i, i32 noundef %137, i32 noundef %10, ptr noundef nonnull %inc_button.i, ptr noundef %cond, ptr noundef nonnull %9)
+  %call261.i = call fastcc i32 @nk_do_button_symbol(ptr noundef nonnull %last_widget_state, ptr noundef nonnull %buffer51, <2 x float> %right.sroa.0.0.vec.insert.i, <2 x float> %left.sroa.5.8.vec.insert.i, i32 noundef %137, i32 noundef %10, ptr noundef nonnull %inc_button.i, ptr noundef %cond, ptr noundef nonnull %9)
   %tobool262.not.i = icmp eq i32 %call261.i, 0
   br i1 %tobool262.not.i, label %if.end381.i, label %if.then263.i
 
@@ -64551,7 +64667,7 @@ if.end393.i:                                      ; preds = %if.else390.i, %if.t
   %162 = load i32, ptr %state.0, align 4
   %cmp469.i = icmp eq i32 %162, 1
   %cond474.i = select i1 %cmp469.i, ptr %cond, ptr null
-  %call475.i = call fastcc i32 @nk_do_edit(ptr noundef %last_widget_state, ptr noundef %buffer51, <2 x float> %edit.sroa.0.4.vec.insert.i, <2 x float> %edit.sroa.5.12.vec.insert.i, i32 noundef 610, ptr noundef %154, ptr noundef nonnull %text_edit, ptr noundef %edit468.i, ptr noundef %cond474.i, ptr noundef nonnull %9)
+  %call475.i = call fastcc i32 @nk_do_edit(ptr noundef nonnull %last_widget_state, ptr noundef nonnull %buffer51, <2 x float> %edit.sroa.0.4.vec.insert.i, <2 x float> %edit.sroa.5.12.vec.insert.i, i32 noundef 610, ptr noundef %154, ptr noundef nonnull %text_edit, ptr noundef %edit468.i, ptr noundef %cond474.i, ptr noundef nonnull %9)
   %163 = load i32, ptr %len397.i, align 8
   store i32 %163, ptr %length.1.i, align 4
   %164 = load i32, ptr %cursor.i.i, align 8
@@ -66486,7 +66602,7 @@ if.end.i:                                         ; preds = %cond.end
   %add40.i.i.i.i = fadd float %in.sroa.0.0.vec.extract11.i.i.i.i, 0x3BC79CA100000000
   %div41.i.i.i.i = fdiv float %sub20.i.i.i.i, %add40.i.i.i.i
   %in.sroa.18.12.vec.extract.i.i.i.i = extractelement <2 x float> %in.sroa.18.0.i.i.i.i, i64 1
-  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %matrix.sroa.0.4.vec.insert.i, <2 x float> %matrix.sroa.10.8.vec.insert.i, ptr noundef %cond, i32 noundef 1)
+  %call.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %matrix.sroa.0.4.vec.insert.i, <2 x float> %matrix.sroa.10.8.vec.insert.i, ptr noundef %cond, i32 noundef 1)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -66522,7 +66638,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
   %hsva.sroa.6.0.i.i = phi float [ %in.sroa.0.0.vec.extract11.i.i.i.i, %if.end.i ], [ %sub82.i.i, %if.then.i.i ]
   %hsva.sroa.3.0.i.i = phi float [ %div41.i.i.i.i, %if.end.i ], [ %cond36.i.i, %if.then.i.i ]
   %value_changed.0.i.i = phi i32 [ 0, %if.end.i ], [ 1, %if.then.i.i ]
-  %call84.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %hue_bar.sroa.0.0.vec.insert.i, <2 x float> %hue_bar.sroa.8.12.vec.insert.i, ptr noundef %cond, i32 noundef 1)
+  %call84.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %hue_bar.sroa.0.0.vec.insert.i, <2 x float> %hue_bar.sroa.8.12.vec.insert.i, ptr noundef %cond, i32 noundef 1)
   %tobool85.not.i.i = icmp eq i32 %call84.i.i, 0
   br i1 %tobool85.not.i.i, label %if.end135.i.i, label %if.then86.i.i
 
@@ -66549,7 +66665,7 @@ if.end135.i.i:                                    ; preds = %cond.false120.i.i, 
   br i1 %cmp.not.i, label %if.then137.i.i, label %if.end191.i.i
 
 if.then137.i.i:                                   ; preds = %if.end135.i.i
-  %call138.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef %last_widget_state, <2 x float> %alpha_bar.sroa.0.i.sroa.0.4.vec.insert, <2 x float> %hue_bar.sroa.8.12.vec.insert.i, ptr noundef %cond, i32 noundef 1)
+  %call138.i.i = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %last_widget_state, <2 x float> %alpha_bar.sroa.0.i.sroa.0.4.vec.insert, <2 x float> %hue_bar.sroa.8.12.vec.insert.i, ptr noundef %cond, i32 noundef 1)
   %tobool139.not.i.i = icmp eq i32 %call138.i.i, 0
   br i1 %tobool139.not.i.i, label %if.end191.i.i, label %if.then140.i.i
 
@@ -67506,7 +67622,7 @@ if.end172:                                        ; preds = %if.else166, %if.the
 if.then176:                                       ; preds = %if.end172
   %44 = load i32, ptr %last_widget_state, align 8
   %45 = load ptr, ptr %style8, align 8
-  %call.i172 = call fastcc ptr @nk_draw_button(ptr noundef %buffer173, ptr noundef readonly %button, i32 noundef %44, ptr noundef %button111)
+  %call.i172 = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer173, ptr noundef nonnull readonly %button, i32 noundef %44, ptr noundef nonnull %button111)
   %46 = load i32, ptr %call.i172, align 8
   %cmp.i173 = icmp eq i32 %46, 0
   %data.i = getelementptr inbounds i8, ptr %call.i172, i64 8
@@ -67556,7 +67672,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then176, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer173, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %45)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer173, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %45)
   br label %if.end183
 
 if.end183:                                        ; preds = %nk_draw_button_symbol.exit, %if.end172
@@ -67610,7 +67726,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool18.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 
@@ -68066,7 +68182,7 @@ nk_rgb_factor.exit161:                            ; preds = %if.end146, %if.end.
 if.then153:                                       ; preds = %nk_rgb_factor.exit161
   %44 = load i32, ptr %last_widget_state, align 8
   %45 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer147, ptr noundef readonly %button, i32 noundef %44, ptr noundef %button90)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer147, ptr noundef nonnull readonly %button, i32 noundef %44, ptr noundef nonnull %button90)
   %46 = load i32, ptr %call.i, align 8
   %cmp.i162 = icmp eq i32 %46, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -68116,7 +68232,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then153, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer147, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %45)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer147, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %45)
   br label %if.end159
 
 if.end159:                                        ; preds = %nk_draw_button_symbol.exit, %nk_rgb_factor.exit161
@@ -68170,7 +68286,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool16.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 
@@ -68464,7 +68580,7 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit1
   tail call fastcc void @nk_draw_symbol(ptr noundef %buffer148, i32 noundef %symbol, <2 x float> %33, <2 x float> %34, i32 %sym_background.sroa.0.0, i32 %retval.sroa.0.0.insert.insert.i, float noundef 1.000000e+00, ptr noundef %32)
   %35 = load i32, ptr %last_widget_state, align 8
   %36 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer148, ptr noundef readonly %bounds, i32 noundef %35, ptr noundef %button101)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer148, ptr noundef nonnull readonly %bounds, i32 noundef %35, ptr noundef nonnull %button101)
   %37 = load i32, ptr %call.i, align 8
   %cmp.i163 = icmp eq i32 %37, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -68514,7 +68630,7 @@ nk_draw_button_symbol.exit:                       ; preds = %sw.epilog, %if.end.
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer148, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %36)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer148, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %36)
   %39 = load ptr, ptr %current, align 8
   %tobool1.not.i = icmp eq ptr %39, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false2.i
@@ -68565,7 +68681,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool16.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 
@@ -69096,7 +69212,7 @@ sw.epilog:                                        ; preds = %nk_rgb_factor.exit2
   %content.sroa.3.12.vec.insert = insertelement <2 x float> %content.sroa.3.8.vec.insert, float %30, i64 1
   %buffer138 = getelementptr inbounds i8, ptr %0, i64 104
   %31 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer138, ptr noundef readonly %button, i32 noundef %22, ptr noundef %button115)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer138, ptr noundef nonnull readonly %button, i32 noundef %22, ptr noundef nonnull %button115)
   %32 = load i32, ptr %call.i, align 8
   %cmp.i208 = icmp eq i32 %32, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -69144,7 +69260,7 @@ nk_draw_button_symbol.exit:                       ; preds = %sw.epilog, %if.end.
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer138, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %31)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer138, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %31)
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
   %34 = load float, ptr %content_padding, align 4
   %add146 = fadd float %10, %34
@@ -69245,7 +69361,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool16.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 
@@ -69510,7 +69626,7 @@ if.then152:                                       ; preds = %sw.epilog
   %button90 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %42 = load i32, ptr %last_widget_state, align 8
   %43 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer146, ptr noundef readonly %bounds, i32 noundef %42, ptr noundef %button90)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer146, ptr noundef nonnull readonly %bounds, i32 noundef %42, ptr noundef nonnull %button90)
   %44 = load i32, ptr %call.i, align 8
   %cmp.i149 = icmp eq i32 %44, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -69560,7 +69676,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then152, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer146, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %43)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer146, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %43)
   br label %if.end158
 
 if.end158:                                        ; preds = %nk_draw_button_symbol.exit, %sw.epilog
@@ -69614,7 +69730,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool16.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 
@@ -69884,7 +70000,7 @@ if.then133:                                       ; preds = %sw.epilog
   %button109 = getelementptr inbounds i8, ptr %ctx, i64 8368
   %buffer134 = getelementptr inbounds i8, ptr %0, i64 104
   %31 = load ptr, ptr %style6, align 8
-  %call.i = call fastcc ptr @nk_draw_button(ptr noundef %buffer134, ptr noundef readonly %button, i32 noundef %22, ptr noundef %button109)
+  %call.i = call fastcc ptr @nk_draw_button(ptr noundef nonnull %buffer134, ptr noundef nonnull readonly %button, i32 noundef %22, ptr noundef nonnull %button109)
   %32 = load i32, ptr %call.i, align 8
   %cmp.i179 = icmp eq i32 %32, 0
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -69932,7 +70048,7 @@ nk_draw_button_symbol.exit:                       ; preds = %if.then133, %if.end
   %retval.sroa.3.0.insert.insert.i.i = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i, %retval.sroa.3.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i8 %retval.sroa.0.0.i.i to i32
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  tail call fastcc void @nk_draw_symbol(ptr noundef %buffer134, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %31)
+  tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %buffer134, i32 noundef %sym.0, <2 x float> %content.sroa.0.4.vec.insert, <2 x float> %content.sroa.3.12.vec.insert, i32 %bg.sroa.0.0.i, i32 %retval.sroa.0.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %31)
   br label %if.end139
 
 if.end139:                                        ; preds = %nk_draw_button_symbol.exit, %sw.epilog
@@ -70048,7 +70164,7 @@ if.end34.i:                                       ; preds = %land.end.i
   %or.cond.i = and i1 %tobool16.not, %tobool13.i
   %agg.tmp.sroa.3.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %7
   %agg.tmp.sroa.0.0.i = select i1 %or.cond.i, <2 x float> zeroinitializer, <2 x float> %5
-  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
+  %call38.i = tail call fastcc i32 @nk_nonblock_begin(ptr noundef nonnull %ctx, i32 noundef 0, <2 x float> %body.sroa.0.4.vec.insert.i, <2 x float> %size.coerce, <2 x float> %agg.tmp.sroa.0.0.i, <2 x float> %agg.tmp.sroa.3.0.i, i32 noundef 32)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %return, label %if.end41.i
 

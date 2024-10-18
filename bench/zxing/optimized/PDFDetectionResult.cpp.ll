@@ -159,10 +159,10 @@ _ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE6resi
   %.05.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %39, %_ZN5ZXing8NullableINS_6Pdf41721DetectionResultColumnEEaSEDn.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
   store i8 0, ptr %.05.i.i.i.i, align 8
-  call void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
+  call void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %4)
   store i32 0, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %33, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %33, ptr noundef nonnull align 8 dereferenceable(148) %4, i64 120, i1 false)
   %34 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 128
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i5 = icmp eq ptr %35, null
@@ -808,7 +808,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i: ; preds = %_ZNK5Z
   store i8 0, ptr %.ptr.i.i.i, align 4
   %299 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 4
   %300 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %299, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %299, i8 0, i64 16, i1 false)
   store i32 -1, ptr %300, align 4
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
   %301 = icmp eq i64 %.add.i.i.i, 336
@@ -998,7 +998,7 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   %.01013 = phi i64 [ %6, %4 ], [ %1, %2 ]
   %3 = getelementptr inbounds i8, ptr %.014, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.014, i8 0, i64 160, i1 false)
-  invoke void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3)
+  invoke void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %3)
           to label %4 unwind label %8
 
 4:                                                ; preds = %.lr.ph
@@ -1151,7 +1151,7 @@ _ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResult
   store i8 %36, ptr %.012.i.i.i, align 8, !alias.scope !17, !noalias !20
   %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %37, ptr noundef nonnull align 8 dereferenceable(120) %38, i64 120, i1 false), !alias.scope !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %37, ptr noundef nonnull align 8 dereferenceable(148) %38, i64 120, i1 false), !alias.scope !22
   %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 128
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 128
   %41 = load ptr, ptr %40, align 8, !alias.scope !20, !noalias !17

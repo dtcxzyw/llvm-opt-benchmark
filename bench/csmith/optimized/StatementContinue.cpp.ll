@@ -96,7 +96,7 @@ define dso_local noundef ptr @_ZN17StatementContinue11make_randomER9CGContext(pt
           to label %19 unwind label %23
 
 19:                                               ; preds = %16
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 6, ptr noundef %18)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(48) %17, i32 noundef 6, ptr noundef %18)
           to label %20 unwind label %23
 
 20:                                               ; preds = %19
@@ -212,7 +212,7 @@ define dso_local void @_ZN17StatementContinueD0Ev(ptr noundef nonnull align 8 de
   br label %_ZN17StatementContinueD2Ev.exit
 
 _ZN17StatementContinueD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

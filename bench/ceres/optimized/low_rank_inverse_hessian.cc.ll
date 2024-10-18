@@ -342,7 +342,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %102 = add i64 %93, -1
   store i64 %102, ptr %92, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #12
-  tail call void @_ZdlPv(ptr noundef %99) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %99) #14
   br label %103
 
 103:                                              ; preds = %98, %90
@@ -350,7 +350,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %104 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   %105 = getelementptr inbounds i8, ptr %104, i64 16
   store i32 %.0, ptr %105, align 4
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull %91) #12
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(24) %91) #12
   %106 = load i64, ptr %92, align 8
   %107 = add i64 %106, 1
   store i64 %107, ptr %92, align 8
@@ -1227,7 +1227,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal21LowRankInverseHessianD2Ev(p
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #14
   %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !46
 
@@ -1255,7 +1255,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal21LowRankInverseHessianD0Ev(p
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.09.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i.i) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i.i) #14
   %.not.i.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal21LowRankInverseHessianD2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !46
 
@@ -1269,7 +1269,7 @@ _ZN5ceres8internal21LowRankInverseHessianD2Ev.exit: ; preds = %.lr.ph.i.i.i.i, %
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #12
-  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  tail call void @_ZN5ceres8internal14LinearOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

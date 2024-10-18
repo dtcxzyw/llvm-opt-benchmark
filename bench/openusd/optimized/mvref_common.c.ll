@@ -376,7 +376,7 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
   %147 = xor i32 %23, -1
   %148 = add i32 %.val490.i, %147
   %149 = icmp slt i32 %spec.select.i, %146
-  %150 = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %148)
+  %150 = tail call i32 @llvm.smin.i32(i32 range(i32 -6, -2) %spec.select.i, i32 %148)
   %151 = select i1 %149, i32 %146, i32 %150
   br label %152
 
@@ -401,7 +401,7 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
   %164 = xor i32 %25, -1
   %165 = add i32 %.val492.i, %164
   %166 = icmp slt i32 %spec.select478.i, %163
-  %167 = tail call i32 @llvm.smin.i32(i32 %spec.select478.i, i32 %165)
+  %167 = tail call i32 @llvm.smin.i32(i32 range(i32 -6, -2) %spec.select478.i, i32 %165)
   %168 = select i1 %166, i32 %163, i32 %167
   br label %169
 
@@ -415,7 +415,7 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %169
-  call fastcc void @scan_row_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %25, ptr noundef %11, i32 noundef -1, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %16, ptr noundef readonly %22, i32 noundef %.0416.i, ptr noundef %12)
+  call fastcc void @scan_row_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %25, ptr noundef %11, i32 noundef -1, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %16, ptr noundef nonnull readonly %22, i32 noundef %.0416.i, ptr noundef %12)
   br label %173
 
 173:                                              ; preds = %172, %169
@@ -424,7 +424,7 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %173
-  call fastcc void @scan_col_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %23, ptr noundef %11, i32 noundef -1, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %14, ptr noundef %16, ptr noundef readonly %22, i32 noundef %.0418.i, ptr noundef %13)
+  call fastcc void @scan_col_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %23, ptr noundef %11, i32 noundef -1, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %14, ptr noundef %16, ptr noundef nonnull readonly %22, i32 noundef %.0418.i, ptr noundef %13)
   br label %177
 
 177:                                              ; preds = %176, %173
@@ -466,7 +466,7 @@ is_inside.exit.i.i:                               ; preds = %187
   %199 = getelementptr inbounds ptr, ptr %194, i64 %198
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 24832
-  call fastcc void @add_ref_mv_candidate(ptr noundef %200, ptr noundef readonly %11, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %16, ptr noundef %64, ptr noundef %65, ptr noundef readonly %22, ptr noundef nonnull readonly %201, i16 noundef zeroext 4)
+  call fastcc void @add_ref_mv_candidate(ptr noundef %200, ptr noundef nonnull readonly %11, ptr noundef nonnull %63, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %64, ptr noundef %65, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %201, i16 noundef zeroext 4)
   br label %scan_blk_mbmi.exit.i
 
 scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exit.i.i, %187, %182, %178, %177
@@ -547,7 +547,7 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
 239:                                              ; preds = %239, %.preheader584.us.i
   %.1431591.us.i = phi i32 [ %.0430596.us.i, %.preheader584.us.i ], [ %spec.select481.us.i, %239 ]
   %.0435590.us.i = phi i32 [ 0, %.preheader584.us.i ], [ %242, %239 ]
-  %240 = call fastcc i32 @add_tpl_ref_mv(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %23, i32 noundef %25, i8 noundef signext %3, i32 noundef %.0434595.us.i, i32 noundef %.0435590.us.i, ptr noundef readonly %22, ptr noundef nonnull %63, ptr noundef %64, ptr noundef %65, ptr noundef %9)
+  %240 = call fastcc i32 @add_tpl_ref_mv(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %23, i32 noundef %25, i8 noundef signext %3, i32 noundef %.0434595.us.i, i32 noundef %.0435590.us.i, ptr noundef nonnull readonly %22, ptr noundef nonnull %63, ptr noundef %64, ptr noundef %65, ptr noundef %9)
   %241 = or i32 %.0435590.us.i, %.0434595.us.i
   %or.cond.us.i = icmp eq i32 %241, 0
   %spec.select481.us.i = select i1 %or.cond.us.i, i32 %240, i32 %.1431591.us.i
@@ -592,7 +592,7 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
   br i1 %narrow.i.not.i, label %261, label %259
 
 259:                                              ; preds = %252
-  %260 = call fastcc i32 @add_tpl_ref_mv(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %23, i32 noundef %25, i8 noundef signext %3, i32 noundef %254, i32 noundef %256, ptr noundef readonly %22, ptr noundef nonnull %63, ptr noundef %64, ptr noundef %65, ptr noundef %9)
+  %260 = call fastcc i32 @add_tpl_ref_mv(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %23, i32 noundef %25, i8 noundef signext %3, i32 noundef %254, i32 noundef %256, ptr noundef nonnull readonly %22, ptr noundef nonnull %63, ptr noundef %64, ptr noundef %65, ptr noundef %9)
   br label %261
 
 261:                                              ; preds = %259, %252
@@ -634,7 +634,7 @@ is_inside.exit.i497.i:                            ; preds = %266
   %278 = getelementptr inbounds ptr, ptr %273, i64 %277
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 24832
-  call fastcc void @add_ref_mv_candidate(ptr noundef %279, ptr noundef readonly %11, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %18, ptr noundef %64, ptr noundef %65, ptr noundef readonly %22, ptr noundef nonnull readonly %280, i16 noundef zeroext 4)
+  call fastcc void @add_ref_mv_candidate(ptr noundef %279, ptr noundef nonnull readonly %11, ptr noundef nonnull %63, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef %64, ptr noundef %65, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly %280, i16 noundef zeroext 4)
   br label %scan_blk_mbmi.exit499.i
 
 scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exit.i497.i, %266, %263, %.loopexit583.i
@@ -655,7 +655,7 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
   br i1 %or.cond483.i, label %285, label %286
 
 285:                                              ; preds = %281
-  call fastcc void @scan_row_mbmi(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %25, ptr noundef %11, i32 noundef %.reass.i, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %18, ptr noundef readonly %22, i32 noundef %.0416.i, ptr noundef %12)
+  call fastcc void @scan_row_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %25, ptr noundef %11, i32 noundef %.reass.i, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %15, ptr noundef %18, ptr noundef nonnull readonly %22, i32 noundef %.0416.i, ptr noundef %12)
   br label %286
 
 286:                                              ; preds = %285, %281
@@ -667,7 +667,7 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
   br i1 %or.cond485.i, label %290, label %291
 
 290:                                              ; preds = %286
-  call fastcc void @scan_col_mbmi(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %23, ptr noundef %11, i32 noundef %.reass603.i, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %14, ptr noundef %18, ptr noundef readonly %22, i32 noundef %.0418.i, ptr noundef %13)
+  call fastcc void @scan_col_mbmi(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %23, ptr noundef %11, i32 noundef %.reass603.i, ptr noundef %64, ptr noundef %65, ptr noundef nonnull %63, ptr noundef %14, ptr noundef %18, ptr noundef nonnull readonly %22, i32 noundef %.0418.i, ptr noundef %13)
   br label %291
 
 291:                                              ; preds = %290, %286
@@ -1348,14 +1348,14 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
   %618 = load i16, ptr %617, align 2
   %619 = sext i16 %618 to i32
   %620 = icmp sgt i32 %607, %619
-  %621 = tail call i32 @llvm.smin.i32(i32 %619, i32 %610)
+  %621 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %619, i32 %610)
   %622 = select i1 %620, i32 %607, i32 %621
   %623 = trunc i32 %622 to i16
   store i16 %623, ptr %617, align 2
   %624 = load i16, ptr %598, align 2
   %625 = sext i16 %624 to i32
   %626 = icmp sgt i32 %613, %625
-  %627 = tail call i32 @llvm.smin.i32(i32 %625, i32 %616)
+  %627 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %625, i32 %616)
   %628 = select i1 %626, i32 %613, i32 %627
   %629 = trunc i32 %628 to i16
   store i16 %629, ptr %598, align 2
@@ -1382,14 +1382,14 @@ process_compound_ref_mv_candidate.exit514.i:      ; preds = %.split41.us.i505.i
   %650 = load i16, ptr %649, align 2
   %651 = sext i16 %650 to i32
   %652 = icmp sgt i32 %639, %651
-  %653 = tail call i32 @llvm.smin.i32(i32 %651, i32 %642)
+  %653 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %651, i32 %642)
   %654 = select i1 %652, i32 %639, i32 %653
   %655 = trunc i32 %654 to i16
   store i16 %655, ptr %649, align 2
   %656 = load i16, ptr %630, align 2
   %657 = sext i16 %656 to i32
   %658 = icmp sgt i32 %645, %657
-  %659 = tail call i32 @llvm.smin.i32(i32 %657, i32 %648)
+  %659 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %657, i32 %648)
   %660 = select i1 %658, i32 %645, i32 %659
   %661 = trunc i32 %660 to i16
   store i16 %661, ptr %630, align 2
@@ -1663,14 +1663,14 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
   %794 = load i16, ptr %793, align 2
   %795 = sext i16 %794 to i32
   %796 = icmp sgt i32 %783, %795
-  %797 = tail call i32 @llvm.smin.i32(i32 %795, i32 %786)
+  %797 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %795, i32 %786)
   %798 = select i1 %796, i32 %783, i32 %797
   %799 = trunc i32 %798 to i16
   store i16 %799, ptr %793, align 2
   %800 = load i16, ptr %774, align 2
   %801 = sext i16 %800 to i32
   %802 = icmp sgt i32 %789, %801
-  %803 = tail call i32 @llvm.smin.i32(i32 %801, i32 %792)
+  %803 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %801, i32 %792)
   %804 = select i1 %802, i32 %789, i32 %803
   %805 = trunc i32 %804 to i16
   store i16 %805, ptr %774, align 2
@@ -2628,9 +2628,9 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
 
 get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %118 = phi i32 [ %117, %114 ], [ %113, %111 ]
-  %119 = tail call i32 @llvm.smin.i32(i32 %107, i32 16383)
+  %119 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %107, i32 16383)
   %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -16383)
-  %121 = tail call i32 @llvm.smin.i32(i32 %118, i32 16383)
+  %121 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %118, i32 16383)
   %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 -16383)
   %123 = trunc nuw nsw i64 %indvars.iv111 to i32
   %124 = and i32 %123, 2147483640
@@ -4371,10 +4371,10 @@ get_relative_dist.exit:                           ; preds = %av1_set_ref_frame.e
 
 get_mv_projection.exit:                           ; preds = %119, %123
   %126 = phi i32 [ %122, %119 ], [ %125, %123 ]
-  %127 = tail call i32 @llvm.smin.i32(i32 %115, i32 16383)
+  %127 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %115, i32 16383)
   %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 -16383)
   %129 = trunc nsw i32 %128 to i16
-  %130 = tail call i32 @llvm.smin.i32(i32 %126, i32 16383)
+  %130 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %126, i32 16383)
   %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 -16383)
   %132 = trunc nsw i32 %131 to i16
   %.not.i101 = icmp eq i8 %89, 0
@@ -4606,10 +4606,10 @@ get_relative_dist.exit108.thread:                 ; preds = %get_ref_frame_map_i
 
 get_mv_projection.exit110:                        ; preds = %242, %246
   %249 = phi i32 [ %245, %242 ], [ %248, %246 ]
-  %250 = tail call i32 @llvm.smin.i32(i32 %239, i32 16383)
+  %250 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %239, i32 16383)
   %251 = tail call i32 @llvm.smax.i32(i32 %250, i32 -16383)
   %252 = trunc nsw i32 %251 to i16
-  %253 = tail call i32 @llvm.smin.i32(i32 %249, i32 16383)
+  %253 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %249, i32 16383)
   %254 = tail call i32 @llvm.smax.i32(i32 %253, i32 -16383)
   %255 = trunc nsw i32 %254 to i16
   br i1 %.not.i101, label %272, label %256

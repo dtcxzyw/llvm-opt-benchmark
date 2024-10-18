@@ -416,10 +416,10 @@ if.end140:                                        ; preds = %if.then117
   %and151 = or i32 %conv147.masked, %shr149
   %32 = icmp samesign uge i32 %and151, %conv145
   %not.i = sext i1 %32 to i32
-  %33 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i) #9, !srcloc !4
+  %33 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i) #9, !srcloc !4
   %and.i = and i32 %33, %conv145
   %not.i404 = xor i32 %not.i, -1
-  %34 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i404) #9, !srcloc !4
+  %34 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %not.i404) #9, !srcloc !4
   %and2.i = and i32 %34, %and151
   %or.i = or i32 %and2.i, %and.i
   %add160 = add nuw nsw i32 %or.i, 33
@@ -1642,7 +1642,7 @@ for.body77.i:                                     ; preds = %for.body77.i, %for.
   br i1 %exitcond317.not.i, label %for.end183.i, label %for.body77.i, !llvm.loop !22
 
 for.end183.i:                                     ; preds = %for.body77.i, %for.end.thread.i
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   %cond190.i = call i32 @llvm.umin.i32(i32 %frag.0.i, i32 %last.0.i)
   %sub191.i = add i32 %cond190.i, -51
   %div192287.i = lshr i32 %sub191.i, 6
@@ -1667,8 +1667,8 @@ do.body.preheader.i:                              ; preds = %for.body199.i
 do.body.us.i:                                     ; preds = %for.cond217.for.end256_crit_edge.us.i, %do.body.preheader.i
   %processed.1.us.i = phi i32 [ %add257.us.i, %for.cond217.for.end256_crit_edge.us.i ], [ 0, %do.body.preheader.i ]
   %minblocks.0.us.i = phi i32 [ %sub258.us.i, %for.cond217.for.end256_crit_edge.us.i ], [ %div192287.i, %do.body.preheader.i ]
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   br label %for.body220.us.i
 
 for.body220.us.i:                                 ; preds = %for.body220.us.i, %do.body.us.i
@@ -1734,14 +1734,14 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
 
 if.end261.i:                                      ; preds = %for.cond217.for.end256_crit_edge.us.i, %do.body.i, %for.end183.i
   %processed.0.i = phi i32 [ 0, %for.end183.i ], [ %add257.i, %do.body.i ], [ %add257.us.i, %for.cond217.for.end256_crit_edge.us.i ]
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %hash_d.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %hash_d.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   br i1 %cmp38290.not.i, label %for.end327.thread.i, label %for.body267.lr.ph.i
 
 for.end327.thread.i:                              ; preds = %if.end261.i
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   br label %for.end590.i
 
 for.body267.lr.ph.i:                              ; preds = %if.end261.i
@@ -1786,7 +1786,7 @@ for.body267.i:                                    ; preds = %for.body267.i, %for
   br i1 %exitcond332.not.i, label %for.end327.i, label %for.body267.i, !llvm.loop !26
 
 for.end327.i:                                     ; preds = %for.body267.i
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   %tail.i = getelementptr inbounds i8, ptr %ctx, i64 616
   %B348.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
@@ -1877,7 +1877,7 @@ for.body333.i:                                    ; preds = %for.body333.i, %for
   br i1 %exitcond337.not.i, label %for.end464.i, label %for.body333.i, !llvm.loop !36
 
 for.end464.i:                                     ; preds = %for.body333.i
-  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef %div4) #8
+  call void @sha256_multi_block(ptr noundef nonnull %add.ptr5.i, ptr noundef nonnull %edges.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   %arrayidx566.i = getelementptr inbounds i8, ptr %ctx, i64 776
   %arrayidx571.i = getelementptr inbounds i8, ptr %ctx, i64 777
   %arrayidx576.i = getelementptr inbounds i8, ptr %ctx, i64 778
@@ -1984,7 +1984,7 @@ for.body469.i:                                    ; preds = %for.body469.i, %for
 for.end590.i:                                     ; preds = %for.body469.i, %for.end327.thread.i
   %ret.0.lcssa.i = phi i64 [ 0, %for.end327.thread.i ], [ %add585.i, %for.body469.i ]
   %ks592.i = getelementptr inbounds i8, ptr %ctx, i64 192
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks592.i, i32 noundef %div4) #8
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef nonnull %ks592.i, i32 noundef range(i32 0, 1073741824) %div4) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %blocks.i, i64 noundef 1024) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %add.ptr5.i, i64 noundef 256) #8
   %multiblock_encrypt_len.i = getelementptr inbounds i8, ptr %ctx, i64 488

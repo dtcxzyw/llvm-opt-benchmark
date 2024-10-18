@@ -2631,7 +2631,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   %120 = getelementptr inbounds [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %98
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i32
-  %123 = tail call i32 @llvm.umin.i32(i32 %99, i32 67)
+  %123 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 32768) %99, i32 67)
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds i16, ptr %119, i64 %124
   %126 = load i16, ptr %125, align 2

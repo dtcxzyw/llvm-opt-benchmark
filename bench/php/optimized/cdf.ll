@@ -393,7 +393,7 @@ define hidden noundef i64 @cdf_read_sector(ptr nocapture noundef readonly %0, pt
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i64 @lseek(i32 noundef %26, i64 noundef %15, i32 noundef 0) #20
+  %29 = tail call i64 @lseek(i32 noundef %26, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %15, i32 noundef 0) #20
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %cdf_read.exit, label %31
 
@@ -573,7 +573,7 @@ cdf_read_sector.exit.thread107:                   ; preds = %59
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %63
-  %67 = tail call i64 @lseek(i32 noundef %64, i64 noundef %56, i32 noundef 0) #20
+  %67 = tail call i64 @lseek(i32 noundef %64, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %56, i32 noundef 0) #20
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %cdf_read_sector.exit.thread, label %cdf_read_sector.exit
 
@@ -653,7 +653,7 @@ cdf_read_sector.exit95.thread163:                 ; preds = %96
   br i1 %102, label %cdf_read_sector.exit95.thread.sink.split, label %103
 
 103:                                              ; preds = %100
-  %104 = tail call i64 @lseek(i32 noundef %101, i64 noundef %94, i32 noundef 0) #20
+  %104 = tail call i64 @lseek(i32 noundef %101, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %94, i32 noundef 0) #20
   %105 = icmp eq i64 %104, -1
   br i1 %105, label %cdf_read_sector.exit95.thread, label %cdf_read_sector.exit95
 
@@ -725,7 +725,7 @@ cdf_read_sector.exit103.thread114:                ; preds = %129
   br i1 %135, label %cdf_read_sector.exit95.thread.sink.split, label %136
 
 136:                                              ; preds = %133
-  %137 = tail call i64 @lseek(i32 noundef %134, i64 noundef %126, i32 noundef 0) #20
+  %137 = tail call i64 @lseek(i32 noundef %134, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %126, i32 noundef 0) #20
   %138 = icmp eq i64 %137, -1
   br i1 %138, label %cdf_read_sector.exit95.thread, label %cdf_read_sector.exit103
 
@@ -965,7 +965,7 @@ cdf_read_sector.exit.thread60:                    ; preds = %62
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %66
-  %70 = tail call i64 @lseek(i32 noundef %67, i64 noundef %59, i32 noundef 0) #20
+  %70 = tail call i64 @lseek(i32 noundef %67, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %59, i32 noundef 0) #20
   %71 = icmp eq i64 %70, -1
   br i1 %71, label %.thread, label %cdf_read_sector.exit
 
@@ -1293,7 +1293,7 @@ cdf_read_sector.exit.thread115:                   ; preds = %53
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call i64 @lseek(i32 noundef %58, i64 noundef %51, i32 noundef 0) #20
+  %61 = tail call i64 @lseek(i32 noundef %58, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %51, i32 noundef 0) #20
   %62 = icmp eq i64 %61, -1
   br i1 %62, label %cdf_read_sector.exit.thread, label %cdf_read_sector.exit
 
@@ -1519,7 +1519,7 @@ cdf_read_sector.exit.thread41:                    ; preds = %51
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call i64 @lseek(i32 noundef %56, i64 noundef %48, i32 noundef 0) #20
+  %59 = tail call i64 @lseek(i32 noundef %56, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %48, i32 noundef 0) #20
   %60 = icmp eq i64 %59, -1
   br i1 %60, label %cdf_read_sector.exit.thread, label %cdf_read_sector.exit
 
@@ -1618,7 +1618,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
-  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.1, i32 noundef 2)
+  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull @.str.1, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -1702,7 +1702,7 @@ cdf_read_sector_chain.exit:                       ; preds = %28, %26, %11
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
-  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull readonly @.str.2, i32 noundef 2)
+  %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull @.str.2, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11
 

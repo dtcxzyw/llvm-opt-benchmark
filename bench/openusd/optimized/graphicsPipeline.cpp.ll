@@ -1630,7 +1630,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HgiVertexBufferDescES1_EvT_S
 
 _ZN32pxrInternal_v0_24__pxrReserved__23HgiGraphicsPipelineDescD2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HgiVertexBufferDescES1_EvT_S3_RSaIT0_E.exit.i.i, %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(360) %30) #16
   ret void
 }
 

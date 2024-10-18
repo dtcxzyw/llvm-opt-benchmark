@@ -1281,7 +1281,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP21CmdLineParseExceptionC2ERKNSt7__c
 
 .body:                                            ; preds = %66, %60
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %66 ], [ %61, %60 ]
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   br label %81
 
@@ -1383,7 +1383,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP21CmdLineParseExceptionD2Ev(ptr nou
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   ret void
 }
 
@@ -1456,7 +1456,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput11_shortUsageERNS_16CmdL
   %26 = getelementptr inbounds i8, ptr %24, i64 16
   %27 = load ptr, ptr %25, align 8
   store ptr %27, ptr %26, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %4) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(24) %4) #27
   %28 = load i64, ptr %22, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %22, align 8
@@ -1474,7 +1474,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput11_shortUsageERNS_16CmdL
 .lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %33, %31 ]
   %34 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #30
   %.not.i.i.i = icmp eq ptr %34, %4
   br i1 %.not.i.i.i, label %common.resume, label %.lr.ph.i.i.i, !llvm.loop !30
 
@@ -1930,7 +1930,7 @@ _ZN5TCLAP10XorHandlerD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt6v
 .lr.ph.i.i.i55:                                   ; preds = %_ZN5TCLAP10XorHandlerD2Ev.exit, %.lr.ph.i.i.i55
   %.09.i.i.i56 = phi ptr [ %172, %.lr.ph.i.i.i55 ], [ %171, %_ZN5TCLAP10XorHandlerD2Ev.exit ]
   %172 = load ptr, ptr %.09.i.i.i56, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i56) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i56) #30
   %.not.i.i.i57 = icmp eq ptr %172, %4
   br i1 %.not.i.i.i57, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i55, !llvm.loop !30
 
@@ -1966,7 +1966,7 @@ _ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i55, %_
 .lr.ph.i.i.i60:                                   ; preds = %174, %.lr.ph.i.i.i60
   %.09.i.i.i61 = phi ptr [ %176, %.lr.ph.i.i.i60 ], [ %175, %174 ]
   %176 = load ptr, ptr %.09.i.i.i61, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i61) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i61) #30
   %.not.i.i.i62 = icmp eq ptr %176, %4
   br i1 %.not.i.i.i62, label %common.resume, label %.lr.ph.i.i.i60, !llvm.loop !30
 }
@@ -2015,7 +2015,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10_longUsageERNS_16CmdLi
   %32 = getelementptr inbounds i8, ptr %30, i64 16
   %33 = load ptr, ptr %31, align 8
   store ptr %33, ptr %32, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %9) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(24) %9) #27
   %34 = load i64, ptr %28, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %28, align 8
@@ -2033,7 +2033,7 @@ define linkonce_odr dso_local void @_ZNK5TCLAP9StdOutput10_longUsageERNS_16CmdLi
 .lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %39, %37 ]
   %40 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #30
   %.not.i.i.i = icmp eq ptr %40, %9
   br i1 %.not.i.i.i, label %common.resume, label %.lr.ph.i.i.i, !llvm.loop !30
 
@@ -2586,7 +2586,7 @@ _ZN5TCLAP10XorHandlerD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt6v
 .lr.ph.i.i.i56:                                   ; preds = %_ZN5TCLAP10XorHandlerD2Ev.exit, %.lr.ph.i.i.i56
   %.09.i.i.i57 = phi ptr [ %204, %.lr.ph.i.i.i56 ], [ %203, %_ZN5TCLAP10XorHandlerD2Ev.exit ]
   %204 = load ptr, ptr %.09.i.i.i57, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i57) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i57) #30
   %.not.i.i.i58 = icmp eq ptr %204, %9
   br i1 %.not.i.i.i58, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i56, !llvm.loop !30
 
@@ -2617,7 +2617,7 @@ _ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i56, %_
 .lr.ph.i.i.i61:                                   ; preds = %205, %.lr.ph.i.i.i61
   %.09.i.i.i62 = phi ptr [ %207, %.lr.ph.i.i.i61 ], [ %206, %205 ]
   %207 = load ptr, ptr %.09.i.i.i62, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i62) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i62) #30
   %.not.i.i.i63 = icmp eq ptr %207, %9
   br i1 %.not.i.i.i63, label %common.resume, label %.lr.ph.i.i.i61, !llvm.loop !30
 }
@@ -2720,7 +2720,7 @@ _ZSt8for_eachISt14_List_iteratorIPN5TCLAP3ArgEEPFvS3_EET0_T_S8_S7_.exit.i: ; pre
 .lr.ph.i.i.i:                                     ; preds = %_ZSt8for_eachISt14_List_iteratorIPN5TCLAP3ArgEEPFvS3_EET0_T_S8_S7_.exit.i, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %12, %_ZSt8for_eachISt14_List_iteratorIPN5TCLAP3ArgEEPFvS3_EET0_T_S8_S7_.exit.i ]
   %13 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #30
   %.not.i.i.i = icmp eq ptr %13, %2
   br i1 %.not.i.i.i, label %.loopexit23, label %.lr.ph.i.i.i, !llvm.loop !30
 
@@ -2766,7 +2766,7 @@ _ZSt8for_eachISt14_List_iteratorIPN5TCLAP7VisitorEEPFvS3_EET0_T_S8_S7_.exit.i: ;
 .lr.ph.i.i.i7:                                    ; preds = %_ZSt8for_eachISt14_List_iteratorIPN5TCLAP7VisitorEEPFvS3_EET0_T_S8_S7_.exit.i, %.lr.ph.i.i.i7
   %.09.i.i.i8 = phi ptr [ %27, %.lr.ph.i.i.i7 ], [ %26, %_ZSt8for_eachISt14_List_iteratorIPN5TCLAP7VisitorEEPFvS3_EET0_T_S8_S7_.exit.i ]
   %27 = load ptr, ptr %.09.i.i.i8, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i8) #30
   %.not.i.i.i9 = icmp eq ptr %27, %16
   br i1 %.not.i.i.i9, label %.loopexit, label %.lr.ph.i.i.i7, !llvm.loop !48
 
@@ -2800,7 +2800,7 @@ _ZSt8for_eachISt14_List_iteratorIPN5TCLAP7VisitorEEPFvS3_EET0_T_S8_S7_.exit.i: ;
 .lr.ph.i.i.i11:                                   ; preds = %37, %.lr.ph.i.i.i11
   %.09.i.i.i12 = phi ptr [ %41, %.lr.ph.i.i.i11 ], [ %.pre.pre, %37 ]
   %41 = load ptr, ptr %.09.i.i.i12, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i12) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i12) #30
   %.not.i.i.i13 = icmp eq ptr %41, %16
   br i1 %.not.i.i.i13, label %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i11, !llvm.loop !48
 
@@ -2812,7 +2812,7 @@ _ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i11
 .lr.ph.i.i.i15:                                   ; preds = %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit, %.lr.ph.i.i.i15
   %.09.i.i.i16 = phi ptr [ %43, %.lr.ph.i.i.i15 ], [ %42, %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit ]
   %43 = load ptr, ptr %.09.i.i.i16, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i16) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i16) #30
   %.not.i.i.i17 = icmp eq ptr %43, %2
   br i1 %.not.i.i.i17, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i15, !llvm.loop !30
 
@@ -2867,7 +2867,7 @@ _ZN5TCLAP10XorHandlerD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt6v
 .lr.ph.i.i.i19:                                   ; preds = %_ZN5TCLAP10XorHandlerD2Ev.exit, %.lr.ph.i.i.i19
   %.09.i.i.i20 = phi ptr [ %58, %.lr.ph.i.i.i19 ], [ %57, %_ZN5TCLAP10XorHandlerD2Ev.exit ]
   %58 = load ptr, ptr %.09.i.i.i20, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i20) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i20) #30
   %.not.i.i.i21 = icmp eq ptr %58, %56
   br i1 %.not.i.i.i21, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit22, label %.lr.ph.i.i.i19, !llvm.loop !30
 
@@ -3908,7 +3908,7 @@ _ZN5TCLAP7CmdLine9setOutputEPNS_13CmdLineOutputE.exit: ; preds = %61, %65, %69
           to label %95 unwind label %194
 
 95:                                               ; preds = %94
-  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(163) %42, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %47, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
+  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(208) %42, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %47, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null)
           to label %.noexc unwind label %196
 
 .noexc:                                           ; preds = %95
@@ -3927,7 +3927,7 @@ _ZN5TCLAP7CmdLine9setOutputEPNS_13CmdLineOutputE.exit: ; preds = %61, %65, %69
   %101 = load ptr, ptr %3, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
-  invoke void %103(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %42)
+  invoke void %103(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(208) %42)
           to label %_ZN5TCLAP8ValueArgIbEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_bbS9_RNS_16CmdLineInterfaceEPNS_7VisitorE.exit unwind label %106
 
 104:                                              ; preds = %.noexc
@@ -3947,7 +3947,7 @@ _ZN5TCLAP7CmdLine9setOutputEPNS_13CmdLineOutputE.exit: ; preds = %61, %65, %69
 
 108:                                              ; preds = %106, %104
   %.pn.i = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
-  call void @_ZN5TCLAP3ArgD2Ev(ptr noundef nonnull align 8 dereferenceable(163) %42) #27
+  call void @_ZN5TCLAP3ArgD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %42) #27
   br label %.body
 
 _ZN5TCLAP8ValueArgIbEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_bbS9_RNS_16CmdLineInterfaceEPNS_7VisitorE.exit: ; preds = %99
@@ -4839,7 +4839,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLineC2ERKNSt7__cxx1112basic_str
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %38, %36 ]
   %39 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #30
   %.not.i.i.i = icmp eq ptr %39, %23
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !48
 
@@ -4851,7 +4851,7 @@ _ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, 
 .lr.ph.i.i.i13:                                   ; preds = %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit, %.lr.ph.i.i.i13
   %.09.i.i.i14 = phi ptr [ %41, %.lr.ph.i.i.i13 ], [ %40, %_ZNSt7__cxx114listIPN5TCLAP7VisitorESaIS3_EED2Ev.exit ]
   %41 = load ptr, ptr %.09.i.i.i14, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i14) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i14) #30
   %.not.i.i.i15 = icmp eq ptr %41, %20
   br i1 %.not.i.i.i15, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i13, !llvm.loop !30
 
@@ -4879,7 +4879,7 @@ _ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i.i13, %_
 .lr.ph.i.i.i17:                                   ; preds = %44, %.lr.ph.i.i.i17
   %.09.i.i.i18 = phi ptr [ %46, %.lr.ph.i.i.i17 ], [ %45, %44 ]
   %46 = load ptr, ptr %.09.i.i.i18, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i18) #30
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i18) #30
   %.not.i.i.i19 = icmp eq ptr %46, %8
   br i1 %.not.i.i.i19, label %_ZNSt7__cxx114listIPN5TCLAP3ArgESaIS3_EED2Ev.exit20, label %.lr.ph.i.i.i17, !llvm.loop !30
 
@@ -7020,7 +7020,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP21CmdLineParseExceptionD0Ev(ptr nou
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -7128,7 +7128,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP12ArgExceptionD0Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -7739,7 +7739,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
           to label %34 unwind label %78
 
 34:                                               ; preds = %33
-  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(163) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %28)
+  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(165) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %28)
           to label %35 unwind label %80
 
 35:                                               ; preds = %34
@@ -7762,7 +7762,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
   %42 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %31, ptr %43, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %41) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(24) %41) #27
   %44 = getelementptr inbounds i8, ptr %0, i64 176
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 1
@@ -7771,7 +7771,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
   %48 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   store ptr %28, ptr %49, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %47) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(24) %47) #27
   %50 = getelementptr inbounds i8, ptr %0, i64 200
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 1
@@ -7798,7 +7798,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
           to label %59 unwind label %89
 
 59:                                               ; preds = %58
-  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(163) %56, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %53)
+  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(165) %56, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %53)
           to label %60 unwind label %91
 
 60:                                               ; preds = %59
@@ -7820,14 +7820,14 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
   %66 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   store ptr %56, ptr %67, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull %41) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(24) %41) #27
   %68 = load i64, ptr %44, align 8
   %69 = add i64 %68, 1
   store i64 %69, ptr %44, align 8
   %70 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %53, ptr %71, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %47) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(24) %47) #27
   %72 = load i64, ptr %50, align 8
   %73 = add i64 %72, 1
   store i64 %73, ptr %50, align 8
@@ -7946,7 +7946,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
           to label %105 unwind label %124
 
 105:                                              ; preds = %104
-  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(163) %98, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %97)
+  invoke void @_ZN5TCLAP3ArgC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbPNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(165) %98, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %97)
           to label %106 unwind label %126
 
 106:                                              ; preds = %105
@@ -7967,7 +7967,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
   %113 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   store ptr %98, ptr %114, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull %112) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(24) %112) #27
   %115 = getelementptr inbounds i8, ptr %0, i64 176
   %116 = load i64, ptr %115, align 8
   %117 = add i64 %116, 1
@@ -7976,7 +7976,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP7CmdLine12_constructorEv(ptr nounde
   %119 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %120 = getelementptr inbounds i8, ptr %119, i64 16
   store ptr %97, ptr %120, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull %118) #27
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(24) %118) #27
   %121 = getelementptr inbounds i8, ptr %0, i64 200
   %122 = load i64, ptr %121, align 8
   %123 = add i64 %122, 1
@@ -8842,7 +8842,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP22SpecificationExceptionC2ERKNSt7__
 
 .body:                                            ; preds = %50, %44
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %50 ], [ %45, %44 ]
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   br label %61
 
@@ -8920,7 +8920,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP22SpecificationExceptionD2Ev(ptr no
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   ret void
 }
 
@@ -8936,7 +8936,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP22SpecificationExceptionD0Ev(ptr no
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -10483,7 +10483,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP17ArgParseExceptionC2ERKNSt7__cxx11
 
 .body:                                            ; preds = %34, %28
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %34 ], [ %29, %28 ]
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   br label %41
 
@@ -10537,7 +10537,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP17ArgParseExceptionD2Ev(ptr noundef
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   ret void
 }
 
@@ -10750,7 +10750,7 @@ define linkonce_odr dso_local void @_ZN5TCLAP17ArgParseExceptionD0Ev(ptr noundef
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }

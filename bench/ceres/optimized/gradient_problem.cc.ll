@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN5ceres17EuclideanManifoldILin1EED2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres17EuclideanManifoldILin1EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN5ceres8ManifoldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5ceres8ManifoldD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }

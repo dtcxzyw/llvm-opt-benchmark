@@ -962,7 +962,7 @@ uart_putc.exit19.i:                               ; preds = %38
   %43 = load ptr, ptr %17, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull %10, i32 noundef %.0.i) #5
+  call void %45(ptr noundef nonnull %10, i32 noundef range(i32 -128, 128) %.0.i) #5
   %46 = add i64 %.01321.i, -1
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %uart_irqwrite.exit, label %18, !llvm.loop !13

@@ -182,7 +182,7 @@ invoke.cont20:                                    ; preds = %_ZN15btCylinderShap
 lpad:                                             ; preds = %call18.i.noexc, %call14.i.noexc, %call9.i.noexc, %call5.i.noexc, %if.then.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #12
   resume { ptr, i32 } %20
 }
 
@@ -298,15 +298,15 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %1 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %2 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %add.i.i = fadd float %retval.sroa.0.0.vec.extract.i, %call2.i
   %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
@@ -707,14 +707,14 @@ for.end:                                          ; preds = %_Z21CylinderLocalSu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCylinderShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btCylinderShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #12
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN15btCylinderShapedlEPv.exit unwind label %terminate.lpad.i
 
@@ -883,7 +883,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15btCylinderShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #2 comdat align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
+  %call.i = tail call noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
   %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_implicitShapeDimensions2.i = getelementptr inbounds i8, ptr %dataBuffer, i64 32
   br label %for.body.i.i
@@ -1018,15 +1018,15 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %1 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %2 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %add.i.i = fadd float %retval.sroa.0.0.vec.extract.i, %call2.i
   ret float %add.i.i
@@ -1035,14 +1035,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCylinderShapeXD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCylinderShapeXD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #12
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN16btCylinderShapeXdlEPv.exit unwind label %terminate.lpad.i
 
@@ -1071,15 +1071,15 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %1 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %2 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %retval.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
   %add8.i.i = fadd float %retval.sroa.0.4.vec.extract.i, %call6.i
   ret float %add8.i.i
@@ -1088,14 +1088,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCylinderShapeZD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCylinderShapeZD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) #12
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN16btCylinderShapeZdlEPv.exit unwind label %terminate.lpad.i
 
@@ -1124,15 +1124,15 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 96
   %0 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call2.i = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable4.i = load ptr, ptr %this, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 96
   %1 = load ptr, ptr %vfn5.i, align 8
-  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call6.i = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %vtable8.i = load ptr, ptr %this, align 8
   %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 96
   %2 = load ptr, ptr %vfn9.i, align 8
-  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %call10.i = tail call noundef float %2(ptr noundef nonnull align 8 dereferenceable(76) %this)
   %retval.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
   %add.i.i = fadd float %retval.sroa.0.0.vec.extract.i, %call2.i
   ret float %add.i.i

@@ -1016,7 +1016,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedD
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 36
   store i64 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %36, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, i8 -1, i64 12, i1 false)
   %42 = load ptr, ptr %35, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 48
@@ -2285,7 +2285,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_Nod
   %163 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 36
   store i64 0, ptr %163, align 4
   %164 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.08.i.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.08.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %164, i8 -1, i64 12, i1 false)
   %165 = add i64 %.057.i.i.i.i.i, -1
   %166 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 48
@@ -6810,7 +6810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionC2ERKS0_.exit.i.i: ; pred
 
 _ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpressionD2Ev.exit.i.i: ; preds = %19, %15, %13
   %.pn.i.i = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ], [ %16, %19 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.018) #21
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %.018) #21
   %20 = extractvalue { ptr, i32 } %.pn.i.i, 0
   %21 = tail call ptr @__cxa_begin_catch(ptr %20) #21
   %.not4.i.i = icmp eq ptr %2, %.018
@@ -7257,7 +7257,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_Nod
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   store i64 0, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %23, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %25, i8 -1, i64 12, i1 false)
   %.not14.i.i.i.i.i = icmp eq ptr %5, %1
   br i1 %.not14.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i

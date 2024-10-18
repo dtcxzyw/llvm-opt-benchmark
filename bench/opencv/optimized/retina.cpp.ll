@@ -721,7 +721,7 @@ _ZN2cv11bioinspired10RetinaImplD2Ev.exit:         ; preds = %1, %20, %33, %_ZNSt
   %38 = getelementptr inbounds i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
   tail call void @_ZdlPv(ptr noundef %39) #24
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -4136,7 +4136,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN2cv11bioinspired10RetinaImplEEEvRS0_PT_.
   %39 = getelementptr inbounds i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   tail call void @_ZdlPv(ptr noundef %40) #24
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #24
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #24
   ret void
 }
 

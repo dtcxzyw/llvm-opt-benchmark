@@ -388,7 +388,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %vtable.i40 = load ptr, ptr %this, align 8
   %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 16
   %3 = load ptr, ptr %vfn.i41, align 8
-  %call.i = call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  %call.i = call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %byte_width_.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -563,7 +563,7 @@ _ZN5arrow6StatusD2Ev.exit41:                      ; preds = %_ZN5arrow6StatusD2E
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %add.i.i, ptr %size_.i.i, align 8, !noalias !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bit_length_.i, i8 0, i64 16, i1 false), !noalias !28
-  invoke void @_ZN5arrow13BufferBuilder6FinishEPSt10shared_ptrINS_6BufferEEb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(56) %null_bitmap_builder_, ptr noundef nonnull %null_bitmap, i1 noundef zeroext true)
+  invoke void @_ZN5arrow13BufferBuilder6FinishEPSt10shared_ptrINS_6BufferEEb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(72) %null_bitmap_builder_, ptr noundef nonnull %null_bitmap, i1 noundef zeroext true)
           to label %_ZN5arrow6StatusD2Ev.exit77 unwind label %lpad14
 
 _ZN5arrow6StatusD2Ev.exit77:                      ; preds = %_ZN5arrow6StatusD2Ev.exit41
@@ -2097,7 +2097,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %vtable.i40 = load ptr, ptr %this, align 8
   %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 16
   %3 = load ptr, ptr %vfn.i41, align 8
-  %call.i = call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(144) %this)
+  %call.i = call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %byte_width_.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2263,7 +2263,7 @@ _ZN5arrow6StatusD2Ev.exit41:                      ; preds = %_ZN5arrow6StatusD2E
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 %add.i.i, ptr %size_.i.i, align 8, !noalias !77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bit_length_.i, i8 0, i64 16, i1 false), !noalias !77
-  invoke void @_ZN5arrow13BufferBuilder6FinishEPSt10shared_ptrINS_6BufferEEb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(56) %null_bitmap_builder_, ptr noundef nonnull %null_bitmap, i1 noundef zeroext true)
+  invoke void @_ZN5arrow13BufferBuilder6FinishEPSt10shared_ptrINS_6BufferEEb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(72) %null_bitmap_builder_, ptr noundef nonnull %null_bitmap, i1 noundef zeroext true)
           to label %_ZN5arrow6StatusD2Ev.exit77 unwind label %lpad14
 
 _ZN5arrow6StatusD2Ev.exit77:                      ; preds = %_ZN5arrow6StatusD2Ev.exit41
@@ -3152,7 +3152,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow22FixedSizeBinaryBuilderD2Ev.exit
 
 _ZN5arrow22FixedSizeBinaryBuilderD2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow14Decimal128TypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #13
+  tail call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #13
   ret void
 }
 
@@ -3393,7 +3393,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN5arrow22FixedSizeBinaryBuilderD2Ev.exit
 
 _ZN5arrow22FixedSizeBinaryBuilderD2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN5arrow14Decimal256TypeEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  tail call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #13
+  tail call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #13
   ret void
 }
 

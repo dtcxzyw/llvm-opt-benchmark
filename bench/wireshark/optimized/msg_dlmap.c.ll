@@ -1991,7 +1991,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.0110.i.i = phi i32 [ 0, %486 ], [ %588, %587 ]
   %.0104109.i.i = phi i32 [ %506, %486 ], [ %.3.i.i, %587 ]
   %508 = load i32, ptr @RCID_Type, align 4
-  %509 = tail call i32 @RCID_IE(ptr noundef %495, i32 noundef %.0104109.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %508)
+  %509 = tail call i32 @RCID_IE(ptr noundef %495, i32 noundef %.0104109.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %508)
   %510 = add i32 %509, %.0104109.i.i
   %511 = sdiv i32 %510, 8
   %512 = tail call i32 @tvb_get_ntohl(ptr noundef %4, i32 noundef %511) #2
@@ -2122,7 +2122,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.0103.i.i = phi i32 [ %609, %589 ], [ %.2.i155.i, %672 ]
   %.097102.i.i = phi i32 [ 0, %589 ], [ %673, %672 ]
   %611 = load i32, ptr @RCID_Type, align 4
-  %612 = tail call i32 @RCID_IE(ptr noundef %598, i32 noundef %.0103.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %611)
+  %612 = tail call i32 @RCID_IE(ptr noundef %598, i32 noundef %.0103.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %611)
   %613 = add i32 %612, %.0103.i.i
   %614 = load i32, ptr @hf_dlmap_harq_ir_ctc_nep, align 4
   %615 = tail call ptr @proto_tree_add_bits_item(ptr noundef %598, i32 noundef %614, ptr noundef %4, i32 noundef %613, i32 noundef 4, i32 noundef 0) #2
@@ -2244,7 +2244,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.0124.i.i = phi i32 [ %704, %684 ], [ %.3.i160.i, %789 ]
   %.0117123.i.i = phi i32 [ 0, %684 ], [ %790, %789 ]
   %706 = load i32, ptr @RCID_Type, align 4
-  %707 = tail call i32 @RCID_IE(ptr noundef %693, i32 noundef %.0124.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %706)
+  %707 = tail call i32 @RCID_IE(ptr noundef %693, i32 noundef %.0124.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %706)
   %708 = sdiv i32 %707, 4
   %709 = add i32 %708, %.0124.i.i
   %710 = load i32, ptr @hf_dlmap_harq_ir_cc_duration, align 4
@@ -2421,7 +2421,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 847:                                              ; preds = %819
   %848 = load i32, ptr @RCID_Type, align 4
-  %849 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %843, i32 noundef %416, ptr noundef %4, i32 noundef %848)
+  %849 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %843, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %848)
   %850 = add i32 %849, %843
   br label %851
 
@@ -2460,7 +2460,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 866:                                              ; preds = %.lr.ph.split.us.i.i
   %867 = load i32, ptr @RCID_Type, align 4
-  %868 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %.3114.us.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %867)
+  %868 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %.3114.us.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %867)
   %869 = add i32 %868, %.3114.us.i.i
   br label %870
 
@@ -2504,7 +2504,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.3114.i.i = phi i32 [ %903, %.lr.ph.split.split.i.i ], [ %860, %.lr.ph.split.i.i ]
   %.0104113.i.i = phi i32 [ %904, %.lr.ph.split.split.i.i ], [ 0, %.lr.ph.split.i.i ]
   %895 = load i32, ptr @RCID_Type, align 4
-  %896 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %.3114.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %895)
+  %896 = tail call i32 @RCID_IE(ptr noundef %807, i32 noundef %.3114.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %895)
   %897 = add i32 %896, %.3114.i.i
   %898 = load i32, ptr @hf_dlmap_mimo_dl_chase_harq_diuc, align 4
   %899 = tail call ptr @proto_tree_add_bits_item(ptr noundef %807, i32 noundef %898, ptr noundef %4, i32 noundef %897, i32 noundef 4, i32 noundef 0) #2
@@ -2616,7 +2616,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 980:                                              ; preds = %952
   %981 = load i32, ptr @RCID_Type, align 4
-  %982 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %976, i32 noundef %416, ptr noundef %4, i32 noundef %981)
+  %982 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %976, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %981)
   %983 = add i32 %982, %976
   br label %984
 
@@ -2666,7 +2666,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.399.us.i.i = phi i32 [ %1009, %.lr.ph.split.us.split.i.i ], [ %993, %.lr.ph.split.us.i175.i ]
   %.09398.us.i.i = phi i32 [ %1010, %.lr.ph.split.us.split.i.i ], [ 0, %.lr.ph.split.us.i175.i ]
   %1004 = load i32, ptr @RCID_Type, align 4
-  %1005 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %.399.us.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %1004)
+  %1005 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %.399.us.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1004)
   %1006 = add i32 %1005, %.399.us.i.i
   %1007 = load i32, ptr @hf_dlmap_mimo_dl_ir_harq_nep, align 4
   %1008 = tail call ptr @proto_tree_add_bits_item(ptr noundef %940, i32 noundef %1007, ptr noundef %4, i32 noundef %1006, i32 noundef 4, i32 noundef 0) #2
@@ -2683,7 +2683,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 1013:                                             ; preds = %.lr.ph.split.i173.i
   %1014 = load i32, ptr @RCID_Type, align 4
-  %1015 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %.399.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %1014)
+  %1015 = tail call i32 @RCID_IE(ptr noundef %940, i32 noundef %.399.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1014)
   %1016 = add i32 %1015, %.399.i.i
   br label %1017
 
@@ -2781,7 +2781,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 1090:                                             ; preds = %1062
   %1091 = load i32, ptr @RCID_Type, align 4
-  %1092 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %1086, i32 noundef %416, ptr noundef %4, i32 noundef %1091)
+  %1092 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %1086, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1091)
   %1093 = add i32 %1092, %1086
   br label %1094
 
@@ -2820,7 +2820,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 
 1109:                                             ; preds = %.lr.ph.split.us.i188.i
   %1110 = load i32, ptr @RCID_Type, align 4
-  %1111 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %.3102.us.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %1110)
+  %1111 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %.3102.us.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1110)
   %1112 = add i32 %1111, %.3102.us.i.i
   br label %1113
 
@@ -2867,7 +2867,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %.3102.i.i = phi i32 [ %1149, %.lr.ph.split.split.i186.i ], [ %1103, %.lr.ph.split.i185.i ]
   %.097101.i.i = phi i32 [ %1150, %.lr.ph.split.split.i186.i ], [ 0, %.lr.ph.split.i185.i ]
   %1141 = load i32, ptr @RCID_Type, align 4
-  %1142 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %.3102.i.i, i32 noundef %416, ptr noundef %4, i32 noundef %1141)
+  %1142 = tail call i32 @RCID_IE(ptr noundef %1050, i32 noundef %.3102.i.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1141)
   %1143 = add i32 %1142, %.3102.i.i
   %1144 = load i32, ptr @hf_dlmap_mimo_dl_ir_harq_cc_diuc, align 4
   %1145 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1050, i32 noundef %1144, ptr noundef %4, i32 noundef %1143, i32 noundef 4, i32 noundef 0) #2
@@ -2960,7 +2960,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
 1211:                                             ; preds = %1207, %1182
   %.1.i191.i = phi i32 [ %1210, %1207 ], [ %1204, %1182 ]
   %1212 = load i32, ptr @RCID_Type, align 4
-  %1213 = tail call i32 @RCID_IE(ptr noundef %1170, i32 noundef %.1.i191.i, i32 noundef %416, ptr noundef %4, i32 noundef %1212)
+  %1213 = tail call i32 @RCID_IE(ptr noundef %1170, i32 noundef %.1.i191.i, i32 noundef range(i32 12, 2053) %416, ptr noundef %4, i32 noundef %1212)
   %1214 = add i32 %1213, %.1.i191.i
   %1215 = sdiv i32 %1214, 8
   %1216 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %1215) #2
@@ -3428,7 +3428,7 @@ MIMO_DL_Enhanced_IE.exit:                         ; preds = %1465, %1471
   %.0281.i = phi i32 [ %1697, %1696 ], [ 0, %.lr.ph285.i ]
   %.2280.i = phi i32 [ %.12.i, %1696 ], [ %1555, %.lr.ph285.i ]
   %1556 = load i32, ptr @RCID_Type, align 4
-  %1557 = tail call i32 @RCID_IE(ptr noundef %1491, i32 noundef %.2280.i, i32 noundef %52, ptr noundef %4, i32 noundef %1556)
+  %1557 = tail call i32 @RCID_IE(ptr noundef %1491, i32 noundef %.2280.i, i32 noundef range(i32 3, 514) %52, ptr noundef %4, i32 noundef %1556)
   %1558 = add i32 %1557, %.2280.i
   %1559 = sdiv i32 %1558, 8
   %1560 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %4, i32 noundef %1559) #2

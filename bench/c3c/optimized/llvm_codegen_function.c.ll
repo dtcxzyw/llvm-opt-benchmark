@@ -1352,7 +1352,7 @@ llvm_append_xxlizer.exit:                         ; preds = %expand_.exit.i, %10
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr inbounds i8, ptr %195, i64 40
   %380 = load i32, ptr %379, align 8
-  call fastcc void @llvm_expand_from_args(ptr noundef nonnull %0, ptr noundef %376, ptr noundef %378, ptr noundef %6, i32 noundef %380)
+  call fastcc void @llvm_expand_from_args(ptr noundef nonnull %0, ptr noundef %376, ptr noundef %378, ptr noundef nonnull %6, i32 noundef %380)
   br label %llvm_process_parameter_value.exit.i.i
 
 llvm_process_parameter_value.exit.i.i:            ; preds = %.lr.ph.i.i.i, %374, %363, %342, %315, %309, %304, %268, %208, %202, %193

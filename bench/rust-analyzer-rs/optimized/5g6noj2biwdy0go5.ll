@@ -544,7 +544,7 @@ define hidden { ptr, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 83:                                               ; preds = %80
   %84 = shl nsw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %84, i64 noundef 4) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, 0) %84, i64 noundef 4) #26
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$$u5b$line_index..WideChar$u5d$$GT$$GT$17hb19cee01aeb3aa99E.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$$u5b$line_index..WideChar$u5d$$GT$$GT$17hb19cee01aeb3aa99E.exit": ; preds = %83, %80

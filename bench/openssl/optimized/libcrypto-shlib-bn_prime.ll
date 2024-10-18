@@ -133,7 +133,7 @@ if.then17:                                        ; preds = %loop
   %2 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %2 to i64
   %sub1.i = xor i64 %conv.i, -1
-  %call281.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call281.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not82.i = icmp eq i32 %call281.i, 0
   br i1 %tobool.not82.i, label %err.loopexit259, label %if.end.lr.ph.i
 
@@ -170,7 +170,7 @@ for.body.us.us.i.backedge:                        ; preds = %if.end16.us.us.i, %
   br label %for.body.us.us.i, !llvm.loop !4
 
 again.backedge.us.us.i:                           ; preds = %if.then61.split.us.us.us.us.i, %if.end76.us.us.i
-  %call2.us.us.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call2.us.us.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not.us.us.i = icmp eq i32 %call2.us.us.i, 0
   br i1 %tobool.not.us.us.i, label %err, label %for.body.us.us.i.backedge
 
@@ -259,7 +259,7 @@ for.body.us.i.backedge:                           ; preds = %if.end16.us.i, %aga
   br label %for.body.us.i, !llvm.loop !4
 
 again.backedge.us.i:                              ; preds = %if.then61.split.us.split.us77.us.us.i, %if.end76.us.i
-  %call2.us.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call2.us.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not.us.i = icmp eq i32 %call2.us.i, 0
   br i1 %tobool.not.us.i, label %err, label %for.body.us.i.backedge
 
@@ -412,7 +412,7 @@ if.end76.i:                                       ; preds = %for.end72.split.i
   br i1 %cmp78.not.i, label %if.end27, label %again.backedge.i
 
 again.backedge.i:                                 ; preds = %if.then61.split.i.loopexit99.us, %if.then61.split.i, %if.end76.i
-  %call2.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call2.i = tail call i32 @BN_priv_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %err, label %if.end.i
 
@@ -436,12 +436,12 @@ if.then8.i:                                       ; preds = %if.end.i56
 if.end11.i:                                       ; preds = %if.then8.i, %if.end.i56
   %maxdelta.0.in.i = phi i64 [ %call9.i, %if.then8.i ], [ %conv.i57, %if.end.i56 ]
   %maxdelta.0.i = xor i64 %maxdelta.0.in.i, -1
-  %call1298.i = tail call i32 @BN_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call1298.i = tail call i32 @BN_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not99.i = icmp eq i32 %call1298.i, 0
   br i1 %tobool.not99.i, label %probable_prime_dh.exit.thread, label %if.end14.i
 
 again.loopexit.i:                                 ; preds = %if.then107.split.i, %if.then107.split.us.us.i
-  %call12.i66 = tail call i32 @BN_rand_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
+  %call12.i66 = tail call i32 @BN_rand_ex(ptr noundef %ret, i32 noundef range(i32 2, -2147483648) %bits, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef %ctx) #4
   %tobool.not.i67 = icmp eq i32 %call12.i66, 0
   br i1 %tobool.not.i67, label %probable_prime_dh.exit.thread, label %if.end14.i
 

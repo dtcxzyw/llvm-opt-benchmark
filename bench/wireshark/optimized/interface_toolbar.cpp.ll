@@ -951,7 +951,7 @@ _ZNSt4pairIK7QString16interface_valuesEC2IRS1_S2_TnNSt9enable_ifIXaaclsr5_PCCPE2
   %42 = phi ptr [ null, %_ZNSt3mapI7QString16interface_valuesSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread ], [ %.pre13, %36 ]
   %43 = phi ptr [ null, %_ZNSt3mapI7QString16interface_valuesSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread ], [ %.pre11, %36 ]
   %44 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 12, i1 false)
   %45 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %32, align 8
   store ptr %43, ptr %45, align 8
@@ -1889,7 +1889,7 @@ define void @_ZN16InterfaceToolbarD2Ev(ptr noundef nonnull align 8 dereferenceab
   %13 = getelementptr inbounds i8, ptr %8, i64 32
   %14 = load ptr, ptr %13, align 8, !noalias !36
   %15 = getelementptr inbounds i8, ptr %8, i64 16
-  %16 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %14, ptr nonnull %15, ptr nonnull %3)
+  %16 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %14, ptr nonnull %15, ptr nonnull align 8 %3)
           to label %_ZN5QListI7QStringED2Ev.exit unwind label %17
 
 17:                                               ; preds = %12, %9
@@ -2959,7 +2959,7 @@ define void @_ZN16InterfaceToolbarD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16InterfaceToolbarD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16InterfaceToolbarD1Ev(ptr noundef nonnull align 8 dereferenceable(113) %2) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(113) %2) #24
   ret void
 }
 
@@ -3908,7 +3908,7 @@ _ZN10QByteArrayD2Ev.exit154:                      ; preds = %161, %_ZN17QArrayDa
   %176 = getelementptr inbounds i8, ptr %171, i64 32
   %177 = load ptr, ptr %176, align 8, !noalias !64
   %178 = getelementptr inbounds i8, ptr %171, i64 16
-  %179 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %177, ptr nonnull %178, ptr nonnull %19)
+  %179 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %177, ptr nonnull %178, ptr nonnull align 8 %19)
           to label %._crit_edge294 unwind label %180
 
 ._crit_edge294:                                   ; preds = %175
@@ -5241,7 +5241,7 @@ define void @_ZN16InterfaceToolbar15setDefaultValueEiRK10QByteArray(ptr noundef 
   %14 = getelementptr inbounds i8, ptr %9, i64 32
   %15 = load ptr, ptr %14, align 8, !noalias !80
   %16 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %15, ptr nonnull %16, ptr nonnull %6)
+  %17 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %15, ptr nonnull %16, ptr nonnull align 8 %6)
           to label %._crit_edge17 unwind label %18
 
 ._crit_edge17:                                    ; preds = %13
@@ -10418,7 +10418,7 @@ define void @_ZN16InterfaceToolbar8closeLogEv(ptr noundef nonnull align 8 derefe
   %18 = getelementptr inbounds i8, ptr %13, i64 32
   %19 = load ptr, ptr %18, align 8, !noalias !137
   %20 = getelementptr inbounds i8, ptr %13, i64 16
-  %21 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %19, ptr nonnull %20, ptr nonnull %6)
+  %21 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %19, ptr nonnull %20, ptr nonnull align 8 %6)
           to label %._crit_edge80 unwind label %22
 
 ._crit_edge80:                                    ; preds = %17
@@ -11102,7 +11102,7 @@ define void @_ZN16InterfaceToolbar17startReaderThreadE7QStringPv(ptr noundef non
   br label %_ZN7QStringC2ERKS_.exit
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %11, %18
-  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef null)
+  invoke void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(68) %12, ptr noundef null)
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %_ZN7QStringC2ERKS_.exit
@@ -11137,7 +11137,7 @@ _ZN7QStringD2Ev.exit.i.i:                         ; preds = %.split.i.i.i, %_ZN7
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %12) #23
   br label %.body
 
 28:                                               ; preds = %_ZN7QStringD2Ev.exit.i.i
@@ -11996,7 +11996,7 @@ define void @_ZN16InterfaceToolbar11stopCaptureEv(ptr noundef nonnull align 8 de
   %21 = getelementptr inbounds i8, ptr %16, i64 32
   %22 = load ptr, ptr %21, align 8, !noalias !175
   %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %22, ptr nonnull %23, ptr nonnull %8)
+  %24 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QString16interface_valuesEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S4_St4lessIS2_ESaIS5_EEE4keysEvEUlRKT_E_ET0_SI_SI_SM_T1_(ptr %22, ptr nonnull %23, ptr nonnull align 8 %8)
           to label %._crit_edge345 unwind label %25
 
 ._crit_edge345:                                   ; preds = %20
@@ -16371,7 +16371,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_16interface_
 _ZN7QStringC2ERKS_.exit.i.i.i.i.i.i.i:            ; preds = %15, %4
   %17 = getelementptr inbounds i8, ptr %6, i64 56
   %18 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 12, i1 false)
   %19 = getelementptr inbounds i8, ptr %6, i64 72
   %20 = getelementptr inbounds i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -16520,7 +16520,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4less
 _ZN7QStringC2ERKS_.exit.i.i.i.i.i.i.i34:          ; preds = %73, %.noexc
   %75 = getelementptr inbounds i8, ptr %63, i64 56
   %76 = getelementptr inbounds i8, ptr %.051, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %75, ptr noundef nonnull align 8 dereferenceable(12) %76, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(64) %76, i64 12, i1 false)
   %77 = getelementptr inbounds i8, ptr %63, i64 72
   %78 = getelementptr inbounds i8, ptr %.051, i64 72
   %79 = load ptr, ptr %78, align 8
@@ -16769,7 +16769,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesES
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_16interface_valuesESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE11_Alloc_nodeclIS4_EEPSt13_Rb_tree_nodeIS4_EOT_.exit: ; preds = %._crit_edge, %21
   %23 = getelementptr inbounds i8, ptr %16, i64 56
   %24 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 12, i1 false)
   %25 = getelementptr inbounds i8, ptr %16, i64 72
   %26 = getelementptr inbounds i8, ptr %3, i64 40
   %27 = load ptr, ptr %26, align 8
@@ -21157,7 +21157,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIi
   br label %33
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit: ; preds = %9
-  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.3.07, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
   %.not.i.i.i.i = icmp eq ptr %19, null

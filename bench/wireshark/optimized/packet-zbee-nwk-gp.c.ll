@@ -1206,7 +1206,7 @@ zbee_gp_decrypt_payload.exit:                     ; preds = %.zbee_gp_make_nonce
   %sext155 = shl i64 %175, 56
   %200 = ashr exact i64 %sext155, 56
   %201 = getelementptr i8, ptr %19, i64 %200
-  %202 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %177, ptr noundef nonnull %5, ptr noundef %19, ptr noundef %201, ptr noundef %152, i32 noundef %199, i32 noundef %170, i32 noundef %172) #11
+  %202 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %177, ptr noundef nonnull %5, ptr noundef %19, ptr noundef %201, ptr noundef %152, i32 noundef %199, i32 noundef range(i32 0, 256) %170, i32 noundef range(i32 0, 256) %172) #11
   %.not.i.not = icmp eq i32 %202, 0
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5)
   %203 = getelementptr inbounds i8, ptr %.0145164, i64 8

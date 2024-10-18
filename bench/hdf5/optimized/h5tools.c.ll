@@ -1285,7 +1285,7 @@ define range(i64 -1, -9223372036854775808) i64 @h5tools_get_fapl(i64 noundef %0,
 
 240:                                              ; preds = %._crit_edge.i, %218
   %241 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %218 ]
-  %242 = call i32 @H5Pset_vol(i64 noundef %.1, i64 noundef %.146.i, ptr noundef %241) #16
+  %242 = call i32 @H5Pset_vol(i64 noundef range(i64 0, -9223372036854775808) %.1, i64 noundef %.146.i, ptr noundef %241) #16
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %244, label %260
 
@@ -1453,7 +1453,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not.i49, label %330, label %349
 
 330:                                              ; preds = %325
-  %331 = call i32 @H5Pset_fapl_sec2(i64 noundef %.1) #16
+  %331 = call i32 @H5Pset_fapl_sec2(i64 noundef range(i64 0, -9223372036854775808) %.1) #16
   %332 = icmp slt i32 %331, 0
   br i1 %332, label %333, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1522,7 +1522,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not122.i, label %371, label %390
 
 371:                                              ; preds = %368
-  %372 = call i32 @H5Pset_fapl_log(i64 noundef %.1, ptr noundef null, i64 noundef 262158, i64 noundef 0) #16
+  %372 = call i32 @H5Pset_fapl_log(i64 noundef range(i64 0, -9223372036854775808) %.1, ptr noundef null, i64 noundef 262158, i64 noundef 0) #16
   %373 = icmp slt i32 %372, 0
   br i1 %373, label %374, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1591,7 +1591,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not126.i, label %412, label %431
 
 412:                                              ; preds = %409
-  %413 = call i32 @H5Pset_fapl_stdio(i64 noundef %.1) #16
+  %413 = call i32 @H5Pset_fapl_stdio(i64 noundef range(i64 0, -9223372036854775808) %.1) #16
   %414 = icmp slt i32 %413, 0
   br i1 %414, label %415, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1628,7 +1628,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not128.i, label %434, label %453
 
 434:                                              ; preds = %431
-  %435 = call i32 @H5Pset_fapl_core(i64 noundef %.1, i64 noundef 1048576, i1 noundef zeroext true) #16
+  %435 = call i32 @H5Pset_fapl_core(i64 noundef range(i64 0, -9223372036854775808) %.1, i64 noundef 1048576, i1 noundef zeroext true) #16
   %436 = icmp slt i32 %435, 0
   br i1 %436, label %437, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1665,7 +1665,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not130.i, label %456, label %475
 
 456:                                              ; preds = %453
-  %457 = call i32 @H5Pset_fapl_family(i64 noundef %.1, i64 noundef 0, i64 noundef 0) #16
+  %457 = call i32 @H5Pset_fapl_family(i64 noundef range(i64 0, -9223372036854775808) %.1, i64 noundef 0, i64 noundef 0) #16
   %458 = icmp slt i32 %457, 0
   br i1 %458, label %459, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1702,7 +1702,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not132.i, label %478, label %497
 
 478:                                              ; preds = %475
-  %479 = call i32 @H5Pset_fapl_split(i64 noundef %.1, ptr noundef nonnull @.str.115, i64 noundef 0, ptr noundef nonnull @.str.116, i64 noundef 0) #16
+  %479 = call i32 @H5Pset_fapl_split(i64 noundef range(i64 0, -9223372036854775808) %.1, ptr noundef nonnull @.str.115, i64 noundef 0, ptr noundef nonnull @.str.116, i64 noundef 0) #16
   %480 = icmp slt i32 %479, 0
   br i1 %480, label %481, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1739,7 +1739,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br i1 %.not134.i, label %500, label %519
 
 500:                                              ; preds = %497
-  %501 = call i32 @H5Pset_fapl_multi(i64 noundef %.1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #16
+  %501 = call i32 @H5Pset_fapl_multi(i64 noundef range(i64 0, -9223372036854775808) %.1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #16
   %502 = icmp slt i32 %501, 0
   br i1 %502, label %503, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1936,7 +1936,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 617:                                              ; preds = %600
-  %618 = call i32 @H5Pset_fapl_onion(i64 noundef %.1, ptr noundef nonnull %599) #16
+  %618 = call i32 @H5Pset_fapl_onion(i64 noundef range(i64 0, -9223372036854775808) %.1, ptr noundef nonnull %599) #16
   %619 = icmp slt i32 %618, 0
   br i1 %619, label %620, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -1967,7 +1967,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
   br label %718
 
 636:                                              ; preds = %595
-  %637 = call i32 @H5Pset_driver_by_name(i64 noundef %.1, ptr noundef %327, ptr noundef %599) #16
+  %637 = call i32 @H5Pset_driver_by_name(i64 noundef range(i64 0, -9223372036854775808) %.1, ptr noundef %327, ptr noundef %599) #16
   %638 = icmp slt i32 %637, 0
   br i1 %638, label %639, label %h5tools_set_fapl_vfd.exit.thread
 
@@ -2034,7 +2034,7 @@ h5tools_set_fapl_vol.exit:                        ; preds = %280
 677:                                              ; preds = %657
   %678 = getelementptr inbounds i8, ptr %2, i64 8
   %679 = load ptr, ptr %678, align 8
-  %680 = call i32 @H5Pset_driver_by_value(i64 noundef %.1, i32 noundef %659, ptr noundef %679) #16
+  %680 = call i32 @H5Pset_driver_by_value(i64 noundef range(i64 0, -9223372036854775808) %.1, i32 noundef %659, ptr noundef %679) #16
   %681 = icmp slt i32 %680, 0
   br i1 %681, label %682, label %h5tools_set_fapl_vfd.exit.thread
 

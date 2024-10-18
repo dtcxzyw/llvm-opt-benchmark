@@ -263,7 +263,7 @@ _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %2, %5
   store i64 0, ptr %8, align 8
   store i8 0, ptr %7, align 8
   tail call void @_ZN23ObjectSampleDescription20write_object_detailsEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %7) #10
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(112) %7) #10
   ret void
 }
 
@@ -309,10 +309,10 @@ _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %1, %4
   br i1 %9, label %_ZN24ObjectDescriptionBuilder11descriptionEv.exit, label %10
 
 10:                                               ; preds = %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #11
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly align 8 dereferenceable(112) %6) #11
   %12 = add i64 %11, 1
   %13 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i32 noundef 0) #10
-  %14 = tail call ptr @strncpy(ptr noundef %13, ptr noundef nonnull readonly %6, i64 noundef %12) #10
+  %14 = tail call ptr @strncpy(ptr noundef %13, ptr noundef nonnull readonly align 8 dereferenceable(112) %6, i64 noundef %12) #10
   br label %_ZN24ObjectDescriptionBuilder11descriptionEv.exit
 
 _ZN24ObjectDescriptionBuilder11descriptionEv.exit: ; preds = %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit, %10

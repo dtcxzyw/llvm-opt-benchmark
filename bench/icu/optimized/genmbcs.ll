@@ -1943,7 +1943,7 @@ if.else.i:                                        ; preds = %if.then142
 
 if.then4.i:                                       ; preds = %if.else.i
   %43 = load ptr, ptr @stderr, align 8
-  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.17, i32 noundef %c) #15
+  %call5.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.17, i32 noundef range(i32 -2147483648, 65536) %c) #15
   br label %return
 
 if.else6.i:                                       ; preds = %if.else.i

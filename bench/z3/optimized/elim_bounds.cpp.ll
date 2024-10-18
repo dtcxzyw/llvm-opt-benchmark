@@ -391,7 +391,7 @@ if.end65:                                         ; preds = %if.then55, %invoke.
 cleanup:                                          ; preds = %if.then48, %land.lhs.true45, %land.rhs.i.i97, %if.end34, %invoke.cont, %invoke.cont43, %invoke.cont46, %invoke.cont59, %if.end65
   %switch.not = phi i1 [ false, %if.end65 ], [ true, %invoke.cont59 ], [ true, %invoke.cont46 ], [ true, %invoke.cont43 ], [ true, %invoke.cont ], [ true, %if.end34 ], [ true, %land.rhs.i.i97 ], [ true, %land.lhs.true45 ], [ true, %if.then48 ]
   %54 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(16) %k)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(32) %k)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %cleanup
@@ -434,7 +434,7 @@ declare noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr
 define linkonce_odr hidden void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
@@ -631,7 +631,7 @@ if.end15:                                         ; preds = %_ZN6bufferIP4exprLb
 lpad.i:                                           ; preds = %if.end15
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ptr_vectorI4sortED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %used_vars) #11
+  call void @_ZN10ptr_vectorI4sortED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %used_vars) #11
   br label %ehcleanup218
 
 invoke.cont16:                                    ; preds = %if.end15

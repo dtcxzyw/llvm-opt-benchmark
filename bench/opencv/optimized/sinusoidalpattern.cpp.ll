@@ -323,7 +323,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_ImplC2ERKNS
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   store ptr %20, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %24, ptr noundef nonnull align 8 dereferenceable(26) %2, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 26, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 40
   %26 = getelementptr inbounds i8, ptr %2, i64 32
   %27 = getelementptr inbounds i8, ptr %2, i64 40
@@ -406,7 +406,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_ImplC1ERKNS
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds inrange(-80, 112) (i8, ptr @_ZTVN2cv16structured_light34SinusoidalPatternProfilometry_ImplE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3, ptr noundef nonnull align 8 dereferenceable(26) %1, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 26, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -5359,7 +5359,7 @@ define linkonce_odr hidden void @_ZN2cv16structured_light34SinusoidalPatternProf
   br label %_ZN2cv16structured_light34SinusoidalPatternProfilometry_ImplD1Ev.exit
 
 _ZN2cv16structured_light34SinusoidalPatternProfilometry_ImplD1Ev.exit: ; preds = %1, %4
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #29
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -5844,7 +5844,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16structured
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv16structured_light34SinusoidalPatternProfilometry_ImplEEEvRS0_PT_.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #29
   ret void
 }
 

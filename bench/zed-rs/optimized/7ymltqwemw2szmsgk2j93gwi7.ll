@@ -136,7 +136,7 @@ _ZN8smallvec10infallible17h960a28a39ea9aaa3E.llvm.2375956273748456327.exit: ; pr
 49:                                               ; preds = %51
   %50 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$gpui..window..ElementId$GT$17ha8336e2623c9b439E"(ptr noalias noundef align 8 dereferenceable(32) %4) #19
+  invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$gpui..window..ElementId$GT$17ha8336e2623c9b439E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #19
           to label %common.resume unwind label %54, !noalias !16
 
 51:                                               ; preds = %43

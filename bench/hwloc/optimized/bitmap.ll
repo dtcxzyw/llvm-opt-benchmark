@@ -128,7 +128,7 @@ hwloc_tma_malloc.exit.thread:                     ; preds = %3
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call ptr %12(ptr noundef nonnull %0, i64 noundef %11) #16
+  %13 = tail call ptr %12(ptr noundef nonnull %0, i64 noundef range(i64 0, 34359738361) %11) #16
   br label %hwloc_tma_malloc.exit25
 
 14:                                               ; preds = %hwloc_tma_malloc.exit
@@ -136,7 +136,7 @@ hwloc_tma_malloc.exit.thread:                     ; preds = %3
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #15
+  %19 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 34359738361) %18) #15
   br label %hwloc_tma_malloc.exit25
 
 hwloc_tma_malloc.exit25:                          ; preds = %7, %14
@@ -192,7 +192,7 @@ define noalias noundef ptr @hwloc_bitmap_dup(ptr noundef readonly %0) local_unna
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #15
+  %9 = tail call noalias ptr @malloc(i64 noundef range(i64 0, 34359738361) %8) #15
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %.not22.i = icmp eq ptr %9, null

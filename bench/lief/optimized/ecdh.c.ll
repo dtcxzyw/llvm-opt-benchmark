@@ -161,7 +161,7 @@ mbedtls_ecdh_gen_public.exit.i:                   ; preds = %18
   %27 = load i64, ptr %7, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %29 = sub i64 %3, %27
-  %30 = call i32 @mbedtls_ecp_tls_write_point(ptr noundef nonnull %12, ptr noundef nonnull %20, i32 noundef %14, ptr noundef nonnull %8, ptr noundef %28, i64 noundef %29) #6
+  %30 = call i32 @mbedtls_ecp_tls_write_point(ptr noundef nonnull %12, ptr noundef nonnull %20, i32 noundef range(i32 0, 256) %14, ptr noundef nonnull %8, ptr noundef %28, i64 noundef %29) #6
   %.not24.i = icmp eq i32 %30, 0
   br i1 %.not24.i, label %31, label %ecdh_make_params_internal.exit
 
@@ -331,7 +331,7 @@ mbedtls_ecdh_gen_public.exit.i:                   ; preds = %16
   br i1 %.not.i, label %22, label %ecdh_make_public_internal.exit
 
 22:                                               ; preds = %mbedtls_ecdh_gen_public.exit.i
-  %23 = tail call i32 @mbedtls_ecp_tls_write_point(ptr noundef nonnull %10, ptr noundef nonnull %18, i32 noundef %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #6
+  %23 = tail call i32 @mbedtls_ecp_tls_write_point(ptr noundef nonnull %10, ptr noundef nonnull %18, i32 noundef range(i32 0, 256) %12, ptr noundef %1, ptr noundef %2, i64 noundef %3) #6
   br label %ecdh_make_public_internal.exit
 
 ecdh_make_public_internal.exit:                   ; preds = %22, %mbedtls_ecdh_gen_public.exit.i, %16, %9, %6

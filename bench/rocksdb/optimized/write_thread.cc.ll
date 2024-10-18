@@ -128,7 +128,7 @@ entry:
   store i64 72057594037927935, ptr %sequence.i, align 16
   %status.i = getelementptr inbounds i8, ptr %this, i64 168
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status.i, i8 0, i64 6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status.i, i8 0, i64 6, i1 false)
   %state_.i1.i = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %state_.i1.i, align 16
   %link_older.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -250,7 +250,7 @@ if.then:                                          ; preds = %_ZNSt13__atomic_bas
   %state_mutex_bytes.i43 = getelementptr inbounds i8, ptr %w, i64 144
   store ptr %state_mutex_bytes.i43, ptr %guard, align 8
   %_M_owns.i = getelementptr inbounds i8, ptr %guard, i64 8
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i43) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i43) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -291,7 +291,7 @@ if.else.i.i:                                      ; preds = %invoke.cont8.thread
   br i1 %tobool2.not.i.i, label %if.end, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #18
+  %call1.i.i.i.i47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %11) #18
   br label %if.end
 
 lpad:                                             ; preds = %while.body.i
@@ -307,7 +307,7 @@ if.else.i.i50:                                    ; preds = %lpad
   br i1 %tobool2.not.i.i51, label %_ZNSt11unique_lockISt5mutexED2Ev.exit54, label %if.then3.i.i52
 
 if.then3.i.i52:                                   ; preds = %if.else.i.i50
-  %call1.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #18
+  %call1.i.i.i.i53 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %14) #18
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit54
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit54:          ; preds = %lpad, %if.else.i.i50, %if.then3.i.i52
@@ -653,7 +653,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit: ; 
 
 if.then:                                          ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit, %entry
   %state_mutex_bytes.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -665,7 +665,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.then
   store atomic i8 %new_state, ptr %state2 monotonic, align 1
   %state_cv_bytes.i = getelementptr inbounds i8, ptr %w, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i) #18
-  %call1.i.i.i40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
+  %call1.i.i.i40 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit
@@ -781,7 +781,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i10:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb6StatusD2Ev.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -793,7 +793,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i10
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -988,7 +988,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.end
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %0, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1000,7 +1000,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1053,7 +1053,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.end
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1065,7 +1065,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1191,7 +1191,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i15:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb6StatusD2Ev.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w.019, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1203,7 +1203,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i15
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w.019, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1377,7 +1377,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.then
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1389,7 +1389,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 2, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %w, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %if.end5
 
 if.then3:                                         ; preds = %entry
@@ -1710,7 +1710,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %12, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1722,7 +1722,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 4, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %12, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i
@@ -1817,7 +1817,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20
 
 if.then.i21:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20, %if.then11
   %state_mutex_bytes.i.i22 = getelementptr inbounds i8, ptr %w.0, i64 144
-  %call1.i.i.i.i23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i22) #18
+  %call1.i.i.i.i23 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i22) #18
   %tobool.not.i.i.i24 = icmp eq i32 %call1.i.i.i.i23, 0
   br i1 %tobool.not.i.i.i24, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26, label %if.then.i.i.i25
 
@@ -1829,7 +1829,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26:      ; preds = %if.then.i21
   store atomic i8 16, ptr %state2.i18 monotonic, align 1
   %state_cv_bytes.i.i27 = getelementptr inbounds i8, ptr %w.0, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i27) #18
-  %call1.i.i.i40.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i22) #18
+  %call1.i.i.i40.i28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i22) #18
   br label %if.end12
 
 if.end12:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i26, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i20, %if.end9
@@ -1849,7 +1849,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33
 
 if.then.i34:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33, %while.end
   %state_mutex_bytes.i.i35 = getelementptr inbounds i8, ptr %1, i64 144
-  %call1.i.i.i.i36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i35) #18
+  %call1.i.i.i.i36 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i35) #18
   %tobool.not.i.i.i37 = icmp eq i32 %call1.i.i.i.i36, 0
   br i1 %tobool.not.i.i.i37, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39, label %if.then.i.i.i38
 
@@ -1861,7 +1861,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39:      ; preds = %if.then.i34
   store atomic i8 16, ptr %state2.i31 monotonic, align 1
   %state_cv_bytes.i.i40 = getelementptr inbounds i8, ptr %1, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i40) #18
-  %call1.i.i.i40.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i35) #18
+  %call1.i.i.i40.i41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i35) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit43
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit43: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i33, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i39
@@ -1895,7 +1895,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %for.body
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -1907,7 +1907,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 8, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -1939,7 +1939,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %state_mutex_bytes.i = getelementptr inbounds i8, ptr %2, i64 144
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i) #18
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i) #18
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -2012,13 +2012,13 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 invoke.cont:                                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i, %cond.end.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
+  %call1.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i) #18
   br label %if.end
 
 lpad:                                             ; preds = %cond.false.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i) #18
+  %call1.i.i.i10 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i) #18
   resume { ptr, i32 } %12
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -2119,7 +2119,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %entry
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %1, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -2131,7 +2131,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 16, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %1, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
@@ -2228,7 +2228,7 @@ if.end11:                                         ; preds = %_ZN7rocksdb6Statusa
 
 if.then12:                                        ; preds = %if.end11
   %rate_limiter_priority.i = getelementptr inbounds i8, ptr %dummy, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %dummy, i8 0, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %dummy, i8 0, i64 11, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %disable_memtable.i = getelementptr inbounds i8, ptr %dummy, i64 16
   store i8 0, ptr %disable_memtable.i, align 16
@@ -2242,7 +2242,7 @@ if.then12:                                        ; preds = %if.end11
   store i64 72057594037927935, ptr %sequence.i, align 16
   %status.i = getelementptr inbounds i8, ptr %dummy, i64 104
   %state_.i.i = getelementptr inbounds i8, ptr %dummy, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status.i, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status.i, i8 0, i64 6, i1 false)
   %state_.i1.i = getelementptr inbounds i8, ptr %dummy, i64 128
   store ptr null, ptr %state_.i1.i, align 16
   %link_older.i = getelementptr inbounds i8, ptr %dummy, i64 240
@@ -2433,7 +2433,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i, %if.end.i69
   %state_mutex_bytes.i.i.i = getelementptr inbounds i8, ptr %w.0234, i64 144
-  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #18
+  %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i.i) #18
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i, label %if.then.i.i.i.i.invoke
 
@@ -2449,7 +2449,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %if.then.i.i
   store atomic i8 16, ptr %state2.i.i monotonic, align 1
   %state_cv_bytes.i.i.i = getelementptr inbounds i8, ptr %w.0234, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i) #18
-  %call1.i.i.i40.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i) #18
+  %call1.i.i.i40.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i.i) #18
   br label %if.end28
 
 lpad.loopexit:                                    ; preds = %cond.false.i53
@@ -2531,7 +2531,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i
 
 if.then.i.i98:                                    ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i97, %if.end.i93
   %state_mutex_bytes.i.i.i99 = getelementptr inbounds i8, ptr %56, i64 144
-  %call1.i.i.i.i.i100 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #18
+  %call1.i.i.i.i.i100 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i.i99) #18
   %tobool.not.i.i.i.i101 = icmp eq i32 %call1.i.i.i.i.i100, 0
   br i1 %tobool.not.i.i.i.i101, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103, label %if.then.i.i.i.i.invoke
 
@@ -2539,7 +2539,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103:   ; preds = %if.then.i.i98
   store atomic i8 16, ptr %state2.i.i95 monotonic, align 1
   %state_cv_bytes.i.i.i104 = getelementptr inbounds i8, ptr %56, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i.i104) #18
-  %call1.i.i.i40.i.i105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i.i99) #18
+  %call1.i.i.i40.i.i105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i.i99) #18
   br label %if.end33
 
 if.end33:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i103, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i.i97, %invoke.cont29
@@ -2608,7 +2608,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i114:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %if.then37
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %76, i64 144
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i.i.invoke
 
@@ -2616,7 +2616,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i114
   store atomic i8 4, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %76, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE.exit, %if.end33
@@ -2674,7 +2674,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i13
 
 if.then.i135:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i134, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit131
   %state_mutex_bytes.i.i136 = getelementptr inbounds i8, ptr %89, i64 144
-  %call1.i.i.i.i137 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i136) #18
+  %call1.i.i.i.i137 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i136) #18
   %tobool.not.i.i.i138 = icmp eq i32 %call1.i.i.i.i137, 0
   br i1 %tobool.not.i.i.i138, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140, label %if.then.i.i.i.i.invoke
 
@@ -2682,7 +2682,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140:     ; preds = %if.then.i135
   store atomic i8 2, ptr %state2.i132 monotonic, align 1
   %state_cv_bytes.i.i141 = getelementptr inbounds i8, ptr %89, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i141) #18
-  %call1.i.i.i40.i142 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i136) #18
+  %call1.i.i.i40.i142 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i136) #18
   br label %if.end52
 
 if.end52:                                         ; preds = %lor.lhs.false45, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i140, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i134
@@ -2776,7 +2776,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i16
 
 if.then.i170:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i169, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit166
   %state_mutex_bytes.i.i171 = getelementptr inbounds i8, ptr %106, i64 144
-  %call1.i.i.i.i172 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i171) #18
+  %call1.i.i.i.i172 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i171) #18
   %tobool.not.i.i.i173 = icmp eq i32 %call1.i.i.i.i172, 0
   br i1 %tobool.not.i.i.i173, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175, label %if.then.i.i.i174
 
@@ -2788,7 +2788,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175:     ; preds = %if.then.i170
   store atomic i8 2, ptr %state2.i167 monotonic, align 1
   %state_cv_bytes.i.i176 = getelementptr inbounds i8, ptr %106, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i176) #18
-  %call1.i.i.i40.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i171) #18
+  %call1.i.i.i40.i177 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i171) #18
   br label %if.end66
 
 if.end66:                                         ; preds = %lor.lhs.false59, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i175, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i169
@@ -2875,7 +2875,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i21
 
 if.then.i211:                                     ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i210, %_ZN7rocksdb6StatusaSERKS0_.exit207
   %state_mutex_bytes.i.i212 = getelementptr inbounds i8, ptr %last_writer.0232, i64 144
-  %call1.i.i.i.i213 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i212) #18
+  %call1.i.i.i.i213 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i212) #18
   %tobool.not.i.i.i214 = icmp eq i32 %call1.i.i.i.i213, 0
   br i1 %tobool.not.i.i.i214, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216, label %if.then.i.i.i215
 
@@ -2887,7 +2887,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216:     ; preds = %if.then.i211
   store atomic i8 16, ptr %state2.i208 monotonic, align 1
   %state_cv_bytes.i.i217 = getelementptr inbounds i8, ptr %last_writer.0232, i64 192
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i217) #18
-  %call1.i.i.i40.i218 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i212) #18
+  %call1.i.i.i40.i218 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i212) #18
   br label %_ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit220
 
 _ZN7rocksdb11WriteThread8SetStateEPNS0_6WriterEh.exit220: ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i210, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i216
@@ -2901,7 +2901,7 @@ if.end72:                                         ; preds = %_ZN7rocksdb11WriteT
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb11WriteThread14EnterUnbatchedEPNS0_6WriterEPNS_17InstrumentedMutexE(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr noundef %w, ptr noundef nonnull %mu) local_unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mu)
+  tail call void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %mu)
   %newest_writer_ = getelementptr inbounds i8, ptr %this, i64 40
   %call = tail call noundef zeroext i1 @_ZN7rocksdb11WriteThread7LinkOneEPNS0_6WriterEPSt6atomicIS2_E(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr noundef %w, ptr noundef nonnull %newest_writer_)
   br i1 %call, label %if.end, label %if.then
@@ -2936,7 +2936,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %rate_limiter_priority.i = getelementptr inbounds i8, ptr %w, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %w, i8 0, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %w, i8 0, i64 11, i1 false)
   store i32 4, ptr %rate_limiter_priority.i, align 4
   %disable_memtable.i = getelementptr inbounds i8, ptr %w, i64 16
   store i8 0, ptr %disable_memtable.i, align 16
@@ -2950,7 +2950,7 @@ if.end:                                           ; preds = %entry
   store i64 72057594037927935, ptr %sequence.i, align 16
   %status.i = getelementptr inbounds i8, ptr %w, i64 104
   %state_.i.i = getelementptr inbounds i8, ptr %w, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status.i, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status.i, i8 0, i64 6, i1 false)
   %state_.i1.i = getelementptr inbounds i8, ptr %w, i64 128
   store ptr null, ptr %state_.i1.i, align 16
   %link_older.i = getelementptr inbounds i8, ptr %w, i64 240
@@ -3058,7 +3058,7 @@ _ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i: 
 
 if.then.i:                                        ; preds = %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit
   %state_mutex_bytes.i.i = getelementptr inbounds i8, ptr %9, i64 144
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
 
@@ -3070,7 +3070,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %if.then.i
   store atomic i8 2, ptr %state2.i monotonic, align 1
   %state_cv_bytes.i.i = getelementptr inbounds i8, ptr %9, i64 192
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %state_cv_bytes.i.i) #18
-  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %state_mutex_bytes.i.i) #18
+  %call1.i.i.i40.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %state_mutex_bytes.i.i) #18
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, %_ZNSt13__atomic_baseIhE23compare_exchange_strongERhhSt12memory_orderS2_.exit.i

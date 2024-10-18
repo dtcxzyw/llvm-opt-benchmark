@@ -2954,7 +2954,7 @@ if.then3.i:                                       ; preds = %Py_DECREF.exit.i
   br label %if.end13.i
 
 if.then11.i:                                      ; preds = %Py_DECREF.exit.i
-  %call12.i = tail call fastcc i32 @print_chained(ptr noundef %ctx, ptr noundef %call7.i, ptr noundef nonnull @cause_message)
+  %call12.i = tail call fastcc i32 @print_chained(ptr noundef nonnull %ctx, ptr noundef %call7.i, ptr noundef nonnull @cause_message)
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %Py_DECREF.exit.i, %if.then3.i, %if.then.i29, %if.then11.i
@@ -2982,11 +2982,11 @@ if.end17.i:                                       ; preds = %if.end14.i
   br i1 %tobool19.not.i, label %if.end6, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %call22.i = tail call fastcc zeroext i1 @print_exception_seen_lookup(ptr noundef %ctx, ptr noundef %call18.i)
+  %call22.i = tail call fastcc zeroext i1 @print_exception_seen_lookup(ptr noundef nonnull %ctx, ptr noundef %call18.i)
   br i1 %call22.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then20.i
-  %call24.i = tail call fastcc i32 @print_chained(ptr noundef %ctx, ptr noundef %call18.i, ptr noundef nonnull @context_message)
+  %call24.i = tail call fastcc i32 @print_chained(ptr noundef nonnull %ctx, ptr noundef %call18.i, ptr noundef nonnull @context_message)
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then23.i, %if.then20.i

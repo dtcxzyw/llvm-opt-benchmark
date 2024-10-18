@@ -184,7 +184,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  %20 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %2)
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 12
@@ -206,7 +206,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %33 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %3)
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 12
@@ -228,7 +228,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(100) %4)
   %47 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %5, i64 12
@@ -251,7 +251,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %60 = call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(88) %5)
   %61 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %6, i64 12
@@ -276,7 +276,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %72 = load ptr, ptr %1, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %75 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %6)
   %76 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 12
@@ -301,7 +301,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %87 = load ptr, ptr %1, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %7)
   %91 = getelementptr inbounds i8, ptr %8, i64 8
   %92 = getelementptr inbounds i8, ptr %8, i64 12
   %93 = getelementptr inbounds i8, ptr %8, i64 16
@@ -326,7 +326,7 @@ _ZN3gmx17IOptionsContainer9addOptionINS_11FloatOptionEEEPNT_8InfoTypeERKS3_.exit
   %102 = load ptr, ptr %1, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
-  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(89) %8)
   ret void
 }
 

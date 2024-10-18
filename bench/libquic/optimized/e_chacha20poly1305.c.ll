@@ -154,7 +154,7 @@ if.end11:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %poly1305_key.i, i8 0, i64 32, i1 false)
   call void @CRYPTO_chacha_20(ptr noundef nonnull %poly1305_key.i, ptr noundef nonnull %poly1305_key.i, i64 noundef 32, ptr noundef nonnull %ctx.8.val, ptr noundef %nonce, i32 noundef 0) #8
   call void @CRYPTO_poly1305_init(ptr noundef nonnull %ctx.i, ptr noundef nonnull %poly1305_key.i) #8
-  call void %poly1305_update(ptr noundef nonnull %ctx.i, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %out, i64 noundef %in_len) #8, !callees !7
+  call void %poly1305_update(ptr noundef nonnull %ctx.i, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %out, i64 noundef range(i64 -255, 274877906880) %in_len) #8, !callees !7
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %ctx.i, ptr noundef nonnull %tag) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %poly1305_key.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %ctx.i)
@@ -279,7 +279,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %poly1305_key.i, i8 0, i64 32, i1 false)
   call void @CRYPTO_chacha_20(ptr noundef nonnull %poly1305_key.i, ptr noundef nonnull %poly1305_key.i, i64 noundef 32, ptr noundef nonnull %ctx.8.val, ptr noundef %nonce, i32 noundef 0) #8
   call void @CRYPTO_poly1305_init(ptr noundef nonnull %ctx.i, ptr noundef nonnull %poly1305_key.i) #8
-  call void %poly1305_update(ptr noundef nonnull %ctx.i, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %in, i64 noundef %sub) #8, !callees !7
+  call void %poly1305_update(ptr noundef nonnull %ctx.i, ptr noundef %ad, i64 noundef %ad_len, ptr noundef %in, i64 noundef range(i64 -255, 274877906880) %sub) #8, !callees !7
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %ctx.i, ptr noundef nonnull %tag) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %poly1305_key.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %ctx.i)

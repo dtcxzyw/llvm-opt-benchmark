@@ -1250,7 +1250,7 @@ define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %
   br i1 %10, label %rb_memory_view_extract_item_member.exit, label %.preheader.preheader
 
 rb_memory_view_extract_item_member.exit:          ; preds = %7
-  %11 = tail call fastcc i64 @extract_item_member(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
+  %11 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef 0)
   br label %.loopexit
 
 .preheader.preheader:                             ; preds = %7, %6
@@ -1497,7 +1497,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
   br i1 %96, label %rb_memory_view_extract_item_member.exit.i, label %.preheader.preheader.i
 
 rb_memory_view_extract_item_member.exit.i:        ; preds = %93
-  %97 = call fastcc i64 @extract_item_member(ptr noundef readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
+  %97 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef nonnull readonly %87, i64 noundef 0)
   br label %rb_memory_view_extract_item_members.exit
 
 .preheader.preheader.i:                           ; preds = %93, %92

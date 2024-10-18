@@ -109,7 +109,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_pci(ptr nocapture noundef %0, p
   br i1 %.not.i.i.i.i, label %41, label %43
 
 41:                                               ; preds = %.lr.ph168
-  %42 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef %40, i32 noundef 0) #11
+  %42 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef range(i32 0, -2) %40, i32 noundef 0) #11
   br label %hwloc_get_next_pcidev.exit.i
 
 43:                                               ; preds = %.lr.ph168
@@ -190,7 +190,7 @@ hwloc_pci_get_obj_names.exit.i:                   ; preds = %69, %67, %65
   br i1 %.not.i.i.i12.i, label %74, label %76
 
 74:                                               ; preds = %.lr.ph.i
-  %75 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef %73, i32 noundef 0) #11
+  %75 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %22, i32 noundef range(i32 0, -2) %73, i32 noundef 0) #11
   br label %hwloc_get_next_bridge.exit.i
 
 76:                                               ; preds = %.lr.ph.i

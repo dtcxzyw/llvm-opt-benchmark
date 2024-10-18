@@ -401,7 +401,7 @@ define hidden noundef ptr @_ZN13MemoryManager27get_memory_manager_instanceEP10Ja
   br label %_ZNK14instanceHandleclEv.exit
 
 72:                                               ; preds = %60
-  %73 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef 8, i32 noundef 0) #13
+  %73 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %62, i64 noundef 8, i32 noundef 0) #13
   br label %_ZNK14instanceHandleclEv.exit
 
 _ZNK14instanceHandleclEv.exit:                    ; preds = %70, %72
@@ -501,7 +501,7 @@ define hidden void @_ZN10GCStatInfoC2Ei(ptr nocapture noundef nonnull align 8 de
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 24, i1 false)
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph.i, label %_ZN10GCStatInfo5clearEv.exit
 
@@ -712,7 +712,7 @@ define hidden void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonn
 
 _ZN15GCMemoryManager8add_poolEP10MemoryPoolb.exit: ; preds = %._ZN13MemoryManager8add_poolEP10MemoryPool.exit_crit_edge.i, %6
   %.pre-phi.i = phi i64 [ %.pre.i, %._ZN13MemoryManager8add_poolEP10MemoryPool.exit_crit_edge.i ], [ %8, %6 ]
-  tail call void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 dereferenceable(201) %1, ptr noundef nonnull %0) #13
+  tail call void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 dereferenceable(201) %1, ptr noundef nonnull align 8 dereferenceable(191) %0) #13
   %12 = getelementptr inbounds i8, ptr %0, i64 181
   %13 = getelementptr inbounds [10 x i8], ptr %12, i64 0, i64 %.pre-phi.i
   store i8 1, ptr %13, align 1
@@ -743,7 +743,7 @@ define hidden void @_ZN15GCMemoryManager8add_poolEP10MemoryPoolb(ptr noundef non
 _ZN13MemoryManager8add_poolEP10MemoryPool.exit:   ; preds = %._ZN13MemoryManager8add_poolEP10MemoryPool.exit_crit_edge, %7
   %.pre-phi = phi i64 [ %.pre, %._ZN13MemoryManager8add_poolEP10MemoryPool.exit_crit_edge ], [ %9, %7 ]
   %13 = zext i1 %2 to i8
-  tail call void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 dereferenceable(201) %1, ptr noundef nonnull %0) #13
+  tail call void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 dereferenceable(201) %1, ptr noundef nonnull align 8 dereferenceable(113) %0) #13
   %14 = getelementptr inbounds i8, ptr %0, i64 181
   %15 = getelementptr inbounds [10 x i8], ptr %14, i64 0, i64 %.pre-phi
   store i8 %13, ptr %15, align 1
@@ -765,7 +765,7 @@ define hidden void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr nocaptur
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %4, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %2, i8 0, i64 24, i1 false)
   %12 = icmp sgt i32 %4, 0
   br i1 %12, label %.lr.ph.i.i, label %_ZN10GCStatInfoC2Ei.exit
 
@@ -811,7 +811,7 @@ _ZN10GCStatInfoC2Ei.exit:                         ; preds = %.lr.ph9.i.i, %1, %.
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %25, i64 40
   store i32 %27, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %25, i8 0, i64 24, i1 false)
   %35 = icmp sgt i32 %27, 0
   br i1 %35, label %.lr.ph.i.i6, label %_ZN10GCStatInfoC2Ei.exit13
 
@@ -1073,7 +1073,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %73, %79
   store ptr %83, ptr %80, align 8
   store ptr %81, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %81, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %81, i8 0, i64 24, i1 false)
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph.i, label %_ZN10GCStatInfo5clearEv.exit

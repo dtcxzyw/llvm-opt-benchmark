@@ -2439,7 +2439,7 @@ zend_accel_set_auto_globals.exit:                 ; preds = %133, %135
   tail call void @zend_optimize_script(ptr noundef nonnull %145, i64 noundef %149, i64 noundef %150) #24
   tail call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef nonnull %145) #24
   store i32 %147, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  %151 = tail call fastcc ptr @store_script_in_file_cache(ptr noundef %145)
+  %151 = tail call fastcc ptr @store_script_in_file_cache(ptr noundef nonnull %145)
   %152 = tail call ptr @zend_accel_load_script(ptr noundef %151, i32 noundef 1) #24
   br label %155
 
@@ -3987,7 +3987,7 @@ zend_accel_schedule_restart_if_necessary.exit104: ; preds = %62, %72
   br label %.sink.split
 
 76:                                               ; preds = %53
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %61, i8 0, i64 %55, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %61, i8 0, i64 range(i64 0, 4294967296) %55, i1 false)
   tail call void @zend_shared_alloc_clear_xlat_table() #24
   %77 = tail call ptr @zend_accel_script_persist(ptr noundef nonnull %0, i32 noundef 1) #24
   tail call void @zend_shared_alloc_destroy_xlat_table() #24
@@ -10520,8 +10520,8 @@ preload_register_trait_methods.exit118.i:         ; preds = %665, %644, %639, %.
 ._crit_edge139.i:                                 ; preds = %.loopexit128.i, %._crit_edge.i177
   %669 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 104), align 8
   %670 = load i64, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 112), align 8
-  call void @zend_optimize_script(ptr noundef %325, i64 noundef %669, i64 noundef %670) #24
-  call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef %325) #24
+  call void @zend_optimize_script(ptr noundef nonnull %325, i64 noundef %669, i64 noundef %670) #24
+  call void @zend_accel_finalize_delayed_early_binding_list(ptr noundef nonnull %325) #24
   %671 = load ptr, ptr %572, align 8
   %672 = load i32, ptr %472, align 8
   %673 = zext i32 %672 to i64
@@ -12419,7 +12419,7 @@ define internal fastcc noundef ptr @preload_script_in_shared_memory(ptr noundef 
   unreachable
 
 18:                                               ; preds = %7
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %16, i8 0, i64 %10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %16, i8 0, i64 range(i64 0, 4294967296) %10, i1 false)
   tail call void @zend_shared_alloc_restore_xlat_table(i32 noundef %8) #24
   %19 = tail call ptr @zend_accel_script_persist(ptr noundef %0, i32 noundef 1) #24
   %20 = load ptr, ptr %19, align 8

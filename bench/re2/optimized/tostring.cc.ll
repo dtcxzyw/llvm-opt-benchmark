@@ -165,7 +165,7 @@ lpad2:                                            ; preds = %invoke.cont, %if.th
 
 if.end:                                           ; preds = %if.then, %invoke.cont3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %w, align 8
-  invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %w)
+  invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(104) %w)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end
@@ -1055,7 +1055,7 @@ declare void @_ZN3re29CharClass6DeleteEv(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN3re214ToStringWalkerD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerIiEE, i64 16), ptr %this, align 8
-  invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
+  invoke void @_ZN3re26Regexp6WalkerIiE5ResetEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry

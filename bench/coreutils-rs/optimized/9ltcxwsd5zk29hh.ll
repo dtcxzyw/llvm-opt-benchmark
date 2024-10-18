@@ -166,7 +166,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17ha00fe96774c9b1deE(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #1 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -698,7 +698,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17hc669f4c9f
   store ptr %7, ptr %15, align 8, !alias.scope !211, !noalias !214
   %16 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 1, ptr %16, align 8, !alias.scope !211, !noalias !214
-  %17 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %17 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
           to label %18 unwind label %32
 
 18:                                               ; preds = %2
@@ -812,7 +812,7 @@ define hidden noundef ptr @_ZN9crossterm7command18write_command_ansi17he538d8a21
   store ptr %10, ptr %21, align 8, !alias.scope !241, !noalias !244
   %22 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 2, ptr %22, align 8, !alias.scope !241, !noalias !244
-  %23 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
+  %23 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfd385161d0471b6c80ea7dc24a36135.14.llvm.228285666965895176, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
           to label %24 unwind label %38
 
 24:                                               ; preds = %3

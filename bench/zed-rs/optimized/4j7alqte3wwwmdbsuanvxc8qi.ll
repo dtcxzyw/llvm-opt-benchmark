@@ -166,7 +166,7 @@ define void @_ZN10file_icons9FileIcons8get_icon17h71d36ab2c63efbbaE(ptr dead_on_
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %63 = getelementptr i8, ptr %61, i64 -40
   %.val4.i.i.i.i = load ptr, ptr %63, align 8, !noalias !82, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %34, ptr nonnull readonly %.val4.i.i.i.i, i64 %35), !alias.scope !83, !noalias !90
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %.val4.i.i.i.i, i64 %35), !alias.scope !83, !noalias !90
   %64 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %64, label %"_ZN10file_icons9FileIcons8get_icon28_$u7b$$u7b$closure$u7d$$u7d$17h20710504ae1c8e89E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.thread.i.i.i"
 
@@ -242,7 +242,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i25.i": ; preds = %.lr.ph.i.i15.i
   %99 = getelementptr i8, ptr %97, i64 -40
   %.val4.i.i.i26.i = load ptr, ptr %99, align 8, !noalias !141, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i.i.i.i27.i = call i32 @bcmp(ptr nonnull readonly %34, ptr nonnull readonly %.val4.i.i.i26.i, i64 %35), !alias.scope !142, !noalias !149
+  %bcmp.i.i.i.i.i.i.i27.i = call i32 @bcmp(ptr nonnull readonly align 1 %34, ptr nonnull readonly align 1 %.val4.i.i.i26.i, i64 %35), !alias.scope !142, !noalias !149
   %100 = icmp eq i32 %bcmp.i.i.i.i.i.i.i27.i, 0
   br i1 %100, label %"_ZN10file_icons9FileIcons8get_icon28_$u7b$$u7b$closure$u7d$$u7d$17h20710504ae1c8e89E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.thread.i.i19.i"
 
@@ -291,7 +291,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 116:                                              ; preds = %114
   %117 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$17h1b607b1d13288aceE"(ptr noalias noundef align 8 dereferenceable(24) %8) #12
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$17h1b607b1d13288aceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #12
           to label %118 unwind label %119, !noalias !155
 
 118:                                              ; preds = %116
@@ -368,7 +368,7 @@ define void @_ZN10file_icons9FileIcons13get_type_icon17hd49fd1aef0b5176bE(ptr de
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbd30a5b97f03966bE.exit.i.i": ; preds = %.lr.ph.i.i
   %32 = getelementptr i8, ptr %30, i64 -40
   %.val4.i.i.i = load ptr, ptr %32, align 8, !noalias !209, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %.val4.i.i.i, i64 %3), !alias.scope !210, !noalias !217
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %3), !alias.scope !210, !noalias !217
   %33 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %33, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc1ce78f09024ccfeE.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbd30a5b97f03966bE.exit.thread.i.i"
 

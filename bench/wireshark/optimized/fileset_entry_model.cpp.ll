@@ -136,7 +136,7 @@ define void @_ZNK17FilesetEntryModel4dataERK11QModelIndexi(ptr dead_on_unwind no
   br i1 %.not, label %29, label %.critedge
 
 .critedge:                                        ; preds = %4, %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %28, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -417,7 +417,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61:    ; preds = %123
   br label %_ZN7QStringD2Ev.exit
 
 131:                                              ; preds = %116, %35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %132 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %132, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -914,7 +914,7 @@ define void @_ZNK17FilesetEntryModel10headerDataEiN2Qt11OrientationEi(ptr dead_o
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %11, align 8
   br label %_ZN7QStringD2Ev.exit
@@ -1056,7 +1056,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %49
   br i1 %.not.i.i31, label %_ZN7QStringD2Ev.exit8.sink.split, label %_ZN7QStringD2Ev.exit8
 
 53:                                               ; preds = %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %54 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %54, align 8
   br label %_ZN7QStringD2Ev.exit

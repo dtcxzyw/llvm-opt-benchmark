@@ -3302,7 +3302,7 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 6:                                                ; preds = %6, %2
   %.idx = phi i64 [ 96, %2 ], [ %.add, %6 ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr, i8 0, i64 32, i1 false)
   %.add = add nuw nsw i64 %.idx, 40
   %7 = icmp eq i64 %.add, 256
   br i1 %7, label %8, label %6
@@ -3314,7 +3314,7 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3325,7 +3325,7 @@ define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture nound
 8:                                                ; preds = %8, %4
   %.idx.i = phi i64 [ 96, %4 ], [ %.add.i, %8 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %9 = icmp eq i64 %.add.i, 256
   br i1 %9, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %8
@@ -3805,7 +3805,7 @@ define dso_local void @_ZN2c43yml4Tree5_freeEv(ptr nocapture noundef nonnull ali
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %42, %27
   %49 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %49, i8 0, i64 160, i1 false)
   ret void
 }
@@ -3826,7 +3826,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #26
 define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3837,7 +3837,7 @@ define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr nocapture noundef nonnull ali
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4059,7 +4059,7 @@ define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4Tr
 define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 -1, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4070,7 +4070,7 @@ define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr nocapture noundef nonnull alig
 7:                                                ; preds = %7, %2
   %.idx.i = phi i64 [ 96, %2 ], [ %.add.i, %7 ]
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.ptr.i, i8 0, i64 32, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %8 = icmp eq i64 %.add.i, 256
   br i1 %8, label %_ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit, label %7
@@ -4207,7 +4207,7 @@ define dso_local void @_ZN2c43yml4Tree5_moveERS1_(ptr nocapture noundef nonnull 
   br i1 %exitcond.not, label %_ZN2c43yml4Tree6_clearEv.exit, label %66, !llvm.loop !56
 
 _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %1, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %64, i8 0, i64 160, i1 false)
   ret void
 }
@@ -8988,7 +8988,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mm
   br i1 %.not86, label %82, label %80
 
 80:                                               ; preds = %75
-  %81 = call noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %.075123, i64 noundef %3, i64 noundef %.076121)
+  %81 = call noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.075123, i64 noundef %3, i64 noundef %.076121)
   br label %120
 
 82:                                               ; preds = %75
@@ -10339,7 +10339,7 @@ define dso_local void @_ZN2c43yml4Tree7resolveEv(ptr noundef nonnull align 8 der
 26:                                               ; preds = %1
   store ptr %0, ptr %2, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %27, i8 0, i64 768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %27, i8 0, i64 768, i1 false)
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -10566,7 +10566,7 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   %.0146. = select i1 %.not173, i64 %.0146244, i64 %130
   %133 = getelementptr inbounds i8, ptr %.0149243, i64 24
   %134 = load i64, ptr %133, align 8
-  %135 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %134, i64 noundef %132, i64 noundef %.0146.)
+  %135 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %134, i64 noundef %132, i64 noundef %.0146.)
           to label %_ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit unwind label %.loopexit.split-lp
 
 _ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit: ; preds = %128
@@ -10656,7 +10656,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread221: ; preds = %._crit_edg
   %170 = load i64, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %.0149243, i64 24
   %172 = load i64, ptr %171, align 8
-  %173 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %172, i64 noundef %168, i64 noundef %170)
+  %173 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %172, i64 noundef %168, i64 noundef %170)
           to label %_ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit177 unwind label %.loopexit.split-lp
 
 _ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit177: ; preds = %164
@@ -11051,7 +11051,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit210.thread230: ; preds = %._crit_
   br label %_ZN2c43yml4Tree6removeEm.exit.sink.split
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit210.thread: ; preds = %.lr.ph.i204, %289, %._crit_edge.i208, %265
-  invoke void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %0, i64 noundef %268, i64 noundef %.pre278)
+  invoke void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %268, i64 noundef %.pre278)
           to label %_ZN2c43yml4Tree6removeEm.exit unwind label %.loopexit.split-lp
 
 _ZN2c43yml4Tree6removeEm.exit.sink.split:         ; preds = %231, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit200.thread227, %303
@@ -15280,7 +15280,7 @@ define dso_local void @_ZN2c43yml6ParserC2EOS1_(ptr noundef nonnull align 8 dere
   %28 = getelementptr inbounds i8, ptr %1, i64 2496
   %29 = load i64, ptr %28, align 8
   %30 = mul i64 %29, 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %19, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(2488) %14, ptr nonnull align 8 dereferenceable(2488) %19, i64 %30, i1 false)
   br label %31
 
 31:                                               ; preds = %27, %18
@@ -15428,7 +15428,7 @@ define dso_local void @_ZN2c43yml6ParserC2ERKS1_(ptr noundef nonnull align 8 der
   %34 = load ptr, ptr %33, align 8
   %35 = mul i64 %29, 152
   %36 = load ptr, ptr %27, align 8
-  %37 = invoke noundef ptr %34(i64 noundef %35, ptr noundef nonnull %18, ptr noundef %36)
+  %37 = invoke noundef ptr %34(i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(2488) %18, ptr noundef %36)
           to label %.noexc.i unwind label %48
 
 .noexc.i:                                         ; preds = %32
@@ -15908,7 +15908,7 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE3_cbERKNS0_9CallbacksE.exit.i: ;
   %80 = getelementptr inbounds i8, ptr %1, i64 2496
   %81 = load i64, ptr %80, align 8
   %82 = mul i64 %81, 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %48, i64 %82, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(2488) %24, ptr nonnull align 8 dereferenceable(2488) %48, i64 %82, i1 false)
   br label %_ZN2c43yml6detail5stackINS0_6Parser5StateELm16EEaSEOS5_.exit
 
 83:                                               ; preds = %70
@@ -35311,7 +35311,7 @@ define dso_local void @_ZN2c43yml6Parser17_handle_directiveENS_15basic_substring
   br i1 %.not.i, label %10, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit92
 
 _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
   %16 = getelementptr inbounds i8, ptr %1, i64 4
   %17 = add i64 %2, -4
   %.not.i55 = icmp eq i64 %17, 0
@@ -50130,7 +50130,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %65 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %66 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
-  call void %65(ptr noundef nonnull %4, i64 noundef 1023, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %66)
+  call void %65(ptr noundef nonnull align 1 dereferenceable(1024) %4, i64 noundef 1023, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %66)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   br label %.critedge
 

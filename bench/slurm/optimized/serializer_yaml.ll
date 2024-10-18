@@ -307,7 +307,7 @@ define range(i32 0, 9203) i32 @serialize_p_string_to_data(ptr nocapture noundef 
 _parse_yaml.exit:                                 ; preds = %13
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @yaml_parser_set_input_string(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %15) #6
-  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef %5, ptr noundef nonnull %12, ptr noundef %4)
+  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef %4)
   %17 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not16 = icmp eq i32 %17, 0
@@ -965,7 +965,7 @@ thread-pre-split:                                 ; preds = %5
 
 41:                                               ; preds = %40, %37, %33
   %42 = add nsw i32 %0, 1
-  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef %1, ptr noundef %34, ptr noundef %4)
+  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef nonnull %1, ptr noundef %34, ptr noundef nonnull %4)
   br label %common.ret4
 
 44:                                               ; preds = %28

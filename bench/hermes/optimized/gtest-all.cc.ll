@@ -1265,13 +1265,13 @@ if.then:                                          ; preds = %entry
           to label %call.i8.noexc unwind label %lpad2
 
 call.i8.noexc:                                    ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %if.end.i unwind label %lpad2
 
 lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %ehcleanup23
 
 if.end.i:                                         ; preds = %call.i8.noexc
@@ -1301,7 +1301,7 @@ if.then10:                                        ; preds = %if.then6
           to label %call.i11.noexc unwind label %lpad13
 
 call.i11.noexc:                                   ; preds = %if.then10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i1116, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i1116, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
           to label %.noexc17 unwind label %lpad13
 
 .noexc17:                                         ; preds = %call.i11.noexc
@@ -1311,7 +1311,7 @@ call.i11.noexc:                                   ; preds = %if.then10
 lpad.i15:                                         ; preds = %.noexc17
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #50
   br label %ehcleanup23
 
 invoke.cont14:                                    ; preds = %.noexc17
@@ -1340,7 +1340,7 @@ if.end18:                                         ; preds = %if.then6, %if.end
           to label %call.i22.noexc unwind label %lpad20
 
 call.i22.noexc:                                   ; preds = %if.end18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i2230, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i2230, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
           to label %.noexc31 unwind label %lpad20
 
 .noexc31:                                         ; preds = %call.i22.noexc
@@ -1357,7 +1357,7 @@ invoke.cont.i29:                                  ; preds = %if.then.i28
 lpad.i27:                                         ; preds = %if.end.i24, %if.then.i28
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %ehcleanup23
 
 if.end.i24:                                       ; preds = %.noexc31
@@ -1714,7 +1714,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %message, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %message, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1731,7 +1731,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %message) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %message) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -1975,7 +1975,7 @@ invoke.cont:                                      ; preds = %entry
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %mutex_, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #50
+  %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i.i
 
@@ -2384,7 +2384,7 @@ if.end62:                                         ; preds = %if.then55, %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i138)
   %has_owner_.i.i139 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %has_owner_.i.i139, align 8
-  %call.i.i140 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #50
+  %call.i.i140 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i141 = icmp eq i32 %call.i.i140, 0
   br i1 %tobool.not.i.i141, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i142
 
@@ -2656,7 +2656,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2666,7 +2666,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2701,7 +2701,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2713,7 +2713,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %cleanup.action14
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2779,7 +2779,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2789,7 +2789,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 lpad:                                             ; preds = %call.i.noexc, %if.then
@@ -2808,13 +2808,13 @@ cond.true:                                        ; preds = %if.end
           to label %call.i.noexc13 unwind label %lpad4
 
 call.i.noexc13:                                   ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %if.end.i unwind label %lpad4
 
 lpad.i12:                                         ; preds = %if.end.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 if.end.i:                                         ; preds = %call.i.noexc13
@@ -2901,7 +2901,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2911,7 +2911,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2971,7 +2971,7 @@ _ZN7testing8UnitTest11GetInstanceEv.exit:         ; preds = %if.then3, %init.che
           to label %call.i.noexc30 unwind label %lpad10
 
 call.i.noexc30:                                   ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %call.i31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %.noexc32 unwind label %lpad10
 
 .noexc32:                                         ; preds = %call.i.noexc30
@@ -2988,7 +2988,7 @@ invoke.cont.i29:                                  ; preds = %if.then.i
 lpad.i28:                                         ; preds = %if.end.i, %if.then.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #50
   br label %ehcleanup31
 
 if.end.i:                                         ; preds = %.noexc32
@@ -3017,7 +3017,7 @@ invoke.cont13:                                    ; preds = %.noexc37
           to label %call.i.noexc43 unwind label %lpad17
 
 call.i.noexc43:                                   ; preds = %invoke.cont13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef %call.i44, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc45 unwind label %lpad17
 
 .noexc45:                                         ; preds = %call.i.noexc43
@@ -3027,7 +3027,7 @@ call.i.noexc43:                                   ; preds = %invoke.cont13
 lpad.i42:                                         ; preds = %.noexc45
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #50
   br label %ehcleanup28
 
 invoke.cont18:                                    ; preds = %.noexc45
@@ -3126,7 +3126,7 @@ if.end32:                                         ; preds = %if.end
           to label %call.i.noexc60 unwind label %lpad35
 
 call.i.noexc60:                                   ; preds = %if.end32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33, ptr noundef %call.i61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef %call.i61, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
           to label %.noexc62 unwind label %lpad35
 
 .noexc62:                                         ; preds = %call.i.noexc60
@@ -3138,7 +3138,7 @@ call.i.noexc60:                                   ; preds = %if.end32
 lpad.i57:                                         ; preds = %.noexc62
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #50
   br label %ehcleanup40
 
 invoke.cont36:                                    ; preds = %.noexc62
@@ -3197,7 +3197,7 @@ invoke.cont50:                                    ; preds = %if.then44, %init.ch
           to label %call.i80.noexc unwind label %lpad53
 
 call.i80.noexc:                                   ; preds = %invoke.cont50
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47, ptr noundef %call.i8088, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef %call.i8088, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52)
           to label %.noexc89 unwind label %lpad53
 
 .noexc89:                                         ; preds = %call.i80.noexc
@@ -3214,7 +3214,7 @@ invoke.cont.i87:                                  ; preds = %if.then.i86
 lpad.i85:                                         ; preds = %if.end.i82, %if.then.i86
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #50
   br label %ehcleanup76
 
 if.end.i82:                                       ; preds = %.noexc89
@@ -3243,7 +3243,7 @@ invoke.cont56:                                    ; preds = %.noexc94
           to label %call.i97.noexc unwind label %lpad61
 
 call.i97.noexc:                                   ; preds = %invoke.cont56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp58, ptr noundef %call.i97105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58, ptr noundef %call.i97105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60)
           to label %.noexc106 unwind label %lpad61
 
 .noexc106:                                        ; preds = %call.i97.noexc
@@ -3255,7 +3255,7 @@ call.i97.noexc:                                   ; preds = %invoke.cont56
 lpad.i102:                                        ; preds = %.noexc106
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #50
   br label %ehcleanup73
 
 invoke.cont62:                                    ; preds = %.noexc106
@@ -3766,7 +3766,7 @@ if.else:                                          ; preds = %invoke.cont
           to label %call.i9.noexc unwind label %lpad12
 
 call.i9.noexc:                                    ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10, ptr noundef %call.i911, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %call.i911, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %call.i9.noexc
@@ -3778,7 +3778,7 @@ call.i9.noexc:                                    ; preds = %if.else
 lpad.i10:                                         ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #50
   br label %lpad12.body
 
 invoke.cont13:                                    ; preds = %.noexc
@@ -3791,7 +3791,7 @@ invoke.cont13:                                    ; preds = %.noexc
           to label %call.i12.noexc unwind label %lpad17
 
 call.i12.noexc:                                   ; preds = %invoke.cont13
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i1214, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef %call.i1214, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc15 unwind label %lpad17
 
 .noexc15:                                         ; preds = %call.i12.noexc
@@ -3803,7 +3803,7 @@ call.i12.noexc:                                   ; preds = %invoke.cont13
 lpad.i13:                                         ; preds = %.noexc15
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #50
   br label %lpad17.body
 
 invoke.cont18:                                    ; preds = %.noexc15
@@ -3986,7 +3986,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %global_test_part_result_reporter_mutex_ = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %global_test_part_result_reporter_mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -4023,7 +4023,7 @@ _ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit: ; preds = %entry, 
   %1 = load ptr, ptr %global_test_part_result_repoter_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i1)
   store i8 0, ptr %has_owner_.i.i, align 8
-  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %global_test_part_result_reporter_mutex_) #50
+  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_) #50
   %tobool.not.i.i4 = icmp eq i32 %call.i.i3, 0
   br i1 %tobool.not.i.i4, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i5
 
@@ -4076,7 +4076,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %global_test_part_result_reporter_mutex_ = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %global_test_part_result_reporter_mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -4113,7 +4113,7 @@ _ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit: ; preds = %entry, 
   store ptr %reporter, ptr %global_test_part_result_repoter_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i1)
   store i8 0, ptr %has_owner_.i.i, align 8
-  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %global_test_part_result_reporter_mutex_) #50
+  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_) #50
   %tobool.not.i.i4 = icmp eq i32 %call.i.i3, 0
   br i1 %tobool.not.i.i4, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i5
 
@@ -4309,7 +4309,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %expected, ptr noundef %call.i15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %expected, ptr noundef %call.i15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -4321,7 +4321,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %expected) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -5063,12 +5063,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(11) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -5206,12 +5206,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(2) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(2) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -5282,12 +5282,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(14) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(14) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -5355,12 +5355,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(3) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -5600,7 +5600,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %has_owner_.i = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %has_owner_.i, align 8
-  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #50
+  %call.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %0) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
@@ -6922,7 +6922,7 @@ if.then:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -6932,7 +6932,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -8553,7 +8553,7 @@ for.body:                                         ; preds = %while.end, %for.inc
   br i1 %cmp.i.i.i.i.i, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %10, ptr noundef nonnull %hunk_removes_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %hunk_removes_.i) #50
   %11 = load i64, ptr %.sink.i.sroa.gep135, align 8
   %12 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i.i.i = add i64 %12, %11
@@ -8567,7 +8567,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6
   br i1 %cmp.i.i.i1.i.i, label %sw.epilog.sink.split.i, label %if.then.i.i2.i.i
 
 if.then.i.i2.i.i:                                 ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %13, ptr noundef nonnull %hunk_adds_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(24) %hunk_adds_.i) #50
   %14 = load i64, ptr %.sink.i.sroa.gep, align 8
   %15 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i5.i.i = add i64 %15, %14
@@ -8584,7 +8584,7 @@ for.inc:                                          ; preds = %sw.epilog.sink.spli
   store i8 32, ptr %_M_storage.i.i.i.i10.i, align 8
   %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i9.i39, i64 24
   store ptr %call18, ptr %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i39, ptr noundef nonnull %hunk_.i) #50
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i39, ptr noundef nonnull align 8 dereferenceable(24) %hunk_.i) #50
   %16 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i12.i = add i64 %16, 1
   store i64 %add.i.i.i12.i, ptr %.sink.i.sroa.gep136, align 8
@@ -8686,7 +8686,7 @@ sw.bb.i:                                          ; preds = %if.then60
   br i1 %cmp.i.i.i.i.i68, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i73, label %if.then.i.i.i.i69
 
 if.then.i.i.i.i69:                                ; preds = %sw.bb.i
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %22, ptr noundef nonnull %hunk_removes_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %hunk_removes_.i) #50
   %23 = load i64, ptr %.sink.i.sroa.gep135, align 8
   %24 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i.i.i72 = add i64 %24, %23
@@ -8700,7 +8700,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6
   br i1 %cmp.i.i.i1.i.i75, label %sw.epilog.sink.split.i58, label %if.then.i.i2.i.i76
 
 if.then.i.i2.i.i76:                               ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i73
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %25, ptr noundef nonnull %hunk_adds_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %hunk_adds_.i) #50
   %26 = load i64, ptr %.sink.i.sroa.gep, align 8
   %27 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i5.i.i79 = add i64 %27, %26
@@ -8725,7 +8725,7 @@ call5.i.i.i.i.i.i9.i.noexc:                       ; preds = %sw.epilog.sink.spli
   store i8 %cond62, ptr %_M_storage.i.i.i.i10.i59, align 8
   %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i60 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i9.i80, i64 24
   store ptr %call64, ptr %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i60, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i80, ptr noundef nonnull %hunk_adds_.sink.i) #50
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i80, ptr noundef nonnull align 8 dereferenceable(24) %hunk_adds_.sink.i) #50
   %29 = load i64, ptr %.sink.i.sroa.phi, align 8
   %add.i.i.i12.i62 = add i64 %29, 1
   store i64 %add.i.i.i12.i62, ptr %.sink.i.sroa.phi, align 8
@@ -8751,7 +8751,7 @@ _ZN7testing8internal13edit_distance12_GLOBAL__N_14Hunk8PushLineEcPKc.exit96: ; p
   store i8 43, ptr %_M_storage.i.i.i.i10.i90, align 8
   %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i91 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i9.i95, i64 24
   store ptr %call72, ptr %ref.tmp10.sroa.213.0._M_storage.i.i.i.i10.sroa_idx.i91, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i95, ptr noundef nonnull %hunk_adds_.i) #50
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i9.i95, ptr noundef nonnull align 8 dereferenceable(24) %hunk_adds_.i) #50
   %33 = load i64, ptr %.sink.i.sroa.gep, align 8
   %add.i.i.i12.i93 = add i64 %33, 1
   store i64 %add.i.i.i12.i93, ptr %.sink.i.sroa.gep, align 8
@@ -8863,7 +8863,7 @@ call24.i.i.noexc:                                 ; preds = %_ZNK7testing8intern
   br i1 %cmp.i.i.i.i.i99, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i104, label %if.then.i.i.i.i100
 
 if.then.i.i.i.i100:                               ; preds = %call24.i.i.noexc
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %46, ptr noundef nonnull %hunk_removes_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(24) %hunk_removes_.i) #50
   %47 = load i64, ptr %.sink.i.sroa.gep135, align 8
   %48 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i.i.i103 = add i64 %48, %47
@@ -8877,7 +8877,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6
   br i1 %cmp.i.i.i1.i.i106, label %_ZN7testing8internal13edit_distance12_GLOBAL__N_14Hunk10FlushEditsEv.exit.i, label %if.then.i.i2.i.i107
 
 if.then.i.i2.i.i107:                              ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EE6spliceESt20_List_const_iteratorIS4_ERS6_.exit.i.i104
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %49, ptr noundef nonnull %hunk_adds_.i) #50
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %hunk_.i, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(24) %hunk_adds_.i) #50
   %50 = load i64, ptr %.sink.i.sroa.gep, align 8
   %51 = load i64, ptr %.sink.i.sroa.gep136, align 8
   %add.i.i.i5.i.i110 = add i64 %51, %50
@@ -8920,7 +8920,7 @@ cleanup:                                          ; preds = %call12.i.noexc, %_Z
 while.body.i.i.i.i:                               ; preds = %cleanup, %while.body.i.i.i.i
   %__cur.05.i.i.i.i = phi ptr [ %55, %while.body.i.i.i.i ], [ %54, %cleanup ]
   %55 = load ptr, ptr %__cur.05.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #54
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i) #54
   %cmp.not.i.i.i.i = icmp eq ptr %55, %hunk_removes_.i
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !65
 
@@ -8932,7 +8932,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit.i: ; preds = %while.body.i.i.i
 while.body.i.i.i2.i:                              ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit.i, %while.body.i.i.i2.i
   %__cur.05.i.i.i3.i = phi ptr [ %57, %while.body.i.i.i2.i ], [ %56, %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit.i ]
   %57 = load ptr, ptr %__cur.05.i.i.i3.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i3.i) #54
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i3.i) #54
   %cmp.not.i.i.i4.i = icmp eq ptr %57, %hunk_adds_.i
   br i1 %cmp.not.i.i.i4.i, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5.i, label %while.body.i.i.i2.i, !llvm.loop !65
 
@@ -8944,7 +8944,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5.i: ; preds = %while.body.i.i.
 while.body.i.i.i7.i:                              ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5.i, %while.body.i.i.i7.i
   %__cur.05.i.i.i8.i = phi ptr [ %59, %while.body.i.i.i7.i ], [ %58, %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5.i ]
   %59 = load ptr, ptr %__cur.05.i.i.i8.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i8.i) #54
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i8.i) #54
   %cmp.not.i.i.i9.i = icmp eq ptr %59, %hunk_.i
   br i1 %cmp.not.i.i.i9.i, label %_ZN7testing8internal13edit_distance12_GLOBAL__N_14HunkD2Ev.exit, label %while.body.i.i.i7.i, !llvm.loop !65
 
@@ -8997,7 +8997,7 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #54
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #54
   %cmp.not.i.i.i = icmp eq ptr %1, %hunk_removes_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !65
 
@@ -9010,7 +9010,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit: ; preds = %while.body.i.i.i, 
 while.body.i.i.i2:                                ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit, %while.body.i.i.i2
   %__cur.05.i.i.i3 = phi ptr [ %3, %while.body.i.i.i2 ], [ %2, %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit ]
   %3 = load ptr, ptr %__cur.05.i.i.i3, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i3) #54
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i3) #54
   %cmp.not.i.i.i4 = icmp eq ptr %3, %hunk_adds_
   br i1 %cmp.not.i.i.i4, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5, label %while.body.i.i.i2, !llvm.loop !65
 
@@ -9023,7 +9023,7 @@ _ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5: ; preds = %while.body.i.i.i2
 while.body.i.i.i7:                                ; preds = %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5, %while.body.i.i.i7
   %__cur.05.i.i.i8 = phi ptr [ %5, %while.body.i.i.i7 ], [ %4, %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit5 ]
   %5 = load ptr, ptr %__cur.05.i.i.i8, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i8) #54
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i8) #54
   %cmp.not.i.i.i9 = icmp eq ptr %5, %hunk_
   br i1 %cmp.not.i.i.i9, label %_ZNSt7__cxx114listISt4pairIcPKcESaIS4_EED2Ev.exit10, label %while.body.i.i.i7, !llvm.loop !65
 
@@ -10509,12 +10509,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(24) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(24) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -10667,12 +10667,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(6) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -10740,12 +10740,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(5) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -10813,12 +10813,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(17) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -10886,12 +10886,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(9) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -10959,12 +10959,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(15) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -11032,12 +11032,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(7) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -11673,12 +11673,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(12) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -12510,12 +12510,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(13) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -12678,12 +12678,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(29) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(29) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -13593,7 +13593,7 @@ if.end49:                                         ; preds = %if.then8, %if.else3
           to label %call.i17.noexc unwind label %lpad51
 
 call.i17.noexc:                                   ; preds = %if.end49
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1721, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1721, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
           to label %.noexc unwind label %lpad51
 
 .noexc:                                           ; preds = %call.i17.noexc
@@ -13605,7 +13605,7 @@ call.i17.noexc:                                   ; preds = %if.end49
 lpad.i19:                                         ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad51.body
 
 invoke.cont52:                                    ; preds = %.noexc
@@ -14186,7 +14186,7 @@ define void @_ZN7testing10TestResultC2Ev(ptr noundef nonnull align 8 dereference
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #50
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef null) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN7testing8internal5MutexC2Ev.exit, label %if.then.i
 
@@ -14239,7 +14239,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %value_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i) #50
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !209
@@ -14292,7 +14292,7 @@ if.then.i.i.i11:                                  ; preds = %invoke.cont.i9
 
 _ZNSt6vectorIN7testing14TestPartResultESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i9, %if.then.i.i.i11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %this) #50
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %this) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN7testing8internal5MutexD2Ev.exit, label %if.then.i
 
@@ -14580,7 +14580,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %this, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %this) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %this) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -14622,13 +14622,13 @@ _ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit: ; preds = %if.end,
   %1 = load ptr, ptr %test_properties_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_property) #50
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %test_property) #50
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #50
   %call.i1012 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i10.noexc unwind label %lpad10
 
 call.i10.noexc:                                   ; preds = %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i1012, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i1012, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %.noexc unwind label %lpad10
 
 .noexc:                                           ; preds = %call.i10.noexc
@@ -14645,7 +14645,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup20
 
 if.end.i:                                         ; preds = %.noexc
@@ -14677,7 +14677,7 @@ if.then26:                                        ; preds = %invoke.cont17
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.then26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %test_property)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %test_property)
           to label %.noexc19 unwind label %lpad
 
 .noexc19:                                         ; preds = %if.then.i17
@@ -14689,7 +14689,7 @@ if.then.i17:                                      ; preds = %if.then26
 lpad.i.i.i.i:                                     ; preds = %.noexc19
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #50
   br label %ehcleanup41
 
 _ZNSt16allocator_traitsISaIN7testing12TestPropertyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %.noexc19
@@ -14741,7 +14741,7 @@ if.end29:                                         ; preds = %invoke.cont17
           to label %call.i23.noexc unwind label %lpad35
 
 call.i23.noexc:                                   ; preds = %if.end29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31, ptr noundef %call.i2331, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31, ptr noundef %call.i2331, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
           to label %.noexc32 unwind label %lpad35
 
 .noexc32:                                         ; preds = %call.i23.noexc
@@ -14758,7 +14758,7 @@ invoke.cont.i30:                                  ; preds = %if.then.i29
 lpad.i28:                                         ; preds = %if.end.i25, %if.then.i29
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #50
   br label %ehcleanup40
 
 if.end.i25:                                       ; preds = %.noexc32
@@ -14780,7 +14780,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
 cleanup:                                          ; preds = %_ZNSt16allocator_traitsISaIN7testing12TestPropertyEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %if.else.i, %invoke.cont38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i38)
   store i8 0, ptr %has_owner_.i.i, align 8
-  %call.i.i40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #50
+  %call.i.i40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %this) #50
   %tobool.not.i.i41 = icmp eq i32 %call.i.i40, 0
   br i1 %tobool.not.i.i41, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i42
 
@@ -14856,13 +14856,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::vector.33", align 8
-  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_property) #50
+  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %test_property) #50
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #50
   %call.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i3.noexc unwind label %lpad
 
 call.i3.noexc:                                    ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i3.noexc
@@ -14879,7 +14879,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup8
 
 if.end.i:                                         ; preds = %.noexc
@@ -15023,7 +15023,7 @@ entry:
   %0 = load ptr, ptr %reserved_names, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %reserved_names, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %call.i.i = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr nonnull %property_name)
+  %call.i.i = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr nonnull align 8 dereferenceable(32) %property_name)
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %call.i.i, %2
   br i1 %cmp.i.not, label %return, label %if.then
@@ -15594,7 +15594,7 @@ for.body.i.i.i.i.i3:                              ; preds = %_ZNSt6vectorIN7test
   %__first.addr.04.i.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i.i5, %for.body.i.i.i.i.i3 ], [ %2, %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE5clearEv.exit ]
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i4) #50
   %incdec.ptr.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4, i64 64
   %cmp.not.i.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i.i5, %3
   br i1 %cmp.not.i.i.i.i.i6, label %invoke.cont.i.i7, label %for.body.i.i.i.i.i3, !llvm.loop !209
@@ -15902,14 +15902,14 @@ lpad.i:                                           ; preds = %init.i
 _ZN7testing8UnitTest11GetInstanceEv.exit:         ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN7testing8UnitTest11GetInstanceEvE8instance, i64 64), align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %key)
   %value_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value)
           to label %_ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.i unwind label %lpad.i.i
 
 common.resume.i:                                  ; preds = %lpad.i1, %lpad.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %6, %lpad.i1 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #50
   br label %common.resume
 
 lpad.i.i:                                         ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
@@ -15929,7 +15929,7 @@ lpad.i1:                                          ; preds = %_ZN7testing12TestPr
 
 _ZN7testing8UnitTest14RecordPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %_ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i) #50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #50
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -15940,14 +15940,14 @@ entry:
   %ref.tmp = alloca %"class.testing::TestProperty", align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %impl_, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %key)
   %value_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_.i, ptr noundef nonnull align 8 dereferenceable(32) %value)
           to label %_ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #50
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -15961,7 +15961,7 @@ _ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 invoke.cont:                                      ; preds = %_ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i) #50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #50
   ret void
 
 lpad:                                             ; preds = %_ZN7testing12TestPropertyC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
@@ -16014,7 +16014,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %call.i.noexc unwind label %lpad5
 
 call.i.noexc:                                     ; preds = %invoke.cont2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %lpad5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -16031,7 +16031,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -16140,7 +16140,7 @@ _ZN7testing8UnitTest11GetInstanceEv.exit:         ; preds = %entry, %init.check.
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -16150,7 +16150,7 @@ call.i.noexc:                                     ; preds = %_ZN7testing8UnitTes
 lpad.i2:                                          ; preds = %.noexc
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -16336,7 +16336,7 @@ lpad.i.i39:                                       ; preds = %invoke.cont22
 invoke.cont24:                                    ; preds = %invoke.cont22
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i30) #50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i30)
-  %call.i42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #50
+  %call.i42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %9) #50
   %cmp.i = icmp eq ptr %call.i42, null
   %17 = load ptr, ptr %ref.tmp, align 8
   %add.ptr.i44 = getelementptr inbounds i8, ptr %17, i64 16
@@ -16688,7 +16688,7 @@ lpad.i.i215:                                      ; preds = %invoke.cont55
 invoke.cont57:                                    ; preds = %invoke.cont55
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i206) #50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i206)
-  %call.i218 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #50
+  %call.i218 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %9) #50
   %cmp.i220 = icmp eq ptr %call.i218, null
   %46 = load ptr, ptr %ref.tmp53, align 8
   %add.ptr.i221 = getelementptr inbounds i8, ptr %46, i64 16
@@ -17752,13 +17752,13 @@ invoke.cont3:                                     ; preds = %cond.true
           to label %call.i.noexc unwind label %lpad5
 
 call.i.noexc:                                     ; preds = %invoke.cont3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %if.end.i unwind label %lpad5
 
 lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %call) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #50
   br label %lpad5.body
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -17791,13 +17791,13 @@ invoke.cont17:                                    ; preds = %cond.true15
           to label %call.i.noexc15 unwind label %lpad23
 
 call.i.noexc15:                                   ; preds = %invoke.cont17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call18, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %if.end.i9 unwind label %lpad23
 
 lpad.i12:                                         ; preds = %if.end.i9
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %call18) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call18) #50
   br label %lpad23.body
 
 if.end.i9:                                        ; preds = %call.i.noexc15
@@ -17817,7 +17817,7 @@ cleanup.done31.critedge:                          ; preds = %cleanup.done
 
 cleanup.done31:                                   ; preds = %cleanup.done31.critedge, %cleanup.action30
   %location_ = getelementptr inbounds i8, ptr %this, i64 80
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %location_, ptr noundef nonnull align 8 dereferenceable(32) %a_code_location)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %location_, ptr noundef nonnull align 8 dereferenceable(36) %a_code_location)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %cleanup.done31
@@ -17887,7 +17887,7 @@ lpad38:                                           ; preds = %cleanup.done31
 lpad40:                                           ; preds = %invoke.cont39
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %location_) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %location_) #50
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad40, %lpad38
@@ -17947,7 +17947,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
   %result_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN7testing10TestResultD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %result_) #50
   %location_ = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %location_) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %location_) #50
   %value_param_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %value_param_, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
@@ -17992,7 +17992,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -18009,7 +18009,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup12
 
 if.end.i:                                         ; preds = %.noexc
@@ -18024,7 +18024,7 @@ invoke.cont:                                      ; preds = %if.end.i
           to label %call.i.noexc13 unwind label %lpad4
 
 call.i.noexc13:                                   ; preds = %invoke.cont
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc15 unwind label %lpad4
 
 .noexc15:                                         ; preds = %call.i.noexc13
@@ -18041,7 +18041,7 @@ invoke.cont.i12:                                  ; preds = %if.then.i11
 lpad.i10:                                         ; preds = %if.end.i7, %if.then.i11
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #50
   br label %ehcleanup10
 
 if.end.i7:                                        ; preds = %.noexc15
@@ -18051,7 +18051,7 @@ if.end.i7:                                        ; preds = %.noexc15
           to label %invoke.cont5 unwind label %lpad.i10
 
 invoke.cont5:                                     ; preds = %if.end.i7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %code_location)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(36) %code_location)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -18063,7 +18063,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp) #50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #50
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
@@ -18119,7 +18119,7 @@ lpad6:                                            ; preds = %invoke.cont5
 lpad8:                                            ; preds = %invoke.cont7
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #50
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp) #50
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad6
@@ -18185,7 +18185,7 @@ lpad9:                                            ; preds = %invoke.cont10, %if.
   br label %eh.resume
 
 if.end14:                                         ; preds = %invoke.cont12, %invoke.cont, %entry
-  %call.i7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_info) #50
+  %call.i7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %test_info) #50
   %type_param_.i = getelementptr inbounds i8, ptr %test_info, i64 64
   %2 = load ptr, ptr %type_param_.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -18600,7 +18600,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %file_name, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %file_name, ptr noundef %call.i7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -18612,7 +18612,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %file_name) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -19266,7 +19266,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %name_, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -19283,7 +19283,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name_) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -19308,13 +19308,13 @@ invoke.cont3:                                     ; preds = %cond.true
           to label %call.i.noexc12 unwind label %lpad6
 
 call.i.noexc12:                                   ; preds = %invoke.cont3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %if.end.i6 unwind label %lpad6
 
 lpad.i9:                                          ; preds = %if.end.i6
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %call) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #50
   br label %lpad6.body
 
 if.end.i6:                                        ; preds = %call.i.noexc12
@@ -20150,7 +20150,7 @@ for.body.i.i.i.i.i3.i:                            ; preds = %_ZNSt6vectorIN7test
   %__first.addr.04.i.i.i.i.i4.i = phi ptr [ %incdec.ptr.i.i.i.i.i5.i, %for.body.i.i.i.i.i3.i ], [ %2, %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE5clearEv.exit.i ]
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i4.i) #50
   %incdec.ptr.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i, i64 64
   %cmp.not.i.i.i.i.i6.i = icmp eq ptr %incdec.ptr.i.i.i.i.i5.i, %3
   br i1 %cmp.not.i.i.i.i.i6.i, label %invoke.cont.i.i7.i, label %for.body.i.i.i.i.i3.i, !llvm.loop !209
@@ -20209,7 +20209,7 @@ for.body.i.i.i.i.i3.i.i:                          ; preds = %_ZNSt6vectorIN7test
   %__first.addr.04.i.i.i.i.i4.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i5.i.i, %for.body.i.i.i.i.i3.i.i ], [ %9, %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE5clearEv.exit.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i4.i.i) #50
   %incdec.ptr.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i, i64 64
   %cmp.not.i.i.i.i.i6.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i5.i.i, %10
   br i1 %cmp.not.i.i.i.i.i6.i.i, label %invoke.cont.i.i7.i.i, label %for.body.i.i.i.i.i3.i.i, !llvm.loop !209
@@ -20303,7 +20303,7 @@ entry:
   br i1 %cmp.i, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit: ; preds = %entry
-  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.8) #51
+  %call.i.i = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull @.str.8) #51
   %cmp5.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i, label %if.then, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85
 
@@ -20313,57 +20313,57 @@ if.then:                                          ; preds = %_ZN7testing8interna
   br i1 %cmp.i15, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit: ; preds = %if.then
-  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(6) @.str.125) #51
+  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.125) #51
   %cmp5.i18 = icmp eq i32 %call.i17, 0
   br i1 %cmp5.i18, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
-  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(12) @.str.126) #51
+  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(12) @.str.126) #51
   %cmp5.i23 = icmp eq i32 %call.i22, 0
   br i1 %cmp5.i23, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
-  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(15) @.str.127) #51
+  %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(15) @.str.127) #51
   %cmp5.i29 = icmp eq i32 %call.i28, 0
   br i1 %cmp5.i29, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
-  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(7) @.str.128) #51
+  %call.i34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.128) #51
   %cmp5.i35 = icmp eq i32 %call.i34, 0
   br i1 %cmp5.i35, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
-  %call.i40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(16) @.str.129) #51
+  %call.i40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(16) @.str.129) #51
   %cmp5.i41 = icmp eq i32 %call.i40, 0
   br i1 %cmp5.i41, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
-  %call.i46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(5) @.str.130) #51
+  %call.i46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(5) @.str.130) #51
   %cmp5.i47 = icmp eq i32 %call.i46, 0
   br i1 %cmp5.i47, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
-  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(14) @.str.131) #51
+  %call.i52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(14) @.str.131) #51
   %cmp5.i53 = icmp eq i32 %call.i52, 0
   br i1 %cmp5.i53, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
-  %call.i58 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(13) @.str.132) #51
+  %call.i58 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(13) @.str.132) #51
   %cmp5.i59 = icmp eq i32 %call.i58, 0
   br i1 %cmp5.i59, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
-  %call.i64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(22) @.str.133) #51
+  %call.i64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(22) @.str.133) #51
   %cmp5.i65 = icmp eq i32 %call.i64, 0
   br i1 %cmp5.i65, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
-  %call.i70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(6) @.str.134) #51
+  %call.i70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.134) #51
   %cmp5.i71 = icmp eq i32 %call.i70, 0
   br i1 %cmp5.i71, label %lor.end, label %if.end4.i75
 
 if.end4.i75:                                      ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
-  %call.i76 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull readonly dereferenceable(7) @.str.135) #51
+  %call.i76 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.135) #51
   %cmp5.i77 = icmp eq i32 %call.i76, 0
   br label %lor.end
 
@@ -20373,17 +20373,17 @@ lor.end:                                          ; preds = %if.then, %if.end4.i
   br label %return
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
-  %call.i.i82 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.136) #51
+  %call.i.i82 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull @.str.136) #51
   %cmp5.i83 = icmp eq i32 %call.i.i82, 0
   br i1 %cmp5.i83, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85
-  %call.i.i88 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.137) #51
+  %call.i.i88 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull @.str.137) #51
   %cmp5.i89 = icmp eq i32 %call.i.i88, 0
   br i1 %cmp5.i89, label %return, label %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91
-  %call.i.i94 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull readonly @.str.138) #51
+  %call.i.i94 = tail call noundef i32 @strcasecmp(ptr noundef nonnull readonly %call, ptr noundef nonnull @.str.138) #51
   %cmp5.i95 = icmp eq i32 %call.i.i94, 0
   br i1 %cmp5.i95, label %return, label %sub_0
 
@@ -20641,7 +20641,7 @@ _ZNK7testing8TestCase17test_to_run_countEv.exit.i.i: ; preds = %for.body.i.i.i.i
 
 _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i, %if.end14
   %sum.0.lcssa.i.i.i = phi i32 [ 0, %if.end14 ], [ %add.us.i.i.i, %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp, i32 noundef %sum.0.lcssa.i.i.i, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %sum.0.lcssa.i.i.i, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
   %call16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   %17 = load ptr, ptr %impl_.i.i, align 8
   %test_cases_.i.i6 = getelementptr inbounds i8, ptr %17, i64 184
@@ -20666,7 +20666,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK7testing8UnitTe
 
 invoke.cont:                                      ; preds = %for.body.i.i.i, %_ZNK7testing8UnitTest17test_to_run_countEv.exit
   %count.0.lcssa.i.i.i = phi i32 [ 0, %_ZNK7testing8UnitTest17test_to_run_countEv.exit ], [ %spec.select.i.i.i, %for.body.i.i.i ]
-  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp17, i32 noundef %count.0.lcssa.i.i.i, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.358)
+  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp17, i32 noundef %count.0.lcssa.i.i.i, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.358)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont
@@ -21408,7 +21408,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define hidden void @_ZN7testing8internal27PrettyUnitTestResultPrinter11OnTestStartERKNS_8TestInfoE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(264) %test_info) unnamed_addr #7 align 2 {
 entry:
   tail call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 2, ptr noundef nonnull @.str.155)
-  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_info) #50
+  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %test_info) #50
   %name_.i = getelementptr inbounds i8, ptr %test_info, i64 32
   %call.i2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_.i) #50
   %call.i3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.161, ptr noundef %call.i, ptr noundef %call.i2)
@@ -21494,7 +21494,7 @@ if.else:                                          ; preds = %_ZNK7testing10TestR
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_info) #50
+  %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %test_info) #50
   %name_.i = getelementptr inbounds i8, ptr %test_info, i64 32
   %call.i6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_.i) #50
   %call.i7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.161, ptr noundef %call.i, ptr noundef %call.i6)
@@ -22305,7 +22305,7 @@ _ZNK7testing8TestCase17test_to_run_countEv.exit.i.i: ; preds = %for.body.i.i.i.i
 
 _ZNK7testing8UnitTest17test_to_run_countEv.exit:  ; preds = %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i, %entry
   %sum.0.lcssa.i.i.i = phi i32 [ 0, %entry ], [ %add.us.i.i.i, %_ZNK7testing8TestCase17test_to_run_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp, i32 noundef %sum.0.lcssa.i.i.i, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %sum.0.lcssa.i.i.i, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
   %call2 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   %10 = load ptr, ptr %impl_.i.i, align 8
   %test_cases_.i.i15 = getelementptr inbounds i8, ptr %10, i64 184
@@ -22330,7 +22330,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK7testing8UnitTe
 
 invoke.cont:                                      ; preds = %for.body.i.i.i, %_ZNK7testing8UnitTest17test_to_run_countEv.exit
   %count.0.lcssa.i.i.i = phi i32 [ 0, %_ZNK7testing8UnitTest17test_to_run_countEv.exit ], [ %spec.select.i.i.i, %for.body.i.i.i ]
-  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp3, i32 noundef %count.0.lcssa.i.i.i, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.358)
+  invoke fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp3, i32 noundef %count.0.lcssa.i.i.i, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.358)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -22514,7 +22514,7 @@ _ZNK7testing8TestCase21successful_test_countEv.exit.i.i: ; preds = %_ZN7testing8
 
 _ZNK7testing8UnitTest21successful_test_countEv.exit: ; preds = %_ZNK7testing8TestCase21successful_test_countEv.exit.i.i, %if.end
   %sum.0.lcssa.i.i.i47 = phi i32 [ 0, %if.end ], [ %add.us.i.i.i44, %_ZNK7testing8TestCase21successful_test_countEv.exit.i.i ]
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp19, i32 noundef %sum.0.lcssa.i.i.i47, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp19, i32 noundef %sum.0.lcssa.i.i.i47, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
   %call21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #50
   %call24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.165, ptr noundef %call21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #50
@@ -22703,7 +22703,7 @@ _ZNK7testing8TestCase17failed_test_countEv.exit.i.i108: ; preds = %_ZN7testing8T
 _ZNK7testing8UnitTest17failed_test_countEv.exit135: ; preds = %_ZNK7testing8TestCase17failed_test_countEv.exit.i.i108, %if.then28
   %sum.0.lcssa.i.i.i113 = phi i32 [ 0, %if.then28 ], [ %add.us.i.i.i110, %_ZNK7testing8TestCase17failed_test_countEv.exit.i.i108 ]
   call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 1, ptr noundef nonnull @.str.157)
-  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias align 8 %ref.tmp30, i32 noundef %sum.0.lcssa.i.i.i113, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
+  call fastcc void @_ZN7testingL19FormatCountableNounB5cxx11EiPKcS1_(ptr noalias nonnull align 8 %ref.tmp30, i32 noundef %sum.0.lcssa.i.i.i113, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152)
   %call31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #50
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.166, ptr noundef %call31)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #50
@@ -23745,7 +23745,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %output_file_, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %output_file_, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -23762,7 +23762,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %output_file_) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_file_) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -24108,7 +24108,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %kTestsuites, ptr noundef %call.i52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %kTestsuites, ptr noundef %call.i52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -24118,7 +24118,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %kTestsuites) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %kTestsuites) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -24140,7 +24140,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %call.i.noexc56 unwind label %lpad9
 
 call.i.noexc56:                                   ; preds = %invoke.cont5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %call.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef %call.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %.noexc58 unwind label %lpad9
 
 .noexc58:                                         ; preds = %call.i.noexc56
@@ -24150,7 +24150,7 @@ call.i.noexc56:                                   ; preds = %invoke.cont5
 lpad.i55:                                         ; preds = %.noexc58
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #50
   br label %ehcleanup19
 
 invoke.cont10:                                    ; preds = %.noexc58
@@ -24284,7 +24284,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %call.i.noexc67 unwind label %lpad22
 
 call.i.noexc67:                                   ; preds = %invoke.cont18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %.noexc69 unwind label %lpad22
 
 .noexc69:                                         ; preds = %call.i.noexc67
@@ -24294,7 +24294,7 @@ call.i.noexc67:                                   ; preds = %invoke.cont18
 lpad.i66:                                         ; preds = %.noexc69
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #50
   br label %ehcleanup34
 
 invoke.cont23:                                    ; preds = %.noexc69
@@ -24470,7 +24470,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %call.i.noexc131 unwind label %lpad37
 
 call.i.noexc131:                                  ; preds = %invoke.cont31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35, ptr noundef %call.i132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef %call.i132, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
           to label %.noexc133 unwind label %lpad37
 
 .noexc133:                                        ; preds = %call.i.noexc131
@@ -24480,7 +24480,7 @@ call.i.noexc131:                                  ; preds = %invoke.cont31
 lpad.i130:                                        ; preds = %.noexc133
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #50
   br label %ehcleanup49
 
 invoke.cont38:                                    ; preds = %.noexc133
@@ -24623,7 +24623,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %call.i.noexc197 unwind label %lpad52
 
 call.i.noexc197:                                  ; preds = %invoke.cont46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, ptr noundef %call.i198, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50, ptr noundef %call.i198, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
           to label %.noexc199 unwind label %lpad52
 
 .noexc199:                                        ; preds = %call.i.noexc197
@@ -24633,7 +24633,7 @@ call.i.noexc197:                                  ; preds = %invoke.cont46
 lpad.i196:                                        ; preds = %.noexc199
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #50
   br label %ehcleanup63
 
 invoke.cont53:                                    ; preds = %.noexc199
@@ -24642,7 +24642,7 @@ invoke.cont53:                                    ; preds = %.noexc199
           to label %call.i.noexc205 unwind label %lpad56
 
 call.i.noexc205:                                  ; preds = %invoke.cont53
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54, ptr noundef %call.i206, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, ptr noundef %call.i206, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55)
           to label %.noexc207 unwind label %lpad56
 
 .noexc207:                                        ; preds = %call.i.noexc205
@@ -24652,7 +24652,7 @@ call.i.noexc205:                                  ; preds = %invoke.cont53
 lpad.i204:                                        ; preds = %.noexc207
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #50
   br label %ehcleanup61
 
 invoke.cont57:                                    ; preds = %.noexc207
@@ -24669,7 +24669,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %call.i.noexc213 unwind label %lpad66
 
 call.i.noexc213:                                  ; preds = %invoke.cont59
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64, ptr noundef %call.i214, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef %call.i214, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65)
           to label %.noexc215 unwind label %lpad66
 
 .noexc215:                                        ; preds = %call.i.noexc213
@@ -24679,7 +24679,7 @@ call.i.noexc213:                                  ; preds = %invoke.cont59
 lpad.i212:                                        ; preds = %.noexc215
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #50
   br label %ehcleanup77
 
 invoke.cont70:                                    ; preds = %.noexc215
@@ -24702,7 +24702,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %call.i.noexc222 unwind label %lpad80
 
 call.i.noexc222:                                  ; preds = %invoke.cont74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78, ptr noundef %call.i223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef %call.i223, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
           to label %.noexc224 unwind label %lpad80
 
 .noexc224:                                        ; preds = %call.i.noexc222
@@ -24712,7 +24712,7 @@ call.i.noexc222:                                  ; preds = %invoke.cont74
 lpad.i221:                                        ; preds = %.noexc224
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #50
   br label %ehcleanup91
 
 invoke.cont84:                                    ; preds = %.noexc224
@@ -24760,7 +24760,7 @@ if.then:                                          ; preds = %invoke.cont88
           to label %call.i234.noexc unwind label %lpad94
 
 call.i234.noexc:                                  ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp92, ptr noundef %call.i234238, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92, ptr noundef %call.i234238, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp93)
           to label %.noexc239 unwind label %lpad94
 
 .noexc239:                                        ; preds = %call.i234.noexc
@@ -24770,7 +24770,7 @@ call.i234.noexc:                                  ; preds = %if.then
 lpad.i237:                                        ; preds = %.noexc239
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp92) #50
   br label %ehcleanup106
 
 invoke.cont99:                                    ; preds = %.noexc239
@@ -25070,7 +25070,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %call.i269.noexc unwind label %lpad117
 
 call.i269.noexc:                                  ; preds = %invoke.cont112
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115, ptr noundef %call.i269273, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef %call.i269273, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116)
           to label %.noexc274 unwind label %lpad117
 
 .noexc274:                                        ; preds = %call.i269.noexc
@@ -25080,7 +25080,7 @@ call.i269.noexc:                                  ; preds = %invoke.cont112
 lpad.i272:                                        ; preds = %.noexc274
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp115) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #50
   br label %ehcleanup128
 
 invoke.cont118:                                   ; preds = %.noexc274
@@ -25089,7 +25089,7 @@ invoke.cont118:                                   ; preds = %.noexc274
           to label %call.i277.noexc unwind label %lpad121
 
 call.i277.noexc:                                  ; preds = %invoke.cont118
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp119, ptr noundef %call.i277281, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp120)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119, ptr noundef %call.i277281, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp120)
           to label %.noexc282 unwind label %lpad121
 
 .noexc282:                                        ; preds = %call.i277.noexc
@@ -25099,7 +25099,7 @@ call.i277.noexc:                                  ; preds = %invoke.cont118
 lpad.i280:                                        ; preds = %.noexc282
   %107 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp119) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119) #50
   br label %ehcleanup126
 
 invoke.cont122:                                   ; preds = %.noexc282
@@ -25826,7 +25826,7 @@ if.then:                                          ; preds = %entry
           to label %call.i16.noexc unwind label %lpad
 
 call.i16.noexc:                                   ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1617, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1617, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i16.noexc
@@ -25836,7 +25836,7 @@ call.i16.noexc:                                   ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -26500,7 +26500,7 @@ entry:
   %0 = load ptr, ptr %ref.tmp, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %call.i.i7 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr nonnull %name)
+  %call.i.i7 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -26662,7 +26662,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %kTestcase, ptr noundef %call.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %kTestcase, ptr noundef %call.i57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -26672,7 +26672,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %kTestcase) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %kTestcase) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -26686,7 +26686,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %call.i.noexc61 unwind label %lpad6
 
 call.i.noexc61:                                   ; preds = %invoke.cont2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4, ptr noundef %call.i62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef %call.i62, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5)
           to label %.noexc63 unwind label %lpad6
 
 .noexc63:                                         ; preds = %call.i.noexc61
@@ -26696,7 +26696,7 @@ call.i.noexc61:                                   ; preds = %invoke.cont2
 lpad.i60:                                         ; preds = %.noexc63
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #50
   br label %ehcleanup18
 
 invoke.cont7:                                     ; preds = %.noexc63
@@ -26707,7 +26707,7 @@ invoke.cont7:                                     ; preds = %.noexc63
           to label %call.i66.noexc unwind label %lpad13
 
 call.i66.noexc:                                   ; preds = %invoke.cont7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef %call.i6670, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef %call.i6670, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
           to label %.noexc71 unwind label %lpad13
 
 .noexc71:                                         ; preds = %call.i66.noexc
@@ -26724,7 +26724,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i69:                                         ; preds = %if.end.i, %if.then.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc71
@@ -26758,7 +26758,7 @@ if.then:                                          ; preds = %_ZNK7testing8TestIn
           to label %call.i75.noexc unwind label %lpad23
 
 call.i75.noexc:                                   ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp21, ptr noundef %call.i7580, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef %call.i7580, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22)
           to label %.noexc81 unwind label %lpad23
 
 .noexc81:                                         ; preds = %call.i75.noexc
@@ -26768,7 +26768,7 @@ call.i75.noexc:                                   ; preds = %if.then
 lpad.i79:                                         ; preds = %.noexc81
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #50
   br label %ehcleanup37
 
 invoke.cont24:                                    ; preds = %.noexc81
@@ -26787,7 +26787,7 @@ _ZNK7testing8TestInfo11value_paramEv.exit89:      ; preds = %invoke.cont24, %if.
           to label %call.i90.noexc unwind label %lpad30
 
 call.i90.noexc:                                   ; preds = %_ZNK7testing8TestInfo11value_paramEv.exit89
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25, ptr noundef %call.i9098, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef %call.i9098, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
           to label %.noexc99 unwind label %lpad30
 
 .noexc99:                                         ; preds = %call.i90.noexc
@@ -26804,7 +26804,7 @@ invoke.cont.i97:                                  ; preds = %if.then.i96
 lpad.i95:                                         ; preds = %if.end.i92, %if.then.i96
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #50
   br label %ehcleanup35
 
 if.end.i92:                                       ; preds = %.noexc99
@@ -26915,7 +26915,7 @@ if.then41:                                        ; preds = %invoke.cont38
           to label %call.i106.noexc unwind label %lpad44
 
 call.i106.noexc:                                  ; preds = %if.then41
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42, ptr noundef %call.i106111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42, ptr noundef %call.i106111, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43)
           to label %.noexc112 unwind label %lpad44
 
 .noexc112:                                        ; preds = %call.i106.noexc
@@ -26925,7 +26925,7 @@ call.i106.noexc:                                  ; preds = %if.then41
 lpad.i110:                                        ; preds = %.noexc112
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #50
   br label %ehcleanup58
 
 invoke.cont45:                                    ; preds = %.noexc112
@@ -26944,7 +26944,7 @@ invoke.cont48:                                    ; preds = %if.then.i117, %invo
           to label %call.i121.noexc unwind label %lpad51
 
 call.i121.noexc:                                  ; preds = %invoke.cont48
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46, ptr noundef %call.i121129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef %call.i121129, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50)
           to label %.noexc130 unwind label %lpad51
 
 .noexc130:                                        ; preds = %call.i121.noexc
@@ -26961,7 +26961,7 @@ invoke.cont.i128:                                 ; preds = %if.then.i127
 lpad.i126:                                        ; preds = %if.end.i123, %if.then.i127
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #50
   br label %ehcleanup56
 
 if.end.i123:                                      ; preds = %.noexc130
@@ -27014,7 +27014,7 @@ if.end59:                                         ; preds = %if.end, %invoke.con
           to label %call.i133.noexc unwind label %lpad62
 
 call.i133.noexc:                                  ; preds = %if.end59
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp60, ptr noundef %call.i133138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef %call.i133138, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61)
           to label %.noexc139 unwind label %lpad62
 
 .noexc139:                                        ; preds = %call.i133.noexc
@@ -27024,7 +27024,7 @@ call.i133.noexc:                                  ; preds = %if.end59
 lpad.i137:                                        ; preds = %.noexc139
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60) #50
   br label %ehcleanup76
 
 invoke.cont63:                                    ; preds = %.noexc139
@@ -27037,7 +27037,7 @@ invoke.cont63:                                    ; preds = %.noexc139
           to label %call.i142.noexc unwind label %lpad69
 
 call.i142.noexc:                                  ; preds = %invoke.cont63
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp64, ptr noundef %call.i142150, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef %call.i142150, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68)
           to label %.noexc151 unwind label %lpad69
 
 .noexc151:                                        ; preds = %call.i142.noexc
@@ -27049,7 +27049,7 @@ call.i142.noexc:                                  ; preds = %invoke.cont63
 lpad.i147:                                        ; preds = %.noexc151
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #50
   br label %ehcleanup74
 
 invoke.cont70:                                    ; preds = %.noexc151
@@ -27066,7 +27066,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %call.i154.noexc unwind label %lpad79
 
 call.i154.noexc:                                  ; preds = %invoke.cont72
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp77, ptr noundef %call.i154159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef %call.i154159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78)
           to label %.noexc160 unwind label %lpad79
 
 .noexc160:                                        ; preds = %call.i154.noexc
@@ -27076,7 +27076,7 @@ call.i154.noexc:                                  ; preds = %invoke.cont72
 lpad.i158:                                        ; preds = %.noexc160
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #50
   br label %ehcleanup90
 
 invoke.cont80:                                    ; preds = %.noexc160
@@ -27118,7 +27118,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
           to label %call.i169.noexc unwind label %lpad93
 
 call.i169.noexc:                                  ; preds = %invoke.cont87
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp91, ptr noundef %call.i169174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91, ptr noundef %call.i169174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92)
           to label %.noexc175 unwind label %lpad93
 
 .noexc175:                                        ; preds = %call.i169.noexc
@@ -27128,7 +27128,7 @@ call.i169.noexc:                                  ; preds = %invoke.cont87
 lpad.i173:                                        ; preds = %.noexc175
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp91) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #50
   br label %ehcleanup104
 
 invoke.cont94:                                    ; preds = %.noexc175
@@ -27137,7 +27137,7 @@ invoke.cont94:                                    ; preds = %.noexc175
           to label %call.i178.noexc unwind label %lpad97
 
 call.i178.noexc:                                  ; preds = %invoke.cont94
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95, ptr noundef %call.i178186, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp96)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef %call.i178186, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp96)
           to label %.noexc187 unwind label %lpad97
 
 .noexc187:                                        ; preds = %call.i178.noexc
@@ -27154,7 +27154,7 @@ invoke.cont.i185:                                 ; preds = %if.then.i184
 lpad.i183:                                        ; preds = %if.end.i180, %if.then.i184
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp95) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95) #50
   br label %ehcleanup102
 
 if.end.i180:                                      ; preds = %.noexc187
@@ -27359,7 +27359,7 @@ invoke.cont137:                                   ; preds = %invoke.cont134
           to label %call.i205.noexc unwind label %lpad143
 
 call.i205.noexc:                                  ; preds = %invoke.cont137
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp140, ptr noundef %call.i205213, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp142)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140, ptr noundef %call.i205213, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp142)
           to label %.noexc214 unwind label %lpad143
 
 .noexc214:                                        ; preds = %call.i205.noexc
@@ -27385,7 +27385,7 @@ lpad.i210.loopexit.split-lp:                      ; preds = %if.then.i211
 
 lpad.i210:                                        ; preds = %lpad.i210.loopexit.split-lp, %lpad.i210.loopexit
   %lpad.phi233 = phi { ptr, i32 } [ %lpad.loopexit231, %lpad.i210.loopexit ], [ %lpad.loopexit.split-lp232, %lpad.i210.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp140) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140) #50
   br label %ehcleanup154
 
 if.end.i207:                                      ; preds = %.noexc214
@@ -27648,7 +27648,7 @@ lpad.i.i:                                         ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i) #50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i)
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #50
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i) #50
   %cmp.i = icmp eq ptr %call.i, null
   %5 = load ptr, ptr %attributes, align 8
   %add.ptr.i10 = getelementptr inbounds i8, ptr %5, i64 16
@@ -27729,7 +27729,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %call.i53.noexc unwind label %lpad17
 
 call.i53.noexc:                                   ; preds = %invoke.cont10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef %call.i5358, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef %call.i5358, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc59 unwind label %lpad17
 
 .noexc59:                                         ; preds = %call.i53.noexc
@@ -27755,7 +27755,7 @@ lpad.i.loopexit.split-lp:                         ; preds = %if.then.i57
 
 lpad.i:                                           ; preds = %lpad.i.loopexit.split-lp, %lpad.i.loopexit
   %lpad.phi94 = phi { ptr, i32 } [ %lpad.loopexit92, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp93, %lpad.i.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #50
   br label %ehcleanup26
 
 if.end.i55:                                       ; preds = %.noexc59
@@ -27911,7 +27911,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %file_name, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %file_name, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -27923,7 +27923,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %file_name) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -28124,7 +28124,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %kTestsuite, ptr noundef %call.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %kTestsuite, ptr noundef %call.i42, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -28134,7 +28134,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %kTestsuite) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %kTestsuite) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -28152,7 +28152,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %call.i.noexc46 unwind label %lpad7
 
 call.i.noexc46:                                   ; preds = %invoke.cont3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, ptr noundef %call.i47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call.i47, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %.noexc48 unwind label %lpad7
 
 .noexc48:                                         ; preds = %call.i.noexc46
@@ -28162,7 +28162,7 @@ call.i.noexc46:                                   ; preds = %invoke.cont3
 lpad.i45:                                         ; preds = %.noexc48
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #50
   br label %ehcleanup19
 
 invoke.cont8:                                     ; preds = %.noexc48
@@ -28173,7 +28173,7 @@ invoke.cont8:                                     ; preds = %.noexc48
           to label %call.i51.noexc unwind label %lpad14
 
 call.i51.noexc:                                   ; preds = %invoke.cont8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef %call.i5155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef %call.i5155, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %.noexc56 unwind label %lpad14
 
 .noexc56:                                         ; preds = %call.i51.noexc
@@ -28190,7 +28190,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i54:                                         ; preds = %if.end.i, %if.then.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc56
@@ -28213,7 +28213,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %call.i59.noexc unwind label %lpad22
 
 call.i59.noexc:                                   ; preds = %invoke.cont17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20, ptr noundef %call.i5964, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef %call.i5964, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21)
           to label %.noexc65 unwind label %lpad22
 
 .noexc65:                                         ; preds = %call.i59.noexc
@@ -28223,7 +28223,7 @@ call.i59.noexc:                                   ; preds = %invoke.cont17
 lpad.i63:                                         ; preds = %.noexc65
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #50
   br label %ehcleanup34
 
 invoke.cont23:                                    ; preds = %.noexc65
@@ -28328,7 +28328,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %call.i72.noexc unwind label %lpad37
 
 call.i72.noexc:                                   ; preds = %invoke.cont31
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35, ptr noundef %call.i7277, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef %call.i7277, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36)
           to label %.noexc78 unwind label %lpad37
 
 .noexc78:                                         ; preds = %call.i72.noexc
@@ -28338,7 +28338,7 @@ call.i72.noexc:                                   ; preds = %invoke.cont31
 lpad.i76:                                         ; preds = %.noexc78
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35) #50
   br label %ehcleanup49
 
 invoke.cont38:                                    ; preds = %.noexc78
@@ -28484,7 +28484,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %call.i120.noexc unwind label %lpad52
 
 call.i120.noexc:                                  ; preds = %invoke.cont46
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, ptr noundef %call.i120125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50, ptr noundef %call.i120125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51)
           to label %.noexc126 unwind label %lpad52
 
 .noexc126:                                        ; preds = %call.i120.noexc
@@ -28494,7 +28494,7 @@ call.i120.noexc:                                  ; preds = %invoke.cont46
 lpad.i124:                                        ; preds = %.noexc126
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #50
   br label %ehcleanup64
 
 invoke.cont53:                                    ; preds = %.noexc126
@@ -28607,7 +28607,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %call.i169.noexc unwind label %lpad67
 
 call.i169.noexc:                                  ; preds = %invoke.cont61
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65, ptr noundef %call.i169174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65, ptr noundef %call.i169174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
           to label %.noexc175 unwind label %lpad67
 
 .noexc175:                                        ; preds = %call.i169.noexc
@@ -28617,7 +28617,7 @@ call.i169.noexc:                                  ; preds = %invoke.cont61
 lpad.i173:                                        ; preds = %.noexc175
   %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #50
   br label %ehcleanup78
 
 invoke.cont68:                                    ; preds = %.noexc175
@@ -28626,7 +28626,7 @@ invoke.cont68:                                    ; preds = %.noexc175
           to label %call.i178.noexc unwind label %lpad71
 
 call.i178.noexc:                                  ; preds = %invoke.cont68
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp69, ptr noundef %call.i178183, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef %call.i178183, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70)
           to label %.noexc184 unwind label %lpad71
 
 .noexc184:                                        ; preds = %call.i178.noexc
@@ -28636,7 +28636,7 @@ call.i178.noexc:                                  ; preds = %invoke.cont68
 lpad.i182:                                        ; preds = %.noexc184
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp69) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #50
   br label %ehcleanup76
 
 invoke.cont72:                                    ; preds = %.noexc184
@@ -28653,7 +28653,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %call.i187.noexc unwind label %lpad81
 
 call.i187.noexc:                                  ; preds = %invoke.cont74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp79, ptr noundef %call.i187192, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79, ptr noundef %call.i187192, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80)
           to label %.noexc193 unwind label %lpad81
 
 .noexc193:                                        ; preds = %call.i187.noexc
@@ -28663,7 +28663,7 @@ call.i187.noexc:                                  ; preds = %invoke.cont74
 lpad.i191:                                        ; preds = %.noexc193
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp79) #50
   br label %ehcleanup92
 
 invoke.cont82:                                    ; preds = %.noexc193
@@ -29448,7 +29448,7 @@ entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %mutex_, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -29501,7 +29501,7 @@ invoke.cont:                                      ; preds = %_ZN7testing8interna
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %trace, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %trace, i64 12, i1 false)
   %message.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %message3.i.i.i.i = getelementptr inbounds i8, ptr %trace, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %message.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %message3.i.i.i.i)
@@ -29521,7 +29521,7 @@ invoke.cont2:                                     ; preds = %.noexc, %if.else.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i4)
   %has_owner_.i.i5 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %has_owner_.i.i5, align 8
-  %call.i.i6 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #50
+  %call.i.i6 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i7 = icmp eq i32 %call.i.i6, 0
   br i1 %tobool.not.i.i7, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i8
 
@@ -29628,7 +29628,7 @@ entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %mutex_, ptr %lock, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -29682,7 +29682,7 @@ invoke.cont:                                      ; preds = %_ZN7testing8interna
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i3)
   %has_owner_.i.i4 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %has_owner_.i.i4, align 8
-  %call.i.i5 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #50
+  %call.i.i5 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i6 = icmp eq i32 %call.i.i5, 0
   br i1 %tobool.not.i.i6, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i7
 
@@ -29743,7 +29743,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -29753,7 +29753,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -30869,7 +30869,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %file_name_, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %file_name_, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -30881,7 +30881,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %file_name_) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_name_) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -30899,7 +30899,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %call.i.noexc9 unwind label %lpad5
 
 call.i.noexc9:                                    ; preds = %invoke.cont3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %message_, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %message_, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc11 unwind label %lpad5
 
 .noexc11:                                         ; preds = %call.i.noexc9
@@ -30916,7 +30916,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i8:                                          ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %message_) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #50
   br label %lpad5.body
 
 if.end.i:                                         ; preds = %.noexc11
@@ -31485,7 +31485,7 @@ for.body.i.i.i.i.i3.i.i:                          ; preds = %_ZNSt6vectorIN7test
   %__first.addr.04.i.i.i.i.i4.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i5.i.i, %for.body.i.i.i.i.i3.i.i ], [ %21, %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE5clearEv.exit.i.i ]
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i4.i.i) #50
   %incdec.ptr.i.i.i.i.i5.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i, i64 64
   %cmp.not.i.i.i.i.i6.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i5.i.i, %22
   br i1 %cmp.not.i.i.i.i.i6.i.i, label %invoke.cont.i.i7.i.i, label %for.body.i.i.i.i.i3.i.i, !llvm.loop !209
@@ -31544,7 +31544,7 @@ for.body.i.i.i.i.i3.i.i.i:                        ; preds = %_ZNSt6vectorIN7test
   %__first.addr.04.i.i.i.i.i4.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i5.i.i.i, %for.body.i.i.i.i.i3.i.i.i ], [ %28, %_ZNSt6vectorIN7testing14TestPartResultESaIS1_EE5clearEv.exit.i.i.i ]
   %value_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i.i4.i.i.i) #50
   %incdec.ptr.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i4.i.i.i, i64 64
   %cmp.not.i.i.i.i.i6.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i5.i.i.i, %29
   br i1 %cmp.not.i.i.i.i.i6.i.i.i, label %invoke.cont.i.i7.i.i.i, label %for.body.i.i.i.i.i3.i.i.i, !llvm.loop !209
@@ -31903,7 +31903,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -31943,7 +31943,7 @@ _ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit: ; preds = %entry, 
   %2 = load ptr, ptr %current_test_case_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i1)
   store i8 0, ptr %has_owner_.i.i, align 8
-  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #50
+  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i4 = icmp eq i32 %call.i.i3, 0
   br i1 %tobool.not.i.i4, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i5
 
@@ -31996,7 +31996,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i)
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_) #50
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %_ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit, label %if.then.i.i
 
@@ -32036,7 +32036,7 @@ _ZN7testing8internal14GTestMutexLockC2EPNS0_9MutexBaseE.exit: ; preds = %entry, 
   %2 = load ptr, ptr %current_test_info_.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i1)
   store i8 0, ptr %has_owner_.i.i, align 8
-  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #50
+  %call.i.i3 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i.i4 = icmp eq i32 %call.i.i3, 0
   br i1 %tobool.not.i.i4, label %_ZN7testing8internal14GTestMutexLockD2Ev.exit, label %if.then.i.i5
 
@@ -32098,7 +32098,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8UnitTestE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_, ptr noundef null) #50
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %mutex_, ptr noundef null) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN7testing8internal5MutexC2Ev.exit, label %if.then.i
 
@@ -32182,7 +32182,7 @@ delete.notnull:                                   ; preds = %entry
 delete.end:                                       ; preds = %delete.notnull, %entry
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex_) #50
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN7testing8internal5MutexD2Ev.exit, label %if.then.i
 
@@ -32248,7 +32248,7 @@ entry:
   store ptr %default_global_test_part_result_reporter_, ptr %global_test_part_result_repoter_, align 8
   %global_test_part_result_reporter_mutex_ = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %global_test_part_result_reporter_mutex_, ptr noundef null) #50
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_, ptr noundef null) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %invoke.cont6, label %if.then.i
 
@@ -32635,7 +32635,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN7testing8internal24InternalRunDeathTestFlagD2Ev.exit.i: ; preds = %if.then.i.i, %if.then2.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #50
   tail call void @_ZdlPv(ptr noundef nonnull %0) #54
   store ptr null, ptr %this, align 8
   br label %_ZN7testing8internal10scoped_ptrINS0_24InternalRunDeathTestFlagEE5resetEPS2_.exit
@@ -32879,7 +32879,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7testing8internal24InternalRunDeathTestFlagD2Ev.exit.i.i: ; preds = %if.then.i.i.i, %if.then2.i.i8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %12) #50
   tail call void @_ZdlPv(ptr noundef nonnull %12) #54
   store ptr null, ptr %internal_run_death_test_flag_, align 8
   br label %_ZN7testing8internal10scoped_ptrINS0_24InternalRunDeathTestFlagEED2Ev.exit
@@ -32963,7 +32963,7 @@ _ZNSt6vectorIPN7testing11EnvironmentESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   tail call void @_ZN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %per_thread_test_part_result_reporter_) #50
   %global_test_part_result_reporter_mutex_ = getelementptr inbounds i8, ptr %this, i64 88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %global_test_part_result_reporter_mutex_) #50
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %global_test_part_result_reporter_mutex_) #50
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ZN7testing8internal5MutexD2Ev.exit, label %if.then.i
 
@@ -33370,7 +33370,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7testing8internal24InternalRunDeathTestFlagD2Ev.exit.i.i: ; preds = %if.then.i.i.i, %delete.notnull.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(44) %1) #50
   tail call void @_ZdlPv(ptr noundef nonnull %1) #54
   br label %if.end.i.i
 
@@ -33446,7 +33446,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef %call.i8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -33463,7 +33463,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #50
   br label %ehcleanup17
 
 if.end.i:                                         ; preds = %.noexc
@@ -33526,13 +33526,13 @@ invoke.cont26:                                    ; preds = %if.end
           to label %call.i.noexc19 unwind label %lpad30
 
 call.i.noexc19:                                   ; preds = %invoke.cont26
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef %call.i20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29)
           to label %if.end.i13 unwind label %lpad30
 
 lpad.i16:                                         ; preds = %if.end.i13
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #50
   br label %ehcleanup36
 
 if.end.i13:                                       ; preds = %call.i.noexc19
@@ -33543,7 +33543,7 @@ if.end.i13:                                       ; preds = %call.i.noexc19
 
 invoke.cont31:                                    ; preds = %if.end.i13
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #50
-  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL20kDeathTestCaseFilterE, ptr noundef %call4.i)
+  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL20kDeathTestCaseFilterE, ptr noundef %call4.i)
   br i1 %call15.i, label %if.then37.critedge, label %if.end.i24
 
 for.cond.i:                                       ; preds = %if.end.i24
@@ -33982,7 +33982,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %call.i25.noexc unwind label %lpad
 
 call.i25.noexc:                                   ; preds = %for.body
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2527, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2527, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i25.noexc
@@ -34008,7 +34008,7 @@ lpad.i.loopexit.split-lp:                         ; preds = %if.then.i
 
 lpad.i:                                           ; preds = %lpad.i.loopexit.split-lp, %lpad.i.loopexit
   %lpad.phi85 = phi { ptr, i32 } [ %lpad.loopexit83, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp84, %lpad.i.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -34042,7 +34042,7 @@ for.body21:                                       ; preds = %invoke.cont, %land.
           to label %call.i37.noexc unwind label %lpad28
 
 call.i37.noexc:                                   ; preds = %for.body21
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %test_name, ptr noundef %call.i3745, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %test_name, ptr noundef %call.i3745, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27)
           to label %.noexc46 unwind label %lpad28
 
 .noexc46:                                         ; preds = %call.i37.noexc
@@ -34068,7 +34068,7 @@ lpad.i42.loopexit.split-lp:                       ; preds = %if.then.i43
 
 lpad.i42.body:                                    ; preds = %lpad.i42.loopexit, %lpad.i42.loopexit.split-lp, %lpad.i70
   %eh.lpad-body77 = phi { ptr, i32 } [ %12, %lpad.i70 ], [ %lpad.loopexit, %lpad.i42.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i42.loopexit.split-lp ]
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %test_name) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %test_name) #50
   br label %lpad28.body
 
 if.end.i39:                                       ; preds = %.noexc46
@@ -34127,7 +34127,7 @@ invoke.cont29:                                    ; preds = %invoke.cont.i71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #50
   %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
-  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i)
+  %call15.i = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i)
   br i1 %call15.i, label %lor.end, label %if.end.i49
 
 for.cond.i:                                       ; preds = %if.end.i49
@@ -34144,7 +34144,7 @@ if.end.i49:                                       ; preds = %invoke.cont29, %for
 
 lor.rhs:                                          ; preds = %if.end.i49
   %call4.i51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %test_name) #50
-  %call15.i52 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull readonly @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i51)
+  %call15.i52 = call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull @_ZN7testingL18kDisableTestFilterE, ptr noundef %call4.i51)
   br i1 %call15.i52, label %lor.end, label %if.end.i53
 
 for.cond.i57:                                     ; preds = %if.end.i53
@@ -35550,7 +35550,7 @@ if.end:                                           ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -35560,7 +35560,7 @@ call.i.noexc:                                     ; preds = %if.end
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #50
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
@@ -36175,17 +36175,17 @@ entry.tail.i:                                     ; preds = %lor.lhs.false13
 land.lhs.true.i:                                  ; preds = %entry.tail.i, %lor.lhs.false13
   %.sink.i = phi i64 [ %..i, %entry.tail.i ], [ 1, %lor.lhs.false13 ]
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
-  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(16) @.str.438, i64 noundef 15) #51
+  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(16) @.str.438, i64 noundef 15) #51
   %cmp.i15.i = icmp eq i32 %call1.i14.i, 0
   br i1 %cmp.i15.i, label %if.end28, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.251, i64 noundef 6) #51
+  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.251, i64 noundef 6) #51
   %cmp.i21.i = icmp eq i32 %call1.i20.i, 0
   br i1 %cmp.i21.i, label %if.then16, label %_ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit
 
 _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit: ; preds = %land.rhs.i
-  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.439, i64 noundef 6) #51
+  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.439, i64 noundef 6) #51
   %cmp.i27.i = icmp eq i32 %call1.i26.i, 0
   br i1 %cmp.i27.i, label %if.then16, label %if.end28
 
@@ -36367,17 +36367,17 @@ entry.tail.i:                                     ; preds = %lor.lhs.false13
 land.lhs.true.i:                                  ; preds = %entry.tail.i, %lor.lhs.false13
   %.sink.i = phi i64 [ %..i, %entry.tail.i ], [ 1, %lor.lhs.false13 ]
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %call, i64 %.sink.i
-  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(16) @.str.438, i64 noundef 15) #51
+  %call1.i14.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(16) @.str.438, i64 noundef 15) #51
   %cmp.i15.i = icmp eq i32 %call1.i14.i, 0
   br i1 %cmp.i15.i, label %if.end27, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.251, i64 noundef 6) #51
+  %call1.i20.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.251, i64 noundef 6) #51
   %cmp.i21.i = icmp eq i32 %call1.i20.i, 0
   br i1 %cmp.i21.i, label %if.then15, label %_ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit
 
 _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit: ; preds = %land.rhs.i
-  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull readonly dereferenceable(7) @.str.439, i64 noundef 6) #51
+  %call1.i26.i = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i11.i, ptr noundef nonnull dereferenceable(7) @.str.439, i64 noundef 6) #51
   %cmp.i27.i = icmp eq i32 %call1.i26.i, 0
   br i1 %cmp.i27.i, label %if.then15, label %if.end27
 
@@ -36821,7 +36821,7 @@ cond.end:                                         ; preds = %entry, %cond.false
           to label %call.i1.noexc unwind label %lpad
 
 call.i1.noexc:                                    ; preds = %cond.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i1.noexc
@@ -36838,7 +36838,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -36912,7 +36912,7 @@ if.then:                                          ; preds = %_ZN7testing8interna
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -36922,7 +36922,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -37113,12 +37113,12 @@ while.body.i:                                     ; preds = %invoke.cont.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8
-  %call.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #51
+  %call.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %buffer.i) #51
   %cmp.i.i.not.i.i.i = icmp eq i64 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i.i, label %_ZN7testing7MessagelsIA256_cEERS0_RKT_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i
-  %call3.i.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, ptr noundef nonnull %buffer.i, i64 noundef %call.i.i.i.i.i)
+  %call3.i.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, ptr noundef nonnull align 1 dereferenceable(256) %buffer.i, i64 noundef %call.i.i.i.i.i)
           to label %_ZN7testing7MessagelsIA256_cEERS0_RKT_.exit.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i
@@ -37361,7 +37361,7 @@ if.then47:                                        ; preds = %land.rhs41
           to label %call.i21.noexc unwind label %lpad56
 
 call.i21.noexc:                                   ; preds = %if.then47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54, ptr noundef %call.i2123, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, ptr noundef %call.i2123, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55)
           to label %.noexc unwind label %lpad56
 
 .noexc:                                           ; preds = %call.i21.noexc
@@ -37371,7 +37371,7 @@ call.i21.noexc:                                   ; preds = %if.then47
 lpad.i:                                           ; preds = %.noexc
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #50
   br label %ehcleanup84
 
 invoke.cont57:                                    ; preds = %.noexc
@@ -37626,7 +37626,7 @@ if.then:                                          ; preds = %land.rhs
           to label %call.i11.noexc unwind label %lpad
 
 call.i11.noexc:                                   ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i1112, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef %call.i1112, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i11.noexc
@@ -37636,7 +37636,7 @@ call.i11.noexc:                                   ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #50
   br label %ehcleanup41
 
 invoke.cont:                                      ; preds = %.noexc
@@ -39022,7 +39022,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal16ForkingDeathTestC2EPKcPKNS0_2REE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %a_statement, ptr noundef %a_regex) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
+  tail call void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this)
   %statement_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %a_statement, ptr %statement_.i, align 8
   %regex_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -39086,7 +39086,7 @@ if.then7:                                         ; preds = %land.rhs
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -39096,7 +39096,7 @@ call.i.noexc:                                     ; preds = %if.then7
 lpad.i:                                           ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #50
   br label %ehcleanup39
 
 invoke.cont:                                      ; preds = %.noexc
@@ -39641,7 +39641,7 @@ if.then11:                                        ; preds = %do.body
           to label %call.i.noexc unwind label %lpad19
 
 call.i.noexc:                                     ; preds = %if.then11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18)
           to label %.noexc47 unwind label %lpad19
 
 .noexc47:                                         ; preds = %call.i.noexc
@@ -39651,7 +39651,7 @@ call.i.noexc:                                     ; preds = %if.then11
 lpad.i45:                                         ; preds = %.noexc47
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #50
   br label %ehcleanup44
 
 invoke.cont20:                                    ; preds = %.noexc47
@@ -39849,7 +39849,7 @@ do.end:                                           ; preds = %do.body
           to label %call.i81.noexc unwind label %lpad49
 
 call.i81.noexc:                                   ; preds = %do.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47, ptr noundef %call.i8186, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef %call.i8186, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48)
           to label %.noexc87 unwind label %lpad49
 
 .noexc87:                                         ; preds = %call.i81.noexc
@@ -39859,7 +39859,7 @@ call.i81.noexc:                                   ; preds = %do.end
 lpad.i85:                                         ; preds = %.noexc87
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp47) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #50
   br label %ehcleanup54
 
 invoke.cont50:                                    ; preds = %.noexc87
@@ -39881,7 +39881,7 @@ if.then59:                                        ; preds = %do.body56
           to label %call.i93.noexc unwind label %lpad67
 
 call.i93.noexc:                                   ; preds = %if.then59
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65, ptr noundef %call.i9398, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65, ptr noundef %call.i9398, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp66)
           to label %.noexc99 unwind label %lpad67
 
 .noexc99:                                         ; preds = %call.i93.noexc
@@ -39891,7 +39891,7 @@ call.i93.noexc:                                   ; preds = %if.then59
 lpad.i97:                                         ; preds = %.noexc99
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp65) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #50
   br label %ehcleanup92
 
 invoke.cont68:                                    ; preds = %.noexc99
@@ -40127,7 +40127,7 @@ if.then108:                                       ; preds = %land.rhs
           to label %call.i157.noexc unwind label %lpad117
 
 call.i157.noexc:                                  ; preds = %if.then108
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115, ptr noundef %call.i157162, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef %call.i157162, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116)
           to label %.noexc163 unwind label %lpad117
 
 .noexc163:                                        ; preds = %call.i157.noexc
@@ -40137,7 +40137,7 @@ call.i157.noexc:                                  ; preds = %if.then108
 lpad.i161:                                        ; preds = %.noexc163
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp115) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #50
   br label %ehcleanup145
 
 invoke.cont118:                                   ; preds = %.noexc163
@@ -40404,7 +40404,7 @@ if.then166:                                       ; preds = %land.rhs160
           to label %call.i224.noexc unwind label %lpad175
 
 call.i224.noexc:                                  ; preds = %if.then166
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp173, ptr noundef %call.i224229, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp174)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173, ptr noundef %call.i224229, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp174)
           to label %.noexc230 unwind label %lpad175
 
 .noexc230:                                        ; preds = %call.i224.noexc
@@ -40414,7 +40414,7 @@ call.i224.noexc:                                  ; preds = %if.then166
 lpad.i228:                                        ; preds = %.noexc230
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp173) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173) #50
   br label %ehcleanup203
 
 invoke.cont176:                                   ; preds = %.noexc230
@@ -41042,7 +41042,7 @@ if.then10:                                        ; preds = %do.body
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15, ptr noundef %call.i59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef %call.i59, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -41052,7 +41052,7 @@ call.i.noexc:                                     ; preds = %if.then10
 lpad.i:                                           ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #50
   br label %ehcleanup38
 
 invoke.cont:                                      ; preds = %.noexc
@@ -41257,7 +41257,7 @@ if.then45:                                        ; preds = %do.body41
           to label %call.i76.noexc unwind label %lpad53
 
 call.i76.noexc:                                   ; preds = %if.then45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp51, ptr noundef %call.i7680, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef %call.i7680, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp52)
           to label %.noexc81 unwind label %lpad53
 
 .noexc81:                                         ; preds = %call.i76.noexc
@@ -41267,7 +41267,7 @@ call.i76.noexc:                                   ; preds = %if.then45
 lpad.i79:                                         ; preds = %.noexc81
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #50
   br label %ehcleanup78
 
 invoke.cont54:                                    ; preds = %.noexc81
@@ -41465,7 +41465,7 @@ do.end82:                                         ; preds = %do.body41
           to label %call.i138.noexc unwind label %lpad90
 
 call.i138.noexc:                                  ; preds = %do.end82
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp88, ptr noundef %call.i138142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, ptr noundef %call.i138142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89)
           to label %.noexc143 unwind label %lpad90
 
 .noexc143:                                        ; preds = %call.i138.noexc
@@ -41475,7 +41475,7 @@ call.i138.noexc:                                  ; preds = %do.end82
 lpad.i141:                                        ; preds = %.noexc143
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #50
   br label %ehcleanup114
 
 invoke.cont91:                                    ; preds = %.noexc143
@@ -41494,7 +41494,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
 
 invoke.cont97:                                    ; preds = %invoke.cont95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(32) %call.i152153) #50
-  %call.i155 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #50
+  %call.i155 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(264) %6) #50
   %call.i156157 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85, ptr noundef %call.i155)
           to label %invoke.cont101 unwind label %lpad98
 
@@ -41524,7 +41524,7 @@ invoke.cont107:                                   ; preds = %invoke.cont103
           to label %call.i166.noexc unwind label %lpad126
 
 call.i166.noexc:                                  ; preds = %invoke.cont107
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp124, ptr noundef %call.i166170, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp125)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124, ptr noundef %call.i166170, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp125)
           to label %.noexc171 unwind label %lpad126
 
 .noexc171:                                        ; preds = %call.i166.noexc
@@ -41534,7 +41534,7 @@ call.i166.noexc:                                  ; preds = %invoke.cont107
 lpad.i169:                                        ; preds = %.noexc171
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp124) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124) #50
   br label %ehcleanup171
 
 invoke.cont127:                                   ; preds = %.noexc171
@@ -41892,7 +41892,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %call.i313.noexc unwind label %lpad186
 
 call.i313.noexc:                                  ; preds = %invoke.cont183
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp184, ptr noundef %call.i313317, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184, ptr noundef %call.i313317, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185)
           to label %.noexc318 unwind label %lpad186
 
 .noexc318:                                        ; preds = %call.i313.noexc
@@ -41902,7 +41902,7 @@ call.i313.noexc:                                  ; preds = %invoke.cont183
 lpad.i316:                                        ; preds = %.noexc318
   %72 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp184) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184) #50
   br label %ehcleanup191
 
 invoke.cont187:                                   ; preds = %.noexc318
@@ -41998,7 +41998,7 @@ if.then.i:                                        ; preds = %land.rhs.i
           to label %call.i.noexc.i unwind label %lpad.i332
 
 call.i.noexc.i:                                   ; preds = %if.then.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13.i, ptr noundef %call.i61.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i, ptr noundef %call.i61.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i)
           to label %.noexc.i unwind label %lpad.i332
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
@@ -42008,7 +42008,7 @@ call.i.noexc.i:                                   ; preds = %if.then.i
 lpad.i.i333:                                      ; preds = %.noexc.i
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i) #50
   br label %eh.resume.i
 
 invoke.cont.i334:                                 ; preds = %.noexc.i
@@ -42249,7 +42249,7 @@ if.then53.i:                                      ; preds = %do.body50.i
           to label %call.i81.noexc.i unwind label %lpad61.i
 
 call.i81.noexc.i:                                 ; preds = %if.then53.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp59.i, ptr noundef %call.i8185.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59.i, ptr noundef %call.i8185.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60.i)
           to label %.noexc86.i unwind label %lpad61.i
 
 .noexc86.i:                                       ; preds = %call.i81.noexc.i
@@ -42259,7 +42259,7 @@ call.i81.noexc.i:                                 ; preds = %if.then53.i
 lpad.i84.i:                                       ; preds = %.noexc86.i
   %97 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59.i) #50
   br label %eh.resume.i
 
 invoke.cont62.i:                                  ; preds = %.noexc86.i
@@ -42465,7 +42465,7 @@ if.then98.i:                                      ; preds = %do.body92.i
           to label %call.i143.noexc.i unwind label %lpad106.i
 
 call.i143.noexc.i:                                ; preds = %if.then98.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp104.i, ptr noundef %call.i143147.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp105.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104.i, ptr noundef %call.i143147.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp105.i)
           to label %.noexc148.i unwind label %lpad106.i
 
 .noexc148.i:                                      ; preds = %call.i143.noexc.i
@@ -42475,7 +42475,7 @@ call.i143.noexc.i:                                ; preds = %if.then98.i
 lpad.i146.i:                                      ; preds = %.noexc148.i
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104.i) #50
   br label %eh.resume.i
 
 invoke.cont107.i:                                 ; preds = %.noexc148.i
@@ -42674,7 +42674,7 @@ if.then141.i:                                     ; preds = %do.body137.i
           to label %call.i205.noexc.i unwind label %lpad149.i
 
 call.i205.noexc.i:                                ; preds = %if.then141.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147.i, ptr noundef %call.i205209.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp148.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147.i, ptr noundef %call.i205209.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp148.i)
           to label %.noexc210.i unwind label %lpad149.i
 
 .noexc210.i:                                      ; preds = %call.i205.noexc.i
@@ -42684,7 +42684,7 @@ call.i205.noexc.i:                                ; preds = %if.then141.i
 lpad.i208.i:                                      ; preds = %.noexc210.i
   %134 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147.i) #50
   br label %eh.resume.i
 
 invoke.cont150.i:                                 ; preds = %.noexc210.i
@@ -42904,7 +42904,7 @@ if.then198.i:                                     ; preds = %land.rhs192.i
           to label %call.i267.noexc.i unwind label %lpad207.i
 
 call.i267.noexc.i:                                ; preds = %if.then198.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp205.i, ptr noundef %call.i267271.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205.i, ptr noundef %call.i267271.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp206.i)
           to label %.noexc272.i unwind label %lpad207.i
 
 .noexc272.i:                                      ; preds = %call.i267.noexc.i
@@ -42914,7 +42914,7 @@ call.i267.noexc.i:                                ; preds = %if.then198.i
 lpad.i270.i:                                      ; preds = %.noexc272.i
   %152 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp205.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205.i) #50
   br label %eh.resume.i
 
 invoke.cont208.i:                                 ; preds = %.noexc272.i
@@ -43126,7 +43126,7 @@ if.then243.i:                                     ; preds = %do.body240.i
           to label %call.i332.noexc.i unwind label %lpad251.i
 
 call.i332.noexc.i:                                ; preds = %if.then243.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp249.i, ptr noundef %call.i332336.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp250.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp249.i, ptr noundef %call.i332336.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp250.i)
           to label %.noexc337.i unwind label %lpad251.i
 
 .noexc337.i:                                      ; preds = %call.i332.noexc.i
@@ -43136,7 +43136,7 @@ call.i332.noexc.i:                                ; preds = %if.then243.i
 lpad.i335.i:                                      ; preds = %.noexc337.i
   %170 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp249.i) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp249.i) #50
   br label %eh.resume.i
 
 invoke.cont252.i:                                 ; preds = %.noexc337.i
@@ -43406,7 +43406,7 @@ if.then210:                                       ; preds = %land.rhs
           to label %call.i339.noexc unwind label %lpad219
 
 call.i339.noexc:                                  ; preds = %if.then210
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp217, ptr noundef %call.i339343, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp218)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp217, ptr noundef %call.i339343, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp218)
           to label %.noexc344 unwind label %lpad219
 
 .noexc344:                                        ; preds = %call.i339.noexc
@@ -43416,7 +43416,7 @@ call.i339.noexc:                                  ; preds = %if.then210
 lpad.i342:                                        ; preds = %.noexc344
   %189 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp217) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp217) #50
   br label %ehcleanup247
 
 invoke.cont220:                                   ; preds = %.noexc344
@@ -44281,7 +44281,7 @@ if.end39:                                         ; preds = %land.lhs.true34, %_
 
 if.then41:                                        ; preds = %if.end39
   %call42 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #53
-  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call42)
+  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %call42)
           to label %_ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit unwind label %lpad43
 
 _ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit: ; preds = %if.then41
@@ -44321,7 +44321,7 @@ if.else:                                          ; preds = %if.end39
 
 if.then47:                                        ; preds = %if.else
   %call48 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #53
-  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call48)
+  invoke void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call48)
           to label %_ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit unwind label %lpad49
 
 _ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit: ; preds = %if.then47
@@ -44447,7 +44447,7 @@ if.end:                                           ; preds = %entry
           to label %call.i4.noexc unwind label %lpad
 
 call.i4.noexc:                                    ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i46, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i4.noexc
@@ -44464,7 +44464,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -44644,7 +44644,7 @@ lpad21:                                           ; preds = %invoke.cont20
   br label %ehcleanup31
 
 invoke.cont25:                                    ; preds = %invoke.cont16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call26, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %call26, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont25
@@ -44699,7 +44699,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -44711,7 +44711,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -44769,7 +44769,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -44779,7 +44779,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -45854,7 +45854,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -45864,7 +45864,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -47030,7 +47030,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -47047,7 +47047,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 if.end.i:                                         ; preds = %.noexc
@@ -47062,7 +47062,7 @@ cond.false:                                       ; preds = %entry
           to label %call.i.noexc8 unwind label %lpad3
 
 call.i.noexc8:                                    ; preds = %cond.false
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc10 unwind label %lpad3
 
 .noexc10:                                         ; preds = %call.i.noexc8
@@ -47074,7 +47074,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 lpad.i6:                                          ; preds = %.noexc10
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 cleanup.done10:                                   ; preds = %if.end.i, %.noexc10
@@ -48151,7 +48151,7 @@ if.then:                                          ; preds = %do.body
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -48161,7 +48161,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #50
   br label %terminate.lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -48316,14 +48316,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15NoExecDeathTestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #50
+  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #50
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15NoExecDeathTestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #50
+  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #50
   tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
@@ -48331,14 +48331,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal13ExecDeathTestD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #50
+  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #50
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal13ExecDeathTestD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) #50
+  tail call void @_ZN7testing8internal13DeathTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) #50
   tail call void @_ZdlPv(ptr noundef nonnull %this) #54
   ret void
 }
@@ -48456,7 +48456,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -48541,7 +48541,7 @@ lpad:                                             ; preds = %invoke.cont
   br label %common.resume
 
 if.then.i:                                        ; preds = %invoke.cont7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i) #50
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #54
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -48878,7 +48878,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #50
   tail call void @_ZdlPv(ptr noundef nonnull %0) #54
   br label %if.end
 
@@ -48916,7 +48916,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #50
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #54
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !781
@@ -49051,7 +49051,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__p, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %__p, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49068,7 +49068,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__p) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__p) #50
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -49183,7 +49183,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49193,7 +49193,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -49310,7 +49310,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49320,7 +49320,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -49534,7 +49534,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49544,7 +49544,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #50
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
@@ -49638,7 +49638,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49648,7 +49648,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #50
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
@@ -51054,7 +51054,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -51065,7 +51065,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -51396,7 +51396,7 @@ if.then:                                          ; preds = %land.rhs
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10, ptr noundef %call.i30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %call.i30, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -51406,7 +51406,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #50
   br label %ehcleanup36
 
 invoke.cont:                                      ; preds = %.noexc
@@ -51656,7 +51656,7 @@ if.then44:                                        ; preds = %_ZN7testing8UnitTes
           to label %call.i53.noexc unwind label %lpad50
 
 call.i53.noexc:                                   ; preds = %if.then44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp48, ptr noundef %call.i5357, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef %call.i5357, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49)
           to label %.noexc58 unwind label %lpad50
 
 .noexc58:                                         ; preds = %call.i53.noexc
@@ -51666,7 +51666,7 @@ call.i53.noexc:                                   ; preds = %if.then44
 lpad.i56:                                         ; preds = %.noexc58
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #50
   br label %ehcleanup68
 
 invoke.cont51:                                    ; preds = %.noexc58
@@ -51779,7 +51779,7 @@ if.end69:                                         ; preds = %_ZN7testing8UnitTes
           to label %call.i83.noexc unwind label %lpad80
 
 call.i83.noexc:                                   ; preds = %if.end69
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78, ptr noundef %call.i8387, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, ptr noundef %call.i8387, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp79)
           to label %.noexc88 unwind label %lpad80
 
 .noexc88:                                         ; preds = %call.i83.noexc
@@ -51789,7 +51789,7 @@ call.i83.noexc:                                   ; preds = %if.end69
 lpad.i86:                                         ; preds = %.noexc88
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #50
   br label %ehcleanup106
 
 invoke.cont81:                                    ; preds = %.noexc88
@@ -51966,7 +51966,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -51983,7 +51983,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 if.end.i:                                         ; preds = %.noexc
@@ -51998,7 +51998,7 @@ cond.false:                                       ; preds = %entry
           to label %call.i.noexc8 unwind label %lpad3
 
 call.i.noexc8:                                    ; preds = %cond.false
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc10 unwind label %lpad3
 
 .noexc10:                                         ; preds = %call.i.noexc8
@@ -52010,7 +52010,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 lpad.i6:                                          ; preds = %.noexc10
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #50
   br label %eh.resume
 
 cleanup.done10:                                   ; preds = %if.end.i, %.noexc10
@@ -52198,13 +52198,13 @@ if.else:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %if.end.i unwind label %lpad
 
 lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -52262,13 +52262,13 @@ if.else:                                          ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.else
-  invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderC1EPwRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderC1EPwRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %if.end.i unwind label %lpad
 
 lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIwED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %call.i.noexc
@@ -52921,12 +52921,12 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #51
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(16) %value) #51
   %cmp.i.i.not.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull %value, i64 noundef %call.i.i.i.i)
+  %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull align 1 dereferenceable(16) %value, i64 noundef %call.i.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i.i
@@ -53195,28 +53195,28 @@ entry:
 for.body:                                         ; preds = %entry, %if.end21
   %__trip_count.049 = phi i64 [ %dec, %if.end21 ], [ %shr, %entry ]
   %__first.sroa.0.048 = phi ptr [ %incdec.ptr.i20, %if.end21 ], [ %__first.coerce, %entry ]
-  %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.048) #50
+  %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.048) #50
   %call.i1.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i) #50
   %cmp.i.i.i = icmp eq i32 %call.i1.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.048, i64 64
-  %call.i.i.i9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i) #50
+  %call.i.i.i9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i) #50
   %call.i1.i.i10 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i9) #50
   %cmp.i.i.i11 = icmp eq i32 %call.i1.i.i10, 0
   br i1 %cmp.i.i.i11, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %incdec.ptr.i12 = getelementptr inbounds i8, ptr %__first.sroa.0.048, i64 128
-  %call.i.i.i13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i12) #50
+  %call.i.i.i13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i12) #50
   %call.i1.i.i14 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i13) #50
   %cmp.i.i.i15 = icmp eq i32 %call.i1.i.i14, 0
   br i1 %cmp.i.i.i15, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
   %incdec.ptr.i16 = getelementptr inbounds i8, ptr %__first.sroa.0.048, i64 192
-  %call.i.i.i17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i16) #50
+  %call.i.i.i17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %incdec.ptr.i16) #50
   %call.i1.i.i18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i17) #50
   %cmp.i.i.i19 = icmp eq i32 %call.i1.i.i18, 0
   br i1 %cmp.i.i.i19, label %return, label %if.end21
@@ -53243,7 +53243,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %call.i.i.i25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.0.lcssa) #50
+  %call.i.i.i25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.0.lcssa) #50
   %call.i1.i.i26 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i25) #50
   %cmp.i.i.i27 = icmp eq i32 %call.i1.i.i26, 0
   br i1 %cmp.i.i.i27, label %return, label %if.end28
@@ -53254,7 +53254,7 @@ if.end28:                                         ; preds = %sw.bb
 
 sw.bb30:                                          ; preds = %if.end28, %for.end
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i28, %if.end28 ]
-  %call.i.i.i29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1) #50
+  %call.i.i.i29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.1) #50
   %call.i1.i.i30 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i29) #50
   %cmp.i.i.i31 = icmp eq i32 %call.i1.i.i30, 0
   br i1 %cmp.i.i.i31, label %return, label %if.end35
@@ -53265,7 +53265,7 @@ if.end35:                                         ; preds = %sw.bb30
 
 sw.bb37:                                          ; preds = %if.end35, %for.end
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i32, %if.end35 ]
-  %call.i.i.i33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.2) #50
+  %call.i.i.i33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(64) %__first.sroa.0.2) #50
   %call.i1.i.i34 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__pred, ptr noundef %call.i.i.i33) #50
   %cmp.i.i.i35 = icmp eq i32 %call.i1.i.i34, 0
   %spec.select = select i1 %cmp.i.i.i35, ptr %__first.sroa.0.2, ptr %__last.coerce
@@ -53316,7 +53316,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7tes
 _ZNSt12_Vector_baseIN7testing12TestPropertyESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7testing12TestPropertyESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7testing12TestPropertyESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.testing::TestProperty", ptr %cond.i17, i64 %sub.ptr.div.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef nonnull align 8 dereferenceable(64) %__args)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN7testing12TestPropertyESaIS1_EE11_M_allocateEm.exit
@@ -53328,7 +53328,7 @@ _ZNSt12_Vector_baseIN7testing12TestPropertyESaIS1_EE11_M_allocateEm.exit: ; pred
 lpad.i.i.i:                                       ; preds = %.noexc
   %3 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #50
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -53338,12 +53338,12 @@ invoke.cont:                                      ; preds = %.noexc
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i) #50
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %value_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i) #50
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i) #50
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -53358,12 +53358,12 @@ _ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i25, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN7testing12TestPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i21) #50
   %value_.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %value_3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i23) #50
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_3.i.i.i.i.i.i.i23) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i21) #50
   %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 64
   %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 64
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
@@ -53401,7 +53401,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
 if.end.thread:                                    ; preds = %lpad.body
   %value_.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i30) #50
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #50
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #50
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
@@ -53974,7 +53974,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN7tes
 _ZNSt12_Vector_baseIN7testing8internal9TraceInfoESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7testing8internal9TraceInfoESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN7testing8internal9TraceInfoESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.testing::internal::TraceInfo", ptr %cond.i17, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, ptr noundef nonnull align 8 dereferenceable(12) %__args, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, ptr noundef nonnull align 8 dereferenceable(48) %__args, i64 12, i1 false)
   %message.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %message3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %message.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %message3.i.i.i)
@@ -53987,7 +53987,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__first.addr.06.i.i.i, i64 12, i1 false), !alias.scope !869
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i, i64 12, i1 false), !alias.scope !869
   %message.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %message3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %message.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %message3.i.i.i.i.i.i.i) #50
@@ -54006,7 +54006,7 @@ _ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i25, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(12) %__first.addr.06.i.i.i21, i64 12, i1 false), !alias.scope !874
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i21, i64 12, i1 false), !alias.scope !874
   %message.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %message3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %message.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %message3.i.i.i.i.i.i.i23) #50
@@ -54483,7 +54483,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -54494,7 +54494,7 @@ call.i.noexc:                                     ; preds = %if.end
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -55098,7 +55098,7 @@ lpad.i52:                                         ; preds = %invoke.cont.i, %if.
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #50
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN7testing8internal35FLAGS_gtest_internal_run_death_testB5cxx11E) #50
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7testing8internal35FLAGS_gtest_internal_run_death_testB5cxx11E) #50
   br label %lpad.body.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %__cxx_global_var_init.256.exit

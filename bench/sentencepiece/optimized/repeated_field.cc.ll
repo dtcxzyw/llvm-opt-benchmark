@@ -1121,7 +1121,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbEC2ERKS2_(ptr noundef 
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %11, i64 %13, i1 false)
   br label %14
 
 14:                                               ; preds = %4, %2
@@ -1359,7 +1359,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %12, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %12, i64 %14, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -1389,7 +1389,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_(ptr n
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %13, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %13, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -1433,7 +1433,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbEC2EOS2_(ptr noundef n
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 1 %20, i64 %22, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
 
 23:                                               ; preds = %2
@@ -1517,7 +1517,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %25 = load ptr, ptr %14, align 8
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %25, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %25, i64 %27, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
 
 28:                                               ; preds = %3
@@ -1896,7 +1896,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_(ptr 
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %15, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %15, i64 %17, i1 false)
   br label %18
 
 18:                                               ; preds = %4, %2
@@ -2052,7 +2052,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE4SwapEPS2_(ptr nounde
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %34, i64 %35, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -2074,7 +2074,7 @@ _ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %42 = load ptr, ptr %16, align 8
   %43 = load i32, ptr %1, align 8
   %44 = sext i32 %43 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %42, i64 %44, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull align 1 %42, i64 %44, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIbE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIbE9MergeFromERKS2_.exit
@@ -2384,7 +2384,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -2615,7 +2615,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -2646,7 +2646,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -2691,7 +2691,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -2776,7 +2776,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -3142,7 +3142,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -3301,7 +3301,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -3324,7 +3324,7 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit
@@ -3633,7 +3633,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -3864,7 +3864,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -3895,7 +3895,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -3940,7 +3940,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -4025,7 +4025,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -4391,7 +4391,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -4550,7 +4550,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -4573,7 +4573,7 @@ _ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIjE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIjE9MergeFromERKS2_.exit
@@ -4882,7 +4882,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -5113,7 +5113,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -5144,7 +5144,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -5189,7 +5189,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -5274,7 +5274,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -5640,7 +5640,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -5799,7 +5799,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -5822,7 +5822,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
@@ -6131,7 +6131,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -6362,7 +6362,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -6393,7 +6393,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -6438,7 +6438,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -6523,7 +6523,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -6889,7 +6889,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -7048,7 +7048,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -7071,7 +7071,7 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
@@ -7380,7 +7380,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -7611,7 +7611,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr nonnull align 4 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -7642,7 +7642,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -7687,7 +7687,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 4 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 4 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -7772,7 +7772,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr align 4 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -8138,7 +8138,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr align 4 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %13, ptr nonnull align 4 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -8297,7 +8297,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr align 4 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %33, ptr nonnull align 4 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -8320,7 +8320,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr nonnull align 4 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIfE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit
@@ -8629,7 +8629,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2ERKS2_(ptr noundef 
   %12 = load i32, ptr %1, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %11, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr nonnull align 8 %11, i64 %14, i1 false)
   br label %15
 
 15:                                               ; preds = %4, %2
@@ -8860,7 +8860,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %12, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %12, i64 %15, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %5, %3, %2
@@ -8891,7 +8891,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_(ptr n
   %14 = load i32, ptr %1, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %13, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %13, i64 %16, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %6, %4, %2
@@ -8936,7 +8936,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdEC2EOS2_(ptr noundef n
   %21 = load i32, ptr %1, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %20, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %20, i64 %23, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 24:                                               ; preds = %2
@@ -9021,7 +9021,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN6google8prot
   %26 = load i32, ptr %1, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %25, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr nonnull align 8 %25, i64 %28, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 29:                                               ; preds = %3
@@ -9387,7 +9387,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_(ptr 
   %16 = load i32, ptr %1, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %15, i64 %18, i1 false)
   br label %19
 
 19:                                               ; preds = %4, %2
@@ -9546,7 +9546,7 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr nounde
   %34 = load ptr, ptr %9, align 8
   %35 = sext i32 %27 to i64
   %36 = shl nsw i64 %35, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %34, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr nonnull align 8 %34, i64 %36, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %.noexc
@@ -9569,7 +9569,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %.noe
   %44 = load i32, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %43, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %43, i64 %46, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %.noexc11, %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit

@@ -355,7 +355,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sink.i)
   tail call void @ucln_common_registerCleanup_75(i32 noundef 12, ptr noundef nonnull @_ZN12_GLOBAL__N_112uloc_cleanupEv)
-  %call.i = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %status)
+  %call.i = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr %rb.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120AvailableLocalesSinkE, i64 16), ptr %sink.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -435,7 +435,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end7
-  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %call8)
+  invoke void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(124) %call8)
           to label %_ZN6icu_7512LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEEC2EPS2_R10UErrorCode.exit unwind label %lpad
 
 new.cont:                                         ; preds = %if.end7
@@ -677,7 +677,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumerationD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) #13
+  tail call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
   ret void
 }

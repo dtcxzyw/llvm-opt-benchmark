@@ -1089,7 +1089,7 @@ if.end45:                                         ; preds = %while.body17, %whil
   %call46 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %stack_memory_size_47 = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i64, ptr %stack_memory_size_47, align 8
-  invoke void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %call46, ptr noundef %call.i.i, i64 noundef %16)
+  invoke void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %call46, ptr noundef %call.i.i, i64 noundef %16)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.end45

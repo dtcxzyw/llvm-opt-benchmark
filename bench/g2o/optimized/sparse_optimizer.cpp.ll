@@ -2661,7 +2661,7 @@ _ZNSt3setIPN3g2o16OptimizableGraph6VertexESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
-  %180 = invoke noundef ptr %179(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull %0, ptr noundef null)
+  %180 = invoke noundef ptr %179(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc72:                                         ; preds = %.lr.ph.i
@@ -3046,7 +3046,7 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38, %40
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull %0, ptr noundef null)
+  %93 = call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
   %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i) #26
   %.not10.i = icmp eq ptr %94, %87
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
@@ -3163,7 +3163,7 @@ _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %130, %_ZN3g2o15Sp
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
-  %159 = call noundef ptr %158(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull %0, ptr noundef null)
+  %159 = call noundef ptr %158(ptr noundef nonnull align 8 dereferenceable(8) %155, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
   %160 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i45) #26
   %.not10.i46 = icmp eq ptr %160, %153
   br i1 %.not10.i46, label %.loopexit.i47, label %.lr.ph.i44, !llvm.loop !6

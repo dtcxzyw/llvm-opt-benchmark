@@ -1187,7 +1187,7 @@ define linkonce_odr hidden void @_ZN33ShenandoahPeriodicPacerNotifyTaskD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN33ShenandoahPeriodicPacerNotifyTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #8
   ret void
 }

@@ -1839,7 +1839,7 @@ _ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE.exit: ; preds = %_ZN5c
 613:                                              ; preds = %72, %_ZNK5clang13SourceManager18getLocForEndOfFileENS_6FileIDE.exit
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %11, align 8
   %614 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %615 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %614) #17
+  %615 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %614) #17
   %616 = load ptr, ptr %614, align 8
   %617 = getelementptr inbounds i8, ptr %11, i64 80
   %618 = icmp eq ptr %616, %617
@@ -1893,7 +1893,7 @@ define internal void @_ZN12_GLOBAL__N_117InclusionRewriterD0Ev(ptr noundef nonnu
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %.val.i = load ptr, ptr %11, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_N12_GLOBAL__N_117InclusionRewriter12IncludedFileEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val.i)
-  tail call void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #19
   ret void
 }

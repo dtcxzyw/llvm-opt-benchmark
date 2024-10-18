@@ -653,7 +653,7 @@ define void @_ZNK2cv4rgbd11RgbdNormals23initialize_normals_implEiiiRKNS_3MatEii(
   br i1 %19, label %68, label %80
 
 68:                                               ; preds = %66
-  invoke void @_ZN2cv4rgbd15RgbdNormalsImplC2EiiiiRKNS_3MatENS0_11RgbdNormals19RGBD_NORMALS_METHODE(ptr noundef nonnull align 8 dereferenceable(224) %67, i32 noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 0)
+  invoke void @_ZN2cv4rgbd15RgbdNormalsImplC2EiiiiRKNS_3MatENS0_11RgbdNormals19RGBD_NORMALS_METHODE(ptr noundef nonnull align 8 dereferenceable(416) %67, i32 noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 0)
           to label %69 unwind label %78
 
 69:                                               ; preds = %68
@@ -679,7 +679,7 @@ define void @_ZNK2cv4rgbd11RgbdNormals23initialize_normals_implEiiiRKNS_3MatEii(
   br label %115
 
 80:                                               ; preds = %66
-  invoke void @_ZN2cv4rgbd15RgbdNormalsImplC2EiiiiRKNS_3MatENS0_11RgbdNormals19RGBD_NORMALS_METHODE(ptr noundef nonnull align 8 dereferenceable(224) %67, i32 noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 0)
+  invoke void @_ZN2cv4rgbd15RgbdNormalsImplC2EiiiiRKNS_3MatENS0_11RgbdNormals19RGBD_NORMALS_METHODE(ptr noundef nonnull align 8 dereferenceable(416) %67, i32 noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 0)
           to label %81 unwind label %90
 
 81:                                               ; preds = %80
@@ -2824,7 +2824,7 @@ define linkonce_odr hidden void @_ZN2cv4rgbd15computeThetaPhiIfEEviiRKNS_4MatxIT
   %48 = getelementptr inbounds i8, ptr %16, i64 80
   store ptr %48, ptr %47, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %2, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 3, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 noundef 0)
           to label %.noexc unwind label %179
 
 .noexc:                                           ; preds = %32
@@ -4058,7 +4058,7 @@ define linkonce_odr hidden void @_ZN2cv4rgbd15computeThetaPhiIdEEviiRKNS_4MatxIT
   %47 = getelementptr inbounds i8, ptr %16, i64 80
   store ptr %47, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull %2, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 3, i32 noundef 3, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 noundef 0)
           to label %.noexc unwind label %184
 
 .noexc:                                           ; preds = %31

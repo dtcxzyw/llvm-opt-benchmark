@@ -65,7 +65,7 @@ define noundef i32 @_Z8add_binrP5t_biniPKf(ptr nocapture noundef %0, i32 noundef
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = sext i32 %storemerge to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %14, i64 noundef %13, i64 noundef 8)
+  %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 8)
   store ptr %15, ptr %12, align 8
   %.pre30 = load i32, ptr %0, align 8
   br label %16
@@ -135,7 +135,7 @@ define noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr nocapture noundef 
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = sext i32 %storemerge.i to i64
   %19 = load ptr, ptr %17, align 8
-  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %19, i64 noundef %18, i64 noundef 8)
+  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 8)
   store ptr %20, ptr %17, align 8
   %.pre30.i = load i32, ptr %0, align 8
   br label %21
@@ -198,7 +198,7 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = sext i32 %storemerge to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %14, i64 noundef %13, i64 noundef 8)
+  %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %14, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 8)
   store ptr %15, ptr %12, align 8
   %.pre30 = load i32, ptr %0, align 8
   br label %16
@@ -265,7 +265,7 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef 
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = sext i32 %storemerge.i to i64
   %19 = load ptr, ptr %17, align 8
-  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %19, i64 noundef %18, i64 noundef 8)
+  %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef %19, i64 noundef range(i64 -2147483648, 2147483648) %18, i64 noundef 8)
   store ptr %20, ptr %17, align 8
   %.pre30.i = load i32, ptr %0, align 8
   br label %21

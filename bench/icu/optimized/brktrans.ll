@@ -809,7 +809,7 @@ invoke.cont35:                                    ; preds = %if.end32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %sText, align 8, !alias.scope !5
   %fUnion2.i.i = getelementptr inbounds i8, ptr %sText, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !5
-  %7 = call ptr @__dynamic_cast(ptr nonnull %text, ptr nonnull @_ZTIN6icu_7511ReplaceableE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 0) #13, !noalias !5
+  %7 = call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %text, ptr nonnull @_ZTIN6icu_7511ReplaceableE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 0) #13, !noalias !5
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 

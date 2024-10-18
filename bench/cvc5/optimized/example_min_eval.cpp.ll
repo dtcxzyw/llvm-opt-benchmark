@@ -346,7 +346,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then, label %for.cond.i.i, !llvm.loop !5
 
 if.end15.i.i:                                     ; preds = %for.body
-  %call2.i.i.i21 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %fvs, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
+  %call2.i.i.i21 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %fvs, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %call2.i.i.i.noexc unwind label %lpad40.loopexit
 
 call2.i.i.i.noexc:                                ; preds = %if.end15.i.i

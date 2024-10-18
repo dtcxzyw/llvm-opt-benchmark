@@ -236,7 +236,7 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit: ; preds = %2
   store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !42
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store i8 %9, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !42
-  %10 = call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h4f6f3287da900d64E.llvm.7035662188962510802"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !43
+  %10 = call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h4f6f3287da900d64E.llvm.7035662188962510802"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !37
   ret i64 %10
 }
@@ -298,7 +298,7 @@ _ZN7uu_shuf20NonrepeatingIterator3new17h5bb5e4ae01776e38E.exit: ; preds = %18
   store ptr %2, ptr %26, align 8, !alias.scope !55, !noalias !73
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %.0.i, ptr %27, align 8, !alias.scope !55, !noalias !73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.e16c2fc9e77b009f0706c127c26f600a.6.llvm.1407976924502144584, i64 32, i1 false), !noalias !73
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.e16c2fc9e77b009f0706c127c26f600a.6.llvm.1407976924502144584, i64 32, i1 false), !noalias !73
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %22, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !55, !noalias !73
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40

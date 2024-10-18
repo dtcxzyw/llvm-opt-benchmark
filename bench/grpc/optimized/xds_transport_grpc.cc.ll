@@ -550,7 +550,7 @@ if.then.i10:                                      ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i10
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %12(ptr noundef nonnull %10)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if.end, %if.then.i10, %if.then.i.i
@@ -686,7 +686,7 @@ if.then.i:                                        ; preds = %invoke.cont4
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %4(ptr noundef nonnull %2)
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %do.body unwind label %terminate.lpad
 
 do.body:                                          ; preds = %if.then.i, %invoke.cont4, %if.then.i.i
@@ -825,7 +825,7 @@ if.then.i:                                        ; preds = %invoke.cont
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %2(ptr noundef nonnull %0)
+  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZN9grpc_core13RefCountedPtrINS_19XdsTransportFactory12XdsTransport13StreamingCallEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_19XdsTransportFactory12XdsTransport13StreamingCallEED2Ev.exit: ; preds = %if.then.i.i, %if.then.i, %invoke.cont
@@ -988,7 +988,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont8.i
   br i1 %cmp.not.i7.i, label %_ZNSt10unique_ptrIK17grpc_channel_argsN9grpc_core11ChannelArgs18ChannelArgsDeleterEED2Ev.exit.i, label %if.then.i8.i
 
 if.then.i8.i:                                     ; preds = %invoke.cont11.i
-  invoke void @_ZNK9grpc_core11ChannelArgs18ChannelArgsDeleterclEPK17grpc_channel_args(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i, ptr noundef nonnull %10)
+  invoke void @_ZNK9grpc_core11ChannelArgs18ChannelArgsDeleterclEPK17grpc_channel_args(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull %10)
           to label %_ZNSt10unique_ptrIK17grpc_channel_argsN9grpc_core11ChannelArgs18ChannelArgsDeleterEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i8.i
@@ -1161,7 +1161,7 @@ _ZNSt8functionIFvN4absl12lts_202308026StatusEEEC2EOS4_.exit: ; preds = %do.end24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core23GrpcXdsTransportFactory16GrpcXdsTransport12StateWatcherE, i64 16), ptr %call26, align 8
   %on_connectivity_failure_.i = getelementptr inbounds i8, ptr %call26, i64 32
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %call26, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %on_connectivity_failure_.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_.i, i8 0, i64 24, i1 false)
   store ptr %33, ptr %_M_invoker.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit, label %invoke.cont29
@@ -1311,7 +1311,7 @@ invoke.cont:                                      ; preds = %entry, %do.end
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp8) #23
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp8) #23
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
@@ -1392,7 +1392,7 @@ lpad10:                                           ; preds = %invoke.cont
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %21(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp8) #23
+  call void %21(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp8) #23
   call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #23
   resume { ptr, i32 } %20
 }
@@ -1739,7 +1739,7 @@ entry:
   %0 = load ptr, ptr %args, align 8
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %args3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %1, ptr %_M_invoker.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %args3, i64 16
@@ -1749,7 +1749,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %args3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args3, i64 16, i1 false)
   store ptr %2, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEEC2EOS4_.exit
@@ -1767,7 +1767,7 @@ invoke.cont:                                      ; preds = %_ZNSt8functionIFvN4
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -1789,7 +1789,7 @@ lpad:                                             ; preds = %_ZNSt8functionIFvN4
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit7, label %if.then.i.i4
 
 if.then.i.i4:                                     ; preds = %lpad
-  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i5 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit7 unwind label %terminate.lpad.i.i6
 
 terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
@@ -2067,7 +2067,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %on_connectivity_failure_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %on_connectivity_failure_, ptr noundef nonnull align 8 dereferenceable(16) %on_connectivity_failure_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_, ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -2167,7 +2167,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %on_connectivity_failure_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %on_connectivity_failure_.i, ptr noundef nonnull align 8 dereferenceable(16) %on_connectivity_failure_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_.i, ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_.i, i32 noundef 3)
           to label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -2325,7 +2325,7 @@ if.end.i:                                         ; preds = %invoke.cont
   %on_connectivity_failure_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %on_connectivity_failure_, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(32) %on_connectivity_failure_, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end.i

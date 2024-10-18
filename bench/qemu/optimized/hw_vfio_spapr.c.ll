@@ -186,7 +186,7 @@ for.end:                                          ; preds = %for.cond, %if.end7
   br i1 %tobool.not.i, label %if.then6.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %for.end
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i, i1 true)
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %and.i, i1 true)
   %sub4.i = xor i64 %11, 63
   %shl.i = shl nuw i64 1, %sub4.i
   %12 = load i128, ptr %section, align 16
@@ -213,7 +213,7 @@ int128_get64.exit.i:                              ; preds = %cond.end.i
   %shr.i = lshr i64 %coerce.sroa.0.0.extract.trunc.i, %sub4.i
   %conv15.i = shl i64 %shr.i, 3
   %mul.i = and i64 %conv15.i, 34359738360
-  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %mul.i, i1 false)
+  %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 -2147483648, -9223372036854775807) %mul.i, i1 false)
   %call.i22.i = tail call i32 @getpagesize() #15
   %15 = zext i32 %call.i22.i to i64
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 false)

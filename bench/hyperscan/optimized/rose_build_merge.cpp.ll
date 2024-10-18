@@ -6855,7 +6855,7 @@ if.else.i.thread.i:                               ; preds = %if.then.thread.i
   br label %.noexc
 
 if.then.i.i:                                      ; preds = %if.then.thread.i, %if.then.i108
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.299") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(24) %parents, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull %ref.tmp.i.i)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyISD_PSA_EEEENS0_12vec_iteratorISI_Lb0EEERKSI_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr nonnull sret(%"class.boost::container::vec_iterator.299") align 8 %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(40) %parents, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14.i, i64 noundef 1, ptr nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad67
 
 if.then7.i.i.i:                                   ; preds = %if.then.i108
@@ -9305,7 +9305,7 @@ if.then.i634:                                     ; preds = %if.then.i.i1448, %i
   br i1 %cmp.not.i.i635, label %if.else.i.i642, label %if.then.i.i636
 
 if.then.i.i636:                                   ; preds = %if.then.i634
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %372, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %372, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i, i64 40, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %372, i64 40
   %374 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %375 = load ptr, ptr %second.i.i, align 8
@@ -9363,7 +9363,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i
 
 if.else.i.i642:                                   ; preds = %if.then.i634
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %372, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %372, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i unwind label %lpad10.i.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i: ; preds = %if.else.i.i642, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i
@@ -9923,7 +9923,7 @@ if.then.i716:                                     ; preds = %if.then.i.i1472, %i
   br i1 %cmp.not.i.i718, label %if.else.i.i753, label %if.then.i.i719
 
 if.then.i.i719:                                   ; preds = %if.then.i716
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %468, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i518, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %468, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i518, i64 40, i1 false)
   %second.i.i.i.i.i720 = getelementptr inbounds i8, ptr %468, i64 40
   %470 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i722, align 8
   %471 = load ptr, ptr %second.i.i532, align 8
@@ -9981,7 +9981,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i746
 
 if.else.i.i753:                                   ; preds = %if.then.i716
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %468, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i518)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %468, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i518)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i746 unwind label %lpad10.i534.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i746: ; preds = %if.else.i.i753, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i743
@@ -10911,7 +10911,7 @@ if.then.i830:                                     ; preds = %if.then.i.i1506, %i
   br i1 %cmp.not.i.i832, label %if.else.i.i867, label %if.then.i.i833
 
 if.then.i.i833:                                   ; preds = %if.then.i830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %586, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i596, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %586, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i596, i64 40, i1 false)
   %second.i.i.i.i.i834 = getelementptr inbounds i8, ptr %586, i64 40
   %588 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i836, align 8
   %589 = load ptr, ptr %second.i.i610, align 8
@@ -10969,7 +10969,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i860
 
 if.else.i.i867:                                   ; preds = %if.then.i830
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %586, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i596)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %586, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i596)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i860 unwind label %lpad10.i612.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i860: ; preds = %if.else.i.i867, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i857
@@ -11396,7 +11396,7 @@ if.then.i944:                                     ; preds = %if.then.i.i1540, %i
   br i1 %cmp.not.i.i946, label %if.else.i.i981, label %if.then.i.i947
 
 if.then.i.i947:                                   ; preds = %if.then.i944
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %674, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i623, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %674, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i623, i64 40, i1 false)
   %second.i.i.i.i.i948 = getelementptr inbounds i8, ptr %674, i64 40
   %676 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i950, align 8
   %677 = load ptr, ptr %second.i.i637, align 8
@@ -11454,7 +11454,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i974
 
 if.else.i.i981:                                   ; preds = %if.then.i944
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %674, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i623)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %674, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i623)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i974 unwind label %lpad10.i639.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i974: ; preds = %if.else.i.i981, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i971
@@ -17265,7 +17265,7 @@ if.then.i766:                                     ; preds = %if.end46.i
   br i1 %cmp.not.i.i767, label %if.else.i.i, label %if.then.i.i768
 
 if.then.i.i768:                                   ; preds = %if.then.i766
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %426, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %426, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i, i64 40, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %426, i64 40
   %428 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %429 = load ptr, ptr %second.i.i, align 8
@@ -17323,7 +17323,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i766
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %426, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %426, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i unwind label %lpad10.i.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i: ; preds = %if.else.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i
@@ -17902,7 +17902,7 @@ if.then.i844:                                     ; preds = %if.then.i.i1106, %i
   br i1 %cmp.not.i.i846, label %if.else.i.i881, label %if.then.i.i847
 
 if.then.i.i847:                                   ; preds = %if.then.i844
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %529, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i424, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %529, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i424, i64 40, i1 false)
   %second.i.i.i.i.i848 = getelementptr inbounds i8, ptr %529, i64 40
   %531 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i850, align 8
   %532 = load ptr, ptr %second.i.i437, align 8
@@ -17960,7 +17960,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i874
 
 if.else.i.i881:                                   ; preds = %if.then.i844
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %529, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i424)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %529, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i424)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i874 unwind label %lpad10.i439.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i874: ; preds = %if.else.i.i881, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i871
@@ -19545,7 +19545,7 @@ if.then.i:                                        ; preds = %call.i.i53.noexc
 call5.i.i.i.i.i.i.i.noexc:                        ; preds = %if.then.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i59, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %left23, i64 40, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i59, ptr noundef nonnull %nfa_leftfixes) #19
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(80) %nfa_leftfixes) #19
   %42 = load i64, ptr %_M_size.i.i.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %42, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i.i.i.i, align 8
@@ -20521,7 +20521,7 @@ lpad.body.i:                                      ; preds = %lpad2.i.i
   %189 = call ptr @__cxa_begin_catch(ptr %188) #19
   %190 = load ptr, ptr %merged.i, align 8
   call void @_ZdlPv(ptr noundef %190) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %merged.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %merged.i, i8 0, i64 16, i1 false)
   invoke void @__cxa_rethrow() #22
           to label %unreachable.i unwind label %lpad23.i
 
@@ -24307,7 +24307,7 @@ if.then.i91:                                      ; preds = %if.then.i.i248, %if
   br i1 %cmp.not.i.i92, label %if.else.i.i, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %if.then.i91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %153, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp8.i167.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %153, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i167.i, i64 40, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %153, i64 40
   %155 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %156 = load ptr, ptr %second.i.i180.i, align 8
@@ -24365,7 +24365,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17
   br label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i91
-  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %eng_verts, ptr %153, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i167.i)
+  invoke void @_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %eng_verts, ptr %153, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i167.i)
           to label %_ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i unwind label %lpad10.i182.i.loopexit
 
 _ZNSt6vectorISt4pairIKN3ue27left_idES_INS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISB_EEESaISE_EE9push_backERKSE_.exit.i: ; preds = %if.else.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN3ue27left_idESt6vectorINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphINS1_9RoseGraphENS1_15RoseVertexPropsENS1_13RoseEdgePropsEEEEESaISC_EEEEE9constructISF_JRKSF_EEEvRSG_PT_DpOT0_.exit.i.i

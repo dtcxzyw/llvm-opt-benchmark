@@ -169,7 +169,7 @@ define void @proj_assign_context(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6pj_ctx13createDefaultEv(ptr dead_on_unwind noalias nonnull writable sret(%struct.pj_ctx) align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(516) %0) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 36

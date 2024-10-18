@@ -1428,7 +1428,7 @@ define hidden void @_ZN14HandshakeStateD2Ev(ptr noundef nonnull align 8 derefere
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %12
-  %15 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %.132.i, ptr nonnull %3) #11, !srcloc !18
+  %15 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %.132.i, ptr nonnull align 8 dereferenceable(8) %3) #11, !srcloc !18
   %16 = icmp eq ptr %15, %.132.i
   br i1 %16, label %.loopexit.sink.split.i, label %17
 
@@ -3454,7 +3454,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit28:  ; preds = %.lr.ph39
 
 115:                                              ; preds = %112
   %116 = sub nsw i64 %113, %4
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef %110, i32 noundef %.0.lcssa, i32 noundef %.1.lcssa, i64 noundef %116, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef %110, i32 noundef range(i32 0, -2147483648) %.0.lcssa, i32 noundef %.1.lcssa, i64 noundef %116, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.45)
   br label %_ZL18log_handshake_infolPKciiS0_.exit
 
 _ZL18log_handshake_infolPKciiS0_.exit:            ; preds = %115, %112, %105, %53, %50, %44

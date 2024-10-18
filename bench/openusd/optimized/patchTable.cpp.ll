@@ -4863,7 +4863,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable5printEv(ptr noundef nonnull
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %23)
   %25 = load ptr, ptr %13, align 8
   %26 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %25, i64 %indvars.iv
-  tail call void @_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEv(ptr noundef nonnull align 4 dereferenceable(4) %26)
+  tail call void @_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEv(ptr noundef nonnull align 4 dereferenceable(20) %26)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8

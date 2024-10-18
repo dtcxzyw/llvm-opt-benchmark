@@ -1181,7 +1181,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %21
   br label %41
 
 39:                                               ; preds = %27
-  %40 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 8, i32 noundef 0) #12
+  %40 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 noundef 8, i32 noundef 0) #12
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -1258,7 +1258,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %3
   br label %25
 
 23:                                               ; preds = %11
-  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef 8, i32 noundef 0) #12
+  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef 8, i32 noundef 0) #12
   br label %25
 
 25:                                               ; preds = %23, %21

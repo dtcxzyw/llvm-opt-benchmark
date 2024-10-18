@@ -4725,7 +4725,7 @@ define void @_ZN25SCTPChunkStatisticsDialogD0Ev(ptr noundef nonnull align 8 dere
 define void @_ZThn16_N25SCTPChunkStatisticsDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN25SCTPChunkStatisticsDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(128) %2) #23
   ret void
 }
 
@@ -5020,7 +5020,7 @@ define void @_ZN25SCTPChunkStatisticsDialog32on_actionHideChunkType_triggeredEv(
   br i1 %.not.i, label %_ZNK16QTableWidgetItem3rowEv.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = call noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull %16)
+  %21 = call noundef i32 @_ZNK12QTableWidget3rowEPK16QTableWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(60) %16)
   br label %_ZNK16QTableWidgetItem3rowEv.exit
 
 _ZNK16QTableWidgetItem3rowEv.exit:                ; preds = %17, %20

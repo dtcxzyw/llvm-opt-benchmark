@@ -135,7 +135,7 @@ _ZL9parseArgsiPPc.exit:                           ; preds = %8
 33:                                               ; preds = %28, %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #8
+  call void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %5) #8
   br label %35
 
 35:                                               ; preds = %33, %31

@@ -209,7 +209,7 @@ Abc_Clock.exit:                                   ; preds = %3, %20
 Abc_Clock.exit.i:                                 ; preds = %112, %107
   %.0.i.neg.i = phi i64 [ %.neg192.i, %112 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef %100, i32 noundef 5)
+  call fastcc void @Ivy_CutComputeForNode(ptr noundef nonnull %0, ptr noundef nonnull %100, i32 noundef 5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %115 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #18
   %116 = icmp slt i32 %115, 0
@@ -328,7 +328,7 @@ Abc_Clock.exit160.i:                              ; preds = %160, %.thread.i
   %164 = sext i16 %163 to i32
   %.val153.i = load i32, ptr %100, align 8
   %165 = shl i32 %.val153.i, 8
-  %166 = call i32 @Ivy_CutGetTruth_rec(ptr noundef readonly %0, i32 noundef %165, ptr noundef nonnull readonly %140, i32 noundef %164)
+  %166 = call i32 @Ivy_CutGetTruth_rec(ptr noundef readonly %0, i32 noundef %165, ptr noundef nonnull readonly %140, i32 noundef range(i32 -32768, 32768) %164)
   %167 = and i32 %166, 65535
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #18

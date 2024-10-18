@@ -14530,7 +14530,7 @@ _ZN14TypeInterfaces12compute_hashEv.exit.thread:  ; preds = %1
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #17
+  %11 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   %12 = mul i32 %11, 31
   %13 = add i32 %12, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -14640,7 +14640,7 @@ define hidden void @_ZN14TypeInterfaces12compute_hashEv(ptr nocapture noundef no
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %9) #17
+  %10 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   %11 = mul i32 %10, 31
   %12 = add i32 %11, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -19397,7 +19397,7 @@ define hidden noundef i32 @_ZNK11TypeInstPtr4hashEv(ptr noundef nonnull align 8 
   %3 = getelementptr inbounds i8, ptr %2, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
-  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
+  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -25093,7 +25093,7 @@ define hidden noundef i32 @_ZNK15TypeMetadataPtr4hashEv(ptr nocapture noundef no
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #17
+  %5 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   %6 = mul i32 %5, 31
   br label %7
 
@@ -26803,7 +26803,7 @@ define hidden noundef i32 @_ZNK16TypeInstKlassPtr4hashEv(ptr noundef nonnull ali
   %3 = getelementptr inbounds i8, ptr %2, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
-  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
+  %6 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 36

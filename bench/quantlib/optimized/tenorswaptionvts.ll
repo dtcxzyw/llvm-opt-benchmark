@@ -723,7 +723,7 @@ invoke.cont13:                                    ; preds = %.noexc, %invoke.con
           to label %.noexc115 unwind label %lpad10
 
 .noexc115:                                        ; preds = %invoke.cont13
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %17, double noundef %optionTime, i1 noundef zeroext true)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %17, double noundef %optionTime, i1 noundef zeroext true)
           to label %.noexc116 unwind label %lpad10
 
 .noexc116:                                        ; preds = %.noexc115
@@ -3134,7 +3134,7 @@ terminate.lpad.i.i.i657:                          ; preds = %if.then.i.i.i.i.i66
   unreachable
 
 _ZN8QuantLib17SwaptionCashFlowsD2Ev.exit:         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %if.then.i.i.i652, %.noexc.i.i.i658, %if.then.i.i.i.i.i661
-  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %cf2) #25
+  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %cf2) #25
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cf2) #25
   %exerciseTimes_.i664 = getelementptr inbounds nuw i8, ptr %cfs, i64 192
   %356 = load ptr, ptr %exerciseTimes_.i664, align 8, !tbaa !102
@@ -3190,7 +3190,7 @@ terminate.lpad.i.i.i680:                          ; preds = %if.then.i.i.i.i.i68
   unreachable
 
 _ZN8QuantLib17SwaptionCashFlowsD2Ev.exit687:      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i671, %if.then.i.i.i674, %.noexc.i.i.i681, %if.then.i.i.i.i.i684
-  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %cfs) #25
+  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %cfs) #25
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cfs) #25
   %pn.i688 = getelementptr inbounds nuw i8, ptr %finlSwap, i64 8
   %365 = load ptr, ptr %pn.i688, align 8, !tbaa !37
@@ -5559,7 +5559,7 @@ invoke.cont12:                                    ; preds = %.noexc118, %invoke.
           to label %.noexc120 unwind label %lpad9
 
 .noexc120:                                        ; preds = %invoke.cont12
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %15, double noundef %optionTime, i1 noundef zeroext true)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %15, double noundef %optionTime, i1 noundef zeroext true)
           to label %.noexc121 unwind label %lpad9
 
 .noexc121:                                        ; preds = %.noexc120
@@ -7975,7 +7975,7 @@ terminate.lpad.i.i.i662:                          ; preds = %if.then.i.i.i.i.i66
   unreachable
 
 _ZN8QuantLib17SwaptionCashFlowsD2Ev.exit:         ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i, %if.then.i.i.i657, %.noexc.i.i.i663, %if.then.i.i.i.i.i666
-  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %cf2) #25
+  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %cf2) #25
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cf2) #25
   %exerciseTimes_.i669 = getelementptr inbounds nuw i8, ptr %cfs, i64 192
   %355 = load ptr, ptr %exerciseTimes_.i669, align 8, !tbaa !102
@@ -8031,7 +8031,7 @@ terminate.lpad.i.i.i685:                          ; preds = %if.then.i.i.i.i.i68
   unreachable
 
 _ZN8QuantLib17SwaptionCashFlowsD2Ev.exit692:      ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i676, %if.then.i.i.i679, %.noexc.i.i.i686, %if.then.i.i.i.i.i689
-  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %cfs) #25
+  call void @_ZN8QuantLib13SwapCashFlowsD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %cfs) #25
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %cfs) #25
   %pn.i693 = getelementptr inbounds nuw i8, ptr %finlSwap, i64 8
   %364 = load ptr, ptr %pn.i693, align 8, !tbaa !37
@@ -9097,7 +9097,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %19 = phi ptr [ %18, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull %add.ptr6.i)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr6.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -9222,7 +9222,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib16TenorSwaptionVTS25TenorSwaptionSmileSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #25
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef 240) #29
   ret void
 }
 

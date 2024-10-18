@@ -3183,14 +3183,14 @@ define void @_ZN15AlignPairWidget16drawPickedPointsEP8QPainterRSt6vectorIN3vcg6P
   %17 = getelementptr inbounds %"class.vcg::Point3", ptr %15, i64 %16
   call void @glPointSize(float noundef 5.000000e+00)
   store i32 -16777216, ptr %7, align 4
-  call void @glColor4ubv(ptr noundef nonnull %7)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @glEnd()
   call void @glPointSize(float noundef 3.000000e+00)
-  call void @glColor4ubv(ptr noundef nonnull %6)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %6)
   call void @glBegin(i32 noundef 0)
-  call void @glVertex3fv(ptr noundef nonnull %17)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @glEnd()
   %18 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 2)
   store ptr %18, ptr %9, align 8

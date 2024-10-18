@@ -255,7 +255,7 @@ getFile.exit:                                     ; preds = %61
   br i1 %or.cond.i, label %nameOf.exit, label %97
 
 97:                                               ; preds = %.preheader
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef nonnull %94, i32 noundef %.1)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef nonnull %94, i32 noundef %.1)
   %.val.i.i.i.i = load i8, ptr %56, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -515,7 +515,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

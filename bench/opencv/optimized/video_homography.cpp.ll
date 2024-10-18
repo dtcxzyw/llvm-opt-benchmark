@@ -2052,7 +2052,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN2cv8K
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit118
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit118: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %747
-  call void @_ZN2cv17DescriptorMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #19
+  call void @_ZN2cv17DescriptorMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(61) %20) #19
   %748 = load ptr, ptr %19, align 8
   %.not.i.i.i119 = icmp eq ptr %748, null
   br i1 %.not.i.i.i119, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit, label %749
@@ -2125,7 +2125,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127: ; preds = %_ZNSt6vectorIN2cv8K
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit129
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit129: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127, %761
-  call void @_ZN2cv17DescriptorMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #19
+  call void @_ZN2cv17DescriptorMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(61) %20) #19
   br label %762
 
 762:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit129, %260

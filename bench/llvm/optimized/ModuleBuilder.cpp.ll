@@ -294,7 +294,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %25, %_ZN
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %31 = getelementptr inbounds i8, ptr %10, i64 112
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %31, i64 noundef 8) #12
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %31, i64 noundef 8) #12
   %32 = load i64, ptr %6, align 8
   %33 = and i64 %32, 67108864
   %34 = icmp ne i64 %33, 0
@@ -440,7 +440,7 @@ declare void @_ZN4llvm11LLVMContext20setDiscardValueNamesEb(ptr noundef nonnull 
 define internal void @_ZN12_GLOBAL__N_117CodeGeneratorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117CodeGeneratorImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #12
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = icmp eq ptr %4, %5

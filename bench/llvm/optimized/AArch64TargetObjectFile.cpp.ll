@@ -355,7 +355,7 @@ _ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; pre
   br i1 %.not.i, label %87, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm20MachineModuleInfoELFEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
 87:                                               ; preds = %_ZN4llvm20MachineModuleInfoELF19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i
-  %88 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %22, ptr null) #10
+  %88 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %22, ptr null) #10
   %89 = call noundef ptr @_ZN4llvm17AArch64AuthMCExpr6createEPKNS_6MCExprEtNS_13AArch64PACKey2IDEbRNS_9MCContextE(ptr noundef %88, i16 noundef zeroext %5, i8 noundef zeroext %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2432) %22) #10
   %90 = icmp eq ptr %89, null
   %91 = getelementptr inbounds i8, ptr %89, i64 8
@@ -549,7 +549,7 @@ _ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i: ; p
   br i1 %.not.i, label %88, label %_ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolERNS0_9MCContextERKNS0_13TargetMachineEPNS0_17MachineModuleInfoERT_PKS2_NS0_13AArch64PACKey2IDEt.exit
 
 88:                                               ; preds = %_ZN4llvm22MachineModuleInfoMachO19getAuthPtrStubEntryEPNS_8MCSymbolE.exit.i
-  %89 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr null) #10
+  %89 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef nonnull %3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr null) #10
   %90 = call noundef ptr @_ZN4llvm17AArch64AuthMCExpr6createEPKNS_6MCExprEtNS_13AArch64PACKey2IDEbRNS_9MCContextE(ptr noundef %89, i16 noundef zeroext %5, i8 noundef zeroext %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(2432) %23) #10
   %91 = icmp eq ptr %90, null
   %92 = getelementptr inbounds i8, ptr %90, i64 8
@@ -581,7 +581,7 @@ define linkonce_odr hidden void @_ZN4llvm27AArch64_ELFTargetObjectFileD2Ev(ptr n
   br label %_ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit
 
 _ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit:   ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #10
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #10
   ret void
 }
 
@@ -600,7 +600,7 @@ define linkonce_odr hidden void @_ZN4llvm27AArch64_ELFTargetObjectFileD0Ev(ptr n
   br label %_ZN4llvm27AArch64_ELFTargetObjectFileD2Ev.exit
 
 _ZN4llvm27AArch64_ELFTargetObjectFileD2Ev.exit:   ; preds = %1, %7
-  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %0) #10
+  tail call void @_ZN4llvm24TargetLoweringObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) #10
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1032) #12
   ret void
 }

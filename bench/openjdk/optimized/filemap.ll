@@ -942,12 +942,12 @@ define hidden void @_ZN13FileMapHeader8populateEP11FileMapInfommmmm(ptr noundef 
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %43
-  %67 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %62) #25
+  %67 = tail call ptr @strcpy(ptr noundef nonnull align 1 dereferenceable(256) %61, ptr noundef nonnull dereferenceable(1) %62) #25
   br label %_ZL18get_header_versionILi256EEvRAT__c.exit
 
 68:                                               ; preds = %43
   %69 = tail call noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKvi(i64 noundef 8191, ptr noundef %62, i32 noundef %64) #25
-  %70 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %62, i64 noundef 247) #25
+  %70 = tail call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %61, ptr noundef nonnull dereferenceable(1) %62, i64 noundef 247) #25
   %71 = getelementptr inbounds i8, ptr %0, i64 695
   %72 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %71, i64 noundef 9, ptr noundef nonnull @.str.229, i32 noundef %69) #25
   %73 = getelementptr inbounds i8, ptr %0, i64 703
@@ -3629,7 +3629,7 @@ define hidden void @_ZN11FileMapInfo9log_pathsEPKcii(ptr nocapture nonnull readn
   br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %4
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #25
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #25
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #25
@@ -4902,7 +4902,7 @@ declare noundef ptr @_ZN2os8strerrorEi(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FileMapInfo14open_for_writeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogMessageTemplate, align 8
-  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
+  call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #25
   %3 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 80
@@ -4988,13 +4988,13 @@ _ZN11FileMapInfo16seek_to_positionEm.exit:        ; preds = %46, %26, %25
 
 49:                                               ; preds = %_ZN11FileMapInfo16seek_to_positionEm.exit
   %50 = load ptr, ptr %3, align 8
-  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %50, ptr noundef nonnull align 8 dereferenceable(72) %2) #25
+  call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %50, ptr noundef nonnull align 8 dereferenceable(81) %2) #25
   store i8 0, ptr %4, align 8
-  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
+  call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %2) #25
   br label %_ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit
 
 _ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.exit: ; preds = %_ZN11FileMapInfo16seek_to_positionEm.exit, %49
-  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #25
+  call void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #25
   ret void
 }
 
@@ -7570,7 +7570,7 @@ _ZL10map_memoryiPKcmPcmbb8MEMFLAGS.exit:          ; preds = %27, %45, %48
 
 64:                                               ; preds = %61
   %65 = trunc i64 %62 to i32
-  %66 = tail call noundef i32 @_ZN11ClassLoader5crc32EiPKci(i32 noundef 0, ptr noundef %44, i32 noundef %65) #25
+  %66 = tail call noundef i32 @_ZN11ClassLoader5crc32EiPKci(i32 noundef 0, ptr noundef nonnull %44, i32 noundef %65) #25
   %67 = load i32, ptr %4, align 8
   %.not.i36 = icmp eq i32 %66, %67
   br i1 %.not.i36, label %_ZNK13FileMapRegion16check_region_crcEPc.exit.thread, label %68
@@ -7955,7 +7955,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo10initializeEv(ptr noundef non
   br i1 %21, label %_ZN11FileMapInfo15validate_headerEv.exit.thread, label %_ZN11FileMapInfo15validate_headerEv.exit
 
 _ZN11FileMapInfo15validate_headerEv.exit:         ; preds = %19
-  %22 = tail call noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(ptr noundef nonnull %0) #25
+  %22 = tail call noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   br i1 %22, label %_ZN11FileMapInfo15validate_headerEv.exit.thread, label %_ZN11FileMapInfo15validate_headerEv.exit.thread3
 
 _ZN11FileMapInfo15validate_headerEv.exit.thread3: ; preds = %15, %_ZN11FileMapInfo15validate_headerEv.exit, %11, %9

@@ -1219,7 +1219,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.ptr2.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1464) %0, i8 0, i64 16, i1 false)
   store ptr %.ptr2.i.i.i, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr2.i.i.i, ptr %3, align 8
@@ -1271,8 +1271,8 @@ define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplC2Ev
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %23 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %23, i64 noundef 4) #20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %21, i8 0, i64 16, i1 false)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %23, i64 noundef 4) #20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %25 = getelementptr inbounds i8, ptr %0, i64 888
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 0) #20
@@ -1340,7 +1340,7 @@ define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplD2Ev
 _ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i: ; preds = %6, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
-  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
+  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(656) %2) #20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1510,7 +1510,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
 
 64:                                               ; preds = %53, %27
   %.sink.i.i.i.i.i = phi ptr [ %54, %53 ], [ null, %27 ]
-  %65 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i.i), !noalias !6
+  %65 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %.sink.i.i.i.i.i), !noalias !6
   %66 = load ptr, ptr %8, align 8, !noalias !6
   store ptr %66, ptr %65, align 8, !noalias !6
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -1588,7 +1588,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator12addRemappingEPN4llvm16itanium_demangl
 
 108:                                              ; preds = %97, %71
   %.sink.i.i.i.i.i32 = phi ptr [ %98, %97 ], [ null, %71 ]
-  %109 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.sink.i.i.i.i.i32), !noalias !12
+  %109 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %.sink.i.i.i.i.i32), !noalias !12
   %110 = load ptr, ptr %7, align 8, !noalias !12
   store ptr %110, ptr %109, align 8, !noalias !12
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -1836,7 +1836,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %45 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %45, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %45, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 1)
   %46 = ptrtoint ptr %36 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %46)
@@ -1878,7 +1878,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %53
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %8)
   %68 = load ptr, ptr %8, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = add i64 %69, 7
@@ -1913,7 +1913,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 83:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %51, %49
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %74, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %50, %49 ], [ null, %51 ]
-  %84 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %84 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %85 = load ptr, ptr %5, align 8
   %86 = icmp eq ptr %85, %45
   br i1 %86, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9DotSuffixEJRPNS3_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i.i, label %87
@@ -2219,7 +2219,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   br label %_ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, %28
-  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #20
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = icmp eq ptr %30, %31
@@ -2252,9 +2252,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -2263,7 +2263,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(4) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -2303,7 +2303,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -2318,7 +2318,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(4) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -2337,7 +2337,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -2634,7 +2634,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %76 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %76, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %76, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr nonnull @.str.12, i64 12) #20
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -2674,7 +2674,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %83
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %73)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %73)
   %98 = load ptr, ptr %73, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = add i64 %99, 7
@@ -2707,7 +2707,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 112:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %81, %79
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %104, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %80, %79 ], [ null, %81 ]
-  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
+  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %9) #20
   %114 = load ptr, ptr %9, align 8
   %115 = icmp eq ptr %114, %76
   br i1 %115, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %116
@@ -2822,7 +2822,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %173 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %173, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %173, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr nonnull @.str.16, i64 18) #20
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -2862,7 +2862,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i126
 
 .critedge.i.i.i.i.i.i.i130:                       ; preds = %180
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %170)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %170)
   %195 = load ptr, ptr %170, align 8
   %196 = ptrtoint ptr %195 to i64
   %197 = add i64 %196, 7
@@ -2895,7 +2895,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 209:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i126, %178, %176
   %.sroa.04.0.i.i.i.i.i109 = phi ptr [ %201, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i126 ], [ %177, %176 ], [ null, %178 ]
-  %210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  %210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #20
   %211 = load ptr, ptr %7, align 8
   %212 = icmp eq ptr %211, %173
   br i1 %212, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %213
@@ -2998,7 +2998,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %264 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %264, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %264, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr nonnull @.str.18, i64 17) #20
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -3038,7 +3038,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i149
 
 .critedge.i.i.i.i.i.i.i153:                       ; preds = %271
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %261)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %261)
   %286 = load ptr, ptr %261, align 8
   %287 = ptrtoint ptr %286 to i64
   %288 = add i64 %287, 7
@@ -3071,7 +3071,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 300:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i149, %269, %267
   %.sroa.04.0.i.i.i.i.i132 = phi ptr [ %292, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i149 ], [ %268, %267 ], [ null, %269 ]
-  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %302 = load ptr, ptr %5, align 8
   %303 = icmp eq ptr %302, %264
   br i1 %303, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %304
@@ -3174,7 +3174,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %355 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %355, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %355, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.20, i64 6) #20
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -3214,7 +3214,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i172
 
 .critedge.i.i.i.i.i.i.i176:                       ; preds = %362
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %352)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %352)
   %377 = load ptr, ptr %352, align 8
   %378 = ptrtoint ptr %377 to i64
   %379 = add i64 %378, 7
@@ -3247,7 +3247,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 391:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i172, %360, %358
   %.sroa.04.0.i.i.i.i.i155 = phi ptr [ %383, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i172 ], [ %359, %358 ], [ null, %360 ]
-  %392 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %392 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %393 = load ptr, ptr %3, align 8
   %394 = icmp eq ptr %393, %355
   br i1 %394, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %395
@@ -4430,7 +4430,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseLocalNameEPNS6_9NameStateE.exit
 
 167:                                              ; preds = %158, %156
-  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef %0)
+  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %168 = load ptr, ptr %0, align 8
   %169 = load ptr, ptr %6, align 8
   %.not.i73 = icmp eq ptr %168, %169
@@ -4903,7 +4903,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %117 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %117, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %117, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.248, i64 19) #20
   %118 = ptrtoint ptr %111 to i64
@@ -4945,7 +4945,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i90
 
 .critedge.i.i.i.i.i.i.i94:                        ; preds = %125
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %114)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %114)
   %140 = load ptr, ptr %114, align 8
   %141 = ptrtoint ptr %140 to i64
   %142 = add i64 %141, 7
@@ -4980,7 +4980,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 155:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i90, %123, %121
   %.sroa.04.0.i.i.i.i.i73 = phi ptr [ %146, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i90 ], [ %122, %121 ], [ null, %123 ]
-  %156 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %156 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %157 = load ptr, ptr %2, align 8
   %158 = icmp eq ptr %157, %117
   br i1 %158, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %159
@@ -5152,7 +5152,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %232 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %232, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %232, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull @.str.250, i64 23) #20
   %233 = ptrtoint ptr %226 to i64
@@ -5194,7 +5194,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i63
 
 .critedge.i.i.i.i.i.i.i66:                        ; preds = %240
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %229)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %229)
   %255 = load ptr, ptr %229, align 8
   %256 = ptrtoint ptr %255 to i64
   %257 = add i64 %256, 7
@@ -5229,7 +5229,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 270:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i63, %238, %236
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %261, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i63 ], [ %237, %236 ], [ null, %238 ]
-  %271 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %271 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %272 = load ptr, ptr %4, align 8
   %273 = icmp eq ptr %272, %232
   br i1 %273, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %274
@@ -5618,7 +5618,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %482 = load i8, ptr %458, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %459, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %459, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 87)
   %483 = ptrtoint ptr %472 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %483)
@@ -5656,7 +5656,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %489
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %457)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %457)
   %502 = load ptr, ptr %457, align 8
   %503 = ptrtoint ptr %502 to i64
   %504 = add i64 %503, 7
@@ -5687,7 +5687,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 516:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %487, %485
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %508, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %486, %485 ], [ null, %487 ]
-  %517 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %517 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %518 = load ptr, ptr %6, align 8
   %519 = icmp eq ptr %518, %459
   br i1 %519, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %520
@@ -5908,46 +5908,46 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = trunc i64 %1 to i32
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %.not.i.i.i.i = icmp ugt i64 %5, %6
   br i1 %.not.i.i.i.i, label %7, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 4) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 4) #20
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %7
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %11 = getelementptr inbounds i32, ptr %9, i64 %10
   store i32 %3, ptr %11, align 1
-  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %13 = add i64 %12, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %13) #20
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %13) #20
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %15 = add i64 %14, 1
-  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %.not.i.i.i.i2 = icmp ugt i64 %15, %16
   br i1 %.not.i.i.i.i2, label %17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit3
 
 17:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %15, i64 noundef 4) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %18, i64 noundef %15, i64 noundef 4) #20
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit3
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit3:   ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %17
   %19 = lshr i64 %1, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = load ptr, ptr %0, align 8
-  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   store i32 %20, ptr %23, align 1
-  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #20
   %25 = add i64 %24, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %25) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %25) #20
   ret void
 }
 
@@ -5981,7 +5981,7 @@ define internal noundef zeroext i1 @_ZN4llvm10FoldingSetIN12_GLOBAL__N_120Foldin
 define internal noundef i32 @_ZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr nocapture readnone %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 align 2 {
   tail call fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE7ProfileERS3_RNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(144) %2)
   %4 = load ptr, ptr %2, align 8
-  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %4, ptr noundef %6)
   %8 = trunc i64 %7 to i32
@@ -6088,15 +6088,15 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val1.i.i.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %0, i64 32
   %.val2.i.i.i = load i64, ptr %8, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13NodeArrayNodeEEEvPKT_(ptr %1, ptr %.val1.i.i.i, i64 %.val2.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13NodeArrayNodeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val1.i.i.i, i64 %.val2.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 9:                                                ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9DotSuffixEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9DotSuffixEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 10:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle17VendorExtQualTypeEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle17VendorExtQualTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 11:                                               ; preds = %2
@@ -6104,7 +6104,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val6.i.i.i = load i32, ptr %12, align 4
   %13 = getelementptr i8, ptr %0, i64 24
   %.val7.i.i.i = load ptr, ptr %13, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8QualTypeEEEvPKT_(ptr %1, i32 %.val6.i.i.i, ptr %.val7.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8QualTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i32 %.val6.i.i.i, ptr %.val7.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 14:                                               ; preds = %2
@@ -6116,15 +6116,15 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 17:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20PostfixQualifiedTypeEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20PostfixQualifiedTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 18:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 19:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15TransformedTypeEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15TransformedTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 20:                                               ; preds = %2
@@ -6132,11 +6132,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val14.i.i.i = load i64, ptr %21, align 8
   %22 = getelementptr i8, ptr %0, i64 32
   %.val15.i.i.i = load ptr, ptr %22, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8NameTypeEEEvPKT_(ptr %1, i64 %.val14.i.i.i, ptr %.val15.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8NameTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val14.i.i.i, ptr %.val15.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 23:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10AbiTagAttrEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10AbiTagAttrEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 24:                                               ; preds = %2
@@ -6144,11 +6144,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val18.i.i.i = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %0, i64 32
   %.val19.i.i.i = load i64, ptr %26, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12EnableIfAttrEEEvPKT_(ptr %1, ptr %.val18.i.i.i, i64 %.val19.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12EnableIfAttrEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val18.i.i.i, i64 %.val19.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 27:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ObjCProtoNameEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ObjCProtoNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 28:                                               ; preds = %2
@@ -6164,7 +6164,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val24.i.i.i = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %0, i64 32
   %.val25.i.i.i = load i32, ptr %33, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ReferenceTypeEEEvPKT_(ptr %1, ptr %.val24.i.i.i, i32 %.val25.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ReferenceTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val24.i.i.i, i32 %.val25.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 34:                                               ; preds = %2
@@ -6172,7 +6172,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val27.i.i.i = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %0, i64 32
   %.val28.i.i.i = load ptr, ptr %36, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle19PointerToMemberTypeEEEvPKT_(ptr %1, ptr %.val27.i.i.i, ptr %.val28.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle19PointerToMemberTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val27.i.i.i, ptr %.val28.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 37:                                               ; preds = %2
@@ -6180,11 +6180,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val30.i.i.i = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %0, i64 32
   %.val31.i.i.i = load ptr, ptr %39, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9ArrayTypeEEEvPKT_(ptr %1, ptr %.val30.i.i.i, ptr %.val31.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9ArrayTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val30.i.i.i, ptr %.val31.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 40:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12FunctionTypeEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12FunctionTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 41:                                               ; preds = %2
@@ -6200,11 +6200,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val36.i.i.i = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %0, i64 32
   %.val37.i.i.i = load i64, ptr %46, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20DynamicExceptionSpecEEEvPKT_(ptr %1, ptr %.val36.i.i.i, i64 %.val37.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20DynamicExceptionSpecEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val36.i.i.i, i64 %.val37.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 47:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FunctionEncodingEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FunctionEncodingEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 48:                                               ; preds = %2
@@ -6216,7 +6216,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 51:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11SpecialNameEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11SpecialNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 52:                                               ; preds = %2
@@ -6224,7 +6224,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val43.i.i.i = load ptr, ptr %53, align 8
   %54 = getelementptr i8, ptr %0, i64 32
   %.val44.i.i.i = load ptr, ptr %54, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21CtorVtableSpecialNameEEEvPKT_(ptr %1, ptr %.val43.i.i.i, ptr %.val44.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21CtorVtableSpecialNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val43.i.i.i, ptr %.val44.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 55:                                               ; preds = %2
@@ -6232,7 +6232,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val46.i.i.i = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %0, i64 32
   %.val47.i.i.i = load ptr, ptr %57, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13QualifiedNameEEEvPKT_(ptr %1, ptr %.val46.i.i.i, ptr %.val47.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13QualifiedNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val46.i.i.i, ptr %.val47.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 58:                                               ; preds = %2
@@ -6240,7 +6240,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val49.i.i.i = load ptr, ptr %59, align 8
   %60 = getelementptr i8, ptr %0, i64 32
   %.val50.i.i.i = load ptr, ptr %60, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10NestedNameEEEvPKT_(ptr %1, ptr %.val49.i.i.i, ptr %.val50.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10NestedNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val49.i.i.i, ptr %.val50.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 61:                                               ; preds = %2
@@ -6248,7 +6248,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val52.i.i.i = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %0, i64 32
   %.val53.i.i.i = load ptr, ptr %63, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20MemberLikeFriendNameEEEvPKT_(ptr %1, ptr %.val52.i.i.i, ptr %.val53.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20MemberLikeFriendNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val52.i.i.i, ptr %.val53.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 64:                                               ; preds = %2
@@ -6256,11 +6256,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val55.i.i.i = load ptr, ptr %65, align 8
   %66 = getelementptr i8, ptr %0, i64 32
   %.val56.i.i.i = load ptr, ptr %66, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9LocalNameEEEvPKT_(ptr %1, ptr %.val55.i.i.i, ptr %.val56.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle9LocalNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val55.i.i.i, ptr %.val56.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 67:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10ModuleNameEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10ModuleNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 68:                                               ; preds = %2
@@ -6268,7 +6268,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val59.i.i.i = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %0, i64 32
   %.val60.i.i.i = load ptr, ptr %70, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12ModuleEntityEEEvPKT_(ptr %1, ptr %.val59.i.i.i, ptr %.val60.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12ModuleEntityEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val59.i.i.i, ptr %.val60.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 71:                                               ; preds = %2
@@ -6276,7 +6276,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val62.i.i.i = load ptr, ptr %72, align 8
   %73 = getelementptr i8, ptr %0, i64 32
   %.val63.i.i.i = load ptr, ptr %73, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10VectorTypeEEEvPKT_(ptr %1, ptr %.val62.i.i.i, ptr %.val63.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10VectorTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val62.i.i.i, ptr %.val63.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 74:                                               ; preds = %2
@@ -6300,7 +6300,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val69.i.i.i = load ptr, ptr %81, align 8
   %82 = getelementptr i8, ptr %0, i64 32
   %.val70.i.i.i = load i8, ptr %82, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BitIntTypeEEEvPKT_(ptr %1, ptr %.val69.i.i.i, i8 %.val70.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BitIntTypeEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val69.i.i.i, i8 %.val70.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 83:                                               ; preds = %2
@@ -6308,7 +6308,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val72.i.i.i = load i32, ptr %84, align 4
   %85 = getelementptr i8, ptr %0, i64 24
   %.val73.i.i.i = load i32, ptr %85, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle26SyntheticTemplateParamNameEEEvPKT_(ptr %1, i32 %.val72.i.i.i, i32 %.val73.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle26SyntheticTemplateParamNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i32 %.val72.i.i.i, i32 %.val73.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 86:                                               ; preds = %2
@@ -6316,7 +6316,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val75.i.i.i = load ptr, ptr %87, align 8
   %88 = getelementptr i8, ptr %0, i64 32
   %.val76.i.i.i = load ptr, ptr %88, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle25TemplateParamQualifiedArgEEEvPKT_(ptr %1, ptr %.val75.i.i.i, ptr %.val76.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle25TemplateParamQualifiedArgEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val75.i.i.i, ptr %.val76.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 89:                                               ; preds = %2
@@ -6332,7 +6332,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val80.i.i.i = load ptr, ptr %93, align 8
   %94 = getelementptr i8, ptr %0, i64 32
   %.val81.i.i.i = load ptr, ptr %94, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEEEvPKT_(ptr %1, ptr %.val80.i.i.i, ptr %.val81.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val80.i.i.i, ptr %.val81.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 95:                                               ; preds = %2
@@ -6340,11 +6340,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val83.i.i.i = load ptr, ptr %96, align 8
   %97 = getelementptr i8, ptr %0, i64 32
   %.val84.i.i.i = load ptr, ptr %97, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEEEvPKT_(ptr %1, ptr %.val83.i.i.i, ptr %.val84.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val83.i.i.i, ptr %.val84.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 98:                                               ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle25TemplateTemplateParamDeclEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle25TemplateTemplateParamDeclEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 99:                                               ; preds = %2
@@ -6360,7 +6360,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val89.i.i.i = load ptr, ptr %103, align 8
   %104 = getelementptr i8, ptr %0, i64 32
   %.val90.i.i.i = load i64, ptr %104, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ParameterPackEEEvPKT_(ptr %1, ptr %.val89.i.i.i, i64 %.val90.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13ParameterPackEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val89.i.i.i, i64 %.val90.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 105:                                              ; preds = %2
@@ -6368,7 +6368,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val92.i.i.i = load ptr, ptr %106, align 8
   %107 = getelementptr i8, ptr %0, i64 32
   %.val93.i.i.i = load i64, ptr %107, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20TemplateArgumentPackEEEvPKT_(ptr %1, ptr %.val92.i.i.i, i64 %.val93.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20TemplateArgumentPackEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val92.i.i.i, i64 %.val93.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 108:                                              ; preds = %2
@@ -6380,7 +6380,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 111:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12TemplateArgsEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12TemplateArgsEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 112:                                              ; preds = %2
@@ -6388,7 +6388,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val98.i.i.i = load ptr, ptr %113, align 8
   %114 = getelementptr i8, ptr %0, i64 32
   %.val99.i.i.i = load ptr, ptr %114, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20NameWithTemplateArgsEEEvPKT_(ptr %1, ptr %.val98.i.i.i, ptr %.val99.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle20NameWithTemplateArgsEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val98.i.i.i, ptr %.val99.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 115:                                              ; preds = %2
@@ -6402,17 +6402,17 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
 118:                                              ; preds = %2
   %119 = getelementptr i8, ptr %0, i64 20
   %.val103.i.i.i = load i32, ptr %119, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEEEvPKT_(ptr %1, i32 %.val103.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i32 %.val103.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 120:                                              ; preds = %2
   %121 = getelementptr i8, ptr %0, i64 20
   %.val105.i.i.i = load i32, ptr %121, align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle19SpecialSubstitutionEEEvPKT_(ptr %1, i32 %.val105.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle19SpecialSubstitutionEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i32 %.val105.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 122:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12CtorDtorNameEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12CtorDtorNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 123:                                              ; preds = %2
@@ -6428,11 +6428,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val110.i.i.i = load i64, ptr %127, align 8
   %128 = getelementptr i8, ptr %0, i64 32
   %.val111.i.i.i = load ptr, ptr %128, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15UnnamedTypeNameEEEvPKT_(ptr %1, i64 %.val110.i.i.i, ptr %.val111.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15UnnamedTypeNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val110.i.i.i, ptr %.val111.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 129:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ClosureTypeNameEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ClosureTypeNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 130:                                              ; preds = %2
@@ -6440,39 +6440,39 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val114.i.i.i = load ptr, ptr %131, align 8
   %132 = getelementptr i8, ptr %0, i64 32
   %.val115.i.i.i = load i64, ptr %132, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21StructuredBindingNameEEEvPKT_(ptr %1, ptr %.val114.i.i.i, i64 %.val115.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle21StructuredBindingNameEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr %.val114.i.i.i, i64 %.val115.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 133:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BinaryExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BinaryExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 134:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle18ArraySubscriptExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle18ArraySubscriptExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 135:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11PostfixExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11PostfixExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 136:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ConditionalExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ConditionalExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 137:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10MemberExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10MemberExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 138:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13SubobjectExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13SubobjectExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 139:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13EnclosingExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13EnclosingExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 140:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8CastExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8CastExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 141:                                              ; preds = %2
@@ -6484,19 +6484,19 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 144:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8CallExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8CallExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 145:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle7NewExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle7NewExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 146:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10DeleteExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10DeleteExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 147:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10PrefixExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10PrefixExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 148:                                              ; preds = %2
@@ -6504,23 +6504,23 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val131.i.i.i = load i64, ptr %149, align 8
   %150 = getelementptr i8, ptr %0, i64 32
   %.val132.i.i.i = load ptr, ptr %150, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13FunctionParamEEEvPKT_(ptr %1, i64 %.val131.i.i.i, ptr %.val132.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle13FunctionParamEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val131.i.i.i, ptr %.val132.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 151:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle14ConversionExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle14ConversionExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 152:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle29PointerToMemberConversionExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle29PointerToMemberConversionExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 153:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12InitListExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12InitListExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 154:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8FoldExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8FoldExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 155:                                              ; preds = %2
@@ -6534,7 +6534,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
 158:                                              ; preds = %2
   %159 = getelementptr inbounds i8, ptr %0, i64 19
   %.val140.i.i.i = load i8, ptr %159, align 1
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8BoolExprEEEvPKT_(ptr %1, i8 %.val140.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle8BoolExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i8 %.val140.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 160:                                              ; preds = %2
@@ -6554,11 +6554,11 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 166:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11EnumLiteralEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle11EnumLiteralEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 167:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle14IntegerLiteralEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle14IntegerLiteralEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 168:                                              ; preds = %2
@@ -6566,7 +6566,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val148.i.i.i = load i64, ptr %169, align 8
   %170 = getelementptr i8, ptr %0, i64 32
   %.val149.i.i.i = load ptr, ptr %170, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIfEEEEvPKT_(ptr %1, i64 %.val148.i.i.i, ptr %.val149.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIfEEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val148.i.i.i, ptr %.val149.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 171:                                              ; preds = %2
@@ -6574,7 +6574,7 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val151.i.i.i = load i64, ptr %172, align 8
   %173 = getelementptr i8, ptr %0, i64 32
   %.val152.i.i.i = load ptr, ptr %173, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIdEEEEvPKT_(ptr %1, i64 %.val151.i.i.i, ptr %.val152.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIdEEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val151.i.i.i, ptr %.val152.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 174:                                              ; preds = %2
@@ -6582,23 +6582,23 @@ define internal fastcc void @_ZN4llvm22DefaultFoldingSetTraitIN12_GLOBAL__N_120F
   %.val154.i.i.i = load i64, ptr %175, align 8
   %176 = getelementptr i8, ptr %0, i64 32
   %.val155.i.i.i = load ptr, ptr %176, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIeEEEEvPKT_(ptr %1, i64 %.val154.i.i.i, ptr %.val155.i.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle16FloatLiteralImplIeEEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, i64 %.val154.i.i.i, ptr %.val155.i.i.i)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 177:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BracedExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle10BracedExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 178:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15BracedRangeExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15BracedRangeExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 179:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12RequiresExprEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle12RequiresExprEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 180:                                              ; preds = %2
-  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ExprRequirementEEEvPKT_(ptr %1, ptr noundef readonly %3)
+  tail call fastcc void @_ZN12_GLOBAL__N_111ProfileNodeclIN4llvm16itanium_demangle15ExprRequirementEEEvPKT_(ptr nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull readonly align 8 dereferenceable(11) %3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeader7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 181:                                              ; preds = %2
@@ -9029,7 +9029,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i13: ; preds = %_ZNSt11char_tra
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %55 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %55, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %55, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 17)
   %56 = ptrtoint ptr %42 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %56)
@@ -9070,7 +9070,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i13: ; preds = %_ZNSt11char_tra
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %63
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %52)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %52)
   %78 = load ptr, ptr %52, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = add i64 %79, 7
@@ -9101,7 +9101,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 92:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %61, %59
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %84, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %60, %59 ], [ null, %61 ]
-  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %94 = load ptr, ptr %6, align 8
   %95 = icmp eq ptr %94, %55
   br i1 %95, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %96
@@ -9326,7 +9326,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %187
-  %210 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %195, i64 noundef %194, i64 noundef %194, i8 3)
+  %210 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %195, i64 noundef %194, i64 noundef %194, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %207
@@ -9335,7 +9335,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i30, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %211
 
 211:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i29, ptr align 8 %190, i64 %194, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i29, ptr align 8 %190, i64 %194, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %211
@@ -9349,7 +9349,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %218 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %218, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %218, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 18)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %212)
   %219 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i29, i64 %212
@@ -9399,7 +9399,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i49
 
 .critedge.i.i.i.i.i.i.i52:                        ; preds = %228
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %195)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %195)
   %241 = load ptr, ptr %195, align 8
   %242 = ptrtoint ptr %241 to i64
   %243 = add i64 %242, 7
@@ -9432,7 +9432,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 255:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i49, %227, %225
   %.sroa.0.0.i.i.i.i.i34 = phi ptr [ %247, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i49 ], [ %226, %225 ], [ null, %227 ]
-  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %257 = load ptr, ptr %4, align 8
   %258 = icmp eq ptr %257, %218
   br i1 %258, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %259
@@ -9731,7 +9731,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87
 
 .critedge.i.i.i.i.i92:                            ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit66
-  %399 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %384, i64 noundef %383, i64 noundef %383, i8 3)
+  %399 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %384, i64 noundef %383, i64 noundef %383, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87: ; preds = %.critedge.i.i.i.i.i92, %396
@@ -9740,7 +9740,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87: ; preds
   br i1 %.not.i.i.i.i.i.i.i89, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit93, label %400
 
 400:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i88, ptr align 8 %379, i64 %383, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i88, ptr align 8 %379, i64 %383, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit93
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit93: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i87, %400
@@ -9754,7 +9754,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %407 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %407, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %407, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 16)
   %408 = ptrtoint ptr %321 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %408)
@@ -9812,7 +9812,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113
 
 .critedge.i.i.i.i.i.i.i117:                       ; preds = %421
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %384)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %384)
   %434 = load ptr, ptr %384, align 8
   %435 = ptrtoint ptr %434 to i64
   %436 = add i64 %435, 7
@@ -9853,7 +9853,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 452:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113, %420, %418
   %.sroa.0.0.i.i.i.i.i99 = phi ptr [ %440, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113 ], [ %419, %418 ], [ null, %420 ]
-  %453 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %453 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %454 = load ptr, ptr %2, align 8
   %455 = icmp eq ptr %454, %407
   br i1 %455, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %456
@@ -10083,7 +10083,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %57 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %57, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %57, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 11)
   %58 = ptrtoint ptr %52 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %58)
@@ -10125,7 +10125,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %65
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %54)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %54)
   %80 = load ptr, ptr %54, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = add i64 %81, 7
@@ -10160,7 +10160,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 95:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %63, %61
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %86, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %62, %61 ], [ null, %63 ]
-  %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %97 = load ptr, ptr %6, align 8
   %98 = icmp eq ptr %97, %57
   br i1 %98, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %99
@@ -10275,7 +10275,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %153 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %153, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %153, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 2)
   %154 = ptrtoint ptr %148 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %154)
@@ -10319,7 +10319,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51
 
 .critedge.i.i.i.i.i.i.i57:                        ; preds = %162
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %150)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %150)
   %177 = load ptr, ptr %150, align 8
   %178 = ptrtoint ptr %177 to i64
   %179 = add i64 %178, 7
@@ -10356,7 +10356,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 193:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51, %160, %158
   %.sroa.0.0.i.i.i.i.i35 = phi ptr [ %183, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51 ], [ %159, %158 ], [ null, %160 ]
-  %194 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %194 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %195 = load ptr, ptr %4, align 8
   %196 = icmp eq ptr %195, %153
   br i1 %196, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %197
@@ -10505,7 +10505,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %266 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %266, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %266, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 3)
   %267 = ptrtoint ptr %259 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %267)
@@ -10548,7 +10548,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i77
 
 .critedge.i.i.i.i.i.i.i80:                        ; preds = %275
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %263)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %263)
   %290 = load ptr, ptr %263, align 8
   %291 = ptrtoint ptr %290 to i64
   %292 = add i64 %291, 7
@@ -10584,7 +10584,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 308:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i77, %273, %271
   %.sroa.0.0.i.i.i.i.i60 = phi ptr [ %296, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i77 ], [ %272, %271 ], [ null, %273 ]
-  %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %310 = load ptr, ptr %2, align 8
   %311 = icmp eq ptr %310, %266
   br i1 %311, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %312
@@ -10688,9 +10688,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -10699,7 +10699,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(5) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -10739,7 +10739,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -10754,7 +10754,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -10773,7 +10773,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -10877,9 +10877,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -10888,7 +10888,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(8) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -10928,7 +10928,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -10943,7 +10943,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -10962,7 +10962,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -11066,9 +11066,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -11077,7 +11077,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(12) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -11117,7 +11117,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -11132,7 +11132,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -11151,7 +11151,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -11255,9 +11255,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(14) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -11266,7 +11266,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(14) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -11306,7 +11306,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -11321,7 +11321,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(14) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -11340,7 +11340,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -11444,9 +11444,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -11455,7 +11455,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(6) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -11495,7 +11495,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -11510,7 +11510,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -11529,7 +11529,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -11633,9 +11633,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -11644,7 +11644,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(15) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -11684,7 +11684,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -11699,7 +11699,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -11718,7 +11718,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -11822,9 +11822,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -11833,7 +11833,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(10) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -11873,7 +11873,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -11888,7 +11888,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -11907,7 +11907,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -12011,9 +12011,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -12022,7 +12022,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(9) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -12062,7 +12062,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -12077,7 +12077,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -12096,7 +12096,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -12200,9 +12200,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -12211,7 +12211,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(11) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -12251,7 +12251,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -12266,7 +12266,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %41 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %1) #20
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 8, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -12285,7 +12285,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.011.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %53
@@ -12389,7 +12389,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -12444,7 +12444,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -12481,7 +12481,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %53
@@ -12585,7 +12585,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -12638,7 +12638,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %33 = load ptr, ptr %5, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -12673,7 +12673,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %17, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %17 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %49 = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %49, %9
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %51
@@ -12777,7 +12777,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -12830,7 +12830,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %33 = load ptr, ptr %5, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -12865,7 +12865,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %17, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %17 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %49 = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %49, %9
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %51
@@ -13028,7 +13028,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 31)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -13069,7 +13069,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -13100,7 +13100,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -13567,7 +13567,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %170
-  %193 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %178, i64 noundef %177, i64 noundef %177, i8 3)
+  %193 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %178, i64 noundef %177, i64 noundef %177, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %190
@@ -13576,7 +13576,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i160, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %194
 
 194:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %173, i64 %177, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %173, i64 %177, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %194
@@ -13598,7 +13598,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %206, label %.split402, label %207
 
 207:                                              ; preds = %200
-  %bcmp.i.i.i510 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %201, ptr noundef nonnull readonly dereferenceable(2) @.str.58, i64 2)
+  %bcmp.i.i.i510 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %201, ptr noundef nonnull dereferenceable(2) @.str.58, i64 2)
   %208 = icmp eq i32 %bcmp.i.i.i510, 0
   br i1 %208, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit511, label %.split402
 
@@ -13738,7 +13738,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %276 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %276, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %276, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 65)
   %277 = ptrtoint ptr %267 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %277)
@@ -13785,7 +13785,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %287
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %273)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %273)
   %302 = load ptr, ptr %273, align 8
   %303 = ptrtoint ptr %302 to i64
   %304 = add i64 %303, 7
@@ -13823,7 +13823,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 321:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %285, %283
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %308, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %284, %283 ], [ null, %285 ]
-  %322 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %322 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %323 = load ptr, ptr %6, align 8
   %324 = icmp eq ptr %323, %276
   br i1 %324, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %325
@@ -14296,7 +14296,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %568 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %568, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %568, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 60)
   %569 = icmp eq i64 %.sroa.0.0.i, 0
   br i1 %569, label %570, label %571
@@ -14350,7 +14350,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i205
 
 .critedge.i.i.i.i.i.i.i208:                       ; preds = %579
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %564)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %564)
   %594 = load ptr, ptr %564, align 8
   %595 = ptrtoint ptr %594 to i64
   %596 = add i64 %595, 7
@@ -14390,7 +14390,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 613:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i205, %578, %576
   %.sroa.0.0.i.i.i.i.i189 = phi ptr [ %600, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i205 ], [ %577, %576 ], [ null, %578 ]
-  %614 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %614 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %615 = load ptr, ptr %4, align 8
   %616 = icmp eq ptr %615, %568
   br i1 %616, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i, label %617
@@ -14679,7 +14679,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %736 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %736, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %736, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 71)
   %737 = zext nneg i8 %.036.i to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %737)
@@ -14735,7 +14735,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %748
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %732)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %732)
   %763 = load ptr, ptr %732, align 8
   %764 = ptrtoint ptr %763 to i64
   %765 = add i64 %764, 7
@@ -14774,7 +14774,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 780:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %747, %745
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %769, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %746, %745 ], [ null, %747 ]
-  %781 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %781 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %782 = load ptr, ptr %2, align 8
   %783 = icmp eq ptr %782, %736
   br i1 %783, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i, label %784
@@ -14977,7 +14977,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %885, label %.thread, label %886
 
 886:                                              ; preds = %882
-  %bcmp.i.i.i513 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.60, i64 2)
+  %bcmp.i.i.i513 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.60, i64 2)
   %887 = icmp eq i32 %bcmp.i.i.i513, 0
   br i1 %887, label %888, label %891
 
@@ -14988,7 +14988,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 891:                                              ; preds = %886
-  %bcmp.i.i.i518 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.61, i64 2)
+  %bcmp.i.i.i518 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.61, i64 2)
   %892 = icmp eq i32 %bcmp.i.i.i518, 0
   br i1 %892, label %893, label %.thread
 
@@ -15028,7 +15028,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %885, label %.thread647, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240.thread.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240.thread.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240.thread
-  %bcmp.i.i.i523 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.63, i64 2)
+  %bcmp.i.i.i523 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.63, i64 2)
   %903 = icmp eq i32 %bcmp.i.i.i523, 0
   br i1 %903, label %904, label %907
 
@@ -15039,7 +15039,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 907:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240.thread.thread
-  %bcmp.i.i.i528 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.64, i64 2)
+  %bcmp.i.i.i528 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.64, i64 2)
   %908 = icmp eq i32 %bcmp.i.i.i528, 0
   br i1 %908, label %909, label %915
 
@@ -15055,7 +15055,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 915:                                              ; preds = %907
-  %bcmp.i.i.i533 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.65, i64 2)
+  %bcmp.i.i.i533 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.65, i64 2)
   %916 = icmp eq i32 %bcmp.i.i.i533, 0
   br i1 %916, label %917, label %930
 
@@ -15089,7 +15089,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 930:                                              ; preds = %915
-  %bcmp.i.i.i538 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.67, i64 2)
+  %bcmp.i.i.i538 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.67, i64 2)
   %931 = icmp eq i32 %bcmp.i.i.i538, 0
   br i1 %931, label %932, label %988
 
@@ -15202,7 +15202,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 988:                                              ; preds = %930
-  %bcmp.i.i.i543 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.68, i64 2)
+  %bcmp.i.i.i543 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.68, i64 2)
   %989 = icmp eq i32 %bcmp.i.i.i543, 0
   br i1 %989, label %990, label %1019
 
@@ -15255,7 +15255,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 1019:                                             ; preds = %988
-  %bcmp.i.i.i548 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.69, i64 2)
+  %bcmp.i.i.i548 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.69, i64 2)
   %1020 = icmp eq i32 %bcmp.i.i.i548, 0
   br i1 %1020, label %1021, label %1024
 
@@ -15266,7 +15266,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
 1024:                                             ; preds = %1019
-  %bcmp.i.i.i553 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull readonly dereferenceable(2) @.str.70, i64 2)
+  %bcmp.i.i.i553 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %24, ptr noundef nonnull dereferenceable(2) @.str.70, i64 2)
   %1025 = icmp eq i32 %bcmp.i.i.i553, 0
   br i1 %1025, label %1026, label %.thread647
 
@@ -15472,7 +15472,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 32)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -15516,7 +15516,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %17
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %32 = load ptr, ptr %4, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %33, 7
@@ -15549,7 +15549,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %15, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %15 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %49 = load ptr, ptr %2, align 8
   %50 = icmp eq ptr %49, %7
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %51
@@ -15653,7 +15653,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -15708,7 +15708,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -15745,7 +15745,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %53
@@ -15896,7 +15896,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %31 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %31, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %31, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 60)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.215, i64 8) #20
   %32 = ptrtoint ptr %18 to i64
@@ -15938,7 +15938,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %39
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %28)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %28)
   %54 = load ptr, ptr %28, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = add i64 %55, 7
@@ -15975,7 +15975,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 70:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %37, %35
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %60, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %36, %35 ], [ null, %37 ]
-  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %72 = load ptr, ptr %2, align 8
   %73 = icmp eq ptr %72, %31
   br i1 %73, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %74
@@ -16215,7 +16215,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %67 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %67, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %67, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 29)
   %68 = ptrtoint ptr %62 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %68)
@@ -16257,7 +16257,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %75
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %64)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %64)
   %90 = load ptr, ptr %64, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = add i64 %91, 7
@@ -16290,7 +16290,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 105:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %73, %71
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %96, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %72, %71 ], [ null, %73 ]
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %107 = load ptr, ptr %2, align 8
   %108 = icmp eq ptr %107, %67
   br i1 %108, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %109
@@ -16393,7 +16393,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 42)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -16434,7 +16434,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -16465,7 +16465,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -16606,7 +16606,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %22 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %22, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %22, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 6)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %.sroa.7.0, i64 %.sroa.022.0) #20
   %23 = ptrtoint ptr %16 to i64
@@ -16648,7 +16648,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %30
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %19)
   %45 = load ptr, ptr %19, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = add i64 %46, 7
@@ -16683,7 +16683,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 60:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %28, %26
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %51, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %27, %26 ], [ null, %28 ]
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %62 = load ptr, ptr %2, align 8
   %63 = icmp eq ptr %62, %22
   br i1 %63, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i, label %64
@@ -16956,7 +16956,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %85
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %63
-  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %64)
+  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %64)
   %79 = load ptr, ptr %64, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = add i64 %80, 7
@@ -17320,7 +17320,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %122 = trunc i8 %121 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %70, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %70, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 40)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %.sroa.2.0.copyload.i.us)
   %123 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.us, i64 %.sroa.2.0.copyload.i.us
@@ -17370,7 +17370,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.us
 
 .critedge.i.i.i.i.i.i.i.us:                       ; preds = %131
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %68)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %68)
   %144 = load ptr, ptr %68, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = add i64 %145, 7
@@ -17392,7 +17392,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 152:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.us, %130, %128
   %.sroa.0.0.i.i.i.i.i.us = phi ptr [ %150, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.us ], [ %129, %128 ], [ null, %130 ]
-  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %154 = load ptr, ptr %5, align 8
   %155 = icmp eq ptr %154, %70
   br i1 %155, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ParameterPackEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.us, label %156
@@ -17738,7 +17738,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit11
-  %322 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %300, i64 noundef %309, i64 noundef %309, i8 3)
+  %322 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %300, i64 noundef %309, i64 noundef %309, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %319
@@ -17747,7 +17747,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i28, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %323
 
 323:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i27, ptr align 8 %305, i64 %309, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i27, ptr align 8 %305, i64 %309, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %323
@@ -17760,7 +17760,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %329 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %329, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %329, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 43)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %324)
   %330 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i27, i64 %324
@@ -17811,7 +17811,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeEEE
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48
 
 .critedge.i.i.i.i.i.i.i51:                        ; preds = %339
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %300)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %300)
   %352 = load ptr, ptr %300, align 8
   %353 = ptrtoint ptr %352 to i64
   %354 = add i64 %353, 7
@@ -17846,7 +17846,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 367:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48, %338, %336
   %.sroa.0.0.i.i.i.i.i34 = phi ptr [ %358, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48 ], [ %337, %336 ], [ null, %338 ]
-  %368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %368 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %369 = load ptr, ptr %3, align 8
   %370 = icmp eq ptr %369, %329
   br i1 %370, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12TemplateArgsEJNS3_9NodeArrayERPNS3_4NodeEEEESt4pairIS7_bEbDpOT0_.exit.i.i.i.i, label %371
@@ -17943,7 +17943,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   %9 = load ptr, ptr %1, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 45)
   %10 = ptrtoint ptr %9 to i64
@@ -17987,7 +17987,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %33 = load ptr, ptr %5, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -18021,7 +18021,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %16, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %16 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %8
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %53
@@ -18124,7 +18124,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 12)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -18165,7 +18165,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -18200,7 +18200,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %50 = load ptr, ptr %2, align 8
   %51 = icmp eq ptr %50, %7
   br i1 %51, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %52
@@ -18303,7 +18303,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 13)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -18346,7 +18346,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -18385,7 +18385,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 51:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %53 = load ptr, ptr %2, align 8
   %54 = icmp eq ptr %53, %7
   br i1 %54, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %55
@@ -18488,7 +18488,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 5)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -18530,7 +18530,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -18565,7 +18565,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %49
@@ -18668,7 +18668,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 5)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -18710,7 +18710,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -18745,7 +18745,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %49
@@ -19010,7 +19010,7 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i
 
 .critedge.i.i.i.i:                                ; preds = %2
-  %26 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef %10, i64 noundef %10, i8 3)
+  %26 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %11, i64 noundef %10, i64 noundef %10, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i: ; preds = %.critedge.i.i.i.i, %23
@@ -19019,7 +19019,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SC_.exit, label %27
 
 27:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i, ptr align 8 %5, i64 %10, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i, ptr align 8 %5, i64 %10, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SC_.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SC_.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i, %27
@@ -20748,7 +20748,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -20805,7 +20805,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %35 = load ptr, ptr %5, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -20845,7 +20845,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 53:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %19, %17
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %18, %17 ], [ null, %19 ]
-  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %55 = load ptr, ptr %3, align 8
   %56 = icmp eq ptr %55, %9
   br i1 %56, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %57
@@ -20948,7 +20948,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 55)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -20993,7 +20993,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %17
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %32 = load ptr, ptr %4, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %33, 7
@@ -21029,7 +21029,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 50:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %15, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %15 ]
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %52 = load ptr, ptr %2, align 8
   %53 = icmp eq ptr %52, %7
   br i1 %53, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %54
@@ -21133,7 +21133,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -21192,7 +21192,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %21
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %36 = load ptr, ptr %5, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = add i64 %37, 7
@@ -21234,7 +21234,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 55:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %20, %18
   %.sroa.0.0.i.i.i.i = phi ptr [ %42, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %19, %18 ], [ null, %20 ]
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %57 = load ptr, ptr %3, align 8
   %58 = icmp eq ptr %57, %9
   br i1 %58, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %59
@@ -21337,7 +21337,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   %9 = load i8, ptr %1, align 1
   %10 = trunc i8 %9 to i1
   %11 = trunc i8 %.0.val7 to i1
@@ -21379,7 +21379,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %33 = load ptr, ptr %5, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -21428,7 +21428,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 57:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %16, %14
   %.sroa.029.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %16 ]
-  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %59 = load ptr, ptr %3, align 8
   %60 = icmp eq ptr %59, %8
   br i1 %60, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i, label %61
@@ -21532,7 +21532,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 63)
   %9 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %9)
@@ -21589,7 +21589,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %35 = load ptr, ptr %4, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -21627,7 +21627,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 53:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %19, %17
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %18, %17 ], [ null, %19 ]
-  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %55 = load ptr, ptr %2, align 8
   %56 = icmp eq ptr %55, %8
   br i1 %56, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %57
@@ -21731,7 +21731,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load ptr, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load i64, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -21791,7 +21791,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %21
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %36 = load ptr, ptr %5, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = add i64 %37, 7
@@ -21831,7 +21831,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 54:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %20, %18
   %.sroa.0.0.i.i.i.i = phi ptr [ %42, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %19, %18 ], [ null, %20 ]
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %56 = load ptr, ptr %3, align 8
   %57 = icmp eq ptr %56, %9
   br i1 %57, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %58
@@ -21934,7 +21934,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 57)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -21981,7 +21981,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %33 = load ptr, ptr %4, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -22019,7 +22019,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 52:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %16, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %16 ]
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %54 = load ptr, ptr %2, align 8
   %55 = icmp eq ptr %54, %7
   br i1 %55, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %56
@@ -22123,7 +22123,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -22182,7 +22182,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %21
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %36 = load ptr, ptr %5, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = add i64 %37, 7
@@ -22224,7 +22224,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 55:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %20, %18
   %.sroa.0.0.i.i.i.i = phi ptr [ %42, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %19, %18 ], [ null, %20 ]
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %57 = load ptr, ptr %3, align 8
   %58 = icmp eq ptr %57, %9
   br i1 %58, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %59
@@ -22396,7 +22396,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 30:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %bcmp.i.i.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %16, ptr noundef nonnull readonly dereferenceable(3) @.str.136, i64 3)
+  %bcmp.i.i.i178 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %16, ptr noundef nonnull dereferenceable(3) @.str.136, i64 3)
   %31 = icmp eq i32 %bcmp.i.i.i178, 0
   br i1 %31, label %32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -22531,7 +22531,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %94 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %94, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %94, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 78)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr nonnull %75, i64 8) #20
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -22571,7 +22571,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %101
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %91)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %91)
   %116 = load ptr, ptr %91, align 8
   %117 = ptrtoint ptr %116 to i64
   %118 = add i64 %117, 7
@@ -22604,7 +22604,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 130:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i, %99, %97
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %122, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i ], [ %98, %97 ], [ null, %99 ]
-  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %132 = load ptr, ptr %6, align 8
   %133 = icmp eq ptr %132, %94
   br i1 %133, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %134
@@ -22739,7 +22739,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %197 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %197, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %197, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 79)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %178, i64 16) #20
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -22779,7 +22779,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i48
 
 .critedge.i.i.i.i.i.i.i.i52:                      ; preds = %204
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %194)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %194)
   %219 = load ptr, ptr %194, align 8
   %220 = ptrtoint ptr %219 to i64
   %221 = add i64 %220, 7
@@ -22812,7 +22812,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 233:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i48, %202, %200
   %.sroa.0.0.i.i.i.i.i.i32 = phi ptr [ %225, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i48 ], [ %201, %200 ], [ null, %202 ]
-  %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %235 = load ptr, ptr %4, align 8
   %236 = icmp eq ptr %235, %197
   br i1 %236, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %237
@@ -22947,7 +22947,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %300 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %300, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %300, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 80)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %281, i64 20) #20
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -22987,7 +22987,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i82
 
 .critedge.i.i.i.i.i.i.i.i86:                      ; preds = %307
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %297)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %297)
   %322 = load ptr, ptr %297, align 8
   %323 = ptrtoint ptr %322 to i64
   %324 = add i64 %323, 7
@@ -23020,7 +23020,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 336:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i82, %305, %303
   %.sroa.0.0.i.i.i.i.i.i66 = phi ptr [ %328, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i.i82 ], [ %304, %303 ], [ null, %305 ]
-  %337 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %337 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %338 = load ptr, ptr %2, align 8
   %339 = icmp eq ptr %338, %300
   br i1 %339, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i, label %340
@@ -23680,7 +23680,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %44 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %44, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %44, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 82)
   %45 = ptrtoint ptr %32 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %45)
@@ -23725,7 +23725,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %54
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %41)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %41)
   %69 = load ptr, ptr %41, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = add i64 %70, 7
@@ -23760,7 +23760,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 85:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %52, %50
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %75, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %51, %50 ], [ null, %52 ]
-  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %87 = load ptr, ptr %2, align 8
   %88 = icmp eq ptr %87, %44
   br i1 %88, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %89
@@ -23868,7 +23868,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 70)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 0)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %.8.val)
@@ -23922,7 +23922,7 @@ _ZN12_GLOBAL__N_111profileCtorIJDnN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %33 = load ptr, ptr %4, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -23957,7 +23957,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %17, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %17 ]
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %50 = load ptr, ptr %2, align 8
   %51 = icmp eq ptr %50, %8
   br i1 %51, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %52
@@ -24136,7 +24136,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %38 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %38, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %38, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 69)
   %39 = ptrtoint ptr %4 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %39)
@@ -24191,7 +24191,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %49
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %34)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %34)
   %64 = load ptr, ptr %34, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = add i64 %65, 7
@@ -24228,7 +24228,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 80:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %48, %46
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %70, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %47, %46 ], [ null, %48 ]
-  %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %82 = load ptr, ptr %2, align 8
   %83 = icmp eq ptr %82, %38
   br i1 %83, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %84
@@ -24331,7 +24331,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 60)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.62, i64 9) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -24375,7 +24375,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -24415,7 +24415,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 50:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.04.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %52 = load ptr, ptr %2, align 8
   %53 = icmp eq ptr %52, %7
   br i1 %53, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %54
@@ -24659,7 +24659,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %65
-  %88 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %73, i64 noundef %72, i64 noundef %72, i8 3)
+  %88 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %73, i64 noundef %72, i64 noundef %72, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %85
@@ -24668,7 +24668,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i9, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %89
 
 89:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %68, i64 %72, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %68, i64 %72, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %89
@@ -24777,7 +24777,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %142 = load i8, ptr %104, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %105, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %105, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %8, i64 noundef 84)
   %143 = ptrtoint ptr %124 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %8, i64 noundef %143)
@@ -24819,7 +24819,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %151
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %103)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %103)
   %164 = load ptr, ptr %103, align 8
   %165 = ptrtoint ptr %164 to i64
   %166 = add i64 %165, 7
@@ -24854,7 +24854,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 180:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %149, %147
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %170, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %148, %147 ], [ null, %149 ]
-  %181 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
+  %181 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #20
   %182 = load ptr, ptr %8, align 8
   %183 = icmp eq ptr %182, %105
   br i1 %183, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ExprRequirementEJRPNS3_4NodeERbS7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %184
@@ -24952,7 +24952,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %229 = load i8, ptr %104, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %115, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %115, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 85)
   %230 = ptrtoint ptr %226 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %230)
@@ -24990,7 +24990,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i47
 
 .critedge.i.i.i.i.i.i.i50:                        ; preds = %236
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %103)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %103)
   %249 = load ptr, ptr %103, align 8
   %250 = ptrtoint ptr %249 to i64
   %251 = add i64 %250, 7
@@ -25021,7 +25021,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 263:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i47, %234, %232
   %.sroa.0.0.i.i.i.i.i31 = phi ptr [ %255, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i47 ], [ %233, %232 ], [ null, %234 ]
-  %264 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  %264 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #20
   %265 = load ptr, ptr %6, align 8
   %266 = icmp eq ptr %265, %115
   br i1 %266, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TypeRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %267
@@ -25119,7 +25119,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %312 = load i8, ptr %104, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %116, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %116, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 86)
   %313 = ptrtoint ptr %309 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %313)
@@ -25157,7 +25157,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72
 
 .critedge.i.i.i.i.i.i.i75:                        ; preds = %319
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %103)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %103)
   %332 = load ptr, ptr %103, align 8
   %333 = ptrtoint ptr %332 to i64
   %334 = add i64 %333, 7
@@ -25188,7 +25188,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 346:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72, %317, %315
   %.sroa.0.0.i.i.i.i.i55 = phi ptr [ %338, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72 ], [ %316, %315 ], [ null, %317 ]
-  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %348 = load ptr, ptr %4, align 8
   %349 = icmp eq ptr %348, %116
   br i1 %349, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17NestedRequirementEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %350
@@ -25379,7 +25379,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86
 
 .critedge.i.i.i.i.i91:                            ; preds = %420
-  %440 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %103, i64 noundef %427, i64 noundef %427, i8 3)
+  %440 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %103, i64 noundef %427, i64 noundef %427, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86: ; preds = %.critedge.i.i.i.i.i91, %437
@@ -25388,7 +25388,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86: ; preds
   br i1 %.not.i.i.i.i.i.i.i88, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit92, label %441
 
 441:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i87, ptr align 8 %423, i64 %427, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i87, ptr align 8 %423, i64 %427, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit92
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit92: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i86, %441
@@ -25401,7 +25401,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %447 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %447, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %447, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 83)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %.sroa.4.0)
   %448 = getelementptr inbounds ptr, ptr %.sroa.0120.0, i64 %.sroa.4.0
@@ -25465,7 +25465,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayES3_EEEvRNS1_1
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i110
 
 .critedge.i.i.i.i.i.i.i113:                       ; preds = %460
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %103)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %103)
   %473 = load ptr, ptr %103, align 8
   %474 = ptrtoint ptr %473 to i64
   %475 = add i64 %474, 7
@@ -25502,7 +25502,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 488:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i110, %459, %457
   %.sroa.0.0.i.i.i.i.i96 = phi ptr [ %479, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i110 ], [ %458, %457 ], [ null, %459 ]
-  %489 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %489 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %490 = load ptr, ptr %2, align 8
   %491 = icmp eq ptr %490, %447
   br i1 %491, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12RequiresExprEJRNS3_9NodeArrayES5_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %492
@@ -25849,7 +25849,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %98
-  %121 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %106, i64 noundef %105, i64 noundef %105, i8 3)
+  %121 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %106, i64 noundef %105, i64 noundef %105, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %118
@@ -25858,7 +25858,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %122
 
 122:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %101, i64 %105, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %101, i64 %105, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %122
@@ -25872,7 +25872,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %129 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %129, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %129, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 59)
   %130 = ptrtoint ptr %5 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %130)
@@ -25940,7 +25940,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %145
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %106)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %106)
   %158 = load ptr, ptr %106, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = add i64 %159, 7
@@ -25983,7 +25983,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 176:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %144, %142
   %.sroa.025.0.i.i.i.i.i = phi ptr [ %164, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %143, %142 ], [ null, %144 ]
-  %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %178 = load ptr, ptr %2, align 8
   %179 = icmp eq ptr %178, %129
   br i1 %179, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %180
@@ -26086,7 +26086,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 62)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -26127,7 +26127,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -26158,7 +26158,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -26261,7 +26261,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 60)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.66, i64 10) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -26303,7 +26303,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -26340,7 +26340,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %50
@@ -26614,7 +26614,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %74
-  %97 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %82, i64 noundef %81, i64 noundef %81, i8 3)
+  %97 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %82, i64 noundef %81, i64 noundef %81, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %94
@@ -26623,7 +26623,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i24, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %98
 
 98:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %77, i64 %81, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %77, i64 %81, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %98
@@ -26637,7 +26637,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %105 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %105, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %105, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 41)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %99)
   %106 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %99
@@ -26687,7 +26687,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %115
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %82)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %82)
   %128 = load ptr, ptr %82, align 8
   %129 = ptrtoint ptr %128 to i64
   %130 = add i64 %129, 7
@@ -26720,7 +26720,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 142:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %114, %112
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %134, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %113, %112 ], [ null, %114 ]
-  %143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %143 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %144 = load ptr, ptr %4, align 8
   %145 = icmp eq ptr %144, %105
   br i1 %145, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %146
@@ -26894,7 +26894,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %227 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %227, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %227, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 34)
   %228 = ptrtoint ptr %220 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %228)
@@ -26937,7 +26937,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51
 
 .critedge.i.i.i.i.i.i.i54:                        ; preds = %236
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %224)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %224)
   %251 = load ptr, ptr %224, align 8
   %252 = ptrtoint ptr %251 to i64
   %253 = add i64 %252, 7
@@ -26970,7 +26970,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 266:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51, %234, %232
   %.sroa.0.0.i.i.i.i.i35 = phi ptr [ %257, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i51 ], [ %233, %232 ], [ null, %234 ]
-  %267 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %267 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %268 = load ptr, ptr %2, align 8
   %269 = icmp eq ptr %268, %227
   br i1 %269, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %270
@@ -27078,7 +27078,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 0)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %.8.val)
   %9 = getelementptr inbounds ptr, ptr %.0.val, i64 %.8.val
@@ -27131,7 +27131,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %33 = load ptr, ptr %4, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -27164,7 +27164,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %17, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %17 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %49 = load ptr, ptr %2, align 8
   %50 = icmp eq ptr %49, %8
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %51
@@ -27268,7 +27268,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 70)
   %9 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %9)
@@ -27323,7 +27323,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEEE
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %34 = load ptr, ptr %4, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -27358,7 +27358,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %51 = load ptr, ptr %2, align 8
   %52 = icmp eq ptr %51, %8
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %53
@@ -27461,7 +27461,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 72)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -27502,7 +27502,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -27533,7 +27533,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -27691,7 +27691,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %28 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %28, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %28, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.194, i64 21) #20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -27731,7 +27731,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %35
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %25)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %25)
   %50 = load ptr, ptr %25, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = add i64 %51, 7
@@ -27764,7 +27764,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 64:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %33, %31
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %56, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %32, %31 ], [ null, %33 ]
-  %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %66 = load ptr, ptr %2, align 8
   %67 = icmp eq ptr %66, %28
   br i1 %67, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %68
@@ -28257,7 +28257,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 54)
   %9 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %9)
@@ -28313,7 +28313,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %35 = load ptr, ptr %4, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -28353,7 +28353,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 54:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %19, %17
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %18, %17 ], [ null, %19 ]
-  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %56 = load ptr, ptr %2, align 8
   %57 = icmp eq ptr %56, %8
   br i1 %57, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %58
@@ -28733,7 +28733,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 66)
   %9 = icmp eq i64 %.0.val, 0
   br i1 %9, label %10, label %11
@@ -28787,7 +28787,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %34 = load ptr, ptr %4, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -28825,7 +28825,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 52:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %54 = load ptr, ptr %2, align 8
   %55 = icmp eq ptr %54, %8
   br i1 %55, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i, label %56
@@ -30939,7 +30939,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %36 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %36, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %36, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 77)
   %37 = icmp eq i64 %1, 0
   br i1 %37, label %38, label %39
@@ -30990,7 +30990,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEES4_EEE
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %45
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %32)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %32)
   %60 = load ptr, ptr %32, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, 7
@@ -31027,7 +31027,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 75:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %44, %42
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %66, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %43, %42 ], [ null, %44 ]
-  %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %77 = load ptr, ptr %4, align 8
   %78 = icmp eq ptr %77, %36
   br i1 %78, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %79
@@ -31130,7 +31130,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 73)
   %8 = sext i32 %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -31171,7 +31171,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -31204,7 +31204,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %50
@@ -31307,7 +31307,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 74)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -31348,7 +31348,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -31379,7 +31379,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -31566,7 +31566,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %46 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %46, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %46, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 51)
   %47 = icmp eq i64 %.sroa.0.0.i, 0
   br i1 %47, label %48, label %49
@@ -31616,7 +31616,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %55
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %42)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %42)
   %70 = load ptr, ptr %42, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = add i64 %71, 7
@@ -31649,7 +31649,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 84:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %54, %52
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %76, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %53, %52 ], [ null, %54 ]
-  %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %86 = load ptr, ptr %5, align 8
   %87 = icmp eq ptr %86, %46
   br i1 %87, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %88
@@ -31980,7 +31980,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread
-  %249 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %234, i64 noundef %233, i64 noundef %233, i8 3)
+  %249 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %234, i64 noundef %233, i64 noundef %233, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %246
@@ -31989,7 +31989,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i27, label %254, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i26, ptr align 8 %231, i64 %233, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i26, ptr align 8 %231, i64 %233, i1 false)
   %250 = ashr exact i64 %233, 3
   %251 = load ptr, ptr %172, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 %178
@@ -32175,7 +32175,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48
 
 .critedge.i.i.i.i.i53:                            ; preds = %.critedge
-  %332 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %234, i64 noundef %319, i64 noundef %319, i8 3)
+  %332 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %234, i64 noundef %319, i64 noundef %319, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48: ; preds = %.critedge.i.i.i.i.i53, %329
@@ -32184,7 +32184,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48: ; preds
   br i1 %.not.i.i.i.i.i.i.i50, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit54, label %333
 
 333:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i49, ptr align 8 %315, i64 %319, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i49, ptr align 8 %315, i64 %319, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit54
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit54: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i48, %333
@@ -32359,7 +32359,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %405 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %405, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %405, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.157, i64 15) #20
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -32399,7 +32399,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119
 
 .critedge.i.i.i.i.i.i.i123:                       ; preds = %412
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %402)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %402)
   %427 = load ptr, ptr %402, align 8
   %428 = ptrtoint ptr %427 to i64
   %429 = add i64 %428, 7
@@ -32432,7 +32432,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 441:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119, %410, %408
   %.sroa.04.0.i.i.i.i.i = phi ptr [ %433, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119 ], [ %409, %408 ], [ null, %410 ]
-  %442 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %442 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %443 = load ptr, ptr %3, align 8
   %444 = icmp eq ptr %443, %405
   br i1 %444, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %445
@@ -32535,7 +32535,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 75)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -32576,7 +32576,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -32607,7 +32607,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -32711,7 +32711,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load i64, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load ptr, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -32766,7 +32766,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %19
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %34 = load ptr, ptr %5, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = add i64 %35, 7
@@ -32803,7 +32803,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %40, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %51 = load ptr, ptr %3, align 8
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %53
@@ -33775,7 +33775,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %26 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %26, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %26, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef 35)
   %27 = ptrtoint ptr %21 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef %27)
@@ -33816,7 +33816,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %34
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %23)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %23)
   %49 = load ptr, ptr %23, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = add i64 %50, 7
@@ -33847,7 +33847,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 63:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %32, %30
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %55, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %31, %30 ], [ null, %32 ]
-  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #20
   %65 = load ptr, ptr %7, align 8
   %66 = icmp eq ptr %65, %26
   br i1 %66, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %67
@@ -33959,7 +33959,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i26: ; preds = %_ZNSt11char_tra
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %120 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %120, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %120, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 36)
   %121 = ptrtoint ptr %113 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %121)
@@ -34002,7 +34002,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i26: ; preds = %_ZNSt11char_tra
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48
 
 .critedge.i.i.i.i.i.i.i51:                        ; preds = %129
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %117)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %117)
   %144 = load ptr, ptr %117, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = add i64 %145, 7
@@ -34035,7 +34035,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 159:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48, %127, %125
   %.sroa.0.0.i.i.i.i.i32 = phi ptr [ %150, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i48 ], [ %126, %125 ], [ null, %127 ]
-  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %161 = load ptr, ptr %5, align 8
   %162 = icmp eq ptr %161, %120
   br i1 %162, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %163
@@ -34147,7 +34147,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52: ; preds = %_ZNSt11char_tra
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %216 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %216, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %216, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 37)
   %217 = ptrtoint ptr %209 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %217)
@@ -34190,7 +34190,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52: ; preds = %_ZNSt11char_tra
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i75
 
 .critedge.i.i.i.i.i.i.i78:                        ; preds = %225
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %213)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %213)
   %240 = load ptr, ptr %213, align 8
   %241 = ptrtoint ptr %240 to i64
   %242 = add i64 %241, 7
@@ -34223,7 +34223,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 255:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i75, %223, %221
   %.sroa.0.0.i.i.i.i.i58 = phi ptr [ %246, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i75 ], [ %222, %221 ], [ null, %223 ]
-  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %256 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %257 = load ptr, ptr %3, align 8
   %258 = icmp eq ptr %257, %216
   br i1 %258, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %259
@@ -34585,7 +34585,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %11, i64 noundef 32) #20
   %.sroa.07.0.copyload.i.i.i.i = load ptr, ptr %1, align 8
   %.sroa.28.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.28.0.copyload.i.i.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i.i.i, align 8
@@ -34675,7 +34675,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %30
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %7)
   %45 = load ptr, ptr %7, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = add i64 %46, 7
@@ -34723,7 +34723,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 63:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %29, %27
   %.sroa.032.0.i.i.i.i = phi ptr [ %51, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %28, %27 ], [ null, %29 ]
-  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %65 = load ptr, ptr %5, align 8
   %66 = icmp eq ptr %65, %11
   br i1 %66, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i, label %67
@@ -35033,7 +35033,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %12 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %12, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %12, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 33)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %5)
   %13 = zext i32 %7 to i64
@@ -35075,7 +35075,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %9)
   %35 = load ptr, ptr %9, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -35108,7 +35108,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 50:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %52 = load ptr, ptr %2, align 8
   %53 = icmp eq ptr %52, %12
   br i1 %53, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %54
@@ -35286,7 +35286,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 38)
   %9 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %9)
@@ -35343,7 +35343,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %35 = load ptr, ptr %4, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -35380,7 +35380,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 51:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %19, %17
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %18, %17 ], [ null, %19 ]
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %53 = load ptr, ptr %2, align 8
   %54 = icmp eq ptr %53, %8
   br i1 %54, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %55
@@ -35483,7 +35483,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 39)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -35524,7 +35524,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -35555,7 +35555,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -37383,7 +37383,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 67)
   %9 = icmp eq i64 %.0.val, 0
   br i1 %9, label %10, label %11
@@ -37433,7 +37433,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %17
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %32 = load ptr, ptr %4, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %33, 7
@@ -37466,7 +37466,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %16, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %16 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %8
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %50
@@ -38331,7 +38331,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 81)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -38377,7 +38377,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %33 = load ptr, ptr %4, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -38412,7 +38412,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 49:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %16, %14
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %15, %14 ], [ null, %16 ]
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %51 = load ptr, ptr %2, align 8
   %52 = icmp eq ptr %51, %7
   br i1 %52, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %53
@@ -41164,7 +41164,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %9 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %9, i64 noundef 32) #20
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %2, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 23)
@@ -41209,7 +41209,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %6)
   %35 = load ptr, ptr %6, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -41244,7 +41244,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 52:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %54 = load ptr, ptr %4, align 8
   %55 = icmp eq ptr %54, %9
   br i1 %55, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %56
@@ -41462,7 +41462,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %48 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %48, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %48, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 50)
   %49 = ptrtoint ptr %storemerge.i to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %49)
@@ -41503,7 +41503,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %56
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %45)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %45)
   %71 = load ptr, ptr %45, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = add i64 %72, 7
@@ -41534,7 +41534,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 85:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %54, %52
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %77, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %53, %52 ], [ null, %54 ]
-  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #20
   %87 = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %87, %48
   br i1 %88, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %89
@@ -41673,7 +41673,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 46)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -41714,7 +41714,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -41745,7 +41745,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -41903,7 +41903,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %25 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %25, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %25, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 48)
   %26 = zext nneg i32 %.035 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %26)
@@ -41944,7 +41944,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %33
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %22)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %22)
   %48 = load ptr, ptr %22, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = add i64 %49, 7
@@ -41975,7 +41975,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 62:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %31, %29
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %54, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %30, %29 ], [ null, %31 ]
-  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %64 = load ptr, ptr %2, align 8
   %65 = icmp eq ptr %64, %25
   br i1 %65, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %66
@@ -42309,7 +42309,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %41 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 9)
   %42 = ptrtoint ptr %.04 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %42)
@@ -42348,7 +42348,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %48
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %6)
   %61 = load ptr, ptr %6, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = add i64 %62, 7
@@ -42386,7 +42386,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 79:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %46, %44
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %67, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %45, %44 ], [ null, %46 ]
-  %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %81 = load ptr, ptr %3, align 8
   %82 = icmp eq ptr %81, %8
   br i1 %82, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10AbiTagAttrEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %83
@@ -43264,7 +43264,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %27, %_ZNK4llvm16i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %75 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %75, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %75, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 20)
   %76 = ptrtoint ptr %69 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %76)
@@ -43305,7 +43305,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %27, %_ZNK4llvm16i
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %83
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %72)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %72)
   %98 = load ptr, ptr %72, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = add i64 %99, 7
@@ -43336,7 +43336,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 112:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %81, %79
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %104, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %80, %79 ], [ null, %81 ]
-  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %114 = load ptr, ptr %3, align 8
   %115 = icmp eq ptr %114, %75
   br i1 %115, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %116
@@ -43528,7 +43528,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 4)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -43569,7 +43569,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -43600,7 +43600,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 44:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %46 = load ptr, ptr %2, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %47, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %48
@@ -44165,7 +44165,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   %9 = load ptr, ptr %1, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 30)
   %10 = ptrtoint ptr %9 to i64
@@ -44207,7 +44207,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %17
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %32 = load ptr, ptr %5, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %33, 7
@@ -44239,7 +44239,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %15, %13
   %.sroa.0.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %15 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %49 = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %49, %8
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %51
@@ -44342,7 +44342,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 29)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -44385,7 +44385,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -44418,7 +44418,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -44753,7 +44753,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 15)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -44796,7 +44796,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -44829,7 +44829,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -45112,7 +45112,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 14)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -45155,7 +45155,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -45192,7 +45192,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 50:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %52 = load ptr, ptr %2, align 8
   %53 = icmp eq ptr %52, %7
   br i1 %53, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %54
@@ -48031,7 +48031,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %91
-  %114 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %99, i64 noundef %98, i64 noundef %98, i8 3)
+  %114 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %99, i64 noundef %98, i64 noundef %98, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %.critedge.i.i.i.i.i, %111
@@ -48040,7 +48040,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i43, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %115
 
 115:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %94, i64 %98, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %94, i64 %98, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %115
@@ -48054,7 +48054,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %122 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %122, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull %122, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %11, i64 noundef 53)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %11, i64 noundef %116)
   %123 = getelementptr inbounds ptr, ptr %.0.i.i.i.i.i, i64 %116
@@ -48104,7 +48104,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %132
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %99)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %99)
   %145 = load ptr, ptr %99, align 8
   %146 = ptrtoint ptr %145 to i64
   %147 = add i64 %146, 7
@@ -48137,7 +48137,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 159:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %131, %129
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %151, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %130, %129 ], [ null, %131 ]
-  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #20
+  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %11) #20
   %161 = load ptr, ptr %11, align 8
   %162 = icmp eq ptr %161, %122
   br i1 %162, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %163
@@ -48378,7 +48378,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %261 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %261, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %261, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef 28)
   %262 = ptrtoint ptr %255 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef %262)
@@ -48421,7 +48421,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72
 
 .critedge.i.i.i.i.i.i.i75:                        ; preds = %270
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %258)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %258)
   %285 = load ptr, ptr %258, align 8
   %286 = ptrtoint ptr %285 to i64
   %287 = add i64 %286, 7
@@ -48454,7 +48454,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 300:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72, %268, %266
   %.sroa.0.0.i.i.i.i.i56 = phi ptr [ %291, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i72 ], [ %267, %266 ], [ null, %268 ]
-  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
+  %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %9) #20
   %302 = load ptr, ptr %9, align 8
   %303 = icmp eq ptr %302, %261
   br i1 %303, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %304
@@ -48560,7 +48560,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %353 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %353, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %353, i64 noundef 32) #20
   %354 = load ptr, ptr %13, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef 25)
   %355 = ptrtoint ptr %354 to i64
@@ -48604,7 +48604,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i94
 
 .critedge.i.i.i.i.i.i.i97:                        ; preds = %363
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %350)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %350)
   %378 = load ptr, ptr %350, align 8
   %379 = ptrtoint ptr %378 to i64
   %380 = add i64 %379, 7
@@ -48637,7 +48637,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 393:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i94, %361, %359
   %.sroa.0.0.i.i.i.i.i77 = phi ptr [ %384, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i94 ], [ %360, %359 ], [ null, %361 ]
-  %394 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  %394 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #20
   %395 = load ptr, ptr %7, align 8
   %396 = icmp eq ptr %395, %353
   br i1 %396, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %397
@@ -48739,7 +48739,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %448 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %448, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %448, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef 24)
   %449 = ptrtoint ptr %442 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %449)
@@ -48782,7 +48782,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i116
 
 .critedge.i.i.i.i.i.i.i119:                       ; preds = %457
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %445)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %445)
   %472 = load ptr, ptr %445, align 8
   %473 = ptrtoint ptr %472 to i64
   %474 = add i64 %473, 7
@@ -48815,7 +48815,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 487:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i116, %455, %453
   %.sroa.0.0.i.i.i.i.i99 = phi ptr [ %478, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i116 ], [ %454, %453 ], [ null, %455 ]
-  %488 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %488 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %489 = load ptr, ptr %5, align 8
   %490 = icmp eq ptr %489, %448
   br i1 %490, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %491
@@ -48970,7 +48970,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %38 = load i8, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %10, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %10, i64 noundef 32) #20
   %39 = load ptr, ptr %1, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 27)
   %40 = ptrtoint ptr %39 to i64
@@ -49013,7 +49013,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %48
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %8)
   %61 = load ptr, ptr %8, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = add i64 %62, 7
@@ -49049,7 +49049,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 78:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %46, %44
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %67, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %45, %44 ], [ null, %46 ]
-  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %80 = load ptr, ptr %3, align 8
   %81 = icmp eq ptr %80, %10
   br i1 %81, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10ModuleNameEJRPS4_RPNS3_4NodeERbEEESt4pairIS8_bEbDpOT0_.exit.i.i.i.i, label %82
@@ -49491,7 +49491,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 47)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -49532,7 +49532,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -49565,7 +49565,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.0.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %50
@@ -49668,7 +49668,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   %9 = load ptr, ptr %1, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 49)
   %10 = ptrtoint ptr %9 to i64
@@ -49715,7 +49715,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %35 = load ptr, ptr %5, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -49751,7 +49751,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 52:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %18, %16
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %17, %16 ], [ null, %18 ]
-  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %54 = load ptr, ptr %3, align 8
   %55 = icmp eq ptr %54, %8
   br i1 %55, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %56
@@ -50272,7 +50272,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 26)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -50315,7 +50315,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -50348,7 +50348,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -50922,7 +50922,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %8, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 10)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %.8.val)
   %9 = getelementptr inbounds ptr, ptr %.0.val, i64 %.8.val
@@ -50975,7 +50975,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %18
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %33 = load ptr, ptr %4, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = add i64 %34, 7
@@ -51008,7 +51008,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 47:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %17, %15
   %.sroa.0.0.i.i.i.i = phi ptr [ %39, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %16, %15 ], [ null, %17 ]
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %49 = load ptr, ptr %2, align 8
   %50 = icmp eq ptr %49, %8
   br i1 %50, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i, label %51
@@ -51112,7 +51112,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %11 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %11, i64 noundef 32) #20
   %.sroa.05.0.copyload.i.i.i.i = load ptr, ptr %1, align 8
   %.sroa.26.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.26.0.copyload.i.i.i.i = load i64, ptr %.sroa.26.0..sroa_idx.i.i.i.i, align 8
@@ -51182,7 +51182,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %29
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %7)
   %44 = load ptr, ptr %7, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = add i64 %45, 7
@@ -51231,7 +51231,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 66:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %28, %26
   %.sroa.0.0.i.i.i.i = phi ptr [ %50, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %27, %26 ], [ null, %28 ]
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #20
   %68 = load ptr, ptr %5, align 8
   %69 = icmp eq ptr %68, %11
   br i1 %69, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %70
@@ -51334,7 +51334,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.238, i64 30) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -51376,7 +51376,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -51411,7 +51411,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -51514,7 +51514,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.239, i64 11) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -51556,7 +51556,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -51591,7 +51591,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -51694,7 +51694,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.240, i64 8) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -51736,7 +51736,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -51771,7 +51771,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -51874,7 +51874,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.241, i64 13) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -51916,7 +51916,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -51951,7 +51951,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -52054,7 +52054,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.242, i64 18) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -52096,7 +52096,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -52131,7 +52131,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -52428,7 +52428,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.243, i64 26) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -52470,7 +52470,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -52505,7 +52505,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -52608,7 +52608,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 22)
   %8 = ptrtoint ptr %.0.val to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %8)
@@ -52651,7 +52651,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 7
@@ -52684,7 +52684,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 46:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %14, %12
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %13, %12 ], [ null, %14 ]
-  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %48 = load ptr, ptr %2, align 8
   %49 = icmp eq ptr %48, %7
   br i1 %49, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i, label %50
@@ -52788,9 +52788,9 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %9, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %9, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 21)
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %1) #20
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -52799,7 +52799,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_.exit.i.i.i.i
 
 13:                                               ; preds = %2
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull %1, i64 %10) #20
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull align 1 dereferenceable(34) %1, i64 %10) #20
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
@@ -52841,7 +52841,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16Fol
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %20
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %35 = load ptr, ptr %5, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %36, 7
@@ -52856,7 +52856,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store ptr %.sink.i.i.i.i, ptr %5, align 8
   store ptr null, ptr %.0.i.i.i.i.i.i, align 8
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
-  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  %42 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %1) #20
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i8 21, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 17
@@ -52877,7 +52877,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 51:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %19, %17
   %.sroa.013.0.i.i.i.i = phi ptr [ %41, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %18, %17 ], [ null, %19 ]
-  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %53 = load ptr, ptr %3, align 8
   %54 = icmp eq ptr %53, %9
   br i1 %54, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %55
@@ -52980,7 +52980,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.245, i64 40) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -53022,7 +53022,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -53057,7 +53057,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -53160,7 +53160,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %8, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %8, i64 noundef 32) #20
   %9 = load ptr, ptr %1, align 8
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.246, i64 17) #20
@@ -53203,7 +53203,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %17
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %5)
   %32 = load ptr, ptr %5, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = add i64 %33, 7
@@ -53239,7 +53239,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 48:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %15, %13
   %.sroa.04.0.i.i.i.i = phi ptr [ %38, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %14, %13 ], [ null, %15 ]
-  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #20
   %50 = load ptr, ptr %3, align 8
   %51 = icmp eq ptr %50, %8
   br i1 %51, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %52
@@ -53342,7 +53342,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.247, i64 21) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -53384,7 +53384,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -53419,7 +53419,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49
@@ -53522,7 +53522,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %7 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %7, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 21)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.249, i64 24) #20
   %8 = ptrtoint ptr %.0.val to i64
@@ -53564,7 +53564,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %15
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(656) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = add i64 %31, 7
@@ -53599,7 +53599,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 45:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i, %13, %11
   %.sroa.04.0.i.i.i.i = phi ptr [ %36, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i ], [ %12, %11 ], [ null, %13 ]
-  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #20
   %47 = load ptr, ptr %2, align 8
   %48 = icmp eq ptr %47, %7
   br i1 %48, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i, label %49

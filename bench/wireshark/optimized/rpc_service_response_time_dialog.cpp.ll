@@ -404,7 +404,7 @@ _ZNK4QMapI7QStringP9_guid_keyE4keysEv.exit.thread: ; preds = %87
   %93 = getelementptr inbounds i8, ptr %88, i64 32
   %94 = load ptr, ptr %93, align 8, !noalias !7
   %95 = getelementptr inbounds i8, ptr %88, i64 16
-  %96 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringP9_guid_keyEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S5_St4lessIS2_ESaIS6_EEE4keysEvEUlRKT_E_ET0_SJ_SJ_SN_T1_(ptr %94, ptr nonnull %95, ptr nonnull %18)
+  %96 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringP9_guid_keyEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_S5_St4lessIS2_ESaIS6_EEE4keysEvEUlRKT_E_ET0_SJ_SJ_SN_T1_(ptr %94, ptr nonnull %95, ptr nonnull align 8 %18)
           to label %_ZNK4QMapI7QStringP9_guid_keyE4keysEv.exit unwind label %97
 
 97:                                               ; preds = %92, %89
@@ -1191,7 +1191,7 @@ _ZNK4QMapI7QStringjE4keysEv.exit.thread:          ; preds = %368
   %374 = getelementptr inbounds i8, ptr %369, i64 32
   %375 = load ptr, ptr %374, align 8, !noalias !20
   %376 = getelementptr inbounds i8, ptr %369, i64 16
-  %377 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringjEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_jSt4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %375, ptr nonnull %376, ptr nonnull %21)
+  %377 = invoke ptr @_ZSt9transformISt23_Rb_tree_const_iteratorISt4pairIK7QStringjEESt20back_insert_iteratorI5QListIS2_EEZNK8QMapDataISt3mapIS2_jSt4lessIS2_ESaIS4_EEE4keysEvEUlRKT_E_ET0_SH_SH_SL_T1_(ptr %375, ptr nonnull %376, ptr nonnull align 8 %21)
           to label %_ZNK4QMapI7QStringjE4keysEv.exit unwind label %378
 
 378:                                              ; preds = %373, %370
@@ -2423,7 +2423,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %.noexc67, %_ZN17QAr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not.i.i.i71 = icmp eq ptr %160, null
   %spec.select.i.i.i = select i1 %.not.i.i.i71, ptr @_ZN7QString6_emptyE, ptr %160
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull %24, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %162)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %162)
           to label %_ZN7QStringD2Ev.exit76 unwind label %188
 
 _ZN7QStringD2Ev.exit76:                           ; preds = %157
@@ -3332,7 +3332,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread.i.i.i.i45: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not.i.i.i57 = icmp eq ptr %91, null
   %spec.select.i.i.i = select i1 %.not.i.i.i57, ptr @_ZN7QString6_emptyE, ptr %91
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull %11, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %93)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %93)
           to label %_ZN7QStringD2Ev.exit62 unwind label %117
 
 _ZN7QStringD2Ev.exit62:                           ; preds = %88

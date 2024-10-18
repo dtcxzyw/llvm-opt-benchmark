@@ -263,7 +263,7 @@ if.end.i:                                         ; preds = %if.end15
   br i1 %cmp2.i, label %if.then18, label %get_interpid_obj.exit
 
 get_interpid_obj.exit:                            ; preds = %if.end.i
-  %call.i.i = call ptr @PyLong_FromLongLong(i64 noundef %call1.i) #7
+  %call.i.i = call ptr @PyLong_FromLongLong(i64 noundef range(i64 0, -9223372036854775808) %call1.i) #7
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then18, label %if.end21
 
@@ -367,7 +367,7 @@ if.end.i16:                                       ; preds = %while.body
   br i1 %cmp2.i, label %if.then5, label %get_interpid_obj.exit
 
 get_interpid_obj.exit:                            ; preds = %if.end.i16
-  %call.i.i = tail call ptr @PyLong_FromLongLong(i64 noundef %call1.i) #7
+  %call.i.i = tail call ptr @PyLong_FromLongLong(i64 noundef range(i64 0, -9223372036854775808) %call1.i) #7
   %cmp4 = icmp eq ptr %call.i.i, null
   br i1 %cmp4, label %if.then5, label %if.end6
 
@@ -448,7 +448,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %call.i.i = tail call ptr @PyLong_FromLongLong(i64 noundef %call1.i) #7
+  %call.i.i = tail call ptr @PyLong_FromLongLong(i64 noundef range(i64 0, -9223372036854775808) %call1.i) #7
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end.i, %if.end, %entry

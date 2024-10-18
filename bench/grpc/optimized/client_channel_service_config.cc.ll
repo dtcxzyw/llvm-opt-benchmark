@@ -551,7 +551,7 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core17Core
           to label %call.i.noexc unwind label %lpad5
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc17 unwind label %lpad5
 
 .noexc17:                                         ; preds = %call.i.noexc
@@ -561,7 +561,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 lpad.i:                                           ; preds = %.noexc17
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup
 
 invoke.cont6:                                     ; preds = %.noexc17
@@ -1131,7 +1131,7 @@ entry:
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !10
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS5_EEEEE6value_E, align 8, !noalias !10
   %1 = load ptr, ptr %vtable.i, align 8, !noalias !10
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS5_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull %ref.tmp, ptr noundef %errors)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS5_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 %ref.tmp, ptr noundef %errors)
           to label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS2_EED2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -1176,7 +1176,7 @@ entry:
   store ptr null, ptr %ref.tmp, align 8, !alias.scope !13
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelMethodParsedConfigESt14default_deleteIS5_EEEEE6value_E, align 8, !noalias !13
   %1 = load ptr, ptr %vtable.i, align 8, !noalias !13
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelMethodParsedConfigESt14default_deleteIS5_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull %ref.tmp, ptr noundef %errors)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelMethodParsedConfigESt14default_deleteIS5_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 %ref.tmp, ptr noundef %errors)
           to label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelMethodParsedConfigESt14default_deleteIS2_EED2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -1412,7 +1412,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -1562,11 +1562,11 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #14
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit: ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #14
   store i8 1, ptr %_M_engaged.i.i.i, align 8
   ret ptr %dst
 }
@@ -1581,7 +1581,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dst) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %dst) #14
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit: ; preds = %entry, %if.then.i.i.i
@@ -1841,7 +1841,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %health_check_config_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %health_check_config_) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %health_check_config_) #14
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
 
 _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -1881,7 +1881,7 @@ entry:
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %health_check_config_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %health_check_config_.i) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %health_check_config_.i) #14
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
 
 _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %entry

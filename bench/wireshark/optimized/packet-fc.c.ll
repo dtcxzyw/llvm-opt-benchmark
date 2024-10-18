@@ -727,7 +727,7 @@ define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, p
 20:                                               ; preds = %19
   %21 = getelementptr inbounds i8, ptr %1, i64 232
   %22 = or disjoint i32 %.0451, 1
-  %23 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %22, i32 noundef 3) #4
+  %23 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 14) %22, i32 noundef 3) #4
   store i32 5, ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 236
   store i32 3, ptr %24, align 4
@@ -737,7 +737,7 @@ define internal fastcc void @dissect_fc_helper(ptr noundef %0, ptr noundef %1, p
   store ptr null, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 208
   %28 = or disjoint i32 %.0451, 5
-  %29 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %28, i32 noundef 3) #4
+  %29 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 14) %28, i32 noundef 3) #4
   store i32 5, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 3, ptr %30, align 4
@@ -1193,7 +1193,7 @@ proto_item_set_hidden.exit500:                    ; preds = %proto_item_set_hidd
 299:                                              ; preds = %289, %294, %296
   %300 = load i32, ptr @hf_fc_fctl, align 4
   %301 = load i32, ptr @ett_fctl, align 4
-  %302 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %114, ptr noundef %0, i32 noundef %66, i32 noundef %300, i32 noundef %301, ptr noundef nonnull @dissect_fc_fctl.flags, i32 noundef 0, i32 noundef 2) #4
+  %302 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %114, ptr noundef %0, i32 noundef range(i32 9, 18) %66, i32 noundef %300, i32 noundef %301, ptr noundef nonnull @dissect_fc_fctl.flags, i32 noundef 0, i32 noundef 2) #4
   %303 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %66) #4
   %304 = load i32, ptr @hf_fc_seqid, align 4
   %305 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %304, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0) #4

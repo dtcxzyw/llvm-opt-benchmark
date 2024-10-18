@@ -760,7 +760,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_14GPUTreeLearn
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %22, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %23, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %5, ptr noundef nonnull align 8 dereferenceable(122) %23, i64 96, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 96
   %.not.i = icmp eq ptr %23, %5
   br i1 %.not.i, label %42, label %25
@@ -820,7 +820,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
 50:                                               ; preds = %42
   %51 = zext nneg i32 %48 to i64
   %52 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %22, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %6, ptr noundef nonnull align 8 dereferenceable(122) %52, i64 96, i1 false)
   %53 = getelementptr inbounds i8, ptr %6, i64 96
   %.not.i15 = icmp eq ptr %52, %6
   br i1 %.not.i15, label %_ZN8LightGBM9SplitInfoaSERKS0_.exit5, label %54
@@ -920,7 +920,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit7:                 ; preds = %_ZN8LightGBM9SplitI
   %91 = sext i32 %90 to i64
   %92 = load ptr, ptr %16, align 8
   %93 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %92, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %93, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %93, ptr noundef nonnull align 8 dereferenceable(122) %5, i64 96, i1 false)
   %94 = getelementptr inbounds i8, ptr %93, i64 96
   %95 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %96 unwind label %73
@@ -939,7 +939,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit7:                 ; preds = %_ZN8LightGBM9SplitI
   %104 = zext nneg i32 %101 to i64
   %105 = load ptr, ptr %16, align 8
   %106 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %105, i64 %104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %106, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %106, ptr noundef nonnull align 8 dereferenceable(122) %6, i64 96, i1 false)
   %107 = getelementptr inbounds i8, ptr %106, i64 96
   %108 = getelementptr inbounds i8, ptr %6, i64 96
   %109 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -1435,7 +1435,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_17SerialTreeLe
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %22, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %23, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %5, ptr noundef nonnull align 8 dereferenceable(122) %23, i64 96, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 96
   %.not.i = icmp eq ptr %23, %5
   br i1 %.not.i, label %42, label %25
@@ -1495,7 +1495,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
 50:                                               ; preds = %42
   %51 = zext nneg i32 %48 to i64
   %52 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %22, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %52, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %6, ptr noundef nonnull align 8 dereferenceable(122) %52, i64 96, i1 false)
   %53 = getelementptr inbounds i8, ptr %6, i64 96
   %.not.i15 = icmp eq ptr %52, %6
   br i1 %.not.i15, label %_ZN8LightGBM9SplitInfoaSERKS0_.exit5, label %54
@@ -1595,7 +1595,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit7:                 ; preds = %_ZN8LightGBM9SplitI
   %91 = sext i32 %90 to i64
   %92 = load ptr, ptr %16, align 8
   %93 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %92, i64 %91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %93, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %93, ptr noundef nonnull align 8 dereferenceable(122) %5, i64 96, i1 false)
   %94 = getelementptr inbounds i8, ptr %93, i64 96
   %95 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %96 unwind label %73
@@ -1614,7 +1614,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit7:                 ; preds = %_ZN8LightGBM9SplitI
   %104 = zext nneg i32 %101 to i64
   %105 = load ptr, ptr %16, align 8
   %106 = getelementptr inbounds %"struct.LightGBM::SplitInfo", ptr %105, i64 %104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %106, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %106, ptr noundef nonnull align 8 dereferenceable(122) %6, i64 96, i1 false)
   %107 = getelementptr inbounds i8, ptr %106, i64 96
   %108 = getelementptr inbounds i8, ptr %6, i64 96
   %109 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %108)
@@ -1673,10 +1673,10 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_14GPUTreeLearn
 _ZN8LightGBM14GPUTreeLearnerC2EPKNS_6ConfigE.exit: ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM26FeatureParallelTreeLearnerINS_14GPUTreeLearnerEEE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 544
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 568
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1817,7 +1817,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_14GPUTreeLearn
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 544
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1 = icmp eq ptr %6, null
@@ -1828,7 +1828,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit2
 
 _ZNSt6vectorIcSaIcEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %7
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   tail call void @_ZN8LightGBM17SerialTreeLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #16
   ret void
 }
@@ -2732,10 +2732,10 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_17SerialTreeLe
   tail call void @_ZN8LightGBM17SerialTreeLearnerC2EPKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1)
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM26FeatureParallelTreeLearnerINS_17SerialTreeLearnerEEE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 544
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 568
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
@@ -2753,7 +2753,7 @@ define weak_odr void @_ZN8LightGBM26FeatureParallelTreeLearnerINS_17SerialTreeLe
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 544
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1 = icmp eq ptr %6, null
@@ -2764,7 +2764,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit2
 
 _ZNSt6vectorIcSaIcEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %7
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   tail call void @_ZN8LightGBM17SerialTreeLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #16
   ret void
 }

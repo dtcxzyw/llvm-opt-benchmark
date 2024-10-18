@@ -16580,7 +16580,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
-  %39 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %5, ptr noundef %36)
+  %39 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %36)
           to label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i unwind label %91
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %38, %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
@@ -16637,7 +16637,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
   br i1 %.not.i.i7, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8, label %65
 
 65:                                               ; preds = %63
-  %66 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %5, ptr noundef nonnull %.0.i1.i)
+  %66 = invoke noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %.0.i1.i)
           to label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8 unwind label %91
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8: ; preds = %65, %63

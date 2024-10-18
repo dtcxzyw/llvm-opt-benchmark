@@ -154,7 +154,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i
   unreachable
 
 _ZN34btSphereTriangleCollisionAlgorithmD2Ev.exit: ; preds = %entry, %if.then.i, %if.then3.i
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
@@ -194,7 +194,7 @@ invoke.cont19:                                    ; preds = %entry
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
   %m_worldTransform.i = getelementptr inbounds i8, ptr %cond, i64 24
   %6 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -207,7 +207,7 @@ invoke.cont19:                                    ; preds = %entry
   %m_worldTransform.i9 = getelementptr inbounds i8, ptr %cond8, i64 24
   %7 = load ptr, ptr %m_worldTransform.i9, align 8
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 16, i1 false)
   %arrayidx5.i.i10 = getelementptr inbounds i8, ptr %7, i64 16
   %arrayidx7.i.i11 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i11, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i10, i64 16, i1 false)

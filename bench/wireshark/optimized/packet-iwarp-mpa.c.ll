@@ -989,7 +989,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, 
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
-  %12 = tail call ptr @val_to_str(i32 noundef %3, ptr noundef nonnull @mpa_messages, ptr noundef nonnull @.str.58) #5
+  %12 = tail call ptr @val_to_str(i32 noundef range(i32 1, 4) %3, ptr noundef nonnull @mpa_messages, ptr noundef nonnull @.str.58) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.57, i32 noundef %9, i32 noundef %11, ptr noundef %12) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %46, label %13

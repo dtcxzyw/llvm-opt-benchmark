@@ -180,7 +180,7 @@ define dso_local i64 @rb_enc_from_encoding(ptr noundef readonly %0) local_unname
   br i1 %11, label %.thread.i.i, label %rb_enc_from_encoding_index.exit
 
 .thread.i.i:                                      ; preds = %7, %2
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %5) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %5) #22
   unreachable
 
 rb_enc_from_encoding_index.exit:                  ; preds = %7, %1
@@ -1027,7 +1027,7 @@ define internal fastcc void @set_encoding_const(ptr noundef %0, ptr noundef read
   br i1 %12, label %.thread.i.i.i, label %rb_enc_from_encoding.exit
 
 .thread.i.i.i:                                    ; preds = %8, %3
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %6) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %6) #22
   unreachable
 
 rb_enc_from_encoding.exit:                        ; preds = %2, %8
@@ -1697,7 +1697,7 @@ enc_check_addable.exit.i:                         ; preds = %.thread.i.i
 
 enc_register.exit.i:                              ; preds = %enc_check_addable.exit.i
   store i32 %23, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %27 = call fastcc noundef i32 @enc_register_at(i32 noundef %22, ptr noundef nonnull %0, ptr noundef %6)
+  %27 = call fastcc noundef i32 @enc_register_at(i32 noundef %22, ptr noundef nonnull %0, ptr noundef nonnull %6)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
 
@@ -3299,7 +3299,7 @@ define dso_local range(i64 5, 4) i64 @rb_obj_encoding(i64 noundef %0) local_unna
   br i1 %13, label %.thread.i.i, label %rb_enc_from_encoding_index.exit
 
 .thread.i.i:                                      ; preds = %9, %6
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %7) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %7) #22
   unreachable
 
 rb_enc_from_encoding_index.exit:                  ; preds = %9
@@ -3813,7 +3813,7 @@ rb_default_external_encoding.exit.thread5:        ; preds = %0, %rb_default_exte
   br i1 %31, label %.thread.i.i.i, label %rb_enc_from_encoding.exit
 
 .thread.i.i.i:                                    ; preds = %27, %rb_default_external_encoding.exit.thread5
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %25) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %25) #22
   unreachable
 
 rb_enc_from_encoding.exit:                        ; preds = %12, %rb_default_external_encoding.exit, %27
@@ -3998,7 +3998,7 @@ rb_default_internal_encoding.exit:                ; preds = %0, %rb_enc_from_ind
   br i1 %22, label %.thread.i.i.i, label %rb_enc_from_encoding.exit
 
 .thread.i.i.i:                                    ; preds = %18, %13
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %16) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %16) #22
   unreachable
 
 rb_enc_from_encoding.exit:                        ; preds = %rb_default_internal_encoding.exit, %18
@@ -4508,7 +4508,7 @@ str_to_encindex.exit:                             ; preds = %.critedge
   br i1 %32, label %.thread.i.i, label %rb_enc_from_encoding_index.exit
 
 .thread.i.i:                                      ; preds = %28, %26
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %21) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %21) #22
   unreachable
 
 rb_enc_from_encoding_index.exit:                  ; preds = %28, %str_to_encindex.exit, %17
@@ -4641,7 +4641,7 @@ rb_enc_compatible.exit:                           ; preds = %51, %55
   br i1 %66, label %.thread.i.i.i, label %rb_enc_from_encoding.exit
 
 .thread.i.i.i:                                    ; preds = %62, %57
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %60) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %60) #22
   unreachable
 
 rb_enc_from_encoding.exit:                        ; preds = %48, %enc_capable.exit11.thread, %37, %32, %27, %18, %13, %8, %62, %rb_enc_compatible.exit, %enc_capable.exit11, %enc_capable.exit
@@ -4737,7 +4737,7 @@ rb_default_external_encoding.exit.thread5.i:      ; preds = %rb_default_external
   br i1 %32, label %.thread.i.i.i.i, label %rb_enc_default_external.exit
 
 .thread.i.i.i.i:                                  ; preds = %28, %rb_default_external_encoding.exit.thread5.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %26) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %26) #22
   unreachable
 
 rb_enc_default_external.exit:                     ; preds = %13, %rb_default_external_encoding.exit.i, %28
@@ -4807,7 +4807,7 @@ rb_default_internal_encoding.exit.i:              ; preds = %rb_enc_from_index.e
   br i1 %23, label %.thread.i.i.i.i, label %rb_enc_default_internal.exit
 
 .thread.i.i.i.i:                                  ; preds = %19, %14
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef %17) #22
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.38, i32 noundef range(i32 -2147483648, 2147483647) %17) #22
   unreachable
 
 rb_enc_default_internal.exit:                     ; preds = %rb_default_internal_encoding.exit.i, %19

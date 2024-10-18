@@ -434,7 +434,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %10, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then.i.i.i
-  %call1.i.i.i.i83 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i83 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call1.i.i.i.i.noexc:                              ; preds = %lor.lhs.false.i.i.i.i
@@ -442,7 +442,7 @@ call1.i.i.i.i.noexc:                              ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont20
 
 if.then.i.i.i.i:                                  ; preds = %call1.i.i.i.i.noexc, %if.then.i.i.i
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %5)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %if.then.i.i.i.i
@@ -451,7 +451,7 @@ if.then.i.i.i.i:                                  ; preds = %call1.i.i.i.i.noexc
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %invoke.cont20
 
 if.then5.i.i.i.i:                                 ; preds = %.noexc
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %7, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true)
           to label %invoke.cont20 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont20:                                    ; preds = %.noexc, %call1.i.i.i.i.noexc, %if.then.i.i, %if.else, %if.then5.i.i.i.i
@@ -479,7 +479,7 @@ if.then.i.i.i89:                                  ; preds = %if.then.i.i87
   br i1 %17, label %if.then.i.i.i.i95, label %lor.lhs.false.i.i.i.i90
 
 lor.lhs.false.i.i.i.i90:                          ; preds = %if.then.i.i.i89
-  %call1.i.i.i.i99 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %14, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i.i99 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.i.noexc98 unwind label %lpad.loopexit.split-lp.loopexit
 
 call1.i.i.i.i.noexc98:                            ; preds = %lor.lhs.false.i.i.i.i90
@@ -487,7 +487,7 @@ call1.i.i.i.i.noexc98:                            ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i.i91, label %if.then.i.i.i.i95, label %invoke.cont25
 
 if.then.i.i.i.i95:                                ; preds = %call1.i.i.i.i.noexc98, %if.then.i.i.i89
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %5)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %.noexc100 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc100:                                        ; preds = %if.then.i.i.i.i95
@@ -496,7 +496,7 @@ if.then.i.i.i.i95:                                ; preds = %call1.i.i.i.i.noexc
   br i1 %cmp4.i.i.i.i96, label %if.then5.i.i.i.i97, label %invoke.cont25
 
 if.then5.i.i.i.i97:                               ; preds = %.noexc100
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %14, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %14, i1 noundef zeroext true)
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont25:                                    ; preds = %.noexc100, %call1.i.i.i.i.noexc98, %if.then.i.i87, %if.else24, %if.then5.i.i.i.i97
@@ -2789,7 +2789,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compil
   %__first.sroa.0.0.lcssa.i14 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i12.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %__result.addr.0.lcssa.i.i.i.i.i22.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
   %sub.ptr.div.i.lcssa.i = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.068, i64 %sub.ptr.div.i.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 288230376151711743) %__step_size.068, i64 %sub.ptr.div.i.lcssa.i)
   %add.ptr.i18.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.sroa.0.0.lcssa.i14, i64 %.sroa.speculated.i
   tail call fastcc void @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_(ptr %__first.sroa.0.0.lcssa.i14, ptr %add.ptr.i18.i, ptr %add.ptr.i18.i, ptr %__last.coerce, ptr noundef %__result.addr.0.lcssa.i)
   %mul.i15 = shl nsw i64 %__step_size.068, 2
@@ -2985,7 +2985,7 @@ _ZSt17__merge_sort_loopIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGrou
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_T2_.exit ], [ %add.ptr2.i, %_ZSt12__move_mergeIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
   %__result.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i30.i, %_ZSt12__move_mergeIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div.i, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEES8_lNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_T2_.exit ], [ %sub.ptr.div.i20, %_ZSt12__move_mergeIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_.exit ]
-  %.sroa.speculated.i22 = tail call i64 @llvm.smin.i64(i64 %mul.i, i64 %sub.ptr.div.lcssa.i)
+  %.sroa.speculated.i22 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 576460752303423485) %mul.i, i64 %sub.ptr.div.lcssa.i)
   %add.ptr13.i = getelementptr inbounds %"class.google::protobuf::compiler::cpp::(anonymous namespace)::FieldGroup", ptr %__first.addr.0.lcssa.i, i64 %.sroa.speculated.i22
   tail call fastcc void @_ZSt12__move_mergeIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_less_iterEET0_T_SG_SG_SG_SF_T1_(ptr noundef %__first.addr.0.lcssa.i, ptr noundef %add.ptr13.i, ptr noundef %add.ptr13.i, ptr noundef %add.ptr, ptr %__result.sroa.0.0.lcssa.i)
   %cmp = icmp slt i64 %mul.i15, %sub.ptr.div.i

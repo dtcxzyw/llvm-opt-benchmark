@@ -93,7 +93,7 @@ define dso_local void @_Z16cmTrimWhitespaceB5cxx11St17basic_string_viewIcSt11cha
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc10 unwind label %19
 
 .noexc10:                                         ; preds = %.noexc
@@ -105,7 +105,7 @@ define dso_local void @_Z16cmTrimWhitespaceB5cxx11St17basic_string_viewIcSt11cha
 17:                                               ; preds = %.noexc10
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ; preds = %.noexc10
@@ -467,7 +467,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define dso_local void @_ZN10cmAlphaNumC2Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EiEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -488,7 +488,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EiEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2Ej(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EjEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -509,7 +509,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EjEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2El(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.2, i64 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.2, i64 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32ElEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -530,7 +530,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32ElEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.3, i64 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.3, i64 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EmEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -551,7 +551,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EmEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2Ex(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i64 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i64 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32ExEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -572,7 +572,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32ExEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2Ey(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.5, i64 noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.5, i64 noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EyEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -594,7 +594,7 @@ define dso_local void @_ZN10cmAlphaNumC2Ef(ptr noundef nonnull align 8 dereferen
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = fpext float %1 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.6, double noundef %4) #21
+  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.6, double noundef %4) #21
   %6 = add i32 %5, -1
   %or.cond.i = icmp ult i32 %6, 31
   br i1 %or.cond.i, label %7, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -615,7 +615,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIc
 define dso_local void @_ZN10cmAlphaNumC2Ed(ptr noundef nonnull align 8 dereferenceable(56) %0, double noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.6, double noundef %1) #21
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.6, double noundef %1) #21
   %5 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %5, 31
   br i1 %or.cond.i, label %6, label %_ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIcEERAT__cPKcT0_.exit
@@ -1118,7 +1118,7 @@ define linkonce_odr dso_local void @_Z10cmJoinImplISt6vectorINSt7__cxx1112basic_
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc8 unwind label %18
 
 .noexc8:                                          ; preds = %.noexc
@@ -1130,7 +1130,7 @@ define linkonce_odr dso_local void @_Z10cmJoinImplISt6vectorINSt7__cxx1112basic_
 16:                                               ; preds = %.noexc8
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ; preds = %.noexc8
@@ -1261,7 +1261,7 @@ define linkonce_odr dso_local void @_Z10cmJoinImplI7cmRangeIN9__gnu_cxx17__norma
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc8 unwind label %18
 
 .noexc8:                                          ; preds = %.noexc
@@ -1273,7 +1273,7 @@ define linkonce_odr dso_local void @_Z10cmJoinImplI7cmRangeIN9__gnu_cxx17__norma
 16:                                               ; preds = %.noexc8
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ; preds = %.noexc8

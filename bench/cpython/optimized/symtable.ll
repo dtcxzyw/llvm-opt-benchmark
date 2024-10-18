@@ -1796,7 +1796,7 @@ sw.bb:                                            ; preds = %if.end
   %8 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %9 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %4, i32 noundef 2, ptr noundef %9, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %4, i32 noundef 2, ptr noundef %9, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.end5
 
@@ -2077,7 +2077,7 @@ sw.bb248:                                         ; preds = %if.end
   %61 = load i32, ptr %end_col_offset254, align 4
   %st_cur.i698 = getelementptr inbounds i8, ptr %st, i64 8
   %62 = load ptr, ptr %st_cur.i698, align 8
-  %call.i699 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %57, i32 noundef 2, ptr noundef %62, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61)
+  %call.i699 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %57, i32 noundef 2, ptr noundef %62, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61)
   %tobool256.not = icmp eq i32 %call.i699, 0
   br i1 %tobool256.not, label %return, label %if.end260
 
@@ -2217,7 +2217,7 @@ for.body396:                                      ; preds = %cond.end392
   %84 = load ptr, ptr %arrayidx400, align 8
   %85 = getelementptr i8, ptr %84, i64 8
   %.val = load ptr, ptr %85, align 8
-  %call.i700 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %.val)
+  %call.i700 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %.val)
   %tobool.not.i701 = icmp eq i32 %call.i700, 0
   %inc408 = add i32 %i382.0, 1
   br i1 %tobool.not.i701, label %return, label %for.cond385, !llvm.loop !17
@@ -2252,7 +2252,7 @@ if.then438:                                       ; preds = %cond.false430
   %98 = load i32, ptr %end_lineno253, align 8
   %99 = load i32, ptr %end_col_offset254, align 4
   %100 = load ptr, ptr %st_cur.i698, align 8
-  %call.i703 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), i32 noundef 2, ptr noundef %100, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %99)
+  %call.i703 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 34680), i32 noundef 2, ptr noundef %100, i32 noundef %96, i32 noundef %97, i32 noundef %98, i32 noundef %99)
   %tobool444.not = icmp eq i32 %call.i703, 0
   br i1 %tobool444.not, label %return, label %if.end448
 
@@ -2262,7 +2262,7 @@ if.end448:                                        ; preds = %if.then438
   %103 = load i32, ptr %end_lineno253, align 8
   %104 = load i32, ptr %end_col_offset254, align 4
   %105 = load ptr, ptr %st_cur.i698, align 8
-  %call.i705 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %105, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %104)
+  %call.i705 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %105, i32 noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef %104)
   %tobool454.not = icmp eq i32 %call.i705, 0
   br i1 %tobool454.not, label %return, label %if.end459
 
@@ -2420,7 +2420,7 @@ land.lhs.true:                                    ; preds = %if.end599
   %end_col_offset612 = getelementptr inbounds i8, ptr %133, i64 44
   %137 = load i32, ptr %end_col_offset612, align 4
   %138 = load ptr, ptr %st_cur, align 8
-  %call.i707 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %138, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
+  %call.i707 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %138, i32 noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef %137)
   %tobool614.not = icmp eq i32 %call.i707, 0
   br i1 %tobool614.not, label %return, label %if.end618
 
@@ -2603,7 +2603,7 @@ land.lhs.true770:                                 ; preds = %if.end766
   %168 = load i32, ptr %end_col_offset776, align 4
   %st_cur.i708 = getelementptr inbounds i8, ptr %st, i64 8
   %169 = load ptr, ptr %st_cur.i708, align 8
-  %call.i709 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %164, i32 noundef 258, ptr noundef %169, i32 noundef %165, i32 noundef %166, i32 noundef %167, i32 noundef %168)
+  %call.i709 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %164, i32 noundef 258, ptr noundef %169, i32 noundef %165, i32 noundef %166, i32 noundef %167, i32 noundef %168)
   %tobool778.not = icmp eq i32 %call.i709, 0
   br i1 %tobool778.not, label %return, label %if.else
 
@@ -2625,7 +2625,7 @@ land.lhs.true785:                                 ; preds = %if.else
   %175 = load i32, ptr %end_col_offset791, align 4
   %st_cur.i710 = getelementptr inbounds i8, ptr %st, i64 8
   %176 = load ptr, ptr %st_cur.i710, align 8
-  %call.i711 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %171, i32 noundef 2, ptr noundef %176, i32 noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175)
+  %call.i711 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %171, i32 noundef 2, ptr noundef %176, i32 noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175)
   %tobool793.not = icmp eq i32 %call.i711, 0
   br i1 %tobool793.not, label %return, label %if.end808
 
@@ -2906,7 +2906,7 @@ for.body1089:                                     ; preds = %cond.end1085
   %arrayidx1093 = getelementptr [1 x ptr], ptr %typed_elements1091, i64 0, i64 %conv1079
   %209 = load ptr, ptr %arrayidx1093, align 8
   %210 = load ptr, ptr %209, align 8
-  %call.i712 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %st, ptr noundef %210)
+  %call.i712 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef nonnull %st, ptr noundef %210)
   %tobool.not.i713 = icmp eq i32 %call.i712, 0
   br i1 %tobool.not.i713, label %return, label %if.end.i
 
@@ -2917,7 +2917,7 @@ if.end.i:                                         ; preds = %for.body1089
   br i1 %tobool1.not.i, label %if.end10.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call4.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %211)
+  %call4.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %211)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %return, label %if.end10.i
 
@@ -2938,7 +2938,7 @@ for.cond.i714:                                    ; preds = %if.end10.i, %for.bo
 for.body.i719:                                    ; preds = %for.cond.i714
   %arrayidx.i721 = getelementptr [1 x ptr], ptr %typed_elements.i720, i64 0, i64 %conv.i716
   %214 = load ptr, ptr %arrayidx.i721, align 8
-  %call14.i = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %st, ptr noundef %214)
+  %call14.i = tail call fastcc i32 @symtable_visit_stmt(ptr noundef nonnull %st, ptr noundef %214)
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   %inc.i722 = add i32 %i.0.i715, 1
   br i1 %tobool15.not.i, label %return, label %for.cond.i714, !llvm.loop !28
@@ -3386,7 +3386,7 @@ if.end1498:                                       ; preds = %for.body1456, %if.e
   %265 = load i32, ptr %end_lineno1501, align 8
   %266 = load i32, ptr %end_col_offset1502, align 4
   %267 = load ptr, ptr %st_cur.i729, align 8
-  %call.i732 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %251, i32 noundef 1, ptr noundef %267, i32 noundef %263, i32 noundef %264, i32 noundef %265, i32 noundef %266)
+  %call.i732 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %251, i32 noundef 1, ptr noundef %267, i32 noundef %263, i32 noundef %264, i32 noundef %265, i32 noundef %266)
   %tobool1504.not = icmp eq i32 %call.i732, 0
   br i1 %tobool1504.not, label %return, label %if.end1508
 
@@ -3509,7 +3509,7 @@ if.end1580:                                       ; preds = %for.body1538, %if.e
   %288 = load i32, ptr %end_lineno1583, align 8
   %289 = load i32, ptr %end_col_offset1584, align 4
   %290 = load ptr, ptr %st_cur.i737, align 8
-  %call.i753 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %274, i32 noundef 8, ptr noundef %290, i32 noundef %286, i32 noundef %287, i32 noundef %288, i32 noundef %289)
+  %call.i753 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %274, i32 noundef 8, ptr noundef %290, i32 noundef %286, i32 noundef %287, i32 noundef %288, i32 noundef %289)
   %tobool1586.not = icmp eq i32 %call.i753, 0
   br i1 %tobool1586.not, label %return, label %if.end1590
 
@@ -3555,7 +3555,7 @@ for.body1629:                                     ; preds = %cond.end1625
   %arrayidx1633 = getelementptr [1 x ptr], ptr %typed_elements1631, i64 0, i64 %conv1619
   %298 = load ptr, ptr %arrayidx1633, align 8
   %299 = load ptr, ptr %298, align 8
-  %call.i754 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %299)
+  %call.i754 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %299)
   %tobool.not.i755 = icmp eq i32 %call.i754, 0
   br i1 %tobool.not.i755, label %return, label %if.end.i756
 
@@ -3566,7 +3566,7 @@ if.end.i756:                                      ; preds = %for.body1629
   br i1 %tobool1.not.i757, label %for.inc1640, label %if.then2.i758
 
 if.then2.i758:                                    ; preds = %if.end.i756
-  %call4.i759 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %300)
+  %call4.i759 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %300)
   %tobool5.not.i760 = icmp eq i32 %call4.i759, 0
   br i1 %tobool5.not.i760, label %return, label %for.inc1640
 
@@ -3616,7 +3616,7 @@ sw.bb1672:                                        ; preds = %if.end
   %308 = load i32, ptr %end_col_offset1678, align 4
   %st_cur.i764 = getelementptr inbounds i8, ptr %st, i64 8
   %309 = load ptr, ptr %st_cur.i764, align 8
-  %call.i765 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %304, i32 noundef 2, ptr noundef %309, i32 noundef %305, i32 noundef %306, i32 noundef %307, i32 noundef %308)
+  %call.i765 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %304, i32 noundef 2, ptr noundef %309, i32 noundef %305, i32 noundef %306, i32 noundef %307, i32 noundef %308)
   %tobool1680.not = icmp eq i32 %call.i765, 0
   br i1 %tobool1680.not, label %return, label %if.end1684
 
@@ -3914,7 +3914,7 @@ for.body1971:                                     ; preds = %cond.end1967
   %arrayidx1975 = getelementptr [1 x ptr], ptr %typed_elements1973, i64 0, i64 %conv1961
   %360 = load ptr, ptr %arrayidx1975, align 8
   %361 = load ptr, ptr %360, align 8
-  %call.i779 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %361)
+  %call.i779 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %361)
   %tobool.not.i780 = icmp eq i32 %call.i779, 0
   br i1 %tobool.not.i780, label %return, label %if.end.i781
 
@@ -3925,7 +3925,7 @@ if.end.i781:                                      ; preds = %for.body1971
   br i1 %tobool1.not.i783, label %for.inc1982, label %if.then2.i784
 
 if.then2.i784:                                    ; preds = %if.end.i781
-  %call4.i785 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %362)
+  %call4.i785 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %362)
   %tobool5.not.i786 = icmp eq i32 %call4.i785, 0
   br i1 %tobool5.not.i786, label %return, label %for.inc1982
 
@@ -4524,7 +4524,7 @@ sw.bb271:                                         ; preds = %if.end
   %generators.i = getelementptr inbounds i8, ptr %e, i64 16
   %66 = load ptr, ptr %generators.i, align 8
   %67 = load ptr, ptr %v.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46528), ptr noundef %66, ptr noundef %67, ptr noundef null)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46528), ptr noundef %66, ptr noundef %67, ptr noundef null)
   %tobool273.not = icmp eq i32 %call.i, 0
   br i1 %tobool273.not, label %if.then274, label %sw.epilog
 
@@ -4539,7 +4539,7 @@ sw.bb278:                                         ; preds = %if.end
   %generators.i253 = getelementptr inbounds i8, ptr %e, i64 16
   %69 = load ptr, ptr %generators.i253, align 8
   %70 = load ptr, ptr %v.i252, align 8
-  %call.i254 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 50648), ptr noundef %69, ptr noundef %70, ptr noundef null)
+  %call.i254 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 50648), ptr noundef %69, ptr noundef %70, ptr noundef null)
   %tobool280.not = icmp eq i32 %call.i254, 0
   br i1 %tobool280.not, label %if.then281, label %sw.epilog
 
@@ -4554,7 +4554,7 @@ sw.bb285:                                         ; preds = %if.end
   %generators.i256 = getelementptr inbounds i8, ptr %e, i64 16
   %72 = load ptr, ptr %generators.i256, align 8
   %73 = load ptr, ptr %v.i255, align 8
-  %call.i257 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57904), ptr noundef %72, ptr noundef %73, ptr noundef null)
+  %call.i257 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 57904), ptr noundef %72, ptr noundef %73, ptr noundef null)
   %tobool287.not = icmp eq i32 %call.i257, 0
   br i1 %tobool287.not, label %if.then288, label %sw.epilog
 
@@ -4571,7 +4571,7 @@ sw.bb292:                                         ; preds = %if.end
   %76 = load ptr, ptr %v.i258, align 8
   %value.i = getelementptr inbounds i8, ptr %e, i64 16
   %77 = load ptr, ptr %value.i, align 8
-  %call.i260 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42992), ptr noundef %75, ptr noundef %76, ptr noundef %77)
+  %call.i260 = tail call fastcc range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %st, ptr noundef nonnull %e, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42992), ptr noundef %75, ptr noundef %76, ptr noundef %77)
   %tobool294.not = icmp eq i32 %call.i260, 0
   br i1 %tobool294.not, label %if.then295, label %sw.epilog
 
@@ -4826,7 +4826,7 @@ for.body458:                                      ; preds = %cond.end454
 if.end465:                                        ; preds = %for.body458
   %value.i261 = getelementptr inbounds i8, ptr %109, i64 8
   %110 = load ptr, ptr %value.i261, align 8
-  %call.i262 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %110)
+  %call.i262 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %110)
   %tobool.not.i = icmp eq i32 %call.i262, 0
   br i1 %tobool.not.i, label %if.then468, label %for.inc472
 
@@ -5025,7 +5025,7 @@ sw.bb598:                                         ; preds = %if.end
   %139 = load i32, ptr %end_col_offset607, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %140 = load ptr, ptr %st_cur.i, align 8
-  %call.i263 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %134, i32 noundef %cond603, ptr noundef %140, i32 noundef %136, i32 noundef %137, i32 noundef %138, i32 noundef %139)
+  %call.i263 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %134, i32 noundef range(i32 1, 1027) %cond603, ptr noundef %140, i32 noundef %136, i32 noundef %137, i32 noundef %138, i32 noundef %139)
   %tobool609.not = icmp eq i32 %call.i263, 0
   br i1 %tobool609.not, label %if.then610, label %if.end613
 
@@ -5063,7 +5063,7 @@ if.then626:                                       ; preds = %land.lhs.true621
   %148 = load i32, ptr %end_lineno606, align 8
   %149 = load i32, ptr %end_col_offset607, align 4
   %150 = load ptr, ptr %st_cur.i, align 8
-  %call.i265 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), i32 noundef 16, ptr noundef %150, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149)
+  %call.i265 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27608), i32 noundef 16, ptr noundef %150, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149)
   %tobool632.not = icmp eq i32 %call.i265, 0
   br i1 %tobool632.not, label %if.then633, label %sw.epilog
 
@@ -7884,7 +7884,7 @@ if.then1:                                         ; preds = %if.end
   %bf.set = or i8 %bf.load, -128
   store i8 %bf.set, ptr %ste_can_see_class_scope, align 8
   %3 = load ptr, ptr %st_cur, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %3, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %3, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %return, label %if.end7
 
@@ -7894,13 +7894,13 @@ if.end7:                                          ; preds = %if.then1, %if.end
 
 if.then9:                                         ; preds = %if.end7
   %4 = load ptr, ptr %st_cur, align 8
-  %call.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 2, ptr noundef %4, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 2, ptr noundef %4, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool11.not = icmp eq i32 %call.i41, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then9
   %5 = load ptr, ptr %st_cur, align 8
-  %call.i43 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %5, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i43 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25640), i32 noundef 16, ptr noundef %5, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool15.not = icmp eq i32 %call.i43, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -7908,13 +7908,13 @@ if.end17:                                         ; preds = %if.end13
   %st_private = getelementptr inbounds i8, ptr %st, i64 56
   store ptr %name, ptr %st_private, align 8
   %6 = load ptr, ptr %st_cur, align 8
-  %call.i45 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 2, ptr noundef %6, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i45 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 2, ptr noundef %6, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool19.not = icmp eq i32 %call.i45, 0
   br i1 %tobool19.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
   %7 = load ptr, ptr %st_cur, align 8
-  %call.i47 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 16, ptr noundef %7, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i47 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25264), i32 noundef 16, ptr noundef %7, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool23.not = icmp eq i32 %call.i47, 0
   br i1 %tobool23.not, label %return, label %if.end26
 
@@ -7924,7 +7924,7 @@ if.end26:                                         ; preds = %if.end21, %if.end7
 
 if.then28:                                        ; preds = %if.end26
   %8 = load ptr, ptr %st_cur, align 8
-  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25056), i32 noundef 4, ptr noundef %8, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25056), i32 noundef 4, ptr noundef %8, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool30.not = icmp eq i32 %call.i49, 0
   br i1 %tobool30.not, label %return, label %if.end33
 
@@ -7934,7 +7934,7 @@ if.end33:                                         ; preds = %if.then28, %if.end2
 
 if.then35:                                        ; preds = %if.end33
   %9 = load ptr, ptr %st_cur, align 8
-  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25376), i32 noundef 4, ptr noundef %9, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
+  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25376), i32 noundef 4, ptr noundef %9, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset)
   %tobool37.not = icmp eq i32 %call.i51, 0
   br i1 %tobool37.not, label %return, label %if.end40
 
@@ -7985,7 +7985,7 @@ sw.bb:                                            ; preds = %if.end
   %9 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %10 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %5, i32 noundef 1026, ptr noundef %10, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %5, i32 noundef 1026, ptr noundef %10, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.then2, label %if.end5
 
@@ -8042,7 +8042,7 @@ land.lhs.true:                                    ; preds = %if.end20
   %end_col_offset36 = getelementptr inbounds i8, ptr %21, i64 44
   %25 = load i32, ptr %end_col_offset36, align 4
   %26 = load ptr, ptr %st_cur.i, align 8
-  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %26, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
+  %call.i49 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27784), i32 noundef 16, ptr noundef %26, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
   %tobool38.not = icmp eq i32 %call.i49, 0
   br i1 %tobool38.not, label %if.then39, label %if.end42
 
@@ -8079,7 +8079,7 @@ sw.bb58:                                          ; preds = %if.end
   %34 = load i32, ptr %end_col_offset64, align 4
   %st_cur.i50 = getelementptr inbounds i8, ptr %st, i64 8
   %35 = load ptr, ptr %st_cur.i50, align 8
-  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %30, i32 noundef 1026, ptr noundef %35, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34)
+  %call.i51 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %30, i32 noundef 1026, ptr noundef %35, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34)
   %tobool66.not = icmp eq i32 %call.i51, 0
   %.pre55 = load i32, ptr %recursion_depth, align 8
   br i1 %tobool66.not, label %return, label %sw.epilog
@@ -8097,7 +8097,7 @@ sw.bb71:                                          ; preds = %if.end
   %40 = load i32, ptr %end_col_offset77, align 4
   %st_cur.i52 = getelementptr inbounds i8, ptr %st, i64 8
   %41 = load ptr, ptr %st_cur.i52, align 8
-  %call.i53 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %36, i32 noundef 1026, ptr noundef %41, i32 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40)
+  %call.i53 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %36, i32 noundef 1026, ptr noundef %41, i32 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40)
   %tobool79.not = icmp eq i32 %call.i53, 0
   %.pre54 = load i32, ptr %recursion_depth, align 8
   br i1 %tobool79.not, label %return, label %sw.epilog
@@ -8163,7 +8163,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %call.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %10)
+  %call.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %10)
   %tobool7.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool7.not.i, label %return.sink.split, label %if.then5.for.inc_crit_edge.i
 
@@ -8205,7 +8205,7 @@ for.body.i41:                                     ; preds = %for.inc.i52, %for.b
   br i1 %tobool4.not.i46, label %for.inc.i52, label %if.then5.i47
 
 if.then5.i47:                                     ; preds = %for.body.i41
-  %call.i48 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %16)
+  %call.i48 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %16)
   %tobool7.not.i49 = icmp eq i32 %call.i48, 0
   br i1 %tobool7.not.i49, label %return.sink.split, label %if.then5.for.inc_crit_edge.i50
 
@@ -8281,7 +8281,7 @@ for.body.i64:                                     ; preds = %for.inc.i75, %for.b
   br i1 %tobool4.not.i69, label %for.inc.i75, label %if.then5.i70
 
 if.then5.i70:                                     ; preds = %for.body.i64
-  %call.i71 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %26)
+  %call.i71 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef nonnull %26)
   %tobool7.not.i72 = icmp eq i32 %call.i71, 0
   br i1 %tobool7.not.i72, label %return.sink.split, label %if.then5.for.inc_crit_edge.i73
 
@@ -8389,7 +8389,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %end_col_offset.i = getelementptr inbounds i8, ptr %3, i64 36
   %8 = load i32, ptr %end_col_offset.i, align 4
   %9 = load ptr, ptr %st_cur.i.i, align 8
-  %call.i.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %4, i32 noundef 4, ptr noundef %9, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
+  %call.i.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %4, i32 noundef 4, ptr noundef %9, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8)
   %tobool5.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool5.not.i, label %return, label %for.cond.i
 
@@ -8431,7 +8431,7 @@ for.body.i33:                                     ; preds = %for.cond.i43, %for.
   %end_col_offset.i40 = getelementptr inbounds i8, ptr %13, i64 36
   %18 = load i32, ptr %end_col_offset.i40, align 4
   %19 = load ptr, ptr %st_cur.i.i32, align 8
-  %call.i.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %14, i32 noundef 4, ptr noundef %19, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18)
+  %call.i.i41 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %14, i32 noundef 4, ptr noundef %19, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18)
   %tobool5.not.i42 = icmp eq i32 %call.i.i41, 0
   br i1 %tobool5.not.i42, label %return, label %for.cond.i43
 
@@ -8473,7 +8473,7 @@ for.body.i53:                                     ; preds = %for.cond.i63, %for.
   %end_col_offset.i60 = getelementptr inbounds i8, ptr %23, i64 36
   %28 = load i32, ptr %end_col_offset.i60, align 4
   %29 = load ptr, ptr %st_cur.i.i52, align 8
-  %call.i.i61 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %24, i32 noundef 4, ptr noundef %29, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
+  %call.i.i61 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %24, i32 noundef 4, ptr noundef %29, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
   %tobool5.not.i62 = icmp eq i32 %call.i.i61, 0
   br i1 %tobool5.not.i62, label %return, label %for.cond.i63
 
@@ -8495,7 +8495,7 @@ if.then18:                                        ; preds = %if.end16
   %35 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %36 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %31, i32 noundef 4, ptr noundef %36, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %31, i32 noundef 4, ptr noundef %36, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35)
   %tobool25.not = icmp eq i32 %call.i, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
@@ -8525,7 +8525,7 @@ if.then30:                                        ; preds = %if.end28
   %43 = load i32, ptr %end_col_offset40, align 4
   %st_cur.i68 = getelementptr inbounds i8, ptr %st, i64 8
   %44 = load ptr, ptr %st_cur.i68, align 8
-  %call.i69 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %39, i32 noundef 4, ptr noundef %44, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
+  %call.i69 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %39, i32 noundef 4, ptr noundef %44, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
   %tobool42.not = icmp eq i32 %call.i69, 0
   br i1 %tobool42.not, label %return, label %if.end44
 
@@ -8712,7 +8712,7 @@ if.then8:                                         ; preds = %if.end5
   %6 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %7 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %2, i32 noundef 2, ptr noundef %7, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %2, i32 noundef 2, ptr noundef %7, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %return, label %if.end15
 
@@ -8803,7 +8803,7 @@ if.then11:                                        ; preds = %if.end8
   %7 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
   %8 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %store_name.0, i32 noundef 128, ptr noundef %8, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %store_name.0, i32 noundef 128, ptr noundef %8, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   %9 = load i64, ptr %store_name.0, align 8
   %10 = and i64 %9, 2147483648
   %cmp.i45.not = icmp eq i64 %10, 0
@@ -9404,7 +9404,7 @@ sw.epilog.sink.split:                             ; preds = %if.end174, %for.end
   %31 = load i32, ptr %end_col_offset184, align 4
   %st_cur.i88 = getelementptr inbounds i8, ptr %st, i64 8
   %32 = load ptr, ptr %st_cur.i88, align 8
-  %call.i89 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %.sink, i32 noundef 2, ptr noundef %32, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
+  %call.i89 = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %.sink, i32 noundef 2, ptr noundef %32, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.cond137, %cond.end, %cond.end199, %sw.epilog.sink.split, %for.end133, %if.end174, %for.end85, %sw.bb20, %sw.bb, %if.end
@@ -9586,7 +9586,7 @@ if.then16.i:                                      ; preds = %_PyST_GetSymbol.exi
   %end_col_offset20.i = getelementptr inbounds i8, ptr %9, i64 44
   %31 = load i32, ptr %end_col_offset20.i, align 4
   %32 = load ptr, ptr %st_cur, align 8
-  %call.i84.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %32, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
+  %call.i84.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %32, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
   %tobool22.not.i = icmp eq i32 %call.i84.i, 0
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end37.i
 
@@ -9607,7 +9607,7 @@ if.else.i:                                        ; preds = %_PyST_GetSymbol.exi
   %end_col_offset30.i = getelementptr inbounds i8, ptr %9, i64 44
   %37 = load i32, ptr %end_col_offset30.i, align 4
   %38 = load ptr, ptr %st_cur, align 8
-  %call.i86.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %10, i32 noundef 8, ptr noundef %38, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37)
+  %call.i86.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %10, i32 noundef 8, ptr noundef %38, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37)
   %tobool32.not.i = icmp eq i32 %call.i86.i, 0
   br i1 %tobool32.not.i, label %if.then33.i, label %if.end37.i
 
@@ -9627,7 +9627,7 @@ if.end37.i:                                       ; preds = %if.else.i, %if.then
   %42 = load i32, ptr %end_lineno40.i, align 8
   %end_col_offset41.i = getelementptr inbounds i8, ptr %9, i64 44
   %43 = load i32, ptr %end_col_offset41.i, align 4
-  %call42.i = tail call fastcc i32 @symtable_record_directive(ptr noundef %st, ptr noundef %10, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
+  %call42.i = tail call fastcc i32 @symtable_record_directive(ptr noundef nonnull %st, ptr noundef %10, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then44.i, label %if.end47.i
 
@@ -9643,7 +9643,7 @@ if.end47.i:                                       ; preds = %if.end37.i
   %46 = load i32, ptr %col_offset39.i, align 4
   %47 = load i32, ptr %end_lineno40.i, align 8
   %48 = load i32, ptr %end_col_offset41.i, align 4
-  %call52.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef %10, i32 noundef 2, ptr noundef nonnull %15, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48)
+  %call52.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef nonnull %st, ptr noundef %10, i32 noundef 2, ptr noundef nonnull %15, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48)
   br label %symtable_extend_namedexpr_scope.exit
 
 if.then56.i:                                      ; preds = %if.end9.i
@@ -9656,7 +9656,7 @@ if.then56.i:                                      ; preds = %if.end9.i
   %end_col_offset60.i = getelementptr inbounds i8, ptr %9, i64 44
   %52 = load i32, ptr %end_col_offset60.i, align 4
   %53 = load ptr, ptr %st_cur, align 8
-  %call.i88.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %53, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52)
+  %call.i88.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef %10, i32 noundef 1, ptr noundef %53, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52)
   %tobool62.not.i = icmp eq i32 %call.i88.i, 0
   br i1 %tobool62.not.i, label %if.then63.i, label %if.end66.i
 
@@ -9672,7 +9672,7 @@ if.end66.i:                                       ; preds = %if.then56.i
   %56 = load i32, ptr %col_offset58.i, align 4
   %57 = load i32, ptr %end_lineno59.i, align 8
   %58 = load i32, ptr %end_col_offset60.i, align 4
-  %call71.i = tail call fastcc i32 @symtable_record_directive(ptr noundef %st, ptr noundef %10, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58)
+  %call71.i = tail call fastcc i32 @symtable_record_directive(ptr noundef nonnull %st, ptr noundef %10, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58)
   %tobool72.not.i = icmp eq i32 %call71.i, 0
   br i1 %tobool72.not.i, label %if.then73.i, label %if.end76.i
 
@@ -9688,7 +9688,7 @@ if.end76.i:                                       ; preds = %if.end66.i
   %61 = load i32, ptr %col_offset58.i, align 4
   %62 = load i32, ptr %end_lineno59.i, align 8
   %63 = load i32, ptr %end_col_offset60.i, align 4
-  %call81.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef %st, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %15, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63)
+  %call81.i = tail call fastcc i32 @symtable_add_def_helper(ptr noundef nonnull %st, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %15, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63)
   br label %symtable_extend_namedexpr_scope.exit
 
 sw.epilog.i.loopexit29:                           ; preds = %if.end9.i
@@ -9918,7 +9918,7 @@ if.end.i:                                         ; preds = %if.end35
   %28 = load i32, ptr %ste_end_lineno.i, align 8
   %ste_end_col_offset.i = getelementptr inbounds i8, ptr %25, i64 100
   %29 = load i32, ptr %ste_end_col_offset.i, align 4
-  %call.i.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef readonly %st, ptr noundef nonnull %call.i, i32 noundef 4, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29)
+  %call.i.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %call.i, i32 noundef 4, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   %30 = load i64, ptr %call.i, align 8
   %31 = and i64 %30, 2147483648
@@ -10058,7 +10058,7 @@ for.body84:                                       ; preds = %cond.end80
   %bf.set.i = or i8 %bf.load.i, 64
   store i8 %bf.set.i, ptr %ste_comp_iter_target.i, align 8
   %48 = load ptr, ptr %46, align 8
-  %call.i63 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %48)
+  %call.i63 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %48)
   %tobool.not.i64 = icmp eq i32 %call.i63, 0
   br i1 %tobool.not.i64, label %if.then91, label %if.end.i65
 
@@ -10075,7 +10075,7 @@ if.end.i65:                                       ; preds = %for.body84
   store i32 %inc.i, ptr %ste_comp_iter_expr.i, align 4
   %iter.i = getelementptr inbounds i8, ptr %46, i64 8
   %52 = load ptr, ptr %iter.i, align 8
-  %call7.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %52)
+  %call7.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %52)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.then91, label %if.end12.i
 
@@ -10101,7 +10101,7 @@ for.cond.i:                                       ; preds = %if.end12.i, %for.bo
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i68 = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv.i
   %57 = load ptr, ptr %arrayidx.i68, align 8
-  %call19.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef %57)
+  %call19.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %57)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   %inc25.i = add i32 %i.0.i, 1
   br i1 %tobool20.not.i, label %if.then91, label %for.cond.i, !llvm.loop !86

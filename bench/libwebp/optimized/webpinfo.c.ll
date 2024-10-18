@@ -915,11 +915,11 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   br i1 %358, label %359, label %361
 
 359:                                              ; preds = %357
-  %360 = call fastcc i32 @ParseLossyHeader(i64 %175, ptr %196, ptr noundef %8)
+  %360 = call fastcc i32 @ParseLossyHeader(i64 %175, ptr %196, ptr noundef nonnull %8)
   br label %363
 
 361:                                              ; preds = %357
-  %362 = call fastcc i32 @ParseLosslessHeader(i64 %175, ptr %196, ptr noundef %8)
+  %362 = call fastcc i32 @ParseLosslessHeader(i64 %175, ptr %196, ptr noundef nonnull %8)
   br label %363
 
 363:                                              ; preds = %361, %359
@@ -1265,7 +1265,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   %532 = add nsw i64 %175, -9
   %533 = getelementptr inbounds i8, ptr %196, i64 1
   store i64 0, ptr %3, align 8
-  %534 = call fastcc i32 @ParseLosslessTransform(ptr noundef %8, ptr noundef nonnull readonly %533, i64 noundef %532, ptr noundef %3)
+  %534 = call fastcc i32 @ParseLosslessTransform(ptr noundef nonnull %8, ptr noundef nonnull readonly %533, i64 noundef %532, ptr noundef %3)
   %.not31.i.i.i.i = icmp eq i32 %534, 0
   br i1 %.not31.i.i.i.i, label %ParseAlphaHeader.exit.i.i.i, label %ParseAlphaHeader.exit.thread.i.i.i
 

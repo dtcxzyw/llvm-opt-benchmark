@@ -94,7 +94,7 @@ define void @Rwr_ManPrecompute(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %54, label %.critedge2.loopexit, label %55
 
 55:                                               ; preds = %45
-  %56 = tail call range(i32 0, 64) i32 @llvm.umax.i32(i32 %48, i32 %52)
+  %56 = tail call range(i32 0, 64) i32 @llvm.umax.i32(i32 range(i32 0, 64) %48, i32 range(i32 0, 64) %52)
   %57 = add nuw nsw i32 %56, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4

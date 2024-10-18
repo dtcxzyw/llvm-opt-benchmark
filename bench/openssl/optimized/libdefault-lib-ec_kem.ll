@@ -964,7 +964,7 @@ dhkem_extract_and_expand.exit.thread34:           ; preds = %if.end.i
   br label %.sink.split
 
 dhkem_extract_and_expand.exit:                    ; preds = %if.end.i
-  %call9.i = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %call40, ptr noundef %secret, i64 noundef %11, ptr noundef nonnull %prk.i, i64 noundef %11, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %kemctx, i64 noundef %kemctxlen.04247) #5
+  %call9.i = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %call40, ptr noundef %secret, i64 noundef %11, ptr noundef nonnull %prk.i, i64 noundef %11, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %kemctx, i64 noundef range(i64 0, 400) %kemctxlen.04247) #5
   %call9.i.fr = freeze i32 %call9.i
   %tobool10.i.not = icmp eq i32 %call9.i.fr, 0
   call void @OPENSSL_cleanse(ptr noundef nonnull %prk.i, i64 noundef %11) #5

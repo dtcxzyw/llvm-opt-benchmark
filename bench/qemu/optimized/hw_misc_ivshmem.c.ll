@@ -1132,7 +1132,7 @@ if.then12:                                        ; preds = %if.end9
 
 if.then.i22:                                      ; preds = %if.then12
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 532, ptr noundef nonnull @__func__.process_msg_connect, ptr noundef nonnull @.str.24, i32 noundef %13) #11
-  %call.i23 = tail call i32 @close(i32 noundef %fd) #11
+  %call.i23 = tail call i32 @close(i32 noundef range(i32 0, -2147483648) %fd) #11
   br label %if.end15
 
 if.end.i24:                                       ; preds = %if.then12
@@ -1143,8 +1143,8 @@ if.end.i24:                                       ; preds = %if.then12
   %14 = load ptr, ptr %eventfds.i25, align 8
   %idxprom3.i = sext i32 %12 to i64
   %arrayidx4.i = getelementptr %struct.EventNotifier, ptr %14, i64 %idxprom3.i
-  tail call void @event_notifier_init_fd(ptr noundef %arrayidx4.i, i32 noundef %fd) #11
-  %call5.i = tail call i32 @g_unix_set_fd_nonblocking(i32 noundef %fd, i32 noundef 1, ptr noundef null) #11
+  tail call void @event_notifier_init_fd(ptr noundef %arrayidx4.i, i32 noundef range(i32 0, -2147483648) %fd) #11
+  %call5.i = tail call i32 @g_unix_set_fd_nonblocking(i32 noundef range(i32 0, -2147483648) %fd, i32 noundef 1, ptr noundef null) #11
   %conv.i26 = and i32 %conv13, 65535
   %vm_id.i = getelementptr inbounds i8, ptr %s, i64 2688
   %15 = load i32, ptr %vm_id.i, align 16

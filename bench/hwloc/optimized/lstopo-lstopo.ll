@@ -2596,7 +2596,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %468, %switch.lookup
   br i1 %724, label %725, label %743
 
 725:                                              ; preds = %722
-  %726 = call i32 @strncasecmp(ptr noundef nonnull readonly %.0535, ptr noundef nonnull readonly @.str.169, i64 noundef 5) #28
+  %726 = call i32 @strncasecmp(ptr noundef nonnull readonly %.0535, ptr noundef nonnull @.str.169, i64 noundef 5) #28
   %.not761 = icmp eq i32 %726, 0
   br i1 %.not761, label %.preheader927, label %732
 
@@ -2618,7 +2618,7 @@ lstopo_update_factorize_bounds.exit:              ; preds = %468, %switch.lookup
   br i1 %exitcond1371.not, label %.loopexit928, label %.preheader927, !llvm.loop !25
 
 732:                                              ; preds = %725
-  %733 = call i32 @strncasecmp(ptr noundef nonnull readonly %.0535, ptr noundef nonnull readonly @.str.168, i64 noundef 2) #28
+  %733 = call i32 @strncasecmp(ptr noundef nonnull readonly %.0535, ptr noundef nonnull @.str.168, i64 noundef 2) #28
   %.not763 = icmp eq i32 %733, 0
   br i1 %.not763, label %.preheader929, label %739
 
@@ -3507,7 +3507,7 @@ hwloc_utils_disable_input_format.exit:            ; preds = %1096, %1090, %1089
   br i1 %.not.i.i.i.i, label %1141, label %1143
 
 1141:                                             ; preds = %1140
-  %1142 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1137, i32 noundef %1139, i32 noundef 0) #28
+  %1142 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1137, i32 noundef range(i32 0, -2) %1139, i32 noundef 0) #28
   br label %hwloc_get_next_pcidev.exit.i
 
 1143:                                             ; preds = %1140
@@ -3544,7 +3544,7 @@ hwloc_get_next_pcidev.exit.i:                     ; preds = %1146, %1141
   br i1 %.not.i.i.i15.i, label %1155, label %1157
 
 1155:                                             ; preds = %1154
-  %1156 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1137, i32 noundef %1153, i32 noundef 0) #28
+  %1156 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1137, i32 noundef range(i32 0, -2) %1153, i32 noundef 0) #28
   br label %hwloc_get_next_bridge.exit.i
 
 1157:                                             ; preds = %1154
@@ -3656,7 +3656,7 @@ add_process_objects.exit:                         ; preds = %1177, %1170, %lstop
   br i1 %or.cond.i.i, label %1199, label %1200
 
 1199:                                             ; preds = %1195
-  call fastcc void @insert_misc(ptr noundef %1183, ptr noundef nonnull %1184, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
+  call fastcc void @insert_misc(ptr noundef %1183, ptr noundef nonnull %1184, ptr noundef nonnull %.0.ph.i.ph, ptr noundef nonnull %.022.ph.i.ph)
   br label %add_one_misc_object_from.exit.i
 
 1200:                                             ; preds = %1195
@@ -3719,7 +3719,7 @@ add_one_misc_object_from.exit.i:                  ; preds = %1200, %1199
   br i1 %or.cond.i34.i, label %1222, label %1223
 
 1222:                                             ; preds = %1218
-  call fastcc void @insert_misc(ptr noundef %1183, ptr noundef nonnull %1184, ptr noundef nonnull %.0.ph.i.ph, ptr noundef %.022.ph.i.ph)
+  call fastcc void @insert_misc(ptr noundef %1183, ptr noundef nonnull %1184, ptr noundef nonnull %.0.ph.i.ph, ptr noundef nonnull %.022.ph.i.ph)
   br label %add_one_misc_object_from.exit35.i
 
 1223:                                             ; preds = %1218
@@ -3850,7 +3850,7 @@ switch.lookup1707:                                ; preds = %1254
   br i1 %.not.i.i.i.i811, label %1268, label %1270
 
 1268:                                             ; preds = %.lr.ph.i
-  %1269 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1261, i32 noundef %1267, i32 noundef 0) #28
+  %1269 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1261, i32 noundef range(i32 0, -2) %1267, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_depth.exit.i.i.i
 
 1270:                                             ; preds = %.lr.ph.i
@@ -3917,7 +3917,7 @@ lstopo_add_cpukind_style.exit:                    ; preds = %1258, %._crit_edge.
   br i1 %or.cond.i.i.i815, label %lstopo_add_collapse_attributes.exit, label %hwloc_get_next_pcidev.exit.i816
 
 hwloc_get_next_pcidev.exit.i816:                  ; preds = %lstopo_add_cpukind_style.exit
-  %1292 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1290, i32 noundef %1291, i32 noundef 0) #28
+  %1292 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %1290, i32 noundef range(i32 0, -2) %1291, i32 noundef 0) #28
   %.not40.i = icmp eq ptr %1292, null
   br i1 %.not40.i, label %lstopo_add_collapse_attributes.exit, label %.lr.ph.i817
 
@@ -4084,7 +4084,7 @@ lstopo_add_collapse_attributes.exit:              ; preds = %1358, %._crit_edge.
   br i1 %.not40.i826, label %1375, label %1378
 
 1375:                                             ; preds = %1373
-  %1376 = call i32 @strncasecmp(ptr noundef nonnull readonly %5, ptr noundef nonnull readonly @.str.432, i64 noundef 2) #28
+  %1376 = call i32 @strncasecmp(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.432, i64 noundef 2) #28
   %.not41.i = icmp ne i32 %1376, 0
   %1377 = load i64, ptr %999, align 8
   %.not42.i = icmp eq i64 %1377, 0
@@ -4775,37 +4775,37 @@ sub_1:                                            ; preds = %sub_0
   store i32 -1, ptr %.sroa.2.0..sroa_idx, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.358, i64 noundef 3) #28
+  %32 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.358, i64 noundef 3) #28
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %hwloc_utils_parse_input_format.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.325, i64 noundef 1) #28
+  %34 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.325, i64 noundef 1) #28
   %.not9.i = icmp eq i32 %34, 0
   br i1 %.not9.i, label %hwloc_utils_parse_input_format.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.359, i64 noundef 1) #28
+  %36 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.359, i64 noundef 1) #28
   %.not10.i = icmp eq i32 %36, 0
   br i1 %.not10.i, label %hwloc_utils_parse_input_format.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.360, i64 noundef 5) #28
+  %38 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.360, i64 noundef 5) #28
   %.not11.i = icmp eq i32 %38, 0
   br i1 %.not11.i, label %hwloc_utils_parse_input_format.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.330, i64 noundef 1) #28
+  %40 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.330, i64 noundef 1) #28
   %.not12.i = icmp eq i32 %40, 0
   br i1 %.not12.i, label %hwloc_utils_parse_input_format.exit, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.361, i64 noundef 1) #28
+  %42 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.361, i64 noundef 1) #28
   %.not13.i = icmp eq i32 %42, 0
   br i1 %.not13.i, label %hwloc_utils_parse_input_format.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull readonly @.str.362, i64 noundef 1) #28
+  %44 = tail call i32 @strncasecmp(ptr noundef readonly %31, ptr noundef nonnull @.str.362, i64 noundef 1) #28
   %.not14.i = icmp eq i32 %44, 0
   br i1 %.not14.i, label %hwloc_utils_parse_input_format.exit, label %45
 
@@ -4836,17 +4836,17 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 16) i32 @parse_output_format(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #15 {
-  %3 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.358, i64 noundef 3) #28
+  %3 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.358, i64 noundef 3) #28
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %50, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.364, i64 noundef 3) #28
+  %5 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.364, i64 noundef 3) #28
   %.not23 = icmp eq i32 %5, 0
   br i1 %.not23, label %50, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull readonly @.str.365, i64 noundef 3) #28
+  %7 = tail call i32 @strncasecmp(ptr noundef readonly %0, ptr noundef nonnull @.str.365, i64 noundef 3) #28
   %.not24 = icmp eq i32 %7, 0
   br i1 %.not24, label %50, label %8
 

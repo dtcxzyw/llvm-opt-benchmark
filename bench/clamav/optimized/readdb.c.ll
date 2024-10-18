@@ -9429,7 +9429,7 @@ sub_0.i:                                          ; preds = %67
 .lr.ph294.split.us.split.us.i:                    ; preds = %.lr.ph294.split.us.i, %85
   %.0137.in.sroa.speculated292.us.us.i = phi ptr [ %.0137.in.sroa.speculate.load..us.us.i, %85 ], [ %.1231.ph.lcssa272.i, %.lr.ph294.split.us.i ]
   %83 = load ptr, ptr %.0137.in.sroa.speculated292.us.us.i, align 8
-  %84 = tail call i32 @cli_load(ptr noundef %83, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %64, ptr noundef null)
+  %84 = tail call i32 @cli_load(ptr noundef %83, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 2048, 0) %64, ptr noundef null)
   %.not166.us.us.i = icmp eq i32 %84, 0
   br i1 %.not166.us.us.i, label %85, label %.split.us.i
 
@@ -9455,7 +9455,7 @@ sub_0.i:                                          ; preds = %67
 
 94:                                               ; preds = %90, %.lr.ph294.split.us.split.i
   %95 = load ptr, ptr %.0137.in.sroa.speculated292.us.i, align 8
-  %96 = tail call i32 @cli_load(ptr noundef %95, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %64, ptr noundef null)
+  %96 = tail call i32 @cli_load(ptr noundef %95, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 2048, 0) %64, ptr noundef null)
   %.not166.us.i = icmp eq i32 %96, 0
   br i1 %.not166.us.i, label %97, label %.split.us.i
 
@@ -9485,7 +9485,7 @@ sub_0.i:                                          ; preds = %67
 
 104:                                              ; preds = %101, %.lr.ph294.split.split.us.i
   %105 = load ptr, ptr %.0137.in.sroa.speculated292.us299.i, align 8
-  %106 = tail call i32 @cli_load(ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %64, ptr noundef null)
+  %106 = tail call i32 @cli_load(ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 2048, 0) %64, ptr noundef null)
   %.not166.us300.i = icmp eq i32 %106, 0
   br i1 %.not166.us300.i, label %107, label %.split.us.i
 
@@ -9847,7 +9847,7 @@ sub_0234.i:                                       ; preds = %109
   br label %253
 
 251:                                              ; preds = %247
-  %252 = tail call fastcc i64 @count_signatures(ptr noundef nonnull %198, ptr noundef %1, i32 noundef %64)
+  %252 = tail call fastcc i64 @count_signatures(ptr noundef nonnull %198, ptr noundef nonnull %1, i32 noundef range(i32 2048, 0) %64)
   br label %253
 
 253:                                              ; preds = %251, %249, %237, %233, %227, %215, %205
@@ -9930,7 +9930,7 @@ cli_insertdbtoll.exit.i:                          ; preds = %cli_insertdbtoll.ex
 
 282:                                              ; preds = %279, %275, %.lr.ph294.split.split.i
   %283 = load ptr, ptr %.0137.in.sroa.speculated292.i, align 8
-  %284 = tail call i32 @cli_load(ptr noundef %283, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %64, ptr noundef null)
+  %284 = tail call i32 @cli_load(ptr noundef %283, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 2048, 0) %64, ptr noundef null)
   %.not166.i = icmp eq i32 %284, 0
   br i1 %.not166.i, label %286, label %.split.us.i
 

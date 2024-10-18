@@ -65,7 +65,7 @@ _ZNKSt8functionIFvPKcEEclES1_.exit.i:             ; preds = %6
   store ptr @.str, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNKSt8functionIFvPKcEEclES1_.exit.i
@@ -140,7 +140,7 @@ _ZN3ade14MemoryAccessor17abandonAllHandlesEv.exit: ; preds = %_ZN3ade14MemoryAcc
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds i8, ptr %0, i64 120
-  %35 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %34, i32 noundef 3)
           to label %_ZNSt8functionIFvPKcEED2Ev.exit unwind label %36
 
 36:                                               ; preds = %33
@@ -194,7 +194,7 @@ _ZNKSt8functionIFvPKcEEclES1_.exit:               ; preds = %2
   store ptr %1, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %9
 
@@ -275,7 +275,7 @@ _ZNKSt8functionIFvPKcEEclES1_.exit.i:             ; preds = %2
   store ptr @.str, ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %11(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN3ade14MemoryAccessor7onErrorEPKc.exit
 
@@ -373,7 +373,7 @@ _ZNKSt8functionIFvPKcEEclES1_.exit.i:             ; preds = %7
   store ptr @.str, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   %12 = load ptr, ptr %11, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.sroa.05.08.i.pre = load ptr, ptr %4, align 8
   br label %_ZN3ade14MemoryAccessor7onErrorEPKc.exit
@@ -637,7 +637,7 @@ _ZNKSt8functionIFvPKcEEclES1_.exit.i:             ; preds = %7
   store ptr @.str, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   %12 = load ptr, ptr %11, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.sroa.04.07.i.pre = load ptr, ptr %4, align 8
   br label %_ZN3ade14MemoryAccessor7onErrorEPKc.exit

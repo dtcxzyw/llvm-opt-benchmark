@@ -81,7 +81,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryC2ESt10shared_ptrIKS3_ES0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryC5ESt10shared_ptrIKS3_ES0_) align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %2) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %5, align 8
@@ -135,7 +135,7 @@ define weak_odr dso_local void @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPa
   br label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEEC2ERKS6_.exit
 
 _ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEEC2ERKS6_.exit: ; preds = %3, %13, %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %2) #8
   %18 = getelementptr inbounds i8, ptr %5, i64 32
   %19 = getelementptr inbounds i8, ptr %2, i64 32
   %20 = load i32, ptr %19, align 8
@@ -165,7 +165,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN12cmConstStackI17cmFindP
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %21, ptr %27, align 8, !alias.scope !5
   store ptr %24, ptr %0, align 8, !alias.scope !5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #8
   %28 = load ptr, ptr %7, align 8
   %.not.i.i.i2 = icmp eq ptr %28, null
   br i1 %.not.i.i.i2, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %29
@@ -248,7 +248,7 @@ _ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5Entr
 
 .body:                                            ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i, %63
   %eh.lpad-body = phi { ptr, i32 } [ %64, %63 ], [ %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #8
   call void @_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -518,7 +518,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsISaIvEE7destroyIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEEEvRS0_PT_.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %38) #8
   ret void
 }
 
@@ -572,7 +572,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIKN12cmConstStackI17cmFindPa
   store ptr null, ptr %8, align 8
   store ptr %9, ptr %7, align 8
   store ptr null, ptr %1, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %2) #8
   %10 = getelementptr inbounds i8, ptr %5, i64 32
   %11 = getelementptr inbounds i8, ptr %2, i64 32
   %12 = load i32, ptr %11, align 8
@@ -581,7 +581,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIKN12cmConstStackI17cmFindPa
           to label %13 unwind label %49
 
 13:                                               ; preds = %3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #8
   %14 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev.exit, label %15
@@ -660,7 +660,7 @@ _ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5Entr
 49:                                               ; preds = %3
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #8
   call void @_ZNSt10shared_ptrIKN12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   resume { ptr, i32 } %50
 }

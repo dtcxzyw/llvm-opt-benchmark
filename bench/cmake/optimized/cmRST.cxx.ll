@@ -203,7 +203,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit:          ; preds = %3
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 1168
   store i32 0, ptr %19, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %16, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %16, i8 0, i64 522, i1 false)
   %20 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %16, ptr noundef nonnull @.str.1)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit43 unwind label %117
 
@@ -215,7 +215,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit43:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 1728
   store i32 0, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %21, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %21, i8 0, i64 522, i1 false)
   %25 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %21, ptr noundef nonnull @.str.2)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit44 unwind label %119
 
@@ -227,7 +227,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit44:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 2288
   store i32 0, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %26, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %26, i8 0, i64 522, i1 false)
   %30 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %26, ptr noundef nonnull @.str.3)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit45 unwind label %121
 
@@ -239,7 +239,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit45:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 2848
   store i32 0, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %31, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %31, i8 0, i64 522, i1 false)
   %35 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %31, ptr noundef nonnull @.str.4)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit46 unwind label %123
 
@@ -251,7 +251,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit46:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 3408
   store i32 0, ptr %39, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %36, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %36, i8 0, i64 522, i1 false)
   %40 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %36, ptr noundef nonnull @.str.5)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit47 unwind label %125
 
@@ -263,7 +263,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit47:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 3968
   store i32 0, ptr %44, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %41, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %41, i8 0, i64 522, i1 false)
   %45 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %41, ptr noundef nonnull @.str.6)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit48 unwind label %127
 
@@ -275,7 +275,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit48:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 4528
   store i32 0, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %46, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %46, i8 0, i64 522, i1 false)
   %50 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %46, ptr noundef nonnull @.str.7)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit49 unwind label %129
 
@@ -287,7 +287,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit49:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 5088
   store i32 0, ptr %54, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %51, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %51, i8 0, i64 522, i1 false)
   %55 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %51, ptr noundef nonnull @.str.8)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit50 unwind label %131
 
@@ -299,7 +299,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit50:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 5648
   store i32 0, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %56, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %56, i8 0, i64 522, i1 false)
   %60 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %56, ptr noundef nonnull @.str.9)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit51 unwind label %133
 
@@ -311,7 +311,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit51:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 6208
   store i32 0, ptr %64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %61, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %61, i8 0, i64 522, i1 false)
   %65 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %61, ptr noundef nonnull @.str.10)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit52 unwind label %135
 
@@ -323,7 +323,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit52:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 6768
   store i32 0, ptr %69, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %66, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %66, i8 0, i64 522, i1 false)
   %70 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %66, ptr noundef nonnull @.str.11)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit53 unwind label %137
 
@@ -335,7 +335,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit53:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 7328
   store i32 0, ptr %74, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %71, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %71, i8 0, i64 522, i1 false)
   %75 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %71, ptr noundef nonnull @.str.12)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit54 unwind label %139
 
@@ -347,7 +347,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit54:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 7888
   store i32 0, ptr %79, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %76, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %76, i8 0, i64 522, i1 false)
   %80 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %76, ptr noundef nonnull @.str.13)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit55 unwind label %141
 
@@ -359,7 +359,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit55:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 8448
   store i32 0, ptr %84, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %81, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %81, i8 0, i64 522, i1 false)
   %85 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %81, ptr noundef nonnull @.str.14)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit56 unwind label %143
 
@@ -371,7 +371,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit56:        ; preds = %_ZN5cmsys17RegularE
   store ptr null, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 9008
   store i32 0, ptr %89, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %86, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %86, i8 0, i64 522, i1 false)
   %90 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %86, ptr noundef nonnull @.str.15)
           to label %_ZN5cmsys17RegularExpressionC2EPKc.exit57 unwind label %145
 
@@ -413,7 +413,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit57:        ; preds = %_ZN5cmsys17RegularE
           to label %.noexc unwind label %149
 
 .noexc:                                           ; preds = %107
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %108, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc58 unwind label %149
 
 .noexc58:                                         ; preds = %.noexc
@@ -423,7 +423,7 @@ _ZN5cmsys17RegularExpressionC2EPKc.exit57:        ; preds = %_ZN5cmsys17RegularE
 109:                                              ; preds = %.noexc58
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc58
@@ -1067,7 +1067,7 @@ define dso_local void @_ZN5cmRST13ProcessModuleERSi(ptr noundef nonnull align 8 
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %39
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc13 unwind label %50
 
 .noexc13:                                         ; preds = %.noexc
@@ -1097,7 +1097,7 @@ define dso_local void @_ZN5cmRST13ProcessModuleERSi(ptr noundef nonnull align 8 
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %47
@@ -1165,7 +1165,7 @@ _Z18cmHasLiteralPrefixILm3EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
 
 69:                                               ; preds = %64
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %71 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %13, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(520) %13)
+  %71 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %13, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(556) %13)
           to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit
 
 _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %69
@@ -1358,7 +1358,7 @@ define dso_local void @_ZN5cmRST11ProcessLineERKNSt7__cxx1112basic_stringIcSt11c
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 56
   %43 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %44 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %42, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(520) %42)
+  %44 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %42, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(556) %42)
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %37
@@ -1369,7 +1369,7 @@ define dso_local void @_ZN5cmRST11ProcessLineERKNSt7__cxx1112basic_stringIcSt11c
 46:                                               ; preds = %37
   %47 = getelementptr inbounds i8, ptr %0, i64 616
   %48 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %49 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(520) %47)
+  %49 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %47, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(556) %47)
   br i1 %49, label %50, label %74
 
 50:                                               ; preds = %46
@@ -1455,7 +1455,7 @@ _ZN5cmRST10NormalLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 74:                                               ; preds = %46
   %75 = getelementptr inbounds i8, ptr %0, i64 1176
   %76 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %77 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %75, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(520) %75)
+  %77 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %75, ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(556) %75)
   br i1 %77, label %78, label %104
 
 78:                                               ; preds = %74
@@ -1525,7 +1525,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 104:                                              ; preds = %74
   %105 = getelementptr inbounds i8, ptr %0, i64 1736
   %106 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %107 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %105, ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(520) %105)
+  %107 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %105, ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(556) %105)
   br i1 %107, label %108, label %119
 
 108:                                              ; preds = %104
@@ -1553,7 +1553,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 119:                                              ; preds = %104
   %120 = getelementptr inbounds i8, ptr %0, i64 2296
   %121 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %122 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %120, ptr noundef %121, ptr noundef nonnull align 8 dereferenceable(520) %120)
+  %122 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %120, ptr noundef %121, ptr noundef nonnull align 8 dereferenceable(556) %120)
   br i1 %122, label %123, label %131
 
 123:                                              ; preds = %119
@@ -1581,7 +1581,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 131:                                              ; preds = %119
   %132 = getelementptr inbounds i8, ptr %0, i64 2856
   %133 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %134 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %132, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(520) %132)
+  %134 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %132, ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(556) %132)
   br i1 %134, label %135, label %146
 
 135:                                              ; preds = %131
@@ -1632,7 +1632,7 @@ _ZN5cmRST10NormalLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 146:                                              ; preds = %131
   %147 = getelementptr inbounds i8, ptr %0, i64 3416
   %148 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %149 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %147, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(520) %147)
+  %149 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %147, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(556) %147)
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %146
@@ -1656,7 +1656,7 @@ _ZN5cmRST10NormalLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 156:                                              ; preds = %146
   %157 = getelementptr inbounds i8, ptr %0, i64 3976
   %158 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %159 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %157, ptr noundef %158, ptr noundef nonnull align 8 dereferenceable(520) %157)
+  %159 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %157, ptr noundef %158, ptr noundef nonnull align 8 dereferenceable(556) %157)
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %156
@@ -1667,7 +1667,7 @@ _ZN5cmRST10NormalLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 161:                                              ; preds = %156
   %162 = getelementptr inbounds i8, ptr %0, i64 4536
   %163 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %164 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %162, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(520) %162)
+  %164 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %162, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(556) %162)
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %161
@@ -1678,7 +1678,7 @@ _ZN5cmRST10NormalLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 166:                                              ; preds = %161
   %167 = getelementptr inbounds i8, ptr %0, i64 5096
   %168 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %169 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %167, ptr noundef %168, ptr noundef nonnull align 8 dereferenceable(520) %167)
+  %169 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %167, ptr noundef %168, ptr noundef nonnull align 8 dereferenceable(556) %167)
   br i1 %169, label %170, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit
 
 170:                                              ; preds = %166
@@ -1784,7 +1784,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
           to label %.noexc62 unwind label %233
 
 .noexc62:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit61
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %214, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %214, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %.noexc63 unwind label %233
 
 .noexc63:                                         ; preds = %.noexc62
@@ -1814,7 +1814,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %222 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %221
@@ -2172,7 +2172,7 @@ define dso_local void @_ZN5cmRST13UnindentLinesERSt6vectorINSt7__cxx1112basic_st
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   %58 = load ptr, ptr %0, align 8
   %59 = load ptr, ptr %10, align 8
-  %60 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZ9cmFindNotISC_S7_ENT_14const_iteratorERKSH_RKT0_EUlRS8_E_EEESH_SH_SH_SL_St26random_access_iterator_tag(ptr %58, ptr %59, ptr nonnull %7)
+  %60 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZ9cmFindNotISC_S7_ENT_14const_iteratorERKSH_RKT0_EUlRS8_E_EEESH_SH_SH_SL_St26random_access_iterator_tag(ptr %58, ptr %59, ptr nonnull align 8 dereferenceable(32) %7)
           to label %61 unwind label %89
 
 61:                                               ; preds = %._crit_edge
@@ -2188,7 +2188,7 @@ define dso_local void @_ZN5cmRST13UnindentLinesERSt6vectorINSt7__cxx1112basic_st
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !43
   store i64 %65, ptr %2, align 8, !noalias !48
   store i64 %67, ptr %3, align 8, !noalias !48
-  invoke void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops10_Iter_predIZ9cmFindNotI7cmRangeISF_ES8_ENT_14const_iteratorERKSL_RKT0_EUlRS9_E_EEESL_SL_SL_SP_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nonnull %9)
+  invoke void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEENS1_5__ops10_Iter_predIZ9cmFindNotI7cmRangeISF_ES8_ENT_14const_iteratorERKSL_RKT0_EUlRS9_E_EEESL_SL_SL_SP_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nonnull align 8 dereferenceable(32) %9)
           to label %68 unwind label %91
 
 68:                                               ; preds = %61
@@ -2365,7 +2365,7 @@ define dso_local void @_ZN5cmRST23ProcessDirectiveTocTreeEv(ptr noundef nonnull 
 
 18:                                               ; preds = %15
   %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.014.019) #17
-  %20 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %10, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(520) %10)
+  %20 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %10, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(556) %10)
   br i1 %20, label %21, label %42
 
 21:                                               ; preds = %18
@@ -2724,7 +2724,7 @@ define dso_local void @_ZN5cmRST10OutputLineERKNSt7__cxx1112basic_stringIcSt11ch
   store i64 -1, ptr %11, align 8
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %50 = getelementptr inbounds i8, ptr %49, i64 %.0
-  %51 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %29, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(520) %29)
+  %51 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %29, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(556) %29)
           to label %_ZN5cmsys17RegularExpression4findEPKc.exit unwind label %.loopexit
 
 _ZN5cmsys17RegularExpression4findEPKc.exit:       ; preds = %48
@@ -2753,7 +2753,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit:       ; preds = %48
   %.029 = phi ptr [ %10, %52 ], [ null, %_ZN5cmsys17RegularExpression4findEPKc.exit ]
   %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %60 = getelementptr inbounds i8, ptr %59, i64 %.0
-  %61 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %31, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(520) %31)
+  %61 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %31, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(556) %31)
           to label %_ZN5cmsys17RegularExpression4findEPKc.exit45 unwind label %.loopexit
 
 _ZN5cmsys17RegularExpression4findEPKc.exit45:     ; preds = %58
@@ -2781,7 +2781,7 @@ _ZN5cmsys17RegularExpression4findEPKc.exit45:     ; preds = %58
   %.130 = phi ptr [ %11, %71 ], [ %.029, %68 ], [ %.029, %_ZN5cmsys17RegularExpression4findEPKc.exit45 ]
   %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   %74 = getelementptr inbounds i8, ptr %73, i64 %.0
-  %75 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %33, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(520) %33)
+  %75 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %33, ptr noundef %74, ptr noundef nonnull align 8 dereferenceable(556) %33)
           to label %_ZN5cmsys17RegularExpression4findEPKc.exit46 unwind label %.loopexit
 
 _ZN5cmsys17RegularExpression4findEPKc.exit46:     ; preds = %72
@@ -3207,7 +3207,7 @@ define dso_local void @_ZN5cmRST20ReplaceSubstitutionsERKNSt7__cxx1112basic_stri
   %.0 = phi i64 [ 0, %3 ], [ %81, %79 ]
   %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %22 = getelementptr inbounds i8, ptr %21, i64 %.0
-  %23 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %9, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(520) %9)
+  %23 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %9, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(556) %9)
           to label %_ZN5cmsys17RegularExpression4findEPKc.exit unwind label %.loopexit
 
 _ZN5cmsys17RegularExpression4findEPKc.exit:       ; preds = %20
@@ -3832,7 +3832,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
   %8 = getelementptr inbounds i8, ptr %.07, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
@@ -4144,7 +4144,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %26 = getelementptr inbounds i8, ptr %4, i64 32
   %27 = getelementptr inbounds i8, ptr %4, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %26) #17
   %28 = load ptr, ptr %25, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %32
@@ -4164,7 +4164,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKS8_EEEvPSt13_Rb_tree_nodeIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %3
@@ -4176,7 +4176,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   br label %.body
 
 9:                                                ; preds = %3
@@ -4188,7 +4188,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %eh.lpad-body = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   %11 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %11) #17
-  tail call void @_ZdlPv(ptr noundef %1) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #18
   invoke void @__cxa_rethrow() #21
           to label %19 unwind label %13
 
@@ -4325,7 +4325,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %12 = getelementptr inbounds i8, ptr %8, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   store ptr %8, ptr %7, align 8
@@ -4378,7 +4378,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 33:                                               ; preds = %14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #17
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -4717,7 +4717,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #17
   tail call void @_ZdlPv(ptr noundef nonnull %3) #18
   br label %7
 
@@ -5247,7 +5247,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %8, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #17
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE10_Auto_nodeD2Ev.exit
 
@@ -5262,7 +5262,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_str
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load i64, ptr %2, align 8
   %8 = inttoptr i64 %7 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESJ_IJEEEEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit unwind label %9
 
 9:                                                ; preds = %4

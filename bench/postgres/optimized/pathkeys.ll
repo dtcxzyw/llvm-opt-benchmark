@@ -2819,13 +2819,13 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
-  %28 = call zeroext i1 @get_ordering_op_properties(i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  %28 = call zeroext i1 @get_ordering_op_properties(i32 noundef range(i32 1, 0) %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   br i1 %28, label %make_pathkey_from_sortop.exit, label %29
 
 29:                                               ; preds = %23
   %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %30)
-  %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %21) #10
+  %31 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef range(i32 1, 0) %21) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.make_pathkey_from_sortop) #10
   unreachable
 

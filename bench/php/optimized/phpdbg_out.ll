@@ -131,11 +131,11 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 34:                                               ; preds = %31
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1584), align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %36, i32 noundef %.018, ptr noundef %.pre25)
+  %37 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %36, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
 38:                                               ; preds = %31
-  %39 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef %.018, ptr noundef %.pre25)
+  %39 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
 40:                                               ; preds = %25
@@ -157,11 +157,11 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 48:                                               ; preds = %45
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1592), align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %50, i32 noundef %.018, ptr noundef %.pre25)
+  %51 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, ptr noundef nonnull %50, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
 52:                                               ; preds = %45
-  %53 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef %.018, ptr noundef %.pre25)
+  %53 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef range(i32 1, 0) %.018, ptr noundef %.pre25)
   br label %91
 
 54:                                               ; preds = %25
@@ -169,7 +169,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
   br i1 %.not39.i, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, i32 noundef %.018, ptr noundef nonnull %.pre25)
+  %56 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, i32 noundef range(i32 1, 0) %.018, ptr noundef nonnull %.pre25)
   br label %59
 
 57:                                               ; preds = %54
@@ -215,7 +215,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
   %76 = icmp eq i8 %75, 10
   %77 = zext i1 %76 to i8
   store i8 %77, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1608), align 8
-  %78 = call i32 @phpdbg_mixed_write(i32 noundef %1, ptr noundef nonnull %.pre25, i32 noundef %.018) #10
+  %78 = call i32 @phpdbg_mixed_write(i32 noundef %1, ptr noundef nonnull %.pre25, i32 noundef range(i32 1, 0) %.018) #10
   br label %phpdbg_process_print.exit
 
 79:                                               ; preds = %25
@@ -233,7 +233,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
   %86 = load i64, ptr %85, align 8
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+06
-  %89 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, i64 noundef %84, double noundef %88, i32 noundef %.018, ptr noundef nonnull %.pre25)
+  %89 = call i32 (ptr, ptr, ...) @_phpdbg_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, i64 noundef %84, double noundef %88, i32 noundef range(i32 1, 0) %.018, ptr noundef nonnull %.pre25)
   br label %91
 
 90:                                               ; preds = %25

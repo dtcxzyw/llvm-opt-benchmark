@@ -132,7 +132,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %17
   store volatile i32 6, ptr %7, align 4
-  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5
+  %18 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #5
   %19 = load i8, ptr @UseCompressedOops, align 1
   %20 = trunc i8 %19 to i1
   %21 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -144,7 +144,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %25 = shl nsw i64 %23, %.7.i
   %26 = add nsw i64 %24, %25
   %27 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %28 = tail call noundef ptr %27(ptr noundef nonnull %18, i64 noundef %26) #5
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %26) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %_ZN5ciEnv10get_objectEP7oopDesc.exit
 

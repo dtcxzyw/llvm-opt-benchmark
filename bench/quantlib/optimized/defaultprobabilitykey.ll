@@ -1196,7 +1196,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EED2Ev.exit: ; 
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EED2Ev.exit
-  invoke void @_ZN8QuantLib11DefaultTypeC2ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 2, i32 noundef 0)
+  invoke void @_ZN8QuantLib11DefaultTypeC2ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE(ptr noundef nonnull align 8 dereferenceable(32) %call, i32 noundef 2, i32 noundef 0)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4

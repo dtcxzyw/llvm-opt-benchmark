@@ -6460,7 +6460,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @register_types() #0 {
 entry:
-  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull readonly @register_types.interface_info)
+  %call.i = tail call fastcc ptr @type_new(ptr noundef nonnull @register_types.interface_info)
   %.b2.i.i = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i, label %if.else.i.i, label %if.end.i.i
 
@@ -6483,7 +6483,7 @@ type_register_internal.exit:                      ; preds = %if.end.i.i, %if.the
   %2 = load ptr, ptr %call.i, align 8
   %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %call.i) #20
   store ptr %call.i, ptr @type_interface, align 8
-  %call.i1 = tail call fastcc ptr @type_new(ptr noundef nonnull readonly @register_types.object_info)
+  %call.i1 = tail call fastcc ptr @type_new(ptr noundef nonnull @register_types.object_info)
   %.b2.i.i2 = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i2, label %if.else.i.i8, label %if.end.i.i3
 

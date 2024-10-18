@@ -524,7 +524,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp14.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end
-  call void @_ZN4node4quic3CIDC1ERK10ngtcp2_cid(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ocid) #17
+  call void @_ZN4node4quic3CIDC1ERK10ngtcp2_cid(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ocid) #17
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end17

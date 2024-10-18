@@ -227,7 +227,7 @@ switch.lookup:                                    ; preds = %8
   %107 = load ptr, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(757) %107, i8 0, i64 757, i1 false)
   store i32 32, ptr %11, align 8
-  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef %11)
+  %108 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
   %.not.i = icmp eq i32 %108, 0
   br i1 %.not.i, label %decomp_block.exit.thread, label %109
 
@@ -235,7 +235,7 @@ switch.lookup:                                    ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %90) #11
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef range(i32 1, 0) %90) #11
   br label %.outer.split.i.preheader.i
 
 .outer.split.i.preheader.i:                       ; preds = %.outer.backedge.i.i, %109
@@ -244,7 +244,7 @@ switch.lookup:                                    ; preds = %8
   br label %.outer.split.i.i
 
 .outer.split.i.i:                                 ; preds = %124, %.outer.split.i.preheader.i
-  %111 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 0, ptr noundef %10)
+  %111 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 0, ptr noundef %10)
   %112 = load i32, ptr %10, align 4
   %.not.i.i = icmp eq i32 %112, 0
   br i1 %.not.i.i, label %113, label %decomp_block.exit.thread214
@@ -272,7 +272,7 @@ switch.lookup:                                    ; preds = %8
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef %11)
+  %125 = call fastcc i32 @build_decrypt_dictionaries(ptr noundef nonnull %11)
   %.not91.i.i = icmp eq i32 %125, 0
   br i1 %.not91.i.i, label %decomp_block.exit.thread214, label %.outer.split.i.i
 
@@ -289,7 +289,7 @@ switch.lookup:                                    ; preds = %8
   br label %168
 
 132:                                              ; preds = %126
-  %133 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 1, ptr noundef %10)
+  %133 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 1, ptr noundef %10)
   %134 = load i32, ptr %10, align 4
   %135 = icmp ne i32 %134, 0
   %136 = icmp ugt i32 %133, 85
@@ -476,7 +476,7 @@ switch.lookup:                                    ; preds = %8
   %221 = shl nuw nsw i32 %220, 3
   %222 = add nsw i32 %215, %213
   store i32 %222, ptr %11, align 8
-  %223 = call fastcc i32 @getdec(ptr noundef %11, i8 noundef zeroext 2, ptr noundef %10)
+  %223 = call fastcc i32 @getdec(ptr noundef nonnull %11, i8 noundef zeroext 2, ptr noundef %10)
   %224 = add i32 %223, %171
   %225 = add i32 %224, %221
   %226 = load i32, ptr %10, align 4

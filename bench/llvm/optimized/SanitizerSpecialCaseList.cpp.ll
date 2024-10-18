@@ -133,7 +133,7 @@ define dso_local void @_ZN5clang24SanitizerSpecialCaseList6createERKSt6vectorINS
   br label %_ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit.i: ; preds = %12, %10
-  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 48) #12
   br label %_ZNSt10unique_ptrIN5clang24SanitizerSpecialCaseListESt14default_deleteIS1_EED2Ev.exit
 
@@ -1152,7 +1152,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5clang24SanitizerSpecialCase
   br label %_ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit
 
 _ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit: ; preds = %3, %6
-  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #11
+  tail call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 48) #12
   br label %12
 
@@ -1192,7 +1192,7 @@ define dso_local void @_ZN5clang24SanitizerSpecialCaseList11createOrDieERKSt6vec
   br label %18
 
 18:                                               ; preds = %12, %10
-  call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #11, !noalias !6
+  call void @_ZN4llvm15SpecialCaseListD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #11, !noalias !6
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 48) #12, !noalias !6
   call void @_ZNSt10unique_ptrIN5clang24SanitizerSpecialCaseListESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   call void @_ZN4llvm9StringRefC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)

@@ -2291,7 +2291,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %16, %6
   %.0.i.i = phi ptr [ %15, %6 ], [ %17, %16 ]
   %18 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %.0.i.i)
   %19 = getelementptr inbounds i8, ptr %0, i64 160
-  %20 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %18) #10
+  %20 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #10
   %21 = mul i32 %20, 31
   %22 = urem i32 %21, 61
   %23 = zext nneg i32 %22 to i64
@@ -2369,7 +2369,7 @@ _ZN15ciObjectFactory13find_non_permEP7oopDesc.exit.thread: ; preds = %_ZN15ciObj
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 55:                                               ; preds = %42
-  %56 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #10
+  %56 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %45, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %53, %55
@@ -2437,7 +2437,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
   %.0.i = phi ptr [ %15, %6 ], [ %17, %16 ]
   %18 = tail call noundef ptr @_ZN15ciObjectFactory12get_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %.0.i)
   %19 = getelementptr inbounds i8, ptr %0, i64 160
-  %20 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12) %18) #10
+  %20 = tail call noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #10
   %21 = mul i32 %20, 31
   %22 = urem i32 %21, 61
   %23 = zext nneg i32 %22 to i64
@@ -2524,7 +2524,7 @@ _ZNK7oopDesc11is_instanceEv.exit.thread:          ; preds = %2
   br label %38
 
 36:                                               ; preds = %24
-  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef 8, i32 noundef 0) #10
+  %37 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %26, i64 noundef 8, i32 noundef 0) #10
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -2563,7 +2563,7 @@ _ZN25java_lang_invoke_CallSite11is_instanceEP7oopDesc.exit: ; preds = %41, %51
   br i1 %58, label %180, label %59
 
 59:                                               ; preds = %55
-  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr nonnull %.0.i.i.i.i.i) #10
+  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(41) %57, ptr nonnull %.0.i.i.i.i.i) #10
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV10ciCallSite, i64 16), ptr %57, align 8
   %60 = getelementptr inbounds i8, ptr %57, i64 40
   store i8 0, ptr %60, align 8
@@ -2710,7 +2710,7 @@ _ZNK7oopDesc11is_objArrayEv.exit.thread:          ; preds = %_ZNK7oopDesc11is_in
   br label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
 
 138:                                              ; preds = %126
-  %139 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %128, i64 noundef 8, i32 noundef 0) #10
+  %139 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %128, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
 
 _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %136, %138
@@ -2722,7 +2722,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %136, %138
   br i1 %142, label %180, label %143
 
 143:                                              ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %141, ptr nonnull %.0.i.i.i.i.i43) #10
+  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(44) %141, ptr nonnull %.0.i.i.i.i.i43) #10
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %141, align 8
   %144 = getelementptr inbounds i8, ptr %141, i64 40
   %145 = load ptr, ptr %.0.i.i.i.i.i43, align 8
@@ -2759,7 +2759,7 @@ _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %_ZNK7oopDesc11is_ob
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 165:                                              ; preds = %153
-  %166 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %155, i64 noundef 8, i32 noundef 0) #10
+  %166 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %155, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
 
 _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %163, %165
@@ -2771,7 +2771,7 @@ _ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit: ; preds = %163, %165
   br i1 %169, label %180, label %170
 
 170:                                              ; preds = %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit
-  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(40) %168, ptr nonnull %.0.i.i.i.i.i49) #10
+  tail call void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull align 8 dereferenceable(44) %168, ptr nonnull %.0.i.i.i.i.i49) #10
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTV7ciArray, i64 16), ptr %168, align 8
   %171 = getelementptr inbounds i8, ptr %168, i64 40
   %172 = load ptr, ptr %.0.i.i.i.i.i49, align 8

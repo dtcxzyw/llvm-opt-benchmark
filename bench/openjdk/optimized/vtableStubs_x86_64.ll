@@ -63,15 +63,15 @@ define hidden noundef ptr @_ZN11VtableStubs18create_vtable_stubEi(i32 noundef %0
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = getelementptr inbounds i8, ptr %2, i64 76
   store i32 0, ptr %27, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %26, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, i8 0, i64 66, i1 false)
   %28 = getelementptr inbounds i8, ptr %2, i64 96
   %29 = getelementptr inbounds i8, ptr %2, i64 164
   store i32 0, ptr %29, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %28, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, i8 0, i64 66, i1 false)
   %30 = getelementptr inbounds i8, ptr %2, i64 184
   %31 = getelementptr inbounds i8, ptr %2, i64 252
   store i32 0, ptr %31, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %30, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %30, i8 0, i64 66, i1 false)
   %32 = getelementptr inbounds i8, ptr %2, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef null, i1 noundef zeroext false) #7
   store ptr @.str, ptr %2, align 8
@@ -111,7 +111,7 @@ define hidden noundef ptr @_ZN11VtableStubs18create_vtable_stubEi(i32 noundef %0
   store ptr %25, ptr %50, align 8
   store ptr %32, ptr %34, align 8
   %51 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #7
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %2) #7
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull %2) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %51, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %51) #7
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %51, align 8
@@ -245,15 +245,15 @@ define hidden noundef ptr @_ZN11VtableStubs18create_itable_stubEi(i32 noundef %0
   %35 = getelementptr inbounds i8, ptr %2, i64 8
   %36 = getelementptr inbounds i8, ptr %2, i64 76
   store i32 0, ptr %36, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %35, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %35, i8 0, i64 66, i1 false)
   %37 = getelementptr inbounds i8, ptr %2, i64 96
   %38 = getelementptr inbounds i8, ptr %2, i64 164
   store i32 0, ptr %38, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %37, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, i8 0, i64 66, i1 false)
   %39 = getelementptr inbounds i8, ptr %2, i64 184
   %40 = getelementptr inbounds i8, ptr %2, i64 252
   store i32 0, ptr %40, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %39, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %39, i8 0, i64 66, i1 false)
   %41 = getelementptr inbounds i8, ptr %2, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %41, ptr noundef null, i1 noundef zeroext false) #7
   store ptr @.str, ptr %2, align 8
@@ -293,7 +293,7 @@ define hidden noundef ptr @_ZN11VtableStubs18create_itable_stubEi(i32 noundef %0
   store ptr %34, ptr %59, align 8
   store ptr %41, ptr %43, align 8
   %60 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #7
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull %2) #7
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull %2) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %60, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %60) #7
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %60, align 8
@@ -384,7 +384,7 @@ define hidden noundef ptr @_ZN11VtableStubs18create_itable_stubEi(i32 noundef %0
   %105 = load ptr, ptr %8, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #7
+  call void %107(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %7) #7
   %108 = getelementptr inbounds i8, ptr %7, i64 40
   %109 = getelementptr inbounds i8, ptr %8, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false)

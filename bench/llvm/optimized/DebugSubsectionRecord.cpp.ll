@@ -42,7 +42,7 @@ define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2Ev(ptr nocaptur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %3, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -813,7 +813,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %81, i64 1) ]
   store i32 %80, ptr %81, align 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %5, i64 8) #11
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(8) %5, i64 8) #11
   %82 = load ptr, ptr %0, align 8
   %.not44 = icmp eq ptr %82, null
   br i1 %.not44, label %83, label %_ZN4llvm12ErrorSuccessD2Ev.exit

@@ -158,14 +158,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZDriver4lockEv() local_unnamed_addr #1 align 2 {
   %1 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #13
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZDriver6unlockEv() local_unnamed_addr #1 align 2 {
   %1 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #13
+  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   ret void
 }
 
@@ -196,28 +196,28 @@ define hidden noundef ptr @_ZN7ZDriver5majorEv() local_unnamed_addr #4 align 2 {
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ZDriverLockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #13
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ZDriverLockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ZDriverUnlockerC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ZDriverUnlockerD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #13
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   ret void
 }
 
@@ -246,7 +246,7 @@ define hidden noundef i32 @_ZN7ZDriver8gc_causeEv(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZDriverMinorC2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #13
+  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 11, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMinor, i64 16), ptr %0, align 8
@@ -439,7 +439,7 @@ declare void @_ZN10ZGCIdMinorD1Ev(ptr noundef nonnull align 1 dereferenceable(1)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK12ZDriverMinor19handle_alloc_stallsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1264) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  tail call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #13
+  tail call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 64 dereferenceable(15937) %2) #13
   ret void
 }
 
@@ -454,7 +454,7 @@ define hidden void @_ZN12ZDriverMinor10run_threadEv(ptr noundef nonnull align 8 
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %.fca.1.extract4, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   %7 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %._crit_edge, label %.lr.ph
@@ -468,24 +468,24 @@ define hidden void @_ZN12ZDriverMinor10run_threadEv(ptr noundef nonnull align 8 
 11:                                               ; preds = %.lr.ph
   call void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %12 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 8 dereferenceable(609) %12) #13
+  call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 64 dereferenceable(15937) %12) #13
   call void @_ZN9ZDirector14evaluate_rulesEv() #13
   %13 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %14 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #13
+  %14 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #13
   %15 = call { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %.fca.0.extract = extractvalue { i64, i32 } %15, 0
   %.fca.1.extract = extractvalue { i64, i32 } %15, 1
   store i64 %.fca.0.extract, ptr %2, align 8
   store i32 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %16 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
+  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #13
   %18 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %1
   %20 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #13
+  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #13
   ret void
 }
 
@@ -508,7 +508,7 @@ declare void @_ZN14ZDriverRequestC1EN7GCCause5CauseEjj(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZDriverMajorC2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #13
+  tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 11, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTV12ZDriverMajor, i64 16), ptr %0, align 8
@@ -651,7 +651,7 @@ define hidden void @_ZN12ZDriverMajor13collect_youngERK14ZDriverRequest(ptr noun
 
 _ZL21should_preclean_youngN7GCCause5CauseE.exit:  ; preds = %2, %2, %2, %2, %2, %2, %2
   %10 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %11 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 8 dereferenceable(609) %10) #13
+  %11 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 64 dereferenceable(15937) %10) #13
   br i1 %11, label %_ZL21should_preclean_youngN7GCCause5CauseE.exit.thread, label %18
 
 _ZL21should_preclean_youngN7GCCause5CauseE.exit.thread: ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %_ZL21should_preclean_youngN7GCCause5CauseE.exit
@@ -680,7 +680,7 @@ _ZL21should_preclean_youngN7GCCause5CauseE.exit.thread: ; preds = %2, %2, %2, %2
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 8 dereferenceable(609) %25) #13
+  call void @_ZN14ZPageAllocator31handle_alloc_stalling_for_youngEv(ptr noundef nonnull align 64 dereferenceable(15937) %25) #13
   br label %26
 
 26:                                               ; preds = %21, %_ZL21should_preclean_youngN7GCCause5CauseE.exit.thread, %24
@@ -819,7 +819,7 @@ define linkonce_odr hidden void @_ZN17ZDriverScopeMajorC2ERK14ZDriverRequestP17C
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK12ZDriverMajor19handle_alloc_stallsEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1264) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  tail call void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr noundef nonnull align 8 dereferenceable(609) %3, i1 noundef zeroext %1) #13
+  tail call void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr noundef nonnull align 64 dereferenceable(15937) %3, i1 noundef zeroext %1) #13
   ret void
 }
 
@@ -834,7 +834,7 @@ define hidden void @_ZN12ZDriverMajor10run_threadEv(ptr noundef nonnull align 8 
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %.fca.1.extract6, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #13
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   tail call void @_ZN11ZBreakpoint12at_before_gcEv() #13
   %7 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %8 = trunc i8 %7 to i1
@@ -871,7 +871,7 @@ define hidden void @_ZN12ZDriverMajor10run_threadEv(ptr noundef nonnull align 8 
 
 13:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %14 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %15 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 8 dereferenceable(609) %14) #13
+  %15 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 64 dereferenceable(15937) %14) #13
   br label %_ZL28should_clear_soft_referencesN7GCCause5CauseE.exit
 
 _ZL28should_clear_soft_referencesN7GCCause5CauseE.exit: ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %13
@@ -886,17 +886,17 @@ _ZL28should_clear_soft_referencesN7GCCause5CauseE.exit: ; preds = %.lr.ph, %.lr.
 19:                                               ; preds = %_ZL28should_clear_soft_referencesN7GCCause5CauseE.exit
   call void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %20 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  call void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr noundef nonnull align 8 dereferenceable(609) %20, i1 noundef zeroext %.0.i) #13
+  call void @_ZN14ZPageAllocator29handle_alloc_stalling_for_oldEb(ptr noundef nonnull align 64 dereferenceable(15937) %20, i1 noundef zeroext %.0.i) #13
   call void @_ZN11ZBreakpoint11at_after_gcEv() #13
   %21 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #13
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #13
   %23 = call { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #13
   %.fca.0.extract = extractvalue { i64, i32 } %23, 0
   %.fca.1.extract = extractvalue { i64, i32 } %23, 1
   store i64 %.fca.0.extract, ptr %2, align 8
   store i32 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %24 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #13
+  %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %24) #13
   call void @_ZN11ZBreakpoint12at_before_gcEv() #13
   %26 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %27 = trunc i8 %26 to i1
@@ -904,7 +904,7 @@ _ZL28should_clear_soft_referencesN7GCCause5CauseE.exit: ; preds = %.lr.ph, %.lr.
 
 ._crit_edge:                                      ; preds = %_ZL28should_clear_soft_referencesN7GCCause5CauseE.exit, %19, %1
   %28 = load ptr, ptr @_ZN7ZDriver5_lockE, align 8
-  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #13
+  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #13
   ret void
 }
 
@@ -938,8 +938,8 @@ define linkonce_odr hidden void @_ZN12ZDriverMinorD2Ev(ptr noundef nonnull align
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 928
-  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #13
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
+  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #13
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   ret void
 }
 
@@ -951,8 +951,8 @@ define linkonce_odr hidden void @_ZN12ZDriverMinorD0Ev(ptr noundef nonnull align
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 928
-  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #13
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
+  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #13
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1077,8 +1077,8 @@ define linkonce_odr hidden void @_ZN12ZDriverMajorD2Ev(ptr noundef nonnull align
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 928
-  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #13
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
+  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #13
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) #13
   ret void
 }
 
@@ -1090,8 +1090,8 @@ define linkonce_odr hidden void @_ZN12ZDriverMajorD0Ev(ptr noundef nonnull align
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   tail call void @_ZN14TimePartitionsD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 928
-  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #13
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
+  tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #13
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1264) %0) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1184,7 +1184,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7ZDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(924) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #13
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #13
   ret void
 }
 

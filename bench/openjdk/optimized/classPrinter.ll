@@ -46,7 +46,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ClassPrinter13print_classesEPKciP12outputStream(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.ClassPrinter::KlassPrintClosure", align 8
-  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #7
+  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN12ClassPrinter17KlassPrintClosureE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %5, align 8
@@ -87,7 +87,7 @@ define hidden void @_ZN12ClassPrinter13print_classesEPKciP12outputStream(ptr nou
 
 _ZN12ClassPrinter17KlassPrintClosureC2EPKcS2_S2_biP12outputStream.exit: ; preds = %3, %22
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %4) #7
-  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #7
+  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #7
   ret void
 }
 
@@ -128,7 +128,7 @@ define hidden void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr 
   %.017 = phi ptr [ %28, %20 ], [ null, %4 ]
   %.0 = phi ptr [ %25, %20 ], [ %1, %4 ]
   %30 = or i32 %2, 1
-  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %5) #7
+  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(69) %5) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN12ClassPrinter17KlassPrintClosureE, i64 16), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %0, ptr %31, align 8
@@ -169,7 +169,7 @@ define hidden void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr 
 
 _ZN12ClassPrinter17KlassPrintClosureC2EPKcS2_S2_biP12outputStream.exit: ; preds = %29, %49
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %5) #7
-  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %5) #7
+  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %5) #7
   %50 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %52, label %51

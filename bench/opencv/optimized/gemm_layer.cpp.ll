@@ -316,7 +316,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %4, %1
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv3dnn13GemmLayerImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, %7
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %8) #20
   ret void
 }
 
@@ -376,7 +376,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn13GemmLayerImplC2ERKNS0_14dnn4_v20240
   %16 = alloca %"class.std::allocator.7", align 1
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.std::allocator.7", align 1
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0)
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN2cv3dnn13GemmLayerImplE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 120
   %20 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1085,7 +1085,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %240, %242
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit147
 
 _ZNSt6vectorIfSaIfEED2Ev.exit147:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %244
-  call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
+  call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #20
   resume { ptr, i32 } %.pn33.pn
 }
 
@@ -1124,7 +1124,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit2
 
 _ZNSt6vectorIfSaIfEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %7
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #20
   ret void
 }
 
@@ -1150,7 +1150,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZN2cv3dnn13GemmLayerImplD2Ev.exit
 
 _ZN2cv3dnn13GemmLayerImplD2Ev.exit:               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %7
-  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) #20
+  tail call void @_ZN2cv3dnn14dnn4_v202405215LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

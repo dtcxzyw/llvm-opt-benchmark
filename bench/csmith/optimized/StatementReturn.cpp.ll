@@ -93,7 +93,7 @@ define dso_local noundef ptr @_ZN15StatementReturn11make_randomER9CGContext(ptr 
           to label %17 unwind label %19
 
 17:                                               ; preds = %14
-  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 5, ptr noundef %16)
+  invoke void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 5, ptr noundef %16)
           to label %_ZN15StatementReturnC2EP5BlockRK18ExpressionVariable.exit unwind label %19
 
 _ZN15StatementReturnC2EP5BlockRK18ExpressionVariable.exit: ; preds = %17
@@ -374,7 +374,7 @@ define dso_local void @_ZN15StatementReturnD0Ev(ptr noundef nonnull align 8 dere
   br label %_ZN15StatementReturnD2Ev.exit
 
 _ZN15StatementReturnD2Ev.exit:                    ; preds = %1, %5
-  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  tail call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

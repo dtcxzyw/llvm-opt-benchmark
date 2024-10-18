@@ -429,18 +429,18 @@ for.body.us.i:                                    ; preds = %for.cond.preheader.
 
 for.body15.i.us.i:                                ; preds = %for.body15.i.us.i, %for.body.us.i
   %i.156.i.us.i = phi i64 [ 1, %for.body.us.i ], [ %inc18.i.us.i, %for.body15.i.us.i ]
-  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr49.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr49.i, ptr noundef %add.ptr47.i, i64 noundef range(i64 1, 0) %11)
   %inc18.i.us.i = add nuw i64 %i.156.i.us.i, 1
   %exitcond66.not.i.us.i = icmp eq i64 %inc18.i.us.i, %10
   br i1 %exitcond66.not.i.us.i, label %for.end21.i.us.i, label %for.body15.i.us.i, !llvm.loop !4
 
 for.end21.i.us.i:                                 ; preds = %for.body15.i.us.i
-  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef range(i64 1, 0) %11)
   br label %for.body28.i.us.i
 
 for.body28.i.us.i:                                ; preds = %for.body28.i.us.i, %for.end21.i.us.i
   %i.261.i.us.i = phi i64 [ %inc50.i.us.i, %for.body28.i.us.i ], [ 0, %for.end21.i.us.i ]
-  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr47.i, i64 noundef range(i64 1, 0) %11)
   %inc50.i.us.i = add nuw i64 %i.261.i.us.i, 1
   %exitcond69.not.i.us.i = icmp eq i64 %inc50.i.us.i, %10
   br i1 %exitcond69.not.i.us.i, label %scryptROMix.exit.loopexit.us.i, label %for.body28.i.us.i, !llvm.loop !6
@@ -491,14 +491,14 @@ for.body15.i.i:                                   ; preds = %for.body.i.i, %for.
   %pV.157.i.i = phi ptr [ %add.ptr20.i.i, %for.body15.i.i ], [ %incdec.ptr11.i.i, %for.body.i.i ]
   %i.156.i.i = phi i64 [ %inc18.i.i, %for.body15.i.i ], [ 1, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds i32, ptr %pV.157.i.i, i64 %idx.neg.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef %pV.157.i.i, ptr noundef %add.ptr.i.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef %pV.157.i.i, ptr noundef %add.ptr.i.i, i64 noundef range(i64 1, 0) %11)
   %inc18.i.i = add nuw i64 %i.156.i.i, 1
   %add.ptr20.i.i = getelementptr inbounds i32, ptr %pV.157.i.i, i64 %mul24.i
   %exitcond66.not.i.i = icmp eq i64 %inc18.i.i, %10
   br i1 %exitcond66.not.i.i, label %for.end21.i.i, label %for.body15.i.i, !llvm.loop !4
 
 for.end21.i.i:                                    ; preds = %for.body15.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef range(i64 1, 0) %11)
   br label %for.body28.us.i.i
 
 for.body28.us.i.i:                                ; preds = %for.cond38.for.end48_crit_edge.us.i.i, %for.end21.i.i
@@ -525,7 +525,7 @@ for.body42.us.i.i:                                ; preds = %for.body42.us.i.i, 
   br i1 %exitcond67.not.i.i, label %for.cond38.for.end48_crit_edge.us.i.i, label %for.body42.us.i.i, !llvm.loop !9
 
 for.cond38.for.end48_crit_edge.us.i.i:            ; preds = %for.body42.us.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr47.i, i64 noundef range(i64 1, 0) %11)
   %inc50.us.i.i = add nuw i64 %i.261.us.i.i, 1
   %exitcond68.not.i.i = icmp eq i64 %inc50.us.i.i, %10
   br i1 %exitcond68.not.i.i, label %for.body56.i.i, label %for.body28.us.i.i, !llvm.loop !6
@@ -673,7 +673,7 @@ if.then17:                                        ; preds = %if.end14
   %8 = load i64, ptr %u64_value, align 8
   %cmp20 = icmp ult i64 %8, 2
   %or.cond = select i1 %tobool19, i1 true, i1 %cmp20
-  %9 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %8)
+  %9 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 2, 0) %8)
   %cmp1.i45 = icmp samesign ugt i64 %9, 1
   %or.cond55 = select i1 %or.cond, i1 true, i1 %cmp1.i45
   br i1 %or.cond55, label %return, label %if.end25

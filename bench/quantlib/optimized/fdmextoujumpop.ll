@@ -947,7 +947,7 @@ _ZN8QuantLib5ArrayD2Ev.exit170:                   ; preds = %_ZN8QuantLib5ArrayD
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp) #23
   %integroPart_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %filled1_.i = getelementptr inbounds nuw i8, ptr %this, i64 248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %integroPart_, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %integroPart_, i8 0, i64 24, i1 false)
   store i64 1, ptr %filled1_.i, align 8, !tbaa !49
   %filled2_.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i64 0, ptr %filled2_.i, align 8, !tbaa !55

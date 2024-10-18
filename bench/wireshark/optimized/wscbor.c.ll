@@ -149,13 +149,13 @@ define noalias ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 32:                                               ; preds = %21, %21, %21
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef nonnull %1)
   %33 = load i8, ptr %31, align 1
   %34 = icmp ugt i8 %33, 27
   br i1 %34, label %.sink.split.i, label %wscbor_head_read.exit
 
 35:                                               ; preds = %21, %21, %21, %21, %21
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef nonnull %1)
   %36 = load i8, ptr %31, align 1
   %37 = add i8 %36, -28
   %or.cond.i = icmp ult i8 %37, 3
@@ -293,13 +293,13 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   ]
 
 96:                                               ; preds = %84, %84, %84
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef nonnull %1)
   %97 = load i8, ptr %95, align 1
   %98 = icmp ugt i8 %97, 27
   br i1 %98, label %.sink.split.i121, label %wscbor_head_read.exit123
 
 99:                                               ; preds = %84, %84, %84, %84, %84
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef nonnull %1)
   %100 = load i8, ptr %95, align 1
   %101 = add i8 %100, -28
   %or.cond.i120 = icmp ult i8 %101, 3

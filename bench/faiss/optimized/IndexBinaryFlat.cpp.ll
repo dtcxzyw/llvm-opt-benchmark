@@ -67,7 +67,7 @@ define linkonce_odr void @_ZN5faiss15IndexBinaryFlatD0Ev(ptr noundef nonnull ali
   br label %_ZN5faiss15IndexBinaryFlatD2Ev.exit
 
 _ZN5faiss15IndexBinaryFlatD2Ev.exit:              ; preds = %1, %4
-  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

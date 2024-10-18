@@ -2877,7 +2877,7 @@ proto_item_set_generated.exit:                    ; preds = %778, %781, %784
   br i1 %.not.i633, label %set_address_tvb.exit, label %.split.i
 
 .split.i:                                         ; preds = %1164
-  %1168 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1122, i32 noundef %1166) #9
+  %1168 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 0) %1122, i32 noundef range(i32 0, 65536) %1166) #9
   br label %set_address_tvb.exit
 
 set_address_tvb.exit:                             ; preds = %1164, %.split.i
@@ -2964,7 +2964,7 @@ proto_item_set_hidden.exit639:                    ; preds = %1206, %1203, %1191,
   br i1 %.not.i640, label %set_address_tvb.exit643, label %.split.i641
 
 .split.i641:                                      ; preds = %1210
-  %1214 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1137, i32 noundef %1212) #9
+  %1214 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 0) %1137, i32 noundef range(i32 0, 65536) %1212) #9
   br label %set_address_tvb.exit643
 
 set_address_tvb.exit643:                          ; preds = %1210, %.split.i641
@@ -3151,7 +3151,7 @@ proto_item_set_hidden.exit649:                    ; preds = %1252, %1249, %1237,
   br i1 %.not.i650, label %set_address_tvb.exit653, label %.split.i651
 
 .split.i651:                                      ; preds = %1308
-  %1314 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1290, i32 noundef %1311) #9
+  %1314 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 0) %1290, i32 noundef range(i32 0, 65536) %1311) #9
   br label %set_address_tvb.exit653
 
 set_address_tvb.exit653:                          ; preds = %1308, %.split.i651

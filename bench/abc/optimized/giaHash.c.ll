@@ -3493,7 +3493,7 @@ define noundef ptr @Gia_ManMultiInputTest(i32 noundef %0) local_unnamed_addr #1 
 Gia_ManCollectLiterals.exit:                      ; preds = %.lr.ph.i, %1
   %7 = tail call ptr @Gia_ManStart(i32 noundef 1000) #24
   %8 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false) #24
   store ptr %8, ptr %7, align 8
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -4391,7 +4391,7 @@ define noundef ptr @Gia_ManMuxTreeTest(i32 noundef %0) local_unnamed_addr #1 {
 Gia_ManCollectLiterals.exit:                      ; preds = %.lr.ph.i, %1
   %9 = tail call ptr @Gia_ManStart(i32 noundef 1000) #24
   %10 = tail call noalias dereferenceable_or_null(9) ptr @malloc(i64 noundef 9) #23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #24
   store ptr %10, ptr %9, align 8
   br i1 %6, label %.lr.ph, label %._crit_edge
 

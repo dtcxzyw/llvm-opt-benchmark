@@ -488,7 +488,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit45: ; preds = %_ZNSt5deq
   %45 = phi ptr [ %add.ptr.i.i.i44, %if.then.i.i41 ], [ %41, %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE4backEv.exit36 ]
   %ack_listeners = getelementptr inbounds i8, ptr %45, i64 -24
   %listeners = getelementptr inbounds i8, ptr %packet, i64 72
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners, ptr noundef nonnull align 8 dereferenceable(16) %listeners) #17
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ack_listeners, ptr noundef nonnull align 8 dereferenceable(24) %listeners) #17
   %_M_size.i.i = getelementptr inbounds i8, ptr %packet, i64 88
   %46 = load i64, ptr %_M_size.i.i, align 8
   %_M_size.i4.i = getelementptr inbounds i8, ptr %45, i64 -8
@@ -733,7 +733,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt5de
   %num_padding_bytes50 = getelementptr inbounds i8, ptr %info, i64 44
   store i16 %23, ptr %num_padding_bytes50, align 4
   %ack_listeners51 = getelementptr inbounds i8, ptr %info, i64 56
-  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners51, ptr noundef nonnull align 8 dereferenceable(16) %ack_listeners) #17
+  tail call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %ack_listeners51, ptr noundef nonnull align 8 dereferenceable(24) %ack_listeners) #17
   %_M_size.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 72
   %24 = load i64, ptr %_M_size.i.i, align 8
   %_M_size.i4.i = getelementptr inbounds i8, ptr %info, i64 72
@@ -1437,7 +1437,7 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   %4 = load ptr, ptr %__cur.05.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i) #17
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #19
   %cmp.not.i.i = icmp eq ptr %4, %ack_listeners
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listIN3net18AckListenerWrapperESaIS2_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !52
 
@@ -1532,7 +1532,7 @@ while.body.i.i.i:                                 ; preds = %for.end.i, %while.b
   %10 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZN3net18AckListenerWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(10) %_M_storage.i.i.i.i) #17
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #19
   %cmp.not.i.i.i = icmp eq ptr %10, %ack_listeners
   br i1 %cmp.not.i.i.i, label %_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEPNSt7__cxx114listINS_18AckListenerWrapperESaIS3_EEENS_8QuicTime5DeltaE.exit, label %while.body.i.i.i, !llvm.loop !52
 

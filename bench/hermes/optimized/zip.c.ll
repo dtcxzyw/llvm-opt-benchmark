@@ -7721,7 +7721,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %y.0103 = phi i32 [ 0, %for.body23.lr.ph ], [ %inc, %for.body23 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
   store i64 1, ptr %in_buf_size.addr.i, align 8
-  %call.i43 = call i32 @tdefl_compress(ptr noundef %call, ptr noundef nonnull %z, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %call.i43 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef nonnull %z, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
   %15 = xor i32 %y.0103, -1
   %sub27 = add nsw i32 %h, %15
@@ -7731,7 +7731,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %add.ptr = getelementptr inbounds i8, ptr %pImage, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i44)
   store i64 %conv32, ptr %in_buf_size.addr.i44, align 8
-  %call.i45 = call i32 @tdefl_compress(ptr noundef %call, ptr noundef %add.ptr, ptr noundef nonnull %in_buf_size.addr.i44, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %call.i45 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef %add.ptr, ptr noundef nonnull %in_buf_size.addr.i44, ptr noundef null, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i44)
   %inc = add nuw nsw i32 %y.0103, 1
   %exitcond.not = icmp eq i32 %inc, %h
@@ -7740,7 +7740,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
 for.end35:                                        ; preds = %for.body23, %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i46)
   store i64 0, ptr %in_buf_size.addr.i46, align 8
-  %call.i47 = call i32 @tdefl_compress(ptr noundef %call, ptr noundef null, ptr noundef nonnull %in_buf_size.addr.i46, ptr noundef null, ptr noundef null, i32 noundef 4)
+  %call.i47 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull %in_buf_size.addr.i46, ptr noundef null, ptr noundef null, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i46)
   %cmp37.not = icmp eq i32 %call.i47, 1
   br i1 %cmp37.not, label %if.end41, label %if.then39
@@ -7931,7 +7931,7 @@ if.end118:                                        ; preds = %for.end111, %if.end
   %27 = phi i64 [ %.pre18.i73, %if.end11.i72 ], [ %17, %for.end111 ]
   %28 = phi ptr [ %call.i70, %if.end11.i72 ], [ %23, %for.end111 ]
   %add.ptr.i58 = getelementptr inbounds i8, ptr %28, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i58, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i58, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
   store i64 %add.i51, ptr %out_buf, align 8
   %29 = load i64, ptr %pLen_out, align 8
   %add122 = add i64 %29, 4
@@ -16183,7 +16183,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   br i1 %tobool.not.i.i.i, label %if.end3.i.i.i, label %return.sink.split.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %while.body.i.i
-  %call4.i.i.i = call i64 @fread(ptr noundef nonnull %call.i.i26, i64 noundef 1, i64 noundef %50, ptr noundef %49)
+  %call4.i.i.i = call i64 @fread(ptr noundef nonnull %call.i.i26, i64 noundef 1, i64 noundef range(i64 1, -9223372036854775808) %50, ptr noundef %49)
   %cmp5.not.i.i.i = icmp eq i64 %call4.i.i.i, %50
   br i1 %cmp5.not.i.i.i, label %if.end8.i.i.i, label %return.sink.split.i.i.i
 
@@ -16193,7 +16193,7 @@ if.end8.i.i.i:                                    ; preds = %if.end3.i.i.i
   br i1 %tobool10.not.i.i.i, label %if.end13.i.i.i, label %return.sink.split.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
-  %call14.i.i.i = call i64 @fwrite(ptr noundef nonnull %call.i.i26, i64 noundef 1, i64 noundef %50, ptr noundef %49)
+  %call14.i.i.i = call i64 @fwrite(ptr noundef nonnull %call.i.i26, i64 noundef 1, i64 noundef range(i64 1, -9223372036854775808) %50, ptr noundef %49)
   %cmp15.not.i.i.i = icmp eq i64 %call14.i.i.i, %50
   br i1 %cmp15.not.i.i.i, label %zip_file_move.exit.i.i, label %return.sink.split.i.i.i
 
@@ -17364,8 +17364,8 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %packed_code_sizes.i)
   %arrayidx1.i = getelementptr inbounds i8, ptr %d, i64 33738
   store i16 1, ptr %arrayidx1.i, align 2
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %d, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %d, i32 noundef 1, i32 noundef 32, i32 noundef 15, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %d, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %d, i32 noundef 1, i32 noundef 32, i32 noundef 15, i32 noundef 0)
   %m_huff_code_sizes.i3 = getelementptr inbounds i8, ptr %d, i64 36682
   br label %for.cond.i
 
@@ -17748,7 +17748,7 @@ if.else419.i:                                     ; preds = %if.else398.i
 
 if.end440.i:                                      ; preds = %while.body350.i, %while.body393.i, %if.else419.i, %if.then401.i, %if.else375.i, %if.else355.i, %for.end17.i
   %num_packed_code_sizes.17.i = phi i32 [ %num_packed_code_sizes.6.i, %if.else375.i ], [ %inc370.i, %if.else355.i ], [ %inc416.i, %if.then401.i ], [ %inc416.i, %if.else419.i ], [ 0, %for.end17.i ], [ %inc394.i, %while.body393.i ], [ %inc351.i, %while.body350.i ]
-  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef %d, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
+  tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %d, i32 noundef 2, i32 noundef 19, i32 noundef 7, i32 noundef 0)
   %m_bits_in.i6 = getelementptr inbounds i8, ptr %d, i64 92
   %50 = load i32, ptr %m_bits_in.i6, align 4
   %shl.i7 = shl i32 2, %50

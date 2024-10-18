@@ -1436,7 +1436,7 @@ if.then.i112:                                     ; preds = %lor.lhs.false560.sp
   br label %if.then563
 
 if.end.i109:                                      ; preds = %lor.lhs.false560.split
-  %call.i110 = call ptr @ngettext(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i64 noundef %conv534) #17
+  %call.i110 = call ptr @ngettext(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i64 noundef range(i64 -2147483648, 2147483648) %conv534) #17
   br label %if.then563
 
 if.then563:                                       ; preds = %if.end.i109, %if.then.i112, %if.end.i104, %land.lhs.true556.split
@@ -2909,7 +2909,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %num_lines.i = getelementptr inbounds i8, ptr %ent.1126, i64 12
   %79 = load i32, ptr %num_lines.i, align 4
   %call4.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, ptr noundef nonnull %hex.i, i32 noundef %add.i, i32 noundef %add3.i, i32 noundef %79)
-  %call.i52 = call fastcc i32 @emit_one_suspect_detail(ptr noundef %75, i32 noundef %and.i)
+  %call.i52 = call fastcc i32 @emit_one_suspect_detail(ptr noundef %75, i32 noundef range(i32 0, 513) %and.i)
   %tobool.not.i53 = icmp eq i32 %call.i52, 0
   br i1 %tobool.not.i53, label %lor.lhs.false.i67, label %if.then.i54
 

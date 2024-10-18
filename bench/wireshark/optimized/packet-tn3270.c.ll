@@ -1815,12 +1815,12 @@ dissect_tn3270e_header.exit:                      ; preds = %56, %61
   %97 = load i32, ptr @ett_tn3270_wcc, align 4
   %98 = call ptr @proto_tree_add_bitmask_text(ptr noundef %22, ptr noundef %0, i32 noundef %95, i32 noundef 1, ptr noundef nonnull @.str.918, ptr noundef nonnull @.str.919, i32 noundef %97, ptr noundef nonnull @dissect_wcc.wcc_fields, i32 noundef 0, i32 noundef 0) #6
   %99 = add i32 %.149, 2
-  %100 = call fastcc i32 @dissect_orders_and_data(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %99, ptr noundef %16)
+  %100 = call fastcc i32 @dissect_orders_and_data(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %99, ptr noundef nonnull %16)
   %101 = add i32 %100, %99
   br label %dissect_outbound_stream.exit
 
 102:                                              ; preds = %92, %92
-  %103 = call fastcc i32 @dissect_structured_fields(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %95, ptr noundef %16, i32 noundef 0)
+  %103 = call fastcc i32 @dissect_structured_fields(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %95, ptr noundef nonnull %16, i32 noundef 0)
   %104 = add i32 %103, %95
   br label %dissect_outbound_stream.exit
 
@@ -1875,7 +1875,7 @@ dissect_tn3270e_header.exit:                      ; preds = %56, %61
   ]
 
 111:                                              ; preds = %107
-  %112 = call fastcc i32 @dissect_structured_fields(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %110, ptr noundef %16, i32 noundef 1)
+  %112 = call fastcc i32 @dissect_structured_fields(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %110, ptr noundef nonnull %16, i32 noundef 1)
   %113 = add i32 %112, %110
   br label %dissect_outbound_stream.exit
 
@@ -1890,7 +1890,7 @@ dissect_tn3270e_header.exit:                      ; preds = %56, %61
   %.val31.i = load i8, ptr %79, align 1
   call fastcc void @dissect_buffer_address(ptr noundef %22, ptr noundef %0, i32 noundef %110, i32 noundef %118, i8 %.val.i, i8 %.val31.i)
   %119 = add i32 %.149, 3
-  %120 = call fastcc i32 @dissect_orders_and_data(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %119, ptr noundef %16)
+  %120 = call fastcc i32 @dissect_orders_and_data(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %119, ptr noundef nonnull %16)
   %121 = add i32 %120, %119
   br label %dissect_outbound_stream.exit
 
@@ -2153,14 +2153,14 @@ define internal fastcc noundef i32 @dissect_structured_fields(ptr noundef %0, pt
 
 42:                                               ; preds = %39
   %43 = load i32, ptr @ett_sf, align 4
-  %44 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef %21, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef nonnull %41) #6
+  %44 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef range(i32 1, 65536) %21, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef nonnull %41) #6
   %45 = load i32, ptr @hf_tn3270_sf_length, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %2, i32 noundef %.083126, i32 noundef 2, i32 noundef 0) #6
   %47 = load i32, ptr @hf_tn3270_sf_single_byte_id, align 4
   %48 = load i32, ptr @hf_tn3270_sf_double_byte_id, align 4
   %49 = select i1 %40, i32 %47, i32 %48
   %50 = shl nuw nsw i32 %.0, 1
-  %51 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %49, ptr noundef %2, i32 noundef %30, i32 noundef %.0, i32 noundef %.082, ptr noundef nonnull @.str.1003, ptr noundef nonnull %41, i32 noundef %50, i32 noundef %.082) #6
+  %51 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %44, i32 noundef %49, ptr noundef %2, i32 noundef %30, i32 noundef range(i32 1, 3) %.0, i32 noundef range(i32 0, 65536) %.082, ptr noundef nonnull @.str.1003, ptr noundef nonnull %41, i32 noundef %50, i32 noundef range(i32 0, 65536) %.082) #6
   %52 = add i32 %30, %.0
   %53 = add nsw i32 %21, -2
   %54 = sub nsw i32 %53, %.0
@@ -2483,7 +2483,7 @@ dissect_load_programmed_symbols.exit.i:           ; preds = %dissect_unknown_dat
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %200
-  %204 = tail call fastcc i32 @dissect_orders_and_data(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef %.1.i187.i, ptr noundef readonly %4)
+  %204 = tail call fastcc i32 @dissect_orders_and_data(ptr noundef %44, ptr noundef %1, ptr noundef %2, i32 noundef %.1.i187.i, ptr noundef nonnull readonly %4)
   %205 = add i32 %204, %.1.i187.i
   br label %206
 
@@ -2650,7 +2650,7 @@ dissect_set_reply_mode.exit.i:                    ; preds = %.lr.ph.i200.i, %.pr
 
 311:                                              ; preds = %57
   %312 = load i32, ptr @hf_tn3270_load_color_command, align 4
-  %313 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %312, ptr noundef %2, i32 noundef %52, i32 noundef %54, i32 noundef 0) #6
+  %313 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %312, ptr noundef %2, i32 noundef %52, i32 noundef range(i32 -3, 65533) %54, i32 noundef 0) #6
   br label %process_outbound_structured_field.exit
 
 314:                                              ; preds = %57
@@ -2726,7 +2726,7 @@ dissect_load_format_storage.exit.i:               ; preds = %347, %344
 
 352:                                              ; preds = %57
   %353 = load i32, ptr @hf_tn3270_load_line_type_command, align 4
-  %354 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %353, ptr noundef %2, i32 noundef %52, i32 noundef %54, i32 noundef 0) #6
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %353, ptr noundef %2, i32 noundef %52, i32 noundef range(i32 -3, 65533) %54, i32 noundef 0) #6
   br label %process_outbound_structured_field.exit
 
 .lr.ph.i.i214.i:                                  ; preds = %57, %372
@@ -3344,14 +3344,14 @@ process_outbound_structured_field.exit:           ; preds = %dissect_type_1_text
 
 690:                                              ; preds = %688
   %691 = load i32, ptr @ett_sf, align 4
-  %692 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef %21, i32 noundef %691, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef nonnull %689) #6
+  %692 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef range(i32 1, 65536) %21, i32 noundef %691, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef nonnull %689) #6
   %693 = load i32, ptr @hf_tn3270_sf_length, align 4
   %694 = tail call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %693, ptr noundef %2, i32 noundef %.083126, i32 noundef 2, i32 noundef 0) #6
   %695 = load i32, ptr @hf_tn3270_sf_single_byte_id, align 4
   %696 = load i32, ptr @hf_tn3270_sf_double_byte_id, align 4
   %697 = select i1 %40, i32 %695, i32 %696
   %698 = shl nuw nsw i32 %.0, 1
-  %699 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %692, i32 noundef %697, ptr noundef %2, i32 noundef %30, i32 noundef %.0, i32 noundef %.082, ptr noundef nonnull @.str.1003, ptr noundef nonnull %689, i32 noundef %698, i32 noundef %.082) #6
+  %699 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %692, i32 noundef %697, ptr noundef %2, i32 noundef %30, i32 noundef range(i32 1, 3) %.0, i32 noundef range(i32 0, 65536) %.082, ptr noundef nonnull @.str.1003, ptr noundef nonnull %689, i32 noundef %698, i32 noundef range(i32 0, 65536) %.082) #6
   %700 = add i32 %30, %.0
   %701 = add nsw i32 %21, -2
   %702 = sub nsw i32 %701, %.0
@@ -3558,13 +3558,13 @@ dissect_save_or_restore_format.exit.i:            ; preds = %795, %tn3270_add_hf
   %806 = shl nuw nsw i32 %.0, 1
   %807 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %805, ptr noundef nonnull @.str.924, i32 noundef %806, i32 noundef %.082) #6
   %808 = load i32, ptr @ett_sf, align 4
-  %809 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef %21, i32 noundef %808, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef %807) #6
+  %809 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %2, i32 noundef %.083126, i32 noundef range(i32 1, 65536) %21, i32 noundef %808, ptr noundef null, ptr noundef nonnull @.str.1002, ptr noundef %807) #6
   %810 = load i32, ptr @hf_tn3270_sf_length, align 4
   %811 = tail call ptr @proto_tree_add_item(ptr noundef %809, i32 noundef %810, ptr noundef %2, i32 noundef %.083126, i32 noundef 2, i32 noundef 0) #6
   %812 = load i32, ptr @hf_tn3270_sf_single_byte_id, align 4
   %813 = load i32, ptr @hf_tn3270_sf_double_byte_id, align 4
   %814 = select i1 %40, i32 %812, i32 %813
-  %815 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %809, i32 noundef %814, ptr noundef %2, i32 noundef %30, i32 noundef %.0, i32 noundef %21, ptr noundef nonnull @.str.1003, ptr noundef %807, i32 noundef %806, i32 noundef %21) #6
+  %815 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %809, i32 noundef %814, ptr noundef %2, i32 noundef %30, i32 noundef range(i32 1, 3) %.0, i32 noundef range(i32 0, 65536) %21, ptr noundef nonnull @.str.1003, ptr noundef %807, i32 noundef %806, i32 noundef range(i32 0, 65536) %21) #6
   %816 = add i32 %.083126, %21
   br label %.backedge
 
@@ -5052,7 +5052,7 @@ dissect_query_reply_dbcs_asia.exit:               ; preds = %667, %670
 
 676:                                              ; preds = %674
   %677 = load i32, ptr @hf_tn3270_unknown_data, align 4
-  %678 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %677, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 0) #6
+  %678 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %677, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -3, 65533) %5, i32 noundef 0) #6
   br label %dissect_query_reply_device_characteristics.exit
 
 dissect_query_reply_device_characteristics.exit:  ; preds = %674, %676
@@ -6017,7 +6017,7 @@ dissect_query_reply_document_interchange_architecture.exit: ; preds = %dissect_d
 
 1178:                                             ; preds = %6
   %1179 = load i32, ptr @hf_tn3270_field_data, align 4
-  %1180 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1179, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 46) #6
+  %1180 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1179, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -3, 65533) %5, i32 noundef 46) #6
   %1181 = add i32 %5, %2
   br label %dissect_query_reply_modes.exit
 
@@ -6185,7 +6185,7 @@ dissect_query_reply_format_storage_aux_device.exit: ; preds = %1264, %1267
 
 1271:                                             ; preds = %6, %6, %6, %6, %6, %6
   %1272 = load i32, ptr @hf_tn3270_field_data, align 4
-  %1273 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1272, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 46) #6
+  %1273 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1272, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -3, 65533) %5, i32 noundef 46) #6
   %1274 = add i32 %5, %2
   br label %dissect_query_reply_modes.exit
 

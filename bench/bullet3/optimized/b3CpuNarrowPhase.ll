@@ -2777,7 +2777,7 @@ entry:
   %arrayidx4.i6.i.i.i111 = getelementptr inbounds i8, ptr %trB, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i6.i.i.i111, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %trA, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
+  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %trA, ptr noundef nonnull align 16 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 16
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
@@ -2786,7 +2786,7 @@ entry:
   %25 = getelementptr inbounds i8, ptr %trAorn, i64 8
   store <2 x float> %.fca.1.load.i, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i114)
-  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(48) %trB, ptr noundef nonnull align 16 dereferenceable(16) %retval.i114)
+  call void @_ZNK11b3Matrix3x311getRotationER12b3Quaternion(ptr noundef nonnull align 16 dereferenceable(64) %trB, ptr noundef nonnull align 16 dereferenceable(16) %retval.i114)
   %.fca.0.load.i115 = load <2 x float>, ptr %retval.i114, align 16
   %.fca.1.gep.i117 = getelementptr inbounds i8, ptr %retval.i114, i64 8
   %.fca.1.load.i118 = load <2 x float>, ptr %.fca.1.gep.i117, align 8

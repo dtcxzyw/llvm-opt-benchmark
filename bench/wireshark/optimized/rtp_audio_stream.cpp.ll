@@ -2743,7 +2743,7 @@ _ZNSt3mapIdjSt4lessIdESaISt4pairIKdjEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 define void @_ZNK14RtpAudioStream12payloadNamesEv(ptr dead_on_unwind noalias writable sret(%class.QList.9) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 7504
   tail call void @_ZNK4QSetI7QStringE6valuesEv(ptr dead_on_unwind writable sret(%class.QList.9) align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull %0, i32 noundef 1)
+  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef 1)
           to label %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit unwind label %4
 
 4:                                                ; preds = %2
@@ -5048,11 +5048,11 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %97, %_ZN17QArrayDat
   %178 = load ptr, ptr %22, align 8
   call void @_ZN7QObject9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef null)
   %179 = load ptr, ptr %22, align 8
-  %180 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %179, ptr noundef null, ptr noundef null, ptr noundef null)
+  %180 = call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef null, ptr noundef null, ptr noundef null)
   %181 = load ptr, ptr %22, align 8
   call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %181)
   store ptr null, ptr %22, align 8
-  call void @_ZN14RtpAudioStream15finishedPlayingEPS_N6QAudio5ErrorE(ptr noundef nonnull align 8 dereferenceable(7680) %0, ptr noundef nonnull %0, i32 noundef %177)
+  call void @_ZN14RtpAudioStream15finishedPlayingEPS_N6QAudio5ErrorE(ptr noundef nonnull align 8 dereferenceable(7680) %0, ptr noundef nonnull align 8 dereferenceable(7680) %0, i32 noundef %177)
   br label %_ZN14RtpAudioStream18outputStateChangedEN6QAudio5StateE.exit
 
 _ZN14RtpAudioStream18outputStateChangedEN6QAudio5StateE.exit: ; preds = %176, %174, %24, %21, %2, %168
@@ -5094,7 +5094,7 @@ define void @_ZN14RtpAudioStream18outputStateChangedEN6QAudio5StateE(ptr noundef
   %8 = load ptr, ptr %3, align 8
   tail call void @_ZN7QObject9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
   %9 = load ptr, ptr %3, align 8
-  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null)
+  %10 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, ptr noundef null, ptr noundef null)
   %11 = load ptr, ptr %3, align 8
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   store ptr null, ptr %3, align 8
@@ -5193,11 +5193,11 @@ define void @_ZN14RtpAudioStream11stopPlayingEv(ptr noundef nonnull align 8 dere
   %15 = load ptr, ptr %6, align 8
   tail call void @_ZN7QObject9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef null)
   %16 = load ptr, ptr %6, align 8
-  %17 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef null)
+  %17 = tail call noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef null, ptr noundef null, ptr noundef null)
   %18 = load ptr, ptr %6, align 8
   tail call void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
   store ptr null, ptr %6, align 8
-  tail call void @_ZN14RtpAudioStream15finishedPlayingEPS_N6QAudio5ErrorE(ptr noundef nonnull align 8 dereferenceable(7680) %0, ptr noundef nonnull %0, i32 noundef %14)
+  tail call void @_ZN14RtpAudioStream15finishedPlayingEPS_N6QAudio5ErrorE(ptr noundef nonnull align 8 dereferenceable(7680) %0, ptr noundef nonnull align 8 dereferenceable(7680) %0, i32 noundef %14)
   br label %_ZN14RtpAudioStream18outputStateChangedEN6QAudio5StateE.exit
 
 19:                                               ; preds = %8
@@ -6681,7 +6681,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30
@@ -7061,7 +7061,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEEC2Em.exit, label %27
@@ -7256,7 +7256,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38

@@ -3874,13 +3874,13 @@ if.then.i4:                                       ; preds = %if.then.i
 for.body.i3:                                      ; preds = %for.body.i3, %for.body.preheader.new.i
   %it.addr.016.i = phi ptr [ %add.ptr.i.i44, %for.body.preheader.new.i ], [ %add.ptr.i14.3.i, %for.body.i3 ]
   %niter.i = phi i64 [ 0, %for.body.preheader.new.i ], [ %niter.next.3.i, %for.body.i3 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.i, ptr nonnull align 1 %fill.i, i64 %conv.i.i2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.i, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i2, i1 false)
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %it.addr.016.i, i64 %conv.i.i2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.i, ptr nonnull align 1 %fill.i, i64 %conv.i.i2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.i, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i2, i1 false)
   %add.ptr.i14.1.i = getelementptr inbounds i8, ptr %add.ptr.i14.i, i64 %conv.i.i2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.1.i, ptr nonnull align 1 %fill.i, i64 %conv.i.i2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.1.i, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i2, i1 false)
   %add.ptr.i14.2.i = getelementptr inbounds i8, ptr %add.ptr.i14.1.i, i64 %conv.i.i2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.2.i, ptr nonnull align 1 %fill.i, i64 %conv.i.i2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.2.i, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i2, i1 false)
   %add.ptr.i14.3.i = getelementptr inbounds i8, ptr %add.ptr.i14.2.i, i64 %conv.i.i2
   %niter.next.3.i = add nuw nsw i64 %niter.i, 4
   %niter.ncmp.3.i = icmp eq i64 %niter.next.3.i, %unroll_iter.i
@@ -3895,7 +3895,7 @@ cleanup.loopexit.unr-lcssa.i:                     ; preds = %for.body.i3, %for.b
 for.body.epil.i:                                  ; preds = %cleanup.loopexit.unr-lcssa.i, %for.body.epil.i
   %it.addr.016.epil.i = phi ptr [ %add.ptr.i14.epil.i, %for.body.epil.i ], [ %it.addr.016.unr.i, %cleanup.loopexit.unr-lcssa.i ]
   %epil.iter.i = phi i64 [ %epil.iter.next.i, %for.body.epil.i ], [ 0, %cleanup.loopexit.unr-lcssa.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.epil.i, ptr nonnull align 1 %fill.i, i64 %conv.i.i2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.epil.i, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i2, i1 false)
   %add.ptr.i14.epil.i = getelementptr inbounds i8, ptr %it.addr.016.epil.i, i64 %conv.i.i2
   %epil.iter.next.i = add nuw nsw i64 %epil.iter.i, 1
   %epil.iter.cmp.not.i = icmp eq i64 %epil.iter.next.i, %xtraiter.i
@@ -3942,13 +3942,13 @@ if.then.i35:                                      ; preds = %if.then13.i
 for.body.i15:                                     ; preds = %for.body.i15, %for.body.preheader.new.i13
   %it.addr.016.i16 = phi ptr [ %retval.0.i.i, %for.body.preheader.new.i13 ], [ %add.ptr.i14.3.i21, %for.body.i15 ]
   %niter.i17 = phi i64 [ 0, %for.body.preheader.new.i13 ], [ %niter.next.3.i22, %for.body.i15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.i16, ptr nonnull align 1 %fill.i, i64 %conv.i.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.i16, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i7, i1 false)
   %add.ptr.i14.i18 = getelementptr inbounds i8, ptr %it.addr.016.i16, i64 %conv.i.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.i18, ptr nonnull align 1 %fill.i, i64 %conv.i.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.i18, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i7, i1 false)
   %add.ptr.i14.1.i19 = getelementptr inbounds i8, ptr %add.ptr.i14.i18, i64 %conv.i.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.1.i19, ptr nonnull align 1 %fill.i, i64 %conv.i.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.1.i19, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i7, i1 false)
   %add.ptr.i14.2.i20 = getelementptr inbounds i8, ptr %add.ptr.i14.1.i19, i64 %conv.i.i7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.2.i20, ptr nonnull align 1 %fill.i, i64 %conv.i.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i14.2.i20, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i7, i1 false)
   %add.ptr.i14.3.i21 = getelementptr inbounds i8, ptr %add.ptr.i14.2.i20, i64 %conv.i.i7
   %niter.next.3.i22 = add nuw i64 %niter.i17, 4
   %niter.ncmp.3.i23 = icmp eq i64 %niter.next.3.i22, %unroll_iter.i14
@@ -3962,7 +3962,7 @@ cleanup.loopexit.unr-lcssa.i24:                   ; preds = %for.body.i15, %for.
 for.body.epil.i28:                                ; preds = %cleanup.loopexit.unr-lcssa.i24, %for.body.epil.i28
   %it.addr.016.epil.i29 = phi ptr [ %add.ptr.i14.epil.i31, %for.body.epil.i28 ], [ %it.addr.016.unr.i26, %cleanup.loopexit.unr-lcssa.i24 ]
   %epil.iter.i30 = phi i64 [ %epil.iter.next.i32, %for.body.epil.i28 ], [ 0, %cleanup.loopexit.unr-lcssa.i24 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.epil.i29, ptr nonnull align 1 %fill.i, i64 %conv.i.i7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %it.addr.016.epil.i29, ptr nonnull align 1 dereferenceable(5) %fill.i, i64 %conv.i.i7, i1 false)
   %add.ptr.i14.epil.i31 = getelementptr inbounds i8, ptr %it.addr.016.epil.i29, i64 %conv.i.i7
   %epil.iter.next.i32 = add nuw nsw i64 %epil.iter.i30, 1
   %epil.iter.cmp.not.i33 = icmp eq i64 %epil.iter.next.i32, %xtraiter.i12

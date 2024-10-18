@@ -559,7 +559,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt12theory_dummyD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #17
+  tail call void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -677,7 +677,7 @@ entry:
   %0 = load i32, ptr %m_id.i, align 8
   %m_name = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_name, align 8
-  tail call void @_ZN3smt6theoryC2ERNS_7contextEi(ptr noundef nonnull align 8 dereferenceable(53) %call, ptr noundef nonnull align 8 dereferenceable(11616) %new_ctx, i32 noundef %0)
+  tail call void @_ZN3smt6theoryC2ERNS_7contextEi(ptr noundef nonnull align 8 dereferenceable(64) %call, ptr noundef nonnull align 8 dereferenceable(11616) %new_ctx, i32 noundef %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt12theory_dummyE, i64 16), ptr %call, align 8
   %m_theory_exprs.i = getelementptr inbounds i8, ptr %call, i64 53
   store i8 0, ptr %m_theory_exprs.i, align 1
@@ -798,7 +798,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

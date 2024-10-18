@@ -2041,7 +2041,7 @@ define hidden void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead
   %19 = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   br label %22
 
 22:                                               ; preds = %10, %6
@@ -3374,7 +3374,7 @@ define hidden noundef ptr @_ZN14oop_Relocation9oop_valueEv(ptr noundef nonnull a
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZN14oop_Relocation8oop_addrEv.exit
 
 7:                                                ; preds = %1
@@ -3402,7 +3402,7 @@ _ZN14oop_Relocation8oop_addrEv.exit:              ; preds = %5, %7
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %24 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZN14oop_Relocation8oop_addrEv.exit3
 
 25:                                               ; preds = %20
@@ -3577,7 +3577,7 @@ define hidden noundef ptr @_ZN19metadata_Relocation14metadata_valueEv(ptr nounde
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZN19metadata_Relocation13metadata_addrEv.exit
 
 7:                                                ; preds = %1
@@ -4469,174 +4469,278 @@ _ZN13RelocIterator4nextEv.exit:                   ; preds = %115, %70, %_ZN13Rel
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26trampoline_stub_Relocation18get_trampoline_forEPhP7nmethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN26trampoline_stub_Relocation18get_trampoline_forEPhP7nmethod(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.RelocIterator, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %_ZN13RelocIterator4nextEv.exit, label %7
+  br i1 %6, label %_ZN13RelocIterator4nextEv.exit, label %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 120
-  store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 128
-  store i32 0, ptr %10, align 8
-  call void @_ZN13RelocIterator10initializeEP7nmethodPhS2_(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null)
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 56
-  %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 2
-  store ptr %15, ptr %11, align 8
-  %16 = load ptr, ptr %12, align 8
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZN13RelocIterator4nextEv.exit, label %.lr.ph
+_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit: ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %3, i64 112
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 120
+  store ptr null, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 128
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = load i16, ptr %13, align 8
+  %15 = zext i16 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %1, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 -2
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = sext i32 %5 to i64
+  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = load i32, ptr %22, align 8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  %26 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %25, ptr %26, align 8
+  store ptr %25, ptr %11, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = load i32, ptr %27, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i8, ptr %1, i64 %29
+  %31 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 160
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %36 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %30, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %35, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = load i32, ptr %39, align 8
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %43 = getelementptr inbounds i8, ptr %3, i64 104
+  store ptr %42, ptr %43, align 8
+  store ptr null, ptr %3, align 8
+  %.not.i8 = icmp eq ptr %0, null
+  br i1 %.not.i8, label %_ZN13RelocIterator10set_limitsEPhS0_.exit, label %.preheader.i
 
-.lr.ph:                                           ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %3, i64 48
-  %19 = getelementptr inbounds i8, ptr %3, i64 40
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = getelementptr inbounds i8, ptr %3, i64 72
-  %22 = getelementptr inbounds i8, ptr %3, i64 136
-  br label %23
+.preheader.i:                                     ; preds = %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit
+  %44 = getelementptr inbounds i8, ptr %3, i64 48
+  %45 = getelementptr inbounds i8, ptr %3, i64 40
+  br label %.preheader.split.us.i
 
-23:                                               ; preds = %.lr.ph, %84
-  %24 = phi ptr [ %16, %.lr.ph ], [ %85, %84 ]
-  %25 = phi ptr [ %15, %.lr.ph ], [ %87, %84 ]
-  %26 = phi ptr [ %14, %.lr.ph ], [ %86, %84 ]
-  store i16 0, ptr %13, align 8
-  %27 = load i16, ptr %25, align 2
-  %.mask.i.i = and i16 %27, -2048
-  %28 = icmp eq i16 %.mask.i.i, 30720
-  br i1 %28, label %29, label %39
+.preheader.split.us.i:                            ; preds = %63, %.preheader.i
+  %46 = phi ptr [ %68, %63 ], [ %25, %.preheader.i ]
+  %47 = phi ptr [ %64, %63 ], [ %17, %.preheader.i ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 2
+  store ptr %48, ptr %18, align 8
+  %49 = icmp eq ptr %48, %20
+  br i1 %49, label %.loopexit.i, label %50
 
-29:                                               ; preds = %23
-  %30 = and i16 %27, 1024
-  %.not.i.i = icmp eq i16 %30, 0
-  br i1 %.not.i.i, label %37, label %31
-
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %26, i64 4
-  store ptr %32, ptr %18, align 8
-  %33 = load i16, ptr %25, align 2
-  %34 = and i16 %33, 1023
-  %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr %class.relocInfo, ptr %25, i64 %35
-  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
-
-37:                                               ; preds = %29
-  %38 = and i16 %27, 1023
-  store i16 %38, ptr %19, align 8
-  store ptr %19, ptr %18, align 8
-  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
-
-_ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %37, %31
-  %.sink.i.i = phi i16 [ 1, %37 ], [ %34, %31 ]
-  %.pn.i.i = phi ptr [ %25, %37 ], [ %36, %31 ]
-  store i16 %.sink.i.i, ptr %13, align 8
-  %storemerge.i.i = getelementptr i8, ptr %.pn.i.i, i64 2
-  store ptr %storemerge.i.i, ptr %11, align 8
-  %.pre.i = load i16, ptr %storemerge.i.i, align 2
-  br label %39
-
-39:                                               ; preds = %_ZN13RelocIterator19advance_over_prefixEv.exit.i, %23
-  %40 = phi ptr [ %storemerge.i.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i ], [ %25, %23 ]
-  %41 = phi i16 [ %.pre.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i ], [ %27, %23 ]
-  %42 = and i16 %41, 255
-  %43 = load ptr, ptr %20, align 8
-  %44 = zext nneg i16 %42 to i64
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  store ptr %45, ptr %20, align 8
-  %46 = load ptr, ptr %3, align 8
-  %.not.i = icmp eq ptr %46, null
-  %.not3.i = icmp ult ptr %45, %46
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not3.i
-  br i1 %or.cond.i, label %47, label %_ZN13RelocIterator4nextEv.exit
-
-47:                                               ; preds = %39
-  %48 = load i16, ptr %40, align 2
-  %.mask = and i16 %48, -2048
-  %49 = icmp eq i16 %.mask, 26624
-  br i1 %49, label %50, label %84
-
-50:                                               ; preds = %47
-  %51 = load atomic i8, ptr @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto acquire, align 8
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %56, !prof !10
+50:                                               ; preds = %.preheader.split.us.i
+  store i16 0, ptr %10, align 8
+  %51 = load i16, ptr %48, align 2
+  %.mask.i.i.us.i = and i16 %51, -2048
+  %52 = icmp eq i16 %.mask.i.i.us.i, 30720
+  br i1 %52, label %53, label %63
 
 53:                                               ; preds = %50
-  %54 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
-  %.not.i5 = icmp eq i32 %54, 0
-  br i1 %.not.i5, label %56, label %55
+  %54 = and i16 %51, 1024
+  %.not.i.i.us.i = icmp eq i16 %54, 0
+  br i1 %.not.i.i.us.i, label %61, label %55
 
 55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %47, i64 4
+  store ptr %56, ptr %44, align 8
+  %57 = load i16, ptr %48, align 2
+  %58 = and i16 %57, 1023
+  %59 = zext nneg i16 %58 to i64
+  %60 = getelementptr %class.relocInfo, ptr %48, i64 %59
+  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i
+
+61:                                               ; preds = %53
+  %62 = and i16 %51, 1023
+  store i16 %62, ptr %45, align 8
+  store ptr %45, ptr %44, align 8
+  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i
+
+_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i: ; preds = %61, %55
+  %.sink.i.i.us.i = phi i16 [ 1, %61 ], [ %58, %55 ]
+  %.pn.i.i.us.i = phi ptr [ %48, %61 ], [ %60, %55 ]
+  store i16 %.sink.i.i.us.i, ptr %10, align 8
+  %storemerge.i.i.us.i = getelementptr i8, ptr %.pn.i.i.us.i, i64 2
+  store ptr %storemerge.i.i.us.i, ptr %18, align 8
+  %.pre.i.us.i = load i16, ptr %storemerge.i.i.us.i, align 2
+  br label %63
+
+63:                                               ; preds = %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i, %50
+  %64 = phi ptr [ %storemerge.i.i.us.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i ], [ %48, %50 ]
+  %65 = phi i16 [ %.pre.i.us.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i.us.i ], [ %51, %50 ]
+  %66 = and i16 %65, 255
+  %67 = zext nneg i16 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %46, i64 %67
+  store ptr %68, ptr %26, align 8
+  %.not6.us.i = icmp ult ptr %68, %0
+  br i1 %.not6.us.i, label %.preheader.split.us.i, label %.loopexit.i, !llvm.loop !8
+
+.loopexit.i:                                      ; preds = %63, %.preheader.split.us.i
+  store ptr %46, ptr %26, align 8
+  br label %_ZN13RelocIterator10set_limitsEPhS0_.exit
+
+_ZN13RelocIterator10set_limitsEPhS0_.exit:        ; preds = %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit, %.loopexit.i
+  %69 = phi ptr [ %17, %_ZN13RelocIterator10initializeEP7nmethodPhS2_.exit ], [ %47, %.loopexit.i ]
+  %70 = getelementptr inbounds i8, ptr %69, i64 2
+  store ptr %70, ptr %18, align 8
+  %71 = icmp eq ptr %70, %20
+  br i1 %71, label %_ZN13RelocIterator4nextEv.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN13RelocIterator10set_limitsEPhS0_.exit
+  %72 = getelementptr inbounds i8, ptr %3, i64 48
+  %73 = getelementptr inbounds i8, ptr %3, i64 40
+  %74 = getelementptr inbounds i8, ptr %3, i64 136
+  br label %75
+
+75:                                               ; preds = %.lr.ph, %136
+  %76 = phi ptr [ %20, %.lr.ph ], [ %137, %136 ]
+  %77 = phi ptr [ %70, %.lr.ph ], [ %139, %136 ]
+  %78 = phi ptr [ %69, %.lr.ph ], [ %138, %136 ]
+  store i16 0, ptr %10, align 8
+  %79 = load i16, ptr %77, align 2
+  %.mask.i.i = and i16 %79, -2048
+  %80 = icmp eq i16 %.mask.i.i, 30720
+  br i1 %80, label %81, label %91
+
+81:                                               ; preds = %75
+  %82 = and i16 %79, 1024
+  %.not.i.i = icmp eq i16 %82, 0
+  br i1 %.not.i.i, label %89, label %83
+
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %78, i64 4
+  store ptr %84, ptr %72, align 8
+  %85 = load i16, ptr %77, align 2
+  %86 = and i16 %85, 1023
+  %87 = zext nneg i16 %86 to i64
+  %88 = getelementptr %class.relocInfo, ptr %77, i64 %87
+  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
+
+89:                                               ; preds = %81
+  %90 = and i16 %79, 1023
+  store i16 %90, ptr %73, align 8
+  store ptr %73, ptr %72, align 8
+  br label %_ZN13RelocIterator19advance_over_prefixEv.exit.i
+
+_ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %89, %83
+  %.sink.i.i = phi i16 [ 1, %89 ], [ %86, %83 ]
+  %.pn.i.i = phi ptr [ %77, %89 ], [ %88, %83 ]
+  store i16 %.sink.i.i, ptr %10, align 8
+  %storemerge.i.i = getelementptr i8, ptr %.pn.i.i, i64 2
+  store ptr %storemerge.i.i, ptr %18, align 8
+  %.pre.i = load i16, ptr %storemerge.i.i, align 2
+  br label %91
+
+91:                                               ; preds = %_ZN13RelocIterator19advance_over_prefixEv.exit.i, %75
+  %92 = phi ptr [ %storemerge.i.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i ], [ %77, %75 ]
+  %93 = phi i16 [ %.pre.i, %_ZN13RelocIterator19advance_over_prefixEv.exit.i ], [ %79, %75 ]
+  %94 = and i16 %93, 255
+  %95 = load ptr, ptr %26, align 8
+  %96 = zext nneg i16 %94 to i64
+  %97 = getelementptr inbounds i8, ptr %95, i64 %96
+  store ptr %97, ptr %26, align 8
+  %98 = load ptr, ptr %3, align 8
+  %.not.i = icmp eq ptr %98, null
+  %.not3.i = icmp ult ptr %97, %98
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not3.i
+  br i1 %or.cond.i, label %99, label %_ZN13RelocIterator4nextEv.exit
+
+99:                                               ; preds = %91
+  %100 = load i16, ptr %92, align 2
+  %.mask = and i16 %100, -2048
+  %101 = icmp eq i16 %.mask, 26624
+  br i1 %101, label %102, label %136
+
+102:                                              ; preds = %99
+  %103 = load atomic i8, ptr @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto acquire, align 8
+  %104 = icmp eq i8 %103, 0
+  br i1 %104, label %105, label %108, !prof !10
+
+105:                                              ; preds = %102
+  %106 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
+  %.not.i5 = icmp eq i32 %106, 0
+  br i1 %.not.i5, label %108, label %107
+
+107:                                              ; preds = %105
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 8), align 8, !alias.scope !71
   store i32 13, ptr getelementptr inbounds (i8, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, i64 16), align 8, !alias.scope !71
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV26trampoline_stub_Relocation, i64 16), ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8, !alias.scope !71
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator21trampoline_stub_relocEvE5proto) #19
-  br label %56
+  br label %108
 
-56:                                               ; preds = %55, %53, %50
-  %57 = load ptr, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %8) #19
-  store ptr %3, ptr %9, align 8
-  %60 = load ptr, ptr %21, align 8
-  %61 = load ptr, ptr %18, align 8
-  %62 = load i16, ptr %13, align 8
-  %63 = icmp sgt i16 %62, 1
-  br i1 %63, label %64, label %72
+108:                                              ; preds = %107, %105, %102
+  %109 = load ptr, ptr @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator21trampoline_stub_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %7) #19
+  store ptr %3, ptr %8, align 8
+  %112 = load ptr, ptr %31, align 8
+  %113 = load ptr, ptr %72, align 8
+  %114 = load i16, ptr %10, align 8
+  %115 = icmp sgt i16 %114, 1
+  br i1 %115, label %116, label %124
 
-64:                                               ; preds = %56
-  %65 = load i16, ptr %61, align 2
-  %66 = sext i16 %65 to i32
-  %67 = shl nsw i32 %66, 16
-  %68 = getelementptr inbounds i8, ptr %61, i64 2
-  %69 = load i16, ptr %68, align 2
-  %70 = zext i16 %69 to i32
-  %71 = or disjoint i32 %67, %70
+116:                                              ; preds = %108
+  %117 = load i16, ptr %113, align 2
+  %118 = sext i16 %117 to i32
+  %119 = shl nsw i32 %118, 16
+  %120 = getelementptr inbounds i8, ptr %113, i64 2
+  %121 = load i16, ptr %120, align 2
+  %122 = zext i16 %121 to i32
+  %123 = or disjoint i32 %119, %122
   br label %_ZN13RelocIterator21trampoline_stub_relocEv.exit
 
-72:                                               ; preds = %56
-  %73 = icmp eq i16 %62, 1
-  br i1 %73, label %74, label %_ZN13RelocIterator21trampoline_stub_relocEv.exit
+124:                                              ; preds = %108
+  %125 = icmp eq i16 %114, 1
+  br i1 %125, label %126, label %_ZN13RelocIterator21trampoline_stub_relocEv.exit
 
-74:                                               ; preds = %72
-  %75 = load i16, ptr %61, align 2
-  %76 = sext i16 %75 to i32
+126:                                              ; preds = %124
+  %127 = load i16, ptr %113, align 2
+  %128 = sext i16 %127 to i32
   br label %_ZN13RelocIterator21trampoline_stub_relocEv.exit
 
-_ZN13RelocIterator21trampoline_stub_relocEv.exit: ; preds = %64, %72, %74
-  %77 = phi i32 [ %71, %64 ], [ %76, %74 ], [ 0, %72 ]
-  %78 = sub nsw i32 0, %77
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %60, i64 %79
-  store ptr %80, ptr %22, align 8
-  %81 = icmp eq ptr %80, %0
-  br i1 %81, label %82, label %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge
+_ZN13RelocIterator21trampoline_stub_relocEv.exit: ; preds = %116, %124, %126
+  %129 = phi i32 [ %123, %116 ], [ %128, %126 ], [ 0, %124 ]
+  %130 = sub nsw i32 0, %129
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %112, i64 %131
+  store ptr %132, ptr %74, align 8
+  %133 = icmp eq ptr %132, %0
+  br i1 %133, label %134, label %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge
 
 _ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge: ; preds = %_ZN13RelocIterator21trampoline_stub_relocEv.exit
-  %.pre = load ptr, ptr %11, align 8
-  %.pre12 = load ptr, ptr %12, align 8
-  br label %84
+  %.pre = load ptr, ptr %18, align 8
+  %.pre15 = load ptr, ptr %21, align 8
+  br label %136
 
-82:                                               ; preds = %_ZN13RelocIterator21trampoline_stub_relocEv.exit
-  %83 = load ptr, ptr %20, align 8
+134:                                              ; preds = %_ZN13RelocIterator21trampoline_stub_relocEv.exit
+  %135 = load ptr, ptr %26, align 8
   br label %_ZN13RelocIterator4nextEv.exit
 
-84:                                               ; preds = %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge, %47
-  %85 = phi ptr [ %.pre12, %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge ], [ %24, %47 ]
-  %86 = phi ptr [ %.pre, %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge ], [ %40, %47 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 2
-  store ptr %87, ptr %11, align 8
-  %88 = icmp eq ptr %87, %85
-  br i1 %88, label %_ZN13RelocIterator4nextEv.exit, label %23, !llvm.loop !74
+136:                                              ; preds = %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge, %99
+  %137 = phi ptr [ %.pre15, %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge ], [ %76, %99 ]
+  %138 = phi ptr [ %.pre, %_ZN13RelocIterator21trampoline_stub_relocEv.exit._crit_edge ], [ %92, %99 ]
+  %139 = getelementptr inbounds i8, ptr %138, i64 2
+  store ptr %139, ptr %18, align 8
+  %140 = icmp eq ptr %139, %137
+  br i1 %140, label %_ZN13RelocIterator4nextEv.exit, label %75, !llvm.loop !74
 
-_ZN13RelocIterator4nextEv.exit:                   ; preds = %84, %39, %7, %2, %82
-  %.0 = phi ptr [ %83, %82 ], [ null, %2 ], [ null, %7 ], [ null, %39 ], [ null, %84 ]
+_ZN13RelocIterator4nextEv.exit:                   ; preds = %136, %91, %_ZN13RelocIterator10set_limitsEPhS0_.exit, %2, %134
+  %.0 = phi ptr [ %135, %134 ], [ null, %2 ], [ null, %_ZN13RelocIterator10set_limitsEPhS0_.exit ], [ null, %91 ], [ null, %136 ]
   ret ptr %.0
 }
 
@@ -4710,7 +4814,7 @@ define hidden void @_ZN24internal_word_Relocation25fix_relocation_after_moveEPK1
   br label %_ZN24internal_word_Relocation6targetEv.exit
 
 20:                                               ; preds = %7
-  %21 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %21 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
   br label %_ZN24internal_word_Relocation6targetEv.exit
 
 _ZN24internal_word_Relocation6targetEv.exit:      ; preds = %18, %20
@@ -4853,7 +4957,7 @@ define linkonce_odr hidden noundef ptr @_ZN14oop_Relocation5valueEv(ptr noundef 
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZN14oop_Relocation8oop_addrEv.exit
 
 7:                                                ; preds = %1
@@ -4933,7 +5037,7 @@ define linkonce_odr hidden noundef ptr @_ZN19metadata_Relocation5valueEv(ptr nou
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %6 = tail call noundef ptr @_ZN10Relocation18pd_address_in_codeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   br label %_ZN19metadata_Relocation13metadata_addrEv.exit
 
 7:                                                ; preds = %1
@@ -4968,7 +5072,7 @@ define linkonce_odr hidden noundef ptr @_ZN24external_word_Relocation5valueEv(pt
   br i1 %4, label %5, label %_ZN24external_word_Relocation6targetEv.exit
 
 5:                                                ; preds = %1
-  %6 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %6 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   br label %_ZN24external_word_Relocation6targetEv.exit
 
 _ZN24external_word_Relocation6targetEv.exit:      ; preds = %1, %5
@@ -5002,7 +5106,7 @@ define linkonce_odr hidden noundef ptr @_ZN24internal_word_Relocation5valueEv(pt
   br label %_ZN24internal_word_Relocation6targetEv.exit
 
 18:                                               ; preds = %5
-  %19 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #19
+  %19 = tail call noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #19
   br label %_ZN24internal_word_Relocation6targetEv.exit
 
 _ZN24internal_word_Relocation6targetEv.exit:      ; preds = %1, %16, %18

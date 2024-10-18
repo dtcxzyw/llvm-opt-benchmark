@@ -349,7 +349,7 @@ if.then6:                                         ; preds = %if.then
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ip., i32 noundef 58) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.257, ptr @.str.256
-  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull %cond.i, ptr noundef nonnull %ip., i32 noundef %5) #22
+  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @replicationGetSlaveName.buf, i64 noundef 288, ptr noundef nonnull %cond.i, ptr noundef nonnull %ip., i32 noundef range(i32 1, 0) %5) #22
   br label %if.end12
 
 if.else:                                          ; preds = %if.then
@@ -5171,7 +5171,7 @@ if.then:                                          ; preds = %useDisklessLoad.exi
   %7 = load ptr, ptr %conn, align 8
   %sync_readline.i = getelementptr inbounds i8, ptr %7, i64 192
   %8 = load ptr, ptr %sync_readline.i, align 8
-  %call.i57 = call i64 %8(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef 1024, i64 noundef %conv) #22
+  %call.i57 = call i64 %8(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef 1024, i64 noundef range(i64 -2147483648, 2147483648) %conv) #22
   %cmp2 = icmp eq i64 %call.i57, -1
   br i1 %cmp2, label %do.body, label %if.else
 
@@ -6451,7 +6451,7 @@ entry:
   %1 = load ptr, ptr %conn, align 8
   %sync_readline.i = getelementptr inbounds i8, ptr %1, i64 192
   %2 = load ptr, ptr %sync_readline.i, align 8
-  %call.i = call i64 %2(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef 256, i64 noundef %conv) #22
+  %call.i = call i64 %2(ptr noundef nonnull %conn, ptr noundef nonnull %buf, i64 noundef 256, i64 noundef range(i64 -2147483648, 2147483648) %conv) #22
   %cmp = icmp eq i64 %call.i, -1
   br i1 %cmp, label %do.body, label %if.end6
 
@@ -6530,7 +6530,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %6 = load ptr, ptr %conn, align 8
   %sync_write.i = getelementptr inbounds i8, ptr %6, i64 176
   %7 = load ptr, ptr %sync_write.i, align 8
-  %call.i = tail call i64 %7(ptr noundef nonnull %conn, ptr noundef nonnull %cmd, i64 noundef %retval.0.i, i64 noundef %conv) #22
+  %call.i = tail call i64 %7(ptr noundef nonnull %conn, ptr noundef nonnull %cmd, i64 noundef %retval.0.i, i64 noundef range(i64 -2147483648, 2147483648) %conv) #22
   %cmp = icmp eq i64 %call.i, -1
   br i1 %cmp, label %if.then, label %return
 
@@ -6645,7 +6645,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
   %11 = load ptr, ptr %conn, align 8
   %sync_write.i.i = getelementptr inbounds i8, ptr %11, i64 176
   %12 = load ptr, ptr %sync_write.i.i, align 8
-  %call.i.i = call i64 %12(ptr noundef nonnull %conn, ptr noundef nonnull %call6, i64 noundef %retval.0.i.i, i64 noundef %conv.i) #22
+  %call.i.i = call i64 %12(ptr noundef nonnull %conn, ptr noundef nonnull %call6, i64 noundef %retval.0.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #22
   %cmp.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %sendCommandRaw.exit
 
@@ -6766,7 +6766,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
   %9 = load ptr, ptr %conn, align 8
   %sync_write.i.i = getelementptr inbounds i8, ptr %9, i64 176
   %10 = load ptr, ptr %sync_write.i.i, align 8
-  %call.i.i = tail call i64 %10(ptr noundef nonnull %conn, ptr noundef nonnull %cmd.0.lcssa, i64 noundef %retval.0.i.i, i64 noundef %conv.i) #22
+  %call.i.i = tail call i64 %10(ptr noundef nonnull %conn, ptr noundef nonnull %cmd.0.lcssa, i64 noundef %retval.0.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #22
   %cmp.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %sendCommandRaw.exit
 
@@ -6873,7 +6873,7 @@ if.end30:                                         ; preds = %entry
   %9 = load ptr, ptr %conn, align 8
   %sync_readline.i.i = getelementptr inbounds i8, ptr %9, i64 192
   %10 = load ptr, ptr %sync_readline.i.i, align 8
-  %call.i.i = call i64 %10(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i, i64 noundef 256, i64 noundef %conv.i) #22
+  %call.i.i = call i64 %10(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i, i64 noundef 256, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #22
   %cmp.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp.i, label %do.body.i, label %receiveSynchronousResponse.exit
 
@@ -7359,7 +7359,7 @@ if.then22:                                        ; preds = %if.end7
   %13 = load ptr, ptr %conn, align 8
   %sync_readline.i.i = getelementptr inbounds i8, ptr %13, i64 192
   %14 = load ptr, ptr %sync_readline.i.i, align 8
-  %call.i.i = call i64 %14(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i, i64 noundef 256, i64 noundef %conv.i) #22
+  %call.i.i = call i64 %14(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i, i64 noundef 256, i64 noundef range(i64 -2147483648, 2147483648) %conv.i) #22
   %cmp.i = icmp eq i64 %call.i.i, -1
   br i1 %cmp.i, label %do.body.i, label %receiveSynchronousResponse.exit
 
@@ -7569,7 +7569,7 @@ if.then115:                                       ; preds = %land.lhs.true109
   %35 = load ptr, ptr %conn, align 8
   %sync_readline.i.i90 = getelementptr inbounds i8, ptr %35, i64 192
   %36 = load ptr, ptr %sync_readline.i.i90, align 8
-  %call.i.i91 = call i64 %36(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i87, i64 noundef 256, i64 noundef %conv.i89) #22
+  %call.i.i91 = call i64 %36(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i87, i64 noundef 256, i64 noundef range(i64 -2147483648, 2147483648) %conv.i89) #22
   %cmp.i92 = icmp eq i64 %call.i.i91, -1
   br i1 %cmp.i92, label %do.body.i97, label %receiveSynchronousResponse.exit102
 
@@ -7629,7 +7629,7 @@ if.then136:                                       ; preds = %if.end7, %if.end112
   %43 = load ptr, ptr %conn, align 8
   %sync_readline.i.i106 = getelementptr inbounds i8, ptr %43, i64 192
   %44 = load ptr, ptr %sync_readline.i.i106, align 8
-  %call.i.i107 = call i64 %44(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i103, i64 noundef 256, i64 noundef %conv.i105) #22
+  %call.i.i107 = call i64 %44(ptr noundef nonnull %conn, ptr noundef nonnull %buf.i103, i64 noundef 256, i64 noundef range(i64 -2147483648, 2147483648) %conv.i105) #22
   %cmp.i108 = icmp eq i64 %call.i.i107, -1
   br i1 %cmp.i108, label %do.body.i113, label %receiveSynchronousResponse.exit118
 
@@ -7815,7 +7815,7 @@ do.end266:                                        ; preds = %do.body261, %if.end
   %62 = load ptr, ptr %conn, align 8
   %sync_write.i = getelementptr inbounds i8, ptr %62, i64 176
   %63 = load ptr, ptr %sync_write.i, align 8
-  %call.i119 = tail call i64 %63(ptr noundef nonnull %conn, ptr noundef nonnull @.str.182, i64 noundef 6, i64 noundef %conv267) #22
+  %call.i119 = tail call i64 %63(ptr noundef nonnull %conn, ptr noundef nonnull @.str.182, i64 noundef 6, i64 noundef range(i64 -2147483648, 2147483648) %conv267) #22
   %cmp269 = icmp eq i64 %call.i119, -1
   br i1 %cmp269, label %do.body272, label %if.end280
 

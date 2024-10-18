@@ -133,7 +133,7 @@ delete.notnull.i:                                 ; preds = %entry
 _ZN7Imf_3_213ZipCompressorD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   %_zip.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %_zip.i) #10
-  tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
+  tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }

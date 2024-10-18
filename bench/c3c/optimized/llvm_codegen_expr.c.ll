@@ -3305,7 +3305,7 @@ expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge
   br label %expr_is_vector_subscript.exit.i.thread
 
 1558:                                             ; preds = %expr_is_vector_subscript.exit.i
-  tail call fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef %1545, i1 noundef zeroext false)
+  tail call fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef range(i32 -1, 2) %1545, i1 noundef zeroext false)
   br label %llvm_emit_post_inc_dec.exit
 
 expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subscript.exit.i.expr_is_vector_subscript.exit.i.thread_crit_edge, %1539
@@ -3315,7 +3315,7 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
   br i1 %1561, label %1562, label %1563
 
 1562:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
-  tail call fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef %1545, i1 noundef zeroext false)
+  tail call fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1541, i32 noundef range(i32 -1, 2) %1545, i1 noundef zeroext false)
   br label %llvm_emit_post_inc_dec.exit
 
 1563:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
@@ -3345,7 +3345,7 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
 llvm_emit_inc_dec_change.exit.i:                  ; preds = %1569, %1568
   %1570 = getelementptr inbounds i8, ptr %1541, i64 8
   %1571 = load i64, ptr %1570, align 8
-  %1572 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1571, ptr noundef %4, i32 noundef %1545)
+  %1572 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1571, ptr noundef %4, i32 noundef range(i32 -1, 2) %1545)
   %1573 = getelementptr inbounds i8, ptr %5, i64 16
   %1574 = load ptr, ptr %1573, align 8
   %1575 = getelementptr inbounds i8, ptr %5, i64 4
@@ -15471,7 +15471,7 @@ llvm_emit_array_gep_raw.exit307:                  ; preds = %113, %119
 166:                                              ; preds = %163
   %167 = load ptr, ptr %98, align 8
   %168 = call ptr @LLVMConstAllOnes(ptr noundef %160) #10
-  %169 = call ptr @llvm_emit_lshr_fixed(ptr noundef nonnull %0, ptr noundef %168, i32 noundef %102) #10
+  %169 = call ptr @llvm_emit_lshr_fixed(ptr noundef nonnull %0, ptr noundef %168, i32 noundef range(i32 -2147483640, -2147483648) %102) #10
   %170 = call ptr @LLVMBuildNot(ptr noundef %167, ptr noundef %169, ptr noundef nonnull @.str.3) #10
   br label %llvm_const_high_bitmask.exit
 
@@ -17629,7 +17629,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %32, ptr noundef %5, i32 noundef %3)
+  %33 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %32, ptr noundef %5, i32 noundef range(i32 -1, 2) %3)
   %34 = getelementptr inbounds i8, ptr %6, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 4
@@ -17863,7 +17863,7 @@ type_flatten.exit149:                             ; preds = %50
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %6) #10
+  call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull align 8 %6) #10
   %69 = getelementptr inbounds i8, ptr %6, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %6, i64 4

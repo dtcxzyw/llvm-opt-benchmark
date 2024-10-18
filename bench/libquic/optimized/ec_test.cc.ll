@@ -2284,7 +2284,7 @@ entry:
   %cbb = alloca %class.ScopedOpenSSLContext, align 8
   %der = alloca ptr, align 8
   %der_len = alloca i64, align 8
-  call void @CBB_zero(ptr noundef nonnull %cbb)
+  call void @CBB_zero(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
   %call2 = invoke i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0)
           to label %invoke.cont1 unwind label %lpad
 
@@ -2315,7 +2315,7 @@ invoke.cont13:                                    ; preds = %lor.lhs.false10
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i, %if.then.i.i.i.i, %lor.lhs.false10, %invoke.cont5, %lor.lhs.false, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
@@ -2431,7 +2431,7 @@ invoke.cont16:                                    ; preds = %_ZSt22__uninitializ
 
 cleanup:                                          ; preds = %invoke.cont1, %invoke.cont7, %invoke.cont13, %invoke.cont16
   %retval.0 = phi i1 [ true, %invoke.cont16 ], [ false, %invoke.cont13 ], [ false, %invoke.cont7 ], [ false, %invoke.cont1 ]
-  invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
+  invoke void @CBB_cleanup(ptr noundef nonnull align 8 dereferenceable(32) %cbb)
           to label %_ZN20ScopedOpenSSLContextI6cbb_stvXadL_Z8CBB_zeroEEXadL_Z11CBB_cleanupEEED2Ev.exit4 unwind label %terminate.lpad.i3
 
 terminate.lpad.i3:                                ; preds = %cleanup

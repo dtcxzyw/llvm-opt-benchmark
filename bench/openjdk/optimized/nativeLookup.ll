@@ -146,7 +146,7 @@ define hidden noundef ptr @_ZN12NativeLookup13pure_jni_nameERK12methodHandle(ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %7)
+  %8 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %7)
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %1
@@ -165,7 +165,7 @@ define hidden noundef ptr @_ZN12NativeLookup13pure_jni_nameERK12methodHandle(ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
-  %24 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %2, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23)
+  %24 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %2, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23)
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %9
@@ -424,7 +424,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.thread.preheader: ; preds = %6, %_ZNK5Klass1
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 37:                                               ; preds = %25
-  %38 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 noundef 8, i32 noundef 0) #11
+  %38 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 noundef 8, i32 noundef 0) #11
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %35, %37
@@ -758,7 +758,7 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
 72:                                               ; preds = %72, %68
   %.0.i.i.i.i.i.i = phi i32 [ %74, %72 ], [ %71, %68 ]
   %73 = or i32 %.0.i.i.i.i.i.i, 32
-  %74 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %73, i32 %.0.i.i.i.i.i.i, ptr nonnull %70) #11, !srcloc !12
+  %74 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %73, i32 %.0.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %70) #11, !srcloc !12
   %.not.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i, %74
   br i1 %.not.i.i.i.i.i.i, label %75, label %72, !llvm.loop !13
 

@@ -232,7 +232,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_214TypedAttributeINS_11ChannelListEE16mak
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call, i8 0, i64 56, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -267,7 +267,7 @@ define weak_odr noundef ptr @_ZNK7Imf_3_214TypedAttributeINS_11ChannelListEE4cop
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %call, i8 0, i64 56, i1 false)
-  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
+  invoke void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -282,7 +282,7 @@ invoke.cont:                                      ; preds = %entry
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 0) #18
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %this, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 0) #18
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN7Imf_3_214TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE.exit
 
@@ -321,7 +321,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_11ChannelListEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 0) #18
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %other, ptr nonnull @_ZTIN7Imf_3_29AttributeE, ptr nonnull @_ZTIN7Imf_3_214TypedAttributeINS_11ChannelListEEE, i64 0) #18
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN7Imf_3_214TypedAttributeINS_11ChannelListEE4castERKNS_9AttributeE.exit
 

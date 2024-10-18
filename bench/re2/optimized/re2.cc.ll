@@ -659,7 +659,7 @@ invoke.cont123:                                   ; preds = %if.end122
           to label %call.i55.noexc unwind label %lpad126
 
 call.i55.noexc:                                   ; preds = %invoke.cont123
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %call124, ptr noundef %call.i5559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp125)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call124, ptr noundef %call.i5559, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp125)
           to label %.noexc60 unwind label %lpad126
 
 .noexc60:                                         ; preds = %call.i55.noexc
@@ -669,7 +669,7 @@ call.i55.noexc:                                   ; preds = %invoke.cont123
 lpad.i57:                                         ; preds = %.noexc60
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %call124) #30
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call124) #30
   br label %lpad126.body
 
 invoke.cont127:                                   ; preds = %.noexc60
@@ -1236,7 +1236,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %rprog_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE211ReverseProgEvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
+  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %rprog_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE211ReverseProgEvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
@@ -1341,7 +1341,7 @@ release.i.i.i:                                    ; preds = %invoke.cont14.i.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
-  call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %rprog_once_, i1 noundef zeroext true)
+  call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull align 4 dereferenceable(4) %rprog_once_, i1 noundef zeroext true)
   br label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 lpad.body.i.i:                                    ; preds = %ehcleanup.i.i.i.i.i, %lpad.i.i.i.i.i.i
@@ -1734,7 +1734,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %named_groups_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
+  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %named_groups_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
@@ -1771,7 +1771,7 @@ release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i,
   br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
-  tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %named_groups_once_, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull align 4 dereferenceable(4) %named_groups_once_, i1 noundef zeroext true)
   br label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 "_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
@@ -1794,7 +1794,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %2, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i
-  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %group_names_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
+  %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %group_names_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
@@ -1831,7 +1831,7 @@ release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i,
   br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
-  tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %group_names_once_, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull align 4 dereferenceable(4) %group_names_once_, i1 noundef zeroext true)
   br label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 "_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
@@ -5142,7 +5142,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %_M_storage.i.i.i) #30
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #32
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !32

@@ -81,7 +81,7 @@ entry:
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen23DefaultHTTPCodecFactoryE, i64 16), ptr %this, align 8
@@ -197,7 +197,7 @@ _ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZSt11make_uniqueIN
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_M_invoker.i.i, align 8
-  %call2.i.i42 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i)
+  %call2.i.i42 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit47
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i
@@ -273,7 +273,7 @@ _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit54: ; preds = %if.end
   %useStrictValidationFn_.i51 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_invoker.i.i52 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_invoker.i.i52, align 8
-  %call2.i.i = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i51)
+  %call2.i.i = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i51)
   %call.i55 = call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #16, !noalias !7
   %13 = load i8, ptr %forceHTTP1xCodecTo1_1_, align 8, !noalias !7
   %tobool.i = trunc i8 %13 to i1
@@ -321,7 +321,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i32 noundef 3)
           to label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -346,7 +346,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %useStrictValidationFn_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, i32 noundef 3)
           to label %_ZN8proxygen23DefaultHTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -372,7 +372,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %useStrictValidationFn_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(16) %useStrictValidationFn_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

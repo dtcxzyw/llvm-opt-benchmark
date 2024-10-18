@@ -2683,7 +2683,7 @@ declare void @_ZN9QComboBox11setItemTextEiRK7QString(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18SaveSnapshotDialog9setValuesERK15SnapshotSetting(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
+  %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
@@ -2990,7 +2990,7 @@ define void @_ZN18SaveSnapshotDialogD0Ev(ptr noundef nonnull align 8 dereference
 define void @_ZThn16_N18SaveSnapshotDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18SaveSnapshotDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #13
   ret void
 }
 

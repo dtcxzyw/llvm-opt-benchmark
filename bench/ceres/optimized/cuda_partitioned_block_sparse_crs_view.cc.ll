@@ -144,7 +144,7 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
   %48 = sub nsw i32 %47, %46
   %49 = add nsw i32 %29, 1
   %50 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   store ptr %3, ptr %50, align 8
   %51 = sext i32 %49 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %51)
@@ -152,7 +152,7 @@ _ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteI
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal24CudaBlockSparseStructureESt14default_deleteIS2_EED2Ev.exit
   %52 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store ptr %3, ptr %52, align 8
   %53 = sext i32 %31 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %53)
@@ -160,14 +160,14 @@ _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit: ; preds = %_ZNSt1
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit29: ; preds = %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit
   %54 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
   store ptr %3, ptr %54, align 8
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %51)
           to label %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31 unwind label %97
 
 _ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit31: ; preds = %_ZN5ceres8internal10CudaBufferIiEC2EPNS0_11ContextImplEi.exit29
   %55 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
   store ptr %3, ptr %55, align 8
   %56 = sext i32 %34 to i64
   invoke void @_ZN5ceres8internal10CudaBufferIiE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %56)
@@ -1849,7 +1849,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal18CudaStreamedBufferIdEC2EPNS
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = shl nsw i32 %13, 1
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
   store ptr %1, ptr %17, align 8
   %18 = sext i32 %16 to i64
   tail call void @_ZN5ceres8internal10CudaBufferIdE7ReserveEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %18)
@@ -1934,7 +1934,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   %36 = load i32, ptr %0, align 8
   %37 = sext i32 %36 to i64
   %38 = shl nsw i64 %37, 4
-  %39 = invoke noundef i32 @cudaHostAlloc(ptr noundef nonnull %19, i64 noundef %38, i32 noundef 4)
+  %39 = invoke noundef i32 @cudaHostAlloc(ptr noundef nonnull %19, i64 noundef range(i64 -34359738368, 34359738353) %38, i32 noundef 4)
           to label %_ZL13cudaHostAllocIdE9cudaErrorPPT_mj.exit unwind label %.loopexit.split-lp
 
 _ZL13cudaHostAllocIdE9cudaErrorPPT_mj.exit:       ; preds = %35

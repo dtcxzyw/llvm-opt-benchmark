@@ -124,7 +124,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
 
 call_os_signal.exit:                              ; preds = %28, %29
   %34 = phi ptr [ %30, %29 ], [ %26, %28 ]
-  %35 = tail call ptr %34(i32 noundef %0, ptr noundef %1) #9
+  %35 = tail call ptr %34(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   %36 = zext nneg i32 %0 to i64
   %37 = getelementptr inbounds [65 x %struct.sigaction], ptr @sact, i64 0, i64 %36
@@ -158,7 +158,7 @@ call_os_signal.exit:                              ; preds = %28, %29
 
 call_os_signal.exit28:                            ; preds = %43, %44
   %49 = phi ptr [ %45, %44 ], [ %26, %43 ]
-  %50 = tail call ptr %49(i32 noundef %0, ptr noundef %1) #9
+  %50 = tail call ptr %49(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
   br label %52
 
@@ -268,7 +268,7 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %7, %
 
 call_os_sigaction.exit:                           ; preds = %29, %30
   %35 = phi ptr [ %31, %30 ], [ %27, %29 ]
-  %36 = call i32 %35(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %4) #9
+  %36 = call i32 %35(i32 noundef range(i32 0, 65) %0, ptr noundef %1, ptr noundef nonnull %4) #9
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %45
 
@@ -312,7 +312,7 @@ call_os_sigaction.exit:                           ; preds = %29, %30
 
 call_os_sigaction.exit36:                         ; preds = %47, %48
   %53 = phi ptr [ %49, %48 ], [ %27, %47 ]
-  %54 = tail call i32 %53(i32 noundef %0, ptr noundef %1, ptr noundef %2) #9
+  %54 = tail call i32 %53(i32 noundef range(i32 0, 65) %0, ptr noundef %1, ptr noundef %2) #9
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
   br label %56
 

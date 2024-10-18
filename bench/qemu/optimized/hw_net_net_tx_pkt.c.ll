@@ -225,7 +225,7 @@ if.then.i:                                        ; preds = %land.lhs.true1.i
   br label %return
 
 if.else.i15:                                      ; preds = %land.lhs.true1.i, %if.end37
-  %call.i = call i64 @iov_from_buf_full(ptr noundef %arrayidx39, i32 noundef %13, i64 noundef %conv41, ptr noundef nonnull %csum, i64 noundef 2) #17
+  %call.i = call i64 @iov_from_buf_full(ptr noundef %arrayidx39, i32 noundef %13, i64 noundef range(i64 0, 131071) %conv41, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %return
 
 return:                                           ; preds = %if.else.i15, %if.then.i, %if.else22, %if.end
@@ -1214,7 +1214,7 @@ sw.bb17.i:                                        ; preds = %if.end39
   %29 = load i32, ptr %payload_frags.i, align 8
   %sub.i = add i32 %29, 2
   %conv20.i = trunc i32 %2 to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
   %gso_size.i31.i = getelementptr inbounds i8, ptr %pkt, i64 4
   %30 = load i16, ptr %gso_size.i31.i, align 4
   %31 = and i16 %30, -8
@@ -1344,7 +1344,7 @@ net_tx_pkt_tcp_fragment_fix.exit.i:               ; preds = %sw.bb8.i.i, %sw.bb.
   %sub30.i = add i32 %dst_idx.1.i, -1
   %add31.i = add i64 %fetched.0.lcssa.i.i, %l4hdr_len.0.i
   %conv32.i = trunc i64 %add31.i to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
   br label %sw.epilog35.i
 
 sw.bb33.i:                                        ; preds = %if.end25.i
@@ -1520,7 +1520,7 @@ if.then.i:                                        ; preds = %land.lhs.true1.i
   br label %iov_from_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true1.i, %entry
-  %call.i = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #17
+  %call.i = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef range(i64 0, 131071) %add, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
@@ -1578,7 +1578,7 @@ if.then.i28:                                      ; preds = %land.lhs.true1.i22
   br label %iov_from_buf.exit30
 
 if.else.i19:                                      ; preds = %land.lhs.true1.i22, %if.end18
-  %call.i20 = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #17
+  %call.i20 = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef range(i64 0, 131071) %add, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %iov_from_buf.exit30
 
 iov_from_buf.exit30:                              ; preds = %if.then.i28, %if.else.i19

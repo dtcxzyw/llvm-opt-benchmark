@@ -87,7 +87,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25btMultiBodyGearConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
+  tail call void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN21btMultiBodyConstraintdlEPv.exit unwind label %terminate.lpad.i
 
@@ -443,7 +443,7 @@ sw.bb:                                            ; preds = %if.end69
   %idxprom.i.i54 = sext i32 %57 to i64
   %m_cachedWorldTransform = getelementptr inbounds %struct.btMultibodyLink, ptr %58, i64 %idxprom.i.i54, i32 28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_cachedWorldTransform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_cachedWorldTransform, ptr noundef nonnull align 4 dereferenceable(16) %retval.i)
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
@@ -512,7 +512,7 @@ sw.bb:                                            ; preds = %if.end69
 sw.bb94:                                          ; preds = %if.end69
   %m_cachedWorldTransform99 = getelementptr inbounds i8, ptr %arrayidx.i.i52, i64 576
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i72)
-  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_cachedWorldTransform99, ptr noundef nonnull align 4 dereferenceable(16) %retval.i72)
+  call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %m_cachedWorldTransform99, ptr noundef nonnull align 4 dereferenceable(16) %retval.i72)
   %.fca.0.load.i73 = load <2 x float>, ptr %retval.i72, align 8
   %.fca.1.load.i76 = load <2 x float>, ptr %.fca.1.gep.i75, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i72)
@@ -604,7 +604,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint11setFrameInBERK11btMatrix3x3(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 4 dereferenceable(48) %frameInB) unnamed_addr #0 comdat align 2 {
 entry:
   %m_frameInB = getelementptr inbounds i8, ptr %this, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(48) %frameInB, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %frameInB, i64 16
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)

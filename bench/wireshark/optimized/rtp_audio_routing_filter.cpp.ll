@@ -232,7 +232,7 @@ define linkonce_odr void @_ZN18AudioRoutingFilterD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18AudioRoutingFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
+  tail call void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #5
   tail call void @_ZdlPv(ptr noundef nonnull %0) #6
   ret void
 }

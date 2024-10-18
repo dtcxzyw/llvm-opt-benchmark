@@ -2681,7 +2681,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %45, i64 8
-  %50 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %49) #29, !noalias !29
+  %50 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %49) #29, !noalias !29
   %.not.i.i.i.i = icmp eq i32 %50, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %51
 
@@ -2711,7 +2711,7 @@ _ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKd
   br i1 %or.cond, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii.exit
-  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.076.0) #29
+  %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.076.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 65:                                               ; preds = %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit
@@ -2757,7 +2757,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %63, %_ZN5ceres8inte
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %86, i64 8
-  %91 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %90) #29, !noalias !32
+  %91 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %90) #29, !noalias !32
   %.not.i.i.i.i66 = icmp eq i32 %91, 0
   br i1 %.not.i.i.i.i66, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68, label %92
 
@@ -2791,7 +2791,7 @@ _ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKd
   br i1 %or.cond84, label %_ZNSt11unique_lockISt5mutexED2Ev.exit71, label %108
 
 108:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii.exit69
-  %109 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %109 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit71
 
 110:                                              ; preds = %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68
@@ -2818,7 +2818,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit71:          ; preds = %108, %_ZN5ceres8int
 _ZNSt11unique_lockISt5mutexED2Ev.exit65.sink.split: ; preds = %110, %65
   %.sroa.0.0.lcssa.sink = phi ptr [ %.sroa.076.0, %65 ], [ %.sroa.0.0, %110 ]
   %.pn.ph = phi { ptr, i32 } [ %66, %65 ], [ %111, %110 ]
-  %119 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0.lcssa.sink) #29
+  %119 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa.sink) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit65:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit65.sink.split, %110, %65
@@ -3274,7 +3274,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   %89 = load ptr, ptr %30, align 8
   %90 = getelementptr inbounds ptr, ptr %89, i64 %87
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %91) #29, !noalias !41
+  %92 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %91) #29, !noalias !41
   %.not.i.i.i.i = icmp eq i32 %92, 0
   br i1 %.not.i.i.i.i, label %._crit_edge109, label %93
 
@@ -3311,7 +3311,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
   br i1 %or.cond80, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %107
 
 107:                                              ; preds = %106
-  %108 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %108 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %106, %107
@@ -3343,7 +3343,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %106, %107
   br i1 %or.cond82, label %_ZNSt11unique_lockISt5mutexED2Ev.exit50, label %118
 
 118:                                              ; preds = %116
-  %119 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %119 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit50
 
 ._crit_edge:                                      ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %.preheader
@@ -3555,7 +3555,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds i8, ptr %49, i64 8
-  %59 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %58) #29, !noalias !49
+  %59 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %58) #29, !noalias !49
   %.not.i.i.i.i = icmp eq i32 %59, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %60
 
@@ -3583,7 +3583,7 @@ _ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELin1EEEvPKdiiS3_iiP
   br i1 %or.cond, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %70
 
 70:                                               ; preds = %_ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELin1EEEvPKdiiS3_iiPdiiii.exit
-  %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 72:                                               ; preds = %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit
@@ -3594,7 +3594,7 @@ _ZN5ceres8internal20MatrixMatrixMultiplyILin1ELin1ELin1ELin1ELin1EEEvPKdiiS3_iiP
   br i1 %or.cond48, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31, label %74
 
 74:                                               ; preds = %72
-  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit31:          ; preds = %72, %74
@@ -3679,7 +3679,7 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %41, i64 8
-  %46 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %45) #29, !noalias !55
+  %46 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %45) #29, !noalias !55
   %.not.i.i.i.i = icmp eq i32 %46, 0
   br i1 %.not.i.i.i.i, label %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit, label %47
 
@@ -3709,7 +3709,7 @@ _ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKd
   br i1 %or.cond, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %59
 
 59:                                               ; preds = %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii.exit
-  %60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.076.0) #29
+  %60 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.076.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 61:                                               ; preds = %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit
@@ -3758,7 +3758,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %59, %_ZN5ceres8inte
 
 88:                                               ; preds = %79
   %89 = getelementptr inbounds i8, ptr %78, i64 8
-  %90 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %89) #29, !noalias !58
+  %90 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %89) #29, !noalias !58
   %.not.i.i.i.i66 = icmp eq i32 %90, 0
   br i1 %.not.i.i.i.i66, label %._ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68_crit_edge, label %91
 
@@ -3796,7 +3796,7 @@ _ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKd
   br i1 %or.cond84, label %_ZNSt11unique_lockISt5mutexED2Ev.exit71, label %107
 
 107:                                              ; preds = %_ZN5ceres8internal29MatrixTransposeMatrixMultiplyILin1ELin1ELin1ELin1ELi1EEEvPKdiiS3_iiPdiiii.exit69
-  %108 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0) #29
+  %108 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit71
 
 109:                                              ; preds = %_ZN5ceres8internal19MakeConditionalLockEiRSt5mutex.exit68
@@ -3823,7 +3823,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit71:          ; preds = %107, %_ZN5ceres8int
 _ZNSt11unique_lockISt5mutexED2Ev.exit65.sink.split: ; preds = %109, %61
   %.sroa.0.0.lcssa.sink = phi ptr [ %.sroa.076.0, %61 ], [ %.sroa.0.0, %109 ]
   %.pn.ph = phi { ptr, i32 } [ %62, %61 ], [ %110, %109 ]
-  %118 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.sroa.0.0.lcssa.sink) #29
+  %118 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa.sink) #29
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit65:          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit65.sink.split, %109, %61
@@ -4646,7 +4646,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %58 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit unwind label %59
 
 59:                                               ; preds = %57
@@ -4669,7 +4669,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %67
 
 67:                                               ; preds = %64
-  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %69
 
 69:                                               ; preds = %67
@@ -5266,7 +5266,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %66 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %67
 
 67:                                               ; preds = %65
@@ -5362,7 +5362,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %110
 
 110:                                              ; preds = %107
-  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %112
 
 112:                                              ; preds = %110
@@ -6765,7 +6765,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2INS_5SolveINS_3LLTIS1_Li2EEENS_14Cw
   %21 = getelementptr inbounds i8, ptr %7, i64 76
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %7, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(75) %7, i8 0, i64 75, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(544) %7, i8 0, i64 75, i1 false)
   %23 = getelementptr inbounds i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
   store i64 0, ptr %23, align 8
@@ -6794,7 +6794,7 @@ common.resume:                                    ; preds = %17, %39, %28
   call void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2ELi0ELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %32) #29
   %34 = load ptr, ptr %24, align 8
   call void @free(ptr noundef %34) #29
-  call void @_ZN5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %7) #29
+  call void @_ZN5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(544) %7) #29
   br label %common.resume
 
 35:                                               ; preds = %20
@@ -8301,7 +8301,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -11412,7 +11412,7 @@ define linkonce_odr hidden void @_ZN5Eigen28selfadjoint_product_selectorINS_5Blo
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 24
@@ -12303,7 +12303,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELi
   br i1 %35, label %_ZNK5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE11_solve_implINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EES2_EEvRKT_RT0_.exit, label %36
 
 36:                                               ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceIS3_EEvRKNS_10MatrixBaseIT_EE.exit.i.i
-  call void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_Li1ELi2ELi0ELin1EE3runERS4_RS3_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call void @_ZN5Eigen8internal26triangular_solver_selectorIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_Li1ELi2ELi0ELin1EE3runERS4_RS3_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZNK5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE11_solve_implINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EES2_EEvRKT_RT0_.exit
 
 _ZNK5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EE11_solve_implINS_14CwiseNullaryOpINS_8internal18scalar_identity_opIdEES2_EES2_EEvRKT_RT0_.exit: ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1ENS_5DenseEE12solveInPlaceIS3_EEvRKNS_10MatrixBaseIT_EE.exit.i.i, %36
@@ -12408,7 +12408,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %9, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 24
@@ -12431,7 +12431,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %23 = load i64, ptr %6, align 8
   %24 = load ptr, ptr %1, align 8
   %25 = load i64, ptr %8, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %7, i64 noundef %9, ptr noundef %22, i64 noundef %23, ptr noundef %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi2ELb0ELi1ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %7, i64 noundef %9, ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit unwind label %29
 
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi1ELb0ELi0ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
@@ -12464,7 +12464,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
@@ -12488,7 +12488,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal26triangular_solver_selectorI
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %1, align 8
   %25 = load i64, ptr %7, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef %21, i64 noundef %23, ptr noundef %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi2ELi1ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit unwind label %29
 
 _ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2ELb0ELi1ELi1ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE.exit: ; preds = %2
@@ -14357,7 +14357,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_9TransposeIKS3_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14computeInPlaceEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %21 = load i64, ptr %16, align 8
@@ -14541,7 +14541,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5Eigen8internal22qr_preconditi
 
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEES3_NS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE14computeInPlaceEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %18 = load i64, ptr %14, align 8
@@ -16738,7 +16738,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 200
   store i64 %37, ptr %.sroa.12.0..sroa_idx, align 8
-  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
+  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockINS3_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !503
   %41 = load ptr, ptr %9, align 8
   %42 = load i64, ptr %31, align 8
@@ -17504,7 +17504,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store i64 %38, ptr %.sroa.13.0..sroa_idx, align 8
   %39 = getelementptr inbounds i8, ptr %10, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS2_IKS4_Lin1ELi1ELb0EEENS0_20generic_product_implIS6_S8_NS_10DenseShapeESA_Li7EEEE6evalToINS_3MapINS3_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %9, ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(56) %39)
+  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_5BlockINS2_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEENS2_IKS4_Lin1ELi1ELb0EEENS0_20generic_product_implIS6_S8_NS_10DenseShapeESA_Li7EEEE6evalToINS_3MapINS3_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS6_RKS8_(ptr noundef nonnull align 8 dereferenceable(19) %9, ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(56) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !99
   %.sroa.427.24.copyload = load ptr, ptr %35, align 8
   %41 = getelementptr inbounds i8, ptr %.sroa.427.24.copyload, i64 16
@@ -17691,7 +17691,7 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 152
   store i64 %37, ptr %.sroa.12.0..sroa_idx, align 8
-  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
+  call void @_ZN5Eigen8internal25generic_product_impl_baseINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEEENS3_INS3_IS5_Lin1ELin1ELb0EEELin1ELin1ELb0EEENS0_20generic_product_implIS9_SB_NS_10DenseShapeESD_Li7EEEE6evalToINS_3MapINS4_IdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEEEvRT_RKS9_RKSB_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef nonnull align 8 dereferenceable(104) %39)
   %40 = load ptr, ptr %0, align 8, !noalias !550
   %41 = load ptr, ptr %9, align 8
   %42 = load i64, ptr %31, align 8
@@ -19100,7 +19100,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_7ProductINS_14TriangularViewIKN
   store ptr %13, ptr %66, align 8, !alias.scope !590
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store double -1.000000e+00, ptr %5, align 8
-  invoke void @_ZN5Eigen8internal23triangular_product_implILi5ELb1EKNS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELb0ENS3_IdLin1ELin1ELi0ELin1ELin1EEELb0EE3runIS5_EEvRT_RS6_RKS7_RKNSA_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN5Eigen8internal23triangular_product_implILi5ELb1EKNS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELb0ENS3_IdLin1ELin1ELi0ELin1ELin1EEELb0EE3runIS5_EEvRT_RS6_RKS7_RKNSA_6ScalarE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %67 unwind label %54
 
 67:                                               ; preds = %65
@@ -20603,7 +20603,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi6
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %.sroa.speculated46, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 24
@@ -21420,7 +21420,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi2
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %.sroa.speculated, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 24
@@ -22281,7 +22281,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi1
   %15 = load i64, ptr %14, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %11, i64 %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %11, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 24
@@ -23055,7 +23055,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
   %14 = load i64, ptr %13, align 8
   %.sroa.speculated49 = tail call i64 @llvm.smin.i64(i64 %10, i64 %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %12, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 24
@@ -23087,7 +23087,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal23triangular_product_implILi5
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
-  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb0ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %12, i64 noundef %10, i64 noundef %.sroa.speculated49, ptr noundef %30, i64 noundef %32, ptr noundef %25, i64 noundef %29, ptr noundef %33, i64 noundef 1, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
+  invoke void @_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi6ELb0ELi1ELb0ELi0ELb0ELi0ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE(i64 noundef %12, i64 noundef %10, i64 noundef %.sroa.speculated49, ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %25, i64 noundef %29, ptr noundef nonnull %33, i64 noundef 1, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN5Eigen8internal32product_triangular_matrix_matrixIdlLi5ELb1ELi1ELb0ELi0ELb0ELi1ELi1ELi0EE3runElllPKdlS4_lPdllRS3_RNS0_15level3_blockingIddEE.exit unwind label %38
 
 38:                                               ; preds = %4
@@ -24933,7 +24933,7 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %.sroa.640.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
   store i64 %44, ptr %.sroa.640.0..sroa_idx, align 8
   %45 = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull align 8 dereferenceable(17) %1, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   invoke void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_9TransposeIKNS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES7_EELi0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSG_RKSI_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %46 unwind label %68
@@ -25089,7 +25089,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %34 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %34, ptr noundef nonnull align 8 dereferenceable(17) %27, i64 16, i1 false)
   call void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_9TransposeIKNS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES7_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   br label %_ZN5Eigen8internal20generic_product_implINS_9TransposeIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEEEENS_14CwiseNullaryOpINS0_18scalar_identity_opIdEES5_EENS_10DenseShapeESE_Li8EE6evalToINS4_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKS9_RKSD_.exit
@@ -25308,7 +25308,7 @@ _ZN5Eigen10MatrixBaseINS_9TransposeINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin
   %100 = load double, ptr %3, align 8
   %101 = load i64, ptr %55, align 8
   %102 = load i64, ptr %22, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 16, i1 false)
   %103 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %101, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %9, i64 24
@@ -25382,10 +25382,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal42call_restricted_packet_assi
   %4 = alloca %"struct.Eigen::internal::evaluator.2123", align 8
   %5 = alloca %"struct.Eigen::internal::evaluator.1935", align 8
   %6 = alloca %"class.Eigen::internal::restricted_packet_dense_assignment_kernel", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 56, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 8 dereferenceable(17) %8, i64 16, i1 false)
   %9 = getelementptr inbounds i8, ptr %4, i64 80
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %9, align 8
@@ -26422,7 +26422,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %37 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %29, ptr %37, align 8, !alias.scope !802
   call void @_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -26784,7 +26784,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS1_IKNS_6MatrixIdLin1ELin1ELi1ELin1ELin
 
 _ZNK5Eigen8internal12gemm_functorIdlNS0_29general_matrix_matrix_productIldLi1ELb0EdLi0ELb0ELi0ELi1EEENS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEENS5_IdLin1ELin1ELi0ELin1ELin1EEES9_NS0_19gemm_blocking_spaceILi0EddLin1ELin1ELin1ELi1ELb0EEEEclEllllPNS0_16GemmParallelInfoIlEE.exit.i: ; preds = %101
   %177 = load double, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 16, i1 false)
   %178 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %103, ptr %178, align 8
   %179 = getelementptr inbounds i8, ptr %11, i64 24
@@ -27895,7 +27895,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9EliminateERKNS0_21BlockSparseMatrixDataEPKdS8_PNS0_23BlockRandomAccessMatrixEPdEUliiE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSF_E_clISI_EEDaSH_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -27918,7 +27918,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -28291,7 +28291,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE9Elim
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -28387,7 +28387,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106
@@ -30307,7 +30307,7 @@ _ZN5ceres8internal10FixedArrayIdLm8ESaIdEED2Ev.exit50: ; preds = %_ZN5ceres8inte
 362:                                              ; preds = %._crit_edge98
   store ptr %10, ptr %9, align 8, !alias.scope !862
   %363 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %363, ptr noundef nonnull align 8 dereferenceable(17) %5, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %363, ptr noundef nonnull align 8 dereferenceable(19) %5, i64 17, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   invoke void @_ZN5Eigen8internal15call_assignmentINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS3_IdLin1ELin1ELi1ELin1ELin1EEES7_Li0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_NS0_9enable_ifIXsr25evaluator_assume_aliasingISF_EE5valueEPvE4typeE(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef null)
           to label %364 unwind label %367
@@ -30567,7 +30567,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1
   br label %_ZN5Eigen8internal25generic_product_impl_baseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapINS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS0_20generic_product_implIS3_S8_NS_10DenseShapeESA_Li7EEEE6evalToIS5_EEvRT_RKS3_RKS8_.exit
 
 85:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, ptr noundef nonnull align 8 dereferenceable(17) %14, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %4, ptr noundef nonnull align 8 dereferenceable(19) %14, i64 17, i1 false)
   call void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1ELb1EE3runINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapINS4_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEES7_EEvRKT_RKT0_RT1_RKNSH_6ScalarE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(19) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZN5Eigen8internal25generic_product_impl_baseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEENS_3MapINS2_IdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEENS0_20generic_product_implIS3_S8_NS_10DenseShapeESA_Li7EEEE6evalToIS5_EEvRT_RKS3_RKS8_.exit
 
@@ -30755,7 +30755,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
   br i1 %.not.i.i, label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14BackSubstituteERKNS0_21BlockSparseMatrixDataEPKdS8_S8_PdEUliE_EEvPNS0_11ContextImplEiiiOT_iENKUlRSD_E_clISG_EEDaSF_ENUlvE_D2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -30778,7 +30778,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
   br i1 %.not.i.i38, label %_ZNSt8functionIFvvEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit39 unwind label %65
 
 65:                                               ; preds = %63
@@ -31151,7 +31151,7 @@ _ZZN5ceres8internal14ParallelInvokeIZNS0_15SchurEliminatorILin1ELin1ELin1EE14Bac
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %63
 
 63:                                               ; preds = %61
@@ -31247,7 +31247,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not.i.i39, label %_ZNSt8functionIFvvEED2Ev.exit40, label %106
 
 106:                                              ; preds = %103
-  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %107 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit40 unwind label %108
 
 108:                                              ; preds = %106

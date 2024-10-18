@@ -260,8 +260,6 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN2cv12LBPEvaluatorESaIvELN9__gnu_cxx12_Lock_poli
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv12LBPEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
 
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_ = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -271,8 +269,6 @@ $_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE10_M_
 $_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
-
-$_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN2cv12LBPEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -9347,10 +9343,10 @@ _ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit: ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.15") align 8 %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %1, label %28 [
+define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.15") align 8 %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  switch i32 %1, label %56 [
     i32 0, label %3
-    i32 1, label %24
+    i32 1, label %38
   ]
 
 3:                                                ; preds = %2
@@ -9395,32 +9391,112 @@ define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias
   store i8 0, ptr %22, align 8
   store ptr %4, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %4)
-  br label %29
+  store ptr null, ptr %23, align 8
+  %24 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_.exit unwind label %25
 
-24:                                               ; preds = %2
-  %25 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #30
-  invoke void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(640) %25)
-          to label %26 unwind label %30
+25:                                               ; preds = %3
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #33
+  tail call void @_ZN2cv13HaarEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %4) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31
+  invoke void @__cxa_rethrow() #29
+          to label %34 unwind label %29
 
-26:                                               ; preds = %24
-  store ptr %25, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %25)
-  br label %29
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %31
 
-28:                                               ; preds = %2
+common.resume:                                    ; preds = %47, %29, %58
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %30, %29 ], [ %48, %47 ]
+  resume { ptr, i32 } %common.resume.op
+
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
+          catch ptr null
+  %33 = extractvalue { ptr, i32 } %32, 0
+  tail call void @__clang_call_terminate(ptr %33) #32
+  unreachable
+
+34:                                               ; preds = %25
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_.exit: ; preds = %3
+  %35 = getelementptr inbounds i8, ptr %24, i64 8
+  store i32 1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %24, i64 12
+  store i32 1, ptr %36, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %24, align 8
+  %37 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %4, ptr %37, align 8
+  store ptr %24, ptr %23, align 8
+  br label %57
+
+38:                                               ; preds = %2
+  %39 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #30
+  invoke void @_ZN2cv12LBPEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(640) %39)
+          to label %40 unwind label %58
+
+40:                                               ; preds = %38
+  store ptr %39, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %41, align 8
+  %42 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_.exit unwind label %43
+
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
+          catch ptr null
+  %45 = extractvalue { ptr, i32 } %44, 0
+  %46 = tail call ptr @__cxa_begin_catch(ptr %45) #33
+  tail call void @_ZN2cv12LBPEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %39) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #31
+  invoke void @__cxa_rethrow() #29
+          to label %52 unwind label %47
+
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %49
+
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
+          catch ptr null
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #32
+  unreachable
+
+52:                                               ; preds = %43
+  unreachable
+
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_.exit: ; preds = %40
+  %53 = getelementptr inbounds i8, ptr %42, i64 8
+  store i32 1, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %42, i64 12
+  store i32 1, ptr %54, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12LBPEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %42, align 8
+  %55 = getelementptr inbounds i8, ptr %42, i64 16
+  store ptr %39, ptr %55, align 8
+  store ptr %42, ptr %41, align 8
+  br label %57
+
+56:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %29
+  br label %57
 
-29:                                               ; preds = %26, %28, %3
+57:                                               ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_.exit, %56, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_.exit
   ret void
 
-30:                                               ; preds = %24
-  %31 = landingpad { ptr, i32 }
+58:                                               ; preds = %38
+  %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #31
-  resume { ptr, i32 } %31
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #31
+  br label %common.resume
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -9432,7 +9508,7 @@ define hidden void @_ZN2cv21CascadeClassifierImplC2Ev(ptr noundef nonnull align 
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, i8 0, i64 28, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false)
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef 0) #33
@@ -9881,7 +9957,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN2cv3PtrI23CvHaarClassifierCascadeE7releaseEv.exit: ; preds = %2, %33, %46, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %51, i8 0, i64 144, i1 false)
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN2cv21CascadeClassifierImpl4DataaSEOS1_(ptr noundef nonnull align 8 dereferenceable(176) %52, ptr noundef nonnull align 8 dereferenceable(176) %3) #33
@@ -10375,7 +10451,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %36 = load ptr, ptr %28, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
 39:                                               ; preds = %29
@@ -10401,7 +10477,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %48 = load ptr, ptr %28, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
   %51 = getelementptr inbounds i8, ptr %28, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
@@ -10426,7 +10502,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %60 = load ptr, ptr %28, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %28) #33
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %58, %45, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
@@ -10453,7 +10529,7 @@ _ZN2cv3PtrINS_16FeatureEvaluatorEEaSERKS2_.exit:  ; preds = %10, %_ZNSt16_Sp_cou
   %71 = load ptr, ptr %63, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
 
 74:                                               ; preds = %64
@@ -10479,7 +10555,7 @@ _ZN2cv3PtrINS_16FeatureEvaluatorEEaSERKS2_.exit:  ; preds = %10, %_ZNSt16_Sp_cou
   %83 = load ptr, ptr %63, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
   %86 = getelementptr inbounds i8, ptr %63, i64 12
   %87 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i7 = icmp eq i8 %87, 0
@@ -10504,7 +10580,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %95 = load ptr, ptr %63, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %63) #33
   br label %_ZN2cv3PtrINS_16FeatureEvaluatorEED2Ev.exit
 
 _ZN2cv3PtrINS_16FeatureEvaluatorEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16FeatureEvaluatorEEaSERKS2_.exit, %80, %93, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i9
@@ -12717,7 +12793,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc156, %298
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %355, %352
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #33
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %21) #33
   br label %.body
 
 356:                                              ; preds = %._crit_edge275
@@ -12742,7 +12818,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %355, %352
   br label %_ZN2cv24CascadeClassifierInvokerD2Ev.exit
 
 _ZN2cv24CascadeClassifierInvokerD2Ev.exit:        ; preds = %360, %362
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #33
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %21) #33
   %363 = load ptr, ptr %20, align 8
   %.not.i.i169 = icmp eq ptr %363, %305
   br i1 %.not.i.i169, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %364
@@ -12971,7 +13047,7 @@ define hidden void @_ZN2cv21CascadeClassifierImpl16detectMultiScaleERKNS_11_Inpu
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %43
-  invoke void @_ZN2cv15groupRectanglesERSt6vectorINS_5Rect_IiEESaIS2_EEidPS0_IiSaIiEEPS0_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %6, double noundef 2.000000e-01, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  invoke void @_ZN2cv15groupRectanglesERSt6vectorINS_5Rect_IiEESaIS2_EEidPS0_IiSaIiEEPS0_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %6, double noundef 2.000000e-01, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %44 unwind label %51
 
 44:                                               ; preds = %.noexc
@@ -13241,7 +13317,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %20, %23
           to label %.noexc24 unwind label %73
 
 .noexc24:                                         ; preds = %52
-  invoke void @_ZN2cv15groupRectanglesERSt6vectorINS_5Rect_IiEESaIS2_EEidPS0_IiSaIiEEPS0_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %5, double noundef 2.000000e-01, ptr noundef nonnull %3, ptr noundef null)
+  invoke void @_ZN2cv15groupRectanglesERSt6vectorINS_5Rect_IiEESaIS2_EEidPS0_IiSaIiEEPS0_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %5, double noundef 2.000000e-01, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef null)
           to label %53 unwind label %60
 
 53:                                               ; preds = %.noexc24
@@ -14736,7 +14812,7 @@ define noundef zeroext i1 @_ZN2cv17CascadeClassifier4loadERKNSt7__cxx1112basic_s
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !163
   store ptr null, ptr %4, align 8, !alias.scope !166, !noalias !163
   %5 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv21CascadeClassifierImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull %3), !noalias !163
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv21CascadeClassifierImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull %3), !noalias !163
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !163
   %6 = load ptr, ptr %4, align 8, !noalias !163
   %7 = load ptr, ptr %5, align 8, !noalias !163
@@ -15286,7 +15362,7 @@ define noundef zeroext i1 @_ZN2cv17CascadeClassifier4readERKNS_8FileNodeE(ptr no
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !169
   store ptr null, ptr %4, align 8, !alias.scope !172, !noalias !169
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv21CascadeClassifierImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull %3), !noalias !169
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv21CascadeClassifierImplESaIvEJEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull %3), !noalias !169
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !169
   %7 = load ptr, ptr %4, align 8, !noalias !169
   store ptr %7, ptr %5, align 8, !alias.scope !169
@@ -18078,7 +18154,7 @@ define linkonce_odr hidden void @_ZN2cv24CascadeClassifierInvokerD0Ev(ptr nounde
   br label %_ZN2cv24CascadeClassifierInvokerD2Ev.exit
 
 _ZN2cv24CascadeClassifierInvokerD2Ev.exit:        ; preds = %1, %5
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #33
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #33
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -18222,7 +18298,7 @@ define linkonce_odr hidden void @_ZNK2cv24CascadeClassifierInvokerclERKNS_5Range
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %25, align 8
-  %81 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %80) #33
+  %81 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %80) #33
   %.not.i.us = icmp eq i32 %81, 0
   br i1 %.not.i.us, label %82, label %.split.us.invoke
 
@@ -18454,7 +18530,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit.us:       ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.us, %153
   %180 = load ptr, ptr %25, align 8
-  %181 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %180) #33
+  %181 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %180) #33
   br label %184
 
 182:                                              ; preds = %62
@@ -18471,7 +18547,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.us:       ; preds = %_ZNSt6vectorIdSaIdE
 
 187:                                              ; preds = %182
   %188 = load ptr, ptr %25, align 8
-  %189 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %188) #33
+  %189 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %188) #33
   %.not.i63.us = icmp eq i32 %189, 0
   br i1 %.not.i63.us, label %190, label %.split.us.invoke
 
@@ -18566,7 +18642,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__no
 
 .thread.us:                                       ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i79.us, %201
   %225 = load ptr, ptr %25, align 8
-  %226 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %225) #33
+  %226 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %225) #33
   br label %227
 
 227:                                              ; preds = %.thread.us, %184
@@ -19645,7 +19721,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv13HaarEvaluator7FeatureESaIS2_
 19:                                               ; preds = %19, %.preheader.i.i.i
   %.idx.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i, %19 ], [ 4, %.preheader.i.i.i ]
   %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i, i64 %.idx.i.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.ptr.i.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i, 20
   %20 = icmp eq i64 %.add.i.i.i.i.i, 64
   br i1 %20, label %21, label %19
@@ -19688,7 +19764,7 @@ _ZNKSt6vectorIN2cv13HaarEvaluator7FeatureESaIS2_EE12_M_check_lenEmPKc.exit: ; pr
 32:                                               ; preds = %32, %.preheader.i.i.i30
   %.idx.i.i.i.i.i33 = phi i64 [ %.add.i.i.i.i.i35, %32 ], [ 4, %.preheader.i.i.i30 ]
   %.ptr.i.i.i.i.i34 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 %.idx.i.i.i.i.i33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr.i.i.i.i.i34, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.ptr.i.i.i.i.i34, i8 0, i64 16, i1 false)
   %.add.i.i.i.i.i35 = add nuw nsw i64 %.idx.i.i.i.i.i33, 20
   %33 = icmp eq i64 %.add.i.i.i.i.i35, 64
   br i1 %33, label %34, label %32
@@ -19820,7 +19896,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv13HaarEvaluator10OptFeatureESa
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %1, %3 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.013.i.i.i, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.013.i.i.i, i8 0, i64 60, i1 false)
   %19 = add i64 %.01012.i.i.i, -1
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 64
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -19850,7 +19926,7 @@ _ZNKSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE12_M_check_lenEmPKc.exit: 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %30, %.lr.ph.i.i.i30 ], [ %28, %_ZNKSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %29, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv13HaarEvaluator10OptFeatureESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.013.i.i.i31, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.013.i.i.i31, i8 0, i64 60, i1 false)
   %29 = add i64 %.01012.i.i.i32, -1
   %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 64
   %.not.i.i.i33 = icmp eq i64 %29, 0
@@ -20073,60 +20149,6 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv13HaarEvaluatorEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #33
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv13HaarEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %1) #33
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #29
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #32
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
-}
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   ret void
@@ -20163,60 +20185,6 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN2cv13HaarEvaluatorELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 comdat align 2 {
   ret ptr null
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv12LBPEvaluatorEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %4 unwind label %8
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 1, ptr %6, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv12LBPEvaluatorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %7, align 8
-  store ptr %3, ptr %0, align 8
-  ret void
-
-8:                                                ; preds = %2
-  %9 = landingpad { ptr, i32 }
-          catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  %11 = tail call ptr @__cxa_begin_catch(ptr %10) #33
-  %12 = icmp eq ptr %1, null
-  br i1 %12, label %14, label %13
-
-13:                                               ; preds = %8
-  tail call void @_ZN2cv12LBPEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %1) #33
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #31
-  br label %14
-
-14:                                               ; preds = %13, %8
-  invoke void @__cxa_rethrow() #29
-          to label %21 unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %17 unwind label %18
-
-17:                                               ; preds = %15
-  resume { ptr, i32 } %16
-
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
-          catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #32
-  unreachable
-
-21:                                               ; preds = %14
-  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20276,14 +20244,14 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierI
   store i32 1, ptr %5, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(752) %6)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv21CascadeClassifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_.exit
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv21CascadeClassifierImplE, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = getelementptr inbounds i8, ptr %3, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 28, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %8, i8 0, i64 192, i1 false)
   tail call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %9, i32 noundef 0) #33

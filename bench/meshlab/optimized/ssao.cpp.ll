@@ -1045,7 +1045,7 @@ define noundef zeroext i1 @_ZN4SSAO5setupEv(ptr noundef nonnull align 8 derefere
   call void @_ZN14DecorateShader18genColorTextureEXTERjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef 36064)
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   %32 = load ptr, ptr @__glewGenRenderbuffers, align 8
-  call void %32(i32 noundef 1, ptr noundef nonnull %31)
+  call void %32(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %31)
   %33 = load ptr, ptr @__glewBindRenderbuffer, align 8
   %34 = load i32, ptr %31, align 8
   call void %33(i32 noundef 36161, i32 noundef %34)

@@ -30,7 +30,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23isSafeToDestroyConstantEPKNS_8Con
   %2 = alloca %"class.llvm::SmallVector", align 8
   %3 = alloca %"class.llvm::SmallPtrSet", align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %4, i64 noundef 8) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %4, i64 noundef 8) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -175,7 +175,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit10: ; p
   br label %_ZN4llvm11SmallPtrSetIPKNS_8ConstantELj8EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPKNS_8ConstantELj8EED2Ev.exit: ; preds = %.loopexit22, %70
-  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #7
+  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #7
   %72 = load ptr, ptr %2, align 8
   %73 = icmp eq ptr %72, %4
   br i1 %73, label %_ZN4llvm11SmallVectorIPKNS_8ConstantELj8EED2Ev.exit, label %74
@@ -436,7 +436,7 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit122: ; preds = %78, %88, %91
   br i1 %103, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread, label %104
 
 104:                                              ; preds = %102, %98
-  %105 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %96) #7
+  %105 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %96) #7
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %104

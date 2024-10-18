@@ -2973,7 +2973,7 @@ if.then34:                                        ; preds = %if.then34.loopexit,
   ]
 
 sw.bb.i:                                          ; preds = %if.then34
-  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %max_gen.0.lcssa, i64 1073741822)
+  %spec.store.select.i = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %max_gen.0.lcssa, i64 1073741822)
   br label %compute_generation_from_max.exit
 
 sw.bb1.i:                                         ; preds = %if.then34
@@ -3482,7 +3482,7 @@ if.then19.i:                                      ; preds = %if.end16.i
   br i1 %tobool1.not.i23.i, label %cleanup.sink.split.i, label %cleanup.sink.split.sink.split.i
 
 if.end24.i:                                       ; preds = %if.end16.i
-  %call25.i = call i32 @for_each_object_in_pack(ptr noundef nonnull %call9.i, ptr noundef nonnull @add_packed_commits, ptr noundef %call5, i32 noundef 4) #22
+  %call25.i = call i32 @for_each_object_in_pack(ptr noundef nonnull %call9.i, ptr noundef nonnull @add_packed_commits, ptr noundef nonnull %call5, i32 noundef 4) #22
   call void @close_pack(ptr noundef nonnull %call9.i) #22
   call void @free(ptr noundef nonnull %call9.i) #22
   %inc.i = add i32 %i.030.i, 1

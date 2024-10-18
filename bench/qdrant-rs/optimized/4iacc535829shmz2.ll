@@ -932,7 +932,7 @@ define hidden void @"_ZN6common27fixed_length_priority_queue33FixedLengthPriorit
   br i1 %13, label %14, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf628662fcfdb45ffE.exit"
 
 14:                                               ; preds = %11
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h30a7fbd808c566dbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %7)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h30a7fbd808c566dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %7)
   %.pre.i.i = load i64, ptr %6, align 8, !alias.scope !167
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf628662fcfdb45ffE.exit"
 
@@ -1611,7 +1611,7 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   br i1 %26, label %27, label %49
 
 27:                                               ; preds = %.lr.ph
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb01c5ec274d60e64E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb01c5ec274d60e64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %19)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %27
@@ -1778,7 +1778,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br i1 %20, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0459aa17ee9d3031E.llvm.4012134325007315671.exit.i", label %21
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0459aa17ee9d3031E.llvm.4012134325007315671.exit.i": ; preds = %.loopexit
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h9edc27adaf576882E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6, i64 noundef 1), !noalias !248
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h9edc27adaf576882E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %6, i64 noundef 1), !noalias !248
   %.pre = load ptr, ptr %3, align 8, !alias.scope !245, !noalias !248
   br label %21
 
@@ -1897,7 +1897,7 @@ define void @_ZN6sparse5index12posting_list14PostingBuilder3add17hde76c8aeb440b3
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h95c971c0280e3883E.llvm.14663317015130033216.exit"
 
 8:                                                ; preds = %3
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb01c5ec274d60e64E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5), !noalias !257
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb01c5ec274d60e64E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5), !noalias !257
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !254, !noalias !257
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h95c971c0280e3883E.llvm.14663317015130033216.exit"
 

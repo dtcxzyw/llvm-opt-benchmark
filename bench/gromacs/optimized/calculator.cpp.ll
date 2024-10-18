@@ -883,7 +883,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %17, %_ZNSt10_H
   br label %_ZNSt11_Tuple_implILm1EJN5nblib14ListedTypeDataINS0_11G96BondTypeEEENS1_INS0_13CubicBondTypeEEENS1_INS0_13MorseBondTypeEEENS1_INS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS8_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSL_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS8_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit
 
 _ZNSt11_Tuple_implILm1EJN5nblib14ListedTypeDataINS0_11G96BondTypeEEENS1_INS0_13CubicBondTypeEEENS1_INS0_13MorseBondTypeEEENS1_INS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS8_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSL_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS8_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EED2Ev.exit.i.i.i.i, %19
-  tail call void @_ZNSt11_Tuple_implILm3EJN5nblib14ListedTypeDataINS0_13MorseBondTypeEEENS1_INS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS4_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSH_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS4_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) #7
+  tail call void @_ZNSt11_Tuple_implILm3EJN5nblib14ListedTypeDataINS0_13MorseBondTypeEEENS1_INS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS4_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSH_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS4_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(816) %0) #7
   ret void
 }
 
@@ -949,7 +949,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %17, %_ZNSt10_H
   br label %_ZNSt11_Tuple_implILm4EJN5nblib14ListedTypeDataINS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS2_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSF_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS2_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit
 
 _ZNSt11_Tuple_implILm4EJN5nblib14ListedTypeDataINS0_23TwoParameterInteractionINS0_21FENEBondTypeParameterEEEEENS1_INS2_INS0_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INSF_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS2_INS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EED2Ev.exit.i.i.i.i, %19
-  tail call void @_ZNSt11_Tuple_implILm6EJN5nblib14ListedTypeDataINS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INS8_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #7
+  tail call void @_ZNSt11_Tuple_implILm6EJN5nblib14ListedTypeDataINS0_10PairLJTypeEEENS1_INS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INS8_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) #7
   ret void
 }
 
@@ -1015,7 +1015,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %17, %_ZNSt10_H
   br label %_ZNSt11_Tuple_implILm7EJN5nblib14ListedTypeDataINS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INS6_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit
 
 _ZNSt11_Tuple_implILm7EJN5nblib14ListedTypeDataINS0_20AngleInteractionTypeINS0_22HarmonicAngleParameterEEEEENS1_INS0_16CosineParamAngleINS0_17G96AngleParameterEEEEENS1_INS0_12QuarticAngleEEENS1_INS6_INS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i.i.i.i, %19
-  tail call void @_ZNSt11_Tuple_implILm9EJN5nblib14ListedTypeDataINS0_12QuarticAngleEEENS1_INS0_16CosineParamAngleINS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #7
+  tail call void @_ZNSt11_Tuple_implILm9EJN5nblib14ListedTypeDataINS0_12QuarticAngleEEENS1_INS0_16CosineParamAngleINS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) #7
   ret void
 }
 
@@ -1081,7 +1081,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %17, %_ZNSt10_H
   br label %_ZNSt11_Tuple_implILm10EJN5nblib14ListedTypeDataINS0_16CosineParamAngleINS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit
 
 _ZNSt11_Tuple_implILm10EJN5nblib14ListedTypeDataINS0_16CosineParamAngleINS0_24RestrictedAngleParameterEEEEENS1_INS0_13CrossBondBondEEENS1_INS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit.i.i.i.i, %19
-  tail call void @_ZNSt11_Tuple_implILm12EJN5nblib14ListedTypeDataINS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #7
+  tail call void @_ZNSt11_Tuple_implILm12EJN5nblib14ListedTypeDataINS0_14CrossBondAngleEEENS1_INS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) #7
   ret void
 }
 
@@ -1147,7 +1147,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %17, %_ZNSt10_H
   br label %_ZNSt11_Tuple_implILm13EJN5nblib14ListedTypeDataINS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit
 
 _ZNSt11_Tuple_implILm13EJN5nblib14ListedTypeDataINS0_23TwoParameterInteractionINS0_20LinearAngleParameterEEEEENS1_INS0_14ProperDihedralEEENS1_INS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EED2Ev.exit.i.i.i.i, %19
-  tail call void @_ZNSt11_Tuple_implILm15EJN5nblib14ListedTypeDataINS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #7
+  tail call void @_ZNSt11_Tuple_implILm15EJN5nblib14ListedTypeDataINS0_16ImproperDihedralEEENS1_INS0_24RyckaertBellemanDihedralEEENS1_INS0_14Default5CenterEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #7
   ret void
 }
 
@@ -1264,7 +1264,7 @@ _ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2
   %.01012.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i ], [ %12, %.noexc11 ]
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 24
   %21 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.013.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %21, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 32
   store i64 1, ptr %22, align 8
@@ -1309,7 +1309,7 @@ _ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_
           to label %.noexc16 unwind label %71
 
 .noexc16:                                         ; preds = %33
-  invoke void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %38, i32 noundef 0, ptr noundef nonnull %4)
+  invoke void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull align 4 dereferenceable(384) %38, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(36) %4)
           to label %41 unwind label %39, !noalias !11
 
 39:                                               ; preds = %.noexc16
@@ -1457,10 +1457,6 @@ _ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1
   %.not.i.i.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
-_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i: ; preds = %_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EE17_S_check_init_lenEmRKS1E_.exit.i
-  store i64 0, ptr %0, align 8
-  br label %11
-
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EE17_S_check_init_lenEmRKS1E_.exit.i
   %8 = mul nuw nsw i64 %6, 864
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #25
@@ -1468,48 +1464,48 @@ _ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteract
   %10 = getelementptr inbounds %"class.std::tuple.25", ptr %9, i64 %6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %9, i64 %8
-  br label %11
+  br label %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i
 
-11:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i
-  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i ], [ %10, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink.i, ptr %13, align 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %12, align 8
+_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i: ; preds = %_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EE17_S_check_init_lenEmRKS1E_.exit.i, %.lr.ph.preheader.i.i.i.i.i
+  %.sink.i = phi ptr [ %10, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EE17_S_check_init_lenEmRKS1E_.exit.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EE17_S_check_init_lenEmRKS1E_.exit.i ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.sink.i, ptr %12, align 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 %2, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %3, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.3.0..sroa_idx, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 816
-  %15 = getelementptr inbounds i8, ptr %1, i64 768
-  %16 = getelementptr inbounds i8, ptr %1, i64 720
-  %17 = getelementptr inbounds i8, ptr %1, i64 672
-  %18 = getelementptr inbounds i8, ptr %1, i64 624
-  %19 = getelementptr inbounds i8, ptr %1, i64 576
-  %20 = getelementptr inbounds i8, ptr %1, i64 528
-  %21 = getelementptr inbounds i8, ptr %1, i64 480
-  %22 = getelementptr inbounds i8, ptr %1, i64 432
-  %23 = getelementptr inbounds i8, ptr %1, i64 384
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
-  %25 = getelementptr inbounds i8, ptr %1, i64 288
-  %26 = getelementptr inbounds i8, ptr %1, i64 240
-  %27 = getelementptr inbounds i8, ptr %1, i64 192
-  %28 = getelementptr inbounds i8, ptr %1, i64 144
-  %29 = getelementptr inbounds i8, ptr %1, i64 96
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
-  invoke void @_ZZN5nblib14for_each_tupleIRZNS_15splitListedWorkERKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS2_INS_11G96BondTypeEEENS2_INS_13CubicBondTypeEEENS2_INS_13MorseBondTypeEEENS2_INS3_INS_21FENEBondTypeParameterEEEEENS2_INS3_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS_10PairLJTypeEEENS2_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS2_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS2_INS_12QuarticAngleEEENS2_INSP_INS_24RestrictedAngleParameterEEEEENS2_INS_13CrossBondBondEEENS2_INS_14CrossBondAngleEEENS2_INS3_INS_20LinearAngleParameterEEEEENS2_INS_14ProperDihedralEEENS2_INS_16ImproperDihedralEEENS2_INS_24RyckaertBellemanDihedralEEENS2_INS_14Default5CenterEEEEEiiEUlRKT_E_JS6_S8_SA_SC_SF_SI_SK_SO_SS_SU_SX_SZ_S11_S14_S16_S18_S1A_S1C_EEEvOS1G_RKS1_IJDpT0_EEENKUlDpRT_E_clIJKS6_KS8_KSA_KSC_KSF_KSI_KSK_KSO_KSS_KSU_KSX_KSZ_KS11_KS14_KS16_KS18_KS1A_KS1C_EEEDaS1T_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %1)
-          to label %33 unwind label %31
+  %13 = getelementptr inbounds i8, ptr %1, i64 816
+  %14 = getelementptr inbounds i8, ptr %1, i64 768
+  %15 = getelementptr inbounds i8, ptr %1, i64 720
+  %16 = getelementptr inbounds i8, ptr %1, i64 672
+  %17 = getelementptr inbounds i8, ptr %1, i64 624
+  %18 = getelementptr inbounds i8, ptr %1, i64 576
+  %19 = getelementptr inbounds i8, ptr %1, i64 528
+  %20 = getelementptr inbounds i8, ptr %1, i64 480
+  %21 = getelementptr inbounds i8, ptr %1, i64 432
+  %22 = getelementptr inbounds i8, ptr %1, i64 384
+  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds i8, ptr %1, i64 288
+  %25 = getelementptr inbounds i8, ptr %1, i64 240
+  %26 = getelementptr inbounds i8, ptr %1, i64 192
+  %27 = getelementptr inbounds i8, ptr %1, i64 144
+  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %29 = getelementptr inbounds i8, ptr %1, i64 48
+  invoke void @_ZZN5nblib14for_each_tupleIRZNS_15splitListedWorkERKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS2_INS_11G96BondTypeEEENS2_INS_13CubicBondTypeEEENS2_INS_13MorseBondTypeEEENS2_INS3_INS_21FENEBondTypeParameterEEEEENS2_INS3_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS_10PairLJTypeEEENS2_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS2_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS2_INS_12QuarticAngleEEENS2_INSP_INS_24RestrictedAngleParameterEEEEENS2_INS_13CrossBondBondEEENS2_INS_14CrossBondAngleEEENS2_INS3_INS_20LinearAngleParameterEEEEENS2_INS_14ProperDihedralEEENS2_INS_16ImproperDihedralEEENS2_INS_24RyckaertBellemanDihedralEEENS2_INS_14Default5CenterEEEEEiiEUlRKT_E_JS6_S8_SA_SC_SF_SI_SK_SO_SS_SU_SX_SZ_S11_S14_S16_S18_S1A_S1C_EEEvOS1G_RKS1_IJDpT0_EEENKUlDpRT_E_clIJKS6_KS8_KSA_KSC_KSF_KSI_KSK_KSO_KSS_KSU_KSX_KSZ_KS11_KS14_KS16_KS18_KS1A_KS1C_EEEDaS1T_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(864) %1)
+          to label %32 unwind label %30
 
-31:                                               ; preds = %11
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %31
 
-33:                                               ; preds = %11
+32:                                               ; preds = %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
@@ -1567,7 +1563,7 @@ define internal void @_ZN5nblib21ListedForceCalculatorC2ERKSt5tupleIJNS_14Listed
   %39 = load i64, ptr %4, align 8
   %40 = trunc i64 %39 to i32
   %.0 = select i1 %38, i32 %40, i32 %35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 16, i1 false)
   store i32 %34, ptr %19, align 8
   store i32 %.0, ptr %20, align 4
   store ptr %22, ptr %21, align 8
@@ -1577,7 +1573,7 @@ define internal void @_ZN5nblib21ListedForceCalculatorC2ERKSt5tupleIJNS_14Listed
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds %"class.nblib::ForceBufferProxy", ptr %41, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %42, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 24, i1 false)
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = icmp eq ptr %10, %42
   br i1 %44, label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEaSEOS4_.exit, label %45
@@ -6656,7 +6652,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -6679,7 +6675,7 @@ define linkonce_odr void @_ZN5nblib14InputExceptionCI2NS_14NbLibExceptionEERKNSt
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   resume { ptr, i32 } %5
 
 _ZN5nblib14NbLibExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -6692,7 +6688,7 @@ define linkonce_odr void @_ZN5nblib14InputExceptionD2Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5nblib14NbLibExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   ret void
 }
 
@@ -6858,7 +6854,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   %89 = getelementptr inbounds i8, ptr %66, i64 144
   %90 = getelementptr inbounds i8, ptr %66, i64 96
   %91 = getelementptr inbounds i8, ptr %66, i64 48
-  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEES5_NS_9PbcHolderEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(48) %78, ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %66)
+  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEES5_NS_9PbcHolderEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(48) %78, ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(864) %66)
           to label %92 unwind label %118
 
 92:                                               ; preds = %73
@@ -6895,7 +6891,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   %108 = getelementptr inbounds i8, ptr %66, i64 144
   %109 = getelementptr inbounds i8, ptr %66, i64 96
   %110 = getelementptr inbounds i8, ptr %66, i64 48
-  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEES5_NS_5NoPbcEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %102, ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull align 8 dereferenceable(48) %66)
+  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEES5_NS_5NoPbcEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %102, ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef nonnull align 8 dereferenceable(48) %105, ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef nonnull align 8 dereferenceable(48) %107, ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull align 8 dereferenceable(864) %66)
           to label %111 unwind label %118
 
 111:                                              ; preds = %93
@@ -7167,7 +7163,7 @@ define linkonce_odr void @_ZN5nblib14InputExceptionD0Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5nblib14NbLibExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -7229,7 +7225,7 @@ define linkonce_odr void @_ZN5nblib14NbLibExceptionD0Ev(ptr noundef nonnull alig
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5nblib14NbLibExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -7993,7 +7989,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
   %35 = getelementptr inbounds i8, ptr %23, i64 264
@@ -8741,7 +8737,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
   %35 = getelementptr inbounds i8, ptr %23, i64 264
@@ -9286,7 +9282,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2122.0.copyload = load float, ptr %.sroa.2122.0..sroa_idx, align 4
   %.sroa.3123.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   %.sroa.3123.0.copyload = load float, ptr %.sroa.3123.0..sroa_idx, align 4
-  %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %31
   %33 = getelementptr inbounds i8, ptr %23, i64 264
@@ -9836,7 +9832,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2122.0.copyload = load float, ptr %.sroa.2122.0..sroa_idx, align 4
   %.sroa.3123.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   %.sroa.3123.0.copyload = load float, ptr %.sroa.3123.0..sroa_idx, align 4
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %24, i64 %32
   %34 = getelementptr inbounds i8, ptr %24, i64 264
@@ -10386,7 +10382,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %31 = load float, ptr %30, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load float, ptr %.sroa_idx, align 4
-  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %24, i64 %34
   %36 = getelementptr inbounds i8, ptr %24, i64 264
@@ -10936,7 +10932,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
   %35 = getelementptr inbounds i8, ptr %23, i64 264
@@ -11480,7 +11476,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
   %35 = getelementptr inbounds i8, ptr %23, i64 264
@@ -12035,9 +12031,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = load float, ptr %36, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load float, ptr %.sroa_idx, align 4
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %42
   %44 = sext i32 %40 to i64
@@ -12910,9 +12906,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = load float, ptr %36, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load float, ptr %.sroa_idx, align 4
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %42
   %44 = sext i32 %40 to i64
@@ -13796,9 +13792,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7206.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 20
   %.sroa.7206.0.copyload = load float, ptr %.sroa.7206.0..sroa_idx, align 4
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %40
   %42 = sext i32 %38 to i64
@@ -14696,9 +14692,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = load float, ptr %36, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load float, ptr %.sroa_idx, align 4
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %42
   %44 = sext i32 %40 to i64
@@ -15574,9 +15570,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2241.0.copyload = load float, ptr %.sroa.2241.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %38 = sext i32 %35 to i64
   %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %38
   %40 = sext i32 %36 to i64
@@ -16358,9 +16354,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4286.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 12
   %.sroa.4286.0.copyload = load float, ptr %.sroa.4286.0..sroa_idx, align 4
-  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %38 = sext i32 %35 to i64
   %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %38
   %40 = sext i32 %36 to i64
@@ -17161,9 +17157,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %39 = load float, ptr %38, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load float, ptr %.sroa_idx, align 4
-  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %42 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %43 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %42 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %43 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds %"class.gmx::BasicVector", ptr %30, i64 %44
   %46 = sext i32 %42 to i64
@@ -17970,10 +17966,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   store float 0.000000e+00, ptr %17, align 4
   store float 0.000000e+00, ptr %32, align 4
   store float 0.000000e+00, ptr %33, align 4
-  %51 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %18)
-  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %19)
-  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %20)
-  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %21)
+  %51 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %18)
+  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %19)
+  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %20)
+  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %21)
   %55 = sext i32 %51 to i64
   %56 = getelementptr inbounds %"class.gmx::BasicVector", ptr %42, i64 %55
   %57 = sext i32 %52 to i64
@@ -19185,10 +19181,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   store float 0.000000e+00, ptr %17, align 4
   store float 0.000000e+00, ptr %32, align 4
   store float 0.000000e+00, ptr %33, align 4
-  %51 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %18)
-  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %19)
-  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %20)
-  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %21)
+  %51 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %18)
+  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %19)
+  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %20)
+  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %21)
   %55 = sext i32 %51 to i64
   %56 = getelementptr inbounds %"class.gmx::BasicVector", ptr %42, i64 %55
   %57 = sext i32 %52 to i64
@@ -20221,10 +20217,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   store float 0.000000e+00, ptr %17, align 4
   store float 0.000000e+00, ptr %33, align 4
   store float 0.000000e+00, ptr %34, align 4
-  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %18)
-  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %19)
-  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %20)
-  %55 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %21)
+  %52 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %18)
+  %53 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %19)
+  %54 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %20)
+  %55 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %21)
   %56 = sext i32 %52 to i64
   %57 = sext i32 %53 to i64
   %58 = sext i32 %55 to i64
@@ -21216,10 +21212,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
   %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false)
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %16)
-  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %17)
-  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %18)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %15)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %17)
+  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %35
 
@@ -34803,7 +34799,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   %74 = getelementptr inbounds i8, ptr %51, i64 144
   %75 = getelementptr inbounds i8, ptr %51, i64 96
   %76 = getelementptr inbounds i8, ptr %51, i64 48
-  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEEDnNS_9PbcHolderEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %51)
+  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEEDnNS_9PbcHolderEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(864) %51)
           to label %77 unwind label %103
 
 77:                                               ; preds = %58
@@ -34839,7 +34835,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   %93 = getelementptr inbounds i8, ptr %51, i64 144
   %94 = getelementptr inbounds i8, ptr %51, i64 96
   %95 = getelementptr inbounds i8, ptr %51, i64 48
-  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEEDnNS_5NoPbcEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef nonnull align 8 dereferenceable(48) %93, ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %51)
+  invoke void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEEDnNS_5NoPbcEEEDaRKSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS9_INS_11G96BondTypeEEENS9_INS_13CubicBondTypeEEENS9_INS_13MorseBondTypeEEENS9_INSA_INS_21FENEBondTypeParameterEEEEENS9_INSA_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS9_INS_10PairLJTypeEEENS9_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS9_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS9_INS_12QuarticAngleEEENS9_INSW_INS_24RestrictedAngleParameterEEEEENS9_INS_13CrossBondBondEEENS9_INS_14CrossBondAngleEEENS9_INSA_INS_20LinearAngleParameterEEEEENS9_INS_14ProperDihedralEEENS9_INS_16ImproperDihedralEEENS9_INS_24RyckaertBellemanDihedralEEENS9_INS_14Default5CenterEEEEENS3_8ArrayRefIKS5_EEPT_NS1N_IT0_EERKT1_EUlRKS1Q_E_JSD_SF_SH_SJ_SM_SP_SR_SV_SZ_S11_S14_S16_S18_S1B_S1D_S1F_S1H_S1J_EEEvOS1Q_RKS8_IJDpT0_EEENKUlDpRT_E_clIJKSD_KSF_KSH_KSJ_KSM_KSP_KSR_KSV_KSZ_KS11_KS14_KS16_KS18_KS1B_KS1D_KS1F_KS1H_KS1J_EEEDaS29_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef nonnull align 8 dereferenceable(48) %93, ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(864) %51)
           to label %96 unwind label %103
 
 96:                                               ; preds = %78
@@ -35743,7 +35739,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %32 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %32, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %40, label %33
@@ -36255,7 +36251,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %32 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %32, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %40, label %33
@@ -36772,7 +36768,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2122.0.copyload = load float, ptr %.sroa.2122.0..sroa_idx, align 4
   %.sroa.3123.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   %.sroa.3123.0.copyload = load float, ptr %.sroa.3123.0..sroa_idx, align 4
-  %29 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %29 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %30 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %30, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %38, label %31
@@ -37291,7 +37287,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2122.0.copyload = load float, ptr %.sroa.2122.0..sroa_idx, align 4
   %.sroa.3123.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   %.sroa.3123.0.copyload = load float, ptr %.sroa.3123.0..sroa_idx, align 4
-  %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %31 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %31, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %39, label %32
@@ -37810,7 +37806,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %33, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %41, label %34
@@ -38329,7 +38325,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %32 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %32, %.sroa.0132.0.extract.trunc
   br i1 %.not, label %40, label %33
@@ -38845,7 +38841,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %32 = load i32, ptr %15, align 8
   %.not = icmp sgt i32 %32, %.sroa.0133.0.extract.trunc
   br i1 %.not, label %40, label %33
@@ -39372,9 +39368,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = load float, ptr %35, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load float, ptr %.sroa_idx, align 4
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.048.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 8
   %.sroa.046.0.copyload = load <2 x float>, ptr %14, align 8
@@ -40199,9 +40195,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = load float, ptr %35, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load float, ptr %.sroa_idx, align 4
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.048.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 8
   %.sroa.046.0.copyload = load <2 x float>, ptr %14, align 8
@@ -41040,9 +41036,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7206.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 20
   %.sroa.7206.0.copyload = load float, ptr %.sroa.7206.0..sroa_idx, align 4
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.048.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 8
   %.sroa.046.0.copyload = load <2 x float>, ptr %14, align 8
@@ -41898,9 +41894,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = load float, ptr %35, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load float, ptr %.sroa_idx, align 4
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.048.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.249.0.copyload = load float, ptr %.sroa.249.0..sroa_idx, align 8
   %.sroa.046.0.copyload = load <2 x float>, ptr %14, align 8
@@ -42734,9 +42730,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2237.0.copyload = load float, ptr %.sroa.2237.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.062.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.263.0.copyload = load float, ptr %.sroa.263.0..sroa_idx, align 8
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.062.0.copyload, i64 0
@@ -43476,9 +43472,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4282.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 12
   %.sroa.4282.0.copyload = load float, ptr %.sroa.4282.0..sroa_idx, align 4
-  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %35 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %.sroa.084.0.copyload = load <2 x float>, ptr %13, align 8
   %.sroa.285.0.copyload = load float, ptr %.sroa.285.0..sroa_idx, align 8
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.084.0.copyload, i64 0
@@ -44237,9 +44233,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = load float, ptr %37, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %37, i64 4
   %39 = load float, ptr %.sroa_idx, align 4
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %13)
-  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %42 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %42 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %43 = fadd float %39, -1.000000e+00
   %44 = load float, ptr %14, align 4
   %45 = fmul float %43, %44
@@ -44976,10 +44972,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %34 = sext i32 %.sroa.0.sroa.4.0.copyload to i64
   %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %17)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %15)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %40 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
   %41 = getelementptr inbounds %"class.nblib::ProperDihedral", ptr %2, i64 %40
   %.sroa.0218.0.copyload = load float, ptr %41, align 4
@@ -46042,10 +46038,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %34 = sext i32 %.sroa.0.sroa.4.0.copyload to i64
   %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
-  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %17)
+  %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %15)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %40 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
   %41 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %40
   %42 = load float, ptr %41, align 4
@@ -47123,10 +47119,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %35 = sext i32 %.sroa.0.sroa.4.0.copyload to i64
   %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
-  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16)
-  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %17)
+  %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %15)
+  %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %41 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
   %42 = getelementptr inbounds %"class.nblib::RyckaertBellemanDihedral", ptr %2, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(24) %42, i64 24, i1 false)
@@ -48192,10 +48188,10 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
   %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false)
-  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %16)
-  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %17)
-  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %18)
+  %31 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %15)
+  %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %16)
+  %33 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %17)
+  %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %35
 

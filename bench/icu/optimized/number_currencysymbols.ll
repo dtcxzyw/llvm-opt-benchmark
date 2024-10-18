@@ -512,7 +512,7 @@ invoke.cont2:                                     ; preds = %entry
   %1 = load ptr, ptr %agg.tmp, align 8
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = load i32, ptr %2, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont2
@@ -526,7 +526,7 @@ invoke.cont2:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #12
   br label %ehcleanup14
 
 invoke.cont7:                                     ; preds = %.noexc
@@ -558,7 +558,7 @@ lpad9:                                            ; preds = %invoke.cont10, %inv
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol) #12
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol) #12
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #12
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad, %lpad.i, %lpad9
@@ -642,7 +642,7 @@ entry:
   %fCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrencySymbol) #12
   %fLocaleName = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName) #12
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName) #12
   %fCurrency = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %fCurrency) #12
   ret void
@@ -666,7 +666,7 @@ entry:
   store i32 0, ptr %symbolLen.i, align 4, !noalias !4
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fLocaleName.i, align 8, !noalias !4
-  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull %status), !noalias !4
+  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 2, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !4
   %cmp.i = icmp eq ptr %call3.i, %isoCode.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -748,7 +748,7 @@ entry:
   store i32 0, ptr %symbolLen.i, align 4, !noalias !8
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fLocaleName.i, align 8, !noalias !8
-  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 3, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull %status), !noalias !8
+  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 3, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !8
   %cmp.i = icmp eq ptr %call3.i, %isoCode.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -791,7 +791,7 @@ entry:
   store i32 0, ptr %symbolLen.i, align 4, !noalias !11
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %fLocaleName.i, align 8, !noalias !11
-  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 4, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull %status), !noalias !11
+  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %0, i32 noundef 4, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !11
   %cmp.i = icmp eq ptr %call3.i, %isoCode.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -846,7 +846,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %symbolLen.i, align 4, !noalias !14
   %fLocaleName.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %fLocaleName.i, align 8, !noalias !14
-  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull %status), !noalias !14
+  %call3.i = call ptr @ucurr_getName_75(ptr noundef nonnull %isoCode.i.i, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %symbolLen.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !14
   %cmp.i = icmp eq ptr %call3.i, %isoCode.i.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 

@@ -125,12 +125,12 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, 
   br i1 %8, label %230, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @lseek64(i32 noundef %0, i64 noundef -22, i32 noundef 2) #14
+  %10 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef -22, i32 noundef 2) #14
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %.sink.split, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull %7, i64 noundef 22) #14
+  %13 = tail call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %7, i64 noundef 22) #14
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %.sink.split, label %15
 
@@ -152,14 +152,14 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, 
   br i1 %29, label %find_positions.exit, label %30
 
 30:                                               ; preds = %15
-  %31 = tail call i64 @lseek64(i32 noundef %0, i64 noundef 0, i32 noundef 2) #14
+  %31 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef 0, i32 noundef 2) #14
   %32 = icmp slt i64 %31, 0
   br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %30
   %34 = tail call i64 @llvm.umin.i64(i64 %31, i64 65557)
   %35 = sub nsw i64 0, %34
-  %36 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %35, i32 noundef 2) #14
+  %36 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %35, i32 noundef 2) #14
   %37 = icmp slt i64 %36, 0
   br i1 %37, label %.sink.split, label %38
 
@@ -169,7 +169,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, 
   br i1 %40, label %.sink.split, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull %39, i64 noundef %34) #14
+  %42 = tail call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %39, i64 noundef %34) #14
   %43 = and i64 %42, 2147483648
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %44, label %find_positions.exit.thread.sink.split
@@ -230,7 +230,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_file(i32 noundef range(i32 0, 
 
 find_positions.exit:                              ; preds = %15, %71
   %.sink = phi i64 [ %74, %71 ], [ %10, %15 ]
-  %77 = call fastcc i32 @find_positions64(i32 noundef %0, ptr noundef %7, i64 noundef %.sink, ptr noundef %4, ptr noundef %5)
+  %77 = call fastcc i32 @find_positions64(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %7, i64 noundef %.sink, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %.sink.split, label %79
 
@@ -871,12 +871,12 @@ define internal fastcc range(i32 -1, 1) i32 @find_positions64(i32 noundef range(
   br i1 %34, label %35, label %readAt.exit.thread
 
 35:                                               ; preds = %32
-  %36 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %33, i32 noundef 0) #14
+  %36 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %33, i32 noundef 0) #14
   %37 = icmp eq i64 %36, %33
   br i1 %37, label %readAt.exit, label %readAt.exit.thread
 
 readAt.exit:                                      ; preds = %35
-  %38 = call i64 @read(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 76) #14
+  %38 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 76) #14
   %.not57 = icmp eq i64 %38, 76
   br i1 %.not57, label %39, label %readAt.exit.thread
 
@@ -985,7 +985,7 @@ readAt.exit:                                      ; preds = %35
   br i1 %or.cond5.i, label %is_zip64_endhdr.exit, label %is_zip64_endhdr.exit.thread
 
 is_zip64_endhdr.exit:                             ; preds = %125
-  %128 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef %0, i64 noundef %33, i64 noundef %91, i64 noundef %99)
+  %128 = tail call fastcc zeroext i8 @is_valid_end_header(i32 noundef range(i32 0, -1) %0, i64 noundef %33, i64 noundef %91, i64 noundef %99)
   %.not50 = icmp eq i8 %128, 0
   br i1 %.not50, label %is_zip64_endhdr.exit.thread, label %152
 
@@ -1238,12 +1238,12 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header(i32 nounde
   br i1 %12, label %13, label %readAt.exit.thread
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %7, i32 noundef 0) #14
+  %14 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %7, i32 noundef 0) #14
   %15 = icmp eq i64 %14, %7
   br i1 %15, label %readAt.exit, label %readAt.exit.thread
 
 readAt.exit:                                      ; preds = %13
-  %16 = call i64 @read(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 46) #14
+  %16 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %5, i64 noundef 46) #14
   %.not = icmp eq i64 %16, 46
   br i1 %.not, label %17, label %readAt.exit.thread
 
@@ -1280,12 +1280,12 @@ readAt.exit:                                      ; preds = %13
   br i1 %44, label %45, label %readAt.exit.thread
 
 45:                                               ; preds = %32
-  %46 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %43, i32 noundef 0) #14
+  %46 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %43, i32 noundef 0) #14
   %47 = icmp eq i64 %46, %43
   br i1 %47, label %readAt.exit14, label %readAt.exit.thread
 
 readAt.exit14:                                    ; preds = %45
-  %48 = call i64 @read(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 30) #14
+  %48 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 30) #14
   %.not17 = icmp eq i64 %48, 30
   br i1 %.not17, label %49, label %readAt.exit.thread
 

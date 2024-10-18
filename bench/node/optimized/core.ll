@@ -1990,7 +1990,7 @@ lor.lhs.false4.i:                                 ; preds = %entry
   br i1 %cmp5.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false4.i
-  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly @.str.1) #23
+  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.1) #23
   %cmp6.i = icmp eq ptr %call.i, null
   br i1 %cmp6.i, label %if.end, label %if.end8.i
 

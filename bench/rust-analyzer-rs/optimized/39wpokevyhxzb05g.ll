@@ -131,7 +131,7 @@ define internal fastcc void @"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopegu
   %30 = getelementptr inbounds i8, ptr %.val2.i, i64 %29
   %31 = icmp ne i64 %.val1.i, 0
   tail call void @llvm.assume(i1 %31)
-  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %22, i64 noundef %.val1.i) #14, !noalias !8
+  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %22, i64 noundef range(i64 0, -9223372036854775807) %.val1.i) #14, !noalias !8
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6155d9a12f32534E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6155d9a12f32534E.exit": ; preds = %1, %4
@@ -185,7 +185,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 31:                                               ; preds = %18
   %32 = add nuw i64 %.0.i, 1
-  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %15, i64 %32)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %15, i64 range(i64 1, -2305843009213693957) %32)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !17
   %33 = icmp ult i64 %.0.sroa.speculated.i, 8
   br i1 %33, label %37, label %34
@@ -253,7 +253,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.exit.i.i.i: ; preds = %57
   %66 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !27
-  %67 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %62, i64 noundef 16) #14, !noalias !27
+  %67 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %62, i64 noundef range(i64 1, -9223372036854775807) 16) #14, !noalias !27
   %68 = icmp eq ptr %67, null
   br i1 %68, label %74, label %_ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE.exit.i
 
@@ -418,7 +418,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   tail call void @llvm.assume(i1 %127)
   %128 = sub nsw i64 0, %120
   %129 = getelementptr inbounds i8, ptr %.val2.i.i, i64 %128
-  tail call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef %123, i64 noundef 16) #14, !noalias !47
+  tail call void @__rust_dealloc(ptr noundef nonnull %129, i64 noundef %123, i64 noundef range(i64 0, -9223372036854775807) 16) #14, !noalias !47
   br label %"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h821b3d7c3928baa9E.exit"
 
 "_ZN4core3ptr233drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..inner..RawTableInner$C$hashbrown..raw..inner..RawTableInner..prepare_resize$LT$hashbrown..raw..inner..alloc..inner..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h821b3d7c3928baa9E.exit": ; preds = %_ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit, %113

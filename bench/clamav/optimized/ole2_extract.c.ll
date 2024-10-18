@@ -2278,7 +2278,7 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %265
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, i8 0, i64 %250, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, i8 0, i64 range(i64 -2147483648, 4294967296) %250, i1 false)
   %268 = load i64, ptr %172, align 8
   %269 = sub i64 %268, %.02839.i.i
   br label %270
@@ -2659,7 +2659,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %119
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %161
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, i8 0, i64 %146, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, i8 0, i64 range(i64 -2147483648, 4294967296) %146, i1 false)
   %164 = load i64, ptr %64, align 8
   %165 = sub i64 %164, %.02839.i
   br label %166
@@ -3060,7 +3060,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %166
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %147, i8 0, i64 %48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %147, i8 0, i64 range(i64 -2147483648, 4294967296) %48, i1 false)
   %169 = load i64, ptr %60, align 8
   %170 = sub i64 %169, %.02839.i
   br label %171
@@ -3609,7 +3609,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %._crit_edge.i, %98,
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, i8 0, i64 %125, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, i8 0, i64 range(i64 -2147483648, 4294967296) %125, i1 false)
   %143 = load i64, ptr %44, align 8
   %144 = sub i64 %143, %.02839.i
   br label %145
@@ -4475,7 +4475,7 @@ define internal fastcc void @print_ole2_property(ptr nocapture noundef readonly 
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
 16:                                               ; preds = %10
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.94, i32 noundef %5) #21
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.94, i32 noundef range(i32 0, 65) %5) #21
   br label %get_property_name.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %33
@@ -4490,7 +4490,7 @@ define internal fastcc void @print_ole2_property(ptr nocapture noundef readonly 
 
 22:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef %12) #21
-  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef readonly %0, i32 noundef %5)
+  %23 = tail call ptr @cli_ole2_get_property_name2(ptr noundef readonly %0, i32 noundef range(i32 0, 65) %5)
   br label %get_property_name.exit
 
 24:                                               ; preds = %.lr.ph.i
@@ -4687,7 +4687,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocaptur
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 range(i64 -2147483648, 4294967296) %24, i1 false)
   %44 = load i64, ptr %39, align 8
   %45 = sub i64 %44, %.02839.i
   br label %46

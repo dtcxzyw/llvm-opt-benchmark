@@ -113,21 +113,21 @@ define hidden noundef ptr @_ZN18XLoadBarrierStubC26createEPK8MachNode7Address8Re
   br i1 %15, label %38, label %16
 
 16:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull align 8 dereferenceable(21) %1, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(40) %17) #12
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %17) #12
   store ptr %0, ptr %14, align 8
   %22 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %22, ptr noundef nonnull align 8 dereferenceable(21) %6, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %23 = getelementptr inbounds i8, ptr %14, i64 32
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(20) %17, ptr noundef nonnull align 8 dereferenceable(40) %23) #12
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %23) #12
   %27 = getelementptr inbounds i8, ptr %14, i64 72
   store i32 %2, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %14, i64 76
@@ -214,13 +214,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4, i8 noundef zeroext %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %7, ptr noundef nonnull align 8 dereferenceable(21) %2, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 21, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(40) %8) #12
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %8) #12
   %13 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 76
@@ -249,13 +249,13 @@ define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK18XLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(21) %3, i64 21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(40) %4) #12
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   ret void
 }
 
@@ -350,7 +350,7 @@ _ZNK10Node_ArrayixEj.exit.thread.i:               ; preds = %_ZNK10Node_ArrayixE
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %39, %37
   %.0.i.i.i = phi ptr [ %33, %37 ], [ %41, %39 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, i8 0, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, i8 0, i64 88, i1 false)
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 88
   store i32 10, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 92
@@ -665,7 +665,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %87, %91
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %113
 
 113:                                              ; preds = %109
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %110) #12
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %110) #12
   br label %_ZN9Node_List4pushEP4Node.exit
 
 _ZN9Node_List4pushEP4Node.exit:                   ; preds = %109, %113
@@ -706,7 +706,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %109, %113
   br i1 %.not.i.i104, label %_ZN9Node_List4pushEP4Node.exit105, label %133
 
 133:                                              ; preds = %129
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %130) #12
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %130) #12
   br label %_ZN9Node_List4pushEP4Node.exit105
 
 _ZN9Node_List4pushEP4Node.exit105:                ; preds = %129, %133
@@ -726,7 +726,7 @@ _ZN9Node_List4pushEP4Node.exit105:                ; preds = %129, %133
 
 .sink.split.sink.split:                           ; preds = %137, %121
   %.sink229 = phi i32 [ %122, %121 ], [ %138, %137 ]
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.sink229) #12
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %.sink229) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %137, %121
@@ -1017,7 +1017,7 @@ _ZN10Block_ListC2Ev.exit131:                      ; preds = %267
   br i1 %.not.i.i132, label %_ZN10Block_List4pushEP5Block.exit, label %273
 
 273:                                              ; preds = %_ZN10Block_ListC2Ev.exit131
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %270) #12
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %8, i32 noundef %270) #12
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %_ZN10Block_ListC2Ev.exit131, %273
@@ -1165,7 +1165,7 @@ _ZNK5Block8get_nodeEj.exit.i.i140:                ; preds = %319, %_ZNK5Block8ge
   br i1 %.not.i.i147, label %_ZN10Block_List4pushEP5Block.exit148, label %351
 
 351:                                              ; preds = %.lr.ph194
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %348) #12
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %8, i32 noundef %348) #12
   br label %_ZN10Block_List4pushEP5Block.exit148
 
 _ZN10Block_List4pushEP5Block.exit148:             ; preds = %.lr.ph194, %351
@@ -1250,7 +1250,7 @@ _ZN12ResourceMarkD2Ev.exit152:                    ; preds = %375, %377
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK13XBarrierSetC210emit_stubsER10CodeBuffer(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(448) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.MacroAssembler, align 8
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %1) #12
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1) #12
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
@@ -1289,7 +1289,7 @@ define hidden void @_ZNK13XBarrierSetC210emit_stubsER10CodeBuffer(ptr nocapture 
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %18, align 8
-  call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %30, ptr noundef nonnull %17, i32 noundef 2048) #12
+  call void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull align 8 dereferenceable(448) %30, ptr noundef nonnull align 8 dereferenceable(88) %17, i32 noundef 2048) #12
   %31 = load ptr, ptr %19, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit
@@ -1392,11 +1392,11 @@ define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nocaptu
   %53 = sub i64 %51, %52
   %54 = trunc i64 %53 to i32
   store i32 0, ptr %21, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %20, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, i8 0, i64 66, i1 false)
   store i32 0, ptr %23, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %22, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, i8 0, i64 66, i1 false)
   store i32 0, ptr %25, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %24, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %24, i8 0, i64 66, i1 false)
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef null, i1 noundef zeroext false) #12
   store ptr @.str.6, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
@@ -1419,7 +1419,7 @@ define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nocaptu
   store ptr %56, ptr %41, align 8
   store ptr %47, ptr %42, align 8
   store ptr %26, ptr %28, align 8
-  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %2) #12
+  call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %2) #12
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
   call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV14MacroAssembler, i64 16), ptr %3, align 8
@@ -2060,7 +2060,7 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %52
 62:                                               ; preds = %.lr.ph, %_ZN10Block_List4pushEP5Block.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10Block_List4pushEP5Block.exit ]
   %63 = getelementptr inbounds %class.RegMask, ptr %.0.i.i, i64 %indvars.iv
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %63, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %63, i8 0, i64 88, i1 false)
   %64 = getelementptr inbounds i8, ptr %63, i64 88
   store i32 10, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 92
@@ -2076,7 +2076,7 @@ _ZN10Block_ListC2Ev.exit:                         ; preds = %52
   br i1 %.not.i.i79, label %_ZN10Block_List4pushEP5Block.exit, label %72
 
 72:                                               ; preds = %62
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %69) #12
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %69) #12
   br label %_ZN10Block_List4pushEP5Block.exit
 
 _ZN10Block_List4pushEP5Block.exit:                ; preds = %62, %72
@@ -2102,7 +2102,7 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %62, %72
   %87 = load i32, ptr %86, align 4
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds %class.RegMask, ptr %.0.i.i, i64 %88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 88, i1 false)
   store i32 10, ptr %58, align 8
   store i32 0, ptr %59, align 4
   %90 = getelementptr inbounds i8, ptr %85, i64 72
@@ -2374,7 +2374,7 @@ _ZNK10Node_ArrayixEj.exit.thread.i:               ; preds = %_ZNK10Node_ArrayixE
 
 _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %253, %251
   %.0.i.i.i = phi ptr [ %247, %251 ], [ %255, %253 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, i8 0, i64 88, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.0.i.i.i, i8 0, i64 88, i1 false)
   %256 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 88
   store i32 10, ptr %256, align 8
   %257 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 92
@@ -2570,7 +2570,7 @@ _ZN7RegMask2ORERKS_.exit96:                       ; preds = %.lr.ph.i93, %318
   br i1 %.not.i.i99, label %_ZN10Block_List4pushEP5Block.exit100, label %350
 
 350:                                              ; preds = %.lr.ph129
-  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %347) #12
+  call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %347) #12
   br label %_ZN10Block_List4pushEP5Block.exit100
 
 _ZN10Block_List4pushEP5Block.exit100:             ; preds = %.lr.ph129, %350

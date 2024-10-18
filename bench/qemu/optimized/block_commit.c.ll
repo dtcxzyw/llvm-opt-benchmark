@@ -739,11 +739,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @qemu_get_thread_id() #6
   %12 = load i64, ptr %_now.i.i, align 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %job, i64 noundef %offset.048, i64 noundef %7, i32 noundef %call27) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %job, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %offset.048, i64 noundef %7, i32 noundef %call27) #6
   br label %trace_commit_one_iteration.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %job, i64 noundef %offset.048, i64 noundef %7, i32 noundef %call27) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %job, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %offset.048, i64 noundef %7, i32 noundef %call27) #6
   br label %trace_commit_one_iteration.exit
 
 trace_commit_one_iteration.exit:                  ; preds = %if.end25, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -122,7 +122,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN19EAThreadDynamicDataD2Ev.exit:                ; preds = %if.then, %if.then.i
   %mStartedSemaphore.i = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
   tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i) #24
   %mRunMutex.i = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i) #24
@@ -142,7 +142,7 @@ if.then.i9:                                       ; preds = %if.else
 
 _ZN19EAThreadDynamicDataD2Ev.exit13:              ; preds = %if.else, %if.then.i9
   %mStartedSemaphore.i11 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %pEAThreadDynamicData, i8 0, i64 20, i1 false)
   tail call void @_ZN2EA6Thread9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mStartedSemaphore.i11) #24
   %mRunMutex.i12 = getelementptr inbounds i8, ptr %pEAThreadDynamicData, i64 144
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex.i12) #24
@@ -399,7 +399,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %if.end10
 
 if.then.i:                                        ; preds = %if.then7
-  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %2)
+  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %2)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then.i, %if.then7, %if.end
@@ -422,7 +422,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
-  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %0)
+  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %0)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %entry
@@ -549,7 +549,7 @@ if.else.i:                                        ; preds = %for.end.i
 _ZN2EA6Thread25AllocateThreadDynamicDataEv.exit:  ; preds = %if.then.i, %if.then2.i, %if.else.i
   %retval.0.i58 = phi ptr [ %arrayidx1.i, %if.then.i ], [ %call3.i, %if.then2.i ], [ %call4.i, %if.else.i ]
   %mnStatus.i = getelementptr inbounds i8, ptr %retval.0.i58, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %retval.0.i58, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i58, i8 0, i64 20, i1 false)
   store volatile i32 0, ptr %mnStatus.i, align 4
   %mnReturnValue.i = getelementptr inbounds i8, ptr %retval.0.i58, i64 24
   store i64 0, ptr %mnReturnValue.i, align 8
@@ -611,7 +611,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.i, label %if.then.i62, label %for.body.i63.preheader
 
 if.then.i62:                                      ; preds = %if.then11
-  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %9)
+  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %9)
   br label %for.body.i63.preheader
 
 for.body.i63.preheader:                           ; preds = %if.then.i62, %if.then11, %if.end9
@@ -652,7 +652,7 @@ if.else.i76:                                      ; preds = %for.end.i69
 _ZN2EA6Thread25AllocateThreadDynamicDataEv.exit80: ; preds = %if.then.i78, %if.then2.i71, %if.else.i76
   %retval.0.i75 = phi ptr [ %arrayidx1.i79, %if.then.i78 ], [ %call3.i74, %if.then2.i71 ], [ %call4.i77, %if.else.i76 ]
   %mnStatus.i81 = getelementptr inbounds i8, ptr %retval.0.i75, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %retval.0.i75, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i75, i8 0, i64 20, i1 false)
   store volatile i32 0, ptr %mnStatus.i81, align 4
   %mnReturnValue.i82 = getelementptr inbounds i8, ptr %retval.0.i75, i64 24
   store i64 0, ptr %mnReturnValue.i82, align 8
@@ -732,7 +732,7 @@ if.then.i97:                                      ; preds = %if.end39
   br i1 %tobool1.not.i, label %if.else.i100, label %if.then2.i98
 
 if.then2.i98:                                     ; preds = %if.then.i97
-  %call.i99 = call i32 @pthread_attr_setstack(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %23, i64 noundef %24) #24
+  %call.i99 = call i32 @pthread_attr_setstack(ptr noundef nonnull align 8 dereferenceable(56) %creationAttribs, ptr noundef nonnull %23, i64 noundef %24) #24
   br label %if.end9.i
 
 if.else.i100:                                     ; preds = %if.then.i97
@@ -740,14 +740,14 @@ if.else.i100:                                     ; preds = %if.then.i97
   br i1 %tobool5.not.i, label %if.end9.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i100
-  %call8.i = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %creationAttribs, i64 noundef %24) #24
+  %call8.i = call i32 @pthread_attr_setstacksize(ptr noundef nonnull align 8 dereferenceable(56) %creationAttribs, i64 noundef %24) #24
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %if.else.i100, %if.then2.i98
-  %call10.i = call i32 @pthread_attr_getschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #24
+  %call10.i = call i32 @pthread_attr_getschedparam(ptr noundef nonnull align 8 dereferenceable(56) %creationAttribs, ptr noundef nonnull %param.i) #24
   store i32 0, ptr %param.i, align 4
-  %call11.i = call i32 @pthread_attr_setschedpolicy(ptr noundef nonnull %creationAttribs, i32 noundef 0) #24
-  %call12.i = call i32 @pthread_attr_setschedparam(ptr noundef nonnull %creationAttribs, ptr noundef nonnull %param.i) #24
+  %call11.i = call i32 @pthread_attr_setschedpolicy(ptr noundef nonnull align 8 dereferenceable(56) %creationAttribs, i32 noundef 0) #24
+  %call12.i = call i32 @pthread_attr_setschedparam(ptr noundef nonnull align 8 dereferenceable(56) %creationAttribs, ptr noundef nonnull %param.i) #24
   br label %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
 
 _ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit: ; preds = %if.end39, %if.end9.i
@@ -808,7 +808,7 @@ if.end64:                                         ; preds = %if.else, %if.then60
   br i1 %cmp.i106, label %if.then.i107, label %return
 
 if.then.i107:                                     ; preds = %if.end64
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %retval.0.i75)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i75)
   br label %return
 
 if.then67:                                        ; preds = %_ZN12_GLOBAL__N_121SetupThreadAttributesER14pthread_attr_tPKN2EA6Thread16ThreadParametersE.exit
@@ -818,7 +818,7 @@ if.then67:                                        ; preds = %_ZN12_GLOBAL__N_121
   br i1 %cmp.i110, label %if.then.i111, label %_ZN19EAThreadDynamicData7ReleaseEv.exit112
 
 if.then.i111:                                     ; preds = %if.then67
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %retval.0.i75)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i75)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit112
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit112:       ; preds = %if.then67, %if.then.i111
@@ -827,7 +827,7 @@ _ZN19EAThreadDynamicData7ReleaseEv.exit112:       ; preds = %if.then67, %if.then
   br i1 %cmp.i114, label %if.then.i115, label %_ZN19EAThreadDynamicData7ReleaseEv.exit116
 
 if.then.i115:                                     ; preds = %_ZN19EAThreadDynamicData7ReleaseEv.exit112
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %retval.0.i75)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i75)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit116
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit116:       ; preds = %_ZN19EAThreadDynamicData7ReleaseEv.exit112, %if.then.i115
@@ -836,7 +836,7 @@ _ZN19EAThreadDynamicData7ReleaseEv.exit116:       ; preds = %_ZN19EAThreadDynami
   br i1 %cmp.i118, label %if.then.i119, label %_ZN19EAThreadDynamicData7ReleaseEv.exit120
 
 if.then.i119:                                     ; preds = %_ZN19EAThreadDynamicData7ReleaseEv.exit116
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %retval.0.i75)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %retval.0.i75)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit120
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit120:       ; preds = %_ZN19EAThreadDynamicData7ReleaseEv.exit116, %if.then.i119
@@ -951,7 +951,7 @@ if.end23:                                         ; preds = %if.else20, %if.then
   br i1 %cmp.i, label %if.then.i, label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 if.then.i:                                        ; preds = %if.end23
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %pContext)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %pContext)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit:          ; preds = %if.end23, %if.then.i
@@ -1134,7 +1134,7 @@ if.end22:                                         ; preds = %if.end14, %if.else1
   br i1 %cmp.i, label %if.then.i, label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 if.then.i:                                        ; preds = %if.end22
-  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %pContext)
+  call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %pContext)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit:          ; preds = %if.end22, %if.then.i
@@ -1521,7 +1521,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN2EA6Thread6ThreadD2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %1)
+  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %1)
           to label %_ZN2EA6Thread6ThreadD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -1555,7 +1555,7 @@ if.then.i4:                                       ; preds = %delete.notnull
   br i1 %cmp.i.i6, label %if.then.i.i7, label %_ZN2EA6Thread6ThreadD2Ev.exit9
 
 if.then.i.i7:                                     ; preds = %if.then.i4
-  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %7)
+  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %7)
           to label %_ZN2EA6Thread6ThreadD2Ev.exit9 unwind label %terminate.lpad.i8
 
 terminate.lpad.i8:                                ; preds = %if.then.i.i7
@@ -1600,7 +1600,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN2EA6Thread6ThreadD2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %0)
+  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %0)
           to label %_ZN2EA6Thread6ThreadD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i
@@ -1635,7 +1635,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN19EAThreadDynamicData7ReleaseEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %0)
+  invoke void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %0)
           to label %_ZN19EAThreadDynamicData7ReleaseEv.exit.i unwind label %terminate.lpad
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit.i:        ; preds = %if.then.i.i, %if.then.i
@@ -1667,7 +1667,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull %0)
+  tail call void @_ZN2EA6Thread21FreeThreadDynamicDataEP19EAThreadDynamicData(ptr noundef nonnull align 8 dereferenceable(240) %0)
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit:          ; preds = %if.then, %if.then.i

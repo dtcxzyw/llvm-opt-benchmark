@@ -516,7 +516,7 @@ define hidden void @_ZN13CollectedHeap20print_heap_before_gcEv(ptr noundef nonnu
   br i1 %.not4, label %31, label %4
 
 4:                                                ; preds = %1
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #18
@@ -598,7 +598,7 @@ define hidden void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnul
   br i1 %.not4, label %31, label %4
 
 4:                                                ; preds = %1
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #18
@@ -904,7 +904,7 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr nocapture noundef nonnull align 8
 56:                                               ; preds = %53
   %57 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 9, i32 noundef 0) #18
   %58 = load i32, ptr @LogEventsBufferEntries, align 4
-  call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %57) #18
+  call void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %57) #18
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12EventLogBaseI9GCMessageE, i64 16), ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 16
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %59, i32 noundef 0, ptr noundef nonnull @.str.29, i1 noundef zeroext true) #18
@@ -1165,13 +1165,13 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 .thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit, %58, %56, %52, %49
   %.224.ph = phi i32 [ %50, %49 ], [ %50, %52 ], [ %50, %56 ], [ %50, %58 ], [ %.02238, %_ZN11MutexLockerD2Ev.exit ]
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #18
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #18
   br label %62
 
 59:                                               ; preds = %46
   %60 = getelementptr inbounds i8, ptr %5, i64 40
   %61 = load ptr, ptr %60, align 8
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #18
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #18
   br label %.loopexit
 
 62:                                               ; preds = %.thread, %24
@@ -1926,7 +1926,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0E
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %116, i64 8
   %124 = load i64, ptr %123, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %125 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %125) #18
@@ -1957,7 +1957,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0E
   %136 = getelementptr inbounds i8, ptr %7, i64 52
   store i32 1, ptr %136, align 4
   call void @_ZN20VM_GC_HeapInspection4doitEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #18
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   %137 = load ptr, ptr %118, align 8
   %.not.i.i.i.i23 = icmp eq ptr %137, null

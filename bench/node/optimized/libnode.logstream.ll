@@ -264,7 +264,7 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
-  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call, i32 noundef 2, ptr noundef nonnull %0) #18
+  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   ret void
 }
 
@@ -904,7 +904,7 @@ _ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EED2Ev.exit: ; preds = %entry, %_Z
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr, align 8
   %default_listener_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i) #18
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #18
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #18
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #18
   ret void
 }
@@ -950,8 +950,8 @@ _ZN4node4quic9LogStreamD2Ev.exit:                 ; preds = %entry, %_ZNSt11_Deq
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %add.ptr.i, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #18
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #18
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #18
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #18
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -1088,8 +1088,8 @@ _ZN4node4quic9LogStreamD2Ev.exit:                 ; preds = %entry, %_ZNSt11_Deq
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #18
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #18
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #18
   ret void
 }
 
@@ -1134,9 +1134,9 @@ _ZN4node4quic9LogStreamD0Ev.exit:                 ; preds = %entry, %_ZNSt11_Deq
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamBaseE, i64 16), ptr %this, align 8
   %default_listener_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i.i) #18
-  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
-  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #18
+  tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %0) #21
   ret void
 }
 
@@ -1288,7 +1288,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   %0 = load ptr, ptr %args, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args1, align 8
-  tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %0, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef 29, double noundef -1.000000e+00) #18
+  tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(216) %call, ptr noundef %0, ptr %agg.tmp.sroa.0.0.copyload, i32 noundef 29, double noundef -1.000000e+00) #18
   %1 = getelementptr inbounds i8, ptr %call, i64 56
   %listener_.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
   %2 = getelementptr inbounds i8, ptr %call, i64 72
@@ -1331,12 +1331,12 @@ entry:
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i12.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_start.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #18
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(216) %call) #18
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call ptr %3(ptr noundef nonnull align 8 dereferenceable(64) %1) #18
-  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i32 noundef 2, ptr noundef nonnull %1) #18
+  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(64) %1) #18
   store ptr %call, ptr %agg.result, align 8
   %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call) #18
   %cmp2.not.i = icmp eq ptr %call3.i.i, null

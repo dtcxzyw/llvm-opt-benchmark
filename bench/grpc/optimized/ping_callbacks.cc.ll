@@ -99,7 +99,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %on_start, i64 16
   %2 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  tail call void %2(i1 noundef zeroext false, ptr noundef nonnull %on_start, ptr noundef nonnull %0) #17
+  tail call void %2(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %on_start, ptr noundef nonnull align 16 dereferenceable(32) %0) #17
   %3 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   %manager_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %manager_5.i.i.i.i.i.i, align 16
@@ -130,7 +130,7 @@ _ZNSt6vectorIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EE12emplace_backIJS4
 if.then.i4:                                       ; preds = %_ZNSt6vectorIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit
   %manager_.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %on_ack, i64 16
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i5, align 16
-  tail call void %8(i1 noundef zeroext false, ptr noundef nonnull %on_ack, ptr noundef nonnull %6) #17
+  tail call void %8(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %on_ack, ptr noundef nonnull align 16 dereferenceable(32) %6) #17
   %9 = load ptr, ptr %manager_.i.i.i.i.i.i5, align 16
   %manager_5.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %9, ptr %manager_5.i.i.i.i.i.i6, align 16
@@ -250,7 +250,7 @@ if.then:                                          ; preds = %_ZN4absl12lts_20230
 if.then.i:                                        ; preds = %if.then
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %on_ack, i64 16
   %16 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  tail call void %16(i1 noundef zeroext false, ptr noundef nonnull %on_ack, ptr noundef nonnull %14) #17
+  tail call void %16(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %on_ack, ptr noundef nonnull align 16 dereferenceable(32) %14) #17
   %17 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   %manager_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %17, ptr %manager_5.i.i.i.i.i.i, align 16
@@ -283,7 +283,7 @@ if.end:                                           ; preds = %_ZN4absl12lts_20230
 if.then.i5:                                       ; preds = %if.end
   %manager_.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %on_ack, i64 16
   %22 = load ptr, ptr %manager_.i.i.i.i.i.i6, align 16
-  tail call void %22(i1 noundef zeroext false, ptr noundef nonnull %on_ack, ptr noundef nonnull %20) #17
+  tail call void %22(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %on_ack, ptr noundef nonnull align 16 dereferenceable(32) %20) #17
   %23 = load ptr, ptr %manager_.i.i.i.i.i.i6, align 16
   %manager_5.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %23, ptr %manager_5.i.i.i.i.i.i7, align 16
@@ -432,7 +432,7 @@ _ZNSt6vectorIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EED2Ev.exit: ; preds
   %.pre57 = load ptr, ptr %_M_finish.i2.i.i6.phi.trans.insert, align 8
   %_M_end_of_storage.i4.i.i7.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 88
   %.pre58 = load ptr, ptr %_M_end_of_storage.i4.i.i7.phi.trans.insert, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inflight, ptr noundef nonnull align 8 dereferenceable(16) @_ZN17grpc_event_engine12experimental11EventEngine10TaskHandle8kInvalidE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %inflight, ptr noundef nonnull align 8 dereferenceable(16) @_ZN17grpc_event_engine12experimental11EventEngine10TaskHandle8kInvalidE, i64 16, i1 false)
   %on_ack.i = getelementptr inbounds i8, ptr %inflight, i64 16
   %on_ack_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_finish.i.i.i4 = getelementptr inbounds i8, ptr %inflight, i64 24
@@ -498,7 +498,7 @@ call38.i.i.noexc:                                 ; preds = %if.then.i
   %add.ptr.i2.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %24, i64 %call38.i.i31
   store i64 %3, ptr %add.ptr.i2.i, align 8, !noalias !11
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %inflight, i64 16, i1 false), !noalias !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %inflight, i64 16, i1 false), !noalias !11
   %on_ack.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 24
   store ptr %.pre, ptr %on_ack.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 32
@@ -522,7 +522,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %__begin1.sroa.0.052 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %15, %invoke.cont ]
   %invoker_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.052, i64 24
   %27 = load ptr, ptr %invoker_.i.i, align 8
-  invoke void %27(ptr noundef nonnull %__begin1.sroa.0.052)
+  invoke void %27(ptr noundef nonnull align 16 dereferenceable(32) %__begin1.sroa.0.052)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %for.body
@@ -554,7 +554,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.end, %for.body.
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %26, %for.end ]
   %manager_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %28 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i, align 16
-  call void %28(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i.i.i) #17
+  call void %28(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #17
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %25
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !15
@@ -582,7 +582,7 @@ for.body.i.i.i.i13:                               ; preds = %_ZN9grpc_core19Chtt
   %__first.addr.04.i.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i.i16, %for.body.i.i.i.i13 ], [ %30, %_ZN9grpc_core19Chttp2PingCallbacks12InflightPingD2Ev.exit ]
   %manager_.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i14, i64 16
   %32 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i15, align 16
-  call void %32(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i14, ptr noundef nonnull %__first.addr.04.i.i.i.i14) #17
+  call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i14, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i14) #17
   %incdec.ptr.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i14, i64 32
   %cmp.not.i.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i.i16, %31
   br i1 %cmp.not.i.i.i.i17, label %invoke.cont.i20, label %for.body.i.i.i.i13, !llvm.loop !15
@@ -615,7 +615,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   %manager_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %2 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i) #17
+  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i) #17
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !15
@@ -653,7 +653,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %manager_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %2 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i, align 16
-  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i.i) #17
+  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !15
@@ -732,7 +732,7 @@ for.body:                                         ; preds = %invoke.cont12, %for
   %__begin1.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %invoke.cont12 ]
   %invoker_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 24
   %4 = load ptr, ptr %invoker_.i.i, align 8
-  invoke void %4(ptr noundef nonnull %__begin1.sroa.0.09)
+  invoke void %4(ptr noundef nonnull align 16 dereferenceable(32) %__begin1.sroa.0.09)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %for.body
@@ -757,7 +757,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i, %for
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %if.then.i.i.i ]
   %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
-  call void %8(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
+  call void %8(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
@@ -878,7 +878,7 @@ cond.false:                                       ; preds = %_ZN4absl12lts_20230
   store i64 %14, ptr %scevgep.i.i.i.i, align 8, !alias.scope !25
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %second3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %second3.i.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %on_ack.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %on_ack3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %on_ack3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !25
@@ -930,7 +930,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i, %for.b
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i ]
   %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
-  tail call void %3(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
+  tail call void %3(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !15
@@ -976,7 +976,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %manager_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %2 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i, align 16
-  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i, ptr noundef nonnull %__first.addr.04.i.i.i.i) #17
+  tail call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !15
@@ -1002,7 +1002,7 @@ for.body.i.i.i.i11:                               ; preds = %_ZNSt6vectorIN4absl
   %__first.addr.04.i.i.i.i12 = phi ptr [ %incdec.ptr.i.i.i.i14, %for.body.i.i.i.i11 ], [ %3, %_ZNSt6vectorIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EED2Ev.exit ]
   %manager_.i.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i12, i64 16
   %5 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i13, align 16
-  tail call void %5(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i12, ptr noundef nonnull %__first.addr.04.i.i.i.i12) #17
+  tail call void %5(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i12, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i12) #17
   %incdec.ptr.i.i.i.i14 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i12, i64 32
   %cmp.not.i.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i.i14, %4
   br i1 %cmp.not.i.i.i.i15, label %invoke.cont.i18, label %for.body.i.i.i.i11, !llvm.loop !15
@@ -1062,7 +1062,7 @@ for.body.i.i.i.i30:                               ; preds = %for.body, %for.body
   %__first.addr.04.i.i.i.i31 = phi ptr [ %incdec.ptr.i.i.i.i33, %for.body.i.i.i.i30 ], [ %15, %for.body ]
   %manager_.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i31, i64 16
   %17 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i32, align 16
-  tail call void %17(i1 noundef zeroext true, ptr noundef nonnull %__first.addr.04.i.i.i.i31, ptr noundef nonnull %__first.addr.04.i.i.i.i31) #17
+  tail call void %17(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i31, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.04.i.i.i.i31) #17
   %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i31, i64 32
   %cmp.not.i.i.i.i34 = icmp eq ptr %incdec.ptr.i.i.i.i33, %16
   br i1 %cmp.not.i.i.i.i34, label %invoke.cont.i37, label %for.body.i.i.i.i30, !llvm.loop !15
@@ -1227,7 +1227,7 @@ if.end7:                                          ; preds = %_ZN4absl12lts_20230
   %call10 = call i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %ping_timeout)
   %manager_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %15 = load ptr, ptr %manager_.i.i.i, align 16
-  call void %15(i1 noundef zeroext false, ptr noundef nonnull %callback, ptr noundef nonnull %agg.tmp12) #17
+  call void %15(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %callback, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp12) #17
   %16 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   store ptr %16, ptr %manager_5.i.i.i, align 16
@@ -1251,7 +1251,7 @@ invoke.cont16:                                    ; preds = %if.end7
   %ref.tmp8.sroa.2.0.on_timeout.sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
   store i64 %19, ptr %ref.tmp8.sroa.2.0.on_timeout.sroa_idx, align 8
   %21 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %21(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp12, ptr noundef nonnull %agg.tmp12) #17
+  call void %21(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp12, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp12) #17
   %22 = load i64, ptr %most_recent_inflight_, align 8
   br label %return
 
@@ -1259,7 +1259,7 @@ lpad:                                             ; preds = %if.end7
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %manager_5.i.i.i, align 16
-  call void %24(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp12, ptr noundef nonnull %agg.tmp12) #17
+  call void %24(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp12, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp12) #17
   resume { ptr, i32 } %23
 
 return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE4findImEENSH_8iteratorERSE_.exit, %invoke.cont16
@@ -1320,7 +1320,7 @@ _ZNSt12_Vector_baseIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EE11_M_alloca
   %add.ptr = getelementptr inbounds %"class.absl::lts_20230802::AnyInvocable", ptr %cond.i10, i64 %sub.ptr.div.i
   %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %3 = load ptr, ptr %manager_.i.i.i.i.i, align 16
-  tail call void %3(i1 noundef zeroext false, ptr noundef nonnull %__args, ptr noundef nonnull %add.ptr) #17
+  tail call void %3(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %__args, ptr noundef nonnull align 16 dereferenceable(32) %add.ptr) #17
   %4 = load ptr, ptr %manager_.i.i.i.i.i, align 16
   %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store ptr %4, ptr %manager_5.i.i.i.i.i, align 16
@@ -1340,7 +1340,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %manager_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !33, !noalias !30
-  tail call void %6(i1 noundef zeroext false, ptr noundef nonnull %__first.addr.06.i.i.i, ptr noundef nonnull %__cur.07.i.i.i) #17
+  tail call void %6(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.06.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %__cur.07.i.i.i) #17
   %7 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !33, !noalias !30
   %manager_5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   store ptr %7, ptr %manager_5.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !30, !noalias !33
@@ -1368,7 +1368,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4absl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %manager_.i.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %9 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i15, align 16, !alias.scope !39, !noalias !36
-  tail call void %9(i1 noundef zeroext false, ptr noundef nonnull %__first.addr.06.i.i.i14, ptr noundef nonnull %__cur.07.i.i.i13) #17
+  tail call void %9(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %__first.addr.06.i.i.i14, ptr noundef nonnull align 16 dereferenceable(32) %__cur.07.i.i.i13) #17
   %10 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i15, align 16, !alias.scope !39, !noalias !36
   %manager_5.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   store ptr %10, ptr %manager_5.i.i.i.i.i.i.i.i.i16, align 16, !alias.scope !36, !noalias !39
@@ -1598,7 +1598,7 @@ if.then:                                          ; preds = %for.body
   store i64 %14, ptr %add.ptr16, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %second3.i.i.i.i.i.i.i, i64 16, i1 false)
   %on_ack.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 24
   %on_ack3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %15 = load ptr, ptr %on_ack3.i.i.i.i.i.i.i.i, align 8
@@ -1655,7 +1655,7 @@ entry:
   store i64 %0, ptr %dst, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %second3.i.i.i.i.i.i.i, i64 16, i1 false)
   %on_ack.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 24
   %on_ack3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 24
   %1 = load ptr, ptr %on_ack3.i.i.i.i.i.i.i.i, align 8

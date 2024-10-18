@@ -209,7 +209,7 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   %127 = and i32 %95, 384
   %or.cond = icmp ne i32 %127, 128
   %spec.select = and i1 %or.cond, %126
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(64) %.val578.val, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(72) %.val578.val, i8 0, i64 64, i1 false)
   %128 = load i32, ptr %98, align 4
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %77, i64 %129

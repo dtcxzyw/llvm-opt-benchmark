@@ -417,7 +417,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %165
-  %170 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %164, i32 noundef %1) #7
+  %170 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %164, i32 noundef range(i32 0, -2147483648) %1) #7
   br label %printTypmod.exit
 
 171:                                              ; preds = %165

@@ -185,7 +185,7 @@ define dso_local void @_ZN8ConstantD0Ev(ptr noundef nonnull align 8 dereferencea
   store ptr getelementptr inbounds (i8, ptr @_ZTV8Constant, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
@@ -196,7 +196,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK8Constant5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 0)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef 0)
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
@@ -213,7 +213,7 @@ define dso_local noundef nonnull ptr @_ZNK8Constant5cloneEv(ptr noundef nonnull 
 8:                                                ; preds = %.noexc
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #16
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #16
   br label %.body
 
 _ZN8ConstantC2ERKS_.exit:                         ; preds = %.noexc
@@ -667,7 +667,7 @@ define dso_local noundef ptr @_ZN8Constant11make_randomEPK4Type(ptr noundef %0) 
           to label %8 unwind label %4
 
 8:                                                ; preds = %6
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %8
@@ -681,7 +681,7 @@ define dso_local noundef ptr @_ZN8Constant11make_randomEPK4Type(ptr noundef %0) 
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #16
   br label %.body
 
 13:                                               ; preds = %8
@@ -1704,7 +1704,7 @@ define dso_local noundef ptr @_ZN8Constant16make_random_uptoEj(i32 noundef %0) l
           to label %16 unwind label %21
 
 16:                                               ; preds = %15
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 0)
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %16
@@ -1718,7 +1718,7 @@ define dso_local noundef ptr @_ZN8Constant16make_random_uptoEj(i32 noundef %0) l
 19:                                               ; preds = %.noexc
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #16
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #16
   br label %.body
 
 _ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc
@@ -1803,7 +1803,7 @@ define dso_local noundef ptr @_ZN8Constant19make_random_nonzeroEPK4Type(ptr noun
           to label %13 unwind label %.loopexit.split-lp
 
 13:                                               ; preds = %11
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(64) %12, i32 noundef 0)
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %13
@@ -1817,7 +1817,7 @@ define dso_local noundef ptr @_ZN8Constant19make_random_nonzeroEPK4Type(ptr noun
 16:                                               ; preds = %.noexc
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #16
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #16
   br label %.body
 
 18:                                               ; preds = %13
@@ -1897,7 +1897,7 @@ define dso_local noundef ptr @_ZN8Constant8make_intEi(i32 noundef %0) local_unna
           to label %21 unwind label %35
 
 21:                                               ; preds = %.critedge
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef 0)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef 0)
           to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %21
@@ -1911,7 +1911,7 @@ define dso_local noundef ptr @_ZN8Constant8make_intEi(i32 noundef %0) local_unna
 24:                                               ; preds = %.noexc
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #16
   br label %.body
 
 _ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc

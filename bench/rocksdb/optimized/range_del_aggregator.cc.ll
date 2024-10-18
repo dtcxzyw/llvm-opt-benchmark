@@ -332,7 +332,7 @@ invoke.cont5:                                     ; preds = %if.then
   store i64 72057594037927935, ptr %sequence.i.i.i.i.i.i, align 8
   %type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i14, i64 40
   store i8 0, ptr %type.i.i.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i14, ptr noundef nonnull %pinned_bounds_) #23
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %pinned_bounds_) #23
   %1 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i = add i64 %1, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
@@ -387,7 +387,7 @@ invoke.cont20:                                    ; preds = %if.then12
   store i64 72057594037927935, ptr %sequence.i.i.i.i.i.i21, align 8
   %type.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 40
   store i8 0, ptr %type.i.i.i.i.i.i22, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i27, ptr noundef nonnull %pinned_bounds_) #23
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(24) %pinned_bounds_) #23
   %7 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i24 = add i64 %7, 1
   store i64 %add.i.i.i24, ptr %_M_size.i.i.i.i.i, align 8
@@ -437,7 +437,7 @@ if.end38:                                         ; preds = %_ZNKSt14default_del
 while.body.i.i.i:                                 ; preds = %lpad, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %13, %while.body.i.i.i ], [ %6, %lpad ]
   %13 = load ptr, ptr %__cur.05.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #21
   %cmp.not.i.i.i = icmp eq ptr %13, %pinned_bounds_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
@@ -557,7 +557,7 @@ if.end:                                           ; preds = %entry
 if.then19:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !6
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -618,7 +618,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   %pos_.i = getelementptr inbounds i8, ptr %4, i64 136
   %5 = load ptr, ptr %pos_.i, align 8, !noalias !9
   %end_key.i = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i, i64 16, i1 false)
   %sequence.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 72057594037927935, ptr %sequence.i.i, align 8, !alias.scope !9
   %type.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -643,7 +643,7 @@ lor.rhs:                                          ; preds = %land.rhs
   %seq_pos_.i.i = getelementptr inbounds i8, ptr %8, i64 144
   %10 = load ptr, ptr %seq_pos_.i.i, align 8, !noalias !12
   %11 = load i64, ptr %10, align 8, !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %sequence.i.i2 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   store i64 %11, ptr %sequence.i.i2, align 8, !alias.scope !12
   %type.i.i3 = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
@@ -671,7 +671,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %icmp_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %icmp_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %target, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %target, i64 16, i1 false)
   %sequence.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 72057594037927935, ptr %sequence.i, align 8
   %type.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -848,7 +848,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %pos_.i.i = getelementptr inbounds i8, ptr %22, i64 136
   %23 = load ptr, ptr %pos_.i.i, align 8, !noalias !15
   %end_key.i.i = getelementptr inbounds i8, ptr %23, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !15
   store i8 15, ptr %type.i.i.i, align 8, !alias.scope !15
   %call6.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i)
@@ -881,7 +881,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %27, i64 144
   %29 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !18
   %30 = load i64, ptr %29, align 8, !noalias !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store i64 %30, ptr %sequence.i.i2.i, align 8, !alias.scope !18
   store i8 15, ptr %type.i.i3.i, align 8, !alias.scope !18
   %call14.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(25) %24)
@@ -904,7 +904,7 @@ lor.lhs.false.i8:                                 ; preds = %land.rhs
   %pos_.i.i10 = getelementptr inbounds i8, ptr %32, i64 136
   %33 = load ptr, ptr %pos_.i.i10, align 8, !noalias !27
   %end_key.i.i11 = getelementptr inbounds i8, ptr %33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i11, i64 16, i1 false), !noalias !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i11, i64 16, i1 false), !noalias !21
   store i64 72057594037927935, ptr %sequence.i.i.i12, align 8, !alias.scope !24, !noalias !21
   store i8 15, ptr %type.i.i.i13, align 8, !alias.scope !24, !noalias !21
   %call3.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(25) %.pr), !noalias !21
@@ -918,7 +918,7 @@ cond.true.i:                                      ; preds = %land.rhs.thread, %l
   %pos_.i1.i14 = getelementptr inbounds i8, ptr %35, i64 136
   %36 = load ptr, ptr %pos_.i1.i14, align 8, !noalias !31
   %end_key.i2.i = getelementptr inbounds i8, ptr %36, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i, align 8, !alias.scope !31
   store i8 15, ptr %type.i.i4.i, align 8, !alias.scope !31
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit
@@ -967,7 +967,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %icmp_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %icmp_, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %target, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %target, i64 16, i1 false)
   %sequence.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 0, ptr %sequence.i, align 8
   %type.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -1205,7 +1205,7 @@ lor.rhs.i.i.i:                                    ; preds = %_ZNSt3mapImSt10uniq
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i.i.i, %_ZNSt3mapImSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i.i.i, %_ZSt11make_uniqueIN7rocksdb25TruncatedRangeDelIteratorEJSt10unique_ptrINS0_32FragmentedRangeTombstoneIteratorESt14default_deleteIS3_EERPKNS0_21InternalKeyComparatorERPKNS0_11InternalKeyESE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
   %__y.addr.0.lcssa.i.i.i14.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i, %_ZNSt3mapImSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS2_EESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i, %lor.rhs.i.i.i ], [ %1, %_ZSt11make_uniqueIN7rocksdb25TruncatedRangeDelIteratorEJSt10unique_ptrINS0_32FragmentedRangeTombstoneIteratorESt14default_deleteIS3_EERPKNS0_21InternalKeyComparatorERPKNS0_11InternalKeyESE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i ]
-  %call.i.i2.i.i = invoke ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRS1_S7_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %__y.addr.0.lcssa.i.i.i14.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %truncated_iter.i.i)
+  %call.i.i2.i.i = invoke ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE22_M_emplace_hint_uniqueIJRS1_S7_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %__y.addr.0.lcssa.i.i.i14.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %truncated_iter.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i
@@ -1223,7 +1223,7 @@ delete.notnull.i.i.i.i:                           ; preds = %invoke.cont.i.i, %l
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %delete.notnull.i.i.i.i, %while.body.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i = phi ptr [ %18, %while.body.i.i.i.i.i.i.i.i ], [ %17, %delete.notnull.i.i.i.i ]
   %18 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %18, %pinned_bounds_.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -1430,7 +1430,7 @@ lor.lhs.false.i:                                  ; preds = %land.rhs
   %pos_.i.i = getelementptr inbounds i8, ptr %9, i64 136
   %10 = load ptr, ptr %pos_.i.i, align 8, !noalias !44
   %end_key.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !38
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !41, !noalias !38
   store i8 15, ptr %type.i.i.i, align 8, !alias.scope !41, !noalias !38
   %call3.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(25) %7), !noalias !38
@@ -1443,7 +1443,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %l
   %pos_.i1.i = getelementptr inbounds i8, ptr %11, i64 136
   %12 = load ptr, ptr %pos_.i1.i, align 8, !noalias !48
   %end_key.i2.i = getelementptr inbounds i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i, align 8, !alias.scope !48
   store i8 15, ptr %type.i.i4.i, align 8, !alias.scope !48
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit
@@ -1490,7 +1490,7 @@ lor.lhs.false.i15:                                ; preds = %land.lhs.true.i
   %pos_.i.i17 = getelementptr inbounds i8, ptr %19, i64 136
   %20 = load ptr, ptr %pos_.i.i17, align 8, !noalias !49
   %end_key.i.i18 = getelementptr inbounds i8, ptr %20, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i18, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i19, align 8, !alias.scope !49
   store i8 15, ptr %type.i.i.i20, align 8, !alias.scope !49
   %call6.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(25) %17, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i13)
@@ -1521,7 +1521,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %23, i64 144
   %25 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !52
   %26 = load i64, ptr %25, align 8, !noalias !52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i64 %26, ptr %sequence.i.i2.i, align 8, !alias.scope !52
   store i8 15, ptr %type.i.i3.i, align 8, !alias.scope !52
   %call14.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(25) %21)
@@ -1545,7 +1545,7 @@ lor.lhs.false.i26:                                ; preds = %land.rhs8
   %pos_.i.i28 = getelementptr inbounds i8, ptr %30, i64 136
   %31 = load ptr, ptr %pos_.i.i28, align 8, !noalias !61
   %end_key.i.i29 = getelementptr inbounds i8, ptr %31, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i23, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i29, i64 16, i1 false), !noalias !55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i23, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i29, i64 16, i1 false), !noalias !55
   store i64 72057594037927935, ptr %sequence.i.i.i30, align 8, !alias.scope !58, !noalias !55
   store i8 15, ptr %type.i.i.i31, align 8, !alias.scope !58, !noalias !55
   %call3.i32 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i23, ptr noundef nonnull align 8 dereferenceable(25) %28), !noalias !55
@@ -1558,7 +1558,7 @@ cond.true.i35:                                    ; preds = %lor.lhs.false.i26, 
   %pos_.i1.i36 = getelementptr inbounds i8, ptr %32, i64 136
   %33 = load ptr, ptr %pos_.i1.i36, align 8, !noalias !65
   %end_key.i2.i37 = getelementptr inbounds i8, ptr %33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i37, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i38, align 8, !alias.scope !65
   store i8 15, ptr %type.i.i4.i39, align 8, !alias.scope !65
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit40
@@ -1641,7 +1641,7 @@ lor.lhs.false.i54:                                ; preds = %land.rhs16
   %seq_pos_.i.i.i57 = getelementptr inbounds i8, ptr %46, i64 144
   %48 = load ptr, ptr %seq_pos_.i.i.i57, align 8, !noalias !74
   %49 = load i64, ptr %48, align 8, !noalias !74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i51, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !noalias !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i51, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !noalias !68
   store i64 %49, ptr %sequence.i.i.i58, align 8, !alias.scope !71, !noalias !68
   store i8 15, ptr %type.i.i.i59, align 8, !alias.scope !71, !noalias !68
   %call3.i60 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(25) %44, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i51), !noalias !68
@@ -1656,7 +1656,7 @@ cond.true.i63:                                    ; preds = %lor.lhs.false.i54, 
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %50, i64 144
   %52 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !78
   %53 = load i64, ptr %52, align 8, !noalias !78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
   store i64 %53, ptr %sequence.i.i3.i65, align 8, !alias.scope !78
   store i8 15, ptr %type.i.i4.i66, align 8, !alias.scope !78
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
@@ -1764,7 +1764,7 @@ lor.lhs.false.i83:                                ; preds = %land.lhs.true.i80
   %pos_.i.i85 = getelementptr inbounds i8, ptr %71, i64 136
   %72 = load ptr, ptr %pos_.i.i85, align 8, !noalias !79
   %end_key.i.i86 = getelementptr inbounds i8, ptr %72, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i75, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i75, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i86, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i87, align 8, !alias.scope !79
   store i8 15, ptr %type.i.i.i88, align 8, !alias.scope !79
   %call6.i89 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(25) %69, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i75)
@@ -1795,7 +1795,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit102: ; preds = %land.rhs.i91
   %seq_pos_.i.i.i97 = getelementptr inbounds i8, ptr %75, i64 144
   %77 = load ptr, ptr %seq_pos_.i.i.i97, align 8, !noalias !82
   %78 = load i64, ptr %77, align 8, !noalias !82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   store i64 %78, ptr %sequence.i.i2.i98, align 8, !alias.scope !82
   store i8 15, ptr %type.i.i3.i99, align 8, !alias.scope !82
   %call14.i100 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(25) %73)
@@ -1819,7 +1819,7 @@ lor.lhs.false.i106:                               ; preds = %land.rhs29
   %pos_.i.i108 = getelementptr inbounds i8, ptr %82, i64 136
   %83 = load ptr, ptr %pos_.i.i108, align 8, !noalias !91
   %end_key.i.i109 = getelementptr inbounds i8, ptr %83, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i103, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i109, i64 16, i1 false), !noalias !85
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i103, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i109, i64 16, i1 false), !noalias !85
   store i64 72057594037927935, ptr %sequence.i.i.i110, align 8, !alias.scope !88, !noalias !85
   store i8 15, ptr %type.i.i.i111, align 8, !alias.scope !88, !noalias !85
   %call3.i112 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i103, ptr noundef nonnull align 8 dereferenceable(25) %80), !noalias !85
@@ -1832,7 +1832,7 @@ cond.true.i115:                                   ; preds = %lor.lhs.false.i106,
   %pos_.i1.i116 = getelementptr inbounds i8, ptr %84, i64 136
   %85 = load ptr, ptr %pos_.i1.i116, align 8, !noalias !95
   %end_key.i2.i117 = getelementptr inbounds i8, ptr %85, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i117, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i117, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i118, align 8, !alias.scope !95
   store i8 15, ptr %type.i.i4.i119, align 8, !alias.scope !95
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit120
@@ -2015,7 +2015,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %pos_.i.i = getelementptr inbounds i8, ptr %4, i64 136
   %5 = load ptr, ptr %pos_.i.i, align 8, !noalias !98
   %end_key.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !98
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -2050,7 +2050,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %8, i64 144
   %10 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !101
   %11 = load i64, ptr %10, align 8, !noalias !101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %sequence.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
   store i64 %11, ptr %sequence.i.i2.i, align 8, !alias.scope !101
   %type.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 24
@@ -2079,7 +2079,7 @@ lor.lhs.false.i7:                                 ; preds = %if.end
   %seq_pos_.i.i.i10 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load ptr, ptr %seq_pos_.i.i.i10, align 8, !noalias !110
   %18 = load i64, ptr %17, align 8, !noalias !110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !noalias !104
   %sequence.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 16
   store i64 %18, ptr %sequence.i.i.i11, align 8, !alias.scope !107, !noalias !104
   %type.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 24
@@ -2096,7 +2096,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i7, %
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %19, i64 144
   %21 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !114
   %22 = load i64, ptr %21, align 8, !noalias !114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %22, ptr %sequence.i.i3.i, align 8, !alias.scope !114
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -2154,7 +2154,7 @@ while.body.i.i.i:                                 ; preds = %if.then4, %if.end.i
   %add.ptr.i.i12.i.i.i = getelementptr i8, ptr %32, i64 -64
   %retval.0.i13.i.i.i = select i1 %cmp.i8.i.i.i, ptr %arrayidx.i10.i.i.i, ptr %add.ptr.i.i12.i.i.i
   %33 = load ptr, ptr %retval.0.i13.i.i.i, align 8
-  %call6.i.i.i = call noundef zeroext i1 @_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_(ptr noundef nonnull align 8 dereferenceable(8) %inactive_iters_.i, ptr noundef %33, ptr noundef %29)
+  %call6.i.i.i = call noundef zeroext i1 @_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_(ptr noundef nonnull align 8 dereferenceable(120) %inactive_iters_.i, ptr noundef %33, ptr noundef %29)
   br i1 %call6.i.i.i, label %if.end.i.i.i, label %while.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
@@ -2389,7 +2389,7 @@ lor.lhs.false.i:                                  ; preds = %land.rhs
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %9, i64 144
   %11 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !122
   %12 = load i64, ptr %11, align 8, !noalias !122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !noalias !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !noalias !116
   store i64 %12, ptr %sequence.i.i.i, align 8, !alias.scope !119, !noalias !116
   store i8 15, ptr %type.i.i.i, align 8, !alias.scope !119, !noalias !116
   %call3.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(25) %7, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i), !noalias !116
@@ -2404,7 +2404,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %l
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %13, i64 144
   %15 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !126
   %16 = load i64, ptr %15, align 8, !noalias !126
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   store i64 %16, ptr %sequence.i.i3.i, align 8, !alias.scope !126
   store i8 15, ptr %type.i.i4.i, align 8, !alias.scope !126
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
@@ -2451,7 +2451,7 @@ lor.lhs.false.i16:                                ; preds = %land.lhs.true.i
   %pos_.i.i18 = getelementptr inbounds i8, ptr %23, i64 136
   %24 = load ptr, ptr %pos_.i.i18, align 8, !noalias !127
   %end_key.i.i = getelementptr inbounds i8, ptr %24, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i19, align 8, !alias.scope !127
   store i8 15, ptr %type.i.i.i20, align 8, !alias.scope !127
   %call6.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(25) %21, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i13)
@@ -2482,7 +2482,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i22 = getelementptr inbounds i8, ptr %27, i64 144
   %29 = load ptr, ptr %seq_pos_.i.i.i22, align 8, !noalias !130
   %30 = load i64, ptr %29, align 8, !noalias !130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   store i64 %30, ptr %sequence.i.i2.i, align 8, !alias.scope !130
   store i8 15, ptr %type.i.i3.i, align 8, !alias.scope !130
   %call14.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(25) %25)
@@ -2508,7 +2508,7 @@ lor.lhs.false.i26:                                ; preds = %land.rhs8
   %seq_pos_.i.i.i29 = getelementptr inbounds i8, ptr %34, i64 144
   %36 = load ptr, ptr %seq_pos_.i.i.i29, align 8, !noalias !139
   %37 = load i64, ptr %36, align 8, !noalias !139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i23, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !noalias !133
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i23, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !noalias !133
   store i64 %37, ptr %sequence.i.i.i30, align 8, !alias.scope !136, !noalias !133
   store i8 15, ptr %type.i.i.i31, align 8, !alias.scope !136, !noalias !133
   %call3.i32 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(25) %32, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i23), !noalias !133
@@ -2523,7 +2523,7 @@ cond.true.i35:                                    ; preds = %lor.lhs.false.i26, 
   %seq_pos_.i.i2.i37 = getelementptr inbounds i8, ptr %38, i64 144
   %40 = load ptr, ptr %seq_pos_.i.i2.i37, align 8, !noalias !143
   %41 = load i64, ptr %40, align 8, !noalias !143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   store i64 %41, ptr %sequence.i.i3.i38, align 8, !alias.scope !143
   store i8 15, ptr %type.i.i4.i39, align 8, !alias.scope !143
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit40
@@ -2604,7 +2604,7 @@ lor.lhs.false.i54:                                ; preds = %land.rhs16
   %pos_.i.i56 = getelementptr inbounds i8, ptr %54, i64 136
   %55 = load ptr, ptr %pos_.i.i56, align 8, !noalias !152
   %end_key.i.i57 = getelementptr inbounds i8, ptr %55, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i51, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i57, i64 16, i1 false), !noalias !146
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i51, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i57, i64 16, i1 false), !noalias !146
   store i64 72057594037927935, ptr %sequence.i.i.i58, align 8, !alias.scope !149, !noalias !146
   store i8 15, ptr %type.i.i.i59, align 8, !alias.scope !149, !noalias !146
   %call3.i60 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i51, ptr noundef nonnull align 8 dereferenceable(25) %52), !noalias !146
@@ -2617,7 +2617,7 @@ cond.true.i63:                                    ; preds = %lor.lhs.false.i54, 
   %pos_.i1.i64 = getelementptr inbounds i8, ptr %56, i64 136
   %57 = load ptr, ptr %pos_.i1.i64, align 8, !noalias !156
   %end_key.i2.i = getelementptr inbounds i8, ptr %57, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i65, align 8, !alias.scope !156
   store i8 15, ptr %type.i.i4.i66, align 8, !alias.scope !156
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit
@@ -2725,7 +2725,7 @@ lor.lhs.false.i83:                                ; preds = %land.lhs.true.i80
   %pos_.i.i85 = getelementptr inbounds i8, ptr %75, i64 136
   %76 = load ptr, ptr %pos_.i.i85, align 8, !noalias !157
   %end_key.i.i86 = getelementptr inbounds i8, ptr %76, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i75, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i86, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i75, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i86, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i87, align 8, !alias.scope !157
   store i8 15, ptr %type.i.i.i88, align 8, !alias.scope !157
   %call6.i89 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(25) %73, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i75)
@@ -2756,7 +2756,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit102: ; preds = %land.rhs.i91
   %seq_pos_.i.i.i97 = getelementptr inbounds i8, ptr %79, i64 144
   %81 = load ptr, ptr %seq_pos_.i.i.i97, align 8, !noalias !160
   %82 = load i64, ptr %81, align 8, !noalias !160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
   store i64 %82, ptr %sequence.i.i2.i98, align 8, !alias.scope !160
   store i8 15, ptr %type.i.i3.i99, align 8, !alias.scope !160
   %call14.i100 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i76, ptr noundef nonnull align 8 dereferenceable(25) %77)
@@ -2782,7 +2782,7 @@ lor.lhs.false.i106:                               ; preds = %land.rhs29
   %seq_pos_.i.i.i109 = getelementptr inbounds i8, ptr %86, i64 144
   %88 = load ptr, ptr %seq_pos_.i.i.i109, align 8, !noalias !169
   %89 = load i64, ptr %88, align 8, !noalias !169
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i103, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !noalias !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i103, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !noalias !163
   store i64 %89, ptr %sequence.i.i.i110, align 8, !alias.scope !166, !noalias !163
   store i8 15, ptr %type.i.i.i111, align 8, !alias.scope !166, !noalias !163
   %call3.i112 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(25) %84, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i103), !noalias !163
@@ -2797,7 +2797,7 @@ cond.true.i115:                                   ; preds = %lor.lhs.false.i106,
   %seq_pos_.i.i2.i117 = getelementptr inbounds i8, ptr %90, i64 144
   %92 = load ptr, ptr %seq_pos_.i.i2.i117, align 8, !noalias !173
   %93 = load i64, ptr %92, align 8, !noalias !173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   store i64 %93, ptr %sequence.i.i3.i118, align 8, !alias.scope !173
   store i8 15, ptr %type.i.i4.i119, align 8, !alias.scope !173
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit120
@@ -2980,7 +2980,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %pos_.i.i = getelementptr inbounds i8, ptr %4, i64 136
   %5 = load ptr, ptr %pos_.i.i, align 8, !noalias !176
   %end_key.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !176
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -3017,7 +3017,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %9, i64 144
   %11 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !179
   %12 = load i64, ptr %11, align 8, !noalias !179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %sequence.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
   store i64 %12, ptr %sequence.i.i2.i, align 8, !alias.scope !179
   %type.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 24
@@ -3044,7 +3044,7 @@ lor.lhs.false.i7:                                 ; preds = %if.else
   %pos_.i.i9 = getelementptr inbounds i8, ptr %15, i64 136
   %16 = load ptr, ptr %pos_.i.i9, align 8, !noalias !188
   %end_key.i.i10 = getelementptr inbounds i8, ptr %16, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i10, i64 16, i1 false), !noalias !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i10, i64 16, i1 false), !noalias !182
   %sequence.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i11, align 8, !alias.scope !185, !noalias !182
   %type.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 24
@@ -3060,7 +3060,7 @@ cond.true.i:                                      ; preds = %if.else.thread, %lo
   %pos_.i1.i13 = getelementptr inbounds i8, ptr %18, i64 136
   %19 = load ptr, ptr %pos_.i1.i13, align 8, !noalias !192
   %end_key.i2.i = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 72057594037927935, ptr %sequence.i.i3.i, align 8, !alias.scope !192
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -3119,7 +3119,7 @@ while.body.i.i.i:                                 ; preds = %if.then3, %if.end.i
   %add.ptr.i.i12.i.i.i = getelementptr i8, ptr %30, i64 -64
   %retval.0.i13.i.i.i = select i1 %cmp.i8.i.i.i, ptr %arrayidx.i10.i.i.i, ptr %add.ptr.i.i12.i.i.i
   %31 = load ptr, ptr %retval.0.i13.i.i.i, align 8
-  %call6.i.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator19EndKeyMaxComparatorclEPKNS_25TruncatedRangeDelIteratorES4_(ptr noundef nonnull align 8 dereferenceable(8) %inactive_iters_.i, ptr noundef %31, ptr noundef %27)
+  %call6.i.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator19EndKeyMaxComparatorclEPKNS_25TruncatedRangeDelIteratorES4_(ptr noundef nonnull align 8 dereferenceable(120) %inactive_iters_.i, ptr noundef %31, ptr noundef %27)
   br i1 %call6.i.i.i, label %if.end.i.i.i, label %while.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
@@ -3487,7 +3487,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %icmp_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %1 = load ptr, ptr %icmp_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %parsed, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %parsed, i64 16, i1 false)
   %sequence.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i, align 8
   %type.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -3571,7 +3571,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %icmp_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %1 = load ptr, ptr %icmp_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %parsed, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %parsed, i64 16, i1 false)
   %sequence.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 0, ptr %sequence.i.i, align 8
   %type.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -3664,12 +3664,12 @@ entry:
   %ref.tmp32 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %ref.tmp38 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   tail call void @_ZN7rocksdb18RangeDelAggregator9StripeRep10InvalidateEv(ptr noundef nonnull align 8 dereferenceable(656) %this)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %start_ikey, ptr noundef nonnull align 8 dereferenceable(16) %start, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %start_ikey, ptr noundef nonnull align 8 dereferenceable(16) %start, i64 16, i1 false)
   %sequence.i = getelementptr inbounds i8, ptr %start_ikey, i64 16
   store i64 72057594037927935, ptr %sequence.i, align 8
   %type.i = getelementptr inbounds i8, ptr %start_ikey, i64 24
   store i8 0, ptr %type.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end_ikey, ptr noundef nonnull align 8 dereferenceable(16) %end, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %end_ikey, ptr noundef nonnull align 8 dereferenceable(16) %end, i64 16, i1 false)
   %sequence.i13 = getelementptr inbounds i8, ptr %end_ikey, i64 16
   store i64 0, ptr %sequence.i13, align 8
   %type.i14 = getelementptr inbounds i8, ptr %end_ikey, i64 24
@@ -3728,7 +3728,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.rhs.i:                                       ; preds = %for.body
   %icmp_.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %icmp_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %start, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %start, i64 16, i1 false)
   store i64 0, ptr %sequence.i.i, align 8
   store i8 15, ptr %type.i.i, align 8
   %call.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(25) %3)
@@ -3824,7 +3824,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i18
   %pos_.i.i22 = getelementptr inbounds i8, ptr %26, i64 136
   %27 = load ptr, ptr %pos_.i.i22, align 8, !noalias !196
   %end_key.i.i = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i15, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i15, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !196
   store i8 15, ptr %type.i.i.i, align 8, !alias.scope !196
   %call6.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(25) %24, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i15)
@@ -3857,7 +3857,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i23
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %30, i64 144
   %32 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !199
   %33 = load i64, ptr %32, align 8, !noalias !199
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   store i64 %33, ptr %sequence.i.i2.i, align 8, !alias.scope !199
   store i8 15, ptr %type.i.i3.i, align 8, !alias.scope !199
   %call14.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(25) %28)
@@ -3886,7 +3886,7 @@ lor.lhs.false.i28:                                ; preds = %land.rhs
   %seq_pos_.i.i.i31 = getelementptr inbounds i8, ptr %38, i64 144
   %40 = load ptr, ptr %seq_pos_.i.i.i31, align 8, !noalias !208
   %41 = load i64, ptr %40, align 8, !noalias !208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i25, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !noalias !202
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i25, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !noalias !202
   store i64 %41, ptr %sequence.i.i.i32, align 8, !alias.scope !205, !noalias !202
   store i8 15, ptr %type.i.i.i33, align 8, !alias.scope !205, !noalias !202
   %call3.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(25) %36, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i25), !noalias !202
@@ -3901,7 +3901,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i28, 
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %42, i64 144
   %44 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !212
   %45 = load i64, ptr %44, align 8, !noalias !212
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
   store i64 %45, ptr %sequence.i.i3.i, align 8, !alias.scope !212
   store i8 15, ptr %type.i.i4.i, align 8, !alias.scope !212
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit
@@ -3935,7 +3935,7 @@ lor.lhs.false.i39:                                ; preds = %for.body13
   %pos_.i.i41 = getelementptr inbounds i8, ptr %51, i64 136
   %52 = load ptr, ptr %pos_.i.i41, align 8, !noalias !219
   %end_key.i.i42 = getelementptr inbounds i8, ptr %52, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i36, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i42, i64 16, i1 false), !noalias !213
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i36, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i42, i64 16, i1 false), !noalias !213
   store i64 72057594037927935, ptr %sequence.i.i.i43, align 8, !alias.scope !216, !noalias !213
   store i8 15, ptr %type.i.i.i44, align 8, !alias.scope !216, !noalias !213
   %call3.i45 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i36, ptr noundef nonnull align 8 dereferenceable(25) %49), !noalias !213
@@ -3948,7 +3948,7 @@ cond.true.i48:                                    ; preds = %lor.lhs.false.i39, 
   %pos_.i1.i49 = getelementptr inbounds i8, ptr %53, i64 136
   %54 = load ptr, ptr %pos_.i1.i49, align 8, !noalias !223
   %end_key.i2.i = getelementptr inbounds i8, ptr %54, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i50, align 8, !alias.scope !223
   store i8 15, ptr %type.i.i4.i51, align 8, !alias.scope !223
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit
@@ -3984,7 +3984,7 @@ lor.lhs.false.i55:                                ; preds = %land.rhs19
   %seq_pos_.i.i.i58 = getelementptr inbounds i8, ptr %60, i64 144
   %62 = load ptr, ptr %seq_pos_.i.i.i58, align 8, !noalias !230
   %63 = load i64, ptr %62, align 8, !noalias !230
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i52, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !noalias !224
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i52, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !noalias !224
   store i64 %63, ptr %sequence.i.i.i59, align 8, !alias.scope !227, !noalias !224
   store i8 15, ptr %type.i.i.i60, align 8, !alias.scope !227, !noalias !224
   %call3.i61 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(25) %58, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i52), !noalias !224
@@ -3999,7 +3999,7 @@ cond.true.i64:                                    ; preds = %lor.lhs.false.i55, 
   %seq_pos_.i.i2.i66 = getelementptr inbounds i8, ptr %64, i64 144
   %66 = load ptr, ptr %seq_pos_.i.i2.i66, align 8, !noalias !234
   %67 = load i64, ptr %66, align 8, !noalias !234
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
   store i64 %67, ptr %sequence.i.i3.i67, align 8, !alias.scope !234
   store i8 15, ptr %type.i.i4.i68, align 8, !alias.scope !234
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit69
@@ -4048,7 +4048,7 @@ if.then27:                                        ; preds = %_ZNK7rocksdb25Trunc
 land.rhs.i73:                                     ; preds = %if.then27
   %icmp_.i74 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %icmp_.i74, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i70, ptr noundef nonnull align 8 dereferenceable(16) %end, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i70, ptr noundef nonnull align 8 dereferenceable(16) %end, i64 16, i1 false)
   store i64 0, ptr %sequence.i.i75, align 8
   store i8 15, ptr %type.i.i76, align 8
   %call.i77 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i70, ptr noundef nonnull align 8 dereferenceable(25) %75)
@@ -4137,7 +4137,7 @@ lor.lhs.false.i113:                               ; preds = %land.lhs.true.i110
   %pos_.i.i115 = getelementptr inbounds i8, ptr %97, i64 136
   %98 = load ptr, ptr %pos_.i.i115, align 8, !noalias !236
   %end_key.i.i116 = getelementptr inbounds i8, ptr %98, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i116, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i116, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i117, align 8, !alias.scope !236
   store i8 15, ptr %type.i.i.i118, align 8, !alias.scope !236
   %call6.i119 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(25) %95, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i105)
@@ -4170,7 +4170,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit132: ; preds = %land.rhs.i12
   %seq_pos_.i.i.i127 = getelementptr inbounds i8, ptr %101, i64 144
   %103 = load ptr, ptr %seq_pos_.i.i.i127, align 8, !noalias !239
   %104 = load i64, ptr %103, align 8, !noalias !239
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i106, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i106, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
   store i64 %104, ptr %sequence.i.i2.i128, align 8, !alias.scope !239
   store i8 15, ptr %type.i.i3.i129, align 8, !alias.scope !239
   %call14.i130 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i106, ptr noundef nonnull align 8 dereferenceable(25) %99)
@@ -4197,7 +4197,7 @@ lor.lhs.false.i136:                               ; preds = %land.lhs.true
   %pos_.i.i138 = getelementptr inbounds i8, ptr %109, i64 136
   %110 = load ptr, ptr %pos_.i.i138, align 8, !noalias !248
   %end_key.i.i139 = getelementptr inbounds i8, ptr %110, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i133, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i139, i64 16, i1 false), !noalias !242
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i133, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i139, i64 16, i1 false), !noalias !242
   store i64 72057594037927935, ptr %sequence.i.i.i140, align 8, !alias.scope !245, !noalias !242
   store i8 15, ptr %type.i.i.i141, align 8, !alias.scope !245, !noalias !242
   %call3.i142 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i133, ptr noundef nonnull align 8 dereferenceable(25) %107), !noalias !242
@@ -4210,7 +4210,7 @@ cond.true.i145:                                   ; preds = %lor.lhs.false.i136,
   %pos_.i1.i146 = getelementptr inbounds i8, ptr %111, i64 136
   %112 = load ptr, ptr %pos_.i1.i146, align 8, !noalias !252
   %end_key.i2.i147 = getelementptr inbounds i8, ptr %112, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i147, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i147, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i148, align 8, !alias.scope !252
   store i8 15, ptr %type.i.i4.i149, align 8, !alias.scope !252
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator7end_keyEv.exit150
@@ -4246,7 +4246,7 @@ lor.lhs.false.i154:                               ; preds = %land.rhs36
   %seq_pos_.i.i.i157 = getelementptr inbounds i8, ptr %118, i64 144
   %120 = load ptr, ptr %seq_pos_.i.i.i157, align 8, !noalias !259
   %121 = load i64, ptr %120, align 8, !noalias !259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i151, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false), !noalias !253
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i151, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false), !noalias !253
   store i64 %121, ptr %sequence.i.i.i158, align 8, !alias.scope !256, !noalias !253
   store i8 15, ptr %type.i.i.i159, align 8, !alias.scope !256, !noalias !253
   %call3.i160 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(25) %116, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i151), !noalias !253
@@ -4261,7 +4261,7 @@ cond.true.i163:                                   ; preds = %lor.lhs.false.i154,
   %seq_pos_.i.i2.i165 = getelementptr inbounds i8, ptr %122, i64 144
   %124 = load ptr, ptr %seq_pos_.i.i2.i165, align 8, !noalias !263
   %125 = load i64, ptr %124, align 8, !noalias !263
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false)
   store i64 %125, ptr %sequence.i.i3.i166, align 8, !alias.scope !263
   store i8 15, ptr %type.i.i4.i167, align 8, !alias.scope !263
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit168
@@ -4625,7 +4625,7 @@ delete.notnull.i:                                 ; preds = %entry
 while.body.i.i.i.i.i:                             ; preds = %delete.notnull.i, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i.i ], [ %1, %delete.notnull.i ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, %pinned_bounds_.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !4
 
@@ -5303,7 +5303,7 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i
 while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %delete.notnull.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %18, %while.body.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %delete.notnull.i.i.i.i.i.i.i ]
   %18 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, %pinned_bounds_.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -5935,7 +5935,7 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i
 while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %delete.notnull.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %7, %while.body.i.i.i.i.i.i.i.i.i.i.i ], [ %6, %delete.notnull.i.i.i.i.i.i.i ]
   %7 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %pinned_bounds_.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -6100,7 +6100,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry,
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -6110,7 +6110,7 @@ call.i.noexc:                                     ; preds = %_ZNSt8__detail14__t
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -6281,7 +6281,7 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body
 while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %delete.notnull.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %delete.notnull.i.i.i.i.i.i.i ]
   %4 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, %pinned_bounds_.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -6302,7 +6302,7 @@ _ZNKSt14default_deleteIN7rocksdb25TruncatedRangeDelIteratorEEclEPS1_.exit.i.i.i.
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
 
 _ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %while.body, %_ZNKSt14default_deleteIN7rocksdb25TruncatedRangeDelIteratorEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %__x.addr.05) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !296
 
@@ -6527,7 +6527,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %pos_.i.i = getelementptr inbounds i8, ptr %5, i64 136
   %6 = load ptr, ptr %pos_.i.i, align 8, !noalias !306
   %end_key.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !300
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !300
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !303, !noalias !300
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -6542,7 +6542,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %e
   %pos_.i1.i = getelementptr inbounds i8, ptr %7, i64 136
   %8 = load ptr, ptr %pos_.i1.i, align 8, !noalias !310
   %end_key.i2.i = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 72057594037927935, ptr %sequence.i.i3.i, align 8, !alias.scope !310
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -6574,7 +6574,7 @@ lor.lhs.false.i5:                                 ; preds = %_ZNK7rocksdb25Trunc
   %pos_.i.i7 = getelementptr inbounds i8, ptr %14, i64 136
   %15 = load ptr, ptr %pos_.i.i7, align 8, !noalias !317
   %end_key.i.i8 = getelementptr inbounds i8, ptr %15, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i8, i64 16, i1 false), !noalias !311
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i8, i64 16, i1 false), !noalias !311
   %sequence.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i9, align 8, !alias.scope !314, !noalias !311
   %type.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 24
@@ -6589,7 +6589,7 @@ cond.true.i14:                                    ; preds = %lor.lhs.false.i5, %
   %pos_.i1.i15 = getelementptr inbounds i8, ptr %16, i64 136
   %17 = load ptr, ptr %pos_.i1.i15, align 8, !noalias !321
   %end_key.i2.i16 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i16, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i16, i64 16, i1 false)
   %sequence.i.i3.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i64 72057594037927935, ptr %sequence.i.i3.i17, align 8, !alias.scope !321
   %type.i.i4.i18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
@@ -6702,7 +6702,7 @@ while.body.i.i:                                   ; preds = %_ZNSt8multisetIPN7r
   %17 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %16, i64 %div1.i.i.i
   %add.ptr.i.i11.i.i = getelementptr i8, ptr %17, i64 -64
   %retval.0.i12.i.i = select i1 %cmp.i7.i.i, ptr %arrayidx.i9.i.i, ptr %add.ptr.i.i11.i.i
-  %call6.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ForwardRangeDelIterator19EndKeyMinComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(8) %active_iters_, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i12.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
+  %call6.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ForwardRangeDelIterator19EndKeyMinComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(120) %active_iters_, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i12.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
   br i1 %call6.i.i, label %if.end.i.i, label %while.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
@@ -6874,7 +6874,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !330
   %6 = load i64, ptr %5, align 8, !noalias !330
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !noalias !324
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !noalias !324
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %6, ptr %sequence.i.i.i, align 8, !alias.scope !327, !noalias !324
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -6891,7 +6891,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %e
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %7, i64 144
   %9 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !334
   %10 = load i64, ptr %9, align 8, !noalias !334
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %10, ptr %sequence.i.i3.i, align 8, !alias.scope !334
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -6922,7 +6922,7 @@ lor.lhs.false.i4:                                 ; preds = %_ZNK7rocksdb25Trunc
   %seq_pos_.i.i.i7 = getelementptr inbounds i8, ptr %14, i64 144
   %16 = load ptr, ptr %seq_pos_.i.i.i7, align 8, !noalias !341
   %17 = load i64, ptr %16, align 8, !noalias !341
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !noalias !335
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !noalias !335
   %sequence.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 16
   store i64 %17, ptr %sequence.i.i.i8, align 8, !alias.scope !338, !noalias !335
   %type.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 24
@@ -6939,7 +6939,7 @@ cond.true.i13:                                    ; preds = %lor.lhs.false.i4, %
   %seq_pos_.i.i2.i15 = getelementptr inbounds i8, ptr %18, i64 144
   %20 = load ptr, ptr %seq_pos_.i.i2.i15, align 8, !noalias !345
   %21 = load i64, ptr %20, align 8, !noalias !345
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %sequence.i.i3.i16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i64 %21, ptr %sequence.i.i3.i16, align 8, !alias.scope !345
   %type.i.i4.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
@@ -7367,7 +7367,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %5, i64 144
   %7 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !360
   %8 = load i64, ptr %7, align 8, !noalias !360
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !354
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !354
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %8, ptr %sequence.i.i.i, align 8, !alias.scope !357, !noalias !354
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -7384,7 +7384,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %e
   %seq_pos_.i.i2.i = getelementptr inbounds i8, ptr %9, i64 144
   %11 = load ptr, ptr %seq_pos_.i.i2.i, align 8, !noalias !364
   %12 = load i64, ptr %11, align 8, !noalias !364
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %12, ptr %sequence.i.i3.i, align 8, !alias.scope !364
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -7418,7 +7418,7 @@ lor.lhs.false.i5:                                 ; preds = %_ZNK7rocksdb25Trunc
   %seq_pos_.i.i.i8 = getelementptr inbounds i8, ptr %18, i64 144
   %20 = load ptr, ptr %seq_pos_.i.i.i8, align 8, !noalias !371
   %21 = load i64, ptr %20, align 8, !noalias !371
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !noalias !365
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !noalias !365
   %sequence.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 16
   store i64 %21, ptr %sequence.i.i.i9, align 8, !alias.scope !368, !noalias !365
   %type.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 24
@@ -7435,7 +7435,7 @@ cond.true.i14:                                    ; preds = %lor.lhs.false.i5, %
   %seq_pos_.i.i2.i16 = getelementptr inbounds i8, ptr %22, i64 144
   %24 = load ptr, ptr %seq_pos_.i.i2.i16, align 8, !noalias !375
   %25 = load i64, ptr %24, align 8, !noalias !375
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %sequence.i.i3.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i64 %25, ptr %sequence.i.i3.i17, align 8, !alias.scope !375
   %type.i.i4.i18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
@@ -7544,7 +7544,7 @@ while.body.i.i:                                   ; preds = %_ZNSt8multisetIPN7r
   %17 = getelementptr %"struct.std::_Rb_tree_const_iterator", ptr %16, i64 %div1.i.i.i
   %add.ptr.i.i11.i.i = getelementptr i8, ptr %17, i64 -64
   %retval.0.i12.i.i = select i1 %cmp.i7.i.i, ptr %arrayidx.i9.i.i, ptr %add.ptr.i.i11.i.i
-  %call6.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator21StartKeyMaxComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(8) %active_iters_, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i12.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
+  %call6.i.i = call noundef zeroext i1 @_ZNK7rocksdb23ReverseRangeDelIterator21StartKeyMaxComparatorclERKSt23_Rb_tree_const_iteratorIPNS_25TruncatedRangeDelIteratorEES7_(ptr noundef nonnull align 8 dereferenceable(120) %active_iters_, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i12.i.i, ptr noundef nonnull align 8 dereferenceable(8) %v.i.i)
   br i1 %call6.i.i, label %if.end.i.i, label %while.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
@@ -7610,7 +7610,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %pos_.i.i = getelementptr inbounds i8, ptr %3, i64 136
   %4 = load ptr, ptr %pos_.i.i, align 8, !noalias !383
   %end_key.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !377
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !380, !noalias !377
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -7625,7 +7625,7 @@ cond.true.i:                                      ; preds = %lor.lhs.false.i, %e
   %pos_.i1.i = getelementptr inbounds i8, ptr %5, i64 136
   %6 = load ptr, ptr %pos_.i1.i, align 8, !noalias !387
   %end_key.i2.i = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i, i64 16, i1 false)
   %sequence.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 72057594037927935, ptr %sequence.i.i3.i, align 8, !alias.scope !387
   %type.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -7654,7 +7654,7 @@ lor.lhs.false.i4:                                 ; preds = %_ZNK7rocksdb25Trunc
   %pos_.i.i6 = getelementptr inbounds i8, ptr %10, i64 136
   %11 = load ptr, ptr %pos_.i.i6, align 8, !noalias !394
   %end_key.i.i7 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i7, i64 16, i1 false), !noalias !388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i1, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i7, i64 16, i1 false), !noalias !388
   %sequence.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i8, align 8, !alias.scope !391, !noalias !388
   %type.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 24
@@ -7669,7 +7669,7 @@ cond.true.i13:                                    ; preds = %lor.lhs.false.i4, %
   %pos_.i1.i14 = getelementptr inbounds i8, ptr %12, i64 136
   %13 = load ptr, ptr %pos_.i1.i14, align 8, !noalias !398
   %end_key.i2.i15 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i15, i64 16, i1 false)
   %sequence.i.i3.i16 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i64 72057594037927935, ptr %sequence.i.i3.i16, align 8, !alias.scope !398
   %type.i.i4.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
@@ -7928,7 +7928,7 @@ delete.notnull.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i
 while.body.i.i.i.i.i.i.i.i.i.i:                   ; preds = %delete.notnull.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i.i.i.i.i.i.i ], [ %3, %delete.notnull.i.i.i.i.i.i ]
   %4 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, %pinned_bounds_.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -8157,7 +8157,7 @@ delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i
 while.body.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %while.body.i.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %delete.notnull.i.i.i.i.i.i.i.i ]
   %11 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %pinned_bounds_.i.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -8422,7 +8422,7 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then
 while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %delete.notnull.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %3, %while.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %delete.notnull.i.i.i.i.i.i.i ]
   %3 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i.i.i.i.i.i.i.i.i) #21
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, %pinned_bounds_.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN7rocksdb17ParsedInternalKeyESaIS2_EED2Ev.exit.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -8443,7 +8443,7 @@ _ZNKSt14default_deleteIN7rocksdb25TruncatedRangeDelIteratorEEclEPS1_.exit.i.i.i.
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
 
 _ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %if.then, %_ZNKSt14default_deleteIN7rocksdb25TruncatedRangeDelIteratorEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS4_EEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %entry
@@ -9243,7 +9243,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i
   %seq_pos_.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 144
   %11 = load ptr, ptr %seq_pos_.i.i.i.i, align 8, !noalias !412
   %12 = load i64, ptr %11, align 8, !noalias !412
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !noalias !406
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !noalias !406
   %sequence.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i64 %12, ptr %sequence.i.i.i.i, align 8, !alias.scope !409, !noalias !406
   %type.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
@@ -9260,7 +9260,7 @@ cond.true.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   %seq_pos_.i.i2.i.i = getelementptr inbounds i8, ptr %13, i64 144
   %15 = load ptr, ptr %seq_pos_.i.i2.i.i, align 8, !noalias !416
   %16 = load i64, ptr %15, align 8, !noalias !416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   %sequence.i.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %16, ptr %sequence.i.i3.i.i, align 8, !alias.scope !416
   %type.i.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -9388,7 +9388,7 @@ if.then:                                          ; preds = %for.body
 land.rhs.i:                                       ; preds = %if.then
   %icmp_.i = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %icmp_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i, align 8
   store i8 15, ptr %type.i.i, align 8
   %call.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i)
@@ -9478,7 +9478,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i12
   %pos_.i.i16 = getelementptr inbounds i8, ptr %32, i64 136
   %33 = load ptr, ptr %pos_.i.i16, align 8, !noalias !417
   %end_key.i.i = getelementptr inbounds i8, ptr %33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i9, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i9, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !417
   store i8 15, ptr %type.i.i.i, align 8, !alias.scope !417
   %call6.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(25) %30, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i9)
@@ -9511,7 +9511,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i17
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %36, i64 144
   %38 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !420
   %39 = load i64, ptr %38, align 8, !noalias !420
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   store i64 %39, ptr %sequence.i.i2.i, align 8, !alias.scope !420
   store i8 15, ptr %type.i.i3.i, align 8, !alias.scope !420
   %call14.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(25) %34)
@@ -9548,7 +9548,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i21
   %pos_.i.i.i = getelementptr inbounds i8, ptr %45, i64 136
   %46 = load ptr, ptr %pos_.i.i.i, align 8, !noalias !429
   %end_key.i.i.i = getelementptr inbounds i8, ptr %46, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i.i, i64 16, i1 false), !noalias !423
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i.i, i64 16, i1 false), !noalias !423
   store i64 72057594037927935, ptr %sequence.i.i.i.i, align 8, !alias.scope !426, !noalias !423
   store i8 15, ptr %type.i.i.i.i, align 8, !alias.scope !426, !noalias !423
   %call3.i.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(25) %43), !noalias !423
@@ -9561,7 +9561,7 @@ cond.true.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   %pos_.i1.i.i = getelementptr inbounds i8, ptr %47, i64 136
   %48 = load ptr, ptr %pos_.i1.i.i, align 8, !noalias !433
   %end_key.i2.i.i = getelementptr inbounds i8, ptr %48, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i19, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i19, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i2.i.i, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i3.i.i, align 8, !alias.scope !433
   store i8 15, ptr %type.i.i4.i.i, align 8, !alias.scope !433
   br label %_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter14BeforeStartKeyEPKNS_25TruncatedRangeDelIteratorE.exit
@@ -9639,7 +9639,7 @@ lor.lhs.false.i41:                                ; preds = %land.lhs.true.i38
   %pos_.i.i43 = getelementptr inbounds i8, ptr %65, i64 136
   %66 = load ptr, ptr %pos_.i.i43, align 8, !noalias !435
   %end_key.i.i44 = getelementptr inbounds i8, ptr %66, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i33, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i44, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i33, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i44, i64 16, i1 false)
   store i64 72057594037927935, ptr %sequence.i.i.i45, align 8, !alias.scope !435
   store i8 15, ptr %type.i.i.i46, align 8, !alias.scope !435
   %call6.i47 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(25) %63, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i33)
@@ -9672,7 +9672,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit60: ; preds = %land.rhs.i49
   %seq_pos_.i.i.i55 = getelementptr inbounds i8, ptr %69, i64 144
   %71 = load ptr, ptr %seq_pos_.i.i.i55, align 8, !noalias !438
   %72 = load i64, ptr %71, align 8, !noalias !438
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i34, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i34, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
   store i64 %72, ptr %sequence.i.i2.i56, align 8, !alias.scope !438
   store i8 15, ptr %type.i.i3.i57, align 8, !alias.scope !438
   %call14.i58 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i34, ptr noundef nonnull align 8 dereferenceable(25) %67)
@@ -9739,7 +9739,7 @@ lor.lhs.false.i.i68:                              ; preds = %while.body.i.i
   %seq_pos_.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 144
   %88 = load ptr, ptr %seq_pos_.i.i.i.i, align 8, !noalias !447
   %89 = load i64, ptr %88, align 8, !noalias !447
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i65, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !noalias !441
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i65, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !noalias !441
   store i64 %89, ptr %sequence.i.i.i.i71, align 8, !alias.scope !444, !noalias !441
   store i8 15, ptr %type.i.i.i.i72, align 8, !alias.scope !444, !noalias !441
   %call3.i.i73 = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(25) %84, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i.i65), !noalias !441
@@ -9754,7 +9754,7 @@ cond.true.i.i78:                                  ; preds = %lor.lhs.false.i.i68
   %seq_pos_.i.i2.i.i = getelementptr inbounds i8, ptr %90, i64 144
   %92 = load ptr, ptr %seq_pos_.i.i2.i.i, align 8, !noalias !451
   %93 = load i64, ptr %92, align 8, !noalias !451
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i66, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   store i64 %93, ptr %sequence.i.i3.i.i80, align 8, !alias.scope !451
   store i8 15, ptr %type.i.i4.i.i81, align 8, !alias.scope !451
   br label %_ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit.i
@@ -9781,7 +9781,7 @@ lor.lhs.false.i4.i:                               ; preds = %_ZNK7rocksdb25Trunc
   %seq_pos_.i.i.i7.i = getelementptr inbounds i8, ptr %97, i64 144
   %99 = load ptr, ptr %seq_pos_.i.i.i7.i, align 8, !noalias !458
   %100 = load i64, ptr %99, align 8, !noalias !458
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !452
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i1.i, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !noalias !452
   store i64 %100, ptr %sequence.i.i.i8.i, align 8, !alias.scope !455, !noalias !452
   store i8 15, ptr %type.i.i.i9.i, align 8, !alias.scope !455, !noalias !452
   %call3.i10.i = call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(25) %95, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i1.i), !noalias !452
@@ -9796,7 +9796,7 @@ cond.true.i13.i:                                  ; preds = %lor.lhs.false.i4.i,
   %seq_pos_.i.i2.i15.i = getelementptr inbounds i8, ptr %101, i64 144
   %103 = load ptr, ptr %seq_pos_.i.i2.i15.i, align 8, !noalias !462
   %104 = load i64, ptr %103, align 8, !noalias !462
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
   store i64 %104, ptr %sequence.i.i3.i16.i, align 8, !alias.scope !462
   store i8 15, ptr %type.i.i4.i17.i, align 8, !alias.scope !462
   br label %_ZNK7rocksdb21StartKeyMinComparatorclEPKNS_25TruncatedRangeDelIteratorES3_.exit
@@ -9913,7 +9913,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %pos_.i.i = getelementptr inbounds i8, ptr %8, i64 136
   %9 = load ptr, ptr %pos_.i.i, align 8, !noalias !463
   %end_key.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false)
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !463
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -9948,7 +9948,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator5ValidEv.exit: ; preds = %land.rhs.i
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %12, i64 144
   %14 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !466
   %15 = load i64, ptr %14, align 8, !noalias !466
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %sequence.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
   store i64 %15, ptr %sequence.i.i2.i, align 8, !alias.scope !466
   %type.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 24
@@ -10111,7 +10111,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %seq_pos_.i.i.i = getelementptr inbounds i8, ptr %5, i64 144
   %7 = load ptr, ptr %seq_pos_.i.i.i, align 8, !noalias !475
   %8 = load i64, ptr %7, align 8, !noalias !475
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !469
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %8, ptr %sequence.i.i.i, align 8, !alias.scope !472, !noalias !469
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -10163,7 +10163,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit: ; preds = %cond.true.i
   %type.i.i = getelementptr inbounds i8, ptr %pik.i, i64 24
   store i8 15, ptr %type.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %cur_start_key_5) #23
-  call void @_ZN7rocksdb39AppendInternalKeyWithDifferentTimestampEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyERKNS_5SliceE(ptr noundef nonnull %cur_start_key_5, ptr noundef nonnull align 8 dereferenceable(25) %pik.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  call void @_ZN7rocksdb39AppendInternalKeyWithDifferentTimestampEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(32) %cur_start_key_5, ptr noundef nonnull align 8 dereferenceable(25) %pik.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pik.i)
   br label %if.end
 
@@ -10183,7 +10183,7 @@ lor.lhs.false.i9:                                 ; preds = %if.else
   %seq_pos_.i.i.i12 = getelementptr inbounds i8, ptr %21, i64 144
   %23 = load ptr, ptr %seq_pos_.i.i.i12, align 8, !noalias !485
   %24 = load i64, ptr %23, align 8, !noalias !485
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !noalias !479
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !noalias !479
   %sequence.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 16
   store i64 %24, ptr %sequence.i.i.i13, align 8, !alias.scope !482, !noalias !479
   %type.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 24
@@ -10218,7 +10218,7 @@ _ZNK7rocksdb25TruncatedRangeDelIterator9start_keyEv.exit23: ; preds = %cond.true
   %type.i.i27 = getelementptr inbounds i8, ptr %ref.tmp.i25, i64 24
   store i8 15, ptr %type.i.i27, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %cur_start_key_5) #23
-  call void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyE(ptr noundef nonnull %cur_start_key_5, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i25)
+  call void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_17ParsedInternalKeyE(ptr noundef nonnull align 8 dereferenceable(32) %cur_start_key_5, ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i25)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i25)
   br label %if.end
 
@@ -10273,7 +10273,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %pos_.i.i = getelementptr inbounds i8, ptr %5, i64 136
   %6 = load ptr, ptr %pos_.i.i, align 8, !noalias !495
   %end_key.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !489
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i, i64 16, i1 false), !noalias !489
   %sequence.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i, align 8, !alias.scope !492, !noalias !489
   %type.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -10320,7 +10320,7 @@ lor.lhs.false.i7:                                 ; preds = %if.end
   %pos_.i.i9 = getelementptr inbounds i8, ptr %12, i64 136
   %13 = load ptr, ptr %pos_.i.i9, align 8, !noalias !506
   %end_key.i.i10 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i10, i64 16, i1 false), !noalias !500
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i10, i64 16, i1 false), !noalias !500
   %sequence.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i11, align 8, !alias.scope !503, !noalias !500
   %type.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i4, i64 24
@@ -10359,7 +10359,7 @@ lor.lhs.false.i25:                                ; preds = %_ZNK7rocksdb25Trunc
   %pos_.i.i27 = getelementptr inbounds i8, ptr %.pre49, i64 136
   %18 = load ptr, ptr %pos_.i.i27, align 8, !noalias !516
   %end_key.i.i28 = getelementptr inbounds i8, ptr %18, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i22, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i28, i64 16, i1 false), !noalias !510
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %ref.tmp.i22, ptr noundef nonnull align 8 dereferenceable(16) %end_key.i.i28, i64 16, i1 false), !noalias !510
   %sequence.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 16
   store i64 72057594037927935, ptr %sequence.i.i.i29, align 8, !alias.scope !513, !noalias !510
   %type.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 24
@@ -10425,7 +10425,7 @@ define internal void @_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter6s
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !520
   ret void
 }
 
@@ -10590,7 +10590,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN7rocksdb22PinnedIteratorsManagerD2Ev.exit:     ; preds = %if.end.i, %if.then.i.i.i.i
-  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_iters_mgr_) #23
+  tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %pinned_iters_mgr_) #23
   %pinned_slices_ = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %pinned_slices_, align 8
   %cmp.not4.i.i.i = icmp eq ptr %4, %pinned_slices_
@@ -10601,7 +10601,7 @@ while.body.i.i.i:                                 ; preds = %_ZN7rocksdb22Pinned
   %5 = load ptr, ptr %__cur.05.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #23
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #21
   %cmp.not.i.i.i = icmp eq ptr %5, %pinned_slices_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !523
 

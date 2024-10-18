@@ -1238,7 +1238,7 @@ define noalias noundef ptr @Aig_ManLevelize(ptr nocapture noundef readonly %0) l
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %.011.i, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %.011.i, i32 range(i32 0, 16777216) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Aig_ManLevelNum.exit.loopexit, label %7, !llvm.loop !14
@@ -1250,7 +1250,7 @@ Aig_ManLevelNum.exit.loopexit:                    ; preds = %7
 Aig_ManLevelNum.exit:                             ; preds = %Aig_ManLevelNum.exit.loopexit, %1
   %.0.lcssa.i = phi i32 [ 1, %1 ], [ %20, %Aig_ManLevelNum.exit.loopexit ]
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 8)
+  %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 1, 16777217) %.0.lcssa.i, i32 8)
   store i32 %spec.store.select.i.i, ptr %21, align 8
   %22 = shl nuw nsw i32 %spec.store.select.i.i, 3
   %23 = zext nneg i32 %22 to i64
@@ -1463,7 +1463,7 @@ define range(i32 0, 16777216) i32 @Aig_ManLevelNum(ptr nocapture noundef readonl
   %16 = lshr i64 %15, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
-  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %.011, i32 %18)
+  %19 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %.011, i32 range(i32 0, 16777216) %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !14

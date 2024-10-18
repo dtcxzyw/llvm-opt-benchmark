@@ -1989,7 +1989,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11.i.i
   br i1 %cmp.i.i.i116, label %if.then.i.i.i133, label %if.end.i.i.i117
 
 if.then.i.i.i133:                                 ; preds = %if.then.i.i.i
-  %call2.i14.i.i134 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
+  %call2.i14.i.i134 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(124) %222, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i, i64 noundef 0)
           to label %call2.i14.i.i.noexc unwind label %lpad7.loopexit.i.i
 
 call2.i14.i.i.noexc:                              ; preds = %if.then.i.i.i133

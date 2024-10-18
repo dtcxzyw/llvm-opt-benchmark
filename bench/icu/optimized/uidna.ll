@@ -580,7 +580,7 @@ uidna_toASCII_75.exit.thread:                     ; preds = %if.end.i
   br label %CLEANUP
 
 if.end15.i:                                       ; preds = %lor.lhs.false6.i
-  %call16.i = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %b3Stack, i32 noundef 100, i32 noundef %options, ptr noundef %call11.i, ptr noundef %parseError, ptr noundef %status)
+  %call16.i = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %b3Stack, i32 noundef 100, i32 noundef %options, ptr noundef %call11.i, ptr noundef %parseError, ptr noundef nonnull %status)
   call void @usprep_close_75(ptr noundef %call11.i)
   %.pr132.pre = load i32, ptr %status, align 4
   br label %uidna_toASCII_75.exit
@@ -620,7 +620,7 @@ if.end10.i:                                       ; preds = %if.end.i100
   br i1 %cmp.i14.i104, label %if.end15.i105, label %CLEANUP
 
 if.end15.i105:                                    ; preds = %if.end10.i
-  %call16.i106 = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %call62, i32 noundef %retval.0.i96, i32 noundef %options, ptr noundef %call11.i103, ptr noundef %parseError, ptr noundef %status)
+  %call16.i106 = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %call62, i32 noundef %retval.0.i96, i32 noundef %options, ptr noundef %call11.i103, ptr noundef %parseError, ptr noundef nonnull %status)
   call void @usprep_close_75(ptr noundef %call11.i103)
   %.pre144 = load i32, ptr %status, align 4
   br label %if.end67

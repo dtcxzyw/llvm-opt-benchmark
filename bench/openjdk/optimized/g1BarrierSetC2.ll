@@ -934,7 +934,7 @@ define hidden void @_ZNK14G1BarrierSetC212post_barrierEP8GraphKitP4NodeS3_S3_S3_
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 0, ptr %11, align 8
-  %44 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %5, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
+  %44 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %5, ptr noundef nonnull %43, ptr noundef nonnull align 8 dereferenceable(8) %11) #6
   %45 = call noundef ptr @_ZN12AllocateNode16Ideal_allocationEP4Node(ptr noundef %44) #6
   %46 = load i64, ptr %11, align 8
   %47 = icmp eq i64 %46, -2000000001

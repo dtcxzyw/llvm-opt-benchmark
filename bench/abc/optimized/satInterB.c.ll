@@ -1318,7 +1318,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %164 = sext i32 %.val238 to i64
   %165 = getelementptr inbounds ptr, ptr %.val235, i64 %164
   %.val245 = load ptr, ptr %74, align 8
-  %166 = call ptr @Aig_IthVar(ptr noundef %.val245, i32 noundef %.0.i246) #19
+  %166 = call ptr @Aig_IthVar(ptr noundef %.val245, i32 noundef range(i32 -1, 2147483647) %.0.i246) #19
   br i1 %.not211, label %171, label %167
 
 167:                                              ; preds = %._crit_edge285
@@ -2317,7 +2317,7 @@ define void @Intb_ManPrepareInter(ptr nocapture noundef readonly %0) local_unnam
   %37 = getelementptr inbounds ptr, ptr %.val, i64 %36
   %.val43 = load ptr, ptr %5, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @Aig_IthVar(ptr noundef %.val43, i32 noundef %34) #19
+  %39 = tail call ptr @Aig_IthVar(ptr noundef %.val43, i32 noundef range(i32 0, 2147483647) %34) #19
   %40 = ptrtoint ptr %39 to i64
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr

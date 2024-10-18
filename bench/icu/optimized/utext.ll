@@ -3588,7 +3588,7 @@ _ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit: ; preds = %if.end35.i, %whil
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
   %conv37.i = trunc i64 %sub.ptr.div.i to i32
   %add38.i = add nsw i32 %reqLength.1.lcssa.i, %conv37.i
-  %call41.i = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %add38.i, ptr noundef nonnull %pErrorCode)
+  %call41.i = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef range(i32 0, -2147483648) %destCapacity, i32 noundef %add38.i, ptr noundef nonnull %pErrorCode)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %index.i)
   %conv61 = sext i32 %limit32.0 to i64
   %call62 = call noundef signext i8 @_ZL14utf8TextAccessP5UTextla(ptr noundef %ut, i64 noundef %conv61, i8 noundef signext 1)

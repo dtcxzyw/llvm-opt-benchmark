@@ -952,7 +952,7 @@ if.else189:                                       ; preds = %_ZN8QuantLib5ArrayD
   br i1 %cmp.not.i.i201, label %cond.end.thread.i.i, label %for.body.i.i.i.preheader.i.i
 
 cond.end.thread.i.i:                              ; preds = %if.else189
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp195, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp195, i8 0, i64 16, i1 false)
   br label %invoke.cont201
 
 for.body.i.i.i.preheader.i.i:                     ; preds = %if.else189
@@ -11195,7 +11195,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not.i.i.i, label %cond.end.i.i.i, label %if.then.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %for.body
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.010, i8 0, i64 16, i1 false)
   br label %for.inc
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -11430,7 +11430,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.not.i.i.i, label %cond.end.i.i.i, label %if.then.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %for.body
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.011, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.011, i8 0, i64 16, i1 false)
   br label %for.inc
 
 if.then.i.i.i:                                    ; preds = %for.body
@@ -11603,7 +11603,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.not.i.i.i, label %cond.end.i.i.i, label %if.then.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %for.body
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.011, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.011, i8 0, i64 16, i1 false)
   br label %for.inc
 
 if.then.i.i.i:                                    ; preds = %for.body

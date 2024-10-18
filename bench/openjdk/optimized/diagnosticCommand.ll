@@ -2886,7 +2886,7 @@ define hidden void @_ZN17FinalizerInfoDCmd7executeE10DCmdSourceP10JavaThread(ptr
   %..i = select i1 %45, i64 20, i64 24
   %46 = select i1 %35, i64 16, i64 %..i
   %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %48 = call noundef ptr %47(ptr noundef nonnull %33, i64 noundef %46) #17
+  %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %46) #17
   %49 = load i8, ptr @UseCompressedClassPointers, align 1
   %50 = trunc i8 %49 to i1
   %51 = getelementptr inbounds i8, ptr %48, i64 8
@@ -2961,11 +2961,11 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %52, %62
   %95 = shl nuw nsw i64 %indvars.iv, %.7.i22
   %96 = add nuw nsw i64 %94, %95
   %97 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %98 = call noundef ptr %97(ptr noundef nonnull %33, i64 noundef %96) #17
+  %98 = call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %96) #17
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %99 = sext i32 %.sroa.1.0.copyload.i to i64
   %100 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %101 = call noundef ptr %100(ptr noundef nonnull %98, i64 noundef %99) #17
+  %101 = call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(16) %98, i64 noundef %99) #17
   %102 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef %101) #17
   %.sroa.1.0.copyload.i24 = load i32, ptr %.sroa.1.0..sroa_idx.i23, align 8
   %103 = ptrtoint ptr %98 to i64
@@ -3320,7 +3320,7 @@ define hidden void @_ZN18ClassHistogramDCmd7executeE10DCmdSourceP10JavaThread(pt
   %37 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 %21, ptr %37, align 4
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #17
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #17
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   br label %38
 
 38:                                               ; preds = %20, %8
@@ -3767,7 +3767,7 @@ define hidden void @_ZN18JMXStartRemoteDCmd7executeE10DCmdSourceP10JavaThread(pt
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 35:                                               ; preds = %23
-  %36 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef 8, i32 noundef 0) #17
+  %36 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %35, %33
@@ -4596,7 +4596,7 @@ define hidden void @_ZN17JMXStartLocalDCmd7executeE10DCmdSourceP10JavaThread(ptr
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 33:                                               ; preds = %21
-  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 8, i32 noundef 0) #17
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
@@ -4690,7 +4690,7 @@ define hidden void @_ZN17JMXStopRemoteDCmd7executeE10DCmdSourceP10JavaThread(ptr
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 33:                                               ; preds = %21
-  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 8, i32 noundef 0) #17
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31
@@ -4795,7 +4795,7 @@ define hidden void @_ZN13JMXStatusDCmd7executeE10DCmdSourceP10JavaThread(ptr noc
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 33:                                               ; preds = %21
-  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 8, i32 noundef 0) #17
+  %34 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef 8, i32 noundef 0) #17
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %33, %31

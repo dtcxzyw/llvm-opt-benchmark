@@ -1715,7 +1715,7 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
@@ -1758,7 +1758,7 @@ entry:
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64

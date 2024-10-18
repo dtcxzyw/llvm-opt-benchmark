@@ -850,7 +850,7 @@ define range(i32 -43, 1) i32 @opal_cmd_line_parse(ptr noundef %0, i1 noundef zer
   br i1 %.not18.i, label %24, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.3, ptr noundef nonnull dereferenceable(1) %20) #22
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.3, ptr noundef nonnull dereferenceable(1) %20) #22
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %find_option.exit.loopexit, label %24
 
@@ -861,7 +861,7 @@ define range(i32 -43, 1) i32 @opal_cmd_line_parse(ptr noundef %0, i1 noundef zer
   br i1 %.not19.i, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(5) @.str.3, ptr noundef nonnull dereferenceable(1) %26) #22
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.3, ptr noundef nonnull dereferenceable(1) %26) #22
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %find_option.exit.loopexit, label %30
 

@@ -1403,7 +1403,7 @@ invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIK
   %30 = call ptr @__dynamic_cast(ptr nonnull %29, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev14Lut3DTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18Lut3DTransformImplE, i64 0) #20
   %m_data.i32 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %lutData, align 8
-  %call.i33 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i32, ptr noundef nonnull align 8 dereferenceable(168) %31)
+  %call.i33 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(232) %m_data.i32, ptr noundef nonnull align 8 dereferenceable(232) %31)
           to label %call.i.noexc unwind label %lpad11
 
 call.i.noexc:                                     ; preds = %invoke.cont7

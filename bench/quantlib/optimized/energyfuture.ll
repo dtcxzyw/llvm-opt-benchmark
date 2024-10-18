@@ -602,7 +602,7 @@ _ZN8QuantLib13CommodityTypeD2Ev.exit:             ; preds = %invoke.cont, %if.th
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %quantity, i64 8
   %17 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !38
   store ptr %17, ptr %pn.i.i.i, align 8, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quantity, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %quantity, i8 0, i64 16, i1 false)
   %unitOfMeasure_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %unitOfMeasure_3.i = getelementptr inbounds nuw i8, ptr %quantity, i64 16
   %18 = load ptr, ptr %unitOfMeasure_3.i, align 8, !tbaa !70
@@ -1614,7 +1614,7 @@ _ZN8QuantLib13CommodityTypeD2Ev.exit:             ; preds = %invoke.cont, %if.th
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %quantity, i64 8
   %15 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !38
   store ptr %15, ptr %pn.i.i.i, align 8, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quantity, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %quantity, i8 0, i64 16, i1 false)
   %unitOfMeasure_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %unitOfMeasure_3.i = getelementptr inbounds nuw i8, ptr %quantity, i64 16
   %16 = load ptr, ptr %unitOfMeasure_3.i, align 8, !tbaa !70
@@ -4684,7 +4684,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -4789,7 +4789,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib12EnergyFutureD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %2) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 424) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(312) %2, i64 noundef 424) #32
   ret void
 }
 
@@ -7687,7 +7687,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i
@@ -8059,7 +8059,7 @@ terminate.lpad.i.i.i.i26:                         ; preds = %if.then.i.i.i.i.i.i
 
 _ZN8QuantLib15EnergyCommodityD2Ev.exit:           ; preds = %_ZN8QuantLib8QuantityD2Ev.exit, %if.then.i.i.i.i20, %.noexc.i.i.i.i27, %if.then.i.i.i.i.i.i30
   %53 = getelementptr inbounds i8, ptr %vtt, i64 16
-  tail call void @_ZN8QuantLib9CommodityD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %53) #28
+  tail call void @_ZN8QuantLib9CommodityD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %53) #28
   ret void
 }
 

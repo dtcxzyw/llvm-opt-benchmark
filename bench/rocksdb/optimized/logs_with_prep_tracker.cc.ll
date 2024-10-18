@@ -19,7 +19,7 @@ $_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE14_M_insert_rvalEN9_
 define void @_ZN7rocksdb19LogsWithPrepTracker33MarkLogAsHavingPrepSectionFlushedEm(ptr noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %log) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prepared_section_completed_mutex_ = getelementptr inbounds i8, ptr %this, i64 120
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -157,7 +157,7 @@ lpad:                                             ; preds = %if.end.i.i
 
 lpad.body:                                        ; preds = %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %16, %lpad ], [ %15, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit15.i.i ]
-  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   resume { ptr, i32 } %eh.lpad-body
 
 if.else:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
@@ -169,7 +169,7 @@ if.else:                                          ; preds = %for.cond.i.i.i.i, %
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont9
-  %call1.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   ret void
 }
 
@@ -180,7 +180,7 @@ define void @_ZN7rocksdb19LogsWithPrepTracker30MarkLogAsContainingPrepSectionEm(
 entry:
   %ref.tmp18 = alloca %"struct.rocksdb::LogsWithPrepTracker::LogCnt", align 8
   %logs_with_prep_mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -219,7 +219,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
 lpad:                                             ; preds = %if.then14
   %4 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   resume { ptr, i32 } %4
 
 if.then14:                                        ; preds = %invoke.cont3, %invoke.cont
@@ -230,7 +230,7 @@ if.then14:                                        ; preds = %invoke.cont3, %invo
           to label %if.end25 unwind label %lpad
 
 if.end25:                                         ; preds = %if.then14, %invoke.cont10
-  %call1.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i8 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   ret void
 }
 
@@ -238,7 +238,7 @@ if.end25:                                         ; preds = %if.then14, %invoke.
 define noundef i64 @_ZN7rocksdb19LogsWithPrepTracker35FindMinLogContainingOutstandingPrepEv(ptr noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %logs_with_prep_mutex_ = getelementptr inbounds i8, ptr %this, i64 24
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -264,7 +264,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt10lock_guardIS
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
   %storemerge50 = phi ptr [ %0, %for.body.lr.ph ], [ %add.ptr.i.i16, %_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ]
   %2 = load i64, ptr %storemerge50, align 8
-  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   %tobool.not.i.i3 = icmp eq i32 %call1.i.i.i2, 0
   br i1 %tobool.not.i.i3, label %invoke.cont, label %if.then.i.i4
 
@@ -337,7 +337,7 @@ lor.rhs:                                          ; preds = %for.cond.i.i.i.i, %
 lpad:                                             ; preds = %if.then.i.i4
   %14 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   resume { ptr, i32 } %14
 
 if.end:                                           ; preds = %lor.rhs
@@ -409,7 +409,7 @@ if.then11.i.i.i.i:                                ; preds = %if.then6.i.i.i.i
   br label %cleanup.cont
 
 cleanup.thread:                                   ; preds = %lor.rhs, %if.end15.i.i, %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i
-  %call1.i.i.i1533 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i1533 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   br label %cleanup34
 
 cleanup.cont:                                     ; preds = %cond.end.i.i.i.i, %if.end11.i.i.i.i.i, %if.else.i.i.i.i, %if.then6.i.i.i.i, %if.then11.i.i.i.i
@@ -419,7 +419,7 @@ cleanup.cont:                                     ; preds = %cond.end.i.i.i.i, %
   %25 = load i64, ptr %_M_element_count.i.i.i, align 8
   %dec.i.i.i.i = add i64 %25, -1
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i, align 8
-  %call1.i.i.i15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %prepared_section_completed_mutex_) #11
+  %call1.i.i.i15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %prepared_section_completed_mutex_) #11
   %26 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %storemerge50 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %26 to i64
@@ -447,7 +447,7 @@ _ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17_
 
 cleanup34:                                        ; preds = %_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %cleanup.thread
   %retval.2 = phi i64 [ %2, %cleanup.thread ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ 0, %_ZNSt6vectorIN7rocksdb19LogsWithPrepTracker6LogCntESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ]
-  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %logs_with_prep_mutex_) #11
+  %call1.i.i.i19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %logs_with_prep_mutex_) #11
   ret i64 %retval.2
 }
 

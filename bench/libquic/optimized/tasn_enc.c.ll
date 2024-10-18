@@ -444,7 +444,7 @@ for.body.i:                                       ; preds = %for.cond.i.preheade
   %i.0.i99 = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.i.preheader ]
   %call17.i = call ptr @sk_value(ptr noundef nonnull %4, i64 noundef %i.0.i99) #11
   store ptr %call17.i, ptr %skitem.i, align 8
-  %call18.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %6, i32 noundef -1, i32 noundef %and14)
+  %call18.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %out, ptr noundef %6, i32 noundef -1, i32 noundef range(i32 0, -192) %and14)
   %inc.i = add nuw i64 %i.0.i99, 1
   %call14.i = call i64 @sk_num(ptr noundef nonnull %4) #11
   %cmp15.i = icmp ult i64 %inc.i, %call14.i
@@ -463,7 +463,7 @@ for.body24.i:                                     ; preds = %if.end19.i, %for.bo
   store ptr %call25.i, ptr %skitem.i, align 8
   %7 = load ptr, ptr %p.i, align 8
   store ptr %7, ptr %tder.0.i88, align 8
-  %call26.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %p.i, ptr noundef %6, i32 noundef -1, i32 noundef %and14)
+  %call26.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %skitem.i, ptr noundef nonnull %p.i, ptr noundef %6, i32 noundef -1, i32 noundef range(i32 0, -192) %and14)
   %length.i = getelementptr inbounds i8, ptr %tder.0.i88, i64 8
   store i32 %call26.i, ptr %length.i, align 8
   %8 = load ptr, ptr %skitem.i, align 8

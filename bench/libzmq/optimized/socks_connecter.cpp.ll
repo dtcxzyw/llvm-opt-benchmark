@@ -219,7 +219,7 @@ define void @_ZThn1448_N3zmq17socks_connecter_tD0Ev(ptr noundef %this) unnamed_a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq17socks_connecter_tD1Ev(ptr noundef nonnull align 8 dereferenceable(3032) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(3032) %0) #15
   ret void
 }
 
@@ -300,7 +300,7 @@ if.then9:                                         ; preds = %if.then5
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1480
   %6 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef %6)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i)
   tail call void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %_choice_decoder)
@@ -313,7 +313,7 @@ if.then9:                                         ; preds = %if.then5
   %_response_decoder.i = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.else:                                          ; preds = %if.then5
@@ -331,7 +331,7 @@ if.then17:                                        ; preds = %if.then12
   %_handle.i19 = getelementptr inbounds i8, ptr %this, i64 1480
   %8 = load ptr, ptr %_handle.i19, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18, ptr noundef %8)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i20 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i20)
   tail call void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %_choice_decoder)
@@ -344,7 +344,7 @@ if.then17:                                        ; preds = %if.then12
   %_response_decoder.i25 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i25)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.then29:                                        ; preds = %do.end
@@ -361,7 +361,7 @@ if.then36:                                        ; preds = %if.then29
   %_handle.i28 = getelementptr inbounds i8, ptr %this, i64 1480
   %11 = load ptr, ptr %_handle.i28, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i27, ptr noundef %11)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i29 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i29)
   %_choice_decoder.i30 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -374,7 +374,7 @@ if.then36:                                        ; preds = %if.then29
   %_response_decoder.i34 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i34)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.else37:                                        ; preds = %if.then29
@@ -391,7 +391,7 @@ if.then46:                                        ; preds = %if.then40
   %_handle.i37 = getelementptr inbounds i8, ptr %this, i64 1480
   %12 = load ptr, ptr %_handle.i37, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i36, ptr noundef %12)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i38 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i38)
   %_choice_decoder.i39 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -404,7 +404,7 @@ if.then46:                                        ; preds = %if.then40
   %_response_decoder.i43 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i43)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.then54:                                        ; preds = %do.end
@@ -421,7 +421,7 @@ if.then61:                                        ; preds = %if.then54
   %_handle.i46 = getelementptr inbounds i8, ptr %this, i64 1480
   %15 = load ptr, ptr %_handle.i46, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i45, ptr noundef %15)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i47 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i47)
   %_choice_decoder.i48 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -434,7 +434,7 @@ if.then61:                                        ; preds = %if.then54
   tail call void @_ZN3zmq23socks_request_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(278) %_request_encoder.i51)
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.else62:                                        ; preds = %if.then54
@@ -455,7 +455,7 @@ if.then69:                                        ; preds = %if.then65
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then69
-  invoke void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  invoke void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
           to label %.noexc65 unwind label %lpad
 
 .noexc65:                                         ; preds = %.noexc
@@ -489,7 +489,7 @@ if.then69:                                        ; preds = %if.then65
 
 .noexc71:                                         ; preds = %.noexc70
   store i32 0, ptr %_status, align 8
-  invoke void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  invoke void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
           to label %if.end80 unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %invoke.cont72, %.noexc71, %.noexc70, %.noexc69, %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc, %if.then69, %if.else71
@@ -564,7 +564,7 @@ if.else83:                                        ; preds = %do.end
   %_handle.i78 = getelementptr inbounds i8, ptr %this, i64 1480
   %22 = load ptr, ptr %_handle.i78, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i77, ptr noundef %22)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i79 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i79)
   %_choice_decoder.i80 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -578,7 +578,7 @@ if.else83:                                        ; preds = %do.end
   %_response_decoder.i84 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i84)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end124
 
 if.end86:                                         ; preds = %if.then12
@@ -596,7 +596,7 @@ if.then88:                                        ; preds = %if.end86
 invoke.cont91:                                    ; preds = %if.then88
   %password.i = getelementptr inbounds i8, ptr %ref.tmp89, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %password.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp89) #13
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
   %_handle = getelementptr inbounds i8, ptr %this, i64 1480
   %23 = load ptr, ptr %_handle, align 8
@@ -634,7 +634,7 @@ if.then103:                                       ; preds = %invoke.cont100
           to label %.noexc96 unwind label %lpad99
 
 .noexc96:                                         ; preds = %if.then103
-  invoke void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  invoke void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
           to label %.noexc97 unwind label %lpad99
 
 .noexc97:                                         ; preds = %.noexc96
@@ -669,7 +669,7 @@ if.then103:                                       ; preds = %invoke.cont100
 
 .noexc103:                                        ; preds = %.noexc102
   store i32 0, ptr %_status, align 8
-  invoke void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  invoke void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
           to label %if.end121 unwind label %lpad99
 
 lpad99:                                           ; preds = %.noexc103, %.noexc102, %.noexc101, %.noexc100, %.noexc99, %.noexc98, %.noexc97, %.noexc96, %if.then103, %invoke.cont116, %invoke.cont111, %if.else105, %if.then98
@@ -957,7 +957,7 @@ if.then15:                                        ; preds = %if.then12
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1480
   %6 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef %6)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i)
   %_choice_decoder.i = getelementptr inbounds i8, ptr %this, i64 1824
@@ -971,7 +971,7 @@ if.then15:                                        ; preds = %if.then12
   %_response_decoder.i = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end111
 
 if.else:                                          ; preds = %if.then12
@@ -1010,7 +1010,7 @@ if.then38:                                        ; preds = %do.end31
   %_handle.i8 = getelementptr inbounds i8, ptr %this, i64 1480
   %12 = load ptr, ptr %_handle.i8, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i7, ptr noundef %12)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder23)
   %_choice_decoder.i10 = getelementptr inbounds i8, ptr %this, i64 1824
   tail call void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(16) %_choice_decoder.i10)
@@ -1023,7 +1023,7 @@ if.then38:                                        ; preds = %do.end31
   %_response_decoder.i14 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i14)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end111
 
 if.else39:                                        ; preds = %do.end31
@@ -1066,7 +1066,7 @@ if.then68:                                        ; preds = %do.end60
   %_handle.i17 = getelementptr inbounds i8, ptr %this, i64 1480
   %19 = load ptr, ptr %_handle.i17, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i16, ptr noundef %19)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i18 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i18)
   %_choice_decoder.i19 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -1079,7 +1079,7 @@ if.then68:                                        ; preds = %do.end60
   %_response_decoder.i23 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i23)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end111
 
 if.else69:                                        ; preds = %do.end60
@@ -1122,7 +1122,7 @@ if.then97:                                        ; preds = %do.end89
   %_handle.i26 = getelementptr inbounds i8, ptr %this, i64 1480
   %26 = load ptr, ptr %_handle.i26, align 8
   tail call void @_ZN3zmq11io_object_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25, ptr noundef %26)
-  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t5closeEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %_greeting_encoder.i27 = getelementptr inbounds i8, ptr %this, i64 1544
   tail call void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(273) %_greeting_encoder.i27)
   %_choice_decoder.i28 = getelementptr inbounds i8, ptr %this, i64 1824
@@ -1135,7 +1135,7 @@ if.then97:                                        ; preds = %do.end89
   %_response_decoder.i32 = getelementptr inbounds i8, ptr %this, i64 2672
   tail call void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %_response_decoder.i32)
   store i32 0, ptr %_status, align 8
-  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(1544) %this)
+  tail call void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   br label %if.end111
 
 if.else98:                                        ; preds = %do.end89
@@ -1319,7 +1319,7 @@ invoke.cont:                                      ; preds = %if.then12
 invoke.cont21:                                    ; preds = %invoke.cont
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   br label %if.end28
 
 lpad:                                             ; preds = %invoke.cont, %if.then12
@@ -1327,7 +1327,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
           cleanup
   %remote.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i1) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #13
   resume { ptr, i32 } %7
 
 if.else22:                                        ; preds = %if.else

@@ -376,7 +376,7 @@ entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i = sext i32 %0 to i64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i = icmp ugt i64 %call.i, %conv.i
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
@@ -393,14 +393,14 @@ land.rhs.i:                                       ; preds = %entry
   %2 = load i8, ptr %dot, align 1
   %3 = load i32, ptr %index_.i, align 8
   %conv.i.i.i = sext i32 %3 to i64
-  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i.i, label %lor.lhs.false.i.i, label %land.rhs.i16
 
 lor.lhs.false.i.i:                                ; preds = %land.rhs.i
   %4 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i = sext i32 %4 to i64
-  %call.i3.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i) #21
+  %call.i3.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i) #21
   %5 = load i8, ptr %call.i3.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %5, %2
   br i1 %cmp.not.i.i, label %if.then4, label %land.rhs.i16
@@ -420,14 +420,14 @@ land.rhs.i16:                                     ; preds = %land.rhs.i, %lor.lh
   %8 = load i8, ptr %openBracket, align 1
   %9 = load i32, ptr %index_.i, align 8
   %conv.i.i.i18 = sext i32 %9 to i64
-  %call.i.i.i19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i20 = icmp ugt i64 %call.i.i.i19, %conv.i.i.i18
   br i1 %cmp.i.i.i20, label %lor.lhs.false.i.i21, label %if.end26
 
 lor.lhs.false.i.i21:                              ; preds = %land.rhs.i16
   %10 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i22 = sext i32 %10 to i64
-  %call.i3.i.i23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i22) #21
+  %call.i3.i.i23 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i22) #21
   %11 = load i8, ptr %call.i3.i.i23, align 1
   %cmp.not.i.i24 = icmp eq i8 %11, %8
   br i1 %cmp.not.i.i24, label %land.rhs.i43, label %if.end26
@@ -440,14 +440,14 @@ land.rhs.i43:                                     ; preds = %lor.lhs.false.i.i21
   %quote = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load i8, ptr %quote, align 1
   %conv.i.i.i45 = sext i32 %inc.i.i26 to i64
-  %call.i.i.i46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i46 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i47 = icmp ugt i64 %call.i.i.i46, %conv.i.i.i45
   br i1 %cmp.i.i.i47, label %lor.lhs.false.i.i48, label %cond.false
 
 lor.lhs.false.i.i48:                              ; preds = %land.rhs.i43
   %15 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i49 = sext i32 %15 to i64
-  %call.i3.i.i50 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i49) #21
+  %call.i3.i.i50 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i49) #21
   %16 = load i8, ptr %call.i3.i.i50, align 1
   %cmp.not.i.i51 = icmp eq i8 %16, %14
   br i1 %cmp.not.i.i51, label %cond.true, label %cond.false
@@ -465,14 +465,14 @@ cond.false:                                       ; preds = %lor.lhs.false.i.i48
   %19 = load i8, ptr %wildCard, align 1
   %20 = load i32, ptr %index_.i, align 8
   %conv.i.i.i72 = sext i32 %20 to i64
-  %call.i.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i74 = icmp ugt i64 %call.i.i.i73, %conv.i.i.i72
   br i1 %cmp.i.i.i74, label %lor.lhs.false.i.i75, label %cond.false18
 
 lor.lhs.false.i.i75:                              ; preds = %cond.false
   %21 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i76 = sext i32 %21 to i64
-  %call.i3.i.i77 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i76) #21
+  %call.i3.i.i77 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i76) #21
   %22 = load i8, ptr %call.i3.i.i77, align 1
   %cmp.not.i.i78 = icmp eq i8 %22, %19
   br i1 %cmp.not.i.i78, label %cond.true17, label %cond.false18
@@ -497,14 +497,14 @@ cond.end19:                                       ; preds = %cond.true17, %cond.
   %25 = load i8, ptr %closeBracket, align 1
   %26 = load i32, ptr %index_.i, align 8
   %conv.i.i.i83 = sext i32 %26 to i64
-  %call.i.i.i84 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i84 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i85 = icmp ugt i64 %call.i.i.i84, %conv.i.i.i83
   br i1 %cmp.i.i.i85, label %lor.lhs.false.i.i86, label %if.then.i
 
 lor.lhs.false.i.i86:                              ; preds = %cond.end19
   %27 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i87 = sext i32 %27 to i64
-  %call.i3.i.i88 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i87) #21
+  %call.i3.i.i88 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i87) #21
   %28 = load i8, ptr %call.i3.i.i88, align 1
   %cmp.not.i.i89 = icmp eq i8 %28, %25
   br i1 %cmp.not.i.i89, label %invoke.cont, label %if.then.i
@@ -572,14 +572,14 @@ land.rhs:                                         ; preds = %entry, %_ZNK8facebo
   %index_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load i32, ptr %index_.i.i, align 8
   %conv.i.i = sext i32 %6 to i64
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i = icmp ugt i64 %call.i.i, %conv.i.i
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %land.end
 
 lor.lhs.false.i:                                  ; preds = %land.rhs
   %7 = load i32, ptr %index_.i.i, align 8
   %conv.i2.i = sext i32 %7 to i64
-  %call.i3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i) #21
+  %call.i3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i) #21
   %8 = load i8, ptr %call.i3.i, align 1
   %cmp.not.i = icmp eq i8 %8, %expected
   br i1 %cmp.not.i, label %if.end.i, label %land.end
@@ -602,7 +602,7 @@ entry:
   %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv.i13 = sext i32 %0 to i64
-  %call.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i15 = icmp ugt i64 %call.i14, %conv.i13
   br i1 %cmp.i15, label %land.lhs.true.lr.ph, label %while.end
 
@@ -614,7 +614,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %1 = load ptr, ptr %separators_, align 8
   %2 = load i32, ptr %index_, align 8
   %conv.i3 = sext i32 %2 to i64
-  %call.i4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i3) #21
+  %call.i4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i3) #21
   %3 = load i8, ptr %call.i4, align 1
   %closeBracket.i = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %closeBracket.i, align 1
@@ -642,7 +642,7 @@ _ZNK8facebook5velox6common10Separators11isSeparatorEc.exit: ; preds = %land.lhs.
 land.rhs:                                         ; preds = %_ZNK8facebook5velox6common10Separators11isSeparatorEc.exit
   %9 = load i32, ptr %index_, align 8
   %conv.i7 = sext i32 %9 to i64
-  %call.i8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i7) #21
+  %call.i8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i7) #21
   %10 = load i8, ptr %call.i8, align 1
   %call6 = tail call noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer23isUnquotedPathCharacterEc(ptr nonnull align 8 poison, i8 noundef signext %10)
   br i1 %call6, label %while.body, label %while.end
@@ -652,7 +652,7 @@ while.body:                                       ; preds = %land.rhs
   %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %index_, align 8
   %conv.i = sext i32 %inc.i to i64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i = icmp ugt i64 %call.i, %conv.i
   br i1 %cmp.i, label %land.lhs.true, label %while.end, !llvm.loop !10
 
@@ -717,7 +717,7 @@ entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i36 = sext i32 %0 to i64
-  %call.i37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i38 = icmp ugt i64 %call.i37, %conv.i36
   br i1 %cmp.i38, label %land.rhs.lr.ph, label %if.end26
 
@@ -730,7 +730,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   %tobool = trunc nuw i8 %escaped.039 to i1
   %1 = load i32, ptr %index_.i, align 8
   %conv.i7 = sext i32 %1 to i64
-  %call.i8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i7) #21
+  %call.i8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i7) #21
   %2 = load i8, ptr %call.i8, align 1
   br i1 %tobool, label %if.then, label %lor.rhs
 
@@ -750,7 +750,7 @@ if.then:                                          ; preds = %land.rhs
 sw.bb:                                            ; preds = %if.then, %if.then
   %5 = load i32, ptr %index_.i, align 8
   %conv.i10 = sext i32 %5 to i64
-  %call.i11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i10) #21
+  %call.i11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i10) #21
   %6 = load i8, ptr %call.i11, align 1
   %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %token, i8 noundef signext %6)
           to label %if.end22 unwind label %lpad.loopexit
@@ -777,7 +777,7 @@ sw.default:                                       ; preds = %if.then
 if.else:                                          ; preds = %lor.rhs
   %7 = load i32, ptr %index_.i, align 8
   %conv.i13 = sext i32 %7 to i64
-  %call.i14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i13) #21
+  %call.i14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i13) #21
   %8 = load i8, ptr %call.i14, align 1
   %9 = load ptr, ptr %separators_, align 8
   %10 = load i8, ptr %9, align 1
@@ -787,7 +787,7 @@ if.else:                                          ; preds = %lor.rhs
 if.else18:                                        ; preds = %if.else
   %11 = load i32, ptr %index_.i, align 8
   %conv.i16 = sext i32 %11 to i64
-  %call.i17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i16) #21
+  %call.i17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i16) #21
   %12 = load i8, ptr %call.i17, align 1
   %call21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %token, i8 noundef signext %12)
           to label %if.end22 unwind label %lpad.loopexit
@@ -798,7 +798,7 @@ if.end22:                                         ; preds = %if.else, %sw.bb, %i
   %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %index_.i, align 8
   %conv.i = sext i32 %inc.i to i64
-  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i = icmp ugt i64 %call.i, %conv.i
   br i1 %cmp.i, label %land.rhs, label %while.end, !llvm.loop !15
 
@@ -818,14 +818,14 @@ if.end26:                                         ; preds = %entry, %while.end
   %16 = load i8, ptr %quote29, align 1
   %17 = load i32, ptr %index_.i, align 8
   %conv.i.i.i = sext i32 %17 to i64
-  %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i.i = icmp ugt i64 %call.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i.i, label %lor.lhs.false.i.i, label %if.then.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end26
   %18 = load i32, ptr %index_.i, align 8
   %conv.i2.i.i = sext i32 %18 to i64
-  %call.i3.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i.i) #21
+  %call.i3.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i.i) #21
   %19 = load i8, ptr %call.i3.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %19, %16
   br i1 %cmp.not.i.i, label %invoke.cont30, label %if.then.i
@@ -890,14 +890,14 @@ entry:
   %index_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_, align 8
   %conv.i11 = sext i32 %0 to i64
-  %call.i12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i13 = icmp ugt i64 %call.i12, %conv.i11
   br i1 %cmp.i13, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %entry, %while.body
   %1 = load i32, ptr %index_, align 8
   %conv.i2 = sext i32 %1 to i64
-  %call.i3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2) #21
+  %call.i3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2) #21
   %2 = load i8, ptr %call.i3, align 1
   switch i8 %2, label %_ZN8facebook5velox6common9Tokenizer28isUnquotedSubscriptCharacterEc.exit [
     i8 95, label %while.body
@@ -915,7 +915,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %index_, align 8
   %conv.i = sext i32 %inc.i to i64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i = icmp ugt i64 %call.i, %conv.i
   br i1 %cmp.i, label %land.rhs, label %while.end, !llvm.loop !25
 
@@ -1009,14 +1009,14 @@ entry:
   %index_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i.i, align 8
   %conv.i.i = sext i32 %0 to i64
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i.i = icmp ugt i64 %call.i.i, %conv.i.i
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.then
 
 lor.lhs.false.i:                                  ; preds = %entry
   %1 = load i32, ptr %index_.i.i, align 8
   %conv.i2.i = sext i32 %1 to i64
-  %call.i3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2.i) #21
+  %call.i3.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2.i) #21
   %2 = load i8, ptr %call.i3.i, align 1
   %cmp.not.i = icmp eq i8 %2, %expected
   br i1 %cmp.not.i, label %_ZN8facebook5velox6common9Tokenizer8tryMatchEc.exit, label %if.then
@@ -1040,14 +1040,14 @@ entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %index_.i, align 8
   %conv.i = sext i32 %0 to i64
-  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
+  %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
   %cmp.i = icmp ugt i64 %call.i, %conv.i
   br i1 %cmp.i, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load i32, ptr %index_.i, align 8
   %conv.i2 = sext i32 %1 to i64
-  %call.i3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv.i2) #21
+  %call.i3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %conv.i2) #21
   %2 = load i8, ptr %call.i3, align 1
   %cmp.not = icmp eq i8 %2, %expected
   br i1 %cmp.not, label %if.end, label %return
@@ -1312,7 +1312,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1322,7 +1322,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1823,7 +1823,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry,
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i9, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1833,7 +1833,7 @@ call.i.noexc:                                     ; preds = %_ZNSt8__detail14__t
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2074,9 +2074,9 @@ entry:
   %Formatter.i.i = alloca %"struct.boost::algorithm::detail::const_formatF", align 8
   %ref.tmp.i = alloca %"class.boost::iterator_range.46", align 8
   %agg.tmp3 = alloca %"struct.boost::algorithm::detail::first_finderF", align 8
-  %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %Search) #24, !noalias !46
+  %call.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(2) %Search) #24, !noalias !46
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %Search, i64 %call.i.i.i.i
-  %call.i.i.i.i1 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %Format) #24
+  %call.i.i.i.i1 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %Format) #24
   %add.ptr.i.i.i2 = getelementptr inbounds i8, ptr %Format, i64 %call.i.i.i.i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)

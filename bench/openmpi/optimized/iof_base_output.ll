@@ -411,7 +411,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
 .lr.ph.i108:                                      ; preds = %120, %.lr.ph.i108
   %126 = phi ptr [ %128, %.lr.ph.i108 ], [ %125, %120 ]
   %.07.i109 = phi ptr [ %127, %.lr.ph.i108 ], [ %124, %120 ]
-  tail call void %126(ptr noundef %29) #11
+  tail call void %126(ptr noundef nonnull %29) #11
   %127 = getelementptr inbounds i8, ptr %.07.i109, i64 8
   %128 = load ptr, ptr %127, align 8
   %.not.i110 = icmp eq ptr %128, null
@@ -535,7 +535,7 @@ pmix_obj_run_destructors.exit111:                 ; preds = %.lr.ph.i108, %120
 .lr.ph.i114:                                      ; preds = %190, %.lr.ph.i114
   %196 = phi ptr [ %198, %.lr.ph.i114 ], [ %195, %190 ]
   %.07.i115 = phi ptr [ %197, %.lr.ph.i114 ], [ %194, %190 ]
-  tail call void %196(ptr noundef %29) #11
+  tail call void %196(ptr noundef nonnull %29) #11
   %197 = getelementptr inbounds i8, ptr %.07.i115, i64 8
   %198 = load ptr, ptr %197, align 8
   %.not.i116 = icmp eq ptr %198, null

@@ -1087,7 +1087,7 @@ Abc_Clock.exit353:                                ; preds = %528, %531
   %535 = load ptr, ptr %163, align 8
   %536 = add nuw nsw i32 %.0238, 1
   %537 = load i32, ptr %70, align 4
-  %538 = call noundef i32 @llvm.smin.i32(i32 %536, i32 %537)
+  %538 = call noundef i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %536, i32 %537)
   %539 = load i32, ptr %134, align 4
   %540 = call i32 @Inter_ManCheckInductiveContainment(ptr noundef %534, ptr noundef %535, i32 noundef %538, i32 noundef %539) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)

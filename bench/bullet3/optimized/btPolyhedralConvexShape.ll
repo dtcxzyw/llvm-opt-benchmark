@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   ret void
 
 terminate.lpad:                                   ; preds = %if.then
@@ -878,7 +878,7 @@ invoke.cont43:                                    ; preds = %for.inc40, %invoke.
 invoke.cont45:                                    ; preds = %invoke.cont43
   %29 = load ptr, ptr %m_data.i.i86, align 8
   %30 = load i32, ptr %m_size.i.i87, align 4
-  %call.i92 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef %29, i1 noundef zeroext false, i32 noundef 16, i32 noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %call.i92 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef nonnull %29, i1 noundef zeroext false, i32 noundef 16, i32 noundef %30, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %invoke.cont52 unwind label %lpad44
 
 invoke.cont52:                                    ; preds = %invoke.cont45
@@ -978,7 +978,7 @@ ehcleanup54:                                      ; preds = %ehcleanup, %lpad22
 if.else:                                          ; preds = %invoke.cont17
   %44 = load ptr, ptr %m_data.i.i, align 8
   %45 = load i32, ptr %m_size.i.i, align 4
-  %call.i126 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef %44, i1 noundef zeroext false, i32 noundef 16, i32 noundef %45, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %call.i126 = invoke noundef float @_ZN20btConvexHullComputer7computeEPKvbiiff(ptr noundef nonnull align 8 dereferenceable(128) %conv, ptr noundef nonnull %44, i1 noundef zeroext false, i32 noundef 16, i32 noundef %45, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %if.end63 unwind label %lpad20
 
 if.end63:                                         ; preds = %if.else, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit122
@@ -2181,7 +2181,7 @@ init.end.i:                                       ; preds = %init.i, %init.check
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %2 = load ptr, ptr %vfn.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEvE11_directions, ptr noundef nonnull %_supporting.i, i32 noundef 6)
+  call void %2(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull @_ZZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEvE11_directions, ptr noundef nonnull %_supporting.i, i32 noundef 6)
   %m_collisionMargin.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load float, ptr %m_collisionMargin.i, align 8
   %m_localAabbMax.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2283,7 +2283,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %m_polyhedron.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %m_polyhedron.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV34btPolyhedralConvexAabbCachingShape, i64 16), ptr %this, align 8
@@ -2563,7 +2563,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN23btPolyhedralConvexShapeD2Ev.exit:            ; preds = %entry, %if.then.i
-  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
+  tail call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #15
   ret void
 }
 

@@ -54,7 +54,7 @@ define hidden noundef ptr @_ZN10JfrPostBox6createEv() local_unnamed_addr #1 alig
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %1, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
   store i8 0, ptr %5, align 4

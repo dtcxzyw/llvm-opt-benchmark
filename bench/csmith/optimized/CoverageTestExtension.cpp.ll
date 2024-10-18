@@ -158,7 +158,7 @@ _ZNSt6vectorIP8ConstantSaIS1_EED2Ev.exit.i:       ; preds = %9, %_ZNSt6vectorIP1
   br label %_ZN21CoverageTestExtensionD2Ev.exit
 
 _ZN21CoverageTestExtensionD2Ev.exit:              ; preds = %_ZNSt6vectorIP8ConstantSaIS1_EED2Ev.exit.i, %11
-  tail call void @_ZN12AbsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN12AbsExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

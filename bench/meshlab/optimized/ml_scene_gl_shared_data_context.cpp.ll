@@ -991,7 +991,7 @@ define void @_ZN26MLSceneGLSharedDataContext16updateGPUMemInfoEv(ptr noundef non
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %9 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   store i32 0, ptr %2, align 4
   call void @glGetIntegerv(i32 noundef 36936, ptr noundef nonnull %2)
   store i32 0, ptr %3, align 4
@@ -1002,7 +1002,7 @@ define void @_ZN26MLSceneGLSharedDataContext16updateGPUMemInfoEv(ptr noundef non
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @glGetIntegerv(i32 noundef 34812, ptr noundef nonnull %5)
   %11 = call i32 @glGetError()
-  call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %12
 
@@ -1054,7 +1054,7 @@ define void @_ZN26MLSceneGLSharedDataContext12meshInsertedEi(ptr noundef nonnull
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 8
-  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEC2ERS1_RNS_10MemoryInfoEm(ptr noundef nonnull align 8 dereferenceable(472) %8, ptr noundef nonnull align 8 dereferenceable(1196) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12)
+  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEC2ERS1_RNS_10MemoryInfoEm(ptr noundef nonnull align 8 dereferenceable(512) %8, ptr noundef nonnull align 8 dereferenceable(1196) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %12)
           to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %7
@@ -1080,7 +1080,7 @@ define void @_ZN26MLSceneGLSharedDataContext12meshInsertedEi(ptr noundef nonnull
 
 20:                                               ; preds = %18, %16
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(472) %8) #27
+  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(512) %8) #27
   br label %.body
 
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEC2ERS1_RNS_22QtThreadSafeMemoryInfoEm.exit: ; preds = %14
@@ -1198,7 +1198,7 @@ define void @_ZN26MLSceneGLSharedDataContextD2Ev(ptr noundef nonnull align 8 der
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit: ; preds = %10, %14
   %15 = getelementptr inbounds i8, ptr %8, i64 472
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #27
-  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(472) %8) #27
+  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(512) %8) #27
   tail call void @_ZdlPv(ptr noundef nonnull %8) #26
   br label %16
 
@@ -1333,7 +1333,7 @@ _ZN3vcg20GLMeshAttributesInfo9DebugInfoD2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #27
   %40 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #27
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(152) %30) #27
   %41 = load ptr, ptr %2, align 8
   %.not.i.i.i5 = icmp eq ptr %41, null
   br i1 %.not.i.i.i5, label %_ZNSt6vectorIN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESaIS7_EED2Ev.exit, label %42
@@ -1615,7 +1615,7 @@ define void @_ZN26MLSceneGLSharedDataContextD0Ev(ptr noundef nonnull align 8 der
 define void @_ZThn16_N26MLSceneGLSharedDataContextD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN26MLSceneGLSharedDataContextD1Ev(ptr noundef nonnull align 8 dereferenceable(168) %2) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #26
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(168) %2) #26
   ret void
 }
 
@@ -1670,9 +1670,9 @@ _ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10Q
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext12initializeGLEv(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #10 align 2 {
   %2 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   tail call void @_ZN19GLExtensionsManager22initializeGLextensionsEv()
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %3
 
@@ -1765,7 +1765,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
   %26 = or disjoint i64 %25, 1
   store i64 %26, ptr %5, align 8
-  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14setPerViewInfoES3_RKNS_11PerViewDataIS4_EE(ptr noundef nonnull align 8 dereferenceable(472) %22, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14setPerViewInfoES3_RKNS_11PerViewDataIS4_EE(ptr noundef nonnull align 8 dereferenceable(512) %22, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %27 unwind label %31
 
 27:                                               ; preds = %23
@@ -2409,7 +2409,7 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionD0Ev(ptr nounde
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -2811,7 +2811,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 32, i1 false)
   %11 = invoke noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #30
           to label %_ZNSt8_Rb_treeIP10QGLContextSt4pairIKS1_N3vcg11PerViewDataI18MLPerViewGLOptionsEEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESJ_IJEEEEEvPSt13_Rb_tree_nodeIS8_EDpOT_.exit unwind label %12
 
@@ -3111,7 +3111,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
   %25 = or disjoint i64 %24, 1
   store i64 %25, ptr %4, align 8
-  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE18setPerAllViewsInfoERKNS_11PerViewDataIS4_EE(ptr noundef nonnull align 8 dereferenceable(472) %21, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE18setPerAllViewsInfoERKNS_11PerViewDataIS4_EE(ptr noundef nonnull align 8 dereferenceable(512) %21, ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %26 unwind label %30
 
 26:                                               ; preds = %22
@@ -3351,7 +3351,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 
 15:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
   %16 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %17 = getelementptr inbounds i8, ptr %14, i64 480
   %18 = getelementptr inbounds i8, ptr %14, i64 504
   %19 = getelementptr inbounds i8, ptr %14, i64 488
@@ -3525,7 +3525,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
           to label %72 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 72:                                               ; preds = %._crit_edge
-  invoke void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  invoke void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc19:                                         ; preds = %72
@@ -3895,7 +3895,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
           to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %24
-  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  invoke void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %_ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit unwind label %47
 
 _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
@@ -4042,7 +4042,7 @@ _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
           to label %112 unwind label %47
 
 112:                                              ; preds = %110
-  invoke void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  invoke void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %.noexc26 unwind label %47
 
 .noexc26:                                         ; preds = %112
@@ -4325,7 +4325,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, i8 0, i64 48, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(152) %27) #27
   %28 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #27
   %29 = getelementptr inbounds i8, ptr %0, i64 360
@@ -5041,9 +5041,9 @@ _ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QG
 
 16:                                               ; preds = %13
   %17 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   tail call void @_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE29removeAllViewsAndDeallocateBOEv(ptr noundef nonnull align 8 dereferenceable(512) %15)
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %18
 
@@ -5069,7 +5069,7 @@ _ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit: ; pred
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit: ; preds = %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, %25
   %26 = getelementptr inbounds i8, ptr %15, i64 472
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #27
-  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(472) %15) #27
+  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(512) %15) #27
   tail call void @_ZdlPv(ptr noundef nonnull %15) #26
   br label %27
 
@@ -6166,7 +6166,7 @@ define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMan
   %43 = alloca %"class.std::__cxx11::basic_string", align 8
   %44 = alloca %"class.std::__cxx11::basic_string", align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(152) %45) #27
   %46 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #27
   %47 = getelementptr inbounds i8, ptr %0, i64 360
@@ -13815,7 +13815,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 13
-  tail call void @glColor4ubv(ptr noundef nonnull %9)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %9)
   br label %17
 
 10:                                               ; preds = %4
@@ -13827,12 +13827,12 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 1108
-  tail call void @glColor4ubv(ptr noundef nonnull %16)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %16)
   br label %17
 
 .critedge:                                        ; preds = %2, %10
   store i32 -1, ptr %3, align 4
-  call void @glColor4ubv(ptr noundef nonnull %3)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %3)
   br label %17
 
 17:                                               ; preds = %14, %.critedge, %8
@@ -13907,7 +13907,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds i8, ptr %2, i64 25
-  tail call void @glColor4ubv(ptr noundef nonnull %29)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %29)
   br label %46
 
 30:                                               ; preds = %.thread
@@ -13919,7 +13919,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 34:                                               ; preds = %30
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 1108
-  tail call void @glColor4ubv(ptr noundef nonnull %36)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %36)
   br label %46
 
 .critedge18.critedge:                             ; preds = %10
@@ -13945,7 +13945,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 45:                                               ; preds = %40
   store i32 -4144960, ptr %5, align 4
-  call void @glColor4ubv(ptr noundef nonnull %5)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %5)
   br label %46
 
 46:                                               ; preds = %34, %45, %44, %28
@@ -14043,7 +14043,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 34:                                               ; preds = %.thread21, %31, %28
   %.sink = phi i32 [ -12566464, %.thread21 ], [ %.sroa.0.0.copyload.i, %31 ], [ %30, %28 ]
   store i32 %.sink, ptr %5, align 4
-  call void @glColor4ubv(ptr noundef nonnull %5)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %5)
   call void @glDisable(i32 noundef 3553)
   br i1 %.not, label %38, label %35
 
@@ -14191,7 +14191,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 37:                                               ; preds = %.critedge20
   store i32 -12566464, ptr %5, align 4
-  call void @glColor4ubv(ptr noundef nonnull %5)
+  call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %5)
   br label %38
 
 38:                                               ; preds = %37, %36
@@ -14199,7 +14199,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 .thread22.sink.split:                             ; preds = %30, %24
   %.sink = phi ptr [ %25, %24 ], [ %32, %30 ]
-  tail call void @glColor4ubv(ptr noundef nonnull %.sink)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %.sink)
   br label %.thread22
 
 .thread22:                                        ; preds = %.thread22.sink.split, %38
@@ -14295,13 +14295,13 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 38:                                               ; preds = %.thread
   %39 = getelementptr inbounds i8, ptr %2, i64 17
-  tail call void @glColor4ubv(ptr noundef nonnull %39)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %39)
   br label %43
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 1108
-  tail call void @glColor4ubv(ptr noundef nonnull %42)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %42)
   br label %43
 
 .critedge64:                                      ; preds = %17
@@ -15471,7 +15471,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 122:                                              ; preds = %121
   %123 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 36
-  tail call void @glNormal3fv(ptr noundef nonnull %123)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %123)
   br label %124
 
 124:                                              ; preds = %122, %121
@@ -15481,7 +15481,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %126 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %128)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %128)
   br label %129
 
 129:                                              ; preds = %125, %124
@@ -15497,7 +15497,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %137 = load ptr, ptr %132, align 8
   %138 = sdiv exact i64 %136, 12
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
-  tail call void @glColor4ubv(ptr noundef nonnull %139)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %139)
   br label %140
 
 140:                                              ; preds = %130, %129
@@ -15507,7 +15507,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %142 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %144)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %144)
   br label %145
 
 145:                                              ; preds = %141, %140
@@ -15527,7 +15527,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %156 = ashr exact i64 %sext.i, 32
   %157 = load ptr, ptr %150, align 8
   %158 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %157, i64 %156
-  tail call void @glTexCoord2fv(ptr noundef nonnull %158)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %158)
   br label %159
 
 159:                                              ; preds = %146, %145
@@ -15543,21 +15543,21 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %167 = sdiv exact i64 %166, 48
   %168 = load ptr, ptr %162, align 8
   %169 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %168, i64 %167
-  tail call void @glTexCoord2fv(ptr noundef nonnull %169)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %169)
   br label %170
 
 170:                                              ; preds = %160, %159
   %171 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %173)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %173)
   br i1 %11, label %174, label %178
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %177)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %177)
   br label %178
 
 178:                                              ; preds = %174, %170
@@ -15567,7 +15567,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %180 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %182)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %182)
   br label %183
 
 183:                                              ; preds = %179, %178
@@ -15587,7 +15587,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %194 = ashr exact i64 %sext.i56, 32
   %195 = load ptr, ptr %188, align 8
   %196 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %195, i64 %194
-  tail call void @glTexCoord2fv(ptr noundef nonnull %196)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %196)
   br label %197
 
 197:                                              ; preds = %184, %183
@@ -15603,21 +15603,21 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %205 = sdiv exact i64 %204, 48
   %206 = load ptr, ptr %200, align 8
   %207 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %206, i64 %205, i32 0, i64 1
-  tail call void @glTexCoord2fv(ptr noundef nonnull %207)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %207)
   br label %208
 
 208:                                              ; preds = %198, %197
   %209 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %211)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %211)
   br i1 %11, label %212, label %216
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 24
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %215)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %215)
   br label %216
 
 216:                                              ; preds = %212, %208
@@ -15627,7 +15627,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %218 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 24
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %220)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %220)
   br label %221
 
 221:                                              ; preds = %217, %216
@@ -15647,7 +15647,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %232 = ashr exact i64 %sext.i57, 32
   %233 = load ptr, ptr %226, align 8
   %234 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %233, i64 %232
-  tail call void @glTexCoord2fv(ptr noundef nonnull %234)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %234)
   br label %235
 
 235:                                              ; preds = %222, %221
@@ -15663,14 +15663,14 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %243 = sdiv exact i64 %242, 48
   %244 = load ptr, ptr %238, align 8
   %245 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %244, i64 %243, i32 0, i64 2
-  tail call void @glTexCoord2fv(ptr noundef nonnull %245)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %245)
   br label %246
 
 246:                                              ; preds = %236, %235
   %247 = getelementptr inbounds i8, ptr %.sroa.058.066, i64 24
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %249)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %249)
   %.pre = load ptr, ptr %0, align 8
   br label %250
 
@@ -15909,7 +15909,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %22 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %24)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
   br label %25
 
 25:                                               ; preds = %21, %20
@@ -15919,21 +15919,21 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %27 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %29)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %29)
   br label %30
 
 30:                                               ; preds = %26, %25
   %31 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %33)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %33)
   br i1 %8, label %34, label %38
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %37)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %37)
   br label %38
 
 38:                                               ; preds = %34, %30
@@ -15943,14 +15943,14 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %40 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %42)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %42)
   br label %43
 
 43:                                               ; preds = %39, %38
   %44 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %46)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %46)
   %.pre = load i32, ptr %15, align 8
   br label %47
 
@@ -15967,7 +15967,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %52 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %54)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %54)
   br label %55
 
 55:                                               ; preds = %51, %50
@@ -15977,21 +15977,21 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %57 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %59)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %59)
   br label %60
 
 60:                                               ; preds = %56, %55
   %61 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %63)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %63)
   br i1 %8, label %64, label %68
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %67)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %67)
   br label %68
 
 68:                                               ; preds = %64, %60
@@ -16001,14 +16001,14 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %70 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %72)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %72)
   br label %73
 
 73:                                               ; preds = %69, %68
   %74 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %76)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %76)
   %.pre45 = load i32, ptr %15, align 8
   br label %77
 
@@ -16025,7 +16025,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %82 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %84)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %84)
   br label %85
 
 85:                                               ; preds = %81, %80
@@ -16035,7 +16035,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %87 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %89)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %89)
   br label %90
 
 90:                                               ; preds = %86, %85
@@ -16043,13 +16043,13 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %92 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %94)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %94)
   br i1 %8, label %95, label %98
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %91, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %97)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %97)
   br label %98
 
 98:                                               ; preds = %95, %90
@@ -16058,13 +16058,13 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 99:                                               ; preds = %98
   %100 = load ptr, ptr %91, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %101)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %101)
   br label %102
 
 102:                                              ; preds = %99, %98
   %103 = load ptr, ptr %91, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %104)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %104)
   br label %105
 
 105:                                              ; preds = %77, %102, %.lr.ph
@@ -16141,7 +16141,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %.sroa.06.015.us, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %29)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %29)
   br label %30
 
 30:                                               ; preds = %28, %27
@@ -16149,7 +16149,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.sroa.06.015.us, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %32)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %32)
   br label %33
 
 33:                                               ; preds = %31, %30
@@ -16164,9 +16164,9 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %41 = ashr exact i64 %sext.i.us, 32
   %42 = load ptr, ptr %35, align 8
   %43 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %42, i64 %41
-  tail call void @glTexCoord2fv(ptr noundef nonnull %43)
+  tail call void @glTexCoord2fv(ptr noundef nonnull align 4 dereferenceable(8) %43)
   %44 = getelementptr inbounds i8, ptr %.sroa.06.015.us, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %44)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %44)
   %.pre35 = load ptr, ptr %0, align 8
   br label %45
 
@@ -16195,11 +16195,11 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 54:                                               ; preds = %.lr.ph.split.split.us.split.us
   %55 = getelementptr inbounds i8, ptr %.sroa.06.015.us16.us, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %55)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %55)
   %56 = getelementptr inbounds i8, ptr %.sroa.06.015.us16.us, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %56)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %56)
   %57 = getelementptr inbounds i8, ptr %.sroa.06.015.us16.us, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %57)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %57)
   %.pre34 = load ptr, ptr %0, align 8
   br label %58
 
@@ -16222,9 +16222,9 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 67:                                               ; preds = %.lr.ph.split.split.us.split
   %68 = getelementptr inbounds i8, ptr %.sroa.06.015.us16, i64 24
-  tail call void @glNormal3fv(ptr noundef nonnull %68)
+  tail call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %68)
   %69 = getelementptr inbounds i8, ptr %.sroa.06.015.us16, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %69)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %69)
   %.pre33 = load ptr, ptr %0, align 8
   br label %70
 
@@ -16250,9 +16250,9 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 79:                                               ; preds = %.lr.ph.split.split.split.us
   %80 = getelementptr inbounds i8, ptr %.sroa.06.015.us20, i64 40
-  tail call void @glColor4ubv(ptr noundef nonnull %80)
+  tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %80)
   %81 = getelementptr inbounds i8, ptr %.sroa.06.015.us20, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %81)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %81)
   %.pre32 = load ptr, ptr %0, align 8
   br label %82
 
@@ -16275,7 +16275,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 91:                                               ; preds = %.lr.ph.split.split.split
   %92 = getelementptr inbounds i8, ptr %.sroa.06.015, i64 8
-  tail call void @glVertex3fv(ptr noundef nonnull %92)
+  tail call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %92)
   %.pre = load ptr, ptr %0, align 8
   br label %93
 
@@ -16643,7 +16643,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsED2Ev.exit: ; preds = %4, %_ZNKSt8_Rb_t
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext10removeViewEP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -16668,7 +16668,7 @@ define void @_ZN26MLSceneGLSharedDataContext10removeViewEP10QGLContext(ptr nound
   br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %11, %2
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %13
 
@@ -17066,9 +17066,9 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 
 20:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
   %21 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %22 = tail call noundef zeroext i1 @_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE13manageBuffersEv(ptr noundef nonnull align 8 dereferenceable(512) %19)
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %23
 
@@ -17206,7 +17206,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsED2Ev.exit: ; preds = %14, %16
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext23deAllocateGPUSharedDataEv(ptr noundef nonnull align 8 dereferenceable(168) %0) local_unnamed_addr #10 align 2 {
   %2 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -17226,7 +17226,7 @@ define void @_ZN26MLSceneGLSharedDataContext23deAllocateGPUSharedDataEv(ptr noun
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN26MLSceneGLSharedDataContext20doneCurrentGLContextEP10QGLContext.exit, label %11
 
@@ -17659,7 +17659,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i.i unwind label %9
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %2)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %_ZN4QMapIi15MLRenderingDataEaSEOS1_.exit unwind label %9
 
 9:                                                ; preds = %.noexc1.i.i, %.noexc.i.i, %7
@@ -17696,7 +17696,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread4.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc1.i unwind label %17
 
 .noexc1.i:                                        ; preds = %.noexc.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread4.i
-  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull @_ZN12QMapDataBase11shared_nullE)
+  invoke void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN12QMapDataBase11shared_nullE)
           to label %_ZN4QMapIi15MLRenderingDataED2Ev.exit unwind label %17
 
 17:                                               ; preds = %.noexc1.i, %.noexc.i, %15
@@ -17971,7 +17971,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIi15MLRenderingDataE7destroyEv.exit
 
 _ZN8QMapDataIi15MLRenderingDataE7destroyEv.exit:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIi15MLRenderingDataE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
@@ -18162,7 +18162,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
   %25 = or disjoint i64 %24, 1
   store i64 %25, ptr %4, align 8
-  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE6getLogERNS_20GLMeshAttributesInfo9DebugInfoE(ptr noundef nonnull align 8 dereferenceable(472) %21, ptr noundef nonnull align 8 dereferenceable(152) %2)
+  invoke void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE6getLogERNS_20GLMeshAttributesInfo9DebugInfoE(ptr noundef nonnull align 8 dereferenceable(512) %21, ptr noundef nonnull align 8 dereferenceable(152) %2)
           to label %26 unwind label %30
 
 26:                                               ; preds = %22
@@ -18192,7 +18192,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE6getLogERNS_20GLMeshAttributesInfo9DebugInfoE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #27
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %4 = getelementptr inbounds i8, ptr %1, i64 64
@@ -18228,7 +18228,7 @@ _ZN3vcg20GLMeshAttributesInfo9DebugInfo5resetEv.exit: ; preds = %2, %_ZSt8_Destr
   %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17)
   %19 = getelementptr inbounds i8, ptr %0, i64 424
   %20 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %19)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(152) %11) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #27
@@ -18655,7 +18655,7 @@ define void @_ZN26MLSceneGLSharedDataContext36setPerMeshViewRenderingDataRequest
 ; Function Attrs: mustprogress uwtable
 define void @_ZN26MLSceneGLSharedDataContext26removePerMeshViewRequestedEP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -18680,7 +18680,7 @@ define void @_ZN26MLSceneGLSharedDataContext26removePerMeshViewRequestedEP10QGLC
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !219
 
 ._crit_edge.i:                                    ; preds = %11, %2
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN26MLSceneGLSharedDataContext10removeViewEP10QGLContext.exit, label %13
 
@@ -18738,7 +18738,7 @@ define void @_ZN26MLSceneGLSharedDataContext24requestRemovePerMeshViewEP7QThread
 
 6:                                                ; preds = %3
   %7 = tail call noundef ptr @_ZN10QGLContext14currentContextEv()
-  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
@@ -18763,7 +18763,7 @@ define void @_ZN26MLSceneGLSharedDataContext24requestRemovePerMeshViewEP7QThread
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !219
 
 ._crit_edge.i:                                    ; preds = %15, %6
-  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  tail call void @_ZN9QGLWidget11doneCurrentEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN26MLSceneGLSharedDataContext10removeViewEP10QGLContext.exit, label %17
 

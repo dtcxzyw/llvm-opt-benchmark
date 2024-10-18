@@ -171,9 +171,9 @@ define hidden void @_ZN8ZWorkers18set_active_workersEj(ptr noundef nonnull align
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %2, %4
   %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #8
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #8
   %9 = tail call noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) #8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #8
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #8
   ret void
 }
 
@@ -190,12 +190,12 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1
 define hidden void @_ZN8ZWorkers10set_activeEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 128
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #8
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store volatile i32 0, ptr %4, align 8
-  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #8
+  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   ret void
 }
 
@@ -203,10 +203,10 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
 define hidden void @_ZN8ZWorkers12set_inactiveEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 128
-  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #8
+  %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   store i8 0, ptr %3, align 4
-  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #8
+  %4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   ret void
 }
 
@@ -227,19 +227,19 @@ define hidden void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 derefer
 
 _ZN7ZLockerI5ZLockED2Ev.exit5:                    ; preds = %2, %4
   %10 = getelementptr inbounds i8, ptr %0, i64 128
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #8
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #8
   %12 = getelementptr inbounds i8, ptr %0, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   tail call void @_ZN12ZStatWorkers8at_startEj(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef %15) #8
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #8
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #8
   %17 = tail call noundef ptr @_ZN5ZTask11worker_taskEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #8
   tail call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %17) #8
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #8
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %10) #8
   %19 = load ptr, ptr %12, align 8
   tail call void @_ZN12ZStatWorkers6at_endEv(ptr noundef nonnull align 8 dereferenceable(96) %19) #8
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #8
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #8
   ret void
 }
 
@@ -266,7 +266,7 @@ declare void @_ZN12ZStatWorkers6at_endEv(ptr noundef nonnull align 8 dereference
 define hidden void @_ZN8ZWorkers3runEP16ZRestartableTask(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load volatile i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -285,15 +285,15 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %_ZN7ZLockerI5ZLockE
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %11) #8
   store volatile i32 0, ptr %5, align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   tail call void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %1)
-  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   %17 = load volatile i32, ptr %5, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge, label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 ._crit_edge:                                      ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit, %2
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   ret void
 }
 
@@ -340,7 +340,7 @@ define hidden noundef nonnull ptr @_ZN8ZWorkers13resizing_lockEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8ZWorkers22request_resize_workersEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #8
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load volatile i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %1
@@ -368,7 +368,7 @@ define hidden void @_ZN8ZWorkers22request_resize_workersEj(ptr noundef nonnull a
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %8, %2, %17
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #8
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
   ret void
 }
 

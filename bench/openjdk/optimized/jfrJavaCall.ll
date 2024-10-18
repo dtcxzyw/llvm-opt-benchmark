@@ -286,7 +286,7 @@ define hidden void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArguments
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 22:                                               ; preds = %10
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #12
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 8, i32 noundef 0) #12
   %.pre26 = ptrtoint ptr %23 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
@@ -454,7 +454,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
 
 123:                                              ; preds = %112
-  %124 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %113, i64 noundef 8, i32 noundef 0) #12
+  %124 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %113, i64 noundef 8, i32 noundef 0) #12
   %.pre = ptrtoint ptr %124 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
 
@@ -1027,7 +1027,7 @@ _ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 112
   store i8 0, ptr %36, align 8
-  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
+  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
@@ -1130,7 +1130,7 @@ _ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 112
   store i8 0, ptr %36, align 8
-  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
+  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
@@ -1230,7 +1230,7 @@ _ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 112
   store i8 0, ptr %36, align 8
-  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
+  call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null

@@ -193,7 +193,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ExponentTransformEED2Ev.exit:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev21ExponentTransformImplE, i64 0) #20
   %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 8
-  %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
+  %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(272) %m_data.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ExponentTransformEED2Ev.exit

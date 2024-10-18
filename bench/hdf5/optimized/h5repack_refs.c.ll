@@ -767,14 +767,14 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   br i1 %switch.i, label %404, label %414
 
 404:                                              ; preds = %.lr.ph.i
-  %405 = call i32 @H5Oget_info3(i64 noundef %387, ptr noundef nonnull %7, i32 noundef 1) #9
+  %405 = call i32 @H5Oget_info3(i64 noundef range(i64 0, -9223372036854775808) %387, ptr noundef nonnull %7, i32 noundef 1) #9
   %406 = icmp slt i32 %405, 0
   br i1 %406, label %MapIdToName.exit.thread, label %407
 
 407:                                              ; preds = %404
   %408 = load ptr, ptr %22, align 8
   %409 = getelementptr inbounds %struct.trav_obj_t, ptr %408, i64 %400
-  %410 = call i32 @H5Otoken_cmp(i64 noundef %387, ptr noundef nonnull %23, ptr noundef %409, ptr noundef nonnull %8) #9
+  %410 = call i32 @H5Otoken_cmp(i64 noundef range(i64 0, -9223372036854775808) %387, ptr noundef nonnull %23, ptr noundef %409, ptr noundef nonnull %8) #9
   %411 = icmp slt i32 %410, 0
   br i1 %411, label %MapIdToName.exit.thread, label %412
 
@@ -1179,14 +1179,14 @@ MapIdToName.exit:                                 ; preds = %412
   br i1 %switch.i504, label %633, label %643
 
 633:                                              ; preds = %.lr.ph.i502
-  %634 = call i32 @H5Oget_info3(i64 noundef %616, ptr noundef nonnull %5, i32 noundef 1) #9
+  %634 = call i32 @H5Oget_info3(i64 noundef range(i64 0, -9223372036854775808) %616, ptr noundef nonnull %5, i32 noundef 1) #9
   %635 = icmp slt i32 %634, 0
   br i1 %635, label %MapIdToName.exit509.thread, label %636
 
 636:                                              ; preds = %633
   %637 = load ptr, ptr %22, align 8
   %638 = getelementptr inbounds %struct.trav_obj_t, ptr %637, i64 %629
-  %639 = call i32 @H5Otoken_cmp(i64 noundef %616, ptr noundef nonnull %25, ptr noundef %638, ptr noundef nonnull %6) #9
+  %639 = call i32 @H5Otoken_cmp(i64 noundef range(i64 0, -9223372036854775808) %616, ptr noundef nonnull %25, ptr noundef %638, ptr noundef nonnull %6) #9
   %640 = icmp slt i32 %639, 0
   br i1 %640, label %MapIdToName.exit509.thread, label %641
 
@@ -3729,14 +3729,14 @@ define internal fastcc range(i32 -1, 1) i32 @update_ref_value(i64 noundef range(
   br i1 %switch.i, label %41, label %51
 
 41:                                               ; preds = %35
-  %42 = call i32 @H5Oget_info3(i64 noundef %12, ptr noundef nonnull %7, i32 noundef 1) #9
+  %42 = call i32 @H5Oget_info3(i64 noundef range(i64 0, -9223372036854775808) %12, ptr noundef nonnull %7, i32 noundef 1) #9
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %MapIdToName.exit.thread, label %44
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %33, align 8
   %46 = getelementptr inbounds %struct.trav_obj_t, ptr %45, i64 %37
-  %47 = call i32 @H5Otoken_cmp(i64 noundef %12, ptr noundef nonnull %34, ptr noundef %46, ptr noundef nonnull %8) #9
+  %47 = call i32 @H5Otoken_cmp(i64 noundef range(i64 0, -9223372036854775808) %12, ptr noundef nonnull %34, ptr noundef %46, ptr noundef nonnull %8) #9
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %MapIdToName.exit.thread, label %49
 

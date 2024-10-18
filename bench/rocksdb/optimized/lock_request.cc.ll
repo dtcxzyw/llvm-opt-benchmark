@@ -910,7 +910,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvmEED2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont4
-  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvmEED2Ev.exit unwind label %terminate.lpad.i.i9
 
 terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
@@ -930,7 +930,7 @@ invoke.cont6:                                     ; preds = %_ZNSt8functionIFvmE
   br i1 %tobool.not.i.i12, label %_ZNSt8functionIFvmEED2Ev.exit17, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %invoke.cont6
-  %call.i.i14 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %reporter, ptr noundef nonnull align 8 dereferenceable(16) %reporter, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %reporter, ptr noundef nonnull align 8 dereferenceable(32) %reporter, i32 noundef 3)
           to label %_ZNSt8functionIFvmEED2Ev.exit17 unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
@@ -956,7 +956,7 @@ lpad3:                                            ; preds = %invoke.cont
   br i1 %tobool.not.i.i19, label %ehcleanup, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %lpad3
-  %call.i.i21 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i21 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i22
 
 terminate.lpad.i.i22:                             ; preds = %if.then.i.i20
@@ -973,7 +973,7 @@ ehcleanup:                                        ; preds = %if.then.i.i20, %lpa
   br i1 %tobool.not.i.i26, label %_ZNSt8functionIFvmEED2Ev.exit31, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %ehcleanup
-  %call.i.i28 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %reporter, ptr noundef nonnull align 8 dereferenceable(16) %reporter, i32 noundef 3)
+  %call.i.i28 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %reporter, ptr noundef nonnull align 8 dereferenceable(32) %reporter, i32 noundef 3)
           to label %_ZNSt8functionIFvmEED2Ev.exit31 unwind label %terminate.lpad.i.i29
 
 terminate.lpad.i.i29:                             ; preds = %if.then.i.i27
@@ -1986,7 +1986,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont.thread
 
 invoke.cont.thread:                               ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i64 24, i1 false)
   %waitees.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %waitees.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %waitees, i8 0, i64 24, i1 false)
@@ -3076,7 +3076,7 @@ _ZNKSt8functionIFvmbPK10__toku_dbtS2_EEclEmbS2_S2_.exit.i.i.i: ; preds = %if.the
   %m_deadlock_cb.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 192
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 216
   %16 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %m_deadlock_cb.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(32) %m_deadlock_cb.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i)
@@ -3157,7 +3157,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4tok
 _ZNSt12_Vector_baseIN4toku14lock_wait_infoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4toku14lock_wait_infoESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.toku::lock_wait_info", ptr %cond.i10, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %__args, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, ptr noundef nonnull align 8 dereferenceable(48) %__args, i64 24, i1 false)
   %waitees.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %waitees3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %3 = load ptr, ptr %waitees3.i.i.i, align 8
@@ -3179,7 +3179,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4toku14lock_wait_infoESaIS1_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i64 24, i1 false), !alias.scope !18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i, i64 24, i1 false), !alias.scope !18
   %waitees.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %waitees3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %6 = load ptr, ptr %waitees3.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
@@ -3209,7 +3209,7 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4toku
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i21, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i64 24, i1 false), !alias.scope !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i14, i64 24, i1 false), !alias.scope !25
   %waitees.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %waitees3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %9 = load ptr, ptr %waitees3.i.i.i.i.i.i.i16, align 8, !alias.scope !23, !noalias !20

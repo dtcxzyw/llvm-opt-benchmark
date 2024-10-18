@@ -1118,7 +1118,7 @@ php_sprintf_appendint.exit:                       ; preds = %411, %._crit_edge.i
   %422 = getelementptr inbounds [500 x i8], ptr %14, i64 0, i64 %.pre-phi.i314
   %423 = sub i32 499, %.1.i
   %424 = zext i32 %423 to i64
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %422, i64 noundef %396, i64 noundef 0, i8 noundef signext %spec.store.select.i, i64 noundef %407, i64 noundef %424, i1 noundef zeroext %408, i32 noundef 0, i32 noundef %.0216)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %422, i64 noundef range(i64 0, 2147483648) %396, i64 noundef 0, i8 noundef signext %spec.store.select.i, i64 noundef range(i64 0, 2) %407, i64 noundef %424, i1 noundef zeroext %408, i32 noundef 0, i32 noundef range(i32 0, 2) %.0216)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %14)
   br label %704
 
@@ -1168,7 +1168,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
   %spec.store.select.i321 = select i1 %or.cond.i320, i8 32, i8 %.0218
   %449 = sub i64 500, %indvars.iv.i317
   %450 = and i64 %449, 4294967295
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %445, i64 noundef %435, i64 noundef 0, i8 noundef signext %spec.store.select.i321, i64 noundef %446, i64 noundef %450, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %445, i64 noundef range(i64 0, 2147483648) %435, i64 noundef 0, i8 noundef signext %spec.store.select.i321, i64 noundef range(i64 0, 2) %446, i64 noundef %450, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %13)
   br label %704
 
@@ -1204,7 +1204,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
   br i1 %465, label %466, label %467
 
 466:                                              ; preds = %464
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14, i32 noundef %.0222, i32 noundef 53) #15
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.14, i32 noundef range(i32 -1, -2147483648) %.0222, i32 noundef 53) #15
   br label %467
 
 467:                                              ; preds = %466, %464, %459
@@ -1213,7 +1213,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
   br i1 %468, label %469, label %470
 
 469:                                              ; preds = %467
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull @.str.15, i64 noundef 3, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %463, i64 noundef 3, i1 noundef zeroext false, i32 noundef 0, i32 noundef %.0216)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull @.str.15, i64 noundef 3, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %463, i64 noundef 3, i1 noundef zeroext false, i32 noundef 0, i32 noundef range(i32 0, 2) %.0216)
   br label %php_sprintf_appenddouble.exit
 
 470:                                              ; preds = %467
@@ -1223,7 +1223,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
 
 473:                                              ; preds = %470
   %474 = fcmp olt double %461, 0.000000e+00
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull @.str.16, i64 noundef 3, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %463, i64 noundef 3, i1 noundef zeroext %474, i32 noundef 0, i32 noundef %.0216)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull @.str.16, i64 noundef 3, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %463, i64 noundef 3, i1 noundef zeroext %474, i32 noundef 0, i32 noundef range(i32 0, 2) %.0216)
   br label %php_sprintf_appenddouble.exit
 
 475:                                              ; preds = %470
@@ -1325,7 +1325,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
   %514 = phi i64 [ 0, %475 ], [ %.pre.i327, %490 ], [ %.sink.i, %.sink.split.i ]
   %.047.i = phi ptr [ null, %475 ], [ %484, %490 ], [ %.047.ph.i, %.sink.split.i ]
   %515 = trunc i8 %513 to i1
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef %.047.i, i64 noundef %462, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %463, i64 noundef %514, i1 noundef zeroext %515, i32 noundef 0, i32 noundef %.0216)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef %.047.i, i64 noundef range(i64 0, 2147483648) %462, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %463, i64 noundef %514, i1 noundef zeroext %515, i32 noundef 0, i32 noundef range(i32 0, 2) %.0216)
   br label %php_sprintf_appenddouble.exit
 
 php_sprintf_appenddouble.exit:                    ; preds = %469, %473, %512
@@ -1468,7 +1468,7 @@ php_sprintf_append2n.exit:                        ; preds = %582
   %589 = getelementptr inbounds [500 x i8], ptr %9, i64 0, i64 %586
   %590 = zext nneg i32 %.0232 to i64
   %591 = sub i64 500, %.017.i
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %589, i64 noundef %581, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %590, i64 noundef %591, i1 noundef zeroext false, i32 noundef %.0214, i32 noundef 0)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %589, i64 noundef range(i64 0, 2147483648) %581, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %590, i64 noundef %591, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %9)
   br label %704
 
@@ -1510,7 +1510,7 @@ php_sprintf_append2n.exit341:                     ; preds = %603
   %610 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %607
   %611 = zext nneg i32 %.0232 to i64
   %612 = sub i64 500, %.017.i338
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %610, i64 noundef %602, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %611, i64 noundef %612, i1 noundef zeroext false, i32 noundef %.0214, i32 noundef 0)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %610, i64 noundef range(i64 0, 2147483648) %602, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %611, i64 noundef %612, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %8)
   br label %704
 
@@ -1552,7 +1552,7 @@ php_sprintf_append2n.exit345:                     ; preds = %624
   %631 = getelementptr inbounds [500 x i8], ptr %7, i64 0, i64 %628
   %632 = zext nneg i32 %.0232 to i64
   %633 = sub i64 500, %.017.i342
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %631, i64 noundef %623, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %632, i64 noundef %633, i1 noundef zeroext false, i32 noundef %.0214, i32 noundef 0)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %631, i64 noundef range(i64 0, 2147483648) %623, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %632, i64 noundef %633, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %7)
   br label %704
 
@@ -1594,7 +1594,7 @@ php_sprintf_append2n.exit349:                     ; preds = %645
   %652 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 %649
   %653 = zext nneg i32 %.0232 to i64
   %654 = sub i64 500, %.017.i346
-  call fastcc void @php_sprintf_appendstring(ptr noundef %21, ptr noundef %20, ptr noundef nonnull %652, i64 noundef %644, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %653, i64 noundef %654, i1 noundef zeroext false, i32 noundef %.0214, i32 noundef 0)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %652, i64 noundef range(i64 0, 2147483648) %644, i64 noundef 0, i8 noundef signext %.0218, i64 noundef range(i64 0, 2) %653, i64 noundef %654, i1 noundef zeroext false, i32 noundef range(i32 0, 2) %.0214, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %6)
   br label %704
 

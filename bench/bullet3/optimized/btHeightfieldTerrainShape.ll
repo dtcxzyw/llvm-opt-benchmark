@@ -447,7 +447,7 @@ _ZN25btHeightfieldTerrainShapeD2Ev.exit:          ; preds = %entry, %if.then.i.i
   store ptr null, ptr %m_data.i.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i.i, align 4
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) #16
+  tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #16
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN25btHeightfieldTerrainShapedlEPv.exit unwind label %terminate.lpad.i1
 

@@ -483,7 +483,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end10:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
-  %call.i = call i32 @setsockopt(i32 noundef %call7, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %call7, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #10
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %anetSetReuseAddr.exit.thread, label %if.end14
 
@@ -720,7 +720,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
-  %call.i = call i32 @setsockopt(i32 noundef %call, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %call, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #10
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then5, label %anetSetReuseAddr.exit
 
@@ -842,7 +842,7 @@ if.end22:                                         ; preds = %for.body
 land.lhs.true24:                                  ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
-  %call.i = call i32 @setsockopt(i32 noundef %call19, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %call19, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %yes.i, i32 noundef 4) #10
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %anetV6Only.exit.thread, label %anetV6Only.exit
 
@@ -861,7 +861,7 @@ anetV6Only.exit:                                  ; preds = %land.lhs.true24
 if.end28:                                         ; preds = %anetV6Only.exit, %if.end22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i24)
   store i32 1, ptr %yes.i24, align 4
-  %call.i25 = call i32 @setsockopt(i32 noundef %call19, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i24, i32 noundef 4) #10
+  %call.i25 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %call19, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i24, i32 noundef 4) #10
   %cmp.i26 = icmp eq i32 %call.i25, -1
   br i1 %cmp.i26, label %anetSetReuseAddr.exit.thread, label %if.end32
 
@@ -879,12 +879,12 @@ if.end32:                                         ; preds = %if.end28
   %14 = load ptr, ptr %ai_addr, align 8
   %ai_addrlen = getelementptr inbounds i8, ptr %p.051, i64 16
   %15 = load i32, ptr %ai_addrlen, align 8
-  %call.i31 = call i32 @bind(i32 noundef %call19, ptr %14, i32 noundef %15) #10
+  %call.i31 = call i32 @bind(i32 noundef range(i32 0, -1) %call19, ptr %14, i32 noundef %15) #10
   %cmp.i32 = icmp eq i32 %call.i31, -1
   br i1 %cmp.i32, label %16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end32
-  %call9.i = call i32 @listen(i32 noundef %call19, i32 noundef %backlog) #10
+  %call9.i = call i32 @listen(i32 noundef range(i32 0, -1) %call19, i32 noundef %backlog) #10
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %16, label %end
 
@@ -894,7 +894,7 @@ if.end.i:                                         ; preds = %if.end32
   %17 = load i32, ptr %call13.i, align 4
   %call14.i = call ptr @strerror(i32 noundef %17) #10
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull %.str.21.sink.i, ptr noundef %call14.i)
-  %call15.i = call i32 @close(i32 noundef %call19) #10
+  %call15.i = call i32 @close(i32 noundef range(i32 0, -1) %call19) #10
   br label %end
 
 for.inc:                                          ; preds = %for.body
@@ -954,7 +954,7 @@ if.end5:                                          ; preds = %if.end
   store i16 1, ptr %sa, align 2
   %sun_path = getelementptr inbounds i8, ptr %sa, i64 2
   %call6 = call i64 @redis_strlcpy(ptr noundef nonnull %sun_path, ptr noundef %path, i64 noundef 108) #10
-  %call.i = call i32 @bind(i32 noundef %call2, ptr nonnull %sa, i32 noundef 110) #10
+  %call.i = call i32 @bind(i32 noundef range(i32 0, -1) %call2, ptr nonnull %sa, i32 noundef 110) #10
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %2, label %if.end.i
 
@@ -970,7 +970,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end.i
-  %call9.i = call i32 @listen(i32 noundef %call2, i32 noundef %backlog) #10
+  %call9.i = call i32 @listen(i32 noundef range(i32 0, -1) %call2, i32 noundef %backlog) #10
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %2, label %return
 
@@ -980,7 +980,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
   %3 = load i32, ptr %call13.i, align 4
   %call14.i = call ptr @strerror(i32 noundef %3) #10
   call void (ptr, ptr, ...) @anetSetError(ptr noundef %err, ptr noundef nonnull %.str.21.sink.i, ptr noundef %call14.i)
-  %call15.i = call i32 @close(i32 noundef %call2) #10
+  %call15.i = call i32 @close(i32 noundef range(i32 0, -1) %call2) #10
   br label %return
 
 return:                                           ; preds = %2, %if.end8.i, %if.end, %if.then

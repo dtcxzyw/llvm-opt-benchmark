@@ -9340,7 +9340,7 @@ invoke.cont39.thread:                             ; preds = %invoke.cont37
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %23, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 24, i1 false)
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 24
   %24 = load i64, ptr %second3.i.i.i.i.i, align 8
   store i64 %24, ptr %second.i.i.i.i.i, align 8
@@ -9617,7 +9617,7 @@ entry:
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #47
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #47
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #49
           to label %invoke.cont unwind label %lpad.i.i
@@ -9625,7 +9625,7 @@ entry:
 lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %result) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %result) #47
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #47
   br label %eh.resume
 
@@ -9898,7 +9898,7 @@ if.then.i.i.i70:                                  ; preds = %invoke.cont30
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont30, %if.then.i.i.i70
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %result) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %result) #47
   ret void
 
 lpad29:                                           ; preds = %if.end25
@@ -12467,7 +12467,7 @@ entry:
 
 invoke.cont.thread:                               ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %ref.tmp, i8 0, i64 24, i1 false)
   %p.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p, i64 5, i1 false)
   %2 = load ptr, ptr %_M_finish.i.i, align 8
@@ -13878,7 +13878,7 @@ lpad69.i.i:                                       ; preds = %if.end75.i.i, %invo
   br label %ehcleanup.i.i
 
 if.end75.i.i:                                     ; preds = %invoke.cont73.i.i, %do.end.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76.i.i, ptr noundef nonnull align 8 dereferenceable(32) %first.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp76.i.i, ptr noundef nonnull align 8 dereferenceable(32) %first.i.i)
           to label %.noexc120.i.i unwind label %lpad69.i.i
 
 .noexc120.i.i:                                    ; preds = %if.end75.i.i
@@ -13889,7 +13889,7 @@ lpad.i.i.i.i:                                     ; preds = %.noexc120.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp76.i.i) #47
   br label %ehcleanup.i.i
 
 invoke.cont77.i.i:                                ; preds = %.noexc120.i.i
@@ -13898,7 +13898,7 @@ invoke.cont77.i.i:                                ; preds = %.noexc120.i.i
 
 invoke.cont79.i.i:                                ; preds = %invoke.cont77.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp76.i.i) #47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %first.i.i) #47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %word.i.i) #47
@@ -13913,7 +13913,7 @@ lpad78.i.i:                                       ; preds = %invoke.cont77.i.i
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp76.i.i) #47
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad78.i.i, %lpad.i.i.i.i, %lpad69.i.i
@@ -13987,7 +13987,7 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then5.i.i.i, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then5.i.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i.i.i.i) #47
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %24
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !116
@@ -14079,7 +14079,7 @@ lpad109.i.i:                                      ; preds = %lpad109.loopexit.sp
   br label %ehcleanup.i
 
 do.end122.i.i:                                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit133.i.i
-  %call.i134135.i.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %token_to_id.i.i, ptr noundef nonnull align 8 dereferenceable(32) %word101.i.i)
+  %call.i134135.i.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %token_to_id.i.i, ptr noundef nonnull align 8 dereferenceable(32) %word101.i.i)
           to label %invoke.cont123.i.i unwind label %lpad109.loopexit.i.i
 
 invoke.cont123.i.i:                               ; preds = %do.end122.i.i
@@ -14474,13 +14474,13 @@ for.body.i.i.i:                                   ; preds = %if.then.i209.i.i, %
   %retval.sroa.0.010.i.i.i = phi ptr [ %retval.sroa.0.0.i.i.i, %for.inc.i.i.i ], [ %retval.sroa.0.08.i.i.i, %if.then.i209.i.i ]
   %add.ptr.i211.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.010.i.i.i, i64 8
   %call.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %left.i.i) #47
-  %call1.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i211.i.i) #47
+  %call1.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i211.i.i) #47
   %cmp.i.i.i.i.i.i = icmp eq i64 %call.i.i.i.i.i.i, %call1.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i, label %for.inc.i.i.i
 
 land.rhs.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i
   %call2.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %left.i.i) #47
-  %call3.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i211.i.i) #47
+  %call3.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i211.i.i) #47
   %call4.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %left.i.i) #47
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %land.rhs.i.i, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i
@@ -14605,7 +14605,7 @@ for.end345.i.i:                                   ; preds = %call340.i.noexc.i
 
 if.then347.i.i:                                   ; preds = %for.end345.i.i
   %85 = load i32, ptr %second260.i.i, align 4
-  %call.i191.i33.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %special_tokens_cache.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i176.i.i)
+  %call.i191.i33.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %special_tokens_cache.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i176.i.i)
           to label %call.i191.i.noexc.i unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call.i191.i.noexc.i:                              ; preds = %if.then347.i.i
@@ -15375,7 +15375,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @_ZL7g_state.0, align 8
   %1 = load ptr, ptr @_ZL7g_state.1, align 8
-  call void %0(i32 noundef %level, ptr noundef nonnull %buffer.i, ptr noundef %1)
+  call void %0(i32 noundef range(i32 2, 5) %level, ptr noundef nonnull %buffer.i, ptr noundef %1)
   br label %_ZL20llama_log_internal_v14ggml_log_levelPKcP13__va_list_tag.exit
 
 if.else.i:                                        ; preds = %entry
@@ -15388,7 +15388,7 @@ if.else.i:                                        ; preds = %entry
   store i8 0, ptr %arrayidx.i, align 1
   %3 = load ptr, ptr @_ZL7g_state.0, align 8
   %4 = load ptr, ptr @_ZL7g_state.1, align 8
-  call void %3(i32 noundef %level, ptr noundef nonnull %call3.i, ptr noundef %4)
+  call void %3(i32 noundef range(i32 2, 5) %level, ptr noundef nonnull %call3.i, ptr noundef %4)
   call void @_ZdaPv(ptr noundef nonnull %call3.i) #45
   br label %_ZL20llama_log_internal_v14ggml_log_levelPKcP13__va_list_tag.exit
 
@@ -15422,7 +15422,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 for.body.i.i.i.i:                                 ; preds = %if.end, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.end ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i) #47
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !122
@@ -15521,7 +15521,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN12llama_bufferD2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #45
   %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !123
@@ -16657,7 +16657,7 @@ lpad:                                             ; preds = %if.then.i, %invoke.
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(16) %cb, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef 3)
           to label %_ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -16806,7 +16806,7 @@ if.end52:                                         ; preds = %invoke.cont42, %inv
   br i1 %tobool.not.i.i17, label %_ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit21, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.end52
-  %call.i.i19 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(16) %cb, i32 noundef 3)
+  %call.i.i19 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(32) %cb, i32 noundef 3)
           to label %_ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit21 unwind label %terminate.lpad.i.i20
 
 terminate.lpad.i.i20:                             ; preds = %if.then.i.i18
@@ -18067,7 +18067,7 @@ invoke.cont101.i:                                 ; preds = %invoke.cont99.i
 
 for.body.i.i:                                     ; preds = %invoke.cont101.i, %call.i.noexc.i
   %i.03.i.i = phi i64 [ %inc.i.i, %call.i.noexc.i ], [ 0, %invoke.cont101.i ]
-  %call.i118.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %fout.i, ptr noundef nonnull %zero.i.i, i64 noundef 1)
+  %call.i118.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %fout.i, ptr noundef nonnull %zero.i.i, i64 noundef 1)
           to label %call.i.noexc.i unwind label %_ZNSt6vectorI7no_initIhESaIS1_EED2Ev.exit361.thread.i
 
 call.i.noexc.i:                                   ; preds = %for.body.i.i
@@ -19958,7 +19958,7 @@ invoke.cont335.i:                                 ; preds = %invoke.cont334.i
 
 for.body.i297.i:                                  ; preds = %invoke.cont335.i, %call.i.noexc302.i
   %i.03.i298.i = phi i64 [ %inc.i299.i, %call.i.noexc302.i ], [ 0, %invoke.cont335.i ]
-  %call.i303.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %fout.i, ptr noundef nonnull %zero.i295.i, i64 noundef 1)
+  %call.i303.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(248) %fout.i, ptr noundef nonnull %zero.i295.i, i64 noundef 1)
           to label %call.i.noexc302.i unwind label %lpad121.loopexit.i
 
 call.i.noexc302.i:                                ; preds = %for.body.i297.i
@@ -21106,7 +21106,7 @@ invoke.cont171:                                   ; preds = %invoke.cont168
           to label %invoke.cont172 unwind label %lpad137.loopexit
 
 invoke.cont172:                                   ; preds = %invoke.cont171
-  %call.i139140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %name)
+  %call.i139140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont173 unwind label %lpad137.loopexit
 
 invoke.cont173:                                   ; preds = %invoke.cont172
@@ -21161,7 +21161,7 @@ cleanup.done203:                                  ; preds = %invoke.cont190
   br i1 %cmp.i155.not, label %cleanup, label %if.then209
 
 if.then209:                                       ; preds = %cleanup.done203
-  %call.i156157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %model_tensors, ptr noundef nonnull align 8 dereferenceable(32) %base_name)
+  %call.i156157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %model_tensors, ptr noundef nonnull align 8 dereferenceable(32) %base_name)
           to label %invoke.cont210 unwind label %lpad137.loopexit
 
 invoke.cont210:                                   ; preds = %if.then209
@@ -21281,7 +21281,7 @@ lpad.i173:                                        ; preds = %.noexc174
   br label %ehcleanup377
 
 invoke.cont253:                                   ; preds = %.noexc174
-  %call.i178179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp252)
+  %call.i178179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp252)
           to label %invoke.cont255 unwind label %lpad254
 
 invoke.cont255:                                   ; preds = %invoke.cont253
@@ -21328,7 +21328,7 @@ lpad.i181:                                        ; preds = %.noexc182
   br label %ehcleanup377
 
 invoke.cont273:                                   ; preds = %.noexc182
-  %call.i186187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272)
+  %call.i186187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorESaISB_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %lora_tensors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272)
           to label %invoke.cont275 unwind label %lpad274
 
 invoke.cont275:                                   ; preds = %invoke.cont273
@@ -21606,7 +21606,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10unique_ptrI1
   %__n.addr.04.i.i.i = phi ptr [ %91, %while.body.i.i.i ], [ %90, %_ZNSt10unique_ptrI12ggml_contextPFvPS0_EE5resetES1_.exit206 ]
   %91 = load ptr, ptr %__n.addr.04.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i) #47
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i) #45
   %tobool.not.i.i.i207 = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i207, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11ggml_tensorSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE5clearEv.exit, label %while.body.i.i.i, !llvm.loop !175
@@ -21745,7 +21745,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrI1
   %__n.addr.04.i.i.i.i = phi ptr [ %100, %while.body.i.i.i.i ], [ %99, %_ZNSt10unique_ptrI18llama_model_loaderSt14default_deleteIS0_EED2Ev.exit ]
   %100 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i220 = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i220) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i220) #47
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #45
   %tobool.not.i.i.i.i = icmp eq ptr %100, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !175
@@ -21796,7 +21796,7 @@ while.body.i.i.i.i232:                            ; preds = %_ZNSt6vectorIhSaIhE
   %__n.addr.04.i.i.i.i233 = phi ptr [ %107, %while.body.i.i.i.i232 ], [ %106, %_ZNSt6vectorIhSaIhEED2Ev.exit229 ]
   %107 = load ptr, ptr %__n.addr.04.i.i.i.i233, align 8
   %add.ptr.i.i.i.i.i234 = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i233, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i234) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i.i234) #47
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i233) #45
   %tobool.not.i.i.i.i235 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i.i.i235, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i236, label %while.body.i.i.i.i232, !llvm.loop !175
@@ -26441,7 +26441,7 @@ if.end91.i:                                       ; preds = %_ZSt4nextISt18_Fwd_
   store ptr %33, ptr %__x.sroa.0.0.i.sink.i, align 8
   %_dummy.i.i.i.i.i55.i = getelementptr inbounds i8, ptr %.sink39.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_dummy.i.i.i.i.i55.i) #47
-  tail call void @_ZdlPv(ptr noundef %.sink39.i) #45
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink39.i) #45
   %call16.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i24, i64 noundef %add55.i) #47
   %cmp17.i = icmp eq i64 %call16.i, -1
   br i1 %cmp17.i, label %if.end119.i, label %if.end.i, !llvm.loop !213
@@ -26476,7 +26476,7 @@ if.end119.sink.split.i:                           ; preds = %_ZSt4nextISt18_Fwd_
   store ptr %38, ptr %__x.sroa.0.0.i62.sink.i, align 8
   %_dummy.i.i.i.i.i64.i = getelementptr inbounds i8, ptr %.sink43.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_dummy.i.i.i.i.i64.i) #47
-  tail call void @_ZdlPv(ptr noundef %.sink43.i) #45
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink43.i) #45
   br label %if.end119.i
 
 if.end119.i:                                      ; preds = %if.end91.i, %if.end.i, %if.end119.sink.split.i, %if.then.i25, %while.body.i
@@ -29101,7 +29101,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #47
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #47
   ret void
 }
 
@@ -30159,7 +30159,7 @@ if.then.i.i:                                      ; preds = %if.then2
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %beam, i64 16
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %beam, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %beam, i8 0, i64 24, i1 false)
   %p.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %p3.i.i.i.i.i = getelementptr inbounds i8, ptr %beam, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i.i.i, i64 5, i1 false)
@@ -30205,7 +30205,7 @@ while.body.i.i:                                   ; preds = %_ZN10llama_beamD2Ev
   %13 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i.i, i8 0, i64 24, i1 false)
   %p3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i13.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i, i64 5, i1 false)
   store ptr %12, ptr %agg.tmp6.i.i, align 8
@@ -30269,7 +30269,7 @@ if.then.i:                                        ; preds = %if.then22
   %21 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i30, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %1, i64 -16
   %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i29, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %incdec.ptr.i.i29, i8 0, i64 24, i1 false)
   %p3.i.i.i32 = getelementptr inbounds i8, ptr %1, i64 -8
   %p.i9.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i9.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i32, i64 5, i1 false)
@@ -30281,7 +30281,7 @@ if.then.i:                                        ; preds = %if.then22
   %_M_end_of_storage.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i, align 8
   store ptr %25, ptr %_M_end_of_storage4.i.i.i.i.i.i.i31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %2, i8 0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i32, ptr noundef nonnull align 8 dereferenceable(5) %p, i64 5, i1 false)
   %sub.ptr.lhs.cast.i.i.i33 = ptrtoint ptr %incdec.ptr.i.i29 to i64
   %sub.ptr.sub.i.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i.i33, %sub.ptr.rhs.cast.i
@@ -30330,7 +30330,7 @@ _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEE
   %33 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   store ptr %33, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i41 = icmp eq ptr %30, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %beam, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %beam, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i41, label %_ZN10llama_beamaSEOS_.exit, label %if.then.i.i.i.i.i.i42
 
 if.then.i.i.i.i.i.i42:                            ; preds = %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEEEZN22llama_beam_search_data36fill_next_beams_by_top_probabilitiesERS2_EUlRKS2_SB_E_EvT_SD_T0_.exit
@@ -30348,7 +30348,7 @@ _ZN10llama_beamaSEOS_.exit:                       ; preds = %_ZSt8pop_heapIN9__g
   %37 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 -16
   %38 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i44, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i44, i8 0, i64 24, i1 false)
   %p3.i.i = getelementptr inbounds i8, ptr %35, i64 -8
   %__value.sroa.9.24.copyload.i = load float, ptr %p3.i.i, align 8
   %__value.sroa.11.24.p3.i.sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 -4
@@ -30385,7 +30385,7 @@ while.body.i.i50:                                 ; preds = %land.rhs.i.i
   %43 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i52, align 8
   store ptr %43, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i.i49, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN10llama_beamaSEOS_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i50
@@ -30571,7 +30571,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub.ptr.lhs.cast.i.i.i81 = ptrtoint ptr %65 to i64
   %sub.ptr.rhs.cast.i.i.i82 = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i81, %sub.ptr.rhs.cast.i.i.i82
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_beam, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %next_beam, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %65, %66
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i85.thread, label %cond.true.i.i.i.i.i
 
@@ -30705,7 +30705,7 @@ invoke.cont80.thread:                             ; preds = %invoke.cont74
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i109 = getelementptr inbounds i8, ptr %76, i64 16
   %80 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   store ptr %80, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i109, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_beam, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %next_beam, i8 0, i64 24, i1 false)
   %p.i.i.i.i.i111 = getelementptr inbounds i8, ptr %76, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i111, ptr noundef nonnull align 8 dereferenceable(5) %p.i86, i64 5, i1 false)
   %81 = load ptr, ptr %_M_finish.i70, align 8
@@ -30799,7 +30799,7 @@ while.body.i.i133:                                ; preds = %_ZN10llama_beamD2Ev
   %87 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i136, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i137 = getelementptr inbounds i8, ptr %add.ptr.i.i.i135, i64 16
   %88 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i137, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i135, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i.i135, i8 0, i64 24, i1 false)
   %p3.i.i.i138 = getelementptr inbounds i8, ptr %add.ptr.i.i.i135, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i13.i.i132, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i138, i64 5, i1 false)
   store ptr %86, ptr %agg.tmp6.i.i121, align 8
@@ -30856,7 +30856,7 @@ if.then.i156:                                     ; preds = %for.body99
   %95 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i158, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i159 = getelementptr inbounds i8, ptr %93, i64 -16
   %96 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i159, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i157, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %incdec.ptr.i.i157, i8 0, i64 24, i1 false)
   %p3.i.i.i160 = getelementptr inbounds i8, ptr %93, i64 -8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i9.i.i161, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i160, i64 5, i1 false)
   %97 = load ptr, ptr %92, align 8
@@ -30867,7 +30867,7 @@ if.then.i156:                                     ; preds = %for.body99
   %_M_end_of_storage.i4.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %92, i64 16
   %99 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i163, align 8
   store ptr %99, ptr %_M_end_of_storage4.i.i.i.i.i.i.i159, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %92, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i160, ptr noundef nonnull align 8 dereferenceable(5) %p97446, i64 5, i1 false)
   %sub.ptr.lhs.cast.i.i.i165 = ptrtoint ptr %incdec.ptr.i.i157 to i64
   %sub.ptr.sub.i.i.i166 = sub i64 %sub.ptr.lhs.cast.i.i.i165, %sub.ptr.rhs.cast.i.i153
@@ -30906,7 +30906,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_
 invoke.cont111:                                   ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN22llama_beam_search_data36fill_next_beams_by_top_probabilitiesERS2_EUlRKS2_SD_E_EEEvT_SG_SG_RT0_.exit.i177, %for.body99
   %103 = phi ptr [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN22llama_beam_search_data36fill_next_beams_by_top_probabilitiesERS2_EUlRKS2_SD_E_EEEvT_SG_SG_RT0_.exit.i177 ], [ %93, %for.body99 ]
   %add.ptr.i.i182 = getelementptr inbounds i8, ptr %103, i64 -32
-  %call.i183186 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i182, ptr noundef nonnull align 8 dereferenceable(24) %beam)
+  %call.i183186 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i182, ptr noundef nonnull align 8 dereferenceable(29) %beam)
           to label %invoke.cont114 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont114:                                   ; preds = %invoke.cont111
@@ -31012,7 +31012,7 @@ invoke.cont121:                                   ; preds = %_ZNSt6vectorIiSaIiE
   %122 = load ptr, ptr %_M_finish3.i.i.i.i.i.i236, align 8
   %_M_end_of_storage4.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %120, i64 -16
   %123 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i237, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i235, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i235, i8 0, i64 24, i1 false)
   %p3.i.i238 = getelementptr inbounds i8, ptr %120, i64 -8
   %__value.sroa.9.24.copyload.i239 = load float, ptr %p3.i.i238, align 8
   %__value.sroa.11.24.p3.i.sroa_idx.i240 = getelementptr inbounds i8, ptr %120, i64 -4
@@ -31049,7 +31049,7 @@ while.body.i.i264:                                ; preds = %land.rhs.i.i257
   %128 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i269, align 8
   store ptr %128, ptr %_M_end_of_storage.i.i.i.i.i.i.i267, align 8
   %tobool.not.i.i.i.i.i.i.i.i270 = icmp eq ptr %125, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i261, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i.i261, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i270, label %_ZN10llama_beamaSEOS_.exit.i.i272, label %if.then.i.i.i.i.i.i.i.i271
 
 if.then.i.i.i.i.i.i.i.i271:                       ; preds = %while.body.i.i264
@@ -31137,7 +31137,7 @@ if.then.i288:                                     ; preds = %if.then160
   %142 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i290, align 8
   %_M_end_of_storage4.i.i.i.i.i.i.i291 = getelementptr inbounds i8, ptr %140, i64 -16
   %143 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i291, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i289, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %incdec.ptr.i.i289, i8 0, i64 24, i1 false)
   %p3.i.i.i292 = getelementptr inbounds i8, ptr %140, i64 -8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i9.i.i293, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i292, i64 5, i1 false)
   %144 = load ptr, ptr %138, align 8
@@ -31148,7 +31148,7 @@ if.then.i288:                                     ; preds = %if.then160
   %_M_end_of_storage.i4.i.i.i.i.i.i295 = getelementptr inbounds i8, ptr %138, i64 16
   %146 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i295, align 8
   store ptr %146, ptr %_M_end_of_storage4.i.i.i.i.i.i.i291, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %138, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i292, ptr noundef nonnull align 8 dereferenceable(5) %p158, i64 5, i1 false)
   %sub.ptr.lhs.cast.i.i.i297 = ptrtoint ptr %incdec.ptr.i.i289 to i64
   %sub.ptr.sub.i.i.i298 = sub i64 %sub.ptr.lhs.cast.i.i.i297, %sub.ptr.rhs.cast.i.i285
@@ -31187,7 +31187,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_
 invoke.cont172:                                   ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN22llama_beam_search_data36fill_next_beams_by_top_probabilitiesERS2_EUlRKS2_SD_E_EEEvT_SG_SG_RT0_.exit.i309, %if.then160
   %150 = phi ptr [ %.pre462, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP10llama_beamSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN22llama_beam_search_data36fill_next_beams_by_top_probabilitiesERS2_EUlRKS2_SD_E_EEEvT_SG_SG_RT0_.exit.i309 ], [ %140, %if.then160 ]
   %add.ptr.i.i314 = getelementptr inbounds i8, ptr %150, i64 -32
-  %call.i315318 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i314, ptr noundef nonnull align 8 dereferenceable(24) %beam)
+  %call.i315318 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i314, ptr noundef nonnull align 8 dereferenceable(29) %beam)
           to label %invoke.cont175 unwind label %lpad.loopexit
 
 invoke.cont175:                                   ; preds = %invoke.cont172
@@ -31276,7 +31276,7 @@ invoke.cont182:                                   ; preds = %_ZNSt6vectorIiSaIiE
   %164 = load ptr, ptr %_M_finish3.i.i.i.i.i.i363, align 8
   %_M_end_of_storage4.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %162, i64 -16
   %165 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i364, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i362, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i362, i8 0, i64 24, i1 false)
   %p3.i.i365 = getelementptr inbounds i8, ptr %162, i64 -8
   %__value.sroa.9.24.copyload.i366 = load float, ptr %p3.i.i365, align 8
   %__value.sroa.11.24.p3.i.sroa_idx.i367 = getelementptr inbounds i8, ptr %162, i64 -4
@@ -31313,7 +31313,7 @@ while.body.i.i391:                                ; preds = %land.rhs.i.i384
   %170 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i396, align 8
   store ptr %170, ptr %_M_end_of_storage.i.i.i.i.i.i.i394, align 8
   %tobool.not.i.i.i.i.i.i.i.i397 = icmp eq ptr %167, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i388, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i.i388, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i397, label %_ZN10llama_beamaSEOS_.exit.i.i399, label %if.then.i.i.i.i.i.i.i.i398
 
 if.then.i.i.i.i.i.i.i.i398:                       ; preds = %while.body.i.i391
@@ -31421,7 +31421,7 @@ _ZNSt12_Vector_baseI10llama_beamSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %__args, i8 0, i64 24, i1 false)
   %p.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %p3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i, i64 5, i1 false)
@@ -31443,7 +31443,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !256, !noalias !253
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !253, !noalias !256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !256, !noalias !253
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !256, !noalias !253
   %p.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %p3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i.i.i.i.i.i, i64 5, i1 false), !alias.scope !258
@@ -31473,7 +31473,7 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorI10llam
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 16
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !263, !noalias !260
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !260, !noalias !263
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !263, !noalias !260
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %__first.addr.06.i.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !263, !noalias !260
   %p.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 24
   %p3.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i.i.i.i.i.i20, i64 5, i1 false), !alias.scope !265
@@ -32085,7 +32085,7 @@ while.body:                                       ; preds = %entry, %_ZN10llama_
   %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i18, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN10llama_beamaSEOS_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body
@@ -32128,7 +32128,7 @@ if.then21:                                        ; preds = %land.lhs.true
   %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i25, align 8
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i23, align 8
   %tobool.not.i.i.i.i.i.i26 = icmp eq ptr %6, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i20, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i26, label %_ZN10llama_beamaSEOS_.exit30, label %if.then.i.i.i.i.i.i27
 
 if.then.i.i.i.i.i.i27:                            ; preds = %if.then21
@@ -32148,7 +32148,7 @@ if.end35:                                         ; preds = %_ZN10llama_beamaSEO
   %11 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %__value, i64 16
   %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__value, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %__value, i8 0, i64 24, i1 false)
   %p3.i34 = getelementptr inbounds i8, ptr %__value, i64 24
   %agg.tmp37.sroa.9.24.copyload = load float, ptr %p3.i34, align 8
   %agg.tmp37.sroa.12.24.p3.i34.sroa_idx = getelementptr inbounds i8, ptr %__value, i64 28
@@ -32180,7 +32180,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
   store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %add.ptr.i.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN10llama_beamaSEOS_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i
@@ -32397,7 +32397,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10lla
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !275, !noalias !272
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !272, !noalias !275
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !275, !noalias !272
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !275, !noalias !272
   %p.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %p3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %p.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %p3.i.i.i.i.i.i.i.i, i64 5, i1 false), !alias.scope !277
@@ -32473,7 +32473,7 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt3mapISt4pairIN
   %__n.addr.04.i.i.i.i = phi ptr [ %4, %while.body.i.i.i.i ], [ %3, %_ZNSt3mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EiSt4lessIS7_ESaIS0_IKS7_iEEED2Ev.exit ]
   %4 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #45
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !278
@@ -32504,7 +32504,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %8, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEED2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i.i.i.i) #47
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !116
@@ -32533,7 +32533,7 @@ while.body.i.i.i.i3:                              ; preds = %_ZNSt6vectorIN11lla
   %__n.addr.04.i.i.i.i4 = phi ptr [ %12, %while.body.i.i.i.i3 ], [ %11, %_ZNSt6vectorIN11llama_vocab10token_dataESaIS1_EED2Ev.exit ]
   %12 = load ptr, ptr %__n.addr.04.i.i.i.i4, align 8
   %add.ptr.i.i.i.i.i5 = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i4, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i5) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i.i.i.i5) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i4) #45
   %tobool.not.i.i.i.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i6, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i7, label %while.body.i.i.i.i3, !llvm.loop !278
@@ -32586,7 +32586,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %_M_storage.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #45
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !279
@@ -32696,13 +32696,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %for.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(176) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %second.i, ptr noundef nonnull align 8 dereferenceable(144) %p.074, i64 144, i1 false)
   %call2.i.i47 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS9_EEES6_INSB_14_Node_iteratorIS9_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %kv_overrides, ptr noundef nonnull align 8 dereferenceable(176) %ref.tmp)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %ref.tmp) #47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #47
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #47
   %incdec.ptr = getelementptr inbounds i8, ptr %p.074, i64 144
@@ -32728,7 +32728,7 @@ lpad9:                                            ; preds = %for.body
 lpad13:                                           ; preds = %invoke.cont10
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %ref.tmp) #47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #47
   br label %ehcleanup16
 
@@ -46797,7 +46797,7 @@ for.body4423:                                     ; preds = %for.body4423.lr.ph,
 if.then.i4371:                                    ; preds = %for.body4423
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1021, ptr noundef %call4427, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(40) %1021, ptr noundef %call4427, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11ggml_tensorEEE9constructIS9_JPKcRS8_EEEvRSA_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
 
 common.resume:                                    ; preds = %ehcleanup51, %ehcleanup79, %ehcleanup105, %ehcleanup155, %ehcleanup181, %ehcleanup207, %ehcleanup233, %ehcleanup259, %ehcleanup284, %ehcleanup309, %ehcleanup334, %ehcleanup359, %ehcleanup384, %ehcleanup409, %ehcleanup451, %ehcleanup478, %ehcleanup505, %ehcleanup553, %ehcleanup582, %ehcleanup611, %ehcleanup740, %ehcleanup773, %ehcleanup800, %ehcleanup866, %ehcleanup893, %ehcleanup920, %ehcleanup947, %ehcleanup974, %ehcleanup1000, %ehcleanup1028, %ehcleanup1056, %ehcleanup1084, %ehcleanup1145, %ehcleanup1178, %ehcleanup1203, %ehcleanup1230, %ehcleanup1299, %ehcleanup1324, %ehcleanup1339, %ehcleanup1365, %ehcleanup1390, %ehcleanup1427, %ehcleanup1454, %ehcleanup1482, %ehcleanup1510, %ehcleanup1562, %ehcleanup1589, %ehcleanup1622, %ehcleanup1648, %ehcleanup1675, %ehcleanup1744, %ehcleanup1770, %ehcleanup1799, %ehcleanup1826, %ehcleanup1853, %ehcleanup1879, %ehcleanup1905, %ehcleanup1930, %ehcleanup1958, %ehcleanup1983, %ehcleanup2011, %ehcleanup2037, %ehcleanup2107, %ehcleanup2140, %ehcleanup2166, %ehcleanup2193, %ehcleanup2262, %ehcleanup2288, %ehcleanup2317, %ehcleanup2345, %ehcleanup2372, %ehcleanup2398, %ehcleanup2426, %ehcleanup2452, %ehcleanup2480, %ehcleanup2507, %ehcleanup2533, %ehcleanup2559, %ehcleanup2584, %ehcleanup2609, %ehcleanup2634, %ehcleanup2659, %ehcleanup2690, %ehcleanup2715, %ehcleanup2740, %ehcleanup2773, %ehcleanup2799, %ehcleanup2826, %ehcleanup2895, %ehcleanup2921, %ehcleanup2950, %ehcleanup2978, %ehcleanup3005, %ehcleanup3031, %ehcleanup3057, %ehcleanup3083, %ehcleanup3111, %ehcleanup3137, %ehcleanup3165, %ehcleanup3192, %ehcleanup3262, %ehcleanup3295, %ehcleanup3322, %ehcleanup3388, %ehcleanup3417, %ehcleanup3444, %ehcleanup3470, %ehcleanup3498, %ehcleanup3526, %ehcleanup3578, %ehcleanup3611, %ehcleanup3637, %ehcleanup3664, %ehcleanup3730, %ehcleanup3756, %ehcleanup3783, %ehcleanup3810, %ehcleanup3837, %ehcleanup3864, %ehcleanup3890, %ehcleanup3916, %ehcleanup3944, %ehcleanup3972, %ehcleanup4000, %ehcleanup4061, %ehcleanup4094, %ehcleanup4121, %ehcleanup4188, %ehcleanup4216, %ehcleanup4243, %ehcleanup4270, %ehcleanup4296, %ehcleanup4324, %ehcleanup4352, %ehcleanup4380, %lpad4412, %cleanup.action, %ehcleanup, %lpad.i.i.i.i
@@ -46908,7 +46908,7 @@ while.body.i.i.i.i:                               ; preds = %if.end7, %while.bod
   %__n.addr.04.i.i.i.i = phi ptr [ %3, %while.body.i.i.i.i ], [ %2, %if.end7 ]
   %3 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #45
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !297
@@ -47047,7 +47047,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont29
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont29, %if.then.i.i.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf) #47
   ret void
 
 lpad28:                                           ; preds = %do.end22
@@ -47067,7 +47067,7 @@ if.then.i.i.i10:                                  ; preds = %ehcleanup
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit11
 
 _ZNSt6vectorIcSaIcEED2Ev.exit11:                  ; preds = %ehcleanup, %if.then.i.i.i10
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf) #47
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit11, %lpad
@@ -47830,7 +47830,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__n.addr.04.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i) #45
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !297
@@ -47863,7 +47863,7 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(176) %__args)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS9_EEEPNSB_16_Hashtable_allocISaINSB_10_Hash_nodeIS9_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont10.i.i
 
 invoke.cont10.i.i:                                ; preds = %entry
@@ -47914,13 +47914,13 @@ for.body:                                         ; preds = %_ZNSt10_HashtableIN
   %__it.sroa.0.031 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.029, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJS9_EEEPNSB_16_Hashtable_allocISaINSB_10_Hash_nodeIS9_Lb1EEEEEEDpOT_.exit ]
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.031, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr12) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr12) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i16, label %invoke.cont
@@ -47981,7 +47981,7 @@ if.end34:                                         ; preds = %call.i.noexc, %invo
 
 if.then.i16:                                      ; preds = %land.rhs.i.i.i, %invoke.cont, %invoke.cont27
   %retval.sroa.0.0.ph = phi ptr [ %13, %invoke.cont27 ], [ %__it.sroa.0.031, %invoke.cont ], [ %__it.sroa.0.031, %land.rhs.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #45
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -48107,7 +48107,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(176) %add.ptr.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -48146,13 +48146,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr) #47
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit
@@ -48300,7 +48300,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #47
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i = icmp eq i64 %__n, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -48317,7 +48317,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #47
   resume { ptr, i32 } %0
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -48362,13 +48362,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit
@@ -49893,7 +49893,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -49905,7 +49905,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #47
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -50109,13 +50109,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %__it.sroa.0.030 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.028, %entry ]
   %add.ptr14 = getelementptr inbounds i8, ptr %__it.sroa.0.030, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr14) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr14) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr14) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr14) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %cleanup, label %invoke.cont
@@ -50182,7 +50182,7 @@ cleanup:                                          ; preds = %invoke.cont, %land.
 if.then.i16:                                      ; preds = %cleanup
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #47
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #45
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -50310,7 +50310,7 @@ if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -50328,7 +50328,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %0 = load ptr, ptr %__args, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %invoke.cont
@@ -50346,7 +50346,7 @@ lpad.i.i.i:                                       ; preds = %invoke.cont
 lpad2.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #47
   br label %invoke.cont12
 
 invoke.cont8:                                     ; preds = %invoke.cont.i.i.i
@@ -50407,13 +50407,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #47
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -51960,7 +51960,7 @@ invoke.cont:
   %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #49
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(68) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__args) #47
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #47
@@ -51989,7 +51989,7 @@ lpad:                                             ; preds = %if.then, %invoke.co
 
 if.then.i:                                        ; preds = %invoke.cont4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %_M_storage.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #45
   br label %_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_iESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE10_Auto_nodeD2Ev.exit
 
@@ -52017,7 +52017,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end
   %__x.043 = phi ptr [ %__x.041, %while.body.lr.ph ], [ %__x.0, %cond.end ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.043, i64 32
-  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
+  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__k, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %while.body
@@ -52032,7 +52032,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i, label %cond.end, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i
-  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__k)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8.i.i unwind label %terminate.lpad.i6.i.i
 
 terminate.lpad.i6.i.i:                            ; preds = %lor.rhs.i.i
@@ -52091,7 +52091,7 @@ if.end12:                                         ; preds = %if.else, %while.end
   %__y.0.lcssa50 = phi ptr [ %__y.0.lcssa51, %if.else ], [ %__x.043, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.043, %while.end ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 32
-  %call.i.i.i4 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  %call.i.i.i4 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__k)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i6 unwind label %terminate.lpad.i.i.i5
 
 terminate.lpad.i.i.i5:                            ; preds = %if.end12
@@ -52106,7 +52106,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i7, label %return, label %lor.rhs.i.i8
 
 lor.rhs.i.i8:                                     ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i6
-  %call.i5.i.i9 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
+  %call.i5.i.i9 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__k, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8.i.i11 unwind label %terminate.lpad.i6.i.i10
 
 terminate.lpad.i6.i.i10:                          ; preds = %lor.rhs.i.i8
@@ -52160,7 +52160,7 @@ if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #47
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %_M_storage.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -52182,7 +52182,7 @@ entry:
 lor.rhs:                                          ; preds = %entry
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__z, i64 32
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__p, i64 32
-  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
+  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lor.rhs
@@ -52197,7 +52197,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i, label %lor.end, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i
-  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
+  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8.i.i unwind label %terminate.lpad.i6.i.i
 
 terminate.lpad.i6.i.i:                            ; preds = %lor.rhs.i.i
@@ -52269,7 +52269,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.body.
   %__cur.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %if.then ]
   %__n.addr.05.i.i.i = phi i64 [ %dec.i.i.i, %for.body.i.i.i ], [ %__n, %if.then ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.06.i.i.i, i8 0, i64 40, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.06.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__cur.06.i.i.i) #47
   %dec.i.i.i = add i64 %__n.addr.05.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -52300,7 +52300,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN11ll
   %__cur.06.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i25, %for.body.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN11llama_vocab10token_dataESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.05.i.i.i23 = phi i64 [ %dec.i.i.i24, %for.body.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN11llama_vocab10token_dataESaIS1_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.06.i.i.i22, i8 0, i64 40, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__cur.06.i.i.i22) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__cur.06.i.i.i22) #47
   %dec.i.i.i24 = add i64 %__n.addr.05.i.i.i23, -1
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__cur.06.i.i.i22, i64 40
   %cmp.not.i.i.i26 = icmp eq i64 %dec.i.i.i24, 0
@@ -52315,12 +52315,12 @@ for.body.i.i.i.i:                                 ; preds = %try.cont, %for.body
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i) #47
   %score.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %score3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   %4 = load i64, ptr %score3.i.i.i.i.i.i.i.i, align 8, !alias.scope !325, !noalias !322
   store i64 %4, ptr %score.i.i.i.i.i.i.i.i, align 8, !alias.scope !322, !noalias !325
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i) #47
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
@@ -52380,7 +52380,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EESR_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont14.i.i
 
 invoke.cont14.i.i:                                ; preds = %if.end
@@ -52546,7 +52546,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -52580,13 +52580,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -52818,13 +52818,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -53545,13 +53545,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -55211,7 +55211,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   %3 = load ptr, ptr %__args, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #47
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11ggml_tensorESaIS9_EE11_M_allocateEm.exit
@@ -55237,12 +55237,12 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %invoke.cont ]
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i) #47
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   %8 = load ptr, ptr %second3.i.i.i.i.i.i.i.i, align 8, !alias.scope !349, !noalias !346
   store ptr %8, ptr %second.i.i.i.i.i.i.i.i, align 8, !alias.scope !346, !noalias !349
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i) #47
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
@@ -55259,12 +55259,12 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorISt4pai
   %__first.addr.06.i.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i.i24, %for.body.i.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11ggml_tensorESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i21) #47
   %second.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 32
   %second3.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 32
   %9 = load ptr, ptr %second3.i.i.i.i.i.i.i.i23, align 8, !alias.scope !355, !noalias !352
   store ptr %9, ptr %second.i.i.i.i.i.i.i.i22, align 8, !alias.scope !352, !noalias !355
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i.i21) #47
   %incdec.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 40
   %incdec.ptr1.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 40
   %cmp.not.i.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i.i24, %0
@@ -55288,7 +55288,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   ret void
 
 if.end.thread:                                    ; preds = %lpad.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #47
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
@@ -56120,7 +56120,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %13 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -56156,7 +56156,7 @@ if.then.i147:                                     ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %_M_invoker.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -56184,7 +56184,7 @@ if.then.i154:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i153 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i153, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i148, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i149, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i150)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i148, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i149, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i148)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i149)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i150)
@@ -56209,7 +56209,7 @@ if.then.i162:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit163: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155
   %_M_invoker.i161 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load ptr, ptr %_M_invoker.i161, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i157, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i158)
+  call void %26(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i157, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i158)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i157)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i158)
@@ -56239,7 +56239,7 @@ if.then.i170:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit171: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit163
   %_M_invoker.i169 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %_M_invoker.i169, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
+  call void %32(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i165)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i166)
@@ -56331,7 +56331,7 @@ if.then.i.i180:                                   ; preds = %if.then.i175
 if.then5.i:                                       ; preds = %if.then.i175
   %_M_invoker.i.i178 = getelementptr inbounds i8, ptr %49, i64 24
   %53 = load ptr, ptr %_M_invoker.i.i178, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i174)
+  call void %53(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i174)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i173)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i174)
@@ -56360,7 +56360,7 @@ if.then.i188:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit189: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
   %_M_invoker.i187 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = load ptr, ptr %_M_invoker.i187, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i181, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i182, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i183)
+  call void %56(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i181, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i182, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i183)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i181)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i182)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i183)
@@ -56390,7 +56390,7 @@ if.then.i198:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit189
   %_M_invoker.i197 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %_M_invoker.i197, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i191, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i192, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i193)
+  call void %63(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i191, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i192, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i193)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i191)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i192)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i193)
@@ -56424,7 +56424,7 @@ if.then.i209:                                     ; preds = %if.then50
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit210: ; preds = %if.then50
   %_M_invoker.i208 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %_M_invoker.i208, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i202, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i203, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i204)
+  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i202, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i203, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i204)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i202)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i203)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i204)
@@ -56459,7 +56459,7 @@ if.then.i219:                                     ; preds = %if.end59
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit220: ; preds = %if.end59
   %_M_invoker.i218 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %_M_invoker.i218, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i212, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i213, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i214)
+  call void %76(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i212, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i213, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i214)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i212)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i213)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i214)
@@ -56493,7 +56493,7 @@ if.then.i230:                                     ; preds = %if.then72
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231: ; preds = %if.then72
   %_M_invoker.i229 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load ptr, ptr %_M_invoker.i229, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i223, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i224, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i225)
+  call void %83(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i223, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i224, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i225)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i223)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i224)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i225)
@@ -56528,7 +56528,7 @@ if.then.i240:                                     ; preds = %if.end81
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit241: ; preds = %if.end81
   %_M_invoker.i239 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %_M_invoker.i239, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i233, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i234, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i235)
+  call void %89(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i233, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i234, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i235)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i233)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i234)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i235)
@@ -56562,7 +56562,7 @@ if.then.i251:                                     ; preds = %if.then94
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit252: ; preds = %if.then94
   %_M_invoker.i250 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = load ptr, ptr %_M_invoker.i250, align 8
-  call void %96(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i244, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i245, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i246)
+  call void %96(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i244, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i245, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i246)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i244)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i245)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i246)
@@ -56605,7 +56605,7 @@ if.then.i260:                                     ; preds = %if.end103
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit261: ; preds = %if.end103
   %_M_invoker.i259 = getelementptr inbounds i8, ptr %109, i64 24
   %111 = load ptr, ptr %_M_invoker.i259, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i253, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i254, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i255)
+  call void %111(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i253, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i254, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i255)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i253)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i254)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i255)
@@ -56644,7 +56644,7 @@ if.then.i269:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit270: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit261
   %_M_invoker.i268 = getelementptr inbounds i8, ptr %124, i64 24
   %126 = load ptr, ptr %_M_invoker.i268, align 8
-  call void %126(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i262, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i263, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i264)
+  call void %126(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i262, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i263, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i264)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i262)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i263)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i264)
@@ -56691,7 +56691,7 @@ if.then.i280:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit281: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit270
   %_M_invoker.i279 = getelementptr inbounds i8, ptr %145, i64 24
   %147 = load ptr, ptr %_M_invoker.i279, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i273, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i274, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i275)
+  call void %147(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i273, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i274, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i275)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i273)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i274)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i275)
@@ -56716,7 +56716,7 @@ if.then.i289:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit290: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit281
   %_M_invoker.i288 = getelementptr inbounds i8, ptr %149, i64 24
   %151 = load ptr, ptr %_M_invoker.i288, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i282, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i283, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i284)
+  call void %151(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i282, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i283, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i284)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i282)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i283)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i284)
@@ -56760,7 +56760,7 @@ if.then.i.i307:                                   ; preds = %if.then.i299
 if.then5.i305:                                    ; preds = %if.then.i299
   %_M_invoker.i.i303 = getelementptr inbounds i8, ptr %158, i64 24
   %161 = load ptr, ptr %_M_invoker.i.i303, align 8
-  call void %161(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i293, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i294, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i295)
+  call void %161(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i293, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i294, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i295)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i293)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i294)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i295)
@@ -56788,7 +56788,7 @@ if.then.i316:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit308
   %_M_invoker.i315 = getelementptr inbounds i8, ptr %162, i64 24
   %164 = load ptr, ptr %_M_invoker.i315, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i309, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i310, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i311)
+  call void %164(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i309, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i310, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i311)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i309)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i310)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i311)
@@ -56824,7 +56824,7 @@ if.then.i328:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit329: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit317
   %_M_invoker.i327 = getelementptr inbounds i8, ptr %172, i64 24
   %174 = load ptr, ptr %_M_invoker.i327, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i322, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i323)
+  call void %174(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i322, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i323)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i321)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i322)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i323)
@@ -56852,7 +56852,7 @@ if.then.i.i345:                                   ; preds = %if.then.i337
 if.then5.i343:                                    ; preds = %if.then.i337
   %_M_invoker.i.i341 = getelementptr inbounds i8, ptr %158, i64 24
   %176 = load ptr, ptr %_M_invoker.i.i341, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i331, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i332, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i333)
+  call void %176(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i331, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i332, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i333)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i331)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i332)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i333)
@@ -56880,7 +56880,7 @@ if.then.i354:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit355: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit346
   %_M_invoker.i353 = getelementptr inbounds i8, ptr %177, i64 24
   %179 = load ptr, ptr %_M_invoker.i353, align 8
-  call void %179(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i347, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i348, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i349)
+  call void %179(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i347, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i348, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i349)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i347)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i348)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i349)
@@ -56910,7 +56910,7 @@ if.then.i364:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit365: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit355
   %_M_invoker.i363 = getelementptr inbounds i8, ptr %184, i64 24
   %186 = load ptr, ptr %_M_invoker.i363, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i357, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i358, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i359)
+  call void %186(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i357, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i358, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i359)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i357)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i358)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i359)
@@ -56935,7 +56935,7 @@ if.then.i373:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit374: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit365
   %_M_invoker.i372 = getelementptr inbounds i8, ptr %188, i64 24
   %190 = load ptr, ptr %_M_invoker.i372, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i366, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i367, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i368)
+  call void %190(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i366, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i367, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i368)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i366)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i367)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i368)
@@ -56964,7 +56964,7 @@ if.then.i382:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit383: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit374
   %_M_invoker.i381 = getelementptr inbounds i8, ptr %193, i64 24
   %196 = load ptr, ptr %_M_invoker.i381, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i375, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i376, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i377)
+  call void %196(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i375, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i376, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i377)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i375)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i376)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i377)
@@ -56993,7 +56993,7 @@ if.then.i391:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit392: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit383
   %_M_invoker.i390 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load ptr, ptr %_M_invoker.i390, align 8
-  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i384, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i385, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i386)
+  call void %202(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i384, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i385, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i386)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i384)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i385)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i386)
@@ -57023,7 +57023,7 @@ if.then.i400:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit401: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit392
   %_M_invoker.i399 = getelementptr inbounds i8, ptr %207, i64 24
   %209 = load ptr, ptr %_M_invoker.i399, align 8
-  call void %209(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i393, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i394, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i395)
+  call void %209(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i393, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i394, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i395)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i393)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i394)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i395)
@@ -57048,7 +57048,7 @@ if.then.i409:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit410: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit401
   %_M_invoker.i408 = getelementptr inbounds i8, ptr %211, i64 24
   %213 = load ptr, ptr %_M_invoker.i408, align 8
-  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i402, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i403, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i404)
+  call void %213(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i402, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i403, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i404)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i402)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i403)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i404)
@@ -57092,7 +57092,7 @@ if.then.i419:                                     ; preds = %for.body238
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit420: ; preds = %for.body238
   %_M_invoker.i418 = getelementptr inbounds i8, ptr %220, i64 24
   %222 = load ptr, ptr %_M_invoker.i418, align 8
-  call void %222(ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i412, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i413, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i414)
+  call void %222(ptr noundef nonnull align 8 dereferenceable(32) %220, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i412, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i413, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i414)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i412)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i413)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i414)
@@ -57123,7 +57123,7 @@ if.then.i429:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit430: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit420
   %_M_invoker.i428 = getelementptr inbounds i8, ptr %227, i64 24
   %229 = load ptr, ptr %_M_invoker.i428, align 8
-  call void %229(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i422, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i423, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i424)
+  call void %229(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i422, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i423, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i424)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i422)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i423)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i424)
@@ -57148,7 +57148,7 @@ if.then.i438:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit439: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit430
   %_M_invoker.i437 = getelementptr inbounds i8, ptr %231, i64 24
   %233 = load ptr, ptr %_M_invoker.i437, align 8
-  call void %233(ptr noundef nonnull align 8 dereferenceable(16) %231, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i431, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i432, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i433)
+  call void %233(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i431, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i432, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i433)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i431)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i432)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i433)
@@ -57173,7 +57173,7 @@ if.then.i447:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit448: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit439
   %_M_invoker.i446 = getelementptr inbounds i8, ptr %235, i64 24
   %237 = load ptr, ptr %_M_invoker.i446, align 8
-  call void %237(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i440, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i441, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i442)
+  call void %237(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i440, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i441, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i442)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i440)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i441)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i442)
@@ -57204,7 +57204,7 @@ if.then.i457:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit458: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit448
   %_M_invoker.i456 = getelementptr inbounds i8, ptr %242, i64 24
   %244 = load ptr, ptr %_M_invoker.i456, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i450, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i451, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i452)
+  call void %244(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i450, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i451, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i452)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i450)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i451)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i452)
@@ -57235,7 +57235,7 @@ if.then.i466:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit467: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit458
   %_M_invoker.i465 = getelementptr inbounds i8, ptr %249, i64 24
   %251 = load ptr, ptr %_M_invoker.i465, align 8
-  call void %251(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i459, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i460, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i461)
+  call void %251(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i459, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i460, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i461)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i459)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i460)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i461)
@@ -57264,7 +57264,7 @@ if.then.i475:                                     ; preds = %if.else287
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit476: ; preds = %if.else287
   %_M_invoker.i474 = getelementptr inbounds i8, ptr %253, i64 24
   %255 = load ptr, ptr %_M_invoker.i474, align 8
-  call void %255(ptr noundef nonnull align 8 dereferenceable(16) %253, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i468, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i469, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i470)
+  call void %255(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i468, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i469, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i470)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i468)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i469)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i470)
@@ -57300,7 +57300,7 @@ if.then.i484:                                     ; preds = %if.end292
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit485: ; preds = %if.end292
   %_M_invoker.i483 = getelementptr inbounds i8, ptr %258, i64 24
   %260 = load ptr, ptr %_M_invoker.i483, align 8
-  call void %260(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i477, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i478, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i479)
+  call void %260(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i477, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i478, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i479)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i477)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i478)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i479)
@@ -57342,7 +57342,7 @@ if.then.i.i500:                                   ; preds = %if.then.i492
 if.then5.i498:                                    ; preds = %if.then.i492
   %_M_invoker.i.i496 = getelementptr inbounds i8, ptr %266, i64 24
   %269 = load ptr, ptr %_M_invoker.i.i496, align 8
-  call void %269(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i486, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i487, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i488)
+  call void %269(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i486, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i487, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i488)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i486)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i487)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i488)
@@ -57370,7 +57370,7 @@ if.then.i509:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit510: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit501
   %_M_invoker.i508 = getelementptr inbounds i8, ptr %270, i64 24
   %272 = load ptr, ptr %_M_invoker.i508, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i502, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i503, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i504)
+  call void %272(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i502, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i503, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i504)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i502)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i503)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i504)
@@ -57398,7 +57398,7 @@ if.then.i518:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit519: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit510
   %_M_invoker.i517 = getelementptr inbounds i8, ptr %276, i64 24
   %278 = load ptr, ptr %_M_invoker.i517, align 8
-  call void %278(ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i511, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i512, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i513)
+  call void %278(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i511, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i512, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i513)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i511)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i512)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i513)
@@ -57511,7 +57511,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -57548,7 +57548,7 @@ if.then.i72:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -57576,7 +57576,7 @@ if.then.i79:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit80: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i78 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %_M_invoker.i78, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i73, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i74, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i75)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i73, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i74, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i75)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i73)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i74)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i75)
@@ -57601,7 +57601,7 @@ if.then.i87:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit80
   %_M_invoker.i86 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i86, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i82)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i83)
@@ -57631,7 +57631,7 @@ if.then.i95:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88
   %_M_invoker.i94 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %_M_invoker.i94, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i90)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i91)
@@ -57724,7 +57724,7 @@ if.then.i.i105:                                   ; preds = %if.then.i100
 if.then5.i:                                       ; preds = %if.then.i100
   %_M_invoker.i.i103 = getelementptr inbounds i8, ptr %45, i64 24
   %49 = load ptr, ptr %_M_invoker.i.i103, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i99)
+  call void %49(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i99)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i97)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i99)
@@ -57753,7 +57753,7 @@ if.then.i113:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
   %_M_invoker.i112 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i112, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i107, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i108)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i107, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i108)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i106)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i107)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i108)
@@ -57783,7 +57783,7 @@ if.then.i123:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit124: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114
   %_M_invoker.i122 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %_M_invoker.i122, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
+  call void %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i117)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i118)
@@ -57813,7 +57813,7 @@ if.then.i133:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit124
   %_M_invoker.i132 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %_M_invoker.i132, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i126, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i127, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i128)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i126, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i127, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i128)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i126)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i127)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i128)
@@ -57843,7 +57843,7 @@ if.then.i143:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit144: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134
   %_M_invoker.i142 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load ptr, ptr %_M_invoker.i142, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
+  call void %73(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i136)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i137)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i138)
@@ -57937,7 +57937,7 @@ if.then.i152:                                     ; preds = %sw.epilog
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153: ; preds = %sw.epilog
   %_M_invoker.i151 = getelementptr inbounds i8, ptr %110, i64 24
   %112 = load ptr, ptr %_M_invoker.i151, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i145, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i146, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i147)
+  call void %112(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i145, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i146, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i147)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i145)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i146)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i147)
@@ -57960,7 +57960,7 @@ if.then.i161:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit162: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit153
   %_M_invoker.i160 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load ptr, ptr %_M_invoker.i160, align 8
-  call void %115(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
+  call void %115(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i154)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i155)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i156)
@@ -58007,7 +58007,7 @@ if.then.i171:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit162
   %_M_invoker.i170 = getelementptr inbounds i8, ptr %134, i64 24
   %136 = load ptr, ptr %_M_invoker.i170, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
+  call void %136(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i165)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i166)
@@ -58032,7 +58032,7 @@ if.then.i180:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172
   %_M_invoker.i179 = getelementptr inbounds i8, ptr %138, i64 24
   %140 = load ptr, ptr %_M_invoker.i179, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i173, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i174, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i175)
+  call void %140(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i173, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i174, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i175)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i173)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i174)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i175)
@@ -58069,7 +58069,7 @@ if.then.i.i197:                                   ; preds = %if.then.i189
 if.then5.i195:                                    ; preds = %if.then.i189
   %_M_invoker.i.i193 = getelementptr inbounds i8, ptr %146, i64 24
   %149 = load ptr, ptr %_M_invoker.i.i193, align 8
-  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i183, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i184, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i185)
+  call void %149(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i183, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i184, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i185)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i183)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i184)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i185)
@@ -58097,7 +58097,7 @@ if.then.i206:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit198
   %_M_invoker.i205 = getelementptr inbounds i8, ptr %150, i64 24
   %152 = load ptr, ptr %_M_invoker.i205, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i199, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i200, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i201)
+  call void %152(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i199, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i200, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i201)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i199)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i200)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i201)
@@ -58133,7 +58133,7 @@ if.then.i218:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
   %_M_invoker.i217 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = load ptr, ptr %_M_invoker.i217, align 8
-  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i211, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i212, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i213)
+  call void %162(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i211, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i212, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i213)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i211)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i212)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i213)
@@ -58158,7 +58158,7 @@ if.then.i227:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
   %_M_invoker.i226 = getelementptr inbounds i8, ptr %164, i64 24
   %166 = load ptr, ptr %_M_invoker.i226, align 8
-  call void %166(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i220, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i221, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i222)
+  call void %166(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i220, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i221, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i222)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i220)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i221)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i222)
@@ -58200,7 +58200,7 @@ if.then.i.i243:                                   ; preds = %if.then.i235
 if.then5.i241:                                    ; preds = %if.then.i235
   %_M_invoker.i.i239 = getelementptr inbounds i8, ptr %172, i64 24
   %175 = load ptr, ptr %_M_invoker.i.i239, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i230, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i231)
+  call void %175(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i230, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i231)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i229)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i230)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i231)
@@ -58228,7 +58228,7 @@ if.then.i252:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit244
   %_M_invoker.i251 = getelementptr inbounds i8, ptr %176, i64 24
   %178 = load ptr, ptr %_M_invoker.i251, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i246, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i247)
+  call void %178(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i246, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i247)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i245)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i246)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i247)
@@ -58256,7 +58256,7 @@ if.then.i261:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit262: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253
   %_M_invoker.i260 = getelementptr inbounds i8, ptr %182, i64 24
   %184 = load ptr, ptr %_M_invoker.i260, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i255, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i256)
+  call void %184(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i255, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i256)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i254)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i255)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i256)
@@ -58363,7 +58363,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -58400,7 +58400,7 @@ if.then.i79:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -58428,7 +58428,7 @@ if.then.i86:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit87: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i85 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %_M_invoker.i85, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i80, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i81, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i82)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i80, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i81, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i82)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i80)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i81)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i82)
@@ -58453,7 +58453,7 @@ if.then.i94:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit95: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit87
   %_M_invoker.i93 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i93, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i88, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i89, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i90)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i88, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i89, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i90)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i88)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i89)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i90)
@@ -58483,7 +58483,7 @@ if.then.i102:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit95
   %_M_invoker.i101 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %_M_invoker.i101, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i96, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i97, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i98)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i96, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i97, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i98)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i96)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i97)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i98)
@@ -58574,7 +58574,7 @@ if.then.i111:                                     ; preds = %for.body
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112: ; preds = %for.body
   %_M_invoker.i110 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i110, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i107)
@@ -58617,7 +58617,7 @@ if.then.i122:                                     ; preds = %if.then40
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit123: ; preds = %if.then40
   %_M_invoker.i121 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %_M_invoker.i121, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
+  call void %64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i117)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i118)
@@ -58652,7 +58652,7 @@ if.then.i131:                                     ; preds = %if.end55
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132: ; preds = %if.end55
   %_M_invoker.i130 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %_M_invoker.i130, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i126, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i127)
+  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i126, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i127)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i125)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i126)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i127)
@@ -58702,7 +58702,7 @@ if.then.i139:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132
   %_M_invoker.i138 = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load ptr, ptr %_M_invoker.i138, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i134, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i135)
+  call void %87(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i134, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i133)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i134)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i135)
@@ -58725,7 +58725,7 @@ if.then.i147:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit148: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140
   %_M_invoker.i146 = getelementptr inbounds i8, ptr %88, i64 24
   %90 = load ptr, ptr %_M_invoker.i146, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
+  call void %90(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i142)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i143)
@@ -58748,7 +58748,7 @@ if.then.i155:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit156: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit148
   %_M_invoker.i154 = getelementptr inbounds i8, ptr %91, i64 24
   %93 = load ptr, ptr %_M_invoker.i154, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i150, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i151)
+  call void %93(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i150, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i151)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i149)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i150)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i151)
@@ -58794,7 +58794,7 @@ if.then.i163:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit164: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit156
   %_M_invoker.i162 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %_M_invoker.i162, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i157, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i158, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i159)
+  call void %113(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i157, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i158, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i159)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i157)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i158)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i159)
@@ -58828,7 +58828,7 @@ if.then.i171:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit164
   %_M_invoker.i170 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load ptr, ptr %_M_invoker.i170, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i165, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i166, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i167)
+  call void %125(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i165, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i166, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i167)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i165)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i166)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i167)
@@ -58872,7 +58872,7 @@ if.then.i180:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit172
   %_M_invoker.i179 = getelementptr inbounds i8, ptr %143, i64 24
   %145 = load ptr, ptr %_M_invoker.i179, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i174, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i175, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i176)
+  call void %145(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i174, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i175, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i176)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i174)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i175)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i176)
@@ -58906,7 +58906,7 @@ if.then.i190:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit181
   %_M_invoker.i189 = getelementptr inbounds i8, ptr %152, i64 24
   %154 = load ptr, ptr %_M_invoker.i189, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i185, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i186)
+  call void %154(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i185, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i184)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i185)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i186)
@@ -58931,7 +58931,7 @@ if.then.i198:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191
   %_M_invoker.i197 = getelementptr inbounds i8, ptr %156, i64 24
   %158 = load ptr, ptr %_M_invoker.i197, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i193, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i194)
+  call void %158(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i193, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i192)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i193)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i194)
@@ -58956,7 +58956,7 @@ if.then.i206:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
   %_M_invoker.i205 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = load ptr, ptr %_M_invoker.i205, align 8
-  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
+  call void %162(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i201)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i202)
@@ -58999,7 +58999,7 @@ if.then.i214:                                     ; preds = %for.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %for.end
   %_M_invoker.i213 = getelementptr inbounds i8, ptr %172, i64 24
   %174 = load ptr, ptr %_M_invoker.i213, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
+  call void %174(ptr noundef nonnull align 8 dereferenceable(32) %172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i208)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i210)
@@ -59027,7 +59027,7 @@ if.then.i222:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215
   %_M_invoker.i221 = getelementptr inbounds i8, ptr %178, i64 24
   %180 = load ptr, ptr %_M_invoker.i221, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i218)
+  call void %180(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i218)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i216)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i218)
@@ -59137,7 +59137,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -59174,7 +59174,7 @@ if.then.i76:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -59202,7 +59202,7 @@ if.then.i83:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit84: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i82 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %_M_invoker.i82, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i77)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i78)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i79)
@@ -59227,7 +59227,7 @@ if.then.i91:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit92: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit84
   %_M_invoker.i90 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i90, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i87)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i85)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i86)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i87)
@@ -59257,7 +59257,7 @@ if.then.i99:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit100: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit92
   %_M_invoker.i98 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %_M_invoker.i98, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i94)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i95)
@@ -59285,7 +59285,7 @@ if.then.i107:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit108: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit100
   %_M_invoker.i106 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %_M_invoker.i106, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i101, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i102, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i103)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i101, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i102, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i103)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i101)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i102)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i103)
@@ -59310,7 +59310,7 @@ if.then.i115:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit116: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit108
   %_M_invoker.i114 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = load ptr, ptr %_M_invoker.i114, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i109, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i110, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i111)
+  call void %38(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i109, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i110, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i111)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i109)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i110)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i111)
@@ -59367,7 +59367,7 @@ if.then.i124:                                     ; preds = %for.body
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125: ; preds = %for.body
   %_M_invoker.i123 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i123, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i118, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i119, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i120)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i118, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i119, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i120)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i119)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i120)
@@ -59397,7 +59397,7 @@ if.then.i133:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit125
   %_M_invoker.i132 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %_M_invoker.i132, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i127, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i128, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i129)
+  call void %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i127, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i128, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i129)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i127)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i128)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i129)
@@ -59427,7 +59427,7 @@ if.then.i142:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit134
   %_M_invoker.i141 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %_M_invoker.i141, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i136)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i137)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i138)
@@ -59477,7 +59477,7 @@ if.then.i150:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143
   %_M_invoker.i149 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load ptr, ptr %_M_invoker.i149, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i145, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i146)
+  call void %83(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i145, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i146)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i144)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i145)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i146)
@@ -59500,7 +59500,7 @@ if.then.i158:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151
   %_M_invoker.i157 = getelementptr inbounds i8, ptr %84, i64 24
   %86 = load ptr, ptr %_M_invoker.i157, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i153, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i154)
+  call void %86(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i153, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i154)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i152)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i153)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i154)
@@ -59523,7 +59523,7 @@ if.then.i166:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159
   %_M_invoker.i165 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %_M_invoker.i165, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
+  call void %89(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i160)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i161)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i162)
@@ -59576,7 +59576,7 @@ if.then.i176:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit167
   %_M_invoker.i175 = getelementptr inbounds i8, ptr %112, i64 24
   %114 = load ptr, ptr %_M_invoker.i175, align 8
-  call void %114(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
+  call void %114(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i172)
@@ -59601,7 +59601,7 @@ if.then.i184:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177
   %_M_invoker.i183 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %_M_invoker.i183, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i178, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i179, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i180)
+  call void %118(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i178, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i179, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i180)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i178)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i179)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i180)
@@ -59640,7 +59640,7 @@ if.then.i194:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185
   %_M_invoker.i193 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load ptr, ptr %_M_invoker.i193, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i189, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i190)
+  call void %130(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i189, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i190)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i188)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i189)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i190)
@@ -59678,7 +59678,7 @@ if.then.i206:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
   %_M_invoker.i205 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load ptr, ptr %_M_invoker.i205, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
+  call void %141(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i201)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i202)
@@ -59703,7 +59703,7 @@ if.then.i214:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
   %_M_invoker.i213 = getelementptr inbounds i8, ptr %143, i64 24
   %145 = load ptr, ptr %_M_invoker.i213, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
+  call void %145(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i208)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i210)
@@ -59746,7 +59746,7 @@ if.then.i222:                                     ; preds = %for.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223: ; preds = %for.end
   %_M_invoker.i221 = getelementptr inbounds i8, ptr %155, i64 24
   %157 = load ptr, ptr %_M_invoker.i221, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i218)
+  call void %157(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i218)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i216)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i218)
@@ -59774,7 +59774,7 @@ if.then.i230:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit231: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit223
   %_M_invoker.i229 = getelementptr inbounds i8, ptr %161, i64 24
   %163 = load ptr, ptr %_M_invoker.i229, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i224, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i225, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i226)
+  call void %163(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i224, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i225, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i226)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i224)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i225)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i226)
@@ -59935,7 +59935,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %9 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -59972,7 +59972,7 @@ if.then.i153:                                     ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %_M_invoker.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -60000,7 +60000,7 @@ if.then.i160:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit161: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i159 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %_M_invoker.i159, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i154)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i155)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i156)
@@ -60025,7 +60025,7 @@ if.then.i168:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit161
   %_M_invoker.i167 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %_M_invoker.i167, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i163, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i164)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i163, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i163)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i164)
@@ -60055,7 +60055,7 @@ if.then.i176:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit177: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169
   %_M_invoker.i175 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %_M_invoker.i175, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
+  call void %29(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i172)
@@ -60143,7 +60143,7 @@ if.then.i185:                                     ; preds = %for.body
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit186: ; preds = %for.body
   %_M_invoker.i184 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load ptr, ptr %_M_invoker.i184, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
+  call void %53(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i179)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i180)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i181)
@@ -60173,7 +60173,7 @@ if.then.i194:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit186
   %_M_invoker.i193 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load ptr, ptr %_M_invoker.i193, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i189, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i190)
+  call void %60(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i189, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i190)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i188)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i189)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i190)
@@ -60203,7 +60203,7 @@ if.then.i203:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit204: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
   %_M_invoker.i202 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %_M_invoker.i202, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i197, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i198, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i199)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i197, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i198, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i199)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i197)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i198)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i199)
@@ -60246,7 +60246,7 @@ if.then.i211:                                     ; preds = %do.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit212: ; preds = %do.end
   %_M_invoker.i210 = getelementptr inbounds i8, ptr %75, i64 24
   %77 = load ptr, ptr %_M_invoker.i210, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i205, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i206, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i207)
+  call void %77(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i205, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i206, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i207)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i205)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i206)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i207)
@@ -60272,7 +60272,7 @@ if.then.i219:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit220: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit212
   %_M_invoker.i218 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load ptr, ptr %_M_invoker.i218, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i213, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i214, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i215)
+  call void %81(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i213, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i214, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i215)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i213)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i214)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i215)
@@ -60309,7 +60309,7 @@ if.then.i227:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit220
   %_M_invoker.i226 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = load ptr, ptr %_M_invoker.i226, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i221, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i222, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i223)
+  call void %91(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i221, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i222, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i223)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i221)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i222)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i223)
@@ -60354,7 +60354,7 @@ if.then.i235:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit236: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit228
   %_M_invoker.i234 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = load ptr, ptr %_M_invoker.i234, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i230, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i231)
+  call void %104(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i230, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i231)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i229)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i230)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i231)
@@ -60393,7 +60393,7 @@ if.then.i245:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit246: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit236
   %_M_invoker.i244 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = load ptr, ptr %_M_invoker.i244, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i239, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i240, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i241)
+  call void %116(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i239, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i240, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i241)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i239)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i240)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i241)
@@ -60432,7 +60432,7 @@ if.then.i255:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit246
   %_M_invoker.i254 = getelementptr inbounds i8, ptr %126, i64 24
   %128 = load ptr, ptr %_M_invoker.i254, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i249, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i250, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i251)
+  call void %128(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i249, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i250, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i251)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i249)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i250)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i251)
@@ -60468,7 +60468,7 @@ if.then.i263:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit264: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit256
   %_M_invoker.i262 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load ptr, ptr %_M_invoker.i262, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i257, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i258, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i259)
+  call void %137(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i257, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i258, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i259)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i257)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i258)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i259)
@@ -60504,7 +60504,7 @@ if.then.i271:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit272: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit264
   %_M_invoker.i270 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = load ptr, ptr %_M_invoker.i270, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i265, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i266, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i267)
+  call void %146(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i265, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i266, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i267)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i265)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i266)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i267)
@@ -60542,7 +60542,7 @@ if.then.i279:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit280: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit272
   %_M_invoker.i278 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = load ptr, ptr %_M_invoker.i278, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i273, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i274, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i275)
+  call void %155(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i273, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i274, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i275)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i273)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i274)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i275)
@@ -60580,7 +60580,7 @@ if.then.i287:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit288: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit280
   %_M_invoker.i286 = getelementptr inbounds i8, ptr %162, i64 24
   %164 = load ptr, ptr %_M_invoker.i286, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i281, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i282, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i283)
+  call void %164(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i281, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i282, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i283)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i281)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i282)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i283)
@@ -60612,7 +60612,7 @@ if.then.i295:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit296: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit288
   %_M_invoker.i294 = getelementptr inbounds i8, ptr %173, i64 24
   %175 = load ptr, ptr %_M_invoker.i294, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i289, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i290, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i291)
+  call void %175(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i289, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i290, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i291)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i289)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i290)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i291)
@@ -60644,7 +60644,7 @@ if.then.i303:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit304: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit296
   %_M_invoker.i302 = getelementptr inbounds i8, ptr %184, i64 24
   %186 = load ptr, ptr %_M_invoker.i302, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i297, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i298, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i299)
+  call void %186(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i297, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i298, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i299)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i297)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i298)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i299)
@@ -60670,7 +60670,7 @@ if.then.i311:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit312: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit304
   %_M_invoker.i310 = getelementptr inbounds i8, ptr %188, i64 24
   %190 = load ptr, ptr %_M_invoker.i310, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i305, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i306, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i307)
+  call void %190(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i305, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i306, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i307)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i305)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i306)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i307)
@@ -60696,7 +60696,7 @@ if.then.i319:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit320: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit312
   %_M_invoker.i318 = getelementptr inbounds i8, ptr %192, i64 24
   %194 = load ptr, ptr %_M_invoker.i318, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i313, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i314, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i315)
+  call void %194(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i313, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i314, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i315)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i313)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i314)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i315)
@@ -60722,7 +60722,7 @@ if.then.i327:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit328: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit320
   %_M_invoker.i326 = getelementptr inbounds i8, ptr %196, i64 24
   %198 = load ptr, ptr %_M_invoker.i326, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i322, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i323)
+  call void %198(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i321, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i322, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i323)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i321)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i322)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i323)
@@ -60748,7 +60748,7 @@ if.then.i335:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit336: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit328
   %_M_invoker.i334 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = load ptr, ptr %_M_invoker.i334, align 8
-  call void %202(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i329, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i330, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i331)
+  call void %202(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i329, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i330, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i331)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i329)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i330)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i331)
@@ -60773,7 +60773,7 @@ if.then.i343:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit344: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit336
   %_M_invoker.i342 = getelementptr inbounds i8, ptr %204, i64 24
   %206 = load ptr, ptr %_M_invoker.i342, align 8
-  call void %206(ptr noundef nonnull align 8 dereferenceable(16) %204, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i337, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i338, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i339)
+  call void %206(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i337, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i338, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i339)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i337)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i338)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i339)
@@ -60798,7 +60798,7 @@ if.then.i351:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit352: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit344
   %_M_invoker.i350 = getelementptr inbounds i8, ptr %208, i64 24
   %210 = load ptr, ptr %_M_invoker.i350, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i345, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i346, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i347)
+  call void %210(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i345, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i346, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i347)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i345)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i346)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i347)
@@ -60824,7 +60824,7 @@ if.then.i359:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit360: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit352
   %_M_invoker.i358 = getelementptr inbounds i8, ptr %212, i64 24
   %214 = load ptr, ptr %_M_invoker.i358, align 8
-  call void %214(ptr noundef nonnull align 8 dereferenceable(16) %212, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i353, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i354, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i355)
+  call void %214(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i353, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i354, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i355)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i353)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i354)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i355)
@@ -60850,7 +60850,7 @@ if.then.i367:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit368: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit360
   %_M_invoker.i366 = getelementptr inbounds i8, ptr %216, i64 24
   %218 = load ptr, ptr %_M_invoker.i366, align 8
-  call void %218(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i361, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i362, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i363)
+  call void %218(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i361, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i362, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i363)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i361)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i362)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i363)
@@ -60896,7 +60896,7 @@ if.then.i375:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit376: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit368
   %_M_invoker.i374 = getelementptr inbounds i8, ptr %229, i64 24
   %231 = load ptr, ptr %_M_invoker.i374, align 8
-  call void %231(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i369, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i370, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i371)
+  call void %231(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i369, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i370, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i371)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i369)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i370)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i371)
@@ -60943,7 +60943,7 @@ if.then.i385:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit386: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit376
   %_M_invoker.i384 = getelementptr inbounds i8, ptr %250, i64 24
   %252 = load ptr, ptr %_M_invoker.i384, align 8
-  call void %252(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i379, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i380, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i381)
+  call void %252(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i379, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i380, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i381)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i379)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i380)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i381)
@@ -60968,7 +60968,7 @@ if.then.i393:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit394: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit386
   %_M_invoker.i392 = getelementptr inbounds i8, ptr %254, i64 24
   %256 = load ptr, ptr %_M_invoker.i392, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i387, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i388, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i389)
+  call void %256(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i387, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i388, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i389)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i387)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i388)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i389)
@@ -61007,7 +61007,7 @@ if.then.i403:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit404: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit394
   %_M_invoker.i402 = getelementptr inbounds i8, ptr %266, i64 24
   %268 = load ptr, ptr %_M_invoker.i402, align 8
-  call void %268(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i397, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i398, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i399)
+  call void %268(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i397, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i398, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i399)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i397)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i398)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i399)
@@ -61045,7 +61045,7 @@ if.then.i415:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit416: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit404
   %_M_invoker.i414 = getelementptr inbounds i8, ptr %277, i64 24
   %279 = load ptr, ptr %_M_invoker.i414, align 8
-  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i409, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i410, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i411)
+  call void %279(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i409, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i410, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i411)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i409)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i410)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i411)
@@ -61070,7 +61070,7 @@ if.then.i423:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit424: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit416
   %_M_invoker.i422 = getelementptr inbounds i8, ptr %281, i64 24
   %283 = load ptr, ptr %_M_invoker.i422, align 8
-  call void %283(ptr noundef nonnull align 8 dereferenceable(16) %281, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i417, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i418, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i419)
+  call void %283(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i417, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i418, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i419)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i417)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i418)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i419)
@@ -61113,7 +61113,7 @@ if.then.i431:                                     ; preds = %for.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit432: ; preds = %for.end
   %_M_invoker.i430 = getelementptr inbounds i8, ptr %293, i64 24
   %295 = load ptr, ptr %_M_invoker.i430, align 8
-  call void %295(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i425, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i426, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i427)
+  call void %295(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i425, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i426, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i427)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i425)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i426)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i427)
@@ -61141,7 +61141,7 @@ if.then.i439:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit440: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit432
   %_M_invoker.i438 = getelementptr inbounds i8, ptr %299, i64 24
   %301 = load ptr, ptr %_M_invoker.i438, align 8
-  call void %301(ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i433, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i434, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i435)
+  call void %301(ptr noundef nonnull align 8 dereferenceable(32) %299, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i433, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i434, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i435)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i433)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i434)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i435)
@@ -61251,7 +61251,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -61288,7 +61288,7 @@ if.then.i67:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -61313,7 +61313,7 @@ if.then.i74:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit75: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i73 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %_M_invoker.i73, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i69, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i70)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i69, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i70)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i68)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i69)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i70)
@@ -61344,7 +61344,7 @@ if.then.i82:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit83: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit75
   %_M_invoker.i81 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %_M_invoker.i81, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i77, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i78)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i77, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i76)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i77)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i78)
@@ -61403,7 +61403,7 @@ if.then.i.i92:                                    ; preds = %if.then.i87
 if.then5.i:                                       ; preds = %if.then.i87
   %_M_invoker.i.i90 = getelementptr inbounds i8, ptr %30, i64 24
   %34 = load ptr, ptr %_M_invoker.i.i90, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i85, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i86)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i85, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i86)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i84)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i85)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i86)
@@ -61432,7 +61432,7 @@ if.then.i100:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit101: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
   %_M_invoker.i99 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %_M_invoker.i99, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
+  call void %37(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i94)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i95)
@@ -61462,7 +61462,7 @@ if.then.i110:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit111: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit101
   %_M_invoker.i109 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %_M_invoker.i109, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i103, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i104, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i105)
+  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i103, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i104, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i103)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i104)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i105)
@@ -61492,7 +61492,7 @@ if.then.i120:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit111
   %_M_invoker.i119 = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load ptr, ptr %_M_invoker.i119, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i114, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i115)
+  call void %51(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i114, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i115)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i114)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i115)
@@ -61522,7 +61522,7 @@ if.then.i130:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit121
   %_M_invoker.i129 = getelementptr inbounds i8, ptr %56, i64 24
   %58 = load ptr, ptr %_M_invoker.i129, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i124, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i125)
+  call void %58(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i124, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i125)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i124)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i125)
@@ -61551,7 +61551,7 @@ if.then.i139:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131
   %_M_invoker.i138 = getelementptr inbounds i8, ptr %63, i64 24
   %65 = load ptr, ptr %_M_invoker.i138, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
+  call void %65(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i133)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i134)
@@ -61580,7 +61580,7 @@ if.then.i148:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit149: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140
   %_M_invoker.i147 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = load ptr, ptr %_M_invoker.i147, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
+  call void %72(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i142)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i143)
@@ -61624,7 +61624,7 @@ if.then.i158:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit149
   %_M_invoker.i157 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %_M_invoker.i157, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i152, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i153)
+  call void %92(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i152, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i153)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i151)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i152)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i153)
@@ -61649,7 +61649,7 @@ if.then.i167:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159
   %_M_invoker.i166 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = load ptr, ptr %_M_invoker.i166, align 8
-  call void %96(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
+  call void %96(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i160)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i161)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i162)
@@ -61686,7 +61686,7 @@ if.then.i.i184:                                   ; preds = %if.then.i176
 if.then5.i182:                                    ; preds = %if.then.i176
   %_M_invoker.i.i180 = getelementptr inbounds i8, ptr %102, i64 24
   %105 = load ptr, ptr %_M_invoker.i.i180, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i172)
+  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i172)
@@ -61714,7 +61714,7 @@ if.then.i193:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
   %_M_invoker.i192 = getelementptr inbounds i8, ptr %106, i64 24
   %108 = load ptr, ptr %_M_invoker.i192, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
+  call void %108(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i187)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i188)
@@ -61750,7 +61750,7 @@ if.then.i205:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194
   %_M_invoker.i204 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %_M_invoker.i204, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i198, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i199, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i200)
+  call void %118(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i198, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i199, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i200)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i198)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i199)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i200)
@@ -61775,7 +61775,7 @@ if.then.i214:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206
   %_M_invoker.i213 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load ptr, ptr %_M_invoker.i213, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i207, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i208, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i209)
+  call void %122(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i207, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i208, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i209)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i207)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i208)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i209)
@@ -61817,7 +61817,7 @@ if.then.i.i230:                                   ; preds = %if.then.i222
 if.then5.i228:                                    ; preds = %if.then.i222
   %_M_invoker.i.i226 = getelementptr inbounds i8, ptr %128, i64 24
   %131 = load ptr, ptr %_M_invoker.i.i226, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i218)
+  call void %131(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i216, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i217, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i218)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i216)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i217)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i218)
@@ -61845,7 +61845,7 @@ if.then.i239:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit240: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit231
   %_M_invoker.i238 = getelementptr inbounds i8, ptr %132, i64 24
   %134 = load ptr, ptr %_M_invoker.i238, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i232, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i233, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i234)
+  call void %134(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i232, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i233, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i234)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i232)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i233)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i234)
@@ -61873,7 +61873,7 @@ if.then.i248:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit249: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit240
   %_M_invoker.i247 = getelementptr inbounds i8, ptr %138, i64 24
   %140 = load ptr, ptr %_M_invoker.i247, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i241, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i242, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i243)
+  call void %140(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i241, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i242, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i243)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i241)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i242)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i243)
@@ -61977,7 +61977,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -62014,7 +62014,7 @@ if.then.i76:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -62039,7 +62039,7 @@ if.then.i83:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit84: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i82 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %_M_invoker.i82, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i77)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i78)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i79)
@@ -62070,7 +62070,7 @@ if.then.i91:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit92: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit84
   %_M_invoker.i90 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %_M_invoker.i90, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i87)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i85)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i86)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i87)
@@ -62106,7 +62106,7 @@ if.then.i99:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit100: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit92
   %_M_invoker.i98 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %_M_invoker.i98, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i93, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i94, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i93)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i94)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i95)
@@ -62163,7 +62163,7 @@ if.then.i108:                                     ; preds = %for.body
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit109: ; preds = %for.body
   %_M_invoker.i107 = getelementptr inbounds i8, ptr %46, i64 24
   %48 = load ptr, ptr %_M_invoker.i107, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i103, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i104)
+  call void %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i102, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i103, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i104)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i102)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i103)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i104)
@@ -62193,7 +62193,7 @@ if.then.i117:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit118: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit109
   %_M_invoker.i116 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %_M_invoker.i116, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i111, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i112, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i113)
+  call void %55(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i111, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i112, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i111)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i112)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i113)
@@ -62223,7 +62223,7 @@ if.then.i126:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit118
   %_M_invoker.i125 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load ptr, ptr %_M_invoker.i125, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i120, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i121, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i122)
+  call void %62(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i120, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i121, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i122)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i120)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i121)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i122)
@@ -62273,7 +62273,7 @@ if.then.i134:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit135: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit127
   %_M_invoker.i133 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = load ptr, ptr %_M_invoker.i133, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i129, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i130)
+  call void %79(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i128, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i129, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i130)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i128)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i129)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i130)
@@ -62296,7 +62296,7 @@ if.then.i142:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit135
   %_M_invoker.i141 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = load ptr, ptr %_M_invoker.i141, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
+  call void %82(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i136, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i137, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i136)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i137)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i138)
@@ -62319,7 +62319,7 @@ if.then.i150:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit143
   %_M_invoker.i149 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %_M_invoker.i149, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i145, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i146)
+  call void %85(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i144, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i145, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i146)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i144)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i145)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i146)
@@ -62372,7 +62372,7 @@ if.then.i160:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit161: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151
   %_M_invoker.i159 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load ptr, ptr %_M_invoker.i159, align 8
-  call void %110(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
+  call void %110(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i154, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i155, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i154)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i155)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i156)
@@ -62397,7 +62397,7 @@ if.then.i168:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit161
   %_M_invoker.i167 = getelementptr inbounds i8, ptr %112, i64 24
   %114 = load ptr, ptr %_M_invoker.i167, align 8
-  call void %114(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i163, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i164)
+  call void %114(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i162, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i163, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i163)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i164)
@@ -62436,7 +62436,7 @@ if.then.i178:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit179: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169
   %_M_invoker.i177 = getelementptr inbounds i8, ptr %124, i64 24
   %126 = load ptr, ptr %_M_invoker.i177, align 8
-  call void %126(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i174)
+  call void %126(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i174)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i173)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i174)
@@ -62474,7 +62474,7 @@ if.then.i190:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit179
   %_M_invoker.i189 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = load ptr, ptr %_M_invoker.i189, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i185, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i186)
+  call void %137(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i185, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i184)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i185)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i186)
@@ -62499,7 +62499,7 @@ if.then.i198:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191
   %_M_invoker.i197 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load ptr, ptr %_M_invoker.i197, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i193, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i194)
+  call void %141(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i192, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i193, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i194)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i192)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i193)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i194)
@@ -62542,7 +62542,7 @@ if.then.i206:                                     ; preds = %for.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %for.end
   %_M_invoker.i205 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = load ptr, ptr %_M_invoker.i205, align 8
-  call void %153(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
+  call void %153(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i200, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i201, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i202)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i201)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i202)
@@ -62570,7 +62570,7 @@ if.then.i214:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
   %_M_invoker.i213 = getelementptr inbounds i8, ptr %157, i64 24
   %159 = load ptr, ptr %_M_invoker.i213, align 8
-  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
+  call void %159(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i210)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i208)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i210)
@@ -62680,7 +62680,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -62717,7 +62717,7 @@ if.then.i68:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -62742,7 +62742,7 @@ if.then.i75:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit76: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i74 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %_M_invoker.i74, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i69, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i70, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i71)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i69, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i70, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i71)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i69)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i70)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i71)
@@ -62773,7 +62773,7 @@ if.then.i83:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit84: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit76
   %_M_invoker.i82 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %_M_invoker.i82, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i77, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i78, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i77)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i78)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i79)
@@ -62833,7 +62833,7 @@ if.then.i.i94:                                    ; preds = %if.then.i89
 if.then5.i:                                       ; preds = %if.then.i89
   %_M_invoker.i.i92 = getelementptr inbounds i8, ptr %30, i64 24
   %34 = load ptr, ptr %_M_invoker.i.i92, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i87)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i86, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i87)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i85)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i86)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i87)
@@ -62862,7 +62862,7 @@ if.then.i102:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
   %_M_invoker.i101 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load ptr, ptr %_M_invoker.i101, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i95, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i96, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i97)
+  call void %37(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i95, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i96, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i97)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i95)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i96)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i97)
@@ -62892,7 +62892,7 @@ if.then.i112:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit113: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit103
   %_M_invoker.i111 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %_M_invoker.i111, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
+  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i107)
@@ -62925,7 +62925,7 @@ if.then.i121:                                     ; preds = %if.then
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122: ; preds = %if.then
   %_M_invoker.i120 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load ptr, ptr %_M_invoker.i120, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i115, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i116)
+  call void %50(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i115, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i114)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i115)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i116)
@@ -62979,7 +62979,7 @@ if.then.i130:                                     ; preds = %if.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131: ; preds = %if.end
   %_M_invoker.i129 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %_M_invoker.i129, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i124, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i125)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i124, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i125)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i124)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i125)
@@ -63002,7 +63002,7 @@ if.then.i139:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131
   %_M_invoker.i138 = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %_M_invoker.i138, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
+  call void %70(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i133)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i134)
@@ -63025,7 +63025,7 @@ if.then.i148:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit149: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140
   %_M_invoker.i147 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load ptr, ptr %_M_invoker.i147, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
+  call void %73(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i142)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i143)
@@ -63077,7 +63077,7 @@ if.then.i158:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit149
   %_M_invoker.i157 = getelementptr inbounds i8, ptr %96, i64 24
   %98 = load ptr, ptr %_M_invoker.i157, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i152, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i153)
+  call void %98(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i151, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i152, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i153)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i151)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i152)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i153)
@@ -63102,7 +63102,7 @@ if.then.i167:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit168: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit159
   %_M_invoker.i166 = getelementptr inbounds i8, ptr %100, i64 24
   %102 = load ptr, ptr %_M_invoker.i166, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
+  call void %102(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i160, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i161, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i160)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i161)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i162)
@@ -63139,7 +63139,7 @@ if.then.i.i184:                                   ; preds = %if.then.i176
 if.then5.i182:                                    ; preds = %if.then.i176
   %_M_invoker.i.i180 = getelementptr inbounds i8, ptr %108, i64 24
   %111 = load ptr, ptr %_M_invoker.i.i180, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i172)
+  call void %111(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i172)
@@ -63167,7 +63167,7 @@ if.then.i193:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit185
   %_M_invoker.i192 = getelementptr inbounds i8, ptr %112, i64 24
   %114 = load ptr, ptr %_M_invoker.i192, align 8
-  call void %114(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
+  call void %114(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i186, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i187, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i188)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i186)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i187)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i188)
@@ -63201,7 +63201,7 @@ if.then.i204:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194
   %_M_invoker.i203 = getelementptr inbounds i8, ptr %121, i64 24
   %123 = load ptr, ptr %_M_invoker.i203, align 8
-  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i197, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i198, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i199)
+  call void %123(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i197, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i198, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i199)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i197)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i198)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i199)
@@ -63226,7 +63226,7 @@ if.then.i213:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit214: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
   %_M_invoker.i212 = getelementptr inbounds i8, ptr %125, i64 24
   %127 = load ptr, ptr %_M_invoker.i212, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i206, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i207, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i208)
+  call void %127(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i206, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i207, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i208)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i206)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i207)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i208)
@@ -63268,7 +63268,7 @@ if.then.i.i229:                                   ; preds = %if.then.i221
 if.then5.i227:                                    ; preds = %if.then.i221
   %_M_invoker.i.i225 = getelementptr inbounds i8, ptr %133, i64 24
   %136 = load ptr, ptr %_M_invoker.i.i225, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i215, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i216, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i217)
+  call void %136(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i215, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i216, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i217)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i215)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i216)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i217)
@@ -63296,7 +63296,7 @@ if.then.i238:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit239: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit230
   %_M_invoker.i237 = getelementptr inbounds i8, ptr %137, i64 24
   %139 = load ptr, ptr %_M_invoker.i237, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i231, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i232, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i233)
+  call void %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i231, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i232, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i233)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i231)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i232)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i233)
@@ -63324,7 +63324,7 @@ if.then.i247:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit248: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit239
   %_M_invoker.i246 = getelementptr inbounds i8, ptr %143, i64 24
   %145 = load ptr, ptr %_M_invoker.i246, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i240, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i241, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i242)
+  call void %145(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i240, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i241, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i242)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i240)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i241)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i242)
@@ -63428,7 +63428,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -63465,7 +63465,7 @@ if.then.i72:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -63493,7 +63493,7 @@ if.then.i79:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit80: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i78 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %_M_invoker.i78, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i73, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i74, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i75)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i73, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i74, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i75)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i73)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i74)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i75)
@@ -63518,7 +63518,7 @@ if.then.i87:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit80
   %_M_invoker.i86 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i86, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i82)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i83)
@@ -63548,7 +63548,7 @@ if.then.i95:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88
   %_M_invoker.i94 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %_M_invoker.i94, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i90)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i91)
@@ -63636,7 +63636,7 @@ if.then.i104:                                     ; preds = %for.body
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit105: ; preds = %for.body
   %_M_invoker.i103 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i103, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i98, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i99, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i100)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i98, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i99, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i100)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i98)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i99)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i100)
@@ -63666,7 +63666,7 @@ if.then.i113:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit105
   %_M_invoker.i112 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %_M_invoker.i112, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i107, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i108, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i109)
+  call void %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i107, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i108, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i109)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i108)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i109)
@@ -63696,7 +63696,7 @@ if.then.i122:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit123: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit114
   %_M_invoker.i121 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %_M_invoker.i121, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i117)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i118)
@@ -63726,7 +63726,7 @@ if.then.i131:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit123
   %_M_invoker.i130 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = load ptr, ptr %_M_invoker.i130, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i126, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i127)
+  call void %73(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i125, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i126, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i127)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i125)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i126)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i127)
@@ -63766,7 +63766,7 @@ if.then.i139:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132
   %_M_invoker.i138 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %_M_invoker.i138, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i134, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i135)
+  call void %89(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i134, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i133)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i134)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i135)
@@ -63806,7 +63806,7 @@ if.then.i147:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit148: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit140
   %_M_invoker.i146 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = load ptr, ptr %_M_invoker.i146, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
+  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i142, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i142)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i143)
@@ -63850,7 +63850,7 @@ if.then.i156:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit148
   %_M_invoker.i155 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load ptr, ptr %_M_invoker.i155, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i151, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i152)
+  call void %125(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i150, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i151, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i152)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i151)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i152)
@@ -63875,7 +63875,7 @@ if.then.i164:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit165: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit157
   %_M_invoker.i163 = getelementptr inbounds i8, ptr %127, i64 24
   %129 = load ptr, ptr %_M_invoker.i163, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i159, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i160)
+  call void %129(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i158, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i159, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i160)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i158)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i159)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i160)
@@ -63914,7 +63914,7 @@ if.then.i174:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit175: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit165
   %_M_invoker.i173 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = load ptr, ptr %_M_invoker.i173, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i168, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i169, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i170)
+  call void %141(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i168, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i169, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i168)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i169)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i170)
@@ -63950,7 +63950,7 @@ if.then.i185:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit186: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit175
   %_M_invoker.i184 = getelementptr inbounds i8, ptr %149, i64 24
   %151 = load ptr, ptr %_M_invoker.i184, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
+  call void %151(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i179)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i180)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i181)
@@ -63975,7 +63975,7 @@ if.then.i193:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit194: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit186
   %_M_invoker.i192 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = load ptr, ptr %_M_invoker.i192, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i187, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i188, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i189)
+  call void %155(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i187, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i188, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i189)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i187)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i188)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i189)
@@ -64018,7 +64018,7 @@ if.then.i201:                                     ; preds = %for.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202: ; preds = %for.end
   %_M_invoker.i200 = getelementptr inbounds i8, ptr %165, i64 24
   %167 = load ptr, ptr %_M_invoker.i200, align 8
-  call void %167(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i195, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i196, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i197)
+  call void %167(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i195, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i196, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i197)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i195)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i196)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i197)
@@ -64046,7 +64046,7 @@ if.then.i209:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit210: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit202
   %_M_invoker.i208 = getelementptr inbounds i8, ptr %171, i64 24
   %173 = load ptr, ptr %_M_invoker.i208, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i203, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i204, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i205)
+  call void %173(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i203, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i204, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i205)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i203)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i204)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i205)
@@ -64165,7 +64165,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit.i: ; preds = %if.then.i
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i)
@@ -64202,7 +64202,7 @@ if.then.i80:                                      ; preds = %_ZL18llm_build_inp_
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %_ZL18llm_build_inp_embdP12ggml_contextRK13llama_hparamsRK11llama_batchP11ggml_tensorRKSt8functionIFvS8_PKciEE.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -64230,7 +64230,7 @@ if.then.i87:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %_M_invoker.i86 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %_M_invoker.i86, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i81, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i82, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i83)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i81)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i82)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i83)
@@ -64255,7 +64255,7 @@ if.then.i95:                                      ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit88
   %_M_invoker.i94 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %_M_invoker.i94, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i90)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i91)
@@ -64285,7 +64285,7 @@ if.then.i103:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit104: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96
   %_M_invoker.i102 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %_M_invoker.i102, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i99)
+  call void %28(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i99)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i97)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i99)
@@ -64378,7 +64378,7 @@ if.then.i.i113:                                   ; preds = %if.then.i108
 if.then5.i:                                       ; preds = %if.then.i108
   %_M_invoker.i.i111 = getelementptr inbounds i8, ptr %45, i64 24
   %49 = load ptr, ptr %_M_invoker.i.i111, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i107)
+  call void %49(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i107)
@@ -64407,7 +64407,7 @@ if.then.i121:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit
   %_M_invoker.i120 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %_M_invoker.i120, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i115, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i116)
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i114, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i115, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i114)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i115)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i116)
@@ -64437,7 +64437,7 @@ if.then.i131:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit122
   %_M_invoker.i130 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %_M_invoker.i130, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i125, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i126)
+  call void %59(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i125, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i126)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i124)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i125)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i126)
@@ -64467,7 +64467,7 @@ if.then.i141:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit142: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit132
   %_M_invoker.i140 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %_M_invoker.i140, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i134, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i135, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i136)
+  call void %66(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i134, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i135, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i136)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i134)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i135)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i136)
@@ -64514,7 +64514,7 @@ if.then.i150:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit142
   %_M_invoker.i149 = getelementptr inbounds i8, ptr %79, i64 24
   %81 = load ptr, ptr %_M_invoker.i149, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i144, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i145)
+  call void %81(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i143, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i144, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i145)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i143)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i144)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i145)
@@ -64537,7 +64537,7 @@ if.then.i159:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit160: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit151
   %_M_invoker.i158 = getelementptr inbounds i8, ptr %82, i64 24
   %84 = load ptr, ptr %_M_invoker.i158, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i153, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i154)
+  call void %84(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i152, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i153, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i154)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i152)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i153)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i154)
@@ -64560,7 +64560,7 @@ if.then.i168:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit160
   %_M_invoker.i167 = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load ptr, ptr %_M_invoker.i167, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i161, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i162, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i163)
+  call void %87(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i161, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i162, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i163)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i161)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i162)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i163)
@@ -64606,7 +64606,7 @@ if.then.i177:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit169
   %_M_invoker.i176 = getelementptr inbounds i8, ptr %105, i64 24
   %107 = load ptr, ptr %_M_invoker.i176, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
+  call void %107(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i170, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i171, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i170)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i172)
@@ -64640,7 +64640,7 @@ if.then.i186:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit178
   %_M_invoker.i185 = getelementptr inbounds i8, ptr %117, i64 24
   %119 = load ptr, ptr %_M_invoker.i185, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
+  call void %119(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i180, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i181)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i179)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i180)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i181)
@@ -64684,7 +64684,7 @@ if.then.i196:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187
   %_M_invoker.i195 = getelementptr inbounds i8, ptr %137, i64 24
   %139 = load ptr, ptr %_M_invoker.i195, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i189, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i190, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i191)
+  call void %139(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i189, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i190, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i191)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i189)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i190)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i191)
@@ -64709,7 +64709,7 @@ if.then.i205:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit206: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
   %_M_invoker.i204 = getelementptr inbounds i8, ptr %141, i64 24
   %143 = load ptr, ptr %_M_invoker.i204, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i198, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i199, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i200)
+  call void %143(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i198, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i199, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i200)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i198)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i199)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i200)
@@ -64746,7 +64746,7 @@ if.then.i.i222:                                   ; preds = %if.then.i214
 if.then5.i220:                                    ; preds = %if.then.i214
   %_M_invoker.i.i218 = getelementptr inbounds i8, ptr %149, i64 24
   %152 = load ptr, ptr %_M_invoker.i.i218, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i210)
+  call void %152(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i208, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i209, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i210)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i208)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i209)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i210)
@@ -64774,7 +64774,7 @@ if.then.i231:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit223
   %_M_invoker.i230 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = load ptr, ptr %_M_invoker.i230, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i224, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i225, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i226)
+  call void %155(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i224, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i225, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i226)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i224)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i225)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i226)
@@ -64810,7 +64810,7 @@ if.then.i243:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit244: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit232
   %_M_invoker.i242 = getelementptr inbounds i8, ptr %163, i64 24
   %165 = load ptr, ptr %_M_invoker.i242, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i236, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i237, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i238)
+  call void %165(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i236, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i237, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i238)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i236)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i237)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i238)
@@ -64835,7 +64835,7 @@ if.then.i252:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit253: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit244
   %_M_invoker.i251 = getelementptr inbounds i8, ptr %167, i64 24
   %169 = load ptr, ptr %_M_invoker.i251, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i246, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i247)
+  call void %169(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i245, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i246, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i247)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i245)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i246)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i247)
@@ -64877,7 +64877,7 @@ if.then.i.i268:                                   ; preds = %if.then.i260
 if.then5.i266:                                    ; preds = %if.then.i260
   %_M_invoker.i.i264 = getelementptr inbounds i8, ptr %175, i64 24
   %178 = load ptr, ptr %_M_invoker.i.i264, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i255, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i256)
+  call void %178(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i254, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i.i255, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i.i256)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i254)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i255)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i.i256)
@@ -64905,7 +64905,7 @@ if.then.i277:                                     ; preds = %_ZL14llm_build_norm
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit278: ; preds = %_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi.exit269
   %_M_invoker.i276 = getelementptr inbounds i8, ptr %179, i64 24
   %181 = load ptr, ptr %_M_invoker.i276, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i271, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i272)
+  call void %181(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i270, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i271, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i272)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i270)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i271)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i272)
@@ -64933,7 +64933,7 @@ if.then.i286:                                     ; preds = %_ZNKSt8functionIFvP
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit287: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit278
   %_M_invoker.i285 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load ptr, ptr %_M_invoker.i285, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i279, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i280, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i281)
+  call void %187(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i279, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i280, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i281)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i279)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i280)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i281)
@@ -65715,7 +65715,7 @@ for.body:                                         ; preds = %_ZNSt10_HashtableI1
   %__f.addr.05 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %__f, %_ZNSt10_HashtableI18llm_offload_func_eSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEEC2EmRKSG_RKSE_RKSA_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i)
   store ptr %this, ptr %__node_gen.i, align 8
-  %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableI18llm_offload_func_eSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS2_RKS9_NSB_10_AllocNodeISaINSB_10_Hash_nodeIS9_Lb0EEEEEEEES1_INSB_14_Node_iteratorIS9_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(40) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
+  %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableI18llm_offload_func_eSt4pairIKS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS2_RKS9_NSB_10_AllocNodeISaINSB_10_Hash_nodeIS9_Lb0EEEEEEEES1_INSB_14_Node_iteratorIS9_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(40) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(40) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -66195,7 +66195,7 @@ if.then.i:                                        ; preds = %do.end
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %do.end
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %12 = load ptr, ptr %_M_invoker.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -66240,7 +66240,7 @@ if.then.i34:                                      ; preds = %for.body
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit35: ; preds = %for.body
   %21 = load ptr, ptr %_M_invoker.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i28, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i29, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i30)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i28, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i29, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i30)
@@ -66299,7 +66299,7 @@ if.then.i:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %1(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -66326,7 +66326,7 @@ if.then.i24:                                      ; preds = %if.then8
 
 if.end10.thread2:                                 ; preds = %if.then8
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i18, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i19, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i20)
+  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i18, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i19, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i20)
@@ -66396,7 +66396,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -66426,7 +66426,7 @@ if.then.i36:                                      ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit37: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i31, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i32)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i30, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i31, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i32)
@@ -66458,7 +66458,7 @@ if.then.i47:                                      ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit48: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit37
   %15 = load ptr, ptr %_M_invoker.i, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i42, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i43)
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i41, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i42, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i42)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i43)
@@ -66543,7 +66543,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %entry
   %conv8 = zext i32 %div.i86 to i64
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %4 = load ptr, ptr %_M_invoker.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -66577,7 +66577,7 @@ if.then.i95:                                      ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit
   %12 = load ptr, ptr %_M_invoker.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
+  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i89, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i90, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i89)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i90)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i91)
@@ -66598,7 +66598,7 @@ if.then.i103:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit104: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit96
   %14 = load ptr, ptr %_M_invoker.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i99)
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i97, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i98, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i99)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i97)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i99)
@@ -66623,7 +66623,7 @@ if.then.i111:                                     ; preds = %if.then
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112: ; preds = %if.then
   %16 = load ptr, ptr %_M_invoker.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i105, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i106, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i107)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i105)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i107)
@@ -66644,7 +66644,7 @@ if.then.i119:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit120: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit112
   %18 = load ptr, ptr %_M_invoker.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i114, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i115)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i113, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i114, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i115)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i113)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i114)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i115)
@@ -66665,7 +66665,7 @@ if.then.i127:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit128: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit120
   %20 = load ptr, ptr %_M_invoker.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i121, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i122, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i123)
+  call void %20(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i121, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i122, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i123)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i122)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i123)
@@ -66686,7 +66686,7 @@ if.then.i135:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit136: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit128
   %22 = load ptr, ptr %_M_invoker.i, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i129, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i130, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i131)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i129, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i130, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i131)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i129)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i130)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i131)
@@ -66713,7 +66713,7 @@ if.then.i143:                                     ; preds = %if.else
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit144: ; preds = %if.else
   %24 = load ptr, ptr %_M_invoker.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i138, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i139)
+  call void %24(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i137, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i138, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i139)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i137)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i138)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i139)
@@ -66750,7 +66750,7 @@ if.then.i154:                                     ; preds = %if.end34
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155: ; preds = %if.end34
   %30 = load ptr, ptr %_M_invoker.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i148, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i149, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i150)
+  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i148, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i149, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i148)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i149)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i150)
@@ -66771,7 +66771,7 @@ if.then.i162:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit163: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit155
   %32 = load ptr, ptr %_M_invoker.i, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i157, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i158)
+  call void %32(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i156, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i157, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i158)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i156)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i157)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i158)
@@ -66792,7 +66792,7 @@ if.then.i170:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit171: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit163
   %34 = load ptr, ptr %_M_invoker.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
+  call void %34(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i165, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i166)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i164)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i165)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i166)
@@ -66814,7 +66814,7 @@ if.then.i178:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit179: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit171
   %36 = load ptr, ptr %_M_invoker.i, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i174)
+  call void %36(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i172, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i173, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i174)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i172)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i173)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i174)
@@ -66839,7 +66839,7 @@ if.then.i186:                                     ; preds = %if.then54
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187: ; preds = %if.then54
   %38 = load ptr, ptr %_M_invoker.i, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i180, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i181, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i182)
+  call void %38(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i180, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i181, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i182)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i180)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i181)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i182)
@@ -66906,7 +66906,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit: ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
+  call void %1(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i)
@@ -66931,7 +66931,7 @@ if.then.i74:                                      ; preds = %if.then
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit75: ; preds = %if.then
   %3 = load ptr, ptr %_M_invoker.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i69, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i70)
+  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i68, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i69, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i70)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i68)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i69)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i70)
@@ -66964,7 +66964,7 @@ if.then.i82:                                      ; preds = %sw.bb
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit83: ; preds = %sw.bb
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i77, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i78)
+  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i76, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i77, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i78)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i76)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i77)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i78)
@@ -66988,7 +66988,7 @@ if.then.i90:                                      ; preds = %sw.bb5
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit91: ; preds = %sw.bb5
   %7 = load ptr, ptr %_M_invoker.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i85, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i86)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i84, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i85, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i86)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i84)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i85)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i86)
@@ -67024,7 +67024,7 @@ if.then.i98:                                      ; preds = %sw.bb12
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit99: ; preds = %sw.bb12
   %9 = load ptr, ptr %_M_invoker.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i92, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i93, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i94)
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i92, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i93, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i94)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i92)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i93)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i94)
@@ -67048,7 +67048,7 @@ if.then.i106:                                     ; preds = %sw.bb14
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit107: ; preds = %sw.bb14
   %11 = load ptr, ptr %_M_invoker.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i100, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i101, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i102)
+  call void %11(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i100, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i101, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i102)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i100)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i101)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i102)
@@ -67072,7 +67072,7 @@ if.then.i114:                                     ; preds = %sw.bb16
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit115: ; preds = %sw.bb16
   %13 = load ptr, ptr %_M_invoker.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i109, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i110)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i108, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i109, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i110)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i108)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i109)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i110)
@@ -67096,7 +67096,7 @@ if.then.i122:                                     ; preds = %sw.bb18
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit123: ; preds = %sw.bb18
   %15 = load ptr, ptr %_M_invoker.i, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i116, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i117, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i116)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i117)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i118)
@@ -67117,7 +67117,7 @@ if.then.i130:                                     ; preds = %_ZNKSt8functionIFvP
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit131: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit123
   %17 = load ptr, ptr %_M_invoker.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i125, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i126)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i124, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i125, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i126)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i124)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i125)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i126)
@@ -67146,7 +67146,7 @@ if.then.i138:                                     ; preds = %if.then22
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit139: ; preds = %if.then22
   %19 = load ptr, ptr %_M_invoker.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
+  call void %19(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i132, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i133, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i134)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i133)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i134)
@@ -67175,7 +67175,7 @@ if.then.i146:                                     ; preds = %if.then27
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit147: ; preds = %if.then27
   %21 = load ptr, ptr %_M_invoker.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i140, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i141, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i142)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i140, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i141, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr4.i142)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i140)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i141)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr4.i142)
@@ -67285,7 +67285,7 @@ entry:
   %5 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %this, align 8
-  %call1.i.i.i.i50 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #47
+  %call1.i.i.i.i50 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #47
   %tobool.not.i.i.i51 = icmp eq i32 %call1.i.i.i.i50, 0
   br i1 %tobool.not.i.i.i51, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -67334,7 +67334,7 @@ if.else.i:                                        ; preds = %_ZNSt11unique_lockI
   br i1 %tobool2.not.i.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %call1.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #47
+  %call1.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #47
   %.pre = load i64, ptr %1, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -67343,7 +67343,7 @@ if.else.i.i:                                      ; preds = %for.end, %if.then
   br i1 %tobool2.not.i.i, label %while.end, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #47
+  %call1.i.i.i.i13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #47
   br label %while.end
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i, %if.then3.i
@@ -67358,7 +67358,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i, %if.then
   %call18 = call i64 @ggml_quantize_chunk(i32 noundef %18, ptr noundef %19, ptr noundef %20, i32 noundef %conv14, i32 noundef %conv15, ptr noundef nonnull %local_hist)
   %add19 = add i64 %call18, %local_size.052
   %21 = load ptr, ptr %this, align 8
-  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %21) #47
+  %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %21) #47
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -67440,7 +67440,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #47
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #47
   tail call void @_ZdlPv(ptr noundef nonnull %this) #45
   ret void
 }
@@ -67484,7 +67484,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #47
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #47
   tail call void @_ZdlPv(ptr noundef nonnull %this) #45
   ret void
 }
@@ -67654,7 +67654,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__n.addr.04.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i) #45
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !175
@@ -67687,7 +67687,7 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__args)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKS6_IS5_S9_EEEEPNSC_16_Hashtable_allocISaINSC_10_Hash_nodeISA_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont10.i.i
 
 invoke.cont10.i.i:                                ; preds = %entry
@@ -67739,13 +67739,13 @@ for.body:                                         ; preds = %_ZNSt10_HashtableIN
   %__it.sroa.0.031 = phi ptr [ %__it.sroa.0.0, %for.inc ], [ %__it.sroa.0.029, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKS6_IS5_S9_EEEEPNSC_16_Hashtable_allocISaINSC_10_Hash_nodeISA_Lb1EEEEEEDpOT_.exit ]
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.031, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr12) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr12) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr12) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i16, label %invoke.cont
@@ -67806,7 +67806,7 @@ if.end34:                                         ; preds = %call.i.noexc, %invo
 
 if.then.i16:                                      ; preds = %land.rhs.i.i.i, %invoke.cont, %invoke.cont27
   %retval.sroa.0.0.ph = phi ptr [ %14, %invoke.cont27 ], [ %__it.sroa.0.031, %invoke.cont ], [ %__it.sroa.0.031, %land.rhs.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i) #45
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -67932,7 +67932,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -67966,13 +67966,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit
@@ -68117,13 +68117,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_P11ggml_tensorENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISB_Lb1EEE.exit
@@ -68202,7 +68202,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11ggml_tensorESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS7_EEST_IJEEEEEPNSC_16_Hashtable_allocISaINSC_10_Hash_nodeISA_Lb1EEEEEEDpOT_.exit unwind label %invoke.cont14.i.i
 
 invoke.cont14.i.i:                                ; preds = %if.end
@@ -68289,7 +68289,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   store ptr null, ptr %second.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8
@@ -69872,13 +69872,13 @@ for.body.i:                                       ; preds = %if.then.i213, %for.
   %retval.sroa.0.010.i = phi ptr [ %retval.sroa.0.0.i, %for.inc.i ], [ %retval.sroa.0.08.i, %if.then.i213 ]
   %add.ptr.i214 = getelementptr inbounds i8, ptr %retval.sroa.0.010.i, i64 8
   %call.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
-  %call1.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i214) #47
+  %call1.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i214) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %for.inc.i
 
 land.rhs.i.i.i.i:                                 ; preds = %for.body.i
   %call2.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
-  %call3.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i214) #47
+  %call3.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i214) #47
   %call4.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.end204, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i
@@ -69932,13 +69932,13 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i, %i
 
 land.rhs.i.i226:                                  ; preds = %for.cond.i
   %call.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
-  %call1.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i222) #47
+  %call1.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i222) #47
   %cmp.i.i.i.i.i227 = icmp eq i64 %call.i.i.i.i.i, %call1.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i227, label %land.rhs.i.i.i.i.i, label %if.end3.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i226
   %call2.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
-  %call3.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i222) #47
+  %call3.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i222) #47
   %call4.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %byte_str) #47
   %cmp.i.i.i.i.i.i228 = icmp eq i64 %call4.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i228, label %invoke.cont189, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i
@@ -70994,7 +70994,7 @@ entry:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -71081,7 +71081,7 @@ lpad:                                             ; preds = %invoke.cont
   br label %common.resume
 
 if.then.i:                                        ; preds = %invoke.cont7
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #45
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S6_IiiEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit
 
@@ -71418,7 +71418,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -71562,7 +71562,7 @@ while.body:                                       ; preds = %entry, %while.body
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #45
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !404
@@ -72823,7 +72823,7 @@ if.then.i.i:                                      ; preds = %invoke.cont32
   br label %_ZNSt6vectorI14llm_bigram_bpeSaIS0_EE9push_backERKS0_.exit.i
 
 if.else.i.i:                                      ; preds = %invoke.cont32
-  invoke void @_ZNSt6vectorI14llm_bigram_bpeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %work_queue, ptr %13, ptr noundef nonnull align 8 dereferenceable(56) %bigram)
+  invoke void @_ZNSt6vectorI14llm_bigram_bpeSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %work_queue, ptr %13, ptr noundef nonnull align 8 dereferenceable(56) %bigram)
           to label %.noexc17 unwind label %lpad31
 
 .noexc17:                                         ; preds = %if.else.i.i
@@ -74331,14 +74331,14 @@ if.then23:                                        ; preds = %do.body20
   unreachable
 
 do.end27:                                         ; preds = %do.body20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %token_left)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %token_left)
   %second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %token_right)
           to label %_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i
   %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i.i ], [ %9, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #47
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %do.end27
@@ -74353,7 +74353,7 @@ _ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4pairI
 
 invoke.cont:                                      ; preds = %_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #47
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #47
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i = icmp eq ptr %call.i1, %add.ptr.i.i
   br i1 %cmp.i, label %return, label %if.end35
@@ -74391,7 +74391,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %__x.addr.011.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %__x.addr.1.i, %if.end.i ]
   %__y.addr.010.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %__y.addr.1.i, %if.end.i ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i, i64 32
-  %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__k)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %while.body.i
@@ -74406,7 +74406,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i.i, label %if.else.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i
-  %call.i5.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
+  %call.i5.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__k, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8.i.i.i unwind label %terminate.lpad.i6.i.i.i
 
 terminate.lpad.i6.i.i.i:                          ; preds = %lor.rhs.i.i.i
@@ -74453,7 +74453,7 @@ _ZNKSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_E
 
 lor.lhs.false:                                    ; preds = %_ZNKSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES0_IKS7_iESt10_Select1stIS9_ESt4lessIS7_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS8_.exit
   %_M_storage.i.i.i3 = getelementptr inbounds i8, ptr %__y.addr.1.i, i64 32
-  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3)
+  %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %__k, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i3)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lor.lhs.false
@@ -74468,7 +74468,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i.i.i, label %cond.end, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i
-  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3, ptr noundef nonnull align 8 dereferenceable(32) %__k)
+  %call.i5.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i3, ptr noundef nonnull align 8 dereferenceable(64) %__k)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit8.i.i unwind label %terminate.lpad.i6.i.i
 
 terminate.lpad.i6.i.i:                            ; preds = %lor.rhs.i.i
@@ -75037,7 +75037,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__n.addr.04.i.i.i = phi ptr [ %1, %while.body.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.04.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.04.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %add.ptr.i.i.i.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i) #45
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_hESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !441
@@ -75097,7 +75097,7 @@ if.end:                                           ; preds = %_ZNKSt8__detail15_H
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #49
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   store i8 0, ptr %second.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_node.i, align 8
@@ -75230,7 +75230,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #47
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %add.ptr.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %0) #45
   br label %if.end
 
@@ -75264,13 +75264,13 @@ for.cond:                                         ; preds = %lor.lhs.false, %if.
 
 land.rhs.i:                                       ; preds = %for.cond
   %call.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i.i = icmp eq i64 %call.i.i.i.i, %call1.i.i.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %if.end3
 
 land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i
   %call2.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i.i = icmp eq i64 %call4.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_hENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -75412,13 +75412,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_hENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
@@ -76086,7 +76086,7 @@ for.body:                                         ; preds = %_ZNSt10_HashtableIP
   %__f.addr.05 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %__f, %_ZNSt10_HashtableIPKcSt4pairIKS1_18llm_offload_func_eESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEEC2EmRKSC_RKSA_RKS6_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i)
   store ptr %this, ptr %__node_gen.i, align 8
-  %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableIPKcSt4pairIKS1_18llm_offload_func_eESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEES2_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(12) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
+  %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableIPKcSt4pairIKS1_18llm_offload_func_eESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_insert_uniqueIRS3_RKS5_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb0EEEEEEEES2_INS7_14_Node_iteratorIS5_Lb0ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(12) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(12) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
@@ -78358,7 +78358,7 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIjSaIjEE18llama_partial_utf8ESaIS5_EE11_M_a
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__args, i8 0, i64 24, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %6 = load i64, ptr %second3.i.i.i, align 8
@@ -78381,7 +78381,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !488, !noalias !485
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !485, !noalias !488
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !488, !noalias !485
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !488, !noalias !485
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
   %10 = load i64, ptr %second3.i.i.i.i.i.i.i.i, align 8, !alias.scope !488, !noalias !485
@@ -78412,7 +78412,7 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorISt4pai
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 16
   %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !494, !noalias !491
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !491, !noalias !494
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !494, !noalias !491
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !494, !noalias !491
   %second.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 24
   %second3.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 24
   %14 = load i64, ptr %second3.i.i.i.i.i.i.i.i20, align 8, !alias.scope !494, !noalias !491
@@ -78952,13 +78952,13 @@ for.body:                                         ; preds = %if.then, %for.inc
   %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %for.inc ], [ %retval.sroa.0.08, %if.then ]
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.010, i64 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call1.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #47
   %cmp.i.i.i = icmp eq i64 %call.i.i.i, %call1.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %for.inc
 
 land.rhs.i.i.i:                                   ; preds = %for.body
   %call2.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
-  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #47
+  %call3.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr) #47
   %call4.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__k) #47
   %cmp.i.i.i.i = icmp eq i64 %call4.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %return, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit

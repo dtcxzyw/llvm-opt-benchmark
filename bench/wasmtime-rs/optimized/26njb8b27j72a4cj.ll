@@ -1020,7 +1020,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hc38ea51414
   %25 = add i16 %.lcssa.i.i, -1
   %26 = and i16 %25, %.lcssa.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 -64
-  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27), !noalias !171
+  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(64) %27), !noalias !171
   %28 = icmp eq i64 %24, 0
   br i1 %28, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h659f80b4eda1e6fdE.llvm.999389807221543417.exit.thread", label %12
 }
@@ -1296,7 +1296,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h7ae8cc7
   %32 = add i16 %.lcssa.i.i.i, -1
   %33 = and i16 %32, %.lcssa.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 -64
-  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(56) %34), !noalias !201
+  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(64) %34), !noalias !201
   %35 = icmp eq i64 %31, 0
   br i1 %35, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17hc38ea51414bd645fE.llvm.999389807221543417.exit, label %19
 
@@ -1568,7 +1568,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_bas
 define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h08f3b8a89e5f1503E.llvm.999389807221543417"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !nonnull !11, !noundef !11
   %3 = getelementptr inbounds i8, ptr %2, i64 -64
-  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  tail call void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..readers..core..types..RecGroupInner$GT$17h8b9c78d73dcd28c1E.llvm.510628653122287189"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
   ret void
 }
 

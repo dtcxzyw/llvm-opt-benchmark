@@ -106,8 +106,8 @@ define hidden void @_ZN21ShenandoahSTWMarkTask4workEj(ptr nocapture noundef nonn
   %4 = alloca %"class.StringDedup::Requests", align 8
   %5 = alloca %class.ShenandoahInitMarkRootsClosure, align 8
   %6 = alloca %class.ShenandoahParallelWorkerSession, align 8
-  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %1) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %6, i8 0, i64 19, i1 false)
+  call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %1) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 19, i1 false)
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit, label %9
@@ -154,7 +154,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %9
   %34 = load i8, ptr @_ZN11StringDedup8_enabledE, align 1
   %35 = trunc i8 %34 to i1
   %36 = select i1 %35, i32 2, i32 0
-  call void @_ZN14ShenandoahMark9mark_loopEjP14TaskTerminatorP28ShenandoahReferenceProcessor24ShenandoahGenerationTypeb15StringDedupModePN11StringDedup8RequestsE(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef %1, ptr noundef nonnull %33, ptr noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef %36, ptr noundef nonnull %4) #7
+  call void @_ZN14ShenandoahMark9mark_loopEjP14TaskTerminatorP28ShenandoahReferenceProcessor24ShenandoahGenerationTypeb15StringDedupModePN11StringDedup8RequestsE(ptr noundef nonnull align 8 dereferenceable(881) %25, i32 noundef %1, ptr noundef nonnull %33, ptr noundef %32, i32 noundef 0, i1 noundef zeroext false, i32 noundef %36, ptr noundef nonnull %4) #7
   call void @_ZN11StringDedup8RequestsD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #7
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #7
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)

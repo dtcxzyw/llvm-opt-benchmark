@@ -201,8 +201,8 @@ define dso_local void @_ZN4llvm19PGOCtxProfileWriterC2ERNS_11raw_ostreamESt8opti
   %6 = alloca [1 x i32], align 4
   %.sroa.024.0.extract.trunc = trunc i64 %2 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %7, i64 noundef 0) #13
-  %8 = tail call noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %1) #13
+  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %7, i64 noundef 0) #13
+  %8 = tail call noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %1) #13
   br i1 %8, label %9, label %_ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit
 
 9:                                                ; preds = %3
@@ -214,7 +214,7 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %9
   %.0.i.i = phi ptr [ %11, %9 ], [ %0, %3 ]
   store ptr %.0.i.i, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = tail call noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %1) #13
+  %13 = tail call noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %1) #13
   %14 = select i1 %13, ptr null, ptr %1
   store ptr %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -244,14 +244,14 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %9
 
 _ZN4llvm15BitstreamWriter19EnterBlockInfoBlockEv.exit: ; preds = %_ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit, %25
   %26 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %26, i64 noundef 16) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %26, i64 noundef 16) #13
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE"(ptr nonnull %0, i32 noundef 8, ptr nonnull @.str, i64 8)
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE"(ptr %4, ptr nonnull %0, i32 noundef 1, ptr nonnull @.str.1, i64 7)
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE"(ptr nonnull %0, i32 noundef 9, ptr nonnull @.str.2, i64 7)
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE"(ptr %4, ptr nonnull %0, i32 noundef 2, ptr nonnull @.str.3, i64 4)
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE"(ptr %4, ptr nonnull %0, i32 noundef 3, ptr nonnull @.str.4, i64 11)
   call fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE"(ptr %4, ptr nonnull %0, i32 noundef 4, ptr nonnull @.str.5, i64 8)
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %4) #13
   %28 = load ptr, ptr %4, align 8
   %29 = icmp eq ptr %28, %26
   br i1 %29, label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, label %30
@@ -268,11 +268,11 @@ _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %_ZN4llvm15Bitstream
   %spec.select = select i1 %.not, i32 1, i32 %.sroa.024.0.extract.trunc
   store i32 %spec.select, ptr %6, align 4
   %32 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %32, i64 noundef 1) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull %32, i64 noundef 1) #13
   %33 = getelementptr inbounds i8, ptr %6, i64 4
-  call void @_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull %33)
+  call void @_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull %6, ptr noundef nonnull %33)
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorIjLj1EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef 0)
-  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
+  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %5) #13
   %35 = load ptr, ptr %5, align 8
   %36 = icmp eq ptr %35, %32
   br i1 %36, label %_ZN4llvm11SmallVectorIjLj1EED2Ev.exit, label %37
@@ -294,11 +294,11 @@ define internal fastcc void @"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostream
   %6 = alloca %"class.llvm::ArrayRef", align 8
   store i32 %0, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %7, i64 noundef 1) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %7, i64 noundef 1) #13
   %8 = getelementptr inbounds i8, ptr %5, i64 4
-  call void @_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  call void @_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull %5, ptr noundef nonnull %8)
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorIjLj1EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %.0.val, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef 0)
-  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %4) #13
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, %7
   br i1 %11, label %_ZN4llvm11SmallVectorIjLj1EED2Ev.exit, label %12
@@ -341,10 +341,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %3, %9
   %16 = add i64 %15, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %16) #13
   %17 = load ptr, ptr %.0.val, align 8
-  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #13
+  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %.0.val) #13
   %19 = getelementptr inbounds i64, ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %1, i64 %2
-  %21 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %.0.val, ptr noundef %19, ptr noundef %1, ptr noundef %20)
+  %21 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(144) %.0.val, ptr noundef %19, ptr noundef %1, ptr noundef %20)
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj16EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %.8.val, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(144) %.0.val, i32 noundef 0)
   ret void
 }
@@ -408,7 +408,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit, label %31
 
 31:                                               ; preds = %_ZN4llvm15BitstreamWriter11FlushToWordEv.exit
-  %32 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %30) #13
+  %32 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %30) #13
   br i1 %32, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i, label %_ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i: ; preds = %31
@@ -417,7 +417,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i: ; preds = %31
   br i1 %.not.i.i.i1.i.i.i, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i.i, label %34
 
 34:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i
-  %35 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %33) #13
+  %35 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %33) #13
   %spec.select.i.i.i.i2.i.i.i = select i1 %35, ptr %33, ptr null
   br label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i.i
 
@@ -542,7 +542,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit, label %39
 
 39:                                               ; preds = %_ZN4llvm15BitstreamWriter11FlushToWordEv.exit
-  %40 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %38) #13
+  %40 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %38) #13
   br i1 %40, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i, label %_ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i: ; preds = %39
@@ -551,7 +551,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i: ; preds = %39
   br i1 %.not.i.i.i1.i.i.i, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i.i, label %42
 
 42:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i.i
-  %43 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %41) #13
+  %43 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %41) #13
   %spec.select.i.i.i.i2.i.i.i = select i1 %43, ptr %41, ptr null
   br label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i.i
 
@@ -692,7 +692,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11Smal
   br i1 %.not, label %6, label %33
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #13
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
@@ -1063,11 +1063,11 @@ define dso_local void @_ZN4llvm19PGOCtxProfileWriter9writeImplESt8optionalIjERKN
   %8 = load i64, ptr %2, align 8
   store i64 %8, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %9, i64 noundef 1) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %9, i64 noundef 1) #13
   %10 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  call void @_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %5, ptr noundef nonnull %10)
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj1EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 0)
-  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %12 = load ptr, ptr %4, align 8
   %13 = icmp eq ptr %12, %9
   br i1 %13, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit, label %14
@@ -1085,11 +1085,11 @@ _ZN4llvm11SmallVectorImLj1EED2Ev.exit:            ; preds = %3, %14
   %17 = and i64 %1, 4294967295
   store i64 %17, ptr %7, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %18, i64 noundef 1) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %18, i64 noundef 1) #13
   %19 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, ptr noundef nonnull %19)
+  call void @_ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, ptr noundef nonnull %19)
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj1EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 0)
-  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
+  %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #13
   %21 = load ptr, ptr %6, align 8
   %22 = icmp eq ptr %21, %18
   br i1 %22, label %_ZN4llvm11SmallVectorImLj1EED2Ev.exit10, label %23
@@ -1156,7 +1156,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11Smal
   br i1 %.not, label %6, label %32
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #13
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
@@ -1296,7 +1296,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13, !noalias !18
   %32 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #13, !noalias !18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %6) #13, !noalias !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %6) #13, !noalias !18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 61)), !noalias !18
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 %30, ptr %31) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
@@ -1380,7 +1380,7 @@ _ZN4llvm4json4Path4RootD2Ev.exit:                 ; preds = %50, %_ZNSt6vectorIS
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %_ZN4llvm4json4Path4RootD2Ev.exit
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %7) #13
   br label %_ZN4llvm8ExpectedINS_4json5ValueEED2Ev.exit
 
 59:                                               ; preds = %_ZN4llvm4json4Path4RootD2Ev.exit
@@ -1534,7 +1534,7 @@ _ZNSt6vectorIN12_GLOBAL__N_117DeserializableCtxESaIS1_EE5clearEv.exit: ; preds =
   unreachable
 
 _ZNKSt6vectorIN12_GLOBAL__N_117DeserializableCtxESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %61
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %50)
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %47, i64 range(i64 1, 0) %50)
   %64 = add nuw nsw i64 %.sroa.speculated.i.i.i, %47
   %65 = tail call i64 @llvm.umin.i64(i64 %64, i64 164703072086692425)
   %66 = mul nuw nsw i64 %65, 56
@@ -1884,7 +1884,7 @@ _ZNSt6vectorIS_IN12_GLOBAL__N_117DeserializableCtxESaIS1_EESaIS3_EE5clearEv.exit
   unreachable
 
 _ZNKSt6vectorIS_IN12_GLOBAL__N_117DeserializableCtxESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %187
-  %.sroa.speculated.i.i.i45 = call i64 @llvm.umax.i64(i64 %173, i64 %176)
+  %.sroa.speculated.i.i.i45 = call i64 @llvm.umax.i64(i64 %173, i64 range(i64 1, 0) %176)
   %190 = add nuw nsw i64 %.sroa.speculated.i.i.i45, %173
   %191 = call i64 @llvm.umin.i64(i64 %190, i64 384307168202282325)
   %192 = mul nuw nsw i64 %191, 24
@@ -2493,7 +2493,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
 _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %30
   %storemerge6.i.i = phi i32 [ %38, %30 ], [ %28, %7 ]
   store i32 %storemerge6.i.i, ptr %22, align 8
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #13
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %19) #13
   %40 = trunc i64 %39 to i32
   %41 = and i64 %6, 4294967296
   %.not83 = icmp eq i64 %41, 0
@@ -3217,7 +3217,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %8, %11
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %24) #13
+  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %24) #13
   br i1 %26, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
@@ -3226,7 +3226,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
   br i1 %.not.i.i.i1.i.i, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i, label %28
 
 28:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i
-  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %27) #13
+  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %27) #13
   %spec.select.i.i.i.i2.i.i = select i1 %29, ptr %27, ptr null
   br label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i
 
@@ -3386,7 +3386,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11Smal
   br i1 %.not, label %6, label %32
 
 6:                                                ; preds = %4
-  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
+  %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #13
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
@@ -3733,7 +3733,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
 _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %30
   %storemerge6.i.i = phi i32 [ %38, %30 ], [ %28, %7 ]
   store i32 %storemerge6.i.i, ptr %22, align 8
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #13
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %19) #13
   %40 = trunc i64 %39 to i32
   %41 = and i64 %6, 4294967296
   %.not82 = icmp eq i64 %41, 0
@@ -4310,7 +4310,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %8, %11
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %24) #13
+  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %24) #13
   br i1 %26, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
@@ -4319,7 +4319,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
   br i1 %.not.i.i.i1.i.i, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i, label %28
 
 28:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i
-  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %27) #13
+  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %27) #13
   %spec.select.i.i.i.i2.i.i = select i1 %29, ptr %27, ptr null
   br label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i
 
@@ -4904,7 +4904,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter11FlushToFileEb(ptr no
   br i1 %.not.i.i.i, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %15) #13
+  %17 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %15) #13
   br i1 %17, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.thread
 
 _ZN4llvm15BitstreamWriter8fdStreamEv.exit:        ; preds = %16
@@ -4942,7 +4942,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter13BackpatchByteEmh(ptr
   br i1 %.not.i.i.i.i, label %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %8) #13
+  %10 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %8) #13
   br i1 %10, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i, label %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i:     ; preds = %9
@@ -4951,7 +4951,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i:     ; preds = %9
   br i1 %.not.i.i.i1.i, label %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit, label %12
 
 12:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i
-  %13 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %11) #13
+  %13 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %11) #13
   %spec.select.i.i.i.i2.i = select i1 %13, ptr %11, ptr null
   br label %_ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit
 
@@ -5023,7 +5023,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   br i1 %.not.i.i.i, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %54) #13
+  %56 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %54) #13
   %spec.select.i.i.i.i = select i1 %56, ptr %54, ptr null
   br label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
 
@@ -5054,11 +5054,11 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit:        ; preds = %53, %55
 
 _ZN4llvm15BitstreamWriter8fdStreamEv.exit45:      ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit
   %72 = load ptr, ptr %7, align 8, !nonnull !72, !noundef !72
-  %73 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %72) #13
+  %73 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %72) #13
   %spec.select.i.i.i.i43 = select i1 %73, ptr %72, ptr null
   %74 = tail call noundef i64 @_ZN4llvm14raw_fd_ostream4seekEm(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i.i.i.i43, i64 noundef %5) #13
   %75 = load ptr, ptr %7, align 8, !nonnull !72, !noundef !72
-  %76 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %75) #13
+  %76 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %75) #13
   %spec.select.i.i.i.i47 = select i1 %76, ptr %75, ptr null
   %77 = call noundef i64 @_ZN4llvm13raw_fd_stream4readEPcm(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i.i.i.i47, ptr noundef nonnull %4, i64 noundef %.sroa.speculated) #13
   %.not77.not = icmp ult i64 %70, 2
@@ -5115,11 +5115,11 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit60:      ; preds = %_ZN4llvm7support6en
   %storemerge = phi i8 [ %91, %_ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.exit56 ], [ %2, %.split ]
   store i8 %storemerge, ptr %4, align 1
   %105 = load ptr, ptr %7, align 8, !nonnull !72, !noundef !72
-  %106 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %105) #13
+  %106 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %105) #13
   %spec.select.i.i.i.i58 = select i1 %106, ptr %105, ptr null
   %107 = call noundef i64 @_ZN4llvm14raw_fd_ostream4seekEm(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i.i.i.i58, i64 noundef %5) #13
   %108 = load ptr, ptr %7, align 8, !nonnull !72, !noundef !72
-  %109 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %108) #13
+  %109 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %108) #13
   %spec.select.i.i.i.i62 = select i1 %109, ptr %108, ptr null
   %110 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i.i.i62, ptr noundef nonnull %4, i64 noundef %.sroa.speculated) #13
   %.not78.not = icmp ugt i64 %69, %70
@@ -5144,7 +5144,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit60:      ; preds = %_ZN4llvm7support6en
 
 _ZN4llvm15BitstreamWriter8fdStreamEv.exit68:      ; preds = %112, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit60
   %120 = load ptr, ptr %7, align 8, !nonnull !72, !noundef !72
-  %121 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %120) #13
+  %121 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %120) #13
   %spec.select.i.i.i.i66 = select i1 %121, ptr %120, ptr null
   %122 = call noundef i64 @_ZN4llvm14raw_fd_ostream4seekEm(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i.i.i.i66, i64 noundef %68) #13
   br label %123
@@ -5489,7 +5489,7 @@ _ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EE11_M_allocateEm.exit: 
   %.0911.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %7, %_ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i, i64 16, i1 false), !alias.scope !82
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %32 = load ptr, ptr %31, align 8, !alias.scope !80, !noalias !77
@@ -5519,7 +5519,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   %.0911.i.i.i20 = phi ptr [ %51, %.lr.ph.i.i.i18 ], [ %1, %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i20, i64 16, i1 false), !alias.scope !89
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i19, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i20, i64 16, i1 false), !alias.scope !89
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 16
   %44 = load ptr, ptr %43, align 8, !alias.scope !87, !noalias !84
@@ -6589,7 +6589,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
 _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %30
   %storemerge6.i.i = phi i32 [ %38, %30 ], [ %28, %7 ]
   store i32 %storemerge6.i.i, ptr %22, align 8
-  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #13
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %19) #13
   %40 = trunc i64 %39 to i32
   %41 = and i64 %6, 4294967296
   %.not82 = icmp eq i64 %41, 0
@@ -7024,7 +7024,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %8, %11
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %24) #13
+  %26 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %24) #13
   br i1 %26, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i, label %_ZNK4llvm15BitstreamWriter15GetBufferOffsetEv.exit
 
 _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
@@ -7033,7 +7033,7 @@ _ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i:   ; preds = %25
   br i1 %.not.i.i.i1.i.i, label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i, label %28
 
 28:                                               ; preds = %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit.i.i
-  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull %27) #13
+  %29 = call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %27) #13
   %spec.select.i.i.i.i2.i.i = select i1 %29, ptr %27, ptr null
   br label %_ZNK4llvm15BitstreamWriter8fdStreamEv.exit4.i.i
 

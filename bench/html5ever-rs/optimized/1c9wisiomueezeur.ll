@@ -77,7 +77,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %26, label %27, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i.i.i.i.i"
 
 27:                                               ; preds = %23
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !24
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %25, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !24
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i.i.i.i.i": ; preds = %23
@@ -133,7 +133,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %54, label %55, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i.i"
 
 55:                                               ; preds = %51
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %53, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !32
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %53, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !32
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i.i": ; preds = %51
@@ -166,7 +166,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %.sroa.0.0.i2.i.i.i.i.i = phi ptr [ %67, %63 ], [ %56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i.i" ], [ %48, %46 ]
   %71 = sub i64 %.sroa.4.0.i.i.i.i.i.i, %.sroa.4.0.i1.i.i.i.i.i
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i.i.i.i.i.i, i64 %.sroa.4.0.i1.i.i.i.i.i)
-  %72 = tail call i32 @memcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i2.i.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !35
+  %72 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i.i.i.i.i, i64 %..i.i.i.i.i.i), !alias.scope !35
   %73 = sext i32 %72 to i64
   %74 = icmp eq i32 %72, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %74, i64 %71, i64 %73
@@ -212,7 +212,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %91, label %92, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i.i.i.i"
 
 92:                                               ; preds = %88
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %90, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !49
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %90, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !49
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i.i.i.i": ; preds = %88
@@ -268,7 +268,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %119, label %120, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i"
 
 120:                                              ; preds = %116
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %118, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !55
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %118, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !55
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i": ; preds = %116
@@ -301,7 +301,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %.sroa.0.0.i2.i.i.i.i = phi ptr [ %132, %128 ], [ %121, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i.i.i.i" ], [ %113, %111 ]
   %136 = sub i64 %.sroa.4.0.i.i.i.i.i, %.sroa.4.0.i1.i.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i.i.i.i.i, i64 %.sroa.4.0.i1.i.i.i.i)
-  %137 = tail call i32 @memcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i2.i.i.i.i, i64 %..i.i.i.i.i), !alias.scope !58
+  %137 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i.i.i.i, i64 %..i.i.i.i.i), !alias.scope !58
   %138 = sext i32 %137 to i64
   %139 = icmp eq i32 %137, 0
   %spec.store.select.i.i.i.i.i = select i1 %139, i64 %136, i64 %138
@@ -345,7 +345,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %158, label %159, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i18.i.i.i"
 
 159:                                              ; preds = %155
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %157, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !72
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %157, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !72
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i18.i.i.i": ; preds = %155
@@ -401,7 +401,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   br i1 %186, label %187, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i17.i.i.i"
 
 187:                                              ; preds = %183
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %185, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !78
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %185, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbcf12e17ac3edc1ee629c82f2090a0c.45) #12, !noalias !78
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i17.i.i.i": ; preds = %183
@@ -434,7 +434,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %.sroa.0.0.i2.i12.i.i.i = phi ptr [ %199, %195 ], [ %188, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i3.i17.i.i.i" ], [ %180, %178 ]
   %203 = sub i64 %.sroa.4.0.i.i9.i.i.i, %.sroa.4.0.i1.i11.i.i.i
   %..i.i13.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i.i9.i.i.i, i64 %.sroa.4.0.i1.i11.i.i.i)
-  %204 = tail call i32 @memcmp(ptr nonnull readonly %.sroa.0.0.i.i10.i.i.i, ptr nonnull readonly %.sroa.0.0.i2.i12.i.i.i, i64 %..i.i13.i.i.i), !alias.scope !81
+  %204 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i10.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i2.i12.i.i.i, i64 %..i.i13.i.i.i), !alias.scope !81
   %205 = sext i32 %204 to i64
   %206 = icmp eq i32 %204, 0
   %spec.store.select.i.i14.i.i.i = select i1 %206, i64 %203, i64 %205
@@ -524,8 +524,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %.sroa.4.0.i4.i.i.i = phi i64 [ %229, %246 ], [ %244, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i2.i.i.i" ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
   %.sroa.0.0.i5.i.i.i = phi ptr [ %247, %246 ], [ %245, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i2.i.i.i" ], [ @anon.bbcf12e17ac3edc1ee629c82f2090a0c.2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hbf1cf90a93069965E.exit.i.i.i" ]
   %248 = sub nsw i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i4.i.i.i
-  %..i.i.i4.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i.i.i.i, i64 %.sroa.4.0.i4.i.i.i)
-  %249 = tail call i32 @memcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i5.i.i.i, i64 %..i.i.i4.i.i), !alias.scope !92
+  %..i.i.i4.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %.sroa.4.0.i.i.i.i, i64 range(i64 0, 4294967296) %.sroa.4.0.i4.i.i.i)
+  %249 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.0.0.i5.i.i.i, i64 %..i.i.i4.i.i), !alias.scope !92
   %250 = sext i32 %249 to i64
   %251 = icmp eq i32 %249, 0
   %spec.store.select.i.i.i5.i.i = select i1 %251, i64 %248, i64 %250
@@ -774,8 +774,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h89973e1151339e77E.exit: ; preds
 
 68:                                               ; preds = %65
   %69 = add i64 %.0155, 10
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %69, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 %.sroa.0.0.i81, i64 1)
+  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %69, i64 range(i64 21, 0) %1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 10) i64 @llvm.umax.i64(i64 range(i64 0, 10) %.sroa.0.0.i81, i64 1)
   %70 = icmp ugt i64 %.0155, -11
   br i1 %70, label %.invoke255, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2c8379dbca73546dE.exit.i"
 

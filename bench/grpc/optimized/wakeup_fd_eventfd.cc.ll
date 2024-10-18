@@ -494,13 +494,13 @@ if.end14:                                         ; preds = %init.end
   br i1 %cmp.i.i.i.i.i17, label %if.then.i.i.i18, label %return
 
 if.then.i.i.i18:                                  ; preds = %if.end14
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
           to label %invoke.cont17 unwind label %lpad.i.i19
 
 lpad.i.i19:                                       ; preds = %if.then.i.i.i18
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #11
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #11
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #11
   br label %eh.resume
 

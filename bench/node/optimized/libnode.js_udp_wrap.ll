@@ -210,7 +210,7 @@ entry:
   %8 = load ptr, ptr %env_.i.i7, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %9 = load ptr, ptr %isolate_.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %9) #13
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %9) #13
   %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %8, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56
@@ -366,7 +366,7 @@ entry:
   %8 = load ptr, ptr %env_.i.i7, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %9 = load ptr, ptr %isolate_.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %9) #13
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %9) #13
   %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %8, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56
@@ -508,7 +508,7 @@ entry:
   %8 = load ptr, ptr %env_.i.i17, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %9 = load ptr, ptr %isolate_.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %9) #13
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %9) #13
   %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %8, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds i8, ptr %try_catch, i64 56
@@ -888,7 +888,7 @@ do.end5:                                          ; preds = %_ZN4node11Environme
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 16), ptr %call6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9JSUDPWrapE, i64 120), ptr %20, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
-  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %12, i32 noundef 2, ptr noundef nonnull %call6) #13
+  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %12, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(72) %call6) #13
   ret void
 }
 
@@ -1577,7 +1577,7 @@ define linkonce_odr dso_local void @_ZN4node9JSUDPWrapD0Ev(ptr noundef nonnull a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #13
+  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -1612,7 +1612,7 @@ define linkonce_odr dso_local void @_ZThn16_N4node9JSUDPWrapD1Ev(ptr noundef %th
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #13
-  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   ret void
 }
 
@@ -1621,8 +1621,8 @@ define linkonce_odr dso_local void @_ZThn16_N4node9JSUDPWrapD0Ev(ptr noundef %th
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #13
-  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN4node11UDPWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #16
   ret void
 }
 
@@ -1875,7 +1875,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull %this, i64 noundef 64) #13
+  %call18.i = tail call noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef 64) #13
   br label %_ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit
 
 _ZN4node23ArrayBufferViewContentsIcLm64EE4ReadEN2v85LocalINS2_15ArrayBufferViewEEE.exit: ; preds = %if.then.i, %if.else.i

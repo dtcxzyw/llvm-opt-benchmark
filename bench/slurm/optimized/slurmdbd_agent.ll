@@ -1996,7 +1996,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %.val37, ptr %3, align 4
   store i32 -559074791, ptr %4, align 4
-  %29 = call i64 @write(i32 noundef %12, ptr noundef nonnull %3, i64 noundef 4) #13
+  %29 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %3, i64 noundef 4) #13
   %.not.i = icmp eq i64 %29, 4
   br i1 %.not.i, label %.outer.i, label %.sink.split.i
 
@@ -2006,7 +2006,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   br i1 %31, label %32, label %47
 
 32:                                               ; preds = %30
-  %33 = call i64 @write(i32 noundef %12, ptr noundef %.0.ph.i, i64 noundef %40) #13
+  %33 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i, i64 noundef %40) #13
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %35, label %41
 
@@ -2034,7 +2034,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   br i1 %46, label %30, label %.sink.split.i, !llvm.loop !8
 
 47:                                               ; preds = %30
-  %48 = call i64 @write(i32 noundef %12, ptr noundef nonnull %4, i64 noundef 4) #13
+  %48 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %4, i64 noundef 4) #13
   %.not22.i = icmp eq i64 %48, 4
   br i1 %.not22.i, label %_save_dbd_rec.exit, label %.sink.split.i
 
@@ -2096,7 +2096,7 @@ _save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %58, ptr %1, align 4
   store i32 -559074791, ptr %2, align 4
-  %68 = call i64 @write(i32 noundef %12, ptr noundef nonnull %1, i64 noundef 4) #13
+  %68 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %1, i64 noundef 4) #13
   %.not.i40 = icmp eq i64 %68, 4
   br i1 %.not.i40, label %.outer.i43, label %_save_dbd_rec.exit48
 
@@ -2106,7 +2106,7 @@ _save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
   br i1 %70, label %71, label %86
 
 71:                                               ; preds = %69
-  %72 = call i64 @write(i32 noundef %12, ptr noundef %.0.ph.i45, i64 noundef %79) #13
+  %72 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i45, i64 noundef %79) #13
   %73 = icmp sgt i64 %72, 0
   br i1 %73, label %74, label %80
 
@@ -2134,7 +2134,7 @@ _save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
   br i1 %85, label %69, label %_save_dbd_rec.exit48, !llvm.loop !8
 
 86:                                               ; preds = %69
-  %87 = call i64 @write(i32 noundef %12, ptr noundef nonnull %2, i64 noundef 4) #13
+  %87 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %2, i64 noundef 4) #13
   %.not22.i47 = icmp eq i64 %87, 4
   br i1 %.not22.i47, label %.outer, label %_save_dbd_rec.exit48
 

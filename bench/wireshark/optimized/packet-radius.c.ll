@@ -964,11 +964,11 @@ define hidden void @radius_abinary(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %30, label %108, label %110
 
 108:                                              ; preds = %107
-  %109 = call ptr @tvb_get_ptr(ptr noundef %14, i32 noundef 20, i32 noundef 16) #14
+  %109 = call ptr @tvb_get_ptr(ptr noundef %14, i32 noundef range(i32 4, 21) 20, i32 noundef 16) #14
   br label %112
 
 110:                                              ; preds = %107
-  %111 = call ptr @tvb_get_ptr(ptr noundef %14, i32 noundef 8, i32 noundef 4) #14
+  %111 = call ptr @tvb_get_ptr(ptr noundef %14, i32 noundef range(i32 4, 21) 8, i32 noundef 4) #14
   br label %112
 
 112:                                              ; preds = %110, %108
@@ -1159,7 +1159,7 @@ proto_item_set_generated.exit:                    ; preds = %50, %47, %43, %35
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.101) #14
   %55 = getelementptr inbounds i8, ptr %spec.store.select, i64 24
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull %spec.store.select, ptr noundef %39, ptr noundef %2, ptr noundef %3, i32 noundef %41, i32 noundef %40, ptr noundef %54) #14
+  call void %56(ptr noundef nonnull %spec.store.select, ptr noundef %39, ptr noundef %2, ptr noundef %3, i32 noundef %41, i32 noundef range(i32 0, 254) %40, ptr noundef %54) #14
   %57 = add i32 %.069, %20
   %58 = add i32 %.05467, 1
   %59 = icmp sgt i32 %29, 0

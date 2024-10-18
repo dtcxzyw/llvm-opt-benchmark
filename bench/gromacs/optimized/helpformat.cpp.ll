@@ -154,7 +154,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIN3gmx18TextTableFormatter4Impl10ColumnDataEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx18TextTableFormatter4Impl10ColumnDataEEvPT_.exit.i.i.i.i.i.i: ; preds = %13, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %.05.i.i.i.i.i.i) #22
   %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i.i = icmp eq ptr %14, %6
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx18TextTableFormatter4Impl10ColumnDataES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !7
@@ -315,7 +315,7 @@ _ZNSt16allocator_traitsISaIN3gmx18TextTableFormatter4Impl10ColumnDataEEE9constru
   %.0911.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i ], [ %8, %_ZNSt16allocator_traitsISaIN3gmx18TextTableFormatter4Impl10ColumnDataEEE9constructIS3_JRPKcRiRbEEEvRS4_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(88) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i) #22
   %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !alias.scope !13
@@ -335,7 +335,7 @@ _ZNSt16allocator_traitsISaIN3gmx18TextTableFormatter4Impl10ColumnDataEEE9constru
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !alias.scope !13
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i) #22
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
   %.not.i.i.i = icmp eq ptr %44, %1
@@ -352,7 +352,7 @@ _ZNSt6vectorIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE11_S_relocateEPS
   %.0911.i.i.i31 = phi ptr [ %60, %.lr.ph.i.i.i29 ], [ %1, %_ZNSt6vectorIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i30, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i31) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(88) %.012.i.i.i30, ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i31) #22
   %47 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 32
   %48 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %48, i64 12, i1 false), !alias.scope !20
@@ -372,7 +372,7 @@ _ZNSt6vectorIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE11_S_relocateEPS
   %58 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 72
   %59 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !alias.scope !20
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i31) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i31) #22
   %60 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 88
   %61 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 88
   %.not.i.i.i32 = icmp eq ptr %60, %7
@@ -445,7 +445,7 @@ define linkonce_odr void @_ZN3gmx18TextTableFormatter4Impl10ColumnDataC2EPKcib(p
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc6 unwind label %18
 
 .noexc6:                                          ; preds = %.noexc
@@ -457,7 +457,7 @@ define linkonce_odr void @_ZN3gmx18TextTableFormatter4Impl10ColumnDataC2EPKcib(p
 10:                                               ; preds = %.noexc6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -619,7 +619,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt15__new_allocatorIN3gmx18TextTableFormatter4Impl10ColumnDataEE7destroyIS3_EEvPT_.exit
 
 _ZNSt15__new_allocatorIN3gmx18TextTableFormatter4Impl10ColumnDataEE7destroyIS3_EEvPT_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %9
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %1) #22
   ret void
 }
 
@@ -723,7 +723,7 @@ define void @_ZN3gmx18TextTableFormatter13addColumnLineEiRKNSt7__cxx1112basic_st
   %6 = load ptr, ptr %0, align 8
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
-  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %4)
+  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @_ZNK3gmx15TextLineWrapper12wrapToVectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.5") align 8 %5, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds %"struct.gmx::TextTableFormatter::Impl::ColumnData", ptr %8, i64 %7, i32 4
   %10 = getelementptr inbounds i8, ptr %9, i64 8

@@ -93,7 +93,7 @@ define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly ali
   %8 = and i1 %1, %7
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %0, i8 0, i64 128, i1 false)
   br i1 %8, label %10, label %_ZN12ResourceMarkD2Ev.exit
 
 10:                                               ; preds = %2
@@ -282,7 +282,7 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr nocapture noundef nonnul
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %8, %4, %1
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #11
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #11

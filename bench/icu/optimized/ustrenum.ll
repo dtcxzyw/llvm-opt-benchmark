@@ -543,7 +543,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN6icu_7517StringEnumerationD2Ev.exit:           ; preds = %invoke.cont, %if.then.i
   %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %unistr.i) #17
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) #17
   ret void
 
 terminate.lpad:                                   ; preds = %entry

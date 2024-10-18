@@ -672,7 +672,7 @@ define hidden void @_ZN15KlassInfoBucket5emptyEv(ptr nocapture noundef nonnull a
 
 10:                                               ; preds = %6
   store i32 0, ptr %5, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
   br label %_ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit.i
 
 _ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit.i: ; preds = %10, %6
@@ -725,12 +725,12 @@ define hidden void @_ZN14KlassInfoTableC2Eb(ptr noundef nonnull align 8 derefere
   br i1 %1, label %17, label %19
 
 17:                                               ; preds = %16
-  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #15
+  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %18, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %4) #15
-  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #15
+  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   br label %19
 
 19:                                               ; preds = %16, %17, %11
@@ -1024,7 +1024,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
   %77 = load ptr, ptr %.0.i.i12, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull %1) #15
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZN7oopDesc4sizeEv.exit
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -1057,7 +1057,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
   %104 = load ptr, ptr %.0.i.i12, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull %1) #15
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
@@ -1105,7 +1105,7 @@ _ZNK7oopDesc5klassEv.exit.i14:                    ; preds = %121, %111
   %132 = load ptr, ptr %.0.i.i15, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 256
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i15, ptr noundef nonnull %1) #15
+  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZN7oopDesc4sizeEv.exit18
 
 136:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i14
@@ -1138,7 +1138,7 @@ _ZNK7oopDesc5klassEv.exit.i14:                    ; preds = %121, %111
   %159 = load ptr, ptr %.0.i.i15, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 256
   %161 = load ptr, ptr %160, align 8
-  %162 = tail call noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i15, ptr noundef nonnull %1) #15
+  %162 = tail call noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   br label %_ZN7oopDesc4sizeEv.exit18
 
 _ZN7oopDesc4sizeEv.exit18:                        ; preds = %128, %131, %138, %158
@@ -1365,7 +1365,7 @@ define hidden void @_ZN14KlassInfoHistoD2Ev(ptr nocapture noundef nonnull readon
 
 9:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit
 
 _ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit:   ; preds = %5, %9
@@ -1561,12 +1561,12 @@ _ZN14KlassInfoTableC2Eb.exit.thread:              ; preds = %38
   br i1 %exitcond.not.i, label %_ZN14KlassInfoTableC2Eb.exit, label %.preheader.i, !llvm.loop !10
 
 _ZN14KlassInfoTableC2Eb.exit:                     ; preds = %.preheader.i
-  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %6) #15
+  call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN14KlassInfoTable16AllClassesFinderE, i64 16), ptr %6, align 8
   %43 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %9, ptr %43, align 8
   call void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef nonnull %6) #15
-  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %6) #15
+  call void @_ZN15LockedClassesDoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   %.pr = load ptr, ptr %40, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -3375,7 +3375,7 @@ _ZN14KlassInfoHisto4sortEv.exit:                  ; preds = %_ZN14KlassInfoTable
 
 65:                                               ; preds = %61
   store i32 0, ptr %59, align 4
-  call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %59)
+  call void @_ZN26GrowableArrayWithAllocatorIP14KlassInfoEntry13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %59)
   br label %_ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit.i
 
 _ZN13GrowableArrayIP14KlassInfoEntryED2Ev.exit.i: ; preds = %65, %61

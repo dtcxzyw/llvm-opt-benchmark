@@ -99,7 +99,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit._crit_edge:     ; preds = %_ZNK11gmx_ga2la_t8f
   store i32 %., ptr %5, align 4
   %46 = sext i32 %. to i64
   %47 = load ptr, ptr %4, align 8
-  %48 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef %47, i64 noundef %46, i64 noundef 4)
+  %48 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef %47, i64 noundef range(i64 -2147483648, 2147483648) %46, i64 noundef 4)
   store ptr %48, ptr %4, align 8
   br label %49
 

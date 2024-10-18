@@ -1703,7 +1703,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSce
   br label %_ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndexD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndexD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   ret void
 }
 
@@ -1726,7 +1726,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSce
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSceneIndexD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSceneIndexD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #14
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #15
   ret void
 }

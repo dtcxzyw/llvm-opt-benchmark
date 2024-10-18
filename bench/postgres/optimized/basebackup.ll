@@ -1572,7 +1572,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %188, %IsXLogFileNam
   %. = call i64 @llvm.umin.i64(i64 %318, i64 %320)
   %321 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772160, ptr %321, align 4
-  %322 = call i64 @pread(i32 noundef %290, ptr noundef %317, i64 noundef %., i64 noundef %.0160) #18
+  %322 = call i64 @pread(i32 noundef range(i32 0, -2147483648) %290, ptr noundef %317, i64 noundef %., i64 noundef %.0160) #18
   %323 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %323, align 4
   %324 = icmp slt i64 %322, 0
@@ -3194,7 +3194,7 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @read_fi
   %. = tail call i64 @llvm.umin.i64(i64 %12, i64 %4)
   %13 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772160, ptr %13, align 4
-  %14 = tail call i64 @pread(i32 noundef %2, ptr noundef %10, i64 noundef %., i64 noundef %3) #18
+  %14 = tail call i64 @pread(i32 noundef range(i32 0, -2147483648) %2, ptr noundef %10, i64 noundef %., i64 noundef %3) #18
   %15 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %15, align 4
   %16 = icmp slt i64 %14, 0

@@ -128,7 +128,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %ompi_comm_invalid.e
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %50 = icmp ne i32 %49, 0
-  %51 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %2, i32 noundef %0, i1 noundef zeroext %50) #4
+  %51 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef nonnull %2, i32 noundef range(i32 -1, -2) %0, i1 noundef zeroext %50) #4
   br i1 %51, label %ompi_comm_iface_p2p_check_proc.exit, label %52
 
 52:                                               ; preds = %46

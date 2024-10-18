@@ -1194,7 +1194,7 @@ for.body.i:                                       ; preds = %cond.end7.i, %for.b
   %arrayidx15.i = getelementptr inbounds i8, ptr %61, i64 %mul11.i
   %62 = load ptr, ptr %bits_.i, align 8
   %arrayidx17.i = getelementptr inbounds i16, ptr %62, i64 %mul11.i
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i243, i64 noundef %60, i64 noundef 256, ptr noundef %call, ptr noundef %arrayidx15.i, ptr noundef %arrayidx17.i, ptr noundef %storage_ix, ptr noundef %storage)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i243, i64 noundef %60, i64 noundef 256, ptr noundef %call, ptr noundef %arrayidx15.i, ptr noundef %arrayidx17.i, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %inc.i = add nuw i64 %i.020.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %58
   br i1 %exitcond.not.i, label %BuildAndStoreEntropyCodesLiteral.exit, label %for.body.i, !llvm.loop !29
@@ -1239,7 +1239,7 @@ for.body.i256:                                    ; preds = %cond.end7.i251, %fo
   %arrayidx15.i260 = getelementptr inbounds i8, ptr %67, i64 %mul11.i258
   %68 = load ptr, ptr %bits_.i254, align 8
   %arrayidx17.i261 = getelementptr inbounds i16, ptr %68, i64 %mul11.i258
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i259, i64 noundef %66, i64 noundef 704, ptr noundef %call, ptr noundef %arrayidx15.i260, ptr noundef %arrayidx17.i261, ptr noundef %storage_ix, ptr noundef %storage)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i259, i64 noundef %66, i64 noundef 704, ptr noundef %call, ptr noundef %arrayidx15.i260, ptr noundef %arrayidx17.i261, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %inc.i262 = add nuw i64 %i.020.i257, 1
   %exitcond.not.i263 = icmp eq i64 %inc.i262, %64
   br i1 %exitcond.not.i263, label %BuildAndStoreEntropyCodesCommand.exit, label %for.body.i256, !llvm.loop !30
@@ -1285,7 +1285,7 @@ for.body.i278:                                    ; preds = %cond.end7.i273, %fo
   %arrayidx15.i282 = getelementptr inbounds i8, ptr %73, i64 %mul11.i280
   %74 = load ptr, ptr %bits_.i276, align 8
   %arrayidx17.i283 = getelementptr inbounds i16, ptr %74, i64 %mul11.i280
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i281, i64 noundef %72, i64 noundef %conv48, ptr noundef %call, ptr noundef %arrayidx15.i282, ptr noundef %arrayidx17.i283, ptr noundef %storage_ix, ptr noundef %storage)
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef %arrayidx.i281, i64 noundef %72, i64 noundef range(i64 0, 4294967296) %conv48, ptr noundef %call, ptr noundef %arrayidx15.i282, ptr noundef %arrayidx17.i283, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %inc.i284 = add nuw i64 %i.020.i279, 1
   %exitcond.not.i285 = icmp eq i64 %inc.i284, %70
   br i1 %exitcond.not.i285, label %BuildAndStoreEntropyCodesDistance.exit, label %for.body.i278, !llvm.loop !31
@@ -2624,7 +2624,7 @@ for.cond1.preheader.i:                            ; preds = %for.end15.i75, %Mov
   %max_reps.062.i = phi i32 [ 0, %MoveToFrontTransform.exit ], [ %cond.i.i, %for.end15.i75 ]
   %i.061.i = phi i64 [ 0, %MoveToFrontTransform.exit ], [ %i.2.lcssa.i, %for.end15.i75 ]
   %19 = add nuw i64 %i.061.i, 1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %context_map_size, i64 %19)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 range(i64 1, 0) %context_map_size, i64 %19)
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.inc.i, %for.cond1.preheader.i

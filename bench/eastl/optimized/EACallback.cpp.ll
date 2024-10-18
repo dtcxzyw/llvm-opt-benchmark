@@ -80,7 +80,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %mbEnableRefCount = getelementptr inbounds i8, ptr %this, i64 57
   store i8 1, ptr %mbEnableRefCount, align 1
-  tail call void %spec.select(ptr noundef nonnull %this, ptr noundef %spec.select2, i64 noundef 0, i64 noundef 0)
+  tail call void %spec.select(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %spec.select2, i64 noundef 0, i64 noundef 0)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i.i, %entry
@@ -118,7 +118,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   store i8 1, ptr %mbEnableRefCount, align 1
-  tail call void %spec.select.i(ptr noundef nonnull %this, ptr noundef %spec.select2.i, i64 noundef 0, i64 noundef 0)
+  tail call void %spec.select.i(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %spec.select2.i, i64 noundef 0, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b.exit
 
 _ZN2EA4StdC8Callback15SetFunctionInfoEPFvPS1_PvmmES3_b.exit: ; preds = %entry, %if.then.i.i.i
@@ -145,7 +145,7 @@ if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
-  %call2.i1 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
+  %call2.i1 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %call2.i.noexc unwind label %terminate.lpad
 
 call2.i.noexc:                                    ; preds = %if.then.i
@@ -164,7 +164,7 @@ if.then6.i:                                       ; preds = %call2.i.noexc
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then6.i, %call2.i.noexc, %if.then, %if.then.i.i.i, %invoke.cont
@@ -222,7 +222,7 @@ if.then6:                                         ; preds = %if.then
 if.then.i.i:                                      ; preds = %if.then6
   %mpFunctionArg.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %mpFunctionArg.i.i, align 8
-  tail call void %4(ptr noundef nonnull %this, ptr noundef %5, i64 noundef 1, i64 noundef 0)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %5, i64 noundef 1, i64 noundef 0)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then.i.i, %if.then6, %if.then, %entry
@@ -249,7 +249,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
   %3 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i1.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
+  %call2.i1.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i
 
 call2.i.noexc.i:                                  ; preds = %if.then.i.i
@@ -268,7 +268,7 @@ if.then6.i.i:                                     ; preds = %call2.i.noexc.i
 if.then.i.i.i.i:                                  ; preds = %if.then6.i.i
   %mpFunctionArg.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %mpFunctionArg.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %6, i64 noundef 1, i64 noundef 0)
           to label %_ZN2EA4StdC8CallbackD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %if.then.i.i
@@ -300,7 +300,7 @@ if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %pCallback)
+  %call2.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(80) %pCallback)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
   %6 = load i8, ptr %mbEnableRefCount.i, align 1
@@ -316,7 +316,7 @@ if.then6.i:                                       ; preds = %if.then.i
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
   %8 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull %pCallback, ptr noundef %8, i64 noundef 1, i64 noundef 0)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %pCallback, ptr noundef %8, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
 
 _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %entry, %if.then.i, %if.then6.i, %if.then.i.i.i
@@ -334,7 +334,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %mpFunctionArg.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg.i, align 8
-  tail call void %0(ptr noundef nonnull %this, ptr noundef %1, i64 noundef 0, i64 noundef 0)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %1, i64 noundef 0, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
 
 _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
@@ -461,7 +461,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %mpFunctionArg.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mpFunctionArg.i, align 8
-  tail call void %0(ptr noundef nonnull %this, ptr noundef %1, i64 noundef 1, i64 noundef 0)
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %1, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
 
 _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %entry, %if.then.i
@@ -826,7 +826,7 @@ if.then.i7:                                       ; preds = %if.then7
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %9 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6)
+  %call2.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(80) %6)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %6, i64 57
   %10 = load i8, ptr %mbEnableRefCount.i, align 1
@@ -842,7 +842,7 @@ if.then6.i:                                       ; preds = %if.then.i7
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %12 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull %6, ptr noundef %12, i64 noundef 1, i64 noundef 0)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef %12, i64 noundef 1, i64 noundef 0)
   br label %_ZN2EA4StdC8Callback4StopEv.exit
 
 _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %if.then7, %if.then.i7, %if.then6.i, %if.then.i.i.i
@@ -922,7 +922,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %mThreadParam, ptr noundef nonnull align 8 dereferenceable(41) %threadParam, i64 41, i1 false)
   %mStopwatch = getelementptr inbounds i8, ptr %this, i64 96
   %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mStopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mStopwatch, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -969,7 +969,7 @@ if.then2.i:                                       ; preds = %if.then.i
   store ptr @.str.3, ptr %mpName.i, align 8
   %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   %call4.i = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call5.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4.i)
+  %call5.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %mThreadParam, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
   %8 = zext i1 %cmp.i to i8
   br label %_ZN2EA4StdC15CallbackManager11StartThreadEv.exit
@@ -1156,7 +1156,7 @@ if.then.i:                                        ; preds = %if.then20
   %sub = sub nsw i64 %11, %14
   %mpFunctionArg.i = getelementptr inbounds i8, ptr %9, i64 40
   %15 = load ptr, ptr %mpFunctionArg.i, align 8
-  call void %13(ptr noundef nonnull %9, ptr noundef %15, i64 noundef %11, i64 noundef %sub)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef %15, i64 noundef %11, i64 noundef %sub)
   %.pre = load ptr, ptr %mpEnd.i, align 8
   %.pre85 = load ptr, ptr %mCallbackArray, align 8
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
@@ -1197,7 +1197,7 @@ if.then.i73:                                      ; preds = %if.then33
   %vtable.i = load ptr, ptr %22, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %23 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %9)
+  %call2.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(80) %9)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %9, i64 57
   %24 = load i8, ptr %mbEnableRefCount.i, align 1
@@ -1212,7 +1212,7 @@ if.then6.i:                                       ; preds = %if.then.i73
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %26 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  call void %25(ptr noundef nonnull %9, ptr noundef %26, i64 noundef 1, i64 noundef 0)
+  call void %25(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef %26, i64 noundef 1, i64 noundef 0)
   br label %for.inc
 
 if.else:                                          ; preds = %if.then29
@@ -1606,7 +1606,7 @@ if.then2.i:                                       ; preds = %if.then.i33
   store ptr @.str.3, ptr %mpName.i, align 8
   %mThread.i = getelementptr inbounds i8, ptr %this, i64 232
   %call4.i = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call5.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull %this, ptr noundef nonnull %mThreadParam.i, ptr noundef %call4.i)
+  %call5.i = tail call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %mThread.i, ptr noundef nonnull @_ZN2EA4StdC15CallbackManager9RunStaticEPv, ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %mThreadParam.i, ptr noundef %call4.i)
   %cmp.i = icmp ne i64 %call5.i, 0
   br label %if.end60
 
@@ -1699,7 +1699,7 @@ if.then.i:                                        ; preds = %if.then16
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %6 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %pCallback)
+  %call2.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(80) %pCallback)
   store atomic i32 0, ptr %mbStarted.i seq_cst, align 4
   %mbEnableRefCount.i = getelementptr inbounds i8, ptr %pCallback, i64 57
   %7 = load i8, ptr %mbEnableRefCount.i, align 1
@@ -1715,7 +1715,7 @@ if.then6.i:                                       ; preds = %if.then.i
 if.then.i.i.i:                                    ; preds = %if.then6.i
   %mpFunctionArg.i.i.i = getelementptr inbounds i8, ptr %pCallback, i64 40
   %9 = load ptr, ptr %mpFunctionArg.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull %pCallback, ptr noundef %9, i64 noundef 1, i64 noundef 0)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(80) %pCallback, ptr noundef %9, i64 noundef 1, i64 noundef 0)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i, %if.then16, %if.end12.thread

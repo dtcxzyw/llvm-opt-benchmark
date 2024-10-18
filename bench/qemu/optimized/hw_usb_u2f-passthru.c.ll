@@ -109,7 +109,7 @@ if.then4:                                         ; preds = %if.else
 if.end:                                           ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rdesc_size.i)
   call void @llvm.lifetime.start.p0(i64 4100, ptr nonnull %rdesc.i)
-  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call2, i64 noundef 2147764225, ptr noundef nonnull %rdesc_size.i) #8
+  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %call2, i64 noundef 2147764225, ptr noundef nonnull %rdesc_size.i) #8
   %cmp.i = icmp slt i32 %call.i, 0
   %2 = load i32, ptr %rdesc_size.i, align 4
   %cmp1.i = icmp ult i32 %2, 5
@@ -120,7 +120,7 @@ if.end.i:                                         ; preds = %if.end
   %3 = getelementptr inbounds i8, ptr %rdesc.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4100) %3, i8 0, i64 4096, i1 false)
   store i32 %2, ptr %rdesc.i, align 4
-  %call3.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call2, i64 noundef 2416199682, ptr noundef nonnull %rdesc.i) #8
+  %call3.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %call2, i64 noundef 2416199682, ptr noundef nonnull %rdesc.i) #8
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %u2f_passthru_is_u2f_device.exit.thread, label %u2f_passthru_is_u2f_device.exit
 

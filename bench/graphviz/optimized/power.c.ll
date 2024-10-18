@@ -16,13 +16,13 @@ define dso_local noalias noundef ptr @power_method(ptr noundef %0, i32 noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #11
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
 9:                                                ; preds = %3
   %10 = icmp ne i32 %1, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #13
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #13
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %13, label %gv_calloc.exit
@@ -35,7 +35,7 @@ define dso_local noalias noundef ptr @power_method(ptr noundef %0, i32 noundef %
   unreachable
 
 gv_calloc.exit:                                   ; preds = %9
-  %17 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #13
+  %17 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #13
   %18 = icmp eq ptr %17, null
   %or.cond3.i74 = and i1 %10, %18
   br i1 %or.cond3.i74, label %19, label %23
@@ -49,7 +49,7 @@ gv_calloc.exit:                                   ; preds = %9
 
 23:                                               ; preds = %gv_calloc.exit
   store ptr %17, ptr %4, align 8
-  %24 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #13
+  %24 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8) #13
   %25 = icmp eq ptr %24, null
   %or.cond3.i77 = and i1 %10, %25
   br i1 %or.cond3.i77, label %26, label %gv_calloc.exit78

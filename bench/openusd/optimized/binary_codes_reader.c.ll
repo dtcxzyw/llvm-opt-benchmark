@@ -10,7 +10,7 @@ define hidden zeroext i16 @aom_read_primitive_quniform_(ptr noundef %0, i16 noun
 
 .lr.ph.i:                                         ; preds = %2
   %4 = zext i16 %1 to i32
-  %5 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
+  %5 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 65536) %4, i1 true)
   %6 = xor i32 %5, 31
   %7 = shl nuw nsw i32 2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -72,7 +72,7 @@ define hidden zeroext i16 @aom_read_primitive_subexpfin_(ptr noundef %0, i16 nou
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge
   %11 = zext i16 %9 to i32
-  %12 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
+  %12 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 65536) %11, i1 true)
   %13 = xor i32 %12, 31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15

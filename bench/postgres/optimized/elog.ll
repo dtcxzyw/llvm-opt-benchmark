@@ -1903,11 +1903,11 @@ switch.lookup55:                                  ; preds = %475
 
 539:                                              ; preds = %.critedge57.i.i
   %540 = load i64, ptr @write_syslog.seq, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.61, i64 noundef %540, i32 noundef %536, ptr noundef nonnull %5) #30
+  call void (i32, ptr, ...) @syslog(i32 noundef range(i32 2, 8) %.0.i, ptr noundef nonnull @.str.61, i64 noundef %540, i32 noundef %536, ptr noundef nonnull %5) #30
   br label %542
 
 541:                                              ; preds = %.critedge57.i.i
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.62, i32 noundef %536, ptr noundef nonnull %5) #30
+  call void (i32, ptr, ...) @syslog(i32 noundef range(i32 2, 8) %.0.i, ptr noundef nonnull @.str.62, i32 noundef %536, ptr noundef nonnull %5) #30
   br label %542
 
 542:                                              ; preds = %541, %539
@@ -1923,11 +1923,11 @@ switch.lookup55:                                  ; preds = %475
   br i1 %549, label %550, label %551
 
 550:                                              ; preds = %547
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.63, i64 noundef %487, ptr noundef %480) #30
+  call void (i32, ptr, ...) @syslog(i32 noundef range(i32 2, 8) %.0.i, ptr noundef nonnull @.str.63, i64 noundef %487, ptr noundef %480) #30
   br label %write_syslog.exit.i
 
 551:                                              ; preds = %547
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.64, ptr noundef %480) #30
+  call void (i32, ptr, ...) @syslog(i32 noundef range(i32 2, 8) %.0.i, ptr noundef nonnull @.str.64, ptr noundef %480) #30
   br label %write_syslog.exit.i
 
 write_syslog.exit.i:                              ; preds = %.outer.i.i, %542, %505, %551, %550, %.preheader58.i.i

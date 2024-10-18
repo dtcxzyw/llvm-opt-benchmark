@@ -899,7 +899,7 @@ entry:
   %ciphertext.plaintext = select i1 %encrypt, ptr %ciphertext, ptr %plaintext
   %call = tail call i32 @EVP_CIPHER_mode(ptr noundef nonnull %cipher)
   %cmp = icmp ne i32 %call, 6
-  call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %ctx)
+  call void @EVP_CIPHER_CTX_init(ptr noundef nonnull align 8 dereferenceable(152) %ctx)
   %cond = zext i1 %encrypt to i32
   %call5 = invoke i32 @EVP_CipherInit_ex(ptr noundef nonnull %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %cond)
           to label %invoke.cont4 unwind label %lpad
@@ -1306,7 +1306,7 @@ if.then.i.i.i134:                                 ; preds = %cleanup
 
 cleanup190:                                       ; preds = %if.then.i.i.i134, %cleanup, %invoke.cont47, %if.then34, %invoke.cont21, %invoke.cont4
   %retval.0 = phi i1 [ false, %invoke.cont4 ], [ false, %invoke.cont21 ], [ false, %if.then34 ], [ false, %invoke.cont47 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i134 ]
-  %call.i = invoke noundef i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx)
+  %call.i = invoke noundef i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(152) %ctx)
           to label %_ZN20ScopedOpenSSLContextI17evp_cipher_ctx_stiXadL_Z19EVP_CIPHER_CTX_initEEXadL_Z22EVP_CIPHER_CTX_cleanupEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup190
@@ -1321,7 +1321,7 @@ _ZN20ScopedOpenSSLContextI17evp_cipher_ctx_stiXadL_Z19EVP_CIPHER_CTX_initEEXadL_
 
 ehcleanup191:                                     ; preds = %if.then.i.i.i, %lpad65, %lpad54, %ehcleanup, %lpad
   %.pn49 = phi { ptr, i32 } [ %13, %lpad54 ], [ %0, %lpad ], [ %.pn, %ehcleanup ], [ %lpad.phi, %lpad65 ], [ %lpad.phi, %if.then.i.i.i ]
-  %call.i136 = invoke noundef i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx)
+  %call.i136 = invoke noundef i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull align 8 dereferenceable(152) %ctx)
           to label %_ZN20ScopedOpenSSLContextI17evp_cipher_ctx_stiXadL_Z19EVP_CIPHER_CTX_initEEXadL_Z22EVP_CIPHER_CTX_cleanupEEED2Ev.exit138 unwind label %terminate.lpad.i137
 
 terminate.lpad.i137:                              ; preds = %ehcleanup191

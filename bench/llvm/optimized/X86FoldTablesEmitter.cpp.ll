@@ -1853,7 +1853,7 @@ _ZNSt3mapIhSt6vectorIPKN4llvm18CodeGenInstructionESaIS4_EESt4lessIhESaISt4pairIK
 
 404:                                              ; preds = %401
   %405 = load ptr, ptr %402, align 8
-  %406 = call fastcc noundef ptr @"_ZZN12_GLOBAL__N_120X86FoldTablesEmitter3runERN4llvm11raw_ostreamEENK3$_0clEPKNS1_18CodeGenInstructionE"(ptr nonnull %14, ptr noundef %405)
+  %406 = call fastcc noundef ptr @"_ZZN12_GLOBAL__N_120X86FoldTablesEmitter3runERN4llvm11raw_ostreamEENK3$_0clEPKNS1_18CodeGenInstructionE"(ptr nonnull align 8 dereferenceable(1216) %14, ptr noundef %405)
   call fastcc void @_ZN12_GLOBAL__N_120X86FoldTablesEmitter12updateTablesEPKN4llvm18CodeGenInstructionES4_tbb(ptr noundef nonnull align 8 dereferenceable(1216) %14, ptr noundef %406, ptr noundef nonnull %376, i16 noundef zeroext 0, i1 noundef zeroext false, i1 noundef zeroext false)
   %407 = load ptr, ptr %.19.i.i.i148.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %408 = ptrtoint ptr %402 to i64
@@ -1944,7 +1944,7 @@ _ZNSt3mapIhSt6vectorIPKN4llvm18CodeGenInstructionESaIS4_EESt4lessIhESaISt4pairIK
 
 439:                                              ; preds = %_ZNSt3mapIhSt6vectorIPKN4llvm18CodeGenInstructionESaIS4_EESt4lessIhESaISt4pairIKhS6_EEE4findERSA_.exit170.i
   %440 = load ptr, ptr %437, align 8
-  %441 = call fastcc noundef ptr @"_ZZN12_GLOBAL__N_120X86FoldTablesEmitter3runERN4llvm11raw_ostreamEENK3$_0clEPKNS1_18CodeGenInstructionE"(ptr nonnull %14, ptr noundef %440)
+  %441 = call fastcc noundef ptr @"_ZZN12_GLOBAL__N_120X86FoldTablesEmitter3runERN4llvm11raw_ostreamEENK3$_0clEPKNS1_18CodeGenInstructionE"(ptr nonnull align 8 dereferenceable(1216) %14, ptr noundef %440)
   call fastcc void @_ZN12_GLOBAL__N_120X86FoldTablesEmitter12updateTablesEPKN4llvm18CodeGenInstructionES4_tbb(ptr noundef nonnull align 8 dereferenceable(1216) %14, ptr noundef %441, ptr noundef nonnull %376, i16 noundef zeroext 0, i1 noundef zeroext false, i1 noundef zeroext true)
   %442 = load ptr, ptr %435, align 8
   %443 = ptrtoint ptr %437 to i64
@@ -5239,7 +5239,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0) #17

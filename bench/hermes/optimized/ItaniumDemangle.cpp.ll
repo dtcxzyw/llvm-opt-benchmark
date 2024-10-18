@@ -1147,7 +1147,7 @@ if.end4:                                          ; preds = %lor.lhs.false
   store i8 0, ptr %ParsingLambdaParams.i, align 2
   %ASTAllocator.i = getelementptr inbounds i8, ptr %Parser, i64 752
   %BlockList.i.i.i = getelementptr inbounds i8, ptr %Parser, i64 4848
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
@@ -1271,7 +1271,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %w
   br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %if.end21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   %14 = load ptr, ptr %add.ptr.i8.i, align 8
   %cmp.i.i.i = icmp eq ptr %14, %Inline.i9.i
@@ -1571,7 +1571,7 @@ entry:
   store i8 0, ptr %ParsingLambdaParams.i, align 2
   %ASTAllocator.i = getelementptr inbounds i8, ptr %Parser, i64 752
   %BlockList.i.i.i = getelementptr inbounds i8, ptr %Parser, i64 4848
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   store ptr %Callback, ptr %add.ptr.i12.i, align 16
   %TypeCallbackContext = getelementptr inbounds i8, ptr %Parser, i64 728
@@ -1599,7 +1599,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %w
   br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   %4 = load ptr, ptr %add.ptr.i8.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %Inline.i9.i
@@ -1686,7 +1686,7 @@ entry:
   store i8 0, ptr %ParsingLambdaParams.i, align 2
   %ASTAllocator.i = getelementptr inbounds i8, ptr %call, i64 752
   %BlockList.i.i.i = getelementptr inbounds i8, ptr %call, i64 4848
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   store ptr %call, ptr %Context, align 8
   ret void
@@ -1728,7 +1728,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %w
   br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %delete.notnull
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i.i, align 16
   %ForwardTemplateRefs.i = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %ForwardTemplateRefs.i, align 8
@@ -1865,7 +1865,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %whi
   br i1 %tobool.not.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit, label %while.body.i.i.i, !llvm.loop !7
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit: ; preds = %if.end.i.i.i, %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   %call2 = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5parseEv(ptr noundef nonnull align 16 dereferenceable(4864) %0)
   store ptr %call2, ptr %this, align 8
@@ -3644,7 +3644,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(34) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store i8 20, ptr %K.i.i.i, align 8
@@ -10771,7 +10771,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(5) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -12335,7 +12335,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store i8 47, ptr %K.i.i.i, align 8
@@ -14943,7 +14943,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %args1) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store i8 46, ptr %K.i.i.i, align 8
@@ -15415,7 +15415,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixEx
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args1) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(3) %args1) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store i8 44, ptr %K.i.i.i, align 8
@@ -16168,7 +16168,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store i8 47, ptr %K.i.i.i, align 8
@@ -16457,7 +16457,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(6) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21537,7 +21537,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(11) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21594,7 +21594,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(10) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21704,7 +21704,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(18) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21869,7 +21869,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(12) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21926,7 +21926,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(15) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -21983,7 +21983,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(13) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8
@@ -28028,7 +28028,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #20
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull align 1 dereferenceable(9) %args) #20
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 7, ptr %K.i.i.i, align 8

@@ -63,7 +63,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %init_tree_desc_internal.exit
 
 init_tree_desc_internal.exit:                     ; preds = %entry
-  %call.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef %buffer, i64 noundef %size, ptr noundef %err)
+  %call.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef %buffer, i64 noundef %size, ptr noundef nonnull %err)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -101,7 +101,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %init_tree_desc_internal.exit
 
 init_tree_desc_internal.exit:                     ; preds = %entry
-  %call.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef %buffer, i64 noundef %size, ptr noundef %err)
+  %call.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef %buffer, i64 noundef %size, ptr noundef nonnull %err)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -162,7 +162,7 @@ if.end4:                                          ; preds = %if.then
   br i1 %tobool.not.i.i, label %init_tree_desc.exit, label %init_tree_desc_internal.exit.i
 
 init_tree_desc_internal.exit.i:                   ; preds = %if.end4
-  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %call, i64 noundef %.pr, ptr noundef %err.i)
+  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %call, i64 noundef %.pr, ptr noundef nonnull %err.i)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %init_tree_desc.exit, label %if.then.i
 
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end, label %update_tree_entry_internal.exit
 
 update_tree_entry_internal.exit:                  ; preds = %if.end.i
-  %call11.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub.i, ptr noundef %err)
+  %call11.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub.i, ptr noundef nonnull %err)
   %tobool.not = icmp eq i32 %call11.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -282,7 +282,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.end, label %update_tree_entry_internal.exit
 
 update_tree_entry_internal.exit:                  ; preds = %if.end.i
-  %call11.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub.i, ptr noundef %err)
+  %call11.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub.i, ptr noundef nonnull %err)
   %tobool.not = icmp eq i32 %call11.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -840,7 +840,7 @@ if.end.i.i133:                                    ; preds = %if.end9.i
   br i1 %tobool.not.i.i134, label %update_tree_entry.exit, label %update_tree_entry_internal.exit.i
 
 update_tree_entry_internal.exit.i:                ; preds = %if.end.i.i133
-  %call11.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %add.ptr33, ptr noundef nonnull %add.ptr4.i.i, i64 noundef %sub.i.i, ptr noundef %err.i)
+  %call11.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %add.ptr33, ptr noundef nonnull %add.ptr4.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %err.i)
   %tobool.not.i135 = icmp eq i32 %call11.i.i, 0
   br i1 %tobool.not.i135, label %update_tree_entry.exit, label %if.then.i136
 
@@ -981,7 +981,7 @@ if.end.i.i183:                                    ; preds = %if.end9.i117
   br i1 %tobool.not.i.i186, label %update_tree_entry.exit195, label %update_tree_entry_internal.exit.i187
 
 update_tree_entry_internal.exit.i187:             ; preds = %if.end.i.i183
-  %call11.i.i188 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %add.ptr72, ptr noundef nonnull %add.ptr4.i.i176, i64 noundef %sub.i.i184, ptr noundef %err.i168)
+  %call11.i.i188 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %add.ptr72, ptr noundef nonnull %add.ptr4.i.i176, i64 noundef %sub.i.i184, ptr noundef nonnull %err.i168)
   %tobool.not.i189 = icmp eq i32 %call11.i.i188, 0
   br i1 %tobool.not.i189, label %update_tree_entry.exit195, label %if.then.i190
 
@@ -1101,7 +1101,7 @@ if.end.i.i155:                                    ; preds = %sw.default28.i
   br i1 %tobool.not.i.i158, label %update_tree_entry.exit167, label %update_tree_entry_internal.exit.i159
 
 update_tree_entry_internal.exit.i159:             ; preds = %if.end.i.i155
-  %call11.i.i160 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %probe.i, ptr noundef nonnull %add.ptr4.i.i148, i64 noundef %sub.i.i156, ptr noundef %err.i140)
+  %call11.i.i160 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %probe.i, ptr noundef nonnull %add.ptr4.i.i148, i64 noundef %sub.i.i156, ptr noundef nonnull %err.i140)
   %tobool.not.i161 = icmp eq i32 %call11.i.i160, 0
   br i1 %tobool.not.i161, label %update_tree_entry.exit167thread-pre-split, label %if.then.i162
 
@@ -1390,7 +1390,7 @@ init_tree_desc_internal.exit.i:                   ; preds = %if.end4
   store i32 %conv.i.i, ptr %size2.i.i, align 8
   %flags3.i.i = getelementptr inbounds i8, ptr %t, i64 68
   store i32 0, ptr %flags3.i.i, align 4
-  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef nonnull %call, i64 noundef %2, ptr noundef %err.i)
+  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef nonnull %call, i64 noundef %2, ptr noundef nonnull %err.i)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %init_tree_desc.exit, label %if.then.i
 
@@ -1629,7 +1629,7 @@ init_tree_desc_internal.exit.i:                   ; preds = %if.end25
   %conv.i.i = trunc i64 %7 to i32
   store i32 %conv.i.i, ptr %size2.i.i, align 8
   store i32 0, ptr %flags3.i.i, align 4
-  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef nonnull %call, i64 noundef %7, ptr noundef %err.i63)
+  %call.i.i = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef nonnull %call, i64 noundef %7, ptr noundef nonnull %err.i63)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %init_tree_desc.exit, label %if.then.i66
 
@@ -1732,7 +1732,7 @@ if.end53:                                         ; preds = %if.then45
   br i1 %tobool.not.i.i71, label %init_tree_desc.exit77, label %init_tree_desc_internal.exit.i72
 
 init_tree_desc_internal.exit.i72:                 ; preds = %if.end53
-  %call.i.i73 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %24, i64 noundef %25, ptr noundef %err.i67)
+  %call.i.i73 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %24, i64 noundef %25, ptr noundef nonnull %err.i67)
   %tobool.not.i74 = icmp eq i32 %call.i.i73, 0
   br i1 %tobool.not.i74, label %init_tree_desc.exit77, label %if.then.i75
 
@@ -1850,7 +1850,7 @@ if.end120:                                        ; preds = %if.end114
   br i1 %tobool.not.i.i89, label %init_tree_desc.exit95, label %init_tree_desc_internal.exit.i90
 
 init_tree_desc_internal.exit.i90:                 ; preds = %if.end120
-  %call.i.i91 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %36, i64 noundef %37, ptr noundef %err.i85)
+  %call.i.i91 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %36, i64 noundef %37, ptr noundef nonnull %err.i85)
   %tobool.not.i92 = icmp eq i32 %call.i.i91, 0
   br i1 %tobool.not.i92, label %init_tree_desc.exit95, label %if.then.i93
 
@@ -2085,12 +2085,12 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %10, i64 %conv.i.i
   %sub.i.i = sub nsw i32 %12, %.len.i.i
   %conv7.i.i = sext i32 %sub.i.i to i64
-  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i.i, ptr noundef readonly %add.ptr5.i.i, i64 noundef %conv7.i.i) #15
+  %call.i.i.i = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i.i, ptr noundef readonly %add.ptr5.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv7.i.i) #15
   br label %basecmp.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then47
   %conv718.i.i = sext i32 %12 to i64
-  %call1.i.i.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv718.i.i) #15
+  %call1.i.i.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef range(i64 -2147483648, 2147483648) %conv718.i.i) #15
   br label %basecmp.exit.i
 
 basecmp.exit.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -2174,11 +2174,11 @@ if.then.i.i110:                                   ; preds = %if.then.i
   %add.ptr5.i = getelementptr inbounds i8, ptr %10, i64 %conv.i
   %sub.i = sub nsw i32 %conv, %.len.i
   %conv7.i = sext i32 %sub.i to i64
-  %call.i.i111 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i, ptr noundef readonly %add.ptr5.i, i64 noundef %conv7.i) #15
+  %call.i.i111 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i, ptr noundef readonly %add.ptr5.i, i64 noundef range(i64 -2147483648, 2147483648) %conv7.i) #15
   br label %basecmp.exit
 
 if.else.i.i:                                      ; preds = %lor.lhs.false91
-  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv718.i) #15
+  %call1.i.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef range(i64 -2147483648, 2147483648) %conv718.i) #15
   br label %basecmp.exit
 
 basecmp.exit:                                     ; preds = %if.then.i.i110, %if.else.i.i
@@ -2240,11 +2240,11 @@ if.then35.i:                                      ; preds = %if.end32.i
   br i1 %tobool.not.i114, label %if.then.i.i118, label %if.else.i.i120
 
 if.then.i.i118:                                   ; preds = %if.then35.i
-  %call.i.i119 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %29, i64 noundef %conv164) #15
+  %call.i.i119 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %29, i64 noundef range(i64 -2147483648, 2147483648) %conv164) #15
   br label %match_entry.exit
 
 if.else.i.i120:                                   ; preds = %if.then35.i
-  %call1.i.i121 = tail call i32 @strncmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %29, i64 noundef %conv164) #15
+  %call1.i.i121 = tail call i32 @strncmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %29, i64 noundef range(i64 -2147483648, 2147483648) %conv164) #15
   br label %match_entry.exit
 
 match_entry.exit:                                 ; preds = %if.end32.i, %if.then.i.i118, %if.else.i.i120
@@ -2300,11 +2300,11 @@ land.lhs.true137:                                 ; preds = %land.lhs.true132
   br i1 %tobool.not.i128, label %if.else.i132, label %if.then.i129
 
 if.then.i129:                                     ; preds = %land.lhs.true137
-  %call.i130 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef %conv143) #15
+  %call.i130 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef range(i64 -2147483648, 2147483648) %conv143) #15
   br label %ps_strncmp.exit
 
 if.else.i132:                                     ; preds = %land.lhs.true137
-  %call1.i = tail call i32 @strncmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef %conv143) #15
+  %call1.i = tail call i32 @strncmp(ptr noundef readonly %add.ptr96, ptr noundef readonly %36, i64 noundef range(i64 -2147483648, 2147483648) %conv143) #15
   br label %ps_strncmp.exit
 
 ps_strncmp.exit:                                  ; preds = %if.then.i129, %if.else.i132
@@ -2346,12 +2346,12 @@ if.then.i.i.i149:                                 ; preds = %if.then.i.i140
   %add.ptr5.i.i151 = getelementptr inbounds i8, ptr %10, i64 %conv.i.i143
   %sub.i.i152 = sub nsw i32 %38, %.len.i.i142
   %conv7.i.i153 = sext i32 %sub.i.i152 to i64
-  %call.i.i.i154 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i.i150, ptr noundef readonly %add.ptr5.i.i151, i64 noundef %conv7.i.i153) #15
+  %call.i.i.i154 = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i.i150, ptr noundef readonly %add.ptr5.i.i151, i64 noundef range(i64 -2147483648, 2147483648) %conv7.i.i153) #15
   br label %match_wildcard_base.exit
 
 if.else.i.i.i155:                                 ; preds = %if.then2.i136
   %conv718.i.i156 = sext i32 %38 to i64
-  %call1.i.i.i157 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv718.i.i156) #15
+  %call1.i.i.i157 = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef range(i64 -2147483648, 2147483648) %conv718.i.i156) #15
   br label %match_wildcard_base.exit
 
 while.end.i:                                      ; preds = %if.then.i134
@@ -2371,11 +2371,11 @@ if.then.i.i27.i:                                  ; preds = %if.then.i20.i
   %add.ptr5.i29.i = getelementptr inbounds i8, ptr %10, i64 %conv.i23.i
   %sub.i30.i = sub nsw i32 %conv, %.len.i22.i
   %conv7.i31.i = sext i32 %sub.i30.i to i64
-  %call.i.i32.i = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i28.i, ptr noundef readonly %add.ptr5.i29.i, i64 noundef %conv7.i31.i) #15
+  %call.i.i32.i = tail call i32 @strncasecmp(ptr noundef readonly %add.ptr.i28.i, ptr noundef readonly %add.ptr5.i29.i, i64 noundef range(i64 -2147483648, 2147483648) %conv7.i31.i) #15
   br label %basecmp.exit36.i
 
 if.else.i.i33.i:                                  ; preds = %while.end.i
-  %call1.i.i35.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef %conv718.i) #15
+  %call1.i.i35.i = tail call i32 @strncmp(ptr noundef readonly %11, ptr noundef readonly %10, i64 noundef range(i64 -2147483648, 2147483648) %conv718.i) #15
   br label %basecmp.exit36.i
 
 basecmp.exit36.i:                                 ; preds = %if.else.i.i33.i, %if.then.i.i27.i
@@ -2436,11 +2436,11 @@ land.lhs.true183:                                 ; preds = %land.lhs.true178
   br i1 %tobool.not.i164, label %if.else.i168, label %if.then.i165
 
 if.then.i165:                                     ; preds = %land.lhs.true183
-  %call.i166 = tail call i32 @strncasecmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef %conv186) #15
+  %call.i166 = tail call i32 @strncasecmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef range(i64 -2147483648, 2147483648) %conv186) #15
   br label %ps_strncmp.exit170
 
 if.else.i168:                                     ; preds = %land.lhs.true183
-  %call1.i169 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef %conv186) #15
+  %call1.i169 = tail call i32 @strncmp(ptr noundef readonly %10, ptr noundef readonly %48, i64 noundef range(i64 -2147483648, 2147483648) %conv186) #15
   br label %ps_strncmp.exit170
 
 ps_strncmp.exit170:                               ; preds = %if.then.i165, %if.else.i168

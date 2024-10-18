@@ -7351,7 +7351,7 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD0Ev(ptr noundef nonnull a
   br label %_ZN4ncnn11Layer_finalD2Ev.exit
 
 _ZN4ncnn11Layer_finalD2Ev.exit:                   ; preds = %1, %5
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #17
   ret void
 }

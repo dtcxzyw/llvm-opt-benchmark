@@ -73,7 +73,7 @@ define hidden void @_ZN10rayon_core8registry19set_global_registry17h1578b401c8cf
           to label %17 unwind label %12, !noalias !9
 
 11:                                               ; preds = %2
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
           to label %_ZN3std4sync4once4Once9call_once17h1f04f52cbb87c7a6E.llvm.16499899741897752019.exit unwind label %23
 
 12:                                               ; preds = %10
@@ -84,7 +84,7 @@ define hidden void @_ZN10rayon_core8registry19set_global_registry17h1578b401c8cf
   br i1 %15, label %.body, label %16
 
 16:                                               ; preds = %12
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %4)
           to label %.body unwind label %21, !noalias !9
 
 17:                                               ; preds = %10
@@ -94,7 +94,7 @@ define hidden void @_ZN10rayon_core8registry19set_global_registry17h1578b401c8cf
   br i1 %19, label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3.i", label %20
 
 20:                                               ; preds = %17
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %4)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %4)
           to label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3.i" unwind label %23
 
 "_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3.i": ; preds = %20, %17
@@ -539,7 +539,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h1c17be2088e16477E(pt
           to label %.noexc85 unwind label %131
 
 .noexc85:                                         ; preds = %130
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h09ee313c318812b6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h09ee313c318812b6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
           to label %.loopexit unwind label %131
 
 .critedge:                                        ; preds = %.body61.thread204.loopexit, %.body61.thread204.loopexit.split-lp, %224, %231, %197, %.thread.i.i, %.thread195, %271, %131
@@ -554,7 +554,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h1c17be2088e16477E(pt
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19c3a628e6724ea6E.exit.i.i.i", %.backedge, %95, %126, %.noexc85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !61
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8abe25d29f7ec72eE.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8abe25d29f7ec72eE.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24)
           to label %"_ZN4core3ptr263drop_in_place$LT$core..iter..adapters..zip..Zip$LT$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h955e72ef1c9043b3E.llvm.3847999990672408200.exit.i" unwind label %133
 
 133:                                              ; preds = %.loopexit
@@ -683,7 +683,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h1c17be2088e16477E(pt
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !101
   store i64 -9223372036854775808, ptr %113, align 8, !noalias !101
   store i64 0, ptr %11, align 8, !noalias !101
-  %162 = invoke { ptr, i64 } @_ZN10rayon_core8registry13ThreadBuilder4name17hd17d425c78c8404cE(ptr noundef nonnull align 8 %12)
+  %162 = invoke { ptr, i64 } @_ZN10rayon_core8registry13ThreadBuilder4name17hd17d425c78c8404cE(ptr noundef nonnull align 8 dereferenceable(104) %12)
           to label %163 unwind label %187, !noalias !95
 
 163:                                              ; preds = %161
@@ -894,7 +894,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i: ;
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h0b2e61a7da98f142E.exit.i": ; preds = %.noexc101, %.noexc100
   %.0.i.i.i.i = phi i8 [ %219, %.noexc101 ], [ 0, %.noexc100 ]
   %220 = getelementptr inbounds i8, ptr %208, i64 28
-  %221 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull %220, i8 noundef 0)
+  %221 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull align 1 %220, i8 noundef 0)
           to label %.noexc102 unwind label %.body61.thread204.loopexit
 
 .noexc102:                                        ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h0b2e61a7da98f142E.exit.i"
@@ -997,7 +997,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i: ; preds = %240, %.
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8abe25d29f7ec72eE.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+  invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8abe25d29f7ec72eE.llvm.3847999990672408200"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24)
           to label %"_ZN4core3ptr263drop_in_place$LT$core..iter..adapters..zip..Zip$LT$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Worker$LT$rayon_core..job..JobRef$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h955e72ef1c9043b3E.llvm.3847999990672408200.exit.i109" unwind label %252
 
 252:                                              ; preds = %251
@@ -1153,7 +1153,7 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg11value_names17h9eba37eb5ef
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h4b9944a8a438962eE.exit": ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !148
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7d4a8367f93ea194E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7d4a8367f93ea194E.llvm.3847999990672408200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h4b9944a8a438962eE.exit"
@@ -1869,7 +1869,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
 _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.5675496289134165373.exit.i: ; preds = %.noexc13, %.noexc12
   %.0.i.i.i = phi i8 [ %18, %.noexc13 ], [ 0, %.noexc12 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 532
-  %20 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull %19, i8 noundef 0)
+  %20 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull align 1 %19, i8 noundef 0)
           to label %21 unwind label %10
 
 21:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.5675496289134165373.exit.i
@@ -2085,7 +2085,7 @@ define hidden void @"_ZN18tracing_subscriber3fmt38SubscriberBuilder$LT$N$C$E$C$F
   br label %37
 
 14:                                               ; preds = %2
-  %15 = invoke { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h54df025529342dedE(ptr noundef nonnull align 1 %9, i128 noundef -110737292302776128229346477461718194448)
+  %15 = invoke { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h54df025529342dedE(ptr noundef nonnull align 8 dereferenceable(568) %9, i128 noundef -110737292302776128229346477461718194448)
           to label %16 unwind label %21, !noalias !243
 
 16:                                               ; preds = %14
@@ -2120,7 +2120,7 @@ define hidden void @"_ZN18tracing_subscriber3fmt38SubscriberBuilder$LT$N$C$E$C$F
   call void @llvm.lifetime.start.p0(i64 1328, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 736, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %7, ptr noundef nonnull align 8 dereferenceable(736) %1, i64 736, i1 false)
-  %26 = invoke { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E"(ptr noundef nonnull align 1 %10, i128 noundef -110737292302776128229346477461718194448)
+  %26 = invoke { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17hda61e9d9ba0791f0E"(ptr noundef nonnull align 8 dereferenceable(584) %10, i128 noundef -110737292302776128229346477461718194448)
           to label %27 unwind label %32, !noalias !249
 
 27:                                               ; preds = %25
@@ -2359,7 +2359,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7d3fed1ced33924cE.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit, %11
   %.0.i.i.i = phi i8 [ %14, %11 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit ]
   %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull %15, i8 noundef 0), !noalias !265
+  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull align 1 %15, i8 noundef 0), !noalias !265
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3e593b3256beb470E.exit", label %17
 
@@ -2500,7 +2500,7 @@ _ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit
           to label %.noexc11.i.i unwind label %44
 
 .noexc11.i.i:                                     ; preds = %69
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf76badc4b3e66aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcdf76badc4b3e66aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h8fad558ac016d3f2E.exit.i.i" unwind label %44
 
 "_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h8fad558ac016d3f2E.exit.i.i": ; preds = %.noexc11.i.i, %_ZN3std10sys_common14thread_parking5futex6Parker6unpark17h7c9c6eabf53b77f5E.exit.i.i
@@ -2632,7 +2632,7 @@ define hidden void @_ZN3std4sync4once4Once9call_once17h1f04f52cbb87c7a6E.llvm.16
           to label %15 unwind label %10
 
 9:                                                ; preds = %3
-  tail call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %1)
+  tail call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1)
   br label %19
 
 10:                                               ; preds = %8
@@ -2643,7 +2643,7 @@ define hidden void @_ZN3std4sync4once4Once9call_once17h1f04f52cbb87c7a6E.llvm.16
   br i1 %13, label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit", label %14
 
 14:                                               ; preds = %10
-  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5)
+  invoke void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
           to label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit" unwind label %20
 
 15:                                               ; preds = %8
@@ -2653,7 +2653,7 @@ define hidden void @_ZN3std4sync4once4Once9call_once17h1f04f52cbb87c7a6E.llvm.16
   br i1 %17, label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3", label %18
 
 18:                                               ; preds = %15
-  call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5)
+  call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
   br label %"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3"
 
 "_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$rayon_core..registry..set_global_registry$LT$rayon_core..registry..init_global_registry$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87b2a87b8a7d9505E.llvm.16499899741897752019.exit3": ; preds = %18, %15
@@ -2683,7 +2683,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17h9b06f5eca9d68267E.llvm.16499899741897752019(ptr noalias nocapture noundef writeonly sret({ i64, { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !305
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !305
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !305
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !305
@@ -2750,7 +2750,7 @@ define hidden void @"_ZN4core3ptr323drop_in_place$LT$core..option..Option$LT$ray
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
+  tail call void @"_ZN4core3ptr175drop_in_place$LT$rayon_core..ThreadPoolBuilder$LT$rayon_core..registry..CustomSpawn$LT$wasmtime_cli_flags..init_file_per_thread_logger..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h864125719b1a39c1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
   br label %4
 }
 
@@ -3593,7 +3593,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %13, label %15
 

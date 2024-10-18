@@ -3632,7 +3632,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %36 = tail call ptr (...) @Abc_FrameReadManDd() #18
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %1, i32 16)
+  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 range(i32 2, -2147483648) %1, i32 16)
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4
   store i32 %spec.store.select.i, ptr %37, align 8

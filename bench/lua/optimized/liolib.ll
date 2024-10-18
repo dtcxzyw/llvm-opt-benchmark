@@ -228,7 +228,7 @@ if.else:                                          ; preds = %if.end
   tail call void @luaL_setmetatable(ptr noundef %L, ptr noundef nonnull @.str.16) #10
   store ptr null, ptr %call.i.i.i, align 8
   store ptr @io_fclose, ptr %closef.i.i.i, align 8
-  %call1.i = tail call noalias ptr @fopen64(ptr noundef %call6, ptr noundef nonnull readonly @.str.19)
+  %call1.i = tail call noalias ptr @fopen64(ptr noundef %call6, ptr noundef nonnull @.str.19)
   store ptr %call1.i, ptr %call.i.i.i, align 8
   %cmp.i16 = icmp eq ptr %call1.i, null
   br i1 %cmp.i16, label %if.then.i17, label %if.then8
@@ -738,8 +738,8 @@ cond.true:                                        ; preds = %if.then6
 cond.false:                                       ; preds = %if.then6
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %b.i)
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %b.i) #10
-  %call.i37 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b.i, i64 noundef %call7) #10
-  %call1.i38 = call i64 @fread(ptr noundef %call.i37, i64 noundef 1, i64 noundef %call7, ptr noundef %f)
+  %call.i37 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b.i, i64 noundef range(i64 1, 0) %call7) #10
+  %call1.i38 = call i64 @fread(ptr noundef %call.i37, i64 noundef 1, i64 noundef range(i64 1, 0) %call7, ptr noundef %f)
   %0 = load i64, ptr %n2.i, align 8
   %add.i = add i64 %0, %call1.i38
   store i64 %add.i, ptr %n2.i, align 8

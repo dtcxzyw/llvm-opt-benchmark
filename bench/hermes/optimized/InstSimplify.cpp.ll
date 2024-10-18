@@ -145,8 +145,8 @@ sw.bb.i:                                          ; preds = %for.body8
   %8 = load ptr, ptr %parent_.i.i.i.i, align 8
   store ptr %8, ptr %builder.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
-  %call.i33.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 1) #9
+  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i33.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 1) #9
   %op_.i.i.i = getelementptr inbounds i8, ptr %instIter.sroa.0.0, i64 132
   %9 = load i32, ptr %op_.i.i.i, align 4
   %10 = load i8, ptr %call.i.i.i, align 8
@@ -806,7 +806,7 @@ lor.lhs.false.i.i:                                ; preds = %sw.bb31.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then, label %if.end.i113.i
 
 if.end.i113.i:                                    ; preds = %lor.lhs.false.i.i
-  %call.i.i114.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i114.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef 0) #9
   %call3.i.i = call noundef ptr @_ZN6hermes9getCalleeEPNS_5ValueE(ptr noundef %call.i.i114.i) #9
   %tobool.not.i115.i = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i115.i, label %if.then, label %if.then4.i.i
@@ -818,7 +818,7 @@ if.then4.i.i:                                     ; preds = %if.end.i113.i
   %97 = load ptr, ptr %parent_.i.i.i.i116.i, align 8
   store ptr %97, ptr %builder.i.i109.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i117.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %returnValues.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %returnValues.i.i.i, i8 0, i64 20, i1 false)
   %BasicBlockList.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 80
   %Next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 88
   %__begin1.sroa.0.022.i.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
@@ -895,7 +895,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then12.i.i.i.i.i
 
 if.then.i:                                        ; preds = %if.end.i.i.i.i.i
   %mul4.i = shl i32 %100, 1
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %returnValues.i.i.i, i32 noundef %mul4.i), !noalias !14
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(24) %returnValues.i.i.i, i32 noundef %mul4.i), !noalias !14
   %106 = load ptr, ptr %returnValues.i.i.i, align 8, !noalias !14
   %107 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i.i.i, align 8, !noalias !14
   %cmp.i.i.i20 = icmp eq i32 %107, 0
@@ -953,7 +953,7 @@ if.else.i:                                        ; preds = %if.end.i.i.i.i.i
   br i1 %cmp9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
-  call void @_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %returnValues.i.i.i, i32 noundef %100), !noalias !14
+  call void @_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(24) %returnValues.i.i.i, i32 noundef %100), !noalias !14
   %113 = load ptr, ptr %returnValues.i.i.i, align 8, !noalias !14
   %114 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i.i.i, align 8, !noalias !14
   %cmp.i.i10.i = icmp eq i32 %114, 0
@@ -1081,7 +1081,7 @@ if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8Call
 
 if.end25.i.i.i:                                   ; preds = %if.then22.i.i.i
   %call26.i.i.i = call noundef i32 @_ZNK6hermes9Parameter19getIndexInParamListEv(ptr noundef nonnull align 8 dereferenceable(56) %125) #9
-  %call.i12.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0) #9
+  %call.i12.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0) #9
   %sub.i.i.i = add i32 %call.i12.i.i.i, -3
   %cmp28.not.i.i.i = icmp ult i32 %call26.i.i.i, %sub.i.i.i
   br i1 %cmp28.not.i.i.i, label %if.end31.i.i.i, label %if.then29.i.i.i
@@ -1092,7 +1092,7 @@ if.then29.i.i.i:                                  ; preds = %if.end25.i.i.i
 
 if.end31.i.i.i:                                   ; preds = %if.end25.i.i.i
   %add.i.i.i.i = add i32 %call26.i.i.i, 3
-  %call.i13.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef %add.i.i.i.i) #9
+  %call.i13.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef %add.i.i.i.i) #9
   br label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i
 
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i: ; preds = %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i, %if.end19.i.i.i, %for.end.i.i.i, %if.then4.i.i
@@ -1182,7 +1182,7 @@ if.end20:                                         ; preds = %if.end
   br i1 %cmp.not.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end20
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #9
   %.pre.i.i11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
 

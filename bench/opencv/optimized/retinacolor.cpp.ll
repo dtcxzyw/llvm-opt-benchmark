@@ -1634,7 +1634,7 @@ _ZN2cv11bioinspired11RetinaColor20runColorMultiplexingERKSt8valarrayIfERS3_.exit
           to label %265 unwind label %351
 
 265:                                              ; preds = %._crit_edge208
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   %266 = getelementptr inbounds i8, ptr %0, i64 232
   %267 = load ptr, ptr %266, align 8
   %268 = load ptr, ptr %36, align 8
@@ -1754,7 +1754,7 @@ _ZNSt8valarrayIfEdVERKS0_.exit:                   ; preds = %.lr.ph.i.i151, %265
 common.resume:                                    ; preds = %472, %351
   %.sink = phi ptr [ %6, %472 ], [ %8, %351 ]
   %common.resume.op = phi { ptr, i32 } [ %473, %472 ], [ %352, %351 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 351:                                              ; preds = %._crit_edge208
@@ -1949,7 +1949,7 @@ _ZNSt8valarrayIfEaSERKf.exit163:                  ; preds = %.lr.ph.i.i159.prehe
   br label %common.resume
 
 _ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputValueEPff.exit: ; preds = %.loopexit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %474 = getelementptr inbounds i8, ptr %0, i64 180
@@ -2304,7 +2304,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor24_adaptiveSpatialLPfilterEP
 common.resume:                                    ; preds = %50, %22
   %.sink = phi ptr [ %5, %50 ], [ %7, %22 ]
   %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %23, %22 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %3
@@ -2314,7 +2314,7 @@ common.resume:                                    ; preds = %50, %22
 
 _ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj.exit: ; preds = %3
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %25 = load i64, ptr %9, align 8
@@ -2363,7 +2363,7 @@ _ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPf
   br label %common.resume
 
 _ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausalFilter_multGainEPfjj.exit: ; preds = %_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalFilter_addInputEPKfPfjj.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret void
@@ -2395,13 +2395,13 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor29clipRGBOutput_0_maxInputVa
           to label %17 unwind label %18
 
 17:                                               ; preds = %3
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   ret void
 
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   resume { ptr, i32 } %19
 }
 
@@ -3133,13 +3133,13 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor40_adaptiveHorizontalCausalF
           to label %18 unwind label %19
 
 18:                                               ; preds = %5
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #17
   ret void
 
 19:                                               ; preds = %5
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #17
   resume { ptr, i32 } %20
 }
 
@@ -3183,13 +3183,13 @@ define hidden void @_ZN2cv11bioinspired11RetinaColor42_adaptiveVerticalAnticausa
           to label %27 unwind label %28
 
 27:                                               ; preds = %4
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #17
   ret void
 
 28:                                               ; preds = %4
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #17
   resume { ptr, i32 } %29
 }
 
@@ -3521,7 +3521,7 @@ _ZN2cv11bioinspired11RetinaColor31_applyImageColorSpaceConversionERKSt8valarrayI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor24Parallel_computeGradientD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -3649,7 +3649,7 @@ declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor48Parallel_adaptiveHorizontalCausalFilter_addInputD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -3730,7 +3730,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired11RetinaColor48Parallel_ada
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor50Parallel_adaptiveVerticalAnticausalFilter_multGainD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }
@@ -3828,7 +3828,7 @@ declare float @llvm.fabs.f32(float) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11bioinspired25Parallel_clipBufferValuesIfED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

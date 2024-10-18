@@ -2655,7 +2655,7 @@ define void @_ZN23ProtocolPreferencesMenu23boolPreferenceTriggeredEv(ptr noundef
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %6 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %7 = zext i1 %6 to i32
   %8 = tail call noundef i32 @prefs_set_bool_value(ptr noundef %5, i32 noundef %7, i32 noundef 2)
   %9 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2972,7 +2972,7 @@ define linkonce_odr void @_ZN20BoolPreferenceActionD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN20BoolPreferenceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -3001,7 +3001,7 @@ define linkonce_odr void @_ZN20EnumPreferenceActionD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN20EnumPreferenceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -3020,7 +3020,7 @@ define linkonce_odr void @_ZN22EditorPreferenceActionD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22EditorPreferenceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -3033,7 +3033,7 @@ define linkonce_odr void @_ZN19UatPreferenceActionD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19UatPreferenceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
@@ -3046,7 +3046,7 @@ define linkonce_odr void @_ZN37EnumCustomTCPOverridePreferenceActionD2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN37EnumCustomTCPOverridePreferenceActionD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

@@ -524,7 +524,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_ams_pdu(ptr noundef %0, ptr
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %15 = load i32, ptr @ett_ams, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #3
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 15) %3) #3
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %3, 1
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #3
@@ -548,7 +548,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_ams_pdu(ptr noundef %0, ptr
   %38 = load i32, ptr @hf_ams_targetport, align 4
   %39 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef -2147483648) #3
   %40 = or disjoint i32 %3, 8
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %40) #3
+  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 15) %40) #3
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %3, 9
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #3

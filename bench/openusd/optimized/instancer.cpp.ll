@@ -840,7 +840,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdInstancer24_SyncInstancerA
 
 .critedge:                                        ; preds = %32, %35
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %37 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %36) #14
+  %37 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %36) #14
   %.not.i.i16 = icmp eq i32 %37, 0
   br i1 %.not.i.i16, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %38
 
@@ -876,7 +876,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 48:                                               ; preds = %47, %41, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %49 = landingpad { ptr, i32 }
           cleanup
-  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #14
+  %50 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %36) #14
   br label %109
 
 51:                                               ; preds = %47, %40
@@ -940,7 +940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %87 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %88 = load i32, ptr %87, align 4
   store i32 %88, ptr %23, align 4
-  %89 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #14
+  %89 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %36) #14
   %90 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %90, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %30, !llvm.loop !8

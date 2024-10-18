@@ -3387,7 +3387,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
   br i1 %1104, label %1105, label %_ZN7QStringD2Ev.exit404
 
 1105:                                             ; preds = %1103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %150, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %150, i8 0, i64 56, i1 false)
   %1106 = getelementptr inbounds i8, ptr %150, i64 56
   %1107 = getelementptr inbounds i8, ptr %150, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1107, i8 0, i64 56, i1 false)

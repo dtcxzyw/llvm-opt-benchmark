@@ -485,7 +485,7 @@ _ZNSt13unordered_mapIN4llvm3pdb11PDB_SymTypeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #12
   store i32 %32, ptr %6, align 4
-  %33 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIN4llvm3pdb11PDB_SymTypeESt4pairIKS3_iESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %33 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseIN4llvm3pdb11PDB_SymTypeESt4pairIKS3_iESaIS6_ENS_10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS3_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4

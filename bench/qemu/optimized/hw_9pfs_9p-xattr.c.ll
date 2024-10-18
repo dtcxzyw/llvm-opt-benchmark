@@ -108,7 +108,7 @@ if.then5:                                         ; preds = %if.end
   tail call void @g_free(ptr noundef %call2) #10
   %call.i = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call.i, align 4
-  %call1.i = tail call i32 @close(i32 noundef %call1) #10
+  %call1.i = tail call i32 @close(i32 noundef range(i32 0, -1) %call1) #10
   store i32 %0, ptr %call.i, align 4
   br label %return
 
@@ -118,7 +118,7 @@ if.end6:                                          ; preds = %if.end
   tail call void @g_free(ptr noundef %call2) #10
   %call.i44 = tail call ptr @__errno_location() #11
   %1 = load i32, ptr %call.i44, align 4
-  %call1.i45 = tail call i32 @close(i32 noundef %call1) #10
+  %call1.i45 = tail call i32 @close(i32 noundef range(i32 0, -1) %call1) #10
   store i32 %1, ptr %call.i44, align 4
   %cmp9 = icmp slt i64 %call8, 0
   br i1 %cmp9, label %if.then10, label %while.cond.preheader
@@ -312,7 +312,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call i64 @fgetxattrat_nofollow(i32 noundef %call2, ptr noundef %call1, ptr noundef %name, ptr noundef %value, i64 noundef %size) #10
   %call.i = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call.i, align 4
-  %call1.i = tail call i32 @close(i32 noundef %call2) #10
+  %call1.i = tail call i32 @close(i32 noundef range(i32 0, -1) %call2) #10
   store i32 %0, ptr %call.i, align 4
   br label %out
 
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %call3 to i64
   %call.i = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call.i, align 4
-  %call1.i = tail call i32 @close(i32 noundef %call2) #10
+  %call1.i = tail call i32 @close(i32 noundef range(i32 0, -1) %call2) #10
   store i32 %0, ptr %call.i, align 4
   br label %out
 
@@ -380,7 +380,7 @@ if.end:                                           ; preds = %entry
   %call3 = tail call i64 @fremovexattrat_nofollow(i32 noundef %call2, ptr noundef %call1, ptr noundef %name) #10
   %call.i = tail call ptr @__errno_location() #11
   %0 = load i32, ptr %call.i, align 4
-  %call1.i = tail call i32 @close(i32 noundef %call2) #10
+  %call1.i = tail call i32 @close(i32 noundef range(i32 0, -1) %call2) #10
   store i32 %0, ptr %call.i, align 4
   br label %out
 

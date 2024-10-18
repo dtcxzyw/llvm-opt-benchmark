@@ -564,12 +564,12 @@ define internal fastcc void @_ZL7g_erroriPKc(i32 noundef range(i32 176, 853) %0)
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %8
 
 8:                                                ; preds = %4
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %7) #24
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7) #24
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %4, %8
   store ptr null, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #24
   resume { ptr, i32 } %5
 }
 
@@ -586,7 +586,7 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(124) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.16", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(124) %1) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #24
@@ -632,7 +632,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %23) #24
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #24
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -657,7 +657,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #24
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #24
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
@@ -953,7 +953,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %86, %_ZL21determine
   %96 = phi ptr [ %16, %92 ], [ %16, %91 ], [ %16, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ %11, %_ZN14EdgesGeneratorC2Ei.exit ]
   %.0 = phi i32 [ 0, %92 ], [ 0, %91 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit44 ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit ]
   %97 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %0, i8 0, i64 40, i1 false)
   %98 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
           to label %99 unwind label %.loopexit.split-lp
 
@@ -994,7 +994,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %86, %_ZL21determine
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %101, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %111, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, label %117
 
 117:                                              ; preds = %110
@@ -2093,7 +2093,7 @@ define void @_Z8mk_graphRK22InteractionDefinitionsi(ptr dead_on_unwind noalias w
 define noundef nonnull ptr @_Z8mk_graphP8_IO_FILERK22InteractionDefinitionsibb(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.t_graph, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %7, i8 0, i64 40, i1 false)
   %8 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
           to label %9 unwind label %30
 
@@ -2179,7 +2179,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(124) ptr @_ZN7t_grap
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, label %13
 
 13:                                               ; preds = %2
@@ -2271,7 +2271,7 @@ define noundef nonnull ptr @_Z8mk_graphP8_IO_FILEPK6t_idefibb(ptr noundef %0, pt
   %7 = alloca %"class.gmx::ListOfLists", align 8
   %8 = alloca %struct.t_graph, align 8
   %9 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %9, i8 0, i64 40, i1 false)
   %10 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
           to label %11 unwind label %254
 
@@ -2539,7 +2539,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %96, %_ZL21determine
   %106 = phi ptr [ %26, %102 ], [ %26, %101 ], [ %26, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ %21, %_ZN14EdgesGeneratorC2Ei.exit.i ]
   %.0.i = phi i32 [ 0, %102 ], [ 0, %101 ], [ %.1.i, %_ZNSt6vectorIiSaIiEED2Ev.exit44.i ], [ 0, %_ZN14EdgesGeneratorC2Ei.exit.i ]
   %107 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !alias.scope !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %8, i8 0, i64 40, i1 false), !alias.scope !24
   %108 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
           to label %109 unwind label %.loopexit.split-lp.i, !noalias !24
 
@@ -2580,7 +2580,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44.i:                ; preds = %96, %_ZL21determine
   %126 = load ptr, ptr %125, align 8, !noalias !24
   store ptr %126, ptr %111, align 8, !alias.scope !24
   %.not.i.i.i.i.i.i.i = icmp eq ptr %121, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !noalias !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 24, i1 false), !noalias !24
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i, label %127
 
 127:                                              ; preds = %120
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE6resizeEm.exit: ; preds = %232, %230,
 
 235:                                              ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE6resizeEm.exit
   %236 = load ptr, ptr @debug, align 8, !noalias !24
-  invoke void @_Z7p_graphP8_IO_FILEPKcPK7t_graph(ptr noundef %236, ptr noundef nonnull @.str.16, ptr noundef nonnull %8)
+  invoke void @_Z7p_graphP8_IO_FILEPKcPK7t_graph(ptr noundef %236, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 %8)
           to label %237 unwind label %140
 
 237:                                              ; preds = %235, %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EE6resizeEm.exit
@@ -4694,7 +4694,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3

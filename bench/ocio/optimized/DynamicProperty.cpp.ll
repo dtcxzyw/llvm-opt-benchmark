@@ -2687,7 +2687,7 @@ entry:
 define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(392) %0) #24
   ret void
 }
 
@@ -2835,7 +2835,7 @@ define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_4dev34DynamicProperty
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(144) %0) #24
   ret void
 }
 
@@ -2876,7 +2876,7 @@ entry:
 define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1208) %0) #24
   ret void
 }
 
@@ -2948,7 +2948,7 @@ entry:
 define linkonce_odr hidden void @_ZThn16_N19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   ret void
 }
 

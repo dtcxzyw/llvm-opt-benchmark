@@ -121,7 +121,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit13: ; preds = %34, %
   store i32 0, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 148
   store i32 10, ptr %45, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %43, i8 -1, i64 88, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %43, i8 -1, i64 88, i1 false)
   %46 = getelementptr inbounds i8, ptr %42, i64 152
   store i32 704, ptr %46, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2705,7 +2705,7 @@ define hidden noundef zeroext i1 @_ZN12PhaseChaitin23remove_node_if_not_usedEP5B
 
 43:                                               ; preds = %41, %38
   %44 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef %2) #13
+  tail call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %44, i32 noundef %2) #13
   %45 = getelementptr inbounds i8, ptr %1, i64 40
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %46, -1
@@ -3187,7 +3187,7 @@ _ZN3LRG8SUBTRACTERK7RegMask.exit44:               ; preds = %.lr.ph.i.i41, %91
 
 119:                                              ; preds = %.lr.ph.i
   %120 = shl i32 %.0712.i, 6
-  %121 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %118, i1 true)
+  %121 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %118, i1 true)
   %122 = trunc nuw nsw i64 %121 to i32
   %123 = or disjoint i32 %120, %122
   br label %_ZNK7RegMask15find_first_elemEv.exit
@@ -3702,11 +3702,11 @@ _ZNK5Block8get_nodeEj.exit.i96:                   ; preds = %125, %.lr.ph.i
 
 119:                                              ; preds = %113
   %120 = getelementptr inbounds i8, ptr %43, i64 16
-  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef %109) #13
+  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %120, i32 noundef %109) #13
   %121 = load i32, ptr %52, align 8
   %122 = add i32 %121, -1
   store i32 %122, ptr %52, align 8
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef %.0.lcssa.i, ptr noundef nonnull %103) #13
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %120, i32 noundef %.0.lcssa.i, ptr noundef nonnull %103) #13
   %123 = load i32, ptr %52, align 8
   %124 = add i32 %123, 1
   store i32 %124, ptr %52, align 8
@@ -3876,7 +3876,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %143, %147
 
 224:                                              ; preds = %222, %219
   %225 = trunc nuw i64 %indvars.iv to i32
-  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(24) %141, i32 noundef %225) #13
+  call void @_ZN10Node_Array6removeEj(ptr noundef nonnull align 8 dereferenceable(28) %141, i32 noundef %225) #13
   %226 = load i32, ptr %52, align 8
   %227 = add i32 %226, -1
   store i32 %227, ptr %52, align 8

@@ -677,7 +677,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 56:                                               ; preds = %48
   %57 = extractvalue { i64, i1 } %52, 0
   %58 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !94
-  %59 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %57, i64 noundef 16) #35, !noalias !94
+  %59 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %57, i64 noundef range(i64 1, -9223372036854775807) 16) #35, !noalias !94
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17h0668aad5c537136eE.exit"
 
@@ -1155,7 +1155,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
 36:                                               ; preds = %28
   %37 = extractvalue { i64, i1 } %32, 0
   %38 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !152
-  %39 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %37, i64 noundef 16) #35, !noalias !152
+  %39 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %37, i64 noundef range(i64 1, -9223372036854775807) 16) #35, !noalias !152
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17h92a3b99bb4e40ce6E.exit"
 

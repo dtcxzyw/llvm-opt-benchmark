@@ -762,7 +762,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %1 = load ptr, ptr %m_data.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %struct.btHashString, ptr %1, i64 %indvars.iv.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i.i) #25
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %2, label %_ZN20btAlignedObjectArrayI12btHashStringE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
@@ -907,7 +907,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %1 = load ptr, ptr %m_data.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %struct.btHashString, ptr %1, i64 %indvars.iv.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i.i.i) #25
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
   br i1 %2, label %_ZN20btAlignedObjectArrayI12btHashStringE7destroyEii.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
@@ -2027,13 +2027,13 @@ if.then40:                                        ; preds = %land.lhs.true
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp44) #25
   br label %for.inc46
 
 lpad:                                             ; preds = %if.then40
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp44) #25
   resume { ptr, i32 } %25
 
 for.inc46:                                        ; preds = %for.body32, %if.end, %land.lhs.true, %invoke.cont
@@ -4511,7 +4511,7 @@ _ZN20btAlignedObjectArrayI12btHashStringE9push_backERKS0_.exit: ; preds = %_ZN20
   %18 = load ptr, ptr %m_data.i16, align 8
   %idxprom.i17 = sext i32 %17 to i64
   %arrayidx.i18 = getelementptr inbounds %struct.btHashString, ptr %18, i64 %idxprom.i17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(36) %key)
   %m_hash.i.i = getelementptr inbounds i8, ptr %arrayidx.i18, i64 32
   %19 = load i32, ptr %m_hash.i, align 8
   store i32 %19, ptr %m_hash.i.i, align 8
@@ -4560,7 +4560,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -4577,7 +4577,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #25
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #25
   br label %lpad.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -7341,7 +7341,7 @@ invoke.cont:
   %cmp.i = icmp eq i32 %call.i, -1
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 904
   %0 = load ptr, ptr %m_data.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp) #25
   %tobool.not3 = icmp eq ptr %0, null
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not3
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -7379,7 +7379,7 @@ invoke.cont:                                      ; preds = %entry
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %m_updateRevision.i, align 8
   %m_worldTransform.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %startTransform, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(64) %startTransform, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %startTransform, i64 16
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -7415,7 +7415,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp5) #25
   br label %if.end
 
 lpad:                                             ; preds = %entry
@@ -7434,7 +7434,7 @@ terminate.lpad.i:                                 ; preds = %lpad
 lpad6:                                            ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp5) #25
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont7, %invoke.cont
@@ -7655,7 +7655,7 @@ _ZN20btAlignedObjectArrayI12btHashStringE9push_backERKS0_.exit: ; preds = %_ZN20
   %18 = load ptr, ptr %m_data.i16, align 8
   %idxprom.i17 = sext i32 %17 to i64
   %arrayidx.i18 = getelementptr inbounds %struct.btHashString, ptr %18, i64 %idxprom.i17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(32) %key)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(36) %key)
   %m_hash.i.i = getelementptr inbounds i8, ptr %arrayidx.i18, i64 32
   %19 = load i32, ptr %m_hash.i, align 8
   store i32 %19, ptr %m_hash.i.i, align 8
@@ -10115,7 +10115,7 @@ invoke.cont:                                      ; preds = %entry
   %cmp.i = icmp eq i32 %call.i3, -1
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load ptr, ptr %m_data.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp) #25
   %tobool.not4 = icmp eq ptr %0, null
   %tobool.not = select i1 %cmp.i, i1 true, i1 %tobool.not4
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -10130,7 +10130,7 @@ land.lhs.true:                                    ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp) #25
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %land.lhs.true, %invoke.cont
@@ -11622,15 +11622,15 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %4 = load ptr, ptr %m_data.i6, align 8
   %idxprom.i7 = sext i32 %index.015 to i64
   %arrayidx.i8 = getelementptr inbounds %struct.btHashString, ptr %4, i64 %idxprom.i7
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
-  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #25
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
+  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #25
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.body
 
 land.rhs.i.i:                                     ; preds = %land.rhs
-  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
-  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #25
-  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
+  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
+  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #25
+  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %_ZNK12btHashString6equalsERKS_.exit
 
@@ -11930,7 +11930,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.btHashString, ptr %retval.0.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %struct.btHashString, ptr %2, i64 %indvars.iv.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx3.i)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(36) %arrayidx3.i)
   %m_hash.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %m_hash3.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 32
   %3 = load i32, ptr %m_hash3.i.i, align 8
@@ -11953,7 +11953,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %for.b
   %indvars.iv.i8 = phi i64 [ 0, %for.body.lr.ph.i5 ], [ %indvars.iv.next.i10, %for.body.i7 ]
   %5 = load ptr, ptr %m_data.i6, align 8
   %arrayidx.i9 = getelementptr inbounds %struct.btHashString, ptr %5, i64 %indvars.iv.i8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i9) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i9) #25
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i8, 1
   %6 = icmp eq i64 %indvars.iv.next.i10, %zext16
   br i1 %6, label %_ZN20btAlignedObjectArrayI12btHashStringE7destroyEii.exit, label %for.body.i7, !llvm.loop !5
@@ -12274,15 +12274,15 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %4 = load ptr, ptr %m_data.i6, align 8
   %idxprom.i7 = sext i32 %index.015 to i64
   %arrayidx.i8 = getelementptr inbounds %struct.btHashString, ptr %4, i64 %idxprom.i7
-  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
-  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #25
+  %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
+  %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #25
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.body
 
 land.rhs.i.i:                                     ; preds = %land.rhs
-  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
-  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i8) #25
-  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #25
+  %call2.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
+  %call3.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx.i8) #25
+  %call4.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(36) %key) #25
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
   br i1 %cmp.i.i.i, label %return, label %_ZNK12btHashString6equalsERKS_.exit
 

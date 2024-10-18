@@ -2672,7 +2672,7 @@ if.end16:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %retval.0.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %23 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i) #20
+  %call.i = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i) #20
   %conv.i = sext i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %22, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
@@ -2773,7 +2773,7 @@ if.end16:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %retval.0.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %23 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i) #20
+  %call.i = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i) #20
   %conv.i = sext i32 %call.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %22, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
@@ -5645,7 +5645,7 @@ do.body7.i.i.i:                                   ; preds = %_ZN2v86Object34GetA
   unreachable
 
 _ZN4node12ShutdownWrapC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE.exit: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit.i.i.i
-  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull %this) #20
+  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %this) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12ShutdownWrapE, i64 16), ptr %this, align 8
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %env_.i = getelementptr inbounds i8, ptr %stream, i64 32
@@ -5710,7 +5710,7 @@ do.body7.i.i.i:                                   ; preds = %_ZN2v86Object34GetA
   unreachable
 
 _ZN4node9WriteWrapC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE.exit: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit.i.i.i
-  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull %this) #20
+  tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %this) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9WriteWrapE, i64 16), ptr %this, align 8
   %backing_store_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %backing_store_.i, align 8
@@ -8326,7 +8326,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   %cmp.i = icmp eq ptr %format, null
   br i1 %cmp.i, label %if.then.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
@@ -8354,7 +8354,7 @@ do.body8:                                         ; preds = %do.body
 do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #20
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #20
   %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
@@ -8766,7 +8766,7 @@ define linkonce_odr dso_local void @_ZThn16_N4node18SimpleShutdownWrapINS_9Async
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
   ret void
 }
 
@@ -9003,7 +9003,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i: ; preds = %entr
   br label %_ZN4node15SimpleWriteWrapINS_9AsyncWrapEED0Ev.exit
 
 _ZN4node15SimpleWriteWrapINS_9AsyncWrapEED0Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(80) %0) #23
   ret void
 }
 

@@ -767,7 +767,7 @@ entry:
   br i1 %or.cond.i.i, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %dist)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(16) %dist)
   %.pr.i = load double, ptr %ncp.i, align 8, !tbaa !19
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i
 
@@ -842,7 +842,7 @@ entry:
   br i1 %or.cond.i.i, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %dist)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(16) %dist)
   %.pr.i = load double, ptr %ncp.i, align 8, !tbaa !19
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i
 
@@ -953,7 +953,7 @@ entry:
   br i1 %or.cond.i.i, label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %dist)
+  call void @_ZN5boost4math8policies6detail11raise_errorISt12domain_errordEEvPKcS6_RKT0_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(16) %dist)
   %.pr.i = load double, ptr %ncp.i, align 8, !tbaa !19
   br label %_ZN5boost4math6detail8check_dfIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEEbPKcRKT_PS9_RKT0_.exit.i
 
@@ -2065,7 +2065,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -2142,7 +2142,7 @@ _ZN5boost10wrapexceptISt12domain_errorED0Ev.exit: ; preds = %entry, %call.i.noex
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -3665,7 +3665,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -3742,7 +3742,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %entry, %call.i.no
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -5412,7 +5412,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -5486,7 +5486,7 @@ _ZN5boost10wrapexceptINS_4math14rounding_errorEED0Ev.exit: ; preds = %entry, %ca
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -6106,7 +6106,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i.i, %if.then.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 64) #36
   ret void
 }
 
@@ -6180,7 +6180,7 @@ _ZN5boost10wrapexceptINS_4math16evaluation_errorEED0Ev.exit: ; preds = %entry, %
   %4 = getelementptr inbounds i8, ptr %this, i64 -24
   %5 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 64) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, i64 noundef 64) #36
   ret void
 }
 
@@ -15472,7 +15472,7 @@ cond.true.i:                                      ; preds = %entry
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit
 
 cond.false.i:                                     ; preds = %entry
-  %call4.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %f, ptr noundef nonnull align 16 dereferenceable(16) %a)
+  %call4.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %f, ptr noundef nonnull align 16 dereferenceable(16) %a)
   %target5.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %4 = load x86_fp80, ptr %target5.i, align 16, !tbaa !143
   %sub6.i = fsub x86_fp80 %call4.i, %4
@@ -15556,7 +15556,7 @@ cond.true.i37:                                    ; preds = %if.end
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit41
 
 cond.false.i32:                                   ; preds = %if.end
-  %call4.i33 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %f, ptr noundef nonnull align 16 dereferenceable(16) %b)
+  %call4.i33 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %f, ptr noundef nonnull align 16 dereferenceable(16) %b)
   %19 = load x86_fp80, ptr %target5.i34, align 16, !tbaa !143
   %sub6.i35 = fsub x86_fp80 %call4.i33, %19
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit41
@@ -15650,7 +15650,7 @@ cond.true.i60:                                    ; preds = %if.end44
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit64
 
 cond.false.i55:                                   ; preds = %if.end44
-  %call4.i56 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %f, ptr noundef nonnull align 16 dereferenceable(16) %a)
+  %call4.i56 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %f, ptr noundef nonnull align 16 dereferenceable(16) %a)
   %33 = load x86_fp80, ptr %target5.i34, align 16, !tbaa !143
   %sub6.i58 = fsub x86_fp80 %call4.i56, %33
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit64
@@ -15881,7 +15881,7 @@ cond.true.i.i:                                    ; preds = %if.end19.i
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i
 
 cond.false.i.i:                                   ; preds = %if.end19.i
-  %call4.i.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp48, ptr noundef nonnull align 16 dereferenceable(16) %c.addr.i)
+  %call4.i.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %agg.tmp48, ptr noundef nonnull align 16 dereferenceable(16) %c.addr.i)
   %target5.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp48, i64 32
   %28 = load x86_fp80, ptr %target5.i.i, align 16, !tbaa !143
   %sub6.i.i = fsub x86_fp80 %call4.i.i, %28
@@ -16513,7 +16513,7 @@ cond.true.i.i186:                                 ; preds = %if.end19.i165
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i172
 
 cond.false.i.i168:                                ; preds = %if.end19.i165
-  %call4.i.i169 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp135155, ptr noundef nonnull align 16 dereferenceable(16) %c.addr.i157)
+  %call4.i.i169 = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %agg.tmp135155, ptr noundef nonnull align 16 dereferenceable(16) %c.addr.i157)
   %146 = load x86_fp80, ptr %target5.i.i170, align 16, !tbaa !143
   %sub6.i.i171 = fsub x86_fp80 %call4.i.i169, %146
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i172
@@ -17033,7 +17033,7 @@ cond.true.i:                                      ; preds = %if.end19
   br label %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit
 
 cond.false.i:                                     ; preds = %if.end19
-  %call4.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(32) %f, ptr noundef nonnull align 16 dereferenceable(16) %c.addr)
+  %call4.i = call noundef x86_fp80 @_ZN5boost4math3cdfIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEET_RKNS0_36non_central_chi_squared_distributionISA_T0_EERKSA_(ptr noundef nonnull align 16 dereferenceable(49) %f, ptr noundef nonnull align 16 dereferenceable(16) %c.addr)
   %target5.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %9 = load x86_fp80, ptr %target5.i, align 16, !tbaa !143
   %sub6.i = fsub x86_fp80 %call4.i, %9

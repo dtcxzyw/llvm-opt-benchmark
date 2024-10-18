@@ -6553,7 +6553,7 @@ if.end3.i92.i.i:                                  ; preds = %if.end.i89.i.i
   br label %ZSTDv06_buildSeqTable.exit98.thread130.i.i
 
 sw.bb4.i85.i.i:                                   ; preds = %if.end51.i.i
-  %call5.i86.i.i = tail call i64 @FSEv06_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull readonly @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
+  %call5.i86.i.i = tail call i64 @FSEv06_buildDTable(ptr noundef nonnull %MLTable.i, ptr noundef nonnull @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
   br label %ZSTDv06_buildSeqTable.exit98.thread130.i.i
 
 sw.bb10.i74.i.i:                                  ; preds = %if.end51.i.i
@@ -7783,7 +7783,7 @@ if.end.i:                                         ; preds = %if.then4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %litlengthNCount.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %litlengthMaxValue.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %litlengthLog.i.i)
-  %call.i.i = tail call i64 @HUFv06_readDTableX4(ptr noundef nonnull %hufTableX4.i, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i)
+  %call.i.i = tail call i64 @HUFv06_readDTableX4(ptr noundef nonnull %hufTableX4.i, ptr noundef nonnull %add.ptr.i, i64 noundef range(i64 -3, -4) %sub.i)
   %cmp.i.i.i = icmp ult i64 %call.i.i, -119
   br i1 %cmp.i.i.i, label %if.end.i.i, label %ZSTDv06_loadEntropy.exit.thread.i
 

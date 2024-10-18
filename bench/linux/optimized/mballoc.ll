@@ -5608,7 +5608,7 @@ ext4_mb_initialize_context.exit:                  ; preds = %295, %360, %367
 487:                                              ; preds = %482, %448
   %488 = getelementptr inbounds i8, ptr %408, i64 60
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %488, ptr elementtype(i32) %488) #16, !srcloc !142
-  tail call fastcc void @ext4_mb_use_inode_pa(ptr noundef %251, ptr noundef nonnull %408)
+  tail call fastcc void @ext4_mb_use_inode_pa(ptr noundef nonnull %251, ptr noundef nonnull %408)
   tail call void @_raw_spin_unlock(ptr noundef %409) #16
   tail call void @_raw_read_unlock(ptr noundef %383) #16
   br label %968
@@ -7795,7 +7795,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   store i16 %174, ptr %172, align 4
   %175 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %175, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %176
 
 176:                                              ; preds = %171, %150, %148, %105, %.thread.i
@@ -8467,7 +8467,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   store i32 %597, ptr %254, align 4
   %598 = load i32, ptr %256, align 4
   store i32 %598, ptr %253, align 8
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   %599 = load i32, ptr %266, align 4
   %600 = load i32, ptr %192, align 4
   %601 = icmp eq i32 %599, %600
@@ -8599,7 +8599,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   store i16 %691, ptr %689, align 2
   store i32 -559026163, ptr %4, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %259, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   br label %ext4_mb_scan_aligned.exit
 
 692:                                              ; preds = %681, %674
@@ -8791,7 +8791,7 @@ ext4_mb_scan_aligned.exit:                        ; preds = %692, %638, %684
 
 805:                                              ; preds = %794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %259, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   br label %841
 
 806:                                              ; preds = %794
@@ -8801,7 +8801,7 @@ ext4_mb_scan_aligned.exit:                        ; preds = %692, %638, %684
 
 809:                                              ; preds = %806
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %259, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   br label %841
 
 810:                                              ; preds = %806
@@ -8860,7 +8860,7 @@ ext4_mb_scan_aligned.exit:                        ; preds = %692, %638, %684
   br i1 %839, label %840, label %841
 
 840:                                              ; preds = %836
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   br label %841
 
 841:                                              ; preds = %840, %836, %833, %832, %823, %813, %809, %805
@@ -8905,7 +8905,7 @@ thread-pre-split.i:                               ; preds = %760, %773, %770, %7
   br i1 %863, label %ext4_mb_complex_scan_group.exit, label %864
 
 864:                                              ; preds = %860
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull readonly %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull readonly %7)
   br label %ext4_mb_complex_scan_group.exit
 
 ext4_mb_complex_scan_group.exit:                  ; preds = %708, %.loopexit.i, %859, %860, %864
@@ -9193,7 +9193,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit.thread: ; preds = %.preheader78, %ex
 1038:                                             ; preds = %1037, %1034
   %1039 = getelementptr i8, ptr %1032, i64 -60
   %1040 = load i32, ptr %1039, align 4
-  %1041 = call fastcc zeroext i1 @ext4_mb_good_group(ptr noundef readonly %0, i32 noundef %1040, i32 noundef %1019)
+  %1041 = call fastcc zeroext i1 @ext4_mb_good_group(ptr noundef nonnull readonly %0, i32 noundef %1040, i32 noundef %1019)
   br i1 %1041, label %ext4_mb_find_good_group_avg_frag_lists.exit, label %1030, !prof !16, !llvm.loop !247
 
 ext4_mb_find_good_group_avg_frag_lists.exit.thread67: ; preds = %1030, %1022
@@ -9379,7 +9379,7 @@ ext4_mb_find_good_group_avg_frag_lists.exit47.thread: ; preds = %1130, %ext4_mb_
 1160:                                             ; preds = %1159, %1156
   %1161 = getelementptr i8, ptr %1154, i64 -60
   %1162 = load i32, ptr %1161, align 4
-  %1163 = call fastcc zeroext i1 @ext4_mb_good_group(ptr noundef readonly %0, i32 noundef %1162, i32 noundef %1141)
+  %1163 = call fastcc zeroext i1 @ext4_mb_good_group(ptr noundef nonnull readonly %0, i32 noundef %1162, i32 noundef %1141)
   br i1 %1163, label %ext4_mb_find_good_group_avg_frag_lists.exit47, label %1152, !prof !16, !llvm.loop !247
 
 ext4_mb_find_good_group_avg_frag_lists.exit47.thread68: ; preds = %1152, %1144
@@ -9562,7 +9562,7 @@ default.unreachable:                              ; preds = %903
 
 1255:                                             ; preds = %1251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %259, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  call fastcc void @ext4_mb_use_best_found(ptr noundef %0, ptr noundef nonnull %7)
+  call fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %1256
 
 1256:                                             ; preds = %1255, %1251, %.thread.i49
@@ -13007,7 +13007,7 @@ define internal fastcc i32 @ext4_mb_init_cache(ptr noundef %0, ptr noundef %1, i
 
 .thread25:                                        ; preds = %269, %.lr.ph40, %.preheader27, %.thread26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %154, ptr noundef align 1 %156, i64 %20, i1 false)
-  %281 = tail call ptr @ext4_get_group_info(ptr noundef %11, i32 noundef %133) #16
+  %281 = tail call ptr @ext4_get_group_info(ptr noundef %11, i32 noundef range(i32 -1073741824, 1073741824) %133) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   %282 = icmp eq ptr %281, null
@@ -15908,7 +15908,7 @@ define internal fastcc void @ext4_mb_use_best_found(ptr noundef nonnull %0, ptr 
   %317 = load i32, ptr %290, align 8
   %318 = getelementptr inbounds i8, ptr %209, i64 1140
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %318, i32 %317, ptr elementtype(i32) %318) #16, !srcloc !122
-  tail call fastcc void @ext4_mb_use_inode_pa(ptr noundef %0, ptr noundef nonnull %222)
+  tail call fastcc void @ext4_mb_use_inode_pa(ptr noundef nonnull %0, ptr noundef nonnull %222)
   %319 = load ptr, ptr %0, align 8
   %320 = load i32, ptr %8, align 8
   %321 = tail call ptr @ext4_get_group_info(ptr noundef %116, i32 noundef %320) #16

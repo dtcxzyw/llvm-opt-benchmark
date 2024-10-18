@@ -100,7 +100,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
 33:                                               ; preds = %32
   %34 = xor i32 %.0142.i, -1
   %35 = or i32 %34, -2147483648
-  %36 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %35, i1 true)
+  %36 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %35, i1 true)
   %37 = icmp samesign ugt i32 %36, 23
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -123,7 +123,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %43 = lshr i32 %.3.val.i, %.3149.i
   %44 = xor i32 %43, -1
   %45 = or i32 %44, -2147483648
-  %46 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %45, i1 true)
+  %46 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 -2147483648, 0) %45, i1 true)
   %47 = icmp samesign ugt i32 %46, 23
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 

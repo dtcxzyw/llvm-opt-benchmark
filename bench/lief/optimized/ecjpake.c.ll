@@ -275,7 +275,7 @@ ecjpake_kkp_write.exit.i:                         ; preds = %28
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %1, i64 %30
   store ptr %31, ptr %9, align 8
-  %32 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %23, ptr noundef %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
+  %32 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %33, label %ecjpake_kkpp_write.exit
@@ -308,7 +308,7 @@ ecjpake_kkp_write.exit31.i:                       ; preds = %38
   %43 = load i64, ptr %7, align 8
   %44 = getelementptr inbounds i8, ptr %34, i64 %43
   store ptr %44, ptr %9, align 8
-  %45 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef readonly %23, ptr noundef %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
+  %45 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %10, ptr noundef nonnull %11, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef readonly %23, ptr noundef nonnull %9, ptr noundef %24, ptr noundef %4, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not27.i = icmp eq i32 %45, 0
   br i1 %.not27.i, label %46, label %ecjpake_kkpp_write.exit

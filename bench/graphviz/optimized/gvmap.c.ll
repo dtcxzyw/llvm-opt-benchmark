@@ -466,7 +466,7 @@ init.exit:                                        ; preds = %openFile.exit.i
 
 ._crit_edge.i.i.i:                                ; preds = %177, %175
   %181 = load ptr, ptr @stderr, align 8
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.0201) #14
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.17, i32 noundef range(i32 1, 0) %.sroa.70.0201) #14
   br label %validateCluster.exit.i.i
 
 validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %164

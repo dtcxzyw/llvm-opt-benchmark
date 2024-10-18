@@ -1348,7 +1348,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 if.end.i23:                                       ; preds = %if.else.i, %if.then.i22
   %len.0.i = phi i64 [ %sub.ptr.div.i, %if.then.i22 ], [ %call2.i, %if.else.i ]
-  %call3.i = call i32 @wcsncmp(ptr noundef %14, ptr noundef nonnull readonly @.str.2, i64 noundef %len.0.i) #18
+  %call3.i = call i32 @wcsncmp(ptr noundef %14, ptr noundef nonnull @.str.2, i64 noundef %len.0.i) #18
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -1372,7 +1372,7 @@ lor.lhs.false:                                    ; preds = %for.inc.i, %land.lh
   br i1 %tobool.not.i, label %if.then26, label %if.end.i24
 
 if.end.i24:                                       ; preds = %lor.lhs.false
-  %call.i25 = call ptr @getenv(ptr noundef nonnull readonly @.str.3) #17
+  %call.i25 = call ptr @getenv(ptr noundef nonnull @.str.3) #17
   %tobool1.not.i = icmp eq ptr %call.i25, null
   br i1 %tobool1.not.i, label %if.then26, label %land.lhs.true.i26
 
@@ -1419,7 +1419,7 @@ if.else.i54:                                      ; preds = %for.body.i34
 
 if.end.i44:                                       ; preds = %if.else.i54, %if.then.i39
   %len.0.i45 = phi i64 [ %sub.ptr.div.i43, %if.then.i39 ], [ %call2.i55, %if.else.i54 ]
-  %call3.i46 = call i32 @wcsncmp(ptr noundef %18, ptr noundef nonnull readonly @.str.4, i64 noundef %len.0.i45) #18
+  %call3.i46 = call i32 @wcsncmp(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %len.0.i45) #18
   %cmp4.i47 = icmp eq i32 %call3.i46, 0
   br i1 %cmp4.i47, label %land.lhs.true.i51, label %for.inc.i48
 
@@ -1443,7 +1443,7 @@ lor.lhs.false32:                                  ; preds = %for.inc.i48, %if.en
   br i1 %tobool.not.i57, label %if.end37, label %if.end.i58
 
 if.end.i58:                                       ; preds = %lor.lhs.false32
-  %call.i59 = call ptr @getenv(ptr noundef nonnull readonly @.str.5) #17
+  %call.i59 = call ptr @getenv(ptr noundef nonnull @.str.5) #17
   %tobool1.not.i60 = icmp eq ptr %call.i59, null
   br i1 %tobool1.not.i60, label %if.end37, label %land.lhs.true.i61
 
@@ -2519,7 +2519,7 @@ if.end.i.i:                                       ; preds = %if.end.i75
   br i1 %tobool.not.i.i.i, label %if.end26.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.19) #17, !noalias !14
+  %call.i.i.i = call ptr @getenv(ptr noundef nonnull @.str.19) #17, !noalias !14
   %tobool1.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool1.not.i.i.i, label %if.end26.i.i, label %land.lhs.true.i.i.i
 
@@ -2626,7 +2626,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i.i.i
 
 if.end.i.i22.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
   %len.0.i.i.i = phi i64 [ %sub.ptr.div.i.i.i, %if.then.i.i.i ], [ %call2.i.i.i, %if.else.i.i.i ]
-  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %54, ptr noundef nonnull readonly @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
+  %call3.i.i.i = call i32 @wcsncmp(ptr noundef %54, ptr noundef nonnull @.str.22, i64 noundef %len.0.i.i.i) #18, !noalias !17
   %cmp4.i.i.i = icmp eq i32 %call3.i.i.i, 0
   br i1 %cmp4.i.i.i, label %land.lhs.true.i.i23.i, label %for.inc.i.i.i
 
@@ -2665,7 +2665,7 @@ if.end24.i.i:                                     ; preds = %for.inc.i.i.i, %_Py
   br i1 %tobool.not.i.i19.i, label %if.then51.i.i, label %if.end.i19.i.i
 
 if.end.i19.i.i:                                   ; preds = %if.end24.i.i
-  %call.i20.i.i = call ptr @getenv(ptr noundef nonnull readonly @.str.26) #17, !noalias !17
+  %call.i20.i.i = call ptr @getenv(ptr noundef nonnull @.str.26) #17, !noalias !17
   %tobool1.not.i.i20.i = icmp eq ptr %call.i20.i.i, null
   br i1 %tobool1.not.i.i20.i, label %if.then51.i.i, label %land.lhs.true.i21.i.i
 
@@ -2732,7 +2732,7 @@ if.then.i30.i:                                    ; preds = %if.end5.i
   br i1 %tobool.not.i.i32.i, label %if.end7.i.i, label %if.end.i.i33.i
 
 if.end.i.i33.i:                                   ; preds = %if.then.i30.i
-  %call.i.i34.i = call ptr @getenv(ptr noundef nonnull readonly @.str.31) #17, !noalias !20
+  %call.i.i34.i = call ptr @getenv(ptr noundef nonnull @.str.31) #17, !noalias !20
   %tobool1.not.i.i35.i = icmp eq ptr %call.i.i34.i, null
   br i1 %tobool1.not.i.i35.i, label %if.end7.i.i, label %land.lhs.true.i.i36.i
 

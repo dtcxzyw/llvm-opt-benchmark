@@ -3185,7 +3185,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end21
   %spec.store.select64.lcssa = phi i64 [ %12, %if.end21 ], [ %spec.store.select, %for.body ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i)
-  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %10, i32 noundef %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef %offset_start, ptr noundef %leader.i)
+  %call.i = call fastcc i32 @extract_chunk_leader(ptr noundef nonnull %ctxt, ptr noundef nonnull readonly %10, i32 noundef range(i32 0, 2147483647) %sub15, i64 noundef %spec.store.select64.lcssa, ptr noundef nonnull %offset_start, ptr noundef %leader.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %leader.i)
   %cmp37.not = icmp eq i32 %call.i, 0
   br i1 %cmp37.not, label %if.end41, label %return
@@ -3229,7 +3229,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %computed_ci.0 = select i1 %cmp60, i32 %sub65, i32 %21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %leader.i49)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cidx.i)
-  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef %ctxt, ptr noundef nonnull readonly %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef %offset_start, ptr noundef %leader.i49)
+  %call.i50 = call fastcc i32 @extract_chunk_leader(ptr noundef nonnull %ctxt, ptr noundef nonnull readonly %part, i32 noundef %partnum.0.lcssa96, i64 noundef %spec.store.select60, ptr noundef nonnull %offset_start, ptr noundef %leader.i49)
   %cmp.not.i = icmp eq i32 %call.i50, 0
   br i1 %cmp.not.i, label %if.end.i, label %read_and_validate_chunk_leader.exit.thread56
 

@@ -3824,7 +3824,7 @@ entry:
   %16 = load double, ptr %minImproveRatio, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeDistanceChecker, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
   %contourCombiner.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 56
@@ -5084,7 +5084,7 @@ entry:
   %16 = load double, ptr %minImproveRatio, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp5.i)
   %distanceFinder.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeDistanceChecker, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %shapeDistanceChecker, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   store ptr %shape, ptr %distanceFinder.i, align 8
   %contourCombiner.i.i = getelementptr inbounds i8, ptr %shapeDistanceChecker, i64 56

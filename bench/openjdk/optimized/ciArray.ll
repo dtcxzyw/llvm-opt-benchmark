@@ -199,7 +199,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %15, %25
   %43 = shl nuw nsw i64 %41, %.7.i
   %44 = add nuw nsw i64 %42, %43
   %45 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %46 = tail call noundef ptr %45(ptr noundef nonnull %2, i64 noundef %44) #6
+  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %44) #6
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
 
@@ -342,7 +342,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %48, %50
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
+  %3 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #6
   %4 = tail call noundef ptr @_ZN12ciArrayKlass12element_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8
@@ -356,7 +356,7 @@ define hidden { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull alig
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
+  %12 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #6
   %13 = tail call { i8, i64 } @_ZN7ciArray18element_value_implE9BasicTypeP12arrayOopDesci(ptr nonnull align 8 poison, i8 noundef zeroext %6, ptr noundef %12, i32 noundef %1)
   br label %51
 
@@ -399,7 +399,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %29
   store volatile i32 6, ptr %19, align 4
-  %30 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
+  %30 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #6
   %31 = tail call { i8, i64 } @_ZN7ciArray18element_value_implE9BasicTypeP12arrayOopDesci(ptr nonnull align 8 poison, i8 noundef zeroext %6, ptr noundef %30, i32 noundef %1)
   %32 = getelementptr inbounds i8, ptr %16, i64 408
   %33 = load ptr, ptr %32, align 8
@@ -456,7 +456,7 @@ declare void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i8, i64 } @_ZN7ciArray23element_value_by_offsetEl(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
+  %3 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(44) %0) #6
   %4 = tail call noundef ptr @_ZN12ciArrayKlass12element_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #6
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8

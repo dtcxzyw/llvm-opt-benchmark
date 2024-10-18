@@ -633,10 +633,10 @@ define void @jinit_huff_decoder(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
   store ptr %7, ptr %.013.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %7, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_dc_luminance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %7, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_luminance, i64 17, i1 false)
   %.pre.i = load ptr, ptr %.013.i, align 8
   %8 = getelementptr inbounds i8, ptr %.pre.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, ptr noundef nonnull readonly align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
   %9 = load ptr, ptr %.013.i, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(244) %10, i8 0, i64 244, i1 false)
@@ -653,10 +653,10 @@ add_huff_table.exit.i:                            ; preds = %6, %1
 15:                                               ; preds = %add_huff_table.exit.i
   %16 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
   store ptr %16, ptr %.0.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %16, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_ac_luminance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %16, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_luminance, i64 17, i1 false)
   %.pre39.i = load ptr, ptr %.0.i, align 8
   %17 = getelementptr inbounds i8, ptr %.pre39.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %17, ptr noundef nonnull readonly align 16 dereferenceable(162) @std_huff_tables.val_ac_luminance, i64 162, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %17, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_luminance, i64 162, i1 false)
   %18 = load ptr, ptr %.0.i, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 179
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(94) %19, i8 0, i64 94, i1 false)
@@ -674,10 +674,10 @@ add_huff_table.exit19.i:                          ; preds = %15, %add_huff_table
 25:                                               ; preds = %add_huff_table.exit19.i
   %26 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
   store ptr %26, ptr %22, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %26, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %26, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
   %.pre41.i = load ptr, ptr %22, align 8
   %27 = getelementptr inbounds i8, ptr %.pre41.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %27, ptr noundef nonnull readonly align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %27, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
   %28 = load ptr, ptr %22, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(244) %29, i8 0, i64 244, i1 false)
@@ -695,10 +695,10 @@ add_huff_table.exit25.i:                          ; preds = %25, %add_huff_table
 35:                                               ; preds = %add_huff_table.exit25.i
   %36 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
   store ptr %36, ptr %32, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %36, ptr noundef nonnull readonly align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %36, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
   %.pre43.i = load ptr, ptr %32, align 8
   %37 = getelementptr inbounds i8, ptr %.pre43.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %37, ptr noundef nonnull readonly align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %37, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
   %38 = load ptr, ptr %32, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 179
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(94) %39, i8 0, i64 94, i1 false)

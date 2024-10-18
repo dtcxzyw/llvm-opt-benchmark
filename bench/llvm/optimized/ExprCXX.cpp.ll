@@ -356,7 +356,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEva
   %13 = getelementptr inbounds i8, ptr %11, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 96
-  %16 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %14)
+  %16 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %14)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
@@ -528,7 +528,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(p
   %13 = getelementptr inbounds i8, ptr %11, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 96
-  %16 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %14)
+  %16 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %14)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
@@ -1072,7 +1072,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang10CXXNewExpr25shouldNullCheckAllo
 12:                                               ; preds = %8
   %13 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #16
   %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   %17 = icmp sgt i64 %15, 0
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %24
@@ -1590,7 +1590,7 @@ define dso_local noundef ptr @_ZN5clang20UnresolvedLookupExpr6CreateERKNS_10ASTC
   br label %18
 
 14:                                               ; preds = %12
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %7) #16
   %16 = shl i64 %15, 5
   %17 = and i64 %16, 137438953440
   br label %18
@@ -1776,7 +1776,7 @@ define dso_local noundef ptr @_ZN5clang25DependentScopeDeclRefExpr6CreateERKNS_1
   br label %12
 
 8:                                                ; preds = %6
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %5) #16
   %10 = shl i64 %9, 5
   %11 = and i64 %10, 137438953440
   br label %12
@@ -2719,7 +2719,7 @@ _ZN5clang16CXXNamedCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKind
   store i32 %56, ptr %.0.i.i.i25, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25, i64 24
   store ptr %6, ptr %57, align 8
-  %58 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %.0.i.i.i25) #16
+  %58 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25) #16
   %59 = load i16, ptr %42, align 1
   %60 = and i8 %58, 31
   %61 = zext nneg i8 %60 to i16
@@ -2739,7 +2739,7 @@ _ZN5clang16CXXNamedCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKind
   br i1 %.not12.i, label %_ZN5clang17CXXStaticCastExprC2ENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEjPNS_14TypeSourceInfoENS_17FPOptionsOverrideENS_14SourceLocationES9_NS_11SourceRangeE.exit, label %70
 
 70:                                               ; preds = %_ZN5clang16CXXNamedCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEjbPNS_14TypeSourceInfoENS_14SourceLocationESA_NS_11SourceRangeE.exit.i
-  %71 = tail call noundef ptr @_ZN5clang8CastExpr21getTrailingFPFeaturesEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i25) #16
+  %71 = tail call noundef ptr @_ZN5clang8CastExpr21getTrailingFPFeaturesEv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i25) #16
   store i64 %7, ptr %71, align 4
   br label %_ZN5clang17CXXStaticCastExprC2ENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEjPNS_14TypeSourceInfoENS_17FPOptionsOverrideENS_14SourceLocationES9_NS_11SourceRangeE.exit
 
@@ -2909,7 +2909,7 @@ _ZN5clang18CXXDynamicCastExprC2ENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS
   store i32 %52, ptr %.0.i.i.i24, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 24
   store ptr %6, ptr %53, align 8
-  %54 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %.0.i.i.i24) #16
+  %54 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i24) #16
   %55 = load i16, ptr %40, align 1
   %56 = and i8 %54, 31
   %57 = zext nneg i8 %56 to i16
@@ -3169,7 +3169,7 @@ _ZN5clang22CXXReinterpretCastExprC2ENS_8QualTypeENS_13ExprValueKindENS_8CastKind
   store i32 %52, ptr %.0.i.i.i24, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 24
   store ptr %6, ptr %53, align 8
-  %54 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %.0.i.i.i24) #16
+  %54 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i24) #16
   %55 = load i16, ptr %40, align 1
   %56 = and i8 %54, 31
   %57 = zext nneg i8 %56 to i16
@@ -3300,7 +3300,7 @@ _ZN5clang16CXXConstCastExprC2ENS_8QualTypeENS_13ExprValueKindEPNS_4ExprEPNS_14Ty
   store i32 %24, ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %4, ptr %25, align 8
-  %26 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %9) #16
+  %26 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(48) %9) #16
   %27 = load i16, ptr %14, align 1
   %28 = and i8 %26, 31
   %29 = zext nneg i8 %28 to i16
@@ -3378,7 +3378,7 @@ _ZN5clang20CXXAddrspaceCastExprC2ENS_8QualTypeENS_13ExprValueKindENS_8CastKindEP
   store i32 %27, ptr %10, align 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %5, ptr %28, align 8
-  %29 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %10) #16
+  %29 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(48) %10) #16
   %30 = load i16, ptr %15, align 1
   %31 = and i8 %29, 31
   %32 = zext nneg i8 %31 to i16
@@ -3503,7 +3503,7 @@ _ZN5clang16ExplicitCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKind
   store i32 %55, ptr %.0.i.i.i23, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 24
   store ptr %3, ptr %56, align 8
-  %57 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull %.0.i.i.i23) #16
+  %57 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_16ExplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i23) #16
   %58 = load i16, ptr %41, align 1
   %59 = and i8 %57, 31
   %60 = zext nneg i8 %59 to i16
@@ -3521,7 +3521,7 @@ _ZN5clang16ExplicitCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKind
   br i1 %.not8.i, label %_ZN5clang21CXXFunctionalCastExprC2ENS_8QualTypeENS_13ExprValueKindEPNS_14TypeSourceInfoENS_8CastKindEPNS_4ExprEjNS_17FPOptionsOverrideENS_14SourceLocationES9_.exit, label %68
 
 68:                                               ; preds = %_ZN5clang16ExplicitCastExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_8CastKindEPNS_4ExprEjbPNS_14TypeSourceInfoE.exit.i
-  %69 = tail call noundef ptr @_ZN5clang8CastExpr21getTrailingFPFeaturesEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i23) #16
+  %69 = tail call noundef ptr @_ZN5clang8CastExpr21getTrailingFPFeaturesEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i23) #16
   store i64 %7, ptr %69, align 4
   br label %_ZN5clang21CXXFunctionalCastExprC2ENS_8QualTypeENS_13ExprValueKindEPNS_14TypeSourceInfoENS_8CastKindEPNS_4ExprEjNS_17FPOptionsOverrideENS_14SourceLocationES9_.exit
 
@@ -4478,7 +4478,7 @@ _ZN5clang20CXXBindTemporaryExprC2EPNS_12CXXTemporaryEPNS_4ExprE.exit: ; preds = 
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %14, align 8
-  %15 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull %4) #16
+  %15 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %16 = load i16, ptr %10, align 1
   %17 = and i8 %15, 31
   %18 = zext nneg i8 %17 to i16
@@ -6303,7 +6303,7 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit.i: ; preds = %15, %1
   br i1 %26, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.i.i.i, label %_ZNK5clang13CXXMethodDecl7isConstEv.exit
 
 _ZNK5clang4Type19isFunctionProtoTypeEv.exit.i.i.i: ; preds = %19
-  %27 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.0.i.i) #16
+  %27 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(32) %.0.i.i) #16
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %_ZNK5clang13CXXMethodDecl7isConstEv.exit, label %_ZNK5clang4Type19isFunctionProtoTypeEv.exit.thread.i.i.i
 
@@ -6430,7 +6430,7 @@ _ZN5clang8FullExprC2ENS_4Stmt9StmtClassEPNS_4ExprE.exit: ; preds = %5, %11
   store i64 %.sroa.0.0.copyload.i.i, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %18, align 8
-  %19 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_8FullExprE(ptr noundef nonnull %0) #16
+  %19 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_8FullExprE(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   %20 = load i16, ptr %13, align 1
   %21 = and i8 %19, 31
   %22 = zext nneg i8 %21 to i16
@@ -6926,7 +6926,7 @@ define dso_local noundef ptr @_ZN5clang27CXXDependentScopeMemberExpr6CreateERKNS
   br label %16
 
 12:                                               ; preds = %10
-  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
+  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %9) #16
   %14 = shl i64 %13, 5
   %15 = and i64 %14, 137438953440
   br label %16
@@ -7060,7 +7060,7 @@ _ZN5clang11CXXThisExprC2ENS_14SourceLocationENS_8QualTypeEbNS_13ExprValueKindE.e
   store i32 %24, ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %25, align 4
-  %26 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_11CXXThisExprE(ptr noundef nonnull %5) #16
+  %26 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %27 = load i16, ptr %14, align 1
   %28 = and i8 %26, 31
   %29 = zext nneg i8 %28 to i16
@@ -7288,7 +7288,7 @@ define dso_local noundef ptr @_ZN5clang20UnresolvedMemberExpr6CreateERKNS_10ASTC
   br label %18
 
 14:                                               ; preds = %12
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(280) %9) #16
   %16 = shl i64 %15, 5
   %17 = and i64 %16, 137438953440
   br label %18
@@ -8309,7 +8309,7 @@ _ZN5clang29LifetimeExtendedTemporaryDecl6CreateEPNS_4ExprEPNS_9ValueDeclEj.exit:
   %.0.i.i.i = phi ptr [ %24, %23 ], [ %22, %_ZN5clang4Decl14getDeclContextEv.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %25, align 8
-  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(33) %18, i32 noundef 78, ptr noundef %.0.i.i.i, i32 %.sroa.0.0.copyload.i.i.i)
+  tail call void @_ZN5clang4DeclC2ENS0_4KindEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 78, ptr noundef %.0.i.i.i, i32 %.sroa.0.0.copyload.i.i.i)
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang29LifetimeExtendedTemporaryDeclE, i64 16), ptr %18, align 8
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %9, ptr %26, align 8
@@ -8755,7 +8755,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   br label %_ZN5clang20CXXParenListInitExprC2EN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEjNS_14SourceLocationES7_S7_.exit
 
 _ZN5clang20CXXParenListInitExprC2EN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEjNS_14SourceLocationES7_S7_.exit: ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit.i, %46
-  %48 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_20CXXParenListInitExprE(ptr noundef nonnull %.0.i.i.i12) #16
+  %48 = tail call noundef zeroext i8 @_ZN5clang17computeDependenceEPNS_20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i12) #16
   %49 = load i16, ptr %33, align 1
   %50 = and i8 %48, 31
   %51 = zext nneg i8 %50 to i16

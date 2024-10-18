@@ -1196,7 +1196,7 @@ define dso_local i32 @_ZNK8V3HasherclEP7AstNode(ptr nocapture noundef nonnull re
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 288
   %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.pre = load i32, ptr %4, align 4
   %.pre5 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   %.pre6 = load i64, ptr %8, align 8
@@ -1233,7 +1233,7 @@ define dso_local i32 @_ZNK8V3Hasher6rehashEP7AstNode(ptr nocapture noundef nonnu
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 288
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %11(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %12 = load i32, ptr %6, align 4
   %13 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4
   %14 = icmp eq i32 %12, %13
@@ -1254,7 +1254,7 @@ define dso_local i32 @_ZN8V3Hasher12uncachedHashEPK7AstNode(ptr noundef %0) loca
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
   %7 = load ptr, ptr %6, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
   ret i32 %.sroa.0.0.copyload.i
 }
@@ -1273,7 +1273,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_Z20V3HasherUncachedHashR
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 288
   %7 = load ptr, ptr %6, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %8 = zext i32 %.sroa.0.0.copyload.i.i to i64
@@ -1307,7 +1307,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstNode(ptr nound
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstNodeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP7AstNodeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1350,7 +1350,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -1362,7 +1362,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -1402,7 +1402,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -1416,7 +1416,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -1503,7 +1503,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 288
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %30
@@ -1515,7 +1515,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %60
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -1555,7 +1555,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
 57:                                               ; preds = %55
@@ -1569,7 +1569,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   ret void
 
 60:                                               ; preds = %.body
-  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %62
 
 62:                                               ; preds = %60
@@ -1650,7 +1650,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 288
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %30
@@ -1662,7 +1662,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %60
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -1702,7 +1702,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
 57:                                               ; preds = %55
@@ -1716,7 +1716,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   ret void
 
 60:                                               ; preds = %.body
-  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %62
 
 62:                                               ; preds = %60
@@ -1749,7 +1749,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstArg(ptr nounde
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstArgEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP6AstArgEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1792,7 +1792,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -1804,7 +1804,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -1844,7 +1844,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -1858,7 +1858,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -1968,7 +1968,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %.noexc,
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %31
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %31, %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2016,7 +2016,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -2030,7 +2030,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %63
 
 63:                                               ; preds = %61
@@ -2114,7 +2114,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -2126,7 +2126,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -2166,7 +2166,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -2180,7 +2180,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -2271,7 +2271,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %51 = add i32 %49, %50
   %52 = xor i32 %51, %44
   store i32 %52, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -2319,7 +2319,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %74
 
 74:                                               ; preds = %64
-  %75 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %76
 
 76:                                               ; preds = %74
@@ -2333,7 +2333,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %64, %74
   ret void
 
 79:                                               ; preds = %.body
-  %80 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %80 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %81
 
 81:                                               ; preds = %79
@@ -2424,7 +2424,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 288
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %30
@@ -2436,7 +2436,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %60
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -2476,7 +2476,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
 57:                                               ; preds = %55
@@ -2490,7 +2490,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   ret void
 
 60:                                               ; preds = %.body
-  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %62
 
 62:                                               ; preds = %60
@@ -2565,7 +2565,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -2577,7 +2577,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -2617,7 +2617,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -2631,7 +2631,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -2684,7 +2684,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstCDType(ptr nou
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP9AstCDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -2699,7 +2699,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -2711,7 +2711,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -2751,7 +2751,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -2765,7 +2765,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -2849,7 +2849,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 288
   %37 = load ptr, ptr %36, align 8
-  invoke void %37(ptr noundef nonnull align 8 dereferenceable(152) %33, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(152) %33, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %34
@@ -2861,7 +2861,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %62
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %34, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -2899,7 +2899,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %57
 
 57:                                               ; preds = %47
-  %58 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %58 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %59
 
 59:                                               ; preds = %57
@@ -2913,7 +2913,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %47, %57
   ret void
 
 62:                                               ; preds = %.body
-  %63 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %64
 
 64:                                               ; preds = %62
@@ -2932,7 +2932,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCLocalScope(p
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCLocalScopeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstCLocalScopeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2975,7 +2975,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -2987,7 +2987,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -3027,7 +3027,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -3041,7 +3041,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -3098,11 +3098,11 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstCMethodHard(p
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP14AstCMethodHardENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP14AstCMethodHardENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3150,7 +3150,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -3164,7 +3164,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   ret void
 
 48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %50
 
 50:                                               ; preds = %48
@@ -3243,7 +3243,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP7AstCell(ptr nound
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP7AstCellENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -3258,7 +3258,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -3270,7 +3270,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -3310,7 +3310,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -3324,7 +3324,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -3379,7 +3379,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstCellInline(pt
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP13AstCellInlineENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP13AstCellInlineENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -3394,7 +3394,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -3406,7 +3406,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -3446,7 +3446,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -3460,7 +3460,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -3483,7 +3483,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP15AstClassExtends(
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstClassExtendsEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP15AstClassExtendsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -3526,7 +3526,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -3538,7 +3538,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -3578,7 +3578,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -3592,7 +3592,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -3669,7 +3669,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 288
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %30
@@ -3681,7 +3681,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %60
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -3721,7 +3721,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
 57:                                               ; preds = %55
@@ -3735,7 +3735,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   ret void
 
 60:                                               ; preds = %.body
-  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %62
 
 62:                                               ; preds = %60
@@ -3803,7 +3803,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstClassRefDType
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -3851,7 +3851,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -3865,7 +3865,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -3970,7 +3970,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %34 = load ptr, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 288
   %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(152) %32, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %33
@@ -3982,7 +3982,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %63
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %33, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -4022,7 +4022,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %58
 
 58:                                               ; preds = %48
-  %59 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %60
 
 60:                                               ; preds = %58
@@ -4036,7 +4036,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %48, %58
   ret void
 
 63:                                               ; preds = %.body
-  %64 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %65
 
 65:                                               ; preds = %63
@@ -4113,7 +4113,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 288
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(152) %29, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %30
@@ -4125,7 +4125,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %60
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %30, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -4165,7 +4165,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
 55:                                               ; preds = %45
-  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
 57:                                               ; preds = %55
@@ -4179,7 +4179,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %45, %55
   ret void
 
 60:                                               ; preds = %.body
-  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %62
 
 62:                                               ; preds = %60
@@ -4277,7 +4277,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstCoverInc(ptr 
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4325,7 +4325,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -4339,7 +4339,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -4424,7 +4424,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -4436,7 +4436,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -4476,7 +4476,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -4490,7 +4490,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -4509,7 +4509,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstDefParam(ptr 
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstDefParamEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstDefParamEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -4552,7 +4552,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -4564,7 +4564,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -4604,7 +4604,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -4618,7 +4618,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -4687,7 +4687,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %27 = add nuw nsw i32 %26, %22
   %28 = xor i32 %27, %20
   store i32 %28, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4735,7 +4735,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %50
 
 50:                                               ; preds = %40
-  %51 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %51 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %52
 
 52:                                               ; preds = %50
@@ -4749,7 +4749,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %40, %50
   ret void
 
 55:                                               ; preds = %.body
-  %56 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %56 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %57
 
 57:                                               ; preds = %55
@@ -4845,7 +4845,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstDynArrayDType
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -4893,7 +4893,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -4907,7 +4907,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -4981,7 +4981,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -4993,7 +4993,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -5033,7 +5033,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -5047,7 +5047,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -5172,7 +5172,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstEnumItem(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstEnumItemENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstEnumItemENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -5187,7 +5187,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -5199,7 +5199,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -5239,7 +5239,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -5253,7 +5253,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -5352,7 +5352,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstFScanF(ptr nou
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP9AstFScanFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -5367,7 +5367,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -5379,7 +5379,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -5419,7 +5419,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -5433,7 +5433,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -5561,7 +5561,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstIfaceRefDType
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -5609,7 +5609,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -5623,7 +5623,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -5668,7 +5668,7 @@ _ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit: ; pre
 12:                                               ; preds = %_ZN7AstNode11privateCastI18AstAssocArrayDTypeP12AstNodeDTypeEEPT_PS_.exit
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE_E9_M_invokeERKSt9_Any_data, ptr %14, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 12
@@ -5711,7 +5711,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %18, %12
   %33 = load ptr, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 288
   %35 = load ptr, ptr %34, align 8
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(152) %31, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(152) %31, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %32
@@ -5723,7 +5723,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %18, %12
   br i1 %.not.i.i27, label %_ZNSt8functionIFvvEED2Ev.exit28, label %62
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %32, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -5763,7 +5763,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i26, label %_ZNSt8functionIFvvEED2Ev.exit, label %57
 
 57:                                               ; preds = %47
-  %58 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %58 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %59
 
 59:                                               ; preds = %57
@@ -5774,7 +5774,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   unreachable
 
 62:                                               ; preds = %.body
-  %63 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit28 unwind label %64
 
 64:                                               ; preds = %62
@@ -5821,7 +5821,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %57, %47, %_ZN7AstNo
   store i32 %92, ptr %70, align 8
   %93 = getelementptr inbounds i8, ptr %.sroa.073.085, i64 40
   %94 = load ptr, ptr %93, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %72, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstInitArrayEUlvE0_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %71, align 8
   %95 = load i8, ptr %73, align 4
@@ -5856,7 +5856,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i31:               ; preds = %97, %74
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 288
   %112 = load ptr, ptr %111, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(152) %108, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(152) %108, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35 unwind label %.body42
 
 .body42:                                          ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35, %109
@@ -5868,7 +5868,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i31:               ; preds = %97, %74
   br i1 %.not.i.i47, label %_ZNSt8functionIFvvEED2Ev.exit28, label %138
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35: ; preds = %109, %_ZNKSt8functionIFvvEEclEv.exit.i31
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %94, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %94, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36 unwind label %.body42
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i35
@@ -5906,7 +5906,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i36: ; preds = %_ZN14VN
   br i1 %.not.i.i45, label %_ZNSt8functionIFvvEED2Ev.exit46, label %132
 
 132:                                              ; preds = %124
-  %133 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %133 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit46 unwind label %134
 
 134:                                              ; preds = %132
@@ -5922,7 +5922,7 @@ _ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %124, %132
   br i1 %.not, label %_ZNSt8functionIFvvEED2Ev.exit69, label %74
 
 138:                                              ; preds = %.body42
-  %139 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %139 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit28 unwind label %140
 
 140:                                              ; preds = %138
@@ -6019,7 +6019,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i54:               ; preds = %_ZN14VNVisitorConst
   %173 = load ptr, ptr %171, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 288
   %175 = load ptr, ptr %174, align 8
-  invoke void %175(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %175(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58 unwind label %.body65.loopexit.split-lp
 
 .body65.loopexit:                                 ; preds = %164, %167
@@ -6076,7 +6076,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58: ; preds = %172, %_ZNKS
   br i1 %.not.i.i68, label %_ZNSt8functionIFvvEED2Ev.exit69, label %196
 
 196:                                              ; preds = %186
-  %197 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %197 = invoke noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit69 unwind label %198
 
 198:                                              ; preds = %196
@@ -6087,7 +6087,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i58: ; preds = %172, %_ZNKS
   unreachable
 
 201:                                              ; preds = %.body65
-  %202 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %202 = invoke noundef zeroext i1 %176(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit28 unwind label %203
 
 203:                                              ; preds = %201
@@ -6110,7 +6110,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstInitItem(ptr 
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstInitItemEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstInitItemEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -6153,7 +6153,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -6165,7 +6165,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -6205,7 +6205,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -6219,7 +6219,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -6303,7 +6303,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstJumpGo(ptr nou
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6351,7 +6351,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -6365,7 +6365,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -6422,7 +6422,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMTaskBody(ptr
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMTaskBodyEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstMTaskBodyEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -6465,7 +6465,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -6477,7 +6477,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -6517,7 +6517,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -6531,7 +6531,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -6584,11 +6584,11 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstMemberDType(p
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP14AstMemberDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP14AstMemberDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -6636,7 +6636,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -6650,7 +6650,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   ret void
 
 48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %50
 
 50:                                               ; preds = %48
@@ -6703,7 +6703,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstMemberSel(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP12AstMemberSelENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP12AstMemberSelENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -6718,7 +6718,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -6730,7 +6730,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -6770,7 +6770,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -6784,7 +6784,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -6843,7 +6843,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstModport(ptr n
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP10AstModportENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP10AstModportENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -6858,7 +6858,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -6870,7 +6870,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -6910,7 +6910,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -6924,7 +6924,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -6977,7 +6977,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP18AstModportFTaskR
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP18AstModportFTaskRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP18AstModportFTaskRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -6992,7 +6992,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -7004,7 +7004,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -7044,7 +7044,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -7058,7 +7058,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -7111,7 +7111,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstModportVarRef
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP16AstModportVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP16AstModportVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -7126,7 +7126,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -7138,7 +7138,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -7178,7 +7178,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -7192,7 +7192,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -7257,7 +7257,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %28 = add nuw nsw i32 %27, %24
   %29 = xor i32 %28, %20
   store i32 %29, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7305,7 +7305,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %51
 
 51:                                               ; preds = %41
-  %52 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %52 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %53
 
 53:                                               ; preds = %51
@@ -7319,7 +7319,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %41, %51
   ret void
 
 56:                                               ; preds = %.body
-  %57 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %58
 
 58:                                               ; preds = %56
@@ -7488,7 +7488,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZNK17AstNodeArrayD
   %64 = add i32 %62, %63
   %65 = xor i32 %64, %59
   store i32 %65, ptr %18, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, %26, %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7536,7 +7536,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %87
 
 87:                                               ; preds = %77
-  %88 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %88 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %89
 
 89:                                               ; preds = %87
@@ -7550,7 +7550,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %77, %87
   ret void
 
 92:                                               ; preds = %.body
-  %93 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %93 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %94
 
 94:                                               ; preds = %92
@@ -7611,7 +7611,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeBlock(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP12AstNodeBlockENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP12AstNodeBlockENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -7626,7 +7626,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -7638,7 +7638,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -7678,7 +7678,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -7692,7 +7692,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -7758,7 +7758,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeCCall(ptr
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7806,7 +7806,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -7820,7 +7820,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -7877,11 +7877,11 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstNodeCoverOrAs
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP20AstNodeCoverOrAssertENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP20AstNodeCoverOrAssertENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -7929,7 +7929,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -7943,7 +7943,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   ret void
 
 48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %50
 
 50:                                               ; preds = %48
@@ -7968,7 +7968,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeExpr(ptr 
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeExprEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeExprEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8011,7 +8011,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -8023,7 +8023,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8063,7 +8063,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -8077,7 +8077,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -8130,7 +8130,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeFTask(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP12AstNodeFTaskENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -8145,7 +8145,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -8157,7 +8157,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8197,7 +8197,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -8211,7 +8211,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -8295,7 +8295,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i: ; preds = %.noexc,
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i.i.i.i, %31
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %31, %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -8343,7 +8343,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -8357,7 +8357,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %63
 
 63:                                               ; preds = %61
@@ -8410,7 +8410,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeFile(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstNodeFileENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstNodeFileENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -8425,7 +8425,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -8437,7 +8437,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8477,7 +8477,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -8491,7 +8491,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -8550,7 +8550,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodeModule(pt
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP13AstNodeModuleENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP13AstNodeModuleENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -8565,7 +8565,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %24
@@ -8613,7 +8613,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -8627,7 +8627,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -8646,7 +8646,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstNodePreSel(pt
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodePreSelEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP13AstNodePreSelEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8689,7 +8689,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -8701,7 +8701,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8741,7 +8741,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -8755,7 +8755,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -8774,7 +8774,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP16AstNodeProcedure
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstNodeProcedureEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP16AstNodeProcedureEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8817,7 +8817,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -8829,7 +8829,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8869,7 +8869,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -8883,7 +8883,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -8904,7 +8904,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNodeRange(ptr
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeRangeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNodeRangeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8947,7 +8947,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -8959,7 +8959,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -8999,7 +8999,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -9013,7 +9013,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -9038,7 +9038,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeStmt(ptr 
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeStmtEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP11AstNodeStmtEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -9070,7 +9070,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %.sroa.0.0.copyload.i.i = load i16, ptr %19, align 8
   %20 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %20, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9118,7 +9118,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %42
 
 42:                                               ; preds = %32
-  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %44
 
 44:                                               ; preds = %42
@@ -9132,7 +9132,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   ret void
 
 47:                                               ; preds = %.body
-  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit4 unwind label %49
 
 49:                                               ; preds = %47
@@ -9193,11 +9193,11 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstNodeText(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstNodeTextENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstNodeTextENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -9245,7 +9245,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -9259,7 +9259,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   ret void
 
 48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %50
 
 50:                                               ; preds = %48
@@ -9354,7 +9354,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstNullCheck(ptr
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNullCheckEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstNullCheckEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -9397,7 +9397,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -9409,7 +9409,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -9449,7 +9449,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -9463,7 +9463,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -9532,7 +9532,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP17AstParamTypeDTyp
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP17AstParamTypeDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -9547,7 +9547,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -9559,7 +9559,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -9599,7 +9599,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -9613,7 +9613,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -9666,7 +9666,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstParseRef(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstParseRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstParseRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -9681,7 +9681,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -9693,7 +9693,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -9733,7 +9733,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -9747,7 +9747,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -9808,7 +9808,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstPin(ptr nounde
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP6AstPinENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -9823,7 +9823,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -9835,7 +9835,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -9875,7 +9875,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -9889,7 +9889,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -9979,7 +9979,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -9991,7 +9991,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -10031,7 +10031,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -10045,7 +10045,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -10127,7 +10127,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstQueueDType(pt
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10175,7 +10175,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -10189,7 +10189,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -10264,11 +10264,11 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstRefDType(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstRefDTypeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -10316,7 +10316,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %43
 
 43:                                               ; preds = %33
-  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %44 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %45
 
 45:                                               ; preds = %43
@@ -10330,7 +10330,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %33, %43
   ret void
 
 48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %50
 
 50:                                               ; preds = %48
@@ -10401,7 +10401,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstSFormatF(ptr 
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP11AstSFormatFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP11AstSFormatFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -10416,7 +10416,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -10428,7 +10428,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -10468,7 +10468,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -10482,7 +10482,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -10535,7 +10535,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstSScanF(ptr nou
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP9AstSScanFENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -10550,7 +10550,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -10562,7 +10562,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -10602,7 +10602,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -10616,7 +10616,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -10685,7 +10685,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP8AstScope(ptr noun
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP8AstScopeENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -10700,7 +10700,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %24
@@ -10748,7 +10748,7 @@ _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8f
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -10762,7 +10762,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -10789,7 +10789,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstSelLoopVars(p
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstSelLoopVarsEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstSelLoopVarsEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -10832,7 +10832,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -10844,7 +10844,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -10884,7 +10884,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -10898,7 +10898,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -10976,7 +10976,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 288
   %34 = load ptr, ptr %33, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(152) %30, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %31
@@ -10988,7 +10988,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %61
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %31, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -11028,7 +11028,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
 
 56:                                               ; preds = %46
-  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -11042,7 +11042,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %46, %56
   ret void
 
 61:                                               ; preds = %.body
-  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %62 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %63
 
 63:                                               ; preds = %61
@@ -11061,7 +11061,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstSenTree(ptr n
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenTreeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP10AstSenTreeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -11104,7 +11104,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 288
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %23
@@ -11116,7 +11116,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit5, label %53
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %23, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -11156,7 +11156,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i3, label %_ZNSt8functionIFvvEED2Ev.exit, label %48
 
 48:                                               ; preds = %38
-  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %49 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %50
 
 50:                                               ; preds = %48
@@ -11170,7 +11170,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %38, %48
   ret void
 
 53:                                               ; preds = %.body
-  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %55
 
 55:                                               ; preds = %53
@@ -11227,7 +11227,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP14AstStreamDType(p
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstStreamDTypeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP14AstStreamDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -11259,7 +11259,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %.sroa.0.0.copyload.i.i = load i16, ptr %19, align 8
   %20 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %20, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11307,7 +11307,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %42
 
 42:                                               ; preds = %32
-  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %44
 
 44:                                               ; preds = %42
@@ -11321,7 +11321,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   ret void
 
 47:                                               ; preds = %.body
-  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit4 unwind label %49
 
 49:                                               ; preds = %47
@@ -11447,7 +11447,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP11AstTraceInc(ptr 
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11495,7 +11495,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -11509,7 +11509,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -11568,7 +11568,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstTypedef(ptr n
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP10AstTypedefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP10AstTypedefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -11583,7 +11583,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -11595,7 +11595,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -11635,7 +11635,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -11649,7 +11649,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -11702,7 +11702,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP13AstTypedefFwd(pt
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP13AstTypedefFwdENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP13AstTypedefFwdENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -11717,7 +11717,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -11729,7 +11729,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -11769,7 +11769,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -11783,7 +11783,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -11869,7 +11869,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP20AstUnsizedArrayD
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -11917,7 +11917,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -11931,7 +11931,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54
@@ -11990,7 +11990,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP6AstVar(ptr nounde
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP6AstVarENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -12005,7 +12005,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -12017,7 +12017,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -12057,7 +12057,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -12071,7 +12071,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -12124,7 +12124,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP9AstVarRef(ptr nou
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP9AstVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP9AstVarRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -12139,7 +12139,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -12151,7 +12151,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -12191,7 +12191,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -12205,7 +12205,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -12300,7 +12300,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst
   %38 = load ptr, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 288
   %40 = load ptr, ptr %39, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(152) %36, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(152) %36, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %31, %24, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %37
@@ -12312,7 +12312,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %_ZN14VNVisitorConst
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %67
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %37, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -12352,7 +12352,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %62
 
 62:                                               ; preds = %52
-  %63 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %63 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %64
 
 64:                                               ; preds = %62
@@ -12366,7 +12366,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %52, %62
   ret void
 
 67:                                               ; preds = %.body
-  %68 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %68 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %69
 
 69:                                               ; preds = %67
@@ -12419,7 +12419,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP10AstVarXRef(ptr n
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %21, ptr %18, align 8
-  invoke void @_ZZN13HasherVisitor5visitEP10AstVarXRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZZN13HasherVisitor5visitEP10AstVarXRefENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
@@ -12434,7 +12434,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %17, %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i, %24
@@ -12446,7 +12446,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17
   br i1 %.not.i.i5, label %_ZNSt8functionIFvvEED2Ev.exit6, label %54
 
 _ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i: ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVisitorConst16iterateConstNullEP7AstNode.exit.i
@@ -12486,7 +12486,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZN14VNVi
   br i1 %.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -12500,7 +12500,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit6 unwind label %56
 
 56:                                               ; preds = %54
@@ -12519,7 +12519,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP12AstVoidDType(ptr
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstVoidDTypeEUlvE_E9_M_invokeERKSt9_Any_data, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN13HasherVisitor5visitEP12AstVoidDTypeEUlvE_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -12551,7 +12551,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %9, %2
   %.sroa.0.0.copyload.i.i = load i16, ptr %19, align 8
   %20 = zext i16 %.sroa.0.0.copyload.i.i to i32
   store i32 %20, ptr %17, align 8
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12599,7 +12599,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %42
 
 42:                                               ; preds = %32
-  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %43 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %44
 
 44:                                               ; preds = %42
@@ -12613,7 +12613,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %32, %42
   ret void
 
 47:                                               ; preds = %.body
-  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %48 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit4 unwind label %49
 
 49:                                               ; preds = %47
@@ -12685,7 +12685,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitor5visitEP21AstWildcardArray
           to label %_ZNKSt8functionIFvvEEclEv.exit.i unwind label %.body
 
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %17, %24
-  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i unwind label %.body
 
 .body:                                            ; preds = %24, %_ZNKSt8functionIFvvEEclEv.exit.i
@@ -12733,7 +12733,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %_ZNKSt8fu
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %49
 
 49:                                               ; preds = %39
-  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %50 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %51
 
 51:                                               ; preds = %49
@@ -12747,7 +12747,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %39, %49
   ret void
 
 54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit5 unwind label %56
 
 56:                                               ; preds = %54

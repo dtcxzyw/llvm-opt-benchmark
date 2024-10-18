@@ -29,7 +29,7 @@ define dso_local void @_ZN5clang15data_collection13getMacroStackB5cxx11ENS_14Sou
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %9, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #5
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2104
   %11 = load ptr, ptr %10, align 8
   %12 = icmp slt i32 %1, 0
@@ -57,7 +57,7 @@ define dso_local void @_ZN5clang15data_collection13getMacroStackB5cxx11ENS_14Sou
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %16
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %18, i64 noundef %19) #5
+  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %18, i64 noundef %19) #5
   %.pre.i = load ptr, ptr %15, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 
@@ -79,7 +79,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %29, %28, %26
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
-  %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str, i64 noundef 1) #5
+  %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str, i64 noundef 1) #5
   br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
 
 37:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
@@ -120,7 +120,7 @@ _ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit:
   br label %_ZN4llvm11raw_ostream5flushEv.exit
 
 _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %._crit_edge, %49
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #5
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #5
   ret void
 }
 

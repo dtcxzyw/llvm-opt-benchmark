@@ -321,10 +321,10 @@ if.end275:                                        ; preds = %if.else267, %if.the
   %and285159173 = and i1 %4, %9
   %conv.i163 = select i1 %and158172, i32 255, i32 0
   %conv2.i = zext i8 %b.0 to i32
-  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i163) #7, !srcloc !9
+  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i163) #7, !srcloc !9
   %and.i.i = and i32 %10, 128
   %not.i.i = xor i32 %conv.i163, -1
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %not.i.i) #7, !srcloc !9
   %and2.i.i = and i32 %11, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %conv3.i = trunc nuw i32 %or.i.i to i8
@@ -339,9 +339,9 @@ if.then301:                                       ; preds = %if.end275
   %12 = load i8, ptr %arrayidx304, align 1
   %conv1.i = zext i8 %12 to i32
   %conv2.i165 = zext i8 %and296 to i32
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i164) #7, !srcloc !9
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, 256) %conv.i164) #7, !srcloc !9
   %and.i.i166 = and i32 %13, %conv1.i
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i167) #7, !srcloc !9
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) %not.i.i167) #7, !srcloc !9
   %and2.i.i168 = and i32 %14, %conv2.i165
   %or.i.i169 = or i32 %and2.i.i168, %and.i.i166
   %conv3.i170 = trunc nuw i32 %or.i.i169 to i8

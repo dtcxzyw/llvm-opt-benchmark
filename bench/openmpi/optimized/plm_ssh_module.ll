@@ -863,7 +863,7 @@ define internal noundef i32 @ssh_finalize() #0 {
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %29 = phi ptr [ %31, %.lr.ph.i ], [ %28, %23 ]
   %.07.i = phi ptr [ %30, %.lr.ph.i ], [ %27, %23 ]
-  tail call void %29(ptr noundef %6) #18
+  tail call void %29(ptr noundef nonnull %6) #18
   %30 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null

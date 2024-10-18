@@ -187,7 +187,7 @@ for.body.i15.i.i:                                 ; preds = %for.inc.i.i.i, %if.
   br i1 %tobool.i.i.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i15.i.i
-  tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %10, ptr noundef %output)
+  tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %10, ptr noundef nonnull %output)
   br label %for.inc.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i15.i.i
@@ -318,7 +318,7 @@ for.body.i27.i.i:                                 ; preds = %for.inc.i41.i.i, %f
   br i1 %tobool.i.i.not.i32.i.i, label %if.then.i56.i.i, label %if.else.i33.i.i
 
 if.then.i56.i.i:                                  ; preds = %for.body.i27.i.i
-  invoke void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %28, ptr noundef %output)
+  invoke void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %28, ptr noundef nonnull %output)
           to label %for.inc.i41.i.i unwind label %lpad.i.i
 
 if.else.i33.i.i:                                  ; preds = %for.body.i27.i.i
@@ -408,7 +408,7 @@ _ZN3url14RawCanonOutputILi1024EED2Ev.exit66.i.i:  ; preds = %delete.notnull.i.i6
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
   %arrayidx9.i12.i = getelementptr inbounds i8, ptr %spec, i64 %7
-  tail call void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %arrayidx9.i12.i, i32 noundef %query.val8.i, i32 noundef 1, ptr noundef %output)
+  tail call void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %arrayidx9.i12.i, i32 noundef %query.val8.i, i32 noundef 1, ptr noundef nonnull %output)
   br label %_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i
 
 _ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEE.exit.i: ; preds = %for.inc.i.i.i, %if.else6.i.i, %delete.notnull.i.i.i.i, %invoke.cont5.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i

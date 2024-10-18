@@ -52718,7 +52718,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   %65 = load ptr, ptr %64, align 8, !tbaa !289, !noalias !1243
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !1250, !noalias !1243
-  %68 = invoke noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %68 = invoke noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %69 unwind label %71
 
 69:                                               ; preds = %59
@@ -55002,7 +55002,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   %62 = load ptr, ptr %61, align 8, !tbaa !289, !noalias !1294
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !1250, !noalias !1294
-  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %66 unwind label %68
 
 66:                                               ; preds = %56
@@ -55698,7 +55698,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail22deadline_timer_serviceINS0_
   %62 = load ptr, ptr %61, align 8, !tbaa !289, !noalias !1313
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !1250, !noalias !1313
-  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %66 unwind label %68
 
 66:                                               ; preds = %56
@@ -57002,7 +57002,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_service10async_w
   %63 = load ptr, ptr %62, align 8, !tbaa !289, !noalias !1346
   %64 = getelementptr inbounds i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !1250, !noalias !1346
-  %66 = invoke noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %66 = invoke noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %67 unwind label %69
 
 67:                                               ; preds = %57
@@ -63962,7 +63962,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail28reactive_socket_service_bas
   %74 = load ptr, ptr %73, align 8, !tbaa !289, !noalias !1487
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !1250, !noalias !1487
-  %77 = invoke noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %77 = invoke noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %78 unwind label %80
 
 78:                                               ; preds = %68
@@ -72460,7 +72460,7 @@ define linkonce_odr dso_local void @_ZN4crow6Router14handle_initialERNS_7request
   br i1 %1364, label %_ZN4crow6loggerlsIA20_cEERS0_RKT_.exit, label %1365
 
 1365:                                             ; preds = %1361
-  %1366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.369, i64 noundef 19)
+  %1366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %42, ptr noundef nonnull @.str.369, i64 noundef 19)
           to label %._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge unwind label %1396
 
 ._ZN4crow6loggerlsIA20_cEERS0_RKT_.exit_crit_edge: ; preds = %1365
@@ -72493,7 +72493,7 @@ _ZN4crow6loggerlsIA20_cEERS0_RKT_.exit:           ; preds = %._ZN4crow6loggerlsI
   br i1 %1378, label %_ZN4crow6loggerlsIA3_cEERS0_RKT_.exit, label %1379
 
 1379:                                             ; preds = %1375
-  %1380 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.376, i64 noundef 2)
+  %1380 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %42, ptr noundef nonnull @.str.376, i64 noundef 2)
           to label %._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge unwind label %1396
 
 ._ZN4crow6loggerlsIA3_cEERS0_RKT_.exit_crit_edge: ; preds = %1379

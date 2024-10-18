@@ -394,7 +394,7 @@ Abc_NtkAutoPrintAll.exit:                         ; preds = %._crit_edge.i, %154
   %175 = tail call i32 @Cudd_SupportSize(ptr noundef %.val53.val.val.val, ptr noundef %170) #11
   %176 = tail call double @Cudd_CountMinterm(ptr noundef %.val53.val.val.val, ptr noundef %170, i32 noundef %175) #11
   %177 = tail call i32 @Extra_Base2LogDouble(double noundef %176) #11
-  %178 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1, i32 noundef %175, i32 noundef %177)
+  %178 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef range(i32 0, -1) %1, i32 noundef %175, i32 noundef %177)
   tail call void @Cudd_RecursiveDeref(ptr noundef %.val53.val.val.val, ptr noundef %170) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.val53.val.val.val, ptr noundef %171) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.val53.val.val.val, ptr noundef %173) #11

@@ -776,7 +776,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i3.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %4)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %4)
           to label %if.then.i.i7 unwind label %lpad
 
 if.then.i.i7:                                     ; preds = %if.then.i.i.i, %_ZN3refI5modelE7inc_refEv.exit.i, %if.then.i3.i
@@ -791,7 +791,7 @@ if.then.i.i.i11:                                  ; preds = %if.then.i.i7
   %vtable.i.i.i.i12 = load ptr, ptr %call, align 8
   %8 = load ptr, ptr %vtable.i.i.i.i12, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(96) %call) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %call)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %call)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i11
@@ -878,7 +878,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %0) #14
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i

@@ -74,14 +74,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN10ptr_vectorI3tbvED2Ev.exit:                   ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) #19
+  tail call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11tbv_manager5resetEv(ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN22small_object_allocator5resetEv(ptr noundef nonnull align 8 dereferenceable(520) %this)
+  tail call void @_ZN22small_object_allocator5resetEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
   ret void
 }
 
@@ -98,12 +98,12 @@ declare noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager9allocate1Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
   %m_num_bytes.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i, align 4
   %conv.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i, i8 85, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %call.i, i8 85, i64 %conv.i, i1 false)
   ret ptr %call.i
 }
 
@@ -120,12 +120,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager9allocate0Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
   %m_num_bytes.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i, align 4
   %conv.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i, i8 -86, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %call.i, i8 -86, i64 %conv.i, i1 false)
   ret ptr %call.i
 }
 
@@ -142,9 +142,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager9allocateXEv(ptr noundef nonnull align 8 dereferenceable(552) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
-  %call.i2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i2 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
   ret ptr %call.i
 }
 
@@ -158,9 +158,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager8allocateERK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %bv) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
-  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i, ptr noundef nonnull align 4 dereferenceable(4) %bv)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i, ptr noundef nonnull align 4 dereferenceable(4) %bv)
   ret ptr %call.i
 }
 
@@ -174,12 +174,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager8allocateEm(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %val) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
   %m_num_bytes.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i.i.i, align 4
   %conv.i.i = zext i32 %0 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %1 = load i32, ptr %m_num_bits.i.i, align 8
   %cmp.not20 = icmp ult i32 %1, 2
@@ -263,9 +263,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager8allocateEmjj(ptr noundef nonnull align 8 dereferenceable(552) %this, i64 noundef %val, i32 noundef %hi, i32 noundef %lo) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
-  %call.i2.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i2.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
   %sub.i = add i32 %hi, 1
   %cmp5.not.i = icmp eq i32 %sub.i, %lo
   br i1 %cmp5.not.i, label %_ZN11tbv_manager3setER3tbvmjj.exit, label %for.body.preheader.i
@@ -362,8 +362,8 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager8allocateERK3tbvPKj(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bv, ptr nocapture noundef readonly %permutation) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load i32, ptr %m_num_bits.i.i, align 8
   %cmp11.not = icmp ult i32 %0, 2
@@ -419,9 +419,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager8allocateEPKc(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef readonly %bv) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
-  %call.i2.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i2.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %0 = load i32, ptr %m_num_bits.i.i, align 8
   %div1.i = lshr i32 %0, 1
@@ -512,8 +512,8 @@ while.end:                                        ; preds = %if.end29, %if.else1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11tbv_manager7projectERK10bit_vectorRK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %to_delete, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #5 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
+  %call.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i)
   %0 = load i32, ptr %to_delete, align 8
   %cmp15.not = icmp eq i32 %0, 0
   br i1 %cmp15.not, label %for.end, label %for.body.lr.ph
@@ -612,12 +612,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 land.rhs.i.i:                                     ; preds = %entry
   %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %call.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(32) %r)
   br i1 %call.i.i.i, label %if.then, label %for.cond.preheader
 
 if.then:                                          ; preds = %land.rhs.i.i
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i14 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %call.i.i.i14 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(32) %r)
   %sub.i = add i32 %hi, 1
   %cmp5.not.i = icmp eq i32 %sub.i, %lo
   br i1 %cmp5.not.i, label %for.end, label %for.body.preheader.i
@@ -674,11 +674,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !10
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !10
   %8 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !10
-  invoke void @_ZN11mpz_managerILb1EE11bitwise_andERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN11mpz_managerILb1EE11bitwise_andERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %8, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %for.body
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i15)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %8, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i15)
           to label %invoke.cont5 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc.i, %for.body
@@ -693,7 +693,7 @@ invoke.cont5:                                     ; preds = %.noexc.i
   %10 = load i32, ptr %ref.tmp, align 8
   %cmp.i.i.i.i = icmp eq i32 %10, 0
   %11 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %.noexc.i16 unwind label %terminate.lpad.i
 
 .noexc.i16:                                       ; preds = %invoke.cont5
@@ -709,7 +709,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i16, %invoke
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i16
   %14 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
           to label %.noexc.i18 unwind label %terminate.lpad.i17
 
 .noexc.i18:                                       ; preds = %_ZN8rationalD2Ev.exit
@@ -772,7 +772,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %this)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
@@ -820,18 +820,18 @@ entry:
 
 _ZNK8rational9is_uint64Ev.exit:                   ; preds = %entry
   %2 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %call.i.i.i = tail call noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(32) %r)
   br i1 %call.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK8rational9is_uint64Ev.exit
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %call.i.i.i10 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr noundef nonnull align 8 dereferenceable(16) %r)
-  %call.i.i.i11 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i.i11)
+  %call.i.i.i10 = tail call noundef i64 @_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(32) %r)
+  %call.i.i.i11 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i.i11)
   %m_num_bytes.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %4 = load i32, ptr %m_num_bytes.i.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i.i11, i8 -86, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %call.i.i.i11, i8 -86, i64 %conv.i.i.i, i1 false)
   %m_num_bits.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %5 = load i32, ptr %m_num_bits.i.i.i, align 8
   %cmp.not20.i = icmp ult i32 %5, 2
@@ -883,12 +883,12 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 if.end:                                           ; preds = %entry, %_ZNK8rational9is_uint64Ev.exit
-  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i12 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i12 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
   %m_num_bytes.i.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %8 = load i32, ptr %m_num_bytes.i.i.i, align 4
   %conv.i.i = zext i32 %8 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 dereferenceable(4) %call.i.i, i8 -86, i64 %conv.i.i, i1 false)
   %m_num_bits.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %9 = load i32, ptr %m_num_bits.i.i, align 8
   %cmp.not31 = icmp ult i32 %9, 2
@@ -920,11 +920,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !14
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !14
   %10 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !14
-  invoke void @_ZN11mpz_managerILb1EE11bitwise_andERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %10, ptr noundef nonnull align 8 dereferenceable(16) %r, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN11mpz_managerILb1EE11bitwise_andERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %10, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %for.body
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i13)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %10, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i13)
           to label %invoke.cont8 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc.i, %for.body
@@ -939,7 +939,7 @@ invoke.cont8:                                     ; preds = %.noexc.i
   %12 = load i32, ptr %ref.tmp, align 8
   %cmp.i.i.i.i = icmp eq i32 %12, 0
   %13 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %.noexc.i14 unwind label %terminate.lpad.i
 
 .noexc.i14:                                       ; preds = %invoke.cont8
@@ -955,7 +955,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i14, %invoke
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i14
   %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)
           to label %.noexc.i16 unwind label %terminate.lpad.i15
 
 .noexc.i16:                                       ; preds = %_ZN8rationalD2Ev.exit
@@ -1065,7 +1065,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp5.not.i, label %if.end18.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.end.i
-  %call8.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %dst)
+  %call8.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %dst)
   %shl9.i = shl i32 %call8.i, 1
   %m_mask.i.i = getelementptr inbounds i8, ptr %this, i64 532
   %4 = load i32, ptr %m_mask.i.i, align 4
@@ -1169,9 +1169,9 @@ for.body:                                         ; preds = %entry, %for.inc
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
-  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i, ptr noundef nonnull align 4 dereferenceable(4) %src)
+  %call.i.i = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i)
+  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i, ptr noundef nonnull align 4 dereferenceable(4) %src)
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x i32], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %xor.i.i.i = xor i32 %2, -1
@@ -1193,9 +1193,9 @@ lor.lhs.false.i:                                  ; preds = %sw.bb
   br i1 %cmp5.i, label %for.inc.sink.split.sink.split, label %for.inc.sink.split
 
 sw.bb5:                                           ; preds = %for.body
-  %call.i.i9 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this)
-  %call.i.i.i10 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i9)
-  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i9, ptr noundef nonnull align 4 dereferenceable(4) %src)
+  %call.i.i9 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %this)
+  %call.i.i.i10 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i9)
+  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call.i.i9, ptr noundef nonnull align 4 dereferenceable(4) %src)
   %arrayidx.i.i.i.i14 = getelementptr inbounds [1 x i32], ptr %call.i.i9, i64 0, i64 %idxprom.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i14, align 4
   %and.i.i.i18 = and i32 %7, %shl.i.i.i
@@ -1348,8 +1348,8 @@ return:                                           ; preds = %for.inc, %if.end, %
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN11tbv_manager9intersectERK3tbvS2_RS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %a, ptr noundef nonnull align 4 dereferenceable(4) %b, ptr noundef nonnull align 4 dereferenceable(4) %result) local_unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %a)
-  %call.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %b)
+  tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %a)
+  %call.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %result, ptr noundef nonnull align 4 dereferenceable(4) %b)
   %m_num_words.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i.i.i, align 8
   %umax.i.i = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
@@ -1377,7 +1377,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp5.not.i.i, label %if.end18.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %for.end.i.i
-  %call8.i.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %result)
+  %call8.i.i = tail call noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %result)
   %shl9.i.i = shl i32 %call8.i.i, 1
   %m_mask.i.i.i = getelementptr inbounds i8, ptr %this, i64 532
   %4 = load i32, ptr %m_mask.i.i.i, align 4
@@ -1617,7 +1617,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

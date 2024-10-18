@@ -2982,11 +2982,11 @@ if.then8.i.i29:                                   ; preds = %if.then.i.i26
   %25 = load i64, ptr %_now.i.i19, align 8
   %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %26 = load i64, ptr %tv_usec.i.i32, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i31, i64 noundef %25, i64 noundef %26, i32 noundef %call25, i32 noundef %20) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i31, i64 noundef %25, i64 noundef %26, i32 noundef range(i32 -2147483648, 1) %call25, i32 noundef %20) #15
   br label %trace_nbd_reconnect_attempt_result.exit
 
 if.else.i.i28:                                    ; preds = %if.then.i.i26
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call25, i32 noundef %20) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef range(i32 -2147483648, 1) %call25, i32 noundef %20) #15
   br label %trace_nbd_reconnect_attempt_result.exit
 
 trace_nbd_reconnect_attempt_result.exit:          ; preds = %if.end22, %land.lhs.true5.i.i23, %if.then8.i.i29, %if.else.i.i28
@@ -3967,7 +3967,7 @@ if.end9:                                          ; preds = %if.end6
   %cmp.i13 = icmp eq ptr %errp, @error_fatal
   %or.cond.i = or i1 %tobool.i, %cmp.i13
   %spec.select.i = select i1 %or.cond.i, ptr %_auto_errp_prop.i, ptr %errp
-  %call.i = call i32 @qio_channel_read_all(ptr noundef %1, ptr noundef %call10, i64 noundef %conv, ptr noundef %spec.select.i) #15
+  %call.i = call i32 @qio_channel_read_all(ptr noundef %1, ptr noundef %call10, i64 noundef range(i64 1, 1001) %conv, ptr noundef %spec.select.i) #15
   %cmp3.i = icmp slt i32 %call.i, 0
   br i1 %cmp3.i, label %if.then15, label %nbd_read.exit
 

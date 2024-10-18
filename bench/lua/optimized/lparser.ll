@@ -369,12 +369,12 @@ while.cond.i.i:                                   ; preds = %if.end.i.i, %cond.e
   ]
 
 if.then.i.i:                                      ; preds = %while.cond.i.i
-  call fastcc void @statement(ptr noundef %lexstate)
+  call fastcc void @statement(ptr noundef nonnull %lexstate)
   %.pr.i = load i32, ptr %51, align 8
   br label %statlist.exit.i
 
 if.end.i.i:                                       ; preds = %while.cond.i.i
-  call fastcc void @statement(ptr noundef %lexstate)
+  call fastcc void @statement(ptr noundef nonnull %lexstate)
   br label %while.cond.i.i, !llvm.loop !8
 
 statlist.exit.i:                                  ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %if.then.i.i
@@ -383,11 +383,11 @@ statlist.exit.i:                                  ; preds = %while.cond.i.i, %wh
   br i1 %cmp.not.i.i, label %mainfunc.exit, label %if.then.i18.i
 
 if.then.i18.i:                                    ; preds = %statlist.exit.i
-  call fastcc void @error_expected(ptr noundef %lexstate, i32 noundef 288) #12
+  call fastcc void @error_expected(ptr noundef nonnull %lexstate, i32 noundef 288) #12
   unreachable
 
 mainfunc.exit:                                    ; preds = %statlist.exit.i
-  call fastcc void @close_func(ptr noundef %lexstate)
+  call fastcc void @close_func(ptr noundef nonnull %lexstate)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bl.i)
   %53 = load ptr, ptr %top, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %53, i64 -16
@@ -634,13 +634,13 @@ while.cond.i:                                     ; preds = %test_then_block.exi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i794)
   %4 = load ptr, ptr %fs1.i, align 8
   call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call.i.i796 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i794, i32 noundef 0)
+  %call.i.i796 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i794, i32 noundef 0)
   %5 = load i32, ptr %t, align 8
   %cmp.not.i.i.i797 = icmp eq i32 %5, 274
   br i1 %cmp.not.i.i.i797, label %checknext.exit.i799, label %if.then.i.i.i798
 
 if.then.i.i.i798:                                 ; preds = %while.cond.i
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 274) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 274) #12
   unreachable
 
 checknext.exit.i799:                              ; preds = %while.cond.i
@@ -799,11 +799,11 @@ while.cond.i.i801:                                ; preds = %if.end.i.i803, %if.
   ]
 
 if.then.i46.i:                                    ; preds = %while.cond.i.i801
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %statlist.exit.i
 
 if.end.i.i803:                                    ; preds = %while.cond.i.i801
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i.i801, !llvm.loop !8
 
 statlist.exit.i:                                  ; preds = %while.cond.i.i801, %while.cond.i.i801, %while.cond.i.i801, %while.cond.i.i801, %while.cond.i.i801, %if.then.i46.i
@@ -887,11 +887,11 @@ while.cond.i.i175:                                ; preds = %if.end.i.i, %enterb
   ]
 
 if.then.i.i179:                                   ; preds = %while.cond.i.i175
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %block.exit
 
 if.end.i.i:                                       ; preds = %while.cond.i.i175
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i.i175, !llvm.loop !8
 
 block.exit:                                       ; preds = %while.cond.i.i175, %while.cond.i.i175, %while.cond.i.i175, %while.cond.i.i175, %while.cond.i.i175, %if.then.i.i179
@@ -911,7 +911,7 @@ if.then.i158:                                     ; preds = %ifstat.exit
   br i1 %cmp3.i160, label %if.then5.i166, label %if.else.i161
 
 if.then5.i166:                                    ; preds = %if.then.i158
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 261) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 261) #12
   unreachable
 
 if.else.i161:                                     ; preds = %if.then.i158
@@ -936,7 +936,7 @@ sw.bb2:                                           ; preds = %entry
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
   %call.i35 = tail call i32 @luaK_getlabel(ptr noundef %56) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i238)
-  %call.i.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i238, i32 noundef 0)
+  %call.i.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i238, i32 noundef 0)
   %57 = load i32, ptr %v.i238, align 8
   %cmp.i239 = icmp eq i32 %57, 1
   br i1 %cmp.i239, label %if.then.i242, label %cond.exit
@@ -994,7 +994,7 @@ enterblock.exit:                                  ; preds = %cond.exit, %land.rh
   br i1 %cmp.not.i.i233, label %checknext.exit, label %if.then.i.i234
 
 if.then.i.i234:                                   ; preds = %enterblock.exit
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 258) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 258) #12
   unreachable
 
 checknext.exit:                                   ; preds = %enterblock.exit
@@ -1053,11 +1053,11 @@ while.cond.i.i219:                                ; preds = %if.end.i.i228, %ent
   ]
 
 if.then.i.i229:                                   ; preds = %while.cond.i.i219
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %block.exit231
 
 if.end.i.i228:                                    ; preds = %while.cond.i.i219
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i.i219, !llvm.loop !8
 
 block.exit231:                                    ; preds = %while.cond.i.i219, %while.cond.i.i219, %while.cond.i.i219, %while.cond.i.i219, %while.cond.i.i219, %if.then.i.i229
@@ -1075,7 +1075,7 @@ if.then.i187:                                     ; preds = %block.exit231
   br i1 %cmp3.i189, label %if.then5.i195, label %if.else.i190
 
 if.then5.i195:                                    ; preds = %if.then.i187
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 261) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 261) #12
   unreachable
 
 if.else.i190:                                     ; preds = %if.then.i187
@@ -1150,11 +1150,11 @@ while.cond.i243:                                  ; preds = %if.end.i251, %enter
   ]
 
 if.then.i252:                                     ; preds = %while.cond.i243
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %statlist.exit
 
 if.end.i251:                                      ; preds = %while.cond.i243
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i243, !llvm.loop !8
 
 statlist.exit:                                    ; preds = %while.cond.i243, %while.cond.i243, %while.cond.i243, %while.cond.i243, %while.cond.i243, %if.then.i252
@@ -1170,7 +1170,7 @@ if.then.i38:                                      ; preds = %statlist.exit
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i38
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 261) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 261) #12
   unreachable
 
 if.else.i:                                        ; preds = %if.then.i38
@@ -1233,7 +1233,7 @@ enterblock.exit381:                               ; preds = %sw.bb4, %land.rhs.i
   br i1 %cmp.not.i.i359, label %str_checkname.exit362, label %if.then.i.i360
 
 if.then.i.i360:                                   ; preds = %enterblock.exit381
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit362:                            ; preds = %enterblock.exit381
@@ -1380,13 +1380,13 @@ new_localvar.exit72.i:                            ; preds = %new_localvar.exit54
   br i1 %cmp.not.i.i.i343, label %checknext.exit.i344, label %if.then.i.i73.i
 
 if.then.i.i73.i:                                  ; preds = %new_localvar.exit72.i
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 61) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 61) #12
   unreachable
 
 checknext.exit.i344:                              ; preds = %new_localvar.exit72.i
   call void @luaX_next(ptr noundef nonnull %ls) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i.i)
-  %call.i667 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i.i, i32 noundef 0)
+  %call.i667 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i.i, i32 noundef 0)
   %136 = load ptr, ptr %fs1.i40, align 8
   call void @luaK_exp2nextreg(ptr noundef %136, ptr noundef nonnull %e.i.i) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i.i)
@@ -1395,13 +1395,13 @@ checknext.exit.i344:                              ; preds = %new_localvar.exit72
   br i1 %cmp.not.i.i75.i, label %checknext.exit77.i, label %if.then.i.i76.i
 
 if.then.i.i76.i:                                  ; preds = %checknext.exit.i344
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 44) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 44) #12
   unreachable
 
 checknext.exit77.i:                               ; preds = %checknext.exit.i344
   call void @luaX_next(ptr noundef nonnull %ls) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i78.i)
-  %call.i666 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i78.i, i32 noundef 0)
+  %call.i666 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i78.i, i32 noundef 0)
   %138 = load ptr, ptr %fs1.i40, align 8
   call void @luaK_exp2nextreg(ptr noundef %138, ptr noundef nonnull %e.i78.i) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i78.i)
@@ -1412,7 +1412,7 @@ checknext.exit77.i:                               ; preds = %checknext.exit.i344
 if.then.i351:                                     ; preds = %checknext.exit77.i
   call void @luaX_next(ptr noundef nonnull %ls) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %e.i80.i)
-  %call.i665 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i80.i, i32 noundef 0)
+  %call.i665 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i80.i, i32 noundef 0)
   %140 = load ptr, ptr %fs1.i40, align 8
   call void @luaK_exp2nextreg(ptr noundef %140, ptr noundef nonnull %e.i80.i) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i80.i)
@@ -1427,8 +1427,8 @@ if.else.i354:                                     ; preds = %checknext.exit77.i
 
 fornum.exit:                                      ; preds = %if.then.i351, %if.else.i354
   %conv.i353 = zext i8 %106 to i32
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef 3)
-  call fastcc void @forbody(ptr noundef %ls, i32 noundef %conv.i353, i32 noundef %0, i32 noundef 1, i32 noundef 0)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef 3)
+  call fastcc void @forbody(ptr noundef nonnull %ls, i32 noundef %conv.i353, i32 noundef %0, i32 noundef 1, i32 noundef 0)
   br label %forstat.exit
 
 sw.bb2.i:                                         ; preds = %str_checkname.exit362, %str_checkname.exit362
@@ -1603,7 +1603,7 @@ while.body.i302:                                  ; preds = %new_localvar.exit93
   br i1 %cmp.not.i.i.i304, label %str_checkname.exit.i305, label %if.then.i.i94.i
 
 if.then.i.i94.i:                                  ; preds = %while.body.i302
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit.i305:                          ; preds = %while.body.i302
@@ -1656,13 +1656,13 @@ while.end.i308:                                   ; preds = %while.end.i308.loop
   br i1 %cmp.not.i.i114.i, label %checknext.exit.i, label %if.then.i.i115.i
 
 if.then.i.i115.i:                                 ; preds = %while.end.i308
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 267) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 267) #12
   unreachable
 
 checknext.exit.i:                                 ; preds = %while.end.i308
   call void @luaX_next(ptr noundef nonnull %ls) #11
   %192 = load i32, ptr %linenumber, align 4
-  %call.i664 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i285, i32 noundef 0)
+  %call.i664 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i285, i32 noundef 0)
   %193 = load i32, ptr %t, align 8
   %cmp.i660727 = icmp eq i32 %193, 44
   br i1 %cmp.i660727, label %while.body.i.i313, label %explist.exit.i
@@ -1672,7 +1672,7 @@ while.body.i.i313:                                ; preds = %checknext.exit.i, %
   call void @luaX_next(ptr noundef nonnull %ls) #11
   %194 = load ptr, ptr %fs1.i40, align 8
   call void @luaK_exp2nextreg(ptr noundef %194, ptr noundef nonnull %e.i285) #11
-  %call.i658 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e.i285, i32 noundef 0)
+  %call.i658 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e.i285, i32 noundef 0)
   %inc.i117.i = add nuw nsw i32 %n.0.i.i728, 1
   %195 = load i32, ptr %t, align 8
   %cmp.i660 = icmp eq i32 %195, 44
@@ -1724,7 +1724,7 @@ if.else17.i.i:                                    ; preds = %if.end13.i.i, %if.e
   br label %forlist.exit
 
 forlist.exit:                                     ; preds = %if.then16.i.i, %if.else17.i.i
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef 4)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef 4)
   %bl1.i.i = getelementptr inbounds i8, ptr %142, i64 24
   %201 = load ptr, ptr %bl1.i.i, align 8
   %upval.i.i315 = getelementptr inbounds i8, ptr %201, i64 17
@@ -1734,7 +1734,7 @@ forlist.exit:                                     ; preds = %if.then16.i.i, %if.
   %needclose.i.i = getelementptr inbounds i8, ptr %142, i64 70
   store i8 1, ptr %needclose.i.i, align 2
   call void @luaK_checkstack(ptr noundef %142, i32 noundef 3) #11
-  call fastcc void @forbody(ptr noundef %ls, i32 noundef %conv.i309, i32 noundef %192, i32 noundef %nvars.0.i297.lcssa, i32 noundef 1)
+  call fastcc void @forbody(ptr noundef nonnull %ls, i32 noundef %conv.i309, i32 noundef %192, i32 noundef %nvars.0.i297.lcssa, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i285)
   br label %forstat.exit
 
@@ -1753,7 +1753,7 @@ if.then.i274:                                     ; preds = %forstat.exit
   br i1 %cmp3.i276, label %if.then5.i282, label %if.else.i277
 
 if.then5.i282:                                    ; preds = %if.then.i274
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 261) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 261) #12
   unreachable
 
 if.else.i277:                                     ; preds = %if.then.i274
@@ -1848,12 +1848,12 @@ while.cond.i412:                                  ; preds = %if.end.i422, %enter
   ]
 
 if.then.i423:                                     ; preds = %while.cond.i412
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   %.pr684 = load i32, ptr %t, align 8
   br label %statlist.exit425
 
 if.end.i422:                                      ; preds = %while.cond.i412
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i412, !llvm.loop !8
 
 statlist.exit425:                                 ; preds = %while.cond.i412, %while.cond.i412, %while.cond.i412, %while.cond.i412, %while.cond.i412, %if.then.i423
@@ -1867,7 +1867,7 @@ if.then.i401:                                     ; preds = %statlist.exit425
   br i1 %cmp3.i403, label %if.then5.i409, label %if.else.i404
 
 if.then5.i409:                                    ; preds = %if.then.i401
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 276) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 276) #12
   unreachable
 
 if.else.i404:                                     ; preds = %if.then.i401
@@ -1881,7 +1881,7 @@ if.else.i404:                                     ; preds = %if.then.i401
 check_match.exit411:                              ; preds = %statlist.exit425
   call void @luaX_next(ptr noundef nonnull %ls) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i391)
-  %call.i.i392 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v.i391, i32 noundef 0)
+  %call.i.i392 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v.i391, i32 noundef 0)
   %220 = load i32, ptr %v.i391, align 8
   %cmp.i393 = icmp eq i32 %220, 1
   br i1 %cmp.i393, label %if.then.i397, label %cond.exit398
@@ -1955,7 +1955,7 @@ sw.bb6:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %b.i)
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  call fastcc void @singlevar(ptr noundef %ls, ptr noundef %v.i)
+  call fastcc void @singlevar(ptr noundef nonnull %ls, ptr noundef nonnull %v.i)
   %fs1.i.i = getelementptr inbounds i8, ptr %ls, i64 48
   %seminfo.i.i.i.i = getelementptr inbounds i8, ptr %ls, i64 24
   %t.i.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 16
@@ -1980,7 +1980,7 @@ while.body.i486:                                  ; preds = %while.cond.i483
   br i1 %cmp.not.i.i.i.i.i, label %fieldsel.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i486
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 fieldsel.exit.i:                                  ; preds = %while.body.i486
@@ -2004,7 +2004,7 @@ if.then.i484:                                     ; preds = %while.cond.i483
   br i1 %cmp.not.i.i.i.i10.i, label %fieldsel.exit16.i, label %if.then.i.i.i.i11.i
 
 if.then.i.i.i.i11.i:                              ; preds = %if.then.i484
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 fieldsel.exit16.i:                                ; preds = %if.then.i484
@@ -2023,7 +2023,7 @@ fieldsel.exit16.i:                                ; preds = %if.then.i484
 
 funcname.exit:                                    ; preds = %while.cond.i483, %fieldsel.exit16.i
   %ismethod.0.i = phi i32 [ 1, %fieldsel.exit16.i ], [ 0, %while.cond.i483 ]
-  call fastcc void @body(ptr noundef %ls, ptr noundef %b.i, i32 noundef %ismethod.0.i, i32 noundef %0)
+  call fastcc void @body(ptr noundef nonnull %ls, ptr noundef %b.i, i32 noundef %ismethod.0.i, i32 noundef %0)
   %236 = load ptr, ptr %fs1.i.i, align 8
   %237 = load i32, ptr %v.i, align 8
   switch i32 %237, label %check_readonly.exit [
@@ -2118,7 +2118,7 @@ if.then:                                          ; preds = %sw.bb7
   br i1 %cmp.not.i.i511, label %str_checkname.exit514, label %if.then.i.i512
 
 if.then.i.i512:                                   ; preds = %if.then
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit514:                            ; preds = %if.then
@@ -2156,9 +2156,9 @@ new_localvar.exit:                                ; preds = %str_checkname.exit5
   store i8 0, ptr %kind.i508, align 1
   %name15.i = getelementptr inbounds i8, ptr %arrayidx.i507, i64 16
   store ptr %256, ptr %name15.i, align 8
-  tail call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef 1)
+  tail call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef 1)
   %264 = load i32, ptr %linenumber, align 4
-  call fastcc void @body(ptr noundef %ls, ptr noundef %b.i54, i32 noundef 0, i32 noundef %264)
+  call fastcc void @body(ptr noundef nonnull %ls, ptr noundef %b.i54, i32 noundef 0, i32 noundef %264)
   %pc.i = getelementptr inbounds i8, ptr %253, i64 32
   %265 = load i32, ptr %pc.i, align 8
   %266 = getelementptr i8, ptr %253, i64 16
@@ -2202,7 +2202,7 @@ str_checkname.exit600.lr.ph:                      ; preds = %if.else
   br label %str_checkname.exit600
 
 if.then.i.i598:                                   ; preds = %testnext.exit560, %if.else
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit600:                            ; preds = %str_checkname.exit600.lr.ph, %testnext.exit560
@@ -2255,7 +2255,7 @@ if.then.i567:                                     ; preds = %new_localvar.exit59
   br i1 %cmp.not.i.i.i568, label %str_checkname.exit.i570, label %if.then.i.i.i569
 
 if.then.i.i.i569:                                 ; preds = %if.then.i567
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit.i570:                          ; preds = %if.then.i567
@@ -2267,7 +2267,7 @@ str_checkname.exit.i570:                          ; preds = %if.then.i567
   br i1 %cmp.not.i.i8.i, label %checknext.exit.i573, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %str_checkname.exit.i570
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 62) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 62) #12
   unreachable
 
 checknext.exit.i573:                              ; preds = %str_checkname.exit.i570
@@ -2340,7 +2340,7 @@ testnext.exit560:                                 ; preds = %if.end11.i
 
 if.then15.i:                                      ; preds = %if.end11.i
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call16.i = call fastcc i32 @explist(ptr noundef %ls, ptr noundef %e.i)
+  %call16.i = call fastcc i32 @explist(ptr noundef nonnull %ls, ptr noundef %e.i)
   br label %if.end17.i
 
 if.else.i70:                                      ; preds = %if.end11.i
@@ -2373,7 +2373,7 @@ land.lhs.true25.i:                                ; preds = %land.lhs.true.i
 
 if.then28.i:                                      ; preds = %land.lhs.true25.i
   store i8 3, ptr %kind21.i, align 1
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef %nvars.0.i724)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nvars.0.i724)
   %299 = load i8, ptr %nactvar.i72, align 2
   %inc31.i = add i8 %299, 1
   store i8 %inc31.i, ptr %nactvar.i72, align 2
@@ -2424,7 +2424,7 @@ if.else17.i:                                      ; preds = %if.end13.i, %if.end
   br label %adjust_assign.exit
 
 adjust_assign.exit:                               ; preds = %if.then16.i, %if.else17.i
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef %inc.i)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %inc.i)
   br label %localstat.exit
 
 localstat.exit:                                   ; preds = %if.then28.i, %adjust_assign.exit
@@ -2485,7 +2485,7 @@ sw.bb8:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %str_checkname.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb8
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit:                               ; preds = %sw.bb8
@@ -2497,7 +2497,7 @@ str_checkname.exit:                               ; preds = %sw.bb8
   br i1 %cmp.not.i.i623, label %checknext.exit625, label %if.then.i.i624
 
 if.then.i.i624:                                   ; preds = %str_checkname.exit
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 287) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 287) #12
   unreachable
 
 checknext.exit625:                                ; preds = %str_checkname.exit
@@ -2512,7 +2512,7 @@ while.cond.i74:                                   ; preds = %while.body.i76, %ch
   ]
 
 while.body.i76:                                   ; preds = %while.cond.i74, %while.cond.i74
-  tail call fastcc void @statement(ptr noundef %ls)
+  tail call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i74, !llvm.loop !15
 
 labelstat.exit:                                   ; preds = %while.cond.i74
@@ -2627,7 +2627,7 @@ luaY_nvarstack.exit657:                           ; preds = %while.cond.i.i637, 
   ]
 
 if.else.i89:                                      ; preds = %luaY_nvarstack.exit657
-  %call3.i90 = call fastcc i32 @explist(ptr noundef %ls, ptr noundef %e.i81)
+  %call3.i90 = call fastcc i32 @explist(ptr noundef nonnull %ls, ptr noundef %e.i81)
   %329 = load i32, ptr %e.i81, align 8
   %330 = and i32 %329, -2
   %or.cond.i = icmp eq i32 %330, 18
@@ -2741,7 +2741,7 @@ sw.bb12:                                          ; preds = %entry
   br i1 %cmp.not.i.i.i, label %str_checkname.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb12
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit.i:                             ; preds = %sw.bb12
@@ -2895,7 +2895,7 @@ sw.default:                                       ; preds = %entry
   %fs1.i123 = getelementptr inbounds i8, ptr %ls, i64 48
   %383 = load ptr, ptr %fs1.i123, align 8
   %v2.i = getelementptr inbounds i8, ptr %v.i122, i64 8
-  call fastcc void @suffixedexp(ptr noundef %ls, ptr noundef %v2.i)
+  call fastcc void @suffixedexp(ptr noundef nonnull %ls, ptr noundef %v2.i)
   %384 = load i32, ptr %t, align 8
   switch i32 %384, label %if.else.i126 [
     i32 61, label %if.then.i125
@@ -2904,7 +2904,7 @@ sw.default:                                       ; preds = %entry
 
 if.then.i125:                                     ; preds = %sw.default, %sw.default
   store ptr null, ptr %v.i122, align 8
-  call fastcc void @restassign(ptr noundef %ls, ptr noundef %v.i122, i32 noundef 1)
+  call fastcc void @restassign(ptr noundef nonnull %ls, ptr noundef %v.i122, i32 noundef 1)
   br label %exprstat.exit
 
 if.else.i126:                                     ; preds = %sw.default
@@ -3409,18 +3409,18 @@ if.end.i:                                         ; preds = %sw.bb12.i
   br label %sw.epilog.i
 
 sw.bb14.i:                                        ; preds = %entry
-  tail call fastcc void @constructor(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @constructor(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %if.end
 
 sw.bb15.i:                                        ; preds = %entry
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
   %linenumber.i = getelementptr inbounds i8, ptr %ls, i64 4
   %10 = load i32, ptr %linenumber.i, align 4
-  tail call fastcc void @body(ptr noundef %ls, ptr noundef %v, i32 noundef 0, i32 noundef %10)
+  tail call fastcc void @body(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0, i32 noundef %10)
   br label %if.end
 
 sw.default.i25:                                   ; preds = %entry
-  tail call fastcc void @suffixedexp(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @suffixedexp(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %if.end
 
 sw.epilog.i:                                      ; preds = %if.end.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb6.i, %sw.bb2.i24, %sw.bb.i
@@ -3600,7 +3600,7 @@ entry:
   br i1 %cmp.not.i.i, label %checknext.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 123) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 123) #12
   unreachable
 
 checknext.exit:                                   ; preds = %entry
@@ -3652,22 +3652,22 @@ sw.bb.i:                                          ; preds = %closelistfield.exit
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb.i
-  %call.i.i44 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %cc, i32 noundef 0)
+  %call.i.i44 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %cc, i32 noundef 0)
   %14 = load i32, ptr %tostore, align 8
   %inc.i46 = add nsw i32 %14, 1
   store i32 %inc.i46, ptr %tostore, align 8
   br label %field.exit
 
 if.else.i:                                        ; preds = %sw.bb.i
-  call fastcc void @recfield(ptr noundef %ls, ptr noundef %cc)
+  call fastcc void @recfield(ptr noundef nonnull %ls, ptr noundef nonnull %cc)
   br label %field.exit
 
 sw.bb1.i:                                         ; preds = %closelistfield.exit
-  call fastcc void @recfield(ptr noundef %ls, ptr noundef %cc)
+  call fastcc void @recfield(ptr noundef nonnull %ls, ptr noundef nonnull %cc)
   br label %field.exit
 
 sw.default.i:                                     ; preds = %closelistfield.exit
-  %call.i.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %cc, i32 noundef 0)
+  %call.i.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %cc, i32 noundef 0)
   %15 = load i32, ptr %tostore, align 8
   %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %tostore, align 8
@@ -3693,7 +3693,7 @@ if.then.i31:                                      ; preds = %field.exit
   br i1 %cmp3.i, label %if.then5.i33, label %if.else.i32
 
 if.then5.i33:                                     ; preds = %if.then.i31
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 125) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 125) #12
   unreachable
 
 if.else.i32:                                      ; preds = %if.then.i31
@@ -3936,7 +3936,7 @@ open_func.exit:                                   ; preds = %cond.end.i, %land.r
   br i1 %cmp.not.i.i21, label %checknext.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %open_func.exit
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 40) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 40) #12
   unreachable
 
 checknext.exit:                                   ; preds = %open_func.exit
@@ -4047,7 +4047,7 @@ land.rhs.i:                                       ; preds = %str_checkname.exit.
 
 if.end.thread.i:                                  ; preds = %land.rhs.i, %if.end
   %nparams.0.ph.i = phi i32 [ 0, %if.end ], [ %inc.i31, %land.rhs.i ]
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef %nparams.0.ph.i)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.0.ph.i)
   %nactvar25.i = getelementptr inbounds i8, ptr %44, i64 66
   %57 = load i8, ptr %nactvar25.i, align 2
   %numparams26.i = getelementptr inbounds i8, ptr %45, i64 10
@@ -4056,7 +4056,7 @@ if.end.thread.i:                                  ; preds = %land.rhs.i, %if.end
 
 if.then10.i:                                      ; preds = %do.body.i
   call void @luaX_next(ptr noundef nonnull %ls) #11
-  call fastcc void @adjustlocalvars(ptr noundef %ls, i32 noundef %nparams.1.i)
+  call fastcc void @adjustlocalvars(ptr noundef nonnull %ls, i32 noundef %nparams.1.i)
   %nactvar.i29 = getelementptr inbounds i8, ptr %44, i64 66
   %58 = load i8, ptr %nactvar.i29, align 2
   %numparams.i = getelementptr inbounds i8, ptr %45, i64 10
@@ -4065,7 +4065,7 @@ if.then10.i:                                      ; preds = %do.body.i
   %59 = load ptr, ptr %44, align 8
   %is_vararg.i.i = getelementptr inbounds i8, ptr %59, i64 11
   store i8 1, ptr %is_vararg.i.i, align 1
-  %call.i17.i = call i32 @luaK_codeABCk(ptr noundef nonnull %44, i32 noundef 81, i32 noundef %conv.i, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %call.i17.i = call i32 @luaK_codeABCk(ptr noundef nonnull %44, i32 noundef 81, i32 noundef range(i32 0, 256) %conv.i, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   %.pre.i = load i8, ptr %nactvar.i29, align 2
   br label %parlist.exit
 
@@ -4078,7 +4078,7 @@ parlist.exit:                                     ; preds = %if.end.thread.i, %i
   br i1 %cmp.not.i.i34, label %checknext.exit36, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %parlist.exit
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 41) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 41) #12
   unreachable
 
 checknext.exit36:                                 ; preds = %parlist.exit
@@ -4097,11 +4097,11 @@ while.cond.i:                                     ; preds = %if.end.i40, %checkn
   ]
 
 if.then.i41:                                      ; preds = %while.cond.i
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %statlist.exit
 
 if.end.i40:                                       ; preds = %while.cond.i
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i, !llvm.loop !8
 
 statlist.exit:                                    ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %if.then.i41
@@ -4119,7 +4119,7 @@ if.then.i44:                                      ; preds = %statlist.exit
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i44
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 261) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 261) #12
   unreachable
 
 if.else.i:                                        ; preds = %if.then.i44
@@ -4170,7 +4170,7 @@ sw.bb.i:                                          ; preds = %entry
   %linenumber.i = getelementptr inbounds i8, ptr %ls, i64 4
   %2 = load i32, ptr %linenumber.i, align 4
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call.i = tail call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v, i32 noundef 0)
+  %call.i = tail call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0)
   %3 = load i32, ptr %t.i, align 8
   %cmp.i.i = icmp eq i32 %3, 41
   br i1 %cmp.i.i, label %check_match.exit, label %if.then.i
@@ -4181,7 +4181,7 @@ if.then.i:                                        ; preds = %sw.bb.i
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 41) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 41) #12
   unreachable
 
 if.else.i:                                        ; preds = %if.then.i
@@ -4200,7 +4200,7 @@ check_match.exit:                                 ; preds = %sw.bb.i
   br label %primaryexp.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  tail call fastcc void @singlevar(ptr noundef %ls, ptr noundef %v)
+  tail call fastcc void @singlevar(ptr noundef nonnull %ls, ptr noundef nonnull %v)
   br label %primaryexp.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -4238,7 +4238,7 @@ sw.bb:                                            ; preds = %for.cond
   br i1 %cmp.not.i.i.i.i, label %fieldsel.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 fieldsel.exit:                                    ; preds = %sw.bb
@@ -4255,7 +4255,7 @@ fieldsel.exit:                                    ; preds = %sw.bb
 sw.bb2:                                           ; preds = %for.cond
   call void @luaK_exp2anyregup(ptr noundef %0, ptr noundef nonnull %v) #11
   call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call.i24 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %key, i32 noundef 0)
+  %call.i24 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %11 = load ptr, ptr %fs1, align 8
   call void @luaK_exp2val(ptr noundef %11, ptr noundef nonnull %key) #11
   %12 = load i32, ptr %t.i, align 8
@@ -4263,7 +4263,7 @@ sw.bb2:                                           ; preds = %for.cond
   br i1 %cmp.not.i.i, label %checknext.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb2
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 93) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 93) #12
   unreachable
 
 checknext.exit:                                   ; preds = %sw.bb2
@@ -4278,7 +4278,7 @@ sw.bb3:                                           ; preds = %for.cond
   br i1 %cmp.not.i.i.i, label %codename.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb3
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 codename.exit:                                    ; preds = %sw.bb3
@@ -4346,7 +4346,7 @@ codename.exit:                                    ; preds = %entry
 
 if.else:                                          ; preds = %entry
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call.i17 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %key, i32 noundef 0)
+  %call.i17 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %key, i32 noundef 0)
   %4 = load ptr, ptr %fs1, align 8
   call void @luaK_exp2val(ptr noundef %4, ptr noundef nonnull %key) #11
   %5 = load i32, ptr %t, align 8
@@ -4354,7 +4354,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i.i14, label %checknext.exit16, label %if.then.i.i15
 
 if.then.i.i15:                                    ; preds = %if.else
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 93) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 93) #12
   unreachable
 
 checknext.exit16:                                 ; preds = %if.else
@@ -4371,7 +4371,7 @@ if.end:                                           ; preds = %checknext.exit16, %
   br i1 %cmp.not.i.i, label %checknext.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 61) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 61) #12
   unreachable
 
 checknext.exit:                                   ; preds = %if.end
@@ -4380,7 +4380,7 @@ checknext.exit:                                   ; preds = %if.end
   %8 = load ptr, ptr %t5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tab, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @luaK_indexed(ptr noundef nonnull %0, ptr noundef nonnull %tab, ptr noundef nonnull %key) #11
-  %call.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %val, i32 noundef 0)
+  %call.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %val, i32 noundef 0)
   call void @luaK_storevar(ptr noundef nonnull %0, ptr noundef nonnull %tab, ptr noundef nonnull %val) #11
   store i8 %1, ptr %freereg, align 4
   ret void
@@ -4578,7 +4578,7 @@ if.end9.thread:                                   ; preds = %sw.bb
   br label %check_match.exit
 
 if.else:                                          ; preds = %sw.bb
-  %call.i = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %args, i32 noundef 0)
+  %call.i = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %4 = load i32, ptr %t, align 8
   %cmp.i30 = icmp eq i32 %4, 44
   br i1 %cmp.i30, label %while.body.i, label %explist.exit
@@ -4587,7 +4587,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
   call void @luaX_next(ptr noundef nonnull %ls) #11
   %5 = load ptr, ptr %fs1, align 8
   call void @luaK_exp2nextreg(ptr noundef %5, ptr noundef nonnull %args) #11
-  %call.i24 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %args, i32 noundef 0)
+  %call.i24 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %args, i32 noundef 0)
   %6 = load i32, ptr %t, align 8
   %cmp.i = icmp eq i32 %6, 44
   br i1 %cmp.i, label %while.body.i, label %explist.exit, !llvm.loop !12
@@ -4615,7 +4615,7 @@ if.then.i:                                        ; preds = %if.end9
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  call fastcc void @error_expected(ptr noundef %ls, i32 noundef 41) #12
+  call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 41) #12
   unreachable
 
 if.else.i:                                        ; preds = %if.then.i
@@ -4712,7 +4712,7 @@ entry:
   br i1 %cmp.not.i.i, label %str_checkname.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 291) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef 291) #12
   unreachable
 
 str_checkname.exit:                               ; preds = %entry
@@ -5025,7 +5025,7 @@ if.end21:                                         ; preds = %if.then2.thread, %i
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 1, 0) i32 @explist(ptr noundef nonnull %ls, ptr noundef nonnull %v) unnamed_addr #1 {
 entry:
-  %call.i = tail call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v, i32 noundef 0)
+  %call.i = tail call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0)
   %t.i = getelementptr inbounds i8, ptr %ls, i64 16
   %0 = load i32, ptr %t.i, align 8
   %cmp.i10 = icmp eq i32 %0, 44
@@ -5040,7 +5040,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
   %1 = load ptr, ptr %fs, align 8
   tail call void @luaK_exp2nextreg(ptr noundef %1, ptr noundef nonnull %v) #11
-  %call.i7 = tail call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %v, i32 noundef 0)
+  %call.i7 = tail call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %v, i32 noundef 0)
   %inc = add nuw nsw i32 %n.011, 1
   %2 = load i32, ptr %t.i, align 8
   %cmp.i = icmp eq i32 %2, 44
@@ -5342,7 +5342,7 @@ entry:
   br i1 %cmp.not.i.i, label %checknext.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 258) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 258) #12
   unreachable
 
 checknext.exit:                                   ; preds = %entry
@@ -5445,11 +5445,11 @@ while.cond.i:                                     ; preds = %if.end.i, %enterblo
   ]
 
 if.then.i:                                        ; preds = %while.cond.i
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %statlist.exit
 
 if.end.i:                                         ; preds = %while.cond.i
-  call fastcc void @statement(ptr noundef %ls)
+  call fastcc void @statement(ptr noundef nonnull %ls)
   br label %while.cond.i, !llvm.loop !8
 
 statlist.exit:                                    ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %if.then.i
@@ -5745,12 +5745,12 @@ if.end16:                                         ; preds = %if.end84.i, %for.en
   br label %if.end25
 
 if.then.i.i:                                      ; preds = %check_readonly.exit
-  tail call fastcc void @error_expected(ptr noundef %ls, i32 noundef 61) #12
+  tail call fastcc void @error_expected(ptr noundef nonnull %ls, i32 noundef range(i32 40, 292) 61) #12
   unreachable
 
 checknext.exit:                                   ; preds = %check_readonly.exit
   tail call void @luaX_next(ptr noundef nonnull %ls) #11
-  %call.i45 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
+  %call.i45 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %35 = load i32, ptr %t.i, align 8
   %cmp.i4154 = icmp eq i32 %35, 44
   br i1 %cmp.i4154, label %while.body.i, label %explist.exit
@@ -5760,7 +5760,7 @@ while.body.i:                                     ; preds = %checknext.exit, %wh
   call void @luaX_next(ptr noundef nonnull %ls) #11
   %36 = load ptr, ptr %fs1.i, align 8
   call void @luaK_exp2nextreg(ptr noundef %36, ptr noundef nonnull %e) #11
-  %call.i39 = call fastcc i32 @subexpr(ptr noundef %ls, ptr noundef %e, i32 noundef 0)
+  %call.i39 = call fastcc i32 @subexpr(ptr noundef nonnull %ls, ptr noundef nonnull %e, i32 noundef 0)
   %inc.i = add nuw nsw i32 %n.0.i55, 1
   %37 = load i32, ptr %t.i, align 8
   %cmp.i41 = icmp eq i32 %37, 44

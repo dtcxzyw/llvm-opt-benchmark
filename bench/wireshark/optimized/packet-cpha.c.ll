@@ -367,7 +367,7 @@ define internal i32 @dissect_cpha(ptr noundef %0, ptr nocapture noundef readonly
 
 52:                                               ; preds = %45, %45
   %53 = load i32, ptr @hf_ifn, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef %.082, i32 noundef 4, i32 noundef 0) #2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %53, ptr noundef %0, i32 noundef range(i32 16, 21) %.082, i32 noundef 4, i32 noundef 0) #2
   br label %63
 
 55:                                               ; preds = %45
@@ -380,7 +380,7 @@ define internal i32 @dissect_cpha(ptr noundef %0, ptr nocapture noundef readonly
 
 57:                                               ; preds = %45
   %58 = load i32, ptr @hf_status, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %.082, i32 noundef 4, i32 noundef 0) #2
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef range(i32 16, 21) %.082, i32 noundef 4, i32 noundef 0) #2
   br label %63
 
 60:                                               ; preds = %45

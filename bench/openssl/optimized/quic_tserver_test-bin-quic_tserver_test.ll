@@ -425,7 +425,7 @@ if.then160.i:                                     ; preds = %if.end158.i
   br i1 %cmp162.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then160.i
-  %call.i94.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call161.i) #8
+  %call.i94.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef range(i32 2, 1) %call161.i) #8
   %8 = and i32 %call.i94.i, -2
   %9 = icmp eq i32 %8, 2
   %lor.ext.i.i = zext i1 %9 to i32
@@ -542,7 +542,7 @@ if.then245.i:                                     ; preds = %if.end240.i
   br i1 %cmp249.i, label %lor.end254.i, label %lor.rhs251.i
 
 lor.rhs251.i:                                     ; preds = %if.then245.i
-  %call.i95.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call248.i) #8
+  %call.i95.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef range(i32 2, 1) %call248.i) #8
   %12 = and i32 %call.i95.i, -2
   %13 = icmp eq i32 %12, 2
   %lor.ext.i96.i = zext i1 %13 to i32

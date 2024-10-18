@@ -3040,7 +3040,7 @@ if.end.thread.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   store i32 1, ptr %ldmParams.i, align 8, !alias.scope !7
-  call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams.i, ptr noundef nonnull %cParams3) #28
+  call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams.i, ptr noundef nonnull align 8 %cParams3) #28
   %useBlockSplitter.phi.trans.insert.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %.pre.i = load i32, ptr %useBlockSplitter.phi.trans.insert.i, align 4, !alias.scope !7
   %cmp.not.i1.i = icmp eq i32 %.pre.i, 0
@@ -3410,7 +3410,7 @@ if.end.thread.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   store i32 1, ptr %ldmParams.i, align 8, !alias.scope !16
-  call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams.i, ptr noundef nonnull %cParams3) #28
+  call void @ZSTD_ldm_adjustParameters(ptr noundef nonnull %ldmParams.i, ptr noundef nonnull align 8 %cParams3) #28
   %useBlockSplitter.phi.trans.insert.i = getelementptr inbounds i8, ptr %initialParams, i64 140
   %.pre.i = load i32, ptr %useBlockSplitter.phi.trans.insert.i, align 4, !alias.scope !16
   %cmp.not.i1.i = icmp eq i32 %.pre.i, 0
@@ -3863,7 +3863,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 cond.true.i:                                      ; preds = %for.body
   %conv4 = zext i16 %6 to i32
-  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv4, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv4, i1 true)
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = sub nuw nsw i8 50, %11
   br label %ZSTD_LLcode.exit
@@ -3886,7 +3886,7 @@ ZSTD_LLcode.exit:                                 ; preds = %cond.true.i, %cond.
   br i1 %cmp.i22, label %cond.true.i28, label %cond.false.i23
 
 cond.true.i28:                                    ; preds = %ZSTD_LLcode.exit
-  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv10, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv10, i1 true)
   %16 = trunc nuw nsw i32 %15 to i8
   %17 = sub nuw nsw i8 67, %16
   br label %ZSTD_MLcode.exit
@@ -4318,7 +4318,7 @@ if.end45.i:                                       ; preds = %land.lhs.true.i, %i
   %repeat.0.i = phi i32 [ %7, %if.end39.i ], [ %spec.select.i, %land.lhs.true.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %nextEntropy, i8 0, i64 2056, i1 false)
   %10 = load i32, ptr %maxSymbolValue.i, align 4
-  %call50.i = call i32 @HUF_optimalTableLog(i32 noundef 11, i64 noundef %sub.ptr.sub, i32 noundef %10, ptr noundef nonnull %add.ptr1.i28, i64 noundef %gepdiff.i29, ptr noundef nonnull %nextEntropy, ptr noundef %workspace, i32 noundef %cond) #28
+  %call50.i = call i32 @HUF_optimalTableLog(i32 noundef 11, i64 noundef %sub.ptr.sub, i32 noundef %10, ptr noundef nonnull %add.ptr1.i28, i64 noundef %gepdiff.i29, ptr noundef nonnull %nextEntropy, ptr noundef %workspace, i32 noundef range(i32 0, 3) %cond) #28
   %11 = load i32, ptr %maxSymbolValue.i, align 4
   %call53.i = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %nextEntropy, ptr noundef %workspace, i32 noundef %11, i32 noundef %call50.i, ptr noundef nonnull %add.ptr1.i28, i64 noundef %gepdiff.i29) #28
   %cmp.i56.i = icmp ult i64 %call53.i, -119
@@ -4793,7 +4793,7 @@ cond.true:                                        ; preds = %if.end45
 
 if.then.i:                                        ; preds = %cond.true
   %xxhState.i = getelementptr inbounds i8, ptr %cctx, i64 784
-  %call.i103 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i, ptr nocapture noundef %src, i64 noundef %srcSize) #28
+  %call.i103 = tail call i32 @ZSTD_XXH64_update(ptr nocapture noundef nonnull %xxhState.i, ptr nocapture noundef %src, i64 noundef range(i64 1, 0) %srcSize) #28
   br label %if.end.i104
 
 if.end.i104:                                      ; preds = %if.then.i, %cond.true
@@ -4966,7 +4966,7 @@ if.then5.i.i.i:                                   ; preds = %land.lhs.true2.i.i.
   br label %do.end27.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true2.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
-  %call7.i.i.i = tail call i64 @ZSTD_compressSuperBlock(ptr noundef nonnull %cctx, ptr noundef %op.0146.i, i64 noundef %dstCapacity.addr.0152.i, ptr noundef %ip.0149.i, i64 noundef %spec.select.i, i32 noundef %and.i) #28
+  %call7.i.i.i = tail call i64 @ZSTD_compressSuperBlock(ptr noundef nonnull %cctx, ptr noundef %op.0146.i, i64 noundef range(i64 6, 0) %dstCapacity.addr.0152.i, ptr noundef %ip.0149.i, i64 noundef %spec.select.i, i32 noundef range(i32 0, 2) %and.i) #28
   %cmp8.not.i.i.i = icmp eq i64 %call7.i.i.i, -70
   br i1 %cmp8.not.i.i.i, label %do.end33.i.i.i, label %if.then9.i.i.i
 
@@ -5108,7 +5108,7 @@ ZSTD_deriveBlockSplits.exit.i.i.i:                ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp.i26.i.i, label %if.then.i.i115.i, label %if.end30.i.i.i
 
 if.then.i.i115.i:                                 ; preds = %ZSTD_deriveBlockSplits.exit.i.i.i
-  %call15.i.i.i = call fastcc i64 @ZSTD_compressSeqStore_singleBlock(ptr noundef nonnull %cctx, ptr noundef nonnull %seqStore.i.i.i, ptr noundef %dRep.i.i.i, ptr noundef %cRep.i.i.i, ptr noundef %op.0146.i, i64 noundef %dstCapacity.addr.0152.i, ptr noundef %ip.0149.i, i64 noundef %spec.select.i, i32 noundef %and.i, i32 noundef 0)
+  %call15.i.i.i = call fastcc i64 @ZSTD_compressSeqStore_singleBlock(ptr noundef nonnull %cctx, ptr noundef nonnull %seqStore.i.i.i, ptr noundef %dRep.i.i.i, ptr noundef %cRep.i.i.i, ptr noundef %op.0146.i, i64 noundef range(i64 6, 0) %dstCapacity.addr.0152.i, ptr noundef %ip.0149.i, i64 noundef %spec.select.i, i32 noundef range(i32 0, 2) %and.i, i32 noundef 0)
   br label %ZSTD_compressBlock_splitBlock_internal.exit.i.i
 
 if.end30.i.i.i:                                   ; preds = %ZSTD_deriveBlockSplits.exit.i.i.i
@@ -5279,7 +5279,7 @@ if.else.i.i.i:                                    ; preds = %ZSTD_countSeqStoreM
 if.end48.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then40.i.i.i
   %lastBlockEntireSrc.0.i.i.i = phi i32 [ %and.i, %if.then40.i.i.i ], [ 0, %if.else.i.i.i ]
   %srcBytes.0.i.i.i = phi i64 [ %add41.i.i.i, %if.then40.i.i.i ], [ %add.i.i114.i, %if.else.i.i.i ]
-  %call49.i.i.i = call fastcc i64 @ZSTD_compressSeqStore_singleBlock(ptr noundef %cctx, ptr noundef nonnull %currSeqStore5.i.i.i, ptr noundef %dRep.i.i.i, ptr noundef %cRep.i.i.i, ptr noundef %op.086.i.i.i, i64 noundef %dstCapacity.addr.089.i.i.i, ptr noundef %ip.087.i.i.i, i64 noundef %srcBytes.0.i.i.i, i32 noundef %lastBlockEntireSrc.0.i.i.i, i32 noundef 1)
+  %call49.i.i.i = call fastcc i64 @ZSTD_compressSeqStore_singleBlock(ptr noundef nonnull %cctx, ptr noundef nonnull %currSeqStore5.i.i.i, ptr noundef %dRep.i.i.i, ptr noundef %cRep.i.i.i, ptr noundef %op.086.i.i.i, i64 noundef %dstCapacity.addr.089.i.i.i, ptr noundef %ip.087.i.i.i, i64 noundef %srcBytes.0.i.i.i, i32 noundef %lastBlockEntireSrc.0.i.i.i, i32 noundef 1)
   %cmp.i79.i.i.i = icmp ult i64 %call49.i.i.i, -119
   br i1 %cmp.i79.i.i.i, label %do.end66.i.i.i, label %ZSTD_compressBlock_splitBlock_internal.exit.i.i
 
@@ -5991,7 +5991,7 @@ ZSTD_adjustCParams_internal.exit.i.i:             ; preds = %if.then69.i.i.i, %i
   %useRowMatchFinder7.i.i = getelementptr inbounds i8, ptr %cdict, i64 6072
   %15 = load i32, ptr %useRowMatchFinder7.i.i, align 8
   store i32 %15, ptr %useRowMatchFinder.i.i, align 8
-  %call.i.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %params9.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 0, i32 noundef %zbuff)
+  %call.i.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull align 8 %params9.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 2) %zbuff)
   %cmp.i.i.i = icmp ult i64 %call.i.i, -119
   br i1 %cmp.i.i.i, label %do.end22.i.i, label %ZSTD_resetCCtx_byAttachingCDict.exit.i
 
@@ -6065,7 +6065,7 @@ if.else.i:                                        ; preds = %ZSTD_shouldAttachDi
   %26 = load i32, ptr %useRowMatchFinder.i16.i, align 8
   %useRowMatchFinder6.i.i = getelementptr inbounds i8, ptr %params13.i, i64 144
   store i32 %26, ptr %useRowMatchFinder6.i.i, align 8
-  %call.i17.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull %params13.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 1, i32 noundef %zbuff)
+  %call.i17.i = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %cctx, ptr noundef nonnull align 8 %params13.i, i64 noundef %pledgedSrcSize, i64 noundef 0, i32 noundef 1, i32 noundef range(i32 0, 2) %zbuff)
   %cmp.i.i18.i = icmp ult i64 %call.i17.i, -119
   br i1 %cmp.i.i18.i, label %do.end17.i.i, label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
@@ -6487,14 +6487,14 @@ cond.false.i.i:                                   ; preds = %if.end40.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.end40.i
   %cond.i.i = phi i32 [ %add.ptr1.val.i.i, %cond.false.i.i ], [ 0, %if.end40.i ]
-  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %13, ptr noundef %14, ptr noundef nonnull %dict, i64 noundef %dictSize)
+  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %13, ptr noundef %14, ptr noundef nonnull %dict, i64 noundef range(i64 8, 0) %dictSize)
   %cmp.i.i.i = icmp ult i64 %call2.i.i, -119
   br i1 %cmp.i.i.i, label %do.end12.i.i, label %ZSTD_compressBegin_advanced_internal.exit
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
   %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef range(i32 0, 2) 0)
   br label %do.end66.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
@@ -6698,14 +6698,14 @@ cond.false.i.i14:                                 ; preds = %if.end40.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i14, %if.end40.i
   %cond.i.i = phi i32 [ %add.ptr1.val.i.i, %cond.false.i.i14 ], [ 0, %if.end40.i ]
-  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %dict, i64 noundef %dictSize)
+  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %dict, i64 noundef range(i64 8, 0) %dictSize)
   %cmp.i.i.i = icmp ult i64 %call2.i.i, -119
   br i1 %cmp.i.i.i, label %do.end12.i.i, label %ZSTD_compressBegin_internal.exit
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
   %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef range(i32 0, 2) 0)
   br label %do.end66.i
 
 do.end66.i:                                       ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
@@ -7156,14 +7156,14 @@ cond.false.i.i:                                   ; preds = %if.end40.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %if.end40.i
   %cond.i.i = phi i32 [ %add.ptr1.val.i.i, %cond.false.i.i ], [ 0, %if.end40.i ]
-  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %dict, i64 noundef %dictSize)
+  %call2.i.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %dict, i64 noundef range(i64 8, 0) %dictSize)
   %cmp.i.i.i = icmp ult i64 %call2.i.i, -119
   br i1 %cmp.i.i.i, label %do.end12.i.i, label %return
 
 do.end12.i.i:                                     ; preds = %cond.end.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i.i
   %gepdiff.i.i = sub nsw i64 %dictSize, %call2.i.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef nonnull %matchState44.i, ptr noundef null, ptr noundef nonnull %workspace46.i, ptr noundef nonnull %appliedParams47.i, ptr noundef %add.ptr13.i.i, i64 noundef %gepdiff.i.i, i32 noundef 0, i32 noundef range(i32 0, 2) 0)
   br label %do.end11
 
 do.end11:                                         ; preds = %if.then20.i, %do.end12.i.i, %cond.false40.i
@@ -11534,7 +11534,7 @@ determine_blockSize.exit.thread.i:                ; preds = %do.end14.i.i
   br label %do.end32.i
 
 determine_blockSize.exit.i:                       ; preds = %while.body.i
-  %cond.i.i.i = call noundef i64 @llvm.umin.i64(i64 %remaining.0156.i, i64 %4)
+  %cond.i.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %remaining.0156.i, i64 %4)
   %cmp18.i = icmp ule i64 %remaining.0156.i, %4
   %cmp.i87.i = icmp ult i64 %cond.i.i.i, -119
   br i1 %cmp.i87.i, label %do.end32.i, label %ZSTD_compressSequences_internal.exit.thread
@@ -14306,7 +14306,7 @@ for.body.i:                                       ; preds = %ZSTD_MLcode.exit.i,
 
 cond.true.i.i:                                    ; preds = %for.body.i
   %conv4.i = zext i16 %6 to i32
-  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv4.i, i1 true)
+  %10 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv4.i, i1 true)
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = sub nuw nsw i8 50, %11
   br label %ZSTD_LLcode.exit.i
@@ -14329,7 +14329,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %cond.false.i.i, %co
   br i1 %cmp.i22.i, label %cond.true.i28.i, label %cond.false.i23.i
 
 cond.true.i28.i:                                  ; preds = %ZSTD_LLcode.exit.i
-  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv10.i, i1 true)
+  %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %conv10.i, i1 true)
   %16 = trunc nuw nsw i32 %15 to i8
   %17 = sub nuw nsw i8 67, %16
   br label %ZSTD_MLcode.exit.i
@@ -15099,7 +15099,7 @@ if.then.i:                                        ; preds = %land.lhs.true
 
 if.then2.i:                                       ; preds = %if.then.i
   %xor.i = xor i64 %pIn.val.i, %pMatch.val.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor.i, i1 true)
+  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor.i, i1 true)
   %shr.i.i = lshr i64 %1, 3
   br label %ZSTD_count.exit
 
@@ -15119,7 +15119,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.end16.i:                                       ; preds = %while.body.i
   %xor11.i = xor i64 %pIn.addr.1.val.i, %pMatch.addr.1.val.i
-  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor11.i, i1 true)
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %xor11.i, i1 true)
   %shr.i35.i = lshr i64 %2, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %pIn.addr.1.i, i64 %shr.i35.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr18.i to i64
@@ -15874,7 +15874,7 @@ ZSTD_estimateBlockSize_literal.exit.i:            ; preds = %if.end35.i.i, %if.e
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i.i.i)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %sub.ptr.div
   store i32 31, ptr %max.i.i.i, align 4
-  %call.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i.i.i, ptr noundef %5, i64 noundef %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
+  %call.i.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i.i.i, ptr noundef %5, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
   switch i32 %15, label %if.else4.i.i.i [
     i32 0, label %if.then.i.i.i
     i32 1, label %while.cond.preheader.i.i.i
@@ -15932,7 +15932,7 @@ ZSTD_estimateBlockSize_symbolType.exit.i.i:       ; preds = %while.end.i.i.i, %i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i18.i.i)
   %add.ptr.i19.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.div
   store i32 35, ptr %max.i18.i.i, align 4
-  %call.i20.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i18.i.i, ptr noundef %6, i64 noundef %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
+  %call.i20.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i18.i.i, ptr noundef %6, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
   switch i32 %19, label %if.else4.i36.i.i [
     i32 0, label %if.then.i29.i.i
     i32 1, label %while.cond.preheader.i21.i.i
@@ -15994,7 +15994,7 @@ ZSTD_estimateBlockSize_symbolType.exit40.i.i:     ; preds = %while.end.i24.i.i, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max.i41.i.i)
   %add.ptr.i42.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.div
   store i32 52, ptr %max.i41.i.i, align 4
-  %call.i43.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i41.i.i, ptr noundef %7, i64 noundef %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
+  %call.i43.i.i = call i64 @HIST_countFast_wksp(ptr noundef %11, ptr noundef nonnull %max.i41.i.i, ptr noundef %7, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %sub.ptr.div, ptr noundef %11, i64 noundef 8920) #28
   switch i32 %24, label %if.else4.i69.i.i [
     i32 0, label %if.then.i62.i.i
     i32 1, label %while.cond.preheader.i44.i.i
@@ -16547,14 +16547,14 @@ cond.false.i:                                     ; preds = %if.end40
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end40
   %cond.i = phi i64 [ %1, %cond.false.i ], [ 0, %if.end40 ]
-  %call2.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %bs, ptr noundef %workspace, ptr noundef nonnull %dict, i64 noundef %dictSize)
+  %call2.i = tail call i64 @ZSTD_loadCEntropy(ptr noundef nonnull %bs, ptr noundef %workspace, ptr noundef nonnull %dict, i64 noundef range(i64 8, 0) %dictSize)
   %cmp.i.i = icmp ult i64 %call2.i, -119
   br i1 %cmp.i.i, label %do.end12.i, label %return
 
 do.end12.i:                                       ; preds = %cond.end.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %dict, i64 %call2.i
   %gepdiff.i = sub nsw i64 %dictSize, %call2.i
-  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef %ms, ptr noundef null, ptr noundef %ws, ptr noundef nonnull %params, ptr noundef %add.ptr13.i, i64 noundef %gepdiff.i, i32 noundef %dtlm, i32 noundef %tfp)
+  tail call fastcc void @ZSTD_loadDictionaryContent(ptr noundef %ms, ptr noundef null, ptr noundef %ws, ptr noundef nonnull %params, ptr noundef %add.ptr13.i, i64 noundef %gepdiff.i, i32 noundef %dtlm, i32 noundef range(i32 0, 2) %tfp)
   br label %return
 
 return:                                           ; preds = %do.end12.i, %cond.end.i, %if.then20, %do.body2, %do.end24, %if.then16

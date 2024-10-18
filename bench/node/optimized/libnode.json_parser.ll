@@ -56,7 +56,7 @@ entry:
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef nonnull %0) #8
   %call11 = call ptr @_ZN2v87Context3NewEPNS_7IsolateEPNS_22ExtensionConfigurationENS_10MaybeLocalINS_14ObjectTemplateEEENS5_INS_5ValueEEENS_33DeserializeInternalFieldsCallbackEPNS_14MicrotaskQueueE(ptr noundef nonnull %0, ptr noundef null, ptr null, ptr null, ptr null, ptr null, ptr noundef null) #8
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call11) #8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch, ptr noundef nonnull %0) #8
   %isolate_.i15 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i15, align 8
   %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56
@@ -199,7 +199,7 @@ if.end.i186:                                      ; preds = %_ZN2v89LocalBaseINS
 
 if.end.i13:                                       ; preds = %if.end.i186, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
   %retval.i182.sroa.0.0 = phi ptr [ %call.i195, %if.end.i186 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch, ptr noundef nonnull %0) #8
   %isolate_.i11 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i11, align 8
   %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56
@@ -258,7 +258,7 @@ if.end43:                                         ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
   %_M_engaged.i.i.i.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %_M_engaged.i.i.i.i.i15, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #8
@@ -322,7 +322,7 @@ if.end.i208:                                      ; preds = %_ZN2v89LocalBaseINS
 
 if.end.i14:                                       ; preds = %if.end.i208, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit
   %retval.i204.sroa.0.0 = phi ptr [ %call.i217, %if.end.i208 ], [ null, %_ZN2v89LocalBaseINS_7ContextEE3NewEPNS_7IsolateEPS1_.exit ]
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef nonnull %0) #8
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %bootstrapCatch, ptr noundef nonnull %0) #8
   %isolate_.i13 = getelementptr inbounds i8, ptr %bootstrapCatch, i64 48
   store ptr %0, ptr %isolate_.i13, align 8
   %print_source_line_.i = getelementptr inbounds i8, ptr %bootstrapCatch, i64 56

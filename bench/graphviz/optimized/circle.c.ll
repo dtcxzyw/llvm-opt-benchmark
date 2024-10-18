@@ -526,12 +526,12 @@ setSubtreeSize.exit:                              ; preds = %.loopexit.i37, %213
 
 242:                                              ; preds = %setSubtreeSize.exit
   %243 = load ptr, ptr @stderr, align 8
-  %244 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.4, i64 noundef %241, i64 noundef 8) #15
+  %244 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.4, i64 noundef range(i64 1, 0) %241, i64 noundef 8) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable
 
 245:                                              ; preds = %setSubtreeSize.exit
-  %246 = tail call noalias ptr @calloc(i64 noundef %241, i64 noundef 8) #14
+  %246 = tail call noalias ptr @calloc(i64 noundef range(i64 1, 0) %241, i64 noundef 8) #14
   %247 = icmp eq ptr %246, null
   br i1 %247, label %248, label %gv_calloc.exit.i.i
 

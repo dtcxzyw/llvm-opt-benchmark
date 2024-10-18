@@ -1158,7 +1158,7 @@ unicode_to_bytes.exit251.i:                       ; preds = %395, %346
 
 414:                                              ; preds = %207
   %415 = tail call ptr @wmem_packet_scope() #4
-  %416 = tail call ptr @tvb_get_string_enc(ptr noundef %415, ptr noundef %0, i32 noundef 16, i32 noundef %204, i32 noundef 0) #4
+  %416 = tail call ptr @tvb_get_string_enc(ptr noundef %415, ptr noundef %0, i32 noundef 16, i32 noundef range(i32 1, 0) %204, i32 noundef 0) #4
   %417 = tail call i64 @strcspn(ptr noundef %416, ptr noundef nonnull @.str.271) #5
   %418 = trunc i64 %417 to i32
   %419 = add i32 %418, -1
@@ -1523,7 +1523,7 @@ unicode_to_bytes.exit332.i:                       ; preds = %585, %536
   br i1 %594, label %.lr.ph.i, label %attr_list.exit, !llvm.loop !10
 
 595:                                              ; preds = %207
-  %596 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef 16, i32 noundef %204, i32 noundef 0) #4
+  %596 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef 16, i32 noundef range(i32 1, 0) %204, i32 noundef 0) #4
   br label %attr_list.exit
 
 attr_list.exit:                                   ; preds = %unicode_to_bytes.exit332.i, %408, %411, %.preheader373.i, %.lr.ph382.i._crit_edge, %unicode_to_bytes.exit287.i, %595

@@ -365,7 +365,7 @@ if.end.i:                                         ; preds = %if.end43
   br i1 %tobool11.not.not, label %if.end.i.i, label %if.end7.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %custom.0, i64 noundef %custom_len.0) #7
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %custom.0, i64 noundef range(i64 0, 4) %custom_len.0) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %params.i.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i.i) #7

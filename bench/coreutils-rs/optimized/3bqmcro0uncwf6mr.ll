@@ -244,7 +244,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h09
   br i1 %16, label %17, label %.preheader
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17
@@ -388,7 +388,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h0f
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %18
@@ -527,7 +527,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h2b
   br i1 %16, label %17, label %.preheader
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %17
@@ -650,7 +650,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h3a
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17
@@ -777,7 +777,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h4d
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %18
@@ -904,7 +904,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h5c
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %18
@@ -1029,7 +1029,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h5d
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %18
@@ -1152,7 +1152,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h6c
   br i1 %16, label %17, label %.preheader
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %17
@@ -1279,7 +1279,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17hc6
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %18
@@ -1404,7 +1404,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17hce
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.8) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17
@@ -1532,7 +1532,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17he1
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %18
@@ -1674,7 +1674,7 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17hf9
   br i1 %16, label %17, label %.preheader
 
 17:                                               ; preds = %15
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %10, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86d54012cb870a8520e91705433272dd.7) #8
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %17

@@ -212,7 +212,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.then.i, %entry, %if.then.i.i
@@ -499,7 +499,7 @@ if.then.i.i68:                                    ; preds = %invoke.cont43
 if.then.i.i.i70:                                  ; preds = %if.then.i.i68
   %destroyer_fn_.i.i.i71 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %destroyer_fn_.i.i.i71, align 8
-  invoke void %25(ptr noundef nonnull %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %return unwind label %terminate.lpad.i72
 
 terminate.lpad.i72:                               ; preds = %if.then.i.i.i70

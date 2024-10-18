@@ -91,7 +91,7 @@ define hidden void @_ZN13StubGenerator25poly1305_multiply8_avx512E11XMMRegisterS
   %53 = load ptr, ptr %19, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #5
+  call void %55(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %18) #5
   %56 = getelementptr inbounds i8, ptr %18, i64 40
   %57 = getelementptr inbounds i8, ptr %19, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
@@ -107,7 +107,7 @@ define hidden void @_ZN13StubGenerator25poly1305_multiply8_avx512E11XMMRegisterS
   %62 = load ptr, ptr %21, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(40) %20) #5
+  call void %64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %20) #5
   %65 = getelementptr inbounds i8, ptr %20, i64 40
   %66 = getelementptr inbounds i8, ptr %21, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
@@ -125,7 +125,7 @@ define hidden void @_ZN13StubGenerator25poly1305_multiply8_avx512E11XMMRegisterS
   %72 = load ptr, ptr %23, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #5
+  call void %74(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22) #5
   %75 = getelementptr inbounds i8, ptr %22, i64 40
   %76 = getelementptr inbounds i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
@@ -149,7 +149,7 @@ define hidden void @_ZN13StubGenerator25poly1305_multiply8_avx512E11XMMRegisterS
   %85 = load ptr, ptr %25, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #5
+  call void %87(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %24) #5
   %88 = getelementptr inbounds i8, ptr %24, i64 40
   %89 = getelementptr inbounds i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false)
@@ -307,7 +307,7 @@ define hidden void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #5
+  call void %24(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10) #5
   %25 = getelementptr inbounds i8, ptr %10, i64 40
   %26 = getelementptr inbounds i8, ptr %11, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
@@ -324,7 +324,7 @@ define hidden void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0
   %31 = load ptr, ptr %13, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #5
+  call void %33(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %12) #5
   %34 = getelementptr inbounds i8, ptr %12, i64 40
   %35 = getelementptr inbounds i8, ptr %13, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
@@ -334,7 +334,7 @@ define hidden void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0
   %37 = load ptr, ptr %15, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(40) %14) #5
+  call void %39(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %14) #5
   %40 = getelementptr inbounds i8, ptr %14, i64 40
   %41 = getelementptr inbounds i8, ptr %15, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
@@ -745,7 +745,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %59 = load ptr, ptr %23, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #5
+  call void %61(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22) #5
   %62 = getelementptr inbounds i8, ptr %22, i64 40
   %63 = getelementptr inbounds i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
@@ -761,7 +761,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %68 = load ptr, ptr %25, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #5
+  call void %70(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %24) #5
   %71 = getelementptr inbounds i8, ptr %24, i64 40
   %72 = getelementptr inbounds i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
@@ -775,7 +775,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %76 = load ptr, ptr %27, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #5
+  call void %78(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 8 dereferenceable(56) %26) #5
   %79 = getelementptr inbounds i8, ptr %26, i64 40
   %80 = getelementptr inbounds i8, ptr %27, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
@@ -801,10 +801,10 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %90 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 0, ptr %90, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %19, ptr noundef nonnull align 8 dereferenceable(21) %28, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 21, i1 false)
   %91 = getelementptr inbounds i8, ptr %19, i64 24
   %92 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %88, ptr noundef nonnull align 8 dereferenceable(40) %91) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %91) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %82, i32 0, ptr noundef nonnull %19, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
   %93 = load ptr, ptr %56, align 8
@@ -826,9 +826,9 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %101 = getelementptr inbounds i8, ptr %29, i64 40
   store i32 0, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %18, ptr noundef nonnull align 8 dereferenceable(21) %29, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 21, i1 false)
   %102 = getelementptr inbounds i8, ptr %18, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %99, ptr noundef nonnull align 8 dereferenceable(40) %102) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull align 8 dereferenceable(40) %102) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 1, ptr noundef nonnull %18, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
   call void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0_S0_S0_bS0_8Register(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 1, i32 9, i32 10, i32 11, i1 noundef zeroext true, i32 2, i32 14)
@@ -857,9 +857,9 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %114 = getelementptr inbounds i8, ptr %30, i64 40
   store i32 0, ptr %114, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %17, ptr noundef nonnull align 8 dereferenceable(21) %30, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 21, i1 false)
   %115 = getelementptr inbounds i8, ptr %17, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %112, ptr noundef nonnull align 8 dereferenceable(40) %115) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %112, ptr noundef nonnull align 8 dereferenceable(40) %115) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %106, i32 0, ptr noundef nonnull %17, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
   %116 = load ptr, ptr %56, align 8
@@ -881,9 +881,9 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %124 = getelementptr inbounds i8, ptr %31, i64 40
   store i32 0, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %16, ptr noundef nonnull align 8 dereferenceable(21) %31, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %31, i64 21, i1 false)
   %125 = getelementptr inbounds i8, ptr %16, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %122, ptr noundef nonnull align 8 dereferenceable(40) %125) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %122, ptr noundef nonnull align 8 dereferenceable(40) %125) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %116, i32 1, ptr noundef nonnull %16, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   call void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0_S0_S0_bS0_8Register(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 1, i32 12, i32 13, i32 14, i1 noundef zeroext true, i32 2, i32 14)
@@ -908,9 +908,9 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %135 = getelementptr inbounds i8, ptr %32, i64 40
   store i32 0, ptr %135, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 8 dereferenceable(21) %32, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %32, i64 21, i1 false)
   %136 = getelementptr inbounds i8, ptr %15, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %133, ptr noundef nonnull align 8 dereferenceable(40) %136) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(40) %136) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %127, i32 %1, ptr noundef nonnull %15) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   %137 = load ptr, ptr %56, align 8
@@ -972,7 +972,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %163 = load ptr, ptr %34, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(40) %33) #5
+  call void %165(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %33) #5
   %166 = getelementptr inbounds i8, ptr %33, i64 40
   %167 = getelementptr inbounds i8, ptr %34, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %167, i64 16, i1 false)
@@ -988,7 +988,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %172 = load ptr, ptr %36, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #5
+  call void %174(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %35) #5
   %175 = getelementptr inbounds i8, ptr %35, i64 40
   %176 = getelementptr inbounds i8, ptr %36, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(16) %176, i64 16, i1 false)
@@ -1002,7 +1002,7 @@ define hidden void @_ZN13StubGenerator30poly1305_process_blocks_avx512E8Register
   %180 = load ptr, ptr %38, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
-  call void %182(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(40) %37) #5
+  call void %182(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %37) #5
   %183 = getelementptr inbounds i8, ptr %37, i64 40
   %184 = getelementptr inbounds i8, ptr %38, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false)
@@ -1150,9 +1150,9 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %239 = getelementptr inbounds i8, ptr %39, i64 40
   store i32 0, ptr %239, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %14, ptr noundef nonnull align 8 dereferenceable(21) %39, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 21, i1 false)
   %240 = getelementptr inbounds i8, ptr %14, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %237, ptr noundef nonnull align 8 dereferenceable(40) %240) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %237, ptr noundef nonnull align 8 dereferenceable(40) %240) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %231, i32 0, ptr noundef nonnull %14, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   %241 = load ptr, ptr %56, align 8
@@ -1174,9 +1174,9 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %249 = getelementptr inbounds i8, ptr %40, i64 40
   store i32 0, ptr %249, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 8 dereferenceable(21) %40, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 21, i1 false)
   %250 = getelementptr inbounds i8, ptr %13, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %247, ptr noundef nonnull align 8 dereferenceable(40) %250) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %247, ptr noundef nonnull align 8 dereferenceable(40) %250) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %241, i32 1, ptr noundef nonnull %13, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   call void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0_S0_S0_bS0_8Register(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 1, i32 15, i32 16, i32 17, i1 noundef zeroext true, i32 2, i32 14)
@@ -1199,9 +1199,9 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %259 = getelementptr inbounds i8, ptr %41, i64 40
   store i32 0, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef nonnull align 8 dereferenceable(21) %41, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %41, i64 21, i1 false)
   %260 = getelementptr inbounds i8, ptr %12, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %257, ptr noundef nonnull align 8 dereferenceable(40) %260) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %257, ptr noundef nonnull align 8 dereferenceable(40) %260) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %251, i32 0, ptr noundef nonnull %12, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   %261 = load ptr, ptr %56, align 8
@@ -1223,9 +1223,9 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %269 = getelementptr inbounds i8, ptr %42, i64 40
   store i32 0, ptr %269, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef nonnull align 8 dereferenceable(21) %42, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %42, i64 21, i1 false)
   %270 = getelementptr inbounds i8, ptr %11, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %267, ptr noundef nonnull align 8 dereferenceable(40) %270) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %267, ptr noundef nonnull align 8 dereferenceable(40) %270) #5
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %261, i32 1, ptr noundef nonnull %11, i32 noundef 2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @_ZN13StubGenerator21poly1305_limbs_avx512E11XMMRegisterS0_S0_S0_S0_bS0_8Register(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 0, i32 1, i32 18, i32 19, i32 20, i1 noundef zeroext true, i32 2, i32 14)
@@ -1264,9 +1264,9 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %286 = getelementptr inbounds i8, ptr %43, i64 40
   store i32 0, ptr %286, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %43, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 21, i1 false)
   %287 = getelementptr inbounds i8, ptr %10, i64 24
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %284, ptr noundef nonnull align 8 dereferenceable(40) %287) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(40) %284, ptr noundef nonnull align 8 dereferenceable(40) %287) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %278, i32 %1, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %288 = load ptr, ptr %56, align 8
@@ -1352,7 +1352,7 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %327 = load ptr, ptr %45, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
-  call void %329(ptr noundef nonnull align 8 dereferenceable(20) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #5
+  call void %329(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(56) %44) #5
   %330 = getelementptr inbounds i8, ptr %44, i64 40
   %331 = getelementptr inbounds i8, ptr %45, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %331, i64 16, i1 false)
@@ -1366,7 +1366,7 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %335 = load ptr, ptr %47, align 8
   %336 = getelementptr inbounds i8, ptr %335, i64 16
   %337 = load ptr, ptr %336, align 8
-  call void %337(ptr noundef nonnull align 8 dereferenceable(20) %47, ptr noundef nonnull align 8 dereferenceable(40) %46) #5
+  call void %337(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %46) #5
   %338 = getelementptr inbounds i8, ptr %46, i64 40
   %339 = getelementptr inbounds i8, ptr %47, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull align 8 dereferenceable(16) %339, i64 16, i1 false)
@@ -1380,7 +1380,7 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %343 = load ptr, ptr %49, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 16
   %345 = load ptr, ptr %344, align 8
-  call void %345(ptr noundef nonnull align 8 dereferenceable(20) %49, ptr noundef nonnull align 8 dereferenceable(40) %48) #5
+  call void %345(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %48) #5
   %346 = getelementptr inbounds i8, ptr %48, i64 40
   %347 = getelementptr inbounds i8, ptr %49, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %346, ptr noundef nonnull align 8 dereferenceable(16) %347, i64 16, i1 false)
@@ -1629,10 +1629,10 @@ define hidden noundef ptr @_ZN13StubGenerator31generate_poly1305_processBlocksEv
   %73 = getelementptr inbounds i8, ptr %8, i64 40
   store i32 0, ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %74 = getelementptr inbounds i8, ptr %2, i64 24
   %75 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(20) %71, ptr noundef nonnull align 8 dereferenceable(40) %74) #5
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %74) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %65, i32 7, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %76 = load ptr, ptr %9, align 8
@@ -1756,7 +1756,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %81 = load ptr, ptr %14, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(40) %13) #5
+  call void %83(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %13) #5
   %84 = getelementptr inbounds i8, ptr %13, i64 40
   %85 = getelementptr inbounds i8, ptr %14, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
@@ -1772,7 +1772,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %90 = load ptr, ptr %16, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(40) %15) #5
+  call void %92(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %15) #5
   %93 = getelementptr inbounds i8, ptr %15, i64 40
   %94 = getelementptr inbounds i8, ptr %16, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false)
@@ -1786,7 +1786,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %98 = load ptr, ptr %18, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(40) %17) #5
+  call void %100(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %17) #5
   %101 = getelementptr inbounds i8, ptr %17, i64 40
   %102 = getelementptr inbounds i8, ptr %18, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
@@ -1846,7 +1846,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %128 = load ptr, ptr %22, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(40) %21) #5
+  call void %130(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %21) #5
   %131 = getelementptr inbounds i8, ptr %21, i64 40
   %132 = getelementptr inbounds i8, ptr %22, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false)
@@ -1856,7 +1856,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %134 = load ptr, ptr %24, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(40) %23) #5
+  call void %136(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(56) %23) #5
   %137 = getelementptr inbounds i8, ptr %23, i64 40
   %138 = getelementptr inbounds i8, ptr %24, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false)
@@ -1868,7 +1868,7 @@ define hidden void @_ZN13StubGenerator28poly1305_process_blocks_avx2E8RegisterS0
   %141 = load ptr, ptr %26, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #5
+  call void %143(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %25) #5
   %144 = getelementptr inbounds i8, ptr %25, i64 40
   %145 = getelementptr inbounds i8, ptr %26, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false)
@@ -2165,7 +2165,7 @@ _ZN14MacroAssembler11vinserti128E11XMMRegisterS0_S0_h.exit855: ; preds = %245, %
   %264 = load ptr, ptr %28, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 16
   %266 = load ptr, ptr %265, align 8
-  call void %266(ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(40) %27) #5
+  call void %266(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %27) #5
   %267 = getelementptr inbounds i8, ptr %27, i64 40
   %268 = getelementptr inbounds i8, ptr %28, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, ptr noundef nonnull align 8 dereferenceable(16) %268, i64 16, i1 false)
@@ -2175,7 +2175,7 @@ _ZN14MacroAssembler11vinserti128E11XMMRegisterS0_S0_h.exit855: ; preds = %245, %
   %270 = load ptr, ptr %30, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 16
   %272 = load ptr, ptr %271, align 8
-  call void %272(ptr noundef nonnull align 8 dereferenceable(20) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #5
+  call void %272(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(56) %29) #5
   %273 = getelementptr inbounds i8, ptr %29, i64 40
   %274 = getelementptr inbounds i8, ptr %30, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 8 dereferenceable(16) %274, i64 16, i1 false)
@@ -2248,7 +2248,7 @@ _ZN14MacroAssembler11vinserti128E11XMMRegisterS0_S0_h.exit855: ; preds = %245, %
   %306 = load ptr, ptr %35, align 8
   %307 = getelementptr inbounds i8, ptr %306, i64 16
   %308 = load ptr, ptr %307, align 8
-  call void %308(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(40) %34) #5
+  call void %308(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %34) #5
   %309 = getelementptr inbounds i8, ptr %34, i64 40
   %310 = getelementptr inbounds i8, ptr %35, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull align 8 dereferenceable(16) %310, i64 16, i1 false)
@@ -2266,7 +2266,7 @@ _ZN14MacroAssembler11vinserti128E11XMMRegisterS0_S0_h.exit855: ; preds = %245, %
   %316 = load ptr, ptr %37, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 16
   %318 = load ptr, ptr %317, align 8
-  call void %318(ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(40) %36) #5
+  call void %318(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %36) #5
   %319 = getelementptr inbounds i8, ptr %36, i64 40
   %320 = getelementptr inbounds i8, ptr %37, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, ptr noundef nonnull align 8 dereferenceable(16) %320, i64 16, i1 false)
@@ -2282,7 +2282,7 @@ _ZN14MacroAssembler11vinserti128E11XMMRegisterS0_S0_h.exit855: ; preds = %245, %
   %325 = load ptr, ptr %39, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 16
   %327 = load ptr, ptr %326, align 8
-  call void %327(ptr noundef nonnull align 8 dereferenceable(20) %39, ptr noundef nonnull align 8 dereferenceable(40) %38) #5
+  call void %327(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %38) #5
   %328 = getelementptr inbounds i8, ptr %38, i64 40
   %329 = getelementptr inbounds i8, ptr %39, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, ptr noundef nonnull align 8 dereferenceable(16) %329, i64 16, i1 false)
@@ -2695,10 +2695,10 @@ _ZN14MacroAssembler12vextracti128E11XMMRegisterS0_h.exit860: ; preds = %492, %.t
   %516 = getelementptr inbounds i8, ptr %53, i64 40
   store i32 0, ptr %516, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %53, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %53, i64 21, i1 false)
   %517 = getelementptr inbounds i8, ptr %10, i64 24
   %518 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %518(ptr noundef nonnull align 8 dereferenceable(20) %514, ptr noundef nonnull align 8 dereferenceable(40) %517) #5
+  call void %518(ptr noundef nonnull align 8 dereferenceable(40) %514, ptr noundef nonnull align 8 dereferenceable(40) %517) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %508, i32 %1, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %519 = load ptr, ptr %74, align 8
@@ -2710,7 +2710,7 @@ _ZN14MacroAssembler12vextracti128E11XMMRegisterS0_h.exit860: ; preds = %492, %.t
   %522 = load ptr, ptr %55, align 8
   %523 = getelementptr inbounds i8, ptr %522, i64 16
   %524 = load ptr, ptr %523, align 8
-  call void %524(ptr noundef nonnull align 8 dereferenceable(20) %55, ptr noundef nonnull align 8 dereferenceable(40) %54) #5
+  call void %524(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %54) #5
   %525 = getelementptr inbounds i8, ptr %54, i64 40
   %526 = getelementptr inbounds i8, ptr %55, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %525, ptr noundef nonnull align 8 dereferenceable(16) %526, i64 16, i1 false)
@@ -2724,7 +2724,7 @@ _ZN14MacroAssembler12vextracti128E11XMMRegisterS0_h.exit860: ; preds = %492, %.t
   %530 = load ptr, ptr %57, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 16
   %532 = load ptr, ptr %531, align 8
-  call void %532(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef nonnull align 8 dereferenceable(40) %56) #5
+  call void %532(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 8 dereferenceable(56) %56) #5
   %533 = getelementptr inbounds i8, ptr %56, i64 40
   %534 = getelementptr inbounds i8, ptr %57, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %533, ptr noundef nonnull align 8 dereferenceable(16) %534, i64 16, i1 false)
@@ -2738,7 +2738,7 @@ _ZN14MacroAssembler12vextracti128E11XMMRegisterS0_h.exit860: ; preds = %492, %.t
   %538 = load ptr, ptr %59, align 8
   %539 = getelementptr inbounds i8, ptr %538, i64 16
   %540 = load ptr, ptr %539, align 8
-  call void %540(ptr noundef nonnull align 8 dereferenceable(20) %59, ptr noundef nonnull align 8 dereferenceable(40) %58) #5
+  call void %540(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %58) #5
   %541 = getelementptr inbounds i8, ptr %58, i64 40
   %542 = getelementptr inbounds i8, ptr %59, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %541, ptr noundef nonnull align 8 dereferenceable(16) %542, i64 16, i1 false)
@@ -3087,21 +3087,21 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit295: ; preds = %85, %86
 
 _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %92 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %26, ptr noundef nonnull align 8 dereferenceable(21) %7, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %93 = getelementptr inbounds i8, ptr %26, i64 24
   %94 = getelementptr inbounds i8, ptr %7, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(20) %94, ptr noundef nonnull align 8 dereferenceable(40) %93) #5
+  call void %97(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %93) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %92, i32 %9, i32 %3, ptr noundef nonnull %26, i32 noundef 1) #5
   %98 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef nonnull align 8 dereferenceable(21) %7, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %99 = getelementptr inbounds i8, ptr %27, i64 24
   %100 = load ptr, ptr %94, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(20) %94, ptr noundef nonnull align 8 dereferenceable(40) %99) #5
+  call void %102(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %99) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %98, i32 %10, i32 %3, ptr noundef nonnull %27, i32 noundef 1) #5
   %103 = load ptr, ptr %61, align 8
   store i32 %21, ptr %28, align 8
@@ -3122,30 +3122,30 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %111 = getelementptr inbounds i8, ptr %28, i64 40
   store i32 0, ptr %111, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %25, ptr noundef nonnull align 8 dereferenceable(21) %28, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %28, i64 21, i1 false)
   %112 = getelementptr inbounds i8, ptr %25, i64 24
   %113 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(20) %109, ptr noundef nonnull align 8 dereferenceable(40) %112) #5
+  call void %113(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %112) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %103, i32 %21, ptr noundef nonnull %25) #5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
   %114 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %114, i32 %22, i32 noundef 64) #5
   %115 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %29, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %116 = getelementptr inbounds i8, ptr %29, i64 24
   %117 = getelementptr inbounds i8, ptr %8, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(20) %117, ptr noundef nonnull align 8 dereferenceable(40) %116) #5
+  call void %120(ptr noundef nonnull align 8 dereferenceable(40) %117, ptr noundef nonnull align 8 dereferenceable(40) %116) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %115, i32 %11, i32 %3, ptr noundef nonnull %29, i32 noundef 1) #5
   %121 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %30, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %122 = getelementptr inbounds i8, ptr %30, i64 24
   %123 = load ptr, ptr %117, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(20) %117, ptr noundef nonnull align 8 dereferenceable(40) %122) #5
+  call void %125(ptr noundef nonnull align 8 dereferenceable(40) %117, ptr noundef nonnull align 8 dereferenceable(40) %122) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %121, i32 %12, i32 %3, ptr noundef nonnull %30, i32 noundef 1) #5
   %126 = load ptr, ptr %61, align 8
   store i32 %21, ptr %31, align 8
@@ -3190,21 +3190,21 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %145 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler11vpunpcklqdqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %145, i32 %15, i32 %15, i32 %16, i32 noundef 1) #5
   %146 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %33, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %147 = getelementptr inbounds i8, ptr %33, i64 24
   %148 = getelementptr inbounds i8, ptr %4, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %147) #5
+  call void %151(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %147) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 %9, i32 %1, ptr noundef nonnull %33, i32 noundef 1) #5
   %152 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %34, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %153 = getelementptr inbounds i8, ptr %34, i64 24
   %154 = load ptr, ptr %148, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %153) #5
+  call void %156(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %153) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 %10, i32 %1, ptr noundef nonnull %34, i32 noundef 1) #5
   %157 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpsrlqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %157, i32 %20, i32 %17, i32 noundef 24, i32 noundef 1) #5
@@ -3213,7 +3213,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %159 = load ptr, ptr %36, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
-  call void %161(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #5
+  call void %161(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull align 8 dereferenceable(56) %35) #5
   %162 = getelementptr inbounds i8, ptr %35, i64 40
   %163 = getelementptr inbounds i8, ptr %36, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false)
@@ -3223,20 +3223,20 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %165 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpsllqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %165, i32 %18, i32 %17, i32 noundef 20, i32 noundef 1) #5
   %166 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %37, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %167 = getelementptr inbounds i8, ptr %37, i64 24
   %168 = load ptr, ptr %148, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %167) #5
+  call void %170(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %167) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %166, i32 %13, i32 %3, ptr noundef nonnull %37, i32 noundef 1) #5
   %171 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %38, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %172 = getelementptr inbounds i8, ptr %38, i64 24
   %173 = load ptr, ptr %148, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %172) #5
+  call void %175(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %172) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %171, i32 %14, i32 %3, ptr noundef nonnull %38, i32 noundef 1) #5
   %176 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %176, i32 %16, i32 %16, i32 %18, i32 noundef 1) #5
@@ -3245,7 +3245,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %178 = load ptr, ptr %40, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(20) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #5
+  call void %180(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(56) %39) #5
   %181 = getelementptr inbounds i8, ptr %39, i64 40
   %182 = getelementptr inbounds i8, ptr %40, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 8 dereferenceable(16) %182, i64 16, i1 false)
@@ -3255,87 +3255,87 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %184 = load ptr, ptr %42, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(20) %42, ptr noundef nonnull align 8 dereferenceable(40) %41) #5
+  call void %186(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %41) #5
   %187 = getelementptr inbounds i8, ptr %41, i64 40
   %188 = getelementptr inbounds i8, ptr %42, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %188, i64 16, i1 false)
   call void @_ZN14MacroAssembler5vpandE11XMMRegisterS0_14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40) %183, i32 %15, i32 %15, ptr noundef nonnull %41, i32 noundef 1, i32 %23) #5
   %189 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %43, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %190 = getelementptr inbounds i8, ptr %43, i64 24
   %191 = getelementptr inbounds i8, ptr %5, i64 24
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(20) %191, ptr noundef nonnull align 8 dereferenceable(40) %190) #5
+  call void %194(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull align 8 dereferenceable(40) %190) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %189, i32 %11, i32 %1, ptr noundef nonnull %43, i32 noundef 1) #5
   %195 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %44, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %196 = getelementptr inbounds i8, ptr %44, i64 24
   %197 = load ptr, ptr %191, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
-  call void %199(ptr noundef nonnull align 8 dereferenceable(20) %191, ptr noundef nonnull align 8 dereferenceable(40) %196) #5
+  call void %199(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull align 8 dereferenceable(40) %196) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %195, i32 %12, i32 %1, ptr noundef nonnull %44, i32 noundef 1) #5
   %200 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %45, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %201 = getelementptr inbounds i8, ptr %45, i64 24
   %202 = load ptr, ptr %117, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(20) %117, ptr noundef nonnull align 8 dereferenceable(40) %201) #5
+  call void %204(ptr noundef nonnull align 8 dereferenceable(40) %117, ptr noundef nonnull align 8 dereferenceable(40) %201) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %200, i32 %9, i32 %2, ptr noundef nonnull %45, i32 noundef 1) #5
   %205 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %46, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %206 = getelementptr inbounds i8, ptr %46, i64 24
   %207 = load ptr, ptr %117, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
-  call void %209(ptr noundef nonnull align 8 dereferenceable(20) %117, ptr noundef nonnull align 8 dereferenceable(40) %206) #5
+  call void %209(ptr noundef nonnull align 8 dereferenceable(40) %117, ptr noundef nonnull align 8 dereferenceable(40) %206) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %205, i32 %10, i32 %2, ptr noundef nonnull %46, i32 noundef 1) #5
   %210 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %47, ptr noundef nonnull align 8 dereferenceable(21) %6, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %211 = getelementptr inbounds i8, ptr %47, i64 24
   %212 = getelementptr inbounds i8, ptr %6, i64 24
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8
-  call void %215(ptr noundef nonnull align 8 dereferenceable(20) %212, ptr noundef nonnull align 8 dereferenceable(40) %211) #5
+  call void %215(ptr noundef nonnull align 8 dereferenceable(40) %212, ptr noundef nonnull align 8 dereferenceable(40) %211) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %210, i32 %13, i32 %1, ptr noundef nonnull %47, i32 noundef 1) #5
   %216 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %48, ptr noundef nonnull align 8 dereferenceable(21) %6, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %217 = getelementptr inbounds i8, ptr %48, i64 24
   %218 = load ptr, ptr %212, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 8
-  call void %220(ptr noundef nonnull align 8 dereferenceable(20) %212, ptr noundef nonnull align 8 dereferenceable(40) %217) #5
+  call void %220(ptr noundef nonnull align 8 dereferenceable(40) %212, ptr noundef nonnull align 8 dereferenceable(40) %217) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %216, i32 %14, i32 %1, ptr noundef nonnull %48, i32 noundef 1) #5
   %221 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpsrlqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %221, i32 %19, i32 %9, i32 noundef 44, i32 noundef 1) #5
   %222 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpsllqE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %222, i32 %10, i32 %10, i32 noundef 8, i32 noundef 1) #5
   %223 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %49, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %224 = getelementptr inbounds i8, ptr %49, i64 24
   %225 = load ptr, ptr %148, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 16
   %227 = load ptr, ptr %226, align 8
-  call void %227(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %224) #5
+  call void %227(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %224) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %223, i32 %11, i32 %2, ptr noundef nonnull %49, i32 noundef 1) #5
   %228 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %50, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %229 = getelementptr inbounds i8, ptr %50, i64 24
   %230 = load ptr, ptr %148, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
-  call void %232(ptr noundef nonnull align 8 dereferenceable(20) %148, ptr noundef nonnull align 8 dereferenceable(40) %229) #5
+  call void %232(ptr noundef nonnull align 8 dereferenceable(40) %148, ptr noundef nonnull align 8 dereferenceable(40) %229) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %228, i32 %12, i32 %2, ptr noundef nonnull %50, i32 noundef 1) #5
   %233 = load ptr, ptr %61, align 8
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull @_ZL15POLY1305_MASK44, i32 noundef 7) #5
   %234 = load ptr, ptr %52, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8
-  call void %236(ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef nonnull align 8 dereferenceable(40) %51) #5
+  call void %236(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(56) %51) #5
   %237 = getelementptr inbounds i8, ptr %51, i64 40
   %238 = getelementptr inbounds i8, ptr %52, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false)
@@ -3343,20 +3343,20 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %239 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpaddqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %239, i32 %10, i32 %10, i32 %19, i32 noundef 1) #5
   %240 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %53, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %241 = getelementptr inbounds i8, ptr %53, i64 24
   %242 = load ptr, ptr %191, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 16
   %244 = load ptr, ptr %243, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(20) %191, ptr noundef nonnull align 8 dereferenceable(40) %241) #5
+  call void %244(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull align 8 dereferenceable(40) %241) #5
   call void @_ZN9Assembler11vpmadd52luqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %240, i32 %13, i32 %2, ptr noundef nonnull %53, i32 noundef 1) #5
   %245 = load ptr, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %54, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %246 = getelementptr inbounds i8, ptr %54, i64 24
   %247 = load ptr, ptr %191, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(20) %191, ptr noundef nonnull align 8 dereferenceable(40) %246) #5
+  call void %249(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull align 8 dereferenceable(40) %246) #5
   call void @_ZN9Assembler11vpmadd52huqE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %245, i32 %14, i32 %2, ptr noundef nonnull %54, i32 noundef 1) #5
   %250 = load ptr, ptr %61, align 8
   call void @_ZN9Assembler6vpaddqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %250, i32 %11, i32 %11, i32 %10, i32 noundef 1) #5
@@ -3369,7 +3369,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %254 = load ptr, ptr %56, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
-  call void %256(ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #5
+  call void %256(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull align 8 dereferenceable(56) %55) #5
   %257 = getelementptr inbounds i8, ptr %55, i64 40
   %258 = getelementptr inbounds i8, ptr %56, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull align 8 dereferenceable(16) %258, i64 16, i1 false)
@@ -3383,7 +3383,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %262 = load ptr, ptr %58, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 16
   %264 = load ptr, ptr %263, align 8
-  call void %264(ptr noundef nonnull align 8 dereferenceable(20) %58, ptr noundef nonnull align 8 dereferenceable(40) %57) #5
+  call void %264(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(56) %57) #5
   %265 = getelementptr inbounds i8, ptr %57, i64 40
   %266 = getelementptr inbounds i8, ptr %58, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull align 8 dereferenceable(16) %266, i64 16, i1 false)
@@ -3409,7 +3409,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit296: ; preds = %90, %91
   %276 = load ptr, ptr %60, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 16
   %278 = load ptr, ptr %277, align 8
-  call void %278(ptr noundef nonnull align 8 dereferenceable(20) %60, ptr noundef nonnull align 8 dereferenceable(40) %59) #5
+  call void %278(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(56) %59) #5
   %279 = getelementptr inbounds i8, ptr %59, i64 40
   %280 = getelementptr inbounds i8, ptr %60, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false)
@@ -3559,7 +3559,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit252: ; preds = %55, %56
   %76 = load ptr, ptr %19, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #5
+  call void %78(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %18) #5
   %79 = getelementptr inbounds i8, ptr %18, i64 40
   %80 = getelementptr inbounds i8, ptr %19, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
@@ -3581,7 +3581,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit252: ; preds = %55, %56
   %88 = load ptr, ptr %21, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(40) %20) #5
+  call void %90(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %20) #5
   %91 = getelementptr inbounds i8, ptr %20, i64 40
   %92 = getelementptr inbounds i8, ptr %21, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false)
@@ -3595,7 +3595,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit252: ; preds = %55, %56
   %96 = load ptr, ptr %23, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(40) %22) #5
+  call void %98(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %22) #5
   %99 = getelementptr inbounds i8, ptr %22, i64 40
   %100 = getelementptr inbounds i8, ptr %23, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false)
@@ -3619,7 +3619,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit252: ; preds = %55, %56
   %109 = load ptr, ptr %25, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #5
+  call void %111(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %24) #5
   %112 = getelementptr inbounds i8, ptr %24, i64 40
   %113 = getelementptr inbounds i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %113, i64 16, i1 false)

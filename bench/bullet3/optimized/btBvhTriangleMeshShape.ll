@@ -398,7 +398,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN22btBvhTriangleMeshShapeD2Ev.exit:             ; preds = %entry, %if.then.i
-  tail call void @_ZN19btTriangleMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #11
+  tail call void @_ZN19btTriangleMeshShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %this) #11
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
           to label %_ZN22btBvhTriangleMeshShapedlEPv.exit unwind label %terminate.lpad.i1
 

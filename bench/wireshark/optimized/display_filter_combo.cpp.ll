@@ -691,7 +691,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %18
   br label %_ZN20QStyleOptionComboBoxD2Ev.exit
 
 _ZN20QStyleOptionComboBoxD2Ev.exit:               ; preds = %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %28
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #11
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11
   br i1 %23, label %33, label %35
 
 30:                                               ; preds = %13, %11, %7
@@ -740,7 +740,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %1
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %6
-  tail call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #11
+  tail call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #11
   ret void
 }
 

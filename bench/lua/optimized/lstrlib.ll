@@ -406,7 +406,7 @@ getformat.exit:                                   ; preds = %if.end, %if.then.i
   ]
 
 sw.bb:                                            ; preds = %getformat.exit
-  %call.i54 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
+  %call.i54 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
   %add.ptr1.i = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i54
   %14 = load i8, ptr %add.ptr1.i, align 1
   %cmp.not.i = icmp eq i8 %14, 48
@@ -548,7 +548,7 @@ checkformat.exit84:                               ; preds = %if.end9.i77, %if.th
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %getformat.exit, %getformat.exit
-  %call.i89 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.36) #14
+  %call.i89 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.36) #14
   %add.ptr1.i90 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i89
   %42 = load i8, ptr %add.ptr1.i90, align 1
   %cmp.not.i91 = icmp eq i8 %42, 48
@@ -635,7 +635,7 @@ sw.bb65:                                          ; preds = %sw.bb62, %getformat
   %maxitem.0 = phi i64 [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 120, %getformat.exit ], [ 418, %sw.bb62 ]
   %buff.0 = phi ptr [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call30, %getformat.exit ], [ %call64, %sw.bb62 ]
   %call67 = call double @luaL_checknumber(ptr noundef %L, i32 noundef %inc31) #13
-  %call.i134 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.36) #14
+  %call.i134 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.36) #14
   %add.ptr1.i135 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i134
   %59 = load i8, ptr %add.ptr1.i135, align 1
   %cmp.not.i136 = icmp eq i8 %59, 48
@@ -715,7 +715,7 @@ checkformat.exit172:                              ; preds = %if.end9.i153, %if.t
 
 sw.bb73:                                          ; preds = %getformat.exit
   %call74 = call ptr @lua_topointer(ptr noundef %L, i32 noundef %inc31) #13
-  %call.i179 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
+  %call.i179 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
   %add.ptr1.i180 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i179
   %76 = load i8, ptr %add.ptr1.i180, align 1
   %cmp.not.i181 = icmp eq i8 %76, 48
@@ -784,7 +784,7 @@ if.then91:                                        ; preds = %sw.bb86
 
 if.end93:                                         ; preds = %sw.bb86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i218 = call i32 @lua_type(ptr noundef %L, i32 noundef %inc31) #13
+  %call.i218 = call i32 @lua_type(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31) #13
   switch i32 %call.i218, label %sw.default.i [
     i32 4, label %sw.bb.i
     i32 3, label %sw.bb2.i
@@ -793,7 +793,7 @@ if.end93:                                         ; preds = %sw.bb86
   ]
 
 sw.bb.i:                                          ; preds = %if.end93
-  %call1.i223 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef %inc31, ptr noundef nonnull %len.i) #13
+  %call1.i223 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31, ptr noundef nonnull %len.i) #13
   %86 = load i64, ptr %len.i, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i)
   %87 = load i64, ptr %n, align 8
@@ -939,12 +939,12 @@ addquoted.exit.i:                                 ; preds = %lor.rhs80.i.i, %whi
 
 sw.bb2.i:                                         ; preds = %if.end93
   %call3.i219 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b, i64 noundef 120) #13
-  %call4.i = call i32 @lua_isinteger(ptr noundef %L, i32 noundef %inc31) #13
+  %call4.i = call i32 @lua_isinteger(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31) #13
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.then.i221, label %if.else.i
 
 if.then.i221:                                     ; preds = %sw.bb2.i
-  %call5.i = call double @lua_tonumberx(ptr noundef %L, i32 noundef %inc31, ptr noundef null) #13
+  %call5.i = call double @lua_tonumberx(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31, ptr noundef null) #13
   %cmp.i19.i = fcmp oeq double %call5.i, 0x7FF0000000000000
   br i1 %cmp.i19.i, label %if.end19.i.i, label %if.else.i20.i
 
@@ -982,7 +982,7 @@ if.end19.i.i:                                     ; preds = %if.else3.i.i, %if.e
   br label %if.end.i
 
 if.else.i:                                        ; preds = %sw.bb2.i
-  %call7.i = call i64 @lua_tointegerx(ptr noundef %L, i32 noundef %inc31, ptr noundef null) #13
+  %call7.i = call i64 @lua_tointegerx(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31, ptr noundef null) #13
   %cmp.i220 = icmp eq i64 %call7.i, -9223372036854775808
   %cond.i = select i1 %cmp.i220, ptr @.str.45, ptr @.str.46
   %call8.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call3.i219, i64 noundef 120, ptr noundef nonnull %cond.i, i64 noundef %call7.i) #13
@@ -997,12 +997,12 @@ if.end.i:                                         ; preds = %if.else.i, %if.end1
   br label %addliteral.exit
 
 sw.bb10.i:                                        ; preds = %if.end93, %if.end93
-  %call11.i = call ptr @luaL_tolstring(ptr noundef %L, i32 noundef %inc31, ptr noundef null) #13
+  %call11.i = call ptr @luaL_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31, ptr noundef null) #13
   call void @luaL_addvalue(ptr noundef nonnull %b) #13
   br label %addliteral.exit
 
 sw.default.i:                                     ; preds = %if.end93
-  %call12.i = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %inc31, ptr noundef nonnull @.str.47) #13
+  %call12.i = call i32 @luaL_argerror(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %inc31, ptr noundef nonnull @.str.47) #13
   br label %addliteral.exit
 
 addliteral.exit:                                  ; preds = %addquoted.exit.i, %if.end.i, %sw.bb10.i, %sw.default.i
@@ -1030,7 +1030,7 @@ lor.rhs109:                                       ; preds = %if.else101
   br label %lor.end112
 
 lor.end112:                                       ; preds = %lor.rhs109, %if.else101
-  %call.i229 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull readonly @.str.31) #14
+  %call.i229 = call i64 @strspn(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31) #14
   %add.ptr1.i230 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %call.i229
   %121 = load i8, ptr %add.ptr1.i230, align 1
   %cmp.not.i231 = icmp eq i8 %121, 48
@@ -3412,7 +3412,7 @@ while.body.i113:                                  ; preds = %if.end39.i, %while.
 
 if.then8.i:                                       ; preds = %while.body.i113
   %conv10.i = zext i8 %45 to i32
-  %call.i120 = tail call fastcc i32 @match_class(i32 noundef %cond61, i32 noundef %conv10.i)
+  %call.i120 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %cond61, i32 noundef %conv10.i)
   %tobool.not.i = icmp eq i32 %call.i120, 0
   br i1 %tobool.not.i, label %if.end39.i, label %matchbracketclass.exit
 
@@ -3466,7 +3466,7 @@ while.body.i130:                                  ; preds = %land.lhs.true, %if.
 
 if.then8.i152:                                    ; preds = %while.body.i130
   %conv10.i153 = zext i8 %49 to i32
-  %call.i154 = tail call fastcc i32 @match_class(i32 noundef %conv67, i32 noundef %conv10.i153)
+  %call.i154 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv67, i32 noundef %conv10.i153)
   %tobool.not.i155 = icmp eq i32 %call.i154, 0
   br i1 %tobool.not.i155, label %if.end39.i140, label %matchbracketclass.exit156
 
@@ -3647,7 +3647,7 @@ while.body.i.i:                                   ; preds = %sw.bb4.i, %if.end39
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
   %conv10.i.i = zext i8 %69 to i32
-  %call.i.i210 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv10.i.i)
+  %call.i.i210 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i, i32 noundef %conv10.i.i)
   %tobool.not.i.i = icmp eq i32 %call.i.i210, 0
   br i1 %tobool.not.i.i, label %if.end39.i.i, label %matchbracketclass.exit.i
 
@@ -3783,7 +3783,7 @@ while.body.i.i253:                                ; preds = %sw.bb4.i242, %if.en
 
 if.then8.i.i273:                                  ; preds = %while.body.i.i253
   %conv10.i.i274 = zext i8 %78 to i32
-  %call.i.i275 = tail call fastcc i32 @match_class(i32 noundef %conv.i241, i32 noundef %conv10.i.i274)
+  %call.i.i275 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i241, i32 noundef %conv10.i.i274)
   %tobool.not.i.i276 = icmp eq i32 %call.i.i275, 0
   br i1 %tobool.not.i.i276, label %if.end39.i.i262, label %matchbracketclass.exit.i250
 
@@ -3895,7 +3895,7 @@ while.body.i.i300:                                ; preds = %sw.bb4.i289, %if.en
 
 if.then8.i.i320:                                  ; preds = %while.body.i.i300
   %conv10.i.i321 = zext i8 %85 to i32
-  %call.i.i322 = tail call fastcc i32 @match_class(i32 noundef %conv.i288, i32 noundef %conv10.i.i321)
+  %call.i.i322 = tail call fastcc i32 @match_class(i32 noundef range(i32 0, 256) %conv.i288, i32 noundef %conv10.i.i321)
   %tobool.not.i.i323 = icmp eq i32 %call.i.i322, 0
   br i1 %tobool.not.i.i323, label %if.end39.i.i309, label %matchbracketclass.exit.i297
 

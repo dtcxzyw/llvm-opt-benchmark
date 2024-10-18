@@ -348,11 +348,11 @@ define dso_local void @_ZN5clang5index21CommentToXMLConverter20convertCommentToH
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %12, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %6, ptr %13, align 8
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %1)
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
   ret void
 }
 
@@ -665,7 +665,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %144, %142
 
 160:                                              ; preds = %5
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef readonly %.tr139167, ptr noundef nonnull align 8 dereferenceable(56) %161)
+  tail call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef nonnull readonly %.tr139167, ptr noundef nonnull align 8 dereferenceable(56) %161)
   br label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter25visitInlineCommandCommentEPKN5clang8comments20InlineCommandCommentE.exit
 
 162:                                              ; preds = %5
@@ -747,14 +747,14 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i20:  ; preds = %189, %188, %186
 202:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3)
   %203 = load ptr, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef %.tr139167, ptr noundef nonnull align 8 dereferenceable(64) %203)
+  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull %.tr139167, ptr noundef nonnull align 8 dereferenceable(64) %203)
   %204 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %205 = load ptr, ptr %204, align 8
   %.not.i24 = icmp eq ptr %205, null
   br i1 %.not.i24, label %207, label %206
 
 206:                                              ; preds = %202
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %205)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %205)
   br label %207
 
 207:                                              ; preds = %206, %202
@@ -763,7 +763,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i20:  ; preds = %189, %188, %186
   br i1 %.not26.i, label %210, label %209
 
 209:                                              ; preds = %207
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %208)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %208)
   br label %226
 
 210:                                              ; preds = %207
@@ -791,7 +791,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i20:  ; preds = %189, %188, %186
 .lr.ph192:                                        ; preds = %217, %.lr.ph192
   %.0.i59190 = phi ptr [ %224, %.lr.ph192 ], [ %219, %217 ]
   %223 = load ptr, ptr %.0.i59190, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %223)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %223)
   %224 = getelementptr inbounds i8, ptr %.0.i59190, i64 8
   %.not9.i = icmp eq ptr %224, %222
   br i1 %.not9.i, label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphCommentEPKN5clang8comments16ParagraphCommentE.exit, label %.lr.ph192, !llvm.loop !6
@@ -823,7 +823,7 @@ _ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphComment
   br i1 %or.cond.i, label %238, label %237
 
 237:                                              ; preds = %231
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %234)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %234)
   br label %238
 
 238:                                              ; preds = %237, %231
@@ -871,7 +871,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %251, %253
   %258 = load ptr, ptr %239, align 8
   %259 = getelementptr inbounds ptr, ptr %258, i64 %indvars.iv242
   %260 = load ptr, ptr %259, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %260)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %260)
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %.not30.i = icmp eq i64 %indvars.iv.next243, %257
   br i1 %.not30.i, label %._crit_edge201, label %.lr.ph200, !llvm.loop !8
@@ -936,7 +936,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49:               ; preds = %284, %286
   %291 = load ptr, ptr %272, align 8
   %292 = getelementptr inbounds ptr, ptr %291, i64 %indvars.iv245
   %293 = load ptr, ptr %292, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %293)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %293)
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %.not32.i = icmp eq i64 %indvars.iv.next246, %290
   br i1 %.not32.i, label %._crit_edge205, label %.lr.ph204, !llvm.loop !9
@@ -1001,7 +1001,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %317, %319
   %324 = load ptr, ptr %305, align 8
   %325 = getelementptr inbounds ptr, ptr %324, i64 %indvars.iv248
   %326 = load ptr, ptr %325, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %326)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %326)
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %.not34.i = icmp eq i64 %indvars.iv.next249, %323
   br i1 %.not34.i, label %._crit_edge209, label %.lr.ph208, !llvm.loop !10
@@ -1086,7 +1086,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %358, %360
 .lr.ph187:                                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit67, %.lr.ph187
   %.0.i25186 = phi ptr [ %369, %.lr.ph187 ], [ %364, %_ZN4llvm11raw_ostreamlsEPKc.exit67 ]
   %368 = load ptr, ptr %.0.i25186, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %368)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %368)
   %369 = getelementptr inbounds i8, ptr %.0.i25186, i64 8
   %.not.i26 = icmp eq ptr %369, %367
   br i1 %.not.i26, label %._crit_edge188, label %.lr.ph187, !llvm.loop !11
@@ -1164,7 +1164,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit85:               ; preds = %400, %402
 .lr.ph180:                                        ; preds = %407, %.lr.ph180
   %.0.i79178 = phi ptr [ %414, %.lr.ph180 ], [ %409, %407 ]
   %413 = load ptr, ptr %.0.i79178, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %413)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %413)
   %414 = getelementptr inbounds i8, ptr %.0.i79178, i64 8
   %.not9.i80 = icmp eq ptr %414, %412
   br i1 %.not9.i80, label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphCommentEPKN5clang8comments16ParagraphCommentE.exit81, label %.lr.ph180, !llvm.loop !6
@@ -1235,7 +1235,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %438, %440
 .lr.ph184:                                        ; preds = %445, %.lr.ph184
   %.0.i71182 = phi ptr [ %452, %.lr.ph184 ], [ %447, %445 ]
   %451 = load ptr, ptr %.0.i71182, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %451)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %451)
   %452 = getelementptr inbounds i8, ptr %.0.i71182, i64 8
   %.not9.i72 = icmp eq ptr %452, %450
   br i1 %.not9.i72, label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphCommentEPKN5clang8comments16ParagraphCommentE.exit73, label %.lr.ph184, !llvm.loop !6
@@ -1559,7 +1559,7 @@ _ZN12_GLOBAL__N_125CommentASTToHTMLConverter25visitTParamCommandCommentEPKN5clan
 .lr.ph170:                                        ; preds = %621, %.lr.ph170
   %.0.i91169 = phi ptr [ %628, %.lr.ph170 ], [ %623, %621 ]
   %627 = load ptr, ptr %.0.i91169, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %627)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %627)
   %628 = getelementptr inbounds i8, ptr %.0.i91169, i64 8
   %.not9.i92 = icmp eq ptr %628, %626
   br i1 %.not9.i92, label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphCommentEPKN5clang8comments16ParagraphCommentE.exit93, label %.lr.ph170, !llvm.loop !6
@@ -1731,7 +1731,7 @@ _ZN12_GLOBAL__N_125CommentASTToHTMLConverter24visitParamCommandCommentEPKN5clang
 .lr.ph213:                                        ; preds = %716, %.lr.ph213
   %.0.i111211 = phi ptr [ %723, %.lr.ph213 ], [ %718, %716 ]
   %722 = load ptr, ptr %.0.i111211, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %722)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %722)
   %723 = getelementptr inbounds i8, ptr %.0.i111211, i64 8
   %.not9.i112 = icmp eq ptr %723, %721
   br i1 %.not9.i112, label %_ZN12_GLOBAL__N_125CommentASTToHTMLConverter34visitNonStandaloneParagraphCommentEPKN5clang8comments16ParagraphCommentE.exit113, label %.lr.ph213, !llvm.loop !6
@@ -1777,11 +1777,11 @@ define dso_local void @_ZN5clang5index21CommentToXMLConverter24convertHTMLTagNod
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %12, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %6, ptr %13, align 8
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_125CommentASTToHTMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %1)
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #16
   ret void
 }
 
@@ -1804,13 +1804,13 @@ define dso_local void @_ZN5clang5index21CommentToXMLConverter19convertCommentToX
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %9, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %14, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %6, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %8, ptr %16, align 8
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %1)
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
   ret void
 }
 
@@ -2204,7 +2204,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5.i:              ; preds = %200, %198, %_ZN4llv
 
 _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %208, %206
   %211 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull %211, i64 noundef 32) #16
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull %211, i64 noundef 32) #16
   %212 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 2, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2216,11 +2216,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %208, %206
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %19, align 8
   %216 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %18, ptr %216, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
-  call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %19) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call fastcc void @_ZN12_GLOBAL__N_124printHTMLStartTagCommentEPKN5clang8comments19HTMLStartTagCommentERN4llvm19raw_svector_ostreamE(ptr noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #16
   %217 = load ptr, ptr %18, align 8
-  %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
+  %218 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %18) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store ptr %217, ptr %17, align 8
   %219 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2348,7 +2348,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %208, %206
 
 _ZN12_GLOBAL__N_124CommentASTToXMLConverter31appendToResultWithCDATAEscapingEN4llvm9StringRefE.exit.i: ; preds = %275, %273, %_ZN4llvm11raw_ostreamlsEPKc.exit8.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %18) #16
+  %278 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %18) #16
   %279 = load ptr, ptr %18, align 8
   %280 = icmp eq ptr %279, %211
   br i1 %280, label %_ZN4llvm11SmallStringILj32EED2Ev.exit.i, label %281
@@ -2523,7 +2523,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i27:  ; preds = %344, %343, %341
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %362 = load ptr, ptr %361, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %362)
+  call fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8comments11FullCommentERKNS2_13CommandTraitsE(ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %362)
   %363 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %364 = load ptr, ptr %363, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 48
@@ -2876,7 +2876,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit274:              ; preds = %500, %502
 
 _ZN4llvm11raw_ostreamlsEPKc.exit268:              ; preds = %526, %524, %.critedge.i
   %529 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %529, i64 noundef 128) #16
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull %529, i64 noundef 128) #16
   %530 = load ptr, ptr %369, align 8
   %531 = call noundef zeroext i1 @_ZN5clang5index18generateUSRForDeclEPKNS_4DeclERN4llvm15SmallVectorImplIcEE(ptr noundef %530, ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   %532 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
@@ -2904,7 +2904,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit268:              ; preds = %526, %524, %.crited
 
 _ZN4llvm11raw_ostreamlsEPKc.exit488:              ; preds = %540, %542
   %545 = load ptr, ptr %9, align 8
-  %546 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  %546 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %9) #16
   call fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter29appendToResultWithXMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %545, i64 %546)
   %547 = load ptr, ptr %495, align 8
   %548 = load ptr, ptr %497, align 8
@@ -2926,7 +2926,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit488:              ; preds = %540, %542
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit492
 
 _ZN4llvm11raw_ostreamlsEPKc.exit492:              ; preds = %555, %553, %_ZN4llvm11raw_ostreamlsEPKc.exit268
-  %558 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
+  %558 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %9) #16
   %559 = load ptr, ptr %9, align 8
   %560 = icmp eq ptr %559, %529
   br i1 %560, label %_ZN4llvm11SmallStringILj128EED2Ev.exit262, label %561
@@ -2992,7 +2992,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit262:        ; preds = %574, %571, %561, %_
 
 _ZN4llvm11raw_ostreamlsEPKc.exit257:              ; preds = %590, %592
   %595 = load ptr, ptr %578, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %595)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %595)
   %596 = load ptr, ptr %582, align 8
   %597 = load ptr, ptr %584, align 8
   %598 = ptrtoint ptr %596 to i64
@@ -3037,7 +3037,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit253:              ; preds = %604, %602, %_ZN4llv
 
 _ZN4llvm11raw_ostreamlsEPKc.exit249:              ; preds = %616, %618
   %621 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %621, i64 noundef 128) #16
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull %621, i64 noundef 128) #16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %622 = getelementptr inbounds nuw i8, ptr %577, i64 8
@@ -3056,7 +3056,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit249:              ; preds = %616, %618
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm19raw_svector_ostreamE, i64 16), ptr %4, align 8
   %631 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %10, ptr %631, align 8
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #16
   %632 = load i64, ptr %626, align 8
   %633 = lshr i64 %632, 2
   %634 = and i64 %633, 512
@@ -3104,12 +3104,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit249:              ; preds = %616, %618
   store i64 %667, ptr %5, align 8
   %668 = load ptr, ptr %622, align 8
   call void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEjb(ptr noundef nonnull align 8 dereferenceable(33) %668, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0, i1 noundef zeroext false) #16
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter23formatTextOfDeclarationEPKN5clang8comments8DeclInfoERN4llvm11SmallStringILj128EEE(ptr noundef nonnull align 8 dereferenceable(152) %10)
   %669 = load ptr, ptr %10, align 8
-  %670 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #16
+  %670 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %10) #16
   call fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter29appendToResultWithXMLEscapingEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %669, i64 %670)
   %671 = load ptr, ptr %608, align 8
   %672 = load ptr, ptr %610, align 8
@@ -3131,7 +3131,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit249:              ; preds = %616, %618
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit244
 
 _ZN4llvm11raw_ostreamlsEPKc.exit244:              ; preds = %677, %679
-  %682 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #16
+  %682 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %10) #16
   %683 = load ptr, ptr %10, align 8
   %684 = icmp eq ptr %683, %621
   br i1 %684, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %685
@@ -3167,7 +3167,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZN4llvm11raw_ostre
 
 _ZN4llvm11raw_ostreamlsEPKc.exit240:              ; preds = %694, %696
   %699 = load ptr, ptr %6, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %699)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %699)
   %700 = load ptr, ptr %608, align 8
   %701 = load ptr, ptr %610, align 8
   %702 = ptrtoint ptr %700 to i64
@@ -3196,7 +3196,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit240:              ; preds = %694, %696
 714:                                              ; preds = %711
   %715 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %607, ptr noundef nonnull @.str.95)
   %716 = load ptr, ptr %712, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %716)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %716)
   %717 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %607, ptr noundef nonnull @.str.96)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit236
 
@@ -3238,7 +3238,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit232:              ; preds = %727, %729
   %734 = load ptr, ptr %718, align 8
   %735 = getelementptr inbounds ptr, ptr %734, i64 %indvars.iv
   %736 = load ptr, ptr %735, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %736)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %736)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not124.i = icmp eq i64 %indvars.iv.next, %733
   br i1 %.not124.i, label %._crit_edge419, label %.lr.ph418, !llvm.loop !15
@@ -3300,7 +3300,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit224:              ; preds = %757, %759
   %764 = load ptr, ptr %748, align 8
   %765 = getelementptr inbounds ptr, ptr %764, i64 %indvars.iv445
   %766 = load ptr, ptr %765, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %766)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %766)
   %indvars.iv.next446 = add nuw nsw i64 %indvars.iv445, 1
   %.not126.i = icmp eq i64 %indvars.iv.next446, %763
   br i1 %.not126.i, label %._crit_edge423, label %.lr.ph422, !llvm.loop !16
@@ -3442,7 +3442,7 @@ _ZNK4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEE4sizeEv.exit: 
 
 _ZNK4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEEixEj.exit: ; preds = %.lr.ph426, %815
   %.0.i193 = phi ptr [ %818, %815 ], [ %814, %.lr.ph426 ]
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.0.i193)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %.0.i193)
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %.not128.i = icmp eq i64 %indvars.iv.next449, %810
   br i1 %.not128.i, label %._crit_edge427, label %.lr.ph426, !llvm.loop !17
@@ -3504,7 +3504,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit188:              ; preds = %839, %841
   %846 = load ptr, ptr %830, align 8
   %847 = getelementptr inbounds ptr, ptr %846, i64 %indvars.iv451
   %848 = load ptr, ptr %847, align 8
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %848)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %848)
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %.not130.i = icmp eq i64 %indvars.iv.next452, %845
   br i1 %.not130.i, label %._crit_edge431, label %.lr.ph430, !llvm.loop !18
@@ -4256,7 +4256,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit176:              ; preds = %1222, %1220, %955, 
 
 _ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %1246, %1244, %1235
   %.2.i = phi i8 [ %.0107.i437, %1235 ], [ 1, %1244 ], [ 1, %1246 ]
-  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1232)
+  call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1232)
   br label %1249
 
 1249:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit54, %1229
@@ -4718,7 +4718,7 @@ _ZN12_GLOBAL__N_124CommentASTToXMLConverter25visitTParamCommandCommentEPKN5clang
 _ZN4llvm11raw_ostreamlsEPKc.exit297:              ; preds = %1464, %1466
   %1469 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1470 = load ptr, ptr %1469, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1470)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1470)
   %1471 = load ptr, ptr %1391, align 8
   %1472 = load ptr, ptr %1393, align 8
   %1473 = ptrtoint ptr %1471 to i64
@@ -4939,7 +4939,7 @@ _ZN12_GLOBAL__N_124CommentASTToXMLConverter24visitParamCommandCommentEPKN5clang8
 _ZN4llvm11raw_ostreamlsEPKc.exit318:              ; preds = %1579, %1581
   %1584 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1585 = load ptr, ptr %1584, align 8
-  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1585)
+  tail call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1585)
   %1586 = load ptr, ptr %1484, align 8
   %1587 = load ptr, ptr %1486, align 8
   %1588 = ptrtoint ptr %1586 to i64
@@ -5436,18 +5436,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsC2EPKN5clang8com
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 4) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %7, i64 noundef 4) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 8) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %9, i64 noundef 8) #16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = getelementptr inbounds i8, ptr %0, i64 168
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 4) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %11, i64 noundef 4) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = getelementptr inbounds i8, ptr %0, i64 224
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 8) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull %14, i64 noundef 8) #16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5796,7 +5796,7 @@ _ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.threa
 
 ._crit_edge:                                      ; preds = %_ZNK5clang8comments19BlockCommandComment25hasNonWhitespaceParagraphEv.exit.thread, %3
   %183 = load ptr, ptr %8, align 8
-  %184 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
+  %184 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #16
   %185 = getelementptr inbounds ptr, ptr %183, i64 %184
   %186 = icmp eq i64 %184, 0
   br i1 %186, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit, label %187
@@ -5834,7 +5834,7 @@ _ZNSt17_Temporary_bufferIPPKN5clang8comments19ParamCommandCommentES4_EC2ES5_l.ex
 
 _ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EEEN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEvOT_T0_.exit: ; preds = %._crit_edge, %191
   %192 = load ptr, ptr %10, align 8
-  %193 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
+  %193 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #16
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
   %195 = icmp eq i64 %193, 0
   br i1 %195, label %_ZN4llvm11stable_sortIRNS_11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EEEN12_GLOBAL__N_135TParamCommandCommentComparePositionEEEvOT_T0_.exit, label %196
@@ -5879,7 +5879,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116FullCommentPartsD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #16
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = icmp eq ptr %4, %5
@@ -5901,7 +5901,7 @@ _ZN4llvm11SmallVectorIPKN5clang8comments19BlockContentCommentELj8EED2Ev.exit: ; 
   br i1 %.not.i, label %_ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN4llvm11SmallVectorIPKN5clang8comments19BlockContentCommentELj8EED2Ev.exit
-  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
+  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #16
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   %16 = icmp eq ptr %14, %15
@@ -5917,7 +5917,7 @@ _ZN4llvm11SmallVectorIPKN5clang8comments19BlockCommandCommentELj4EED2Ev.exit.i: 
 
 _ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang8comments19BlockContentCommentELj8EED2Ev.exit, %_ZN4llvm11SmallVectorIPKN5clang8comments19BlockCommandCommentELj4EED2Ev.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #16
+  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %18) #16
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 168
   %22 = icmp eq ptr %20, %21
@@ -5929,7 +5929,7 @@ _ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEED2Ev.exit: ; pr
 
 _ZN4llvm11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EED2Ev.exit: ; preds = %_ZN4llvm13TinyPtrVectorIPKN5clang8comments19BlockCommandCommentEED2Ev.exit, %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
+  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %24) #16
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 88
   %28 = icmp eq ptr %26, %27
@@ -5941,7 +5941,7 @@ _ZN4llvm11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EED2Ev.exit: ;
 
 _ZN4llvm11SmallVectorIPKN5clang8comments19ParamCommandCommentELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang8comments20TParamCommandCommentELj4EED2Ev.exit, %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #16
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %30) #16
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   %34 = icmp eq ptr %32, %33
@@ -5978,7 +5978,7 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19Blo
   %10 = and i64 %.0.copyload.i.i.i.i, -8
   %11 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   %12 = getelementptr inbounds i8, ptr %11, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef 4) #16
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %12, i64 noundef 4) #16
   %13 = ptrtoint ptr %11 to i64
   %14 = or i64 %13, 4
   store i64 %14, ptr %0, align 8
@@ -6678,7 +6678,7 @@ _ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops
   %.020.lcssa.i = phi ptr [ %2, %47 ], [ %67, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i ]
   %.0.lcssa.i26 = phi ptr [ %0, %47 ], [ %50, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i ]
   %.lcssa50.i = phi i64 [ %7, %47 ], [ %69, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.088, i64 %.lcssa50.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 2305843009213693949) %.088, i64 %.lcssa50.i)
   %70 = getelementptr inbounds ptr, ptr %.0.lcssa.i26, i64 %.sroa.speculated.i
   %71 = icmp ne i64 %.sroa.speculated.i, 0
   %72 = icmp ne ptr %70, %1
@@ -6802,7 +6802,7 @@ _ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops
   %.020.lcssa.i52 = phi ptr [ %0, %_ZSt17__merge_sort_loopIPPKN5clang8comments19ParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_T1_T2_.exit ], [ %108, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i49 ]
   %.0.lcssa.i53 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPPKN5clang8comments19ParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_T1_T2_.exit ], [ %91, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i49 ]
   %.lcssa50.i54 = phi i64 [ %7, %_ZSt17__merge_sort_loopIPPKN5clang8comments19ParamCommandCommentES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEEvT_SC_T0_T1_T2_.exit ], [ %110, %_ZSt12__move_mergeIPPKN5clang8comments19ParamCommandCommentES5_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_131ParamCommandCommentCompareIndexEEEET0_T_SD_SD_SD_SC_T1_.exit.i49 ]
-  %.sroa.speculated.i55 = tail call i64 @llvm.smin.i64(i64 %48, i64 %.lcssa50.i54)
+  %.sroa.speculated.i55 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 2305843009213693949) %48, i64 %.lcssa50.i54)
   %111 = getelementptr inbounds ptr, ptr %.0.lcssa.i53, i64 %.sroa.speculated.i55
   %112 = icmp ne i64 %.sroa.speculated.i55, 0
   %113 = icmp ne ptr %111, %8
@@ -9004,10 +9004,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter23format
   %18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  %21 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %22, align 8
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %18, ptr noundef %20)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %18, ptr noundef %20)
   %.pre = load i8, ptr %14, align 8
   br label %23
 
@@ -9017,7 +9017,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_124CommentASTToXMLConverter23format
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #16
   br label %_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 27:                                               ; preds = %23
@@ -9893,7 +9893,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit106, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %202, %.lr.ph.i.i.i.i.i ], [ %199, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit106 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(41) %.05.i.i.i.i.i) #16
   %202 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i107 = icmp eq ptr %202, %201
   br i1 %.not.i.i.i.i.i107, label %_ZSt8_DestroyIPN5clang7tooling12IncludeStyle15IncludeCategoryES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !58
@@ -10051,7 +10051,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_Ide
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 104) #19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59

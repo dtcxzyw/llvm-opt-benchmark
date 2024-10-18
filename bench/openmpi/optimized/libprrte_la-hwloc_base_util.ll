@@ -1085,7 +1085,7 @@ define i32 @prte_hwloc_base_get_npus(ptr noundef %0, i1 noundef zeroext %1, ptr 
   br label %hwloc_get_nbobjs_inside_cpuset_by_type.exit
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %18, i32 noundef 0) #17
+  %21 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %18, i32 noundef 0) #17
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit, label %.preheader.i.i
 
@@ -2272,7 +2272,7 @@ define void @prte_hwloc_build_map(ptr noundef %0, ptr noundef %1, i1 noundef zer
   br i1 %or.cond.i, label %.critedge24, label %9
 
 9:                                                ; preds = %.lr.ph33.split
-  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %8, i32 noundef 0) #17
+  %10 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef range(i32 0, -2) %8, i32 noundef 0) #17
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %.critedge24, label %.preheader.i.i
 

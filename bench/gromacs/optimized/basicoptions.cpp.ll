@@ -1746,7 +1746,7 @@ define void @_ZNK3gmx20BooleanOptionStorage17formatSingleValueB5cxx11ERKb(ptr de
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc2 unwind label %13
 
 .noexc2:                                          ; preds = %.noexc
@@ -1758,7 +1758,7 @@ define void @_ZNK3gmx20BooleanOptionStorage17formatSingleValueB5cxx11ERKb(ptr de
 11:                                               ; preds = %.noexc2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -1804,7 +1804,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IPS8_
   br i1 %.not.i.i, label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %10
 
 10:                                               ; preds = %8
@@ -1825,7 +1825,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i2, label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3, label %16
 
 16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3 unwind label %18
 
 18:                                               ; preds = %16
@@ -1854,7 +1854,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIbE12addConverterIN
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -1873,7 +1873,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIbE12addConverterIN
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -1901,7 +1901,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 .noexc:                                           ; preds = %25
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %7, align 8
   store ptr %29, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
@@ -1910,7 +1910,7 @@ _ZNSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFbRKT_EEEUlS3_E_vEEOSG_.exit.i
@@ -1920,9 +1920,9 @@ _ZNSt8functionIFbRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIbE12addConve
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %35 = getelementptr inbounds i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -1936,7 +1936,7 @@ _ZNSt8functionIFbRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIbE12addConve
   br i1 %.not.i.i.i, label %44, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFbRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFbRKT_EEEUlS3_E_vEEOSG_.exit.i
-  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %44 unwind label %41
 
 41:                                               ; preds = %39
@@ -1953,7 +1953,7 @@ _ZNSt8functionIFbRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIbE12addConve
   br i1 %.not.i.i.i2, label %_ZZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFbRKT_EEENUlRKNS_3AnyEE_D2Ev.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFbRKT_EEENUlRKNS_3AnyEE_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -1974,7 +1974,7 @@ _ZZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i3, label %common.resume, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %56
 
 56:                                               ; preds = %54
@@ -2015,7 +2015,7 @@ define noundef zeroext i1 @_ZNK3gmx17BooleanOptionInfo12defaultValueEv(ptr nocap
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(160) %3)
+  %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(232) %3)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %_ZNK3gmx20BooleanOptionStorage12defaultValueEv.exit
 
@@ -2039,7 +2039,7 @@ _ZNK3gmx20BooleanOptionStorage12defaultValueEv.exit: ; preds = %1, %9
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK3gmx13BooleanOption13createStorageERKNS_22OptionManagerContainerE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #25
-  invoke void @_ZN3gmx21OptionStorageTemplateIbEC2INS_13BooleanOptionEEERKNS_14OptionTemplateIbT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
+  invoke void @_ZN3gmx21OptionStorageTemplateIbEC2INS_13BooleanOptionEEERKNS_14OptionTemplateIbT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
@@ -2057,13 +2057,13 @@ define noundef nonnull ptr @_ZNK3gmx13BooleanOption13createStorageERKNS_22Option
   store i8 0, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20BooleanOptionStorageE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 216
-  invoke void @_ZN3gmx17BooleanOptionInfoC1EPNS_20BooleanOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx17BooleanOptionInfoC1EPNS_20BooleanOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(232) %3)
           to label %_ZN3gmx20BooleanOptionStorageC2ERKNS_13BooleanOptionE.exit unwind label %11
 
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIbED2Ev(ptr noundef nonnull align 8 dereferenceable(209) %3) #23
+  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIbED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %3) #23
   br label %.body
 
 _ZN3gmx20BooleanOptionStorageC2ERKNS_13BooleanOptionE.exit: ; preds = %.noexc
@@ -2113,7 +2113,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IPS8_
   br i1 %.not.i.i, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %10
 
 10:                                               ; preds = %8
@@ -2134,7 +2134,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i2, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3, label %16
 
 16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3 unwind label %18
 
 18:                                               ; preds = %16
@@ -2163,7 +2163,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIiE12addConverterIN
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -2182,7 +2182,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIiE12addConverterIN
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -2210,7 +2210,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 .noexc:                                           ; preds = %25
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %7, align 8
   store ptr %29, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
@@ -2219,7 +2219,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFiRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFiRKT_EEEUlS3_E_vEEOSG_.exit.i
@@ -2229,9 +2229,9 @@ _ZNSt8functionIFiRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIiE12addConve
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %35 = getelementptr inbounds i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -2245,7 +2245,7 @@ _ZNSt8functionIFiRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIiE12addConve
   br i1 %.not.i.i.i, label %44, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFiRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFiRKT_EEEUlS3_E_vEEOSG_.exit.i
-  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %44 unwind label %41
 
 41:                                               ; preds = %39
@@ -2262,7 +2262,7 @@ _ZNSt8functionIFiRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIiE12addConve
   br i1 %.not.i.i.i2, label %_ZZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EEENUlRKNS_3AnyEE_D2Ev.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EEENUlRKNS_3AnyEE_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -2283,7 +2283,7 @@ _ZZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i3, label %common.resume, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %56
 
 56:                                               ; preds = %54
@@ -2351,11 +2351,11 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 2
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef %13, i64 noundef %32)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef %32)
           to label %33 unwind label %.thread.i
 
 33:                                               ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %34 unwind label %.thread29.i
 
 34:                                               ; preds = %33
@@ -2400,7 +2400,7 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
   %.013.i = phi i1 [ false, %38 ], [ true, %36 ]
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   br label %45
 
@@ -2466,7 +2466,7 @@ define void @_ZN3gmx17IntegerOptionInfoC2EPNS_20IntegerOptionStorageE(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK3gmx13IntegerOption13createStorageERKNS_22OptionManagerContainerE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #25
-  invoke void @_ZN3gmx21OptionStorageTemplateIiEC2INS_13IntegerOptionEEERKNS_14OptionTemplateIiT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
+  invoke void @_ZN3gmx21OptionStorageTemplateIiEC2INS_13IntegerOptionEEERKNS_14OptionTemplateIiT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
@@ -2484,13 +2484,13 @@ define noundef nonnull ptr @_ZNK3gmx13IntegerOption13createStorageERKNS_22Option
   store i8 0, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20IntegerOptionStorageE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 200
-  invoke void @_ZN3gmx17IntegerOptionInfoC1EPNS_20IntegerOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx17IntegerOptionInfoC1EPNS_20IntegerOptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(216) %3)
           to label %_ZN3gmx20IntegerOptionStorageC2ERKNS_13IntegerOptionE.exit unwind label %11
 
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIiED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %3) #23
+  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIiED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #23
   br label %.body
 
 _ZN3gmx20IntegerOptionStorageC2ERKNS_13IntegerOptionE.exit: ; preds = %.noexc
@@ -2534,7 +2534,7 @@ _ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IPS8_
   br i1 %.not.i.i, label %_ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %10
 
 10:                                               ; preds = %8
@@ -2555,7 +2555,7 @@ _ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i2, label %_ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3, label %16
 
 16:                                               ; preds = %13
-  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %17 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit3 unwind label %18
 
 18:                                               ; preds = %16
@@ -2584,7 +2584,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIlE12addConverterIN
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -2603,7 +2603,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIlE12addConverterIN
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -2631,7 +2631,7 @@ _ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 .noexc:                                           ; preds = %25
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %7, align 8
   store ptr %29, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
@@ -2640,7 +2640,7 @@ _ZNSt8functionIFlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFlRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFlRKT_EEEUlS3_E_vEEOSG_.exit.i
@@ -2650,9 +2650,9 @@ _ZNSt8functionIFlRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIlE12addConve
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %35 = getelementptr inbounds i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -2666,7 +2666,7 @@ _ZNSt8functionIFlRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIlE12addConve
   br i1 %.not.i.i.i, label %44, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFlRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFlRKT_EEEUlS3_E_vEEOSG_.exit.i
-  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %44 unwind label %41
 
 41:                                               ; preds = %39
@@ -2683,7 +2683,7 @@ _ZNSt8functionIFlRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIlE12addConve
   br i1 %.not.i.i.i2, label %_ZZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFlRKT_EEENUlRKNS_3AnyEE_D2Ev.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFlRKT_EEENUlRKNS_3AnyEE_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -2704,7 +2704,7 @@ _ZZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i3, label %common.resume, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %56
 
 56:                                               ; preds = %54
@@ -2732,7 +2732,7 @@ define void @_ZN3gmx15Int64OptionInfoC2EPNS_18Int64OptionStorageE(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK3gmx11Int64Option13createStorageERKNS_22OptionManagerContainerE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #25
-  invoke void @_ZN3gmx21OptionStorageTemplateIlEC2INS_11Int64OptionEEERKNS_14OptionTemplateIlT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
+  invoke void @_ZN3gmx21OptionStorageTemplateIlEC2INS_11Int64OptionEEERKNS_14OptionTemplateIlT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 0)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
@@ -2750,13 +2750,13 @@ define noundef nonnull ptr @_ZNK3gmx11Int64Option13createStorageERKNS_22OptionMa
   store i8 0, ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18Int64OptionStorageE, i64 16), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 200
-  invoke void @_ZN3gmx15Int64OptionInfoC1EPNS_18Int64OptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %3)
+  invoke void @_ZN3gmx15Int64OptionInfoC1EPNS_18Int64OptionStorageE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(216) %3)
           to label %_ZN3gmx18Int64OptionStorageC2ERKNS_11Int64OptionE.exit unwind label %11
 
 11:                                               ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIlED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %3) #23
+  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIlED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #23
   br label %.body
 
 _ZN3gmx18Int64OptionStorageC2ERKNS_11Int64OptionE.exit: ; preds = %.noexc
@@ -2775,7 +2775,7 @@ _ZN3gmx18Int64OptionStorageC2ERKNS_11Int64OptionE.exit: ; preds = %.noexc
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19DoubleOptionStorageC2ERKNS_12DoubleOptionE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(89) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3gmx21OptionStorageTemplateIdEC2INS_12DoubleOptionEEERKNS_14OptionTemplateIdT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
+  tail call void @_ZN3gmx21OptionStorageTemplateIdEC2INS_12DoubleOptionEEERKNS_14OptionTemplateIdT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
@@ -2827,7 +2827,7 @@ define void @_ZNK3gmx19DoubleOptionStorage10typeStringB5cxx11Ev(ptr dead_on_unwi
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -2839,7 +2839,7 @@ define void @_ZNK3gmx19DoubleOptionStorage10typeStringB5cxx11Ev(ptr dead_on_unwi
 14:                                               ; preds = %.noexc2
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -2889,7 +2889,7 @@ _ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IPS8_
   br i1 %.not.i.i, label %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %10
@@ -2906,8 +2906,8 @@ _ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
@@ -2920,7 +2920,7 @@ _ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i.i.i, label %_ZN3gmx26OptionValueConverterSimpleIdE17addCastConversionIfEEvv.exit, label %22
 
 22:                                               ; preds = %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
-  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZN3gmx26OptionValueConverterSimpleIdE17addCastConversionIfEEvv.exit unwind label %24
 
 24:                                               ; preds = %22
@@ -2943,7 +2943,7 @@ _ZN3gmx26OptionValueConverterSimpleIdE17addCastConversionIfEEvv.exit: ; preds = 
   br i1 %.not.i.i3, label %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4, label %30
 
 30:                                               ; preds = %27
-  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4 unwind label %32
 
 32:                                               ; preds = %30
@@ -2972,7 +2972,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIdE12addConverterIN
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -2991,7 +2991,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIdE12addConverterIN
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -3019,7 +3019,7 @@ _ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 .noexc:                                           ; preds = %25
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %7, align 8
   store ptr %29, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
@@ -3028,7 +3028,7 @@ _ZNSt8functionIFdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFdRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFdRKT_EEEUlS3_E_vEEOSG_.exit.i
@@ -3038,9 +3038,9 @@ _ZNSt8functionIFdRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIdE12addConve
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %35 = getelementptr inbounds i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -3054,7 +3054,7 @@ _ZNSt8functionIFdRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIdE12addConve
   br i1 %.not.i.i.i, label %44, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFdRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFdRKT_EEEUlS3_E_vEEOSG_.exit.i
-  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %44 unwind label %41
 
 41:                                               ; preds = %39
@@ -3071,7 +3071,7 @@ _ZNSt8functionIFdRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIdE12addConve
   br i1 %.not.i.i.i2, label %_ZZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFdRKT_EEENUlRKNS_3AnyEE_D2Ev.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFdRKT_EEENUlRKNS_3AnyEE_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3092,7 +3092,7 @@ _ZZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i3, label %common.resume, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %56
 
 56:                                               ; preds = %54
@@ -3169,11 +3169,11 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef %13, i64 noundef %32)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef %32)
           to label %33 unwind label %.thread.i
 
 33:                                               ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %34 unwind label %.thread29.i
 
 34:                                               ; preds = %33
@@ -3218,7 +3218,7 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
   %.013.i = phi i1 [ false, %38 ], [ true, %36 ]
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   br label %45
 
@@ -3420,7 +3420,7 @@ define noundef nonnull ptr @_ZNK3gmx12DoubleOption13createStorageERKNS_22OptionM
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18FloatOptionStorageC2ERKNS_11FloatOptionE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(89) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN3gmx21OptionStorageTemplateIfEC2INS_11FloatOptionEEERKNS_14OptionTemplateIfT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
+  tail call void @_ZN3gmx21OptionStorageTemplateIfEC2INS_11FloatOptionEEERKNS_14OptionTemplateIfT_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160
@@ -3472,7 +3472,7 @@ define void @_ZNK3gmx18FloatOptionStorage10typeStringB5cxx11Ev(ptr dead_on_unwin
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %16
 
 .noexc2:                                          ; preds = %.noexc
@@ -3484,7 +3484,7 @@ define void @_ZNK3gmx18FloatOptionStorage10typeStringB5cxx11Ev(ptr dead_on_unwin
 14:                                               ; preds = %.noexc2
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -3535,7 +3535,7 @@ _ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IPS8_
   br i1 %.not.i.i, label %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %10
@@ -3552,8 +3552,8 @@ _ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   %17 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
@@ -3566,7 +3566,7 @@ _ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i.i.i, label %_ZN3gmx26OptionValueConverterSimpleIfE17addCastConversionIdEEvv.exit, label %22
 
 22:                                               ; preds = %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
-  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+  %23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZN3gmx26OptionValueConverterSimpleIfE17addCastConversionIdEEvv.exit unwind label %24
 
 24:                                               ; preds = %22
@@ -3589,7 +3589,7 @@ _ZN3gmx26OptionValueConverterSimpleIfE17addCastConversionIdEEvv.exit: ; preds = 
   br i1 %.not.i.i3, label %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4, label %30
 
 30:                                               ; preds = %27
-  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4 unwind label %32
 
 32:                                               ; preds = %30
@@ -3618,7 +3618,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIfE12addConverterIN
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 2)
           to label %12 unwind label %16
 
 12:                                               ; preds = %10
@@ -3637,7 +3637,7 @@ define linkonce_odr void @_ZN3gmx26OptionValueConverterSimpleIfE12addConverterIN
   br i1 %.not.i.i, label %common.resume, label %19
 
 19:                                               ; preds = %16
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %21
 
 21:                                               ; preds = %19
@@ -3665,7 +3665,7 @@ _ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 .noexc:                                           ; preds = %25
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %7, align 8
   store ptr %29, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
@@ -3674,7 +3674,7 @@ _ZNSt8functionIFfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
 
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds i8, ptr %27, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %30, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFfRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFfRKT_EEEUlS3_E_vEEOSG_.exit.i
@@ -3684,9 +3684,9 @@ _ZNSt8functionIFfRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIfE12addConve
   %34 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %35 = getelementptr inbounds i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
@@ -3700,7 +3700,7 @@ _ZNSt8functionIFfRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIfE12addConve
   br i1 %.not.i.i.i, label %44, label %39
 
 39:                                               ; preds = %_ZNSt8functionIFfRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvS_IFfRKT_EEEUlS3_E_vEEOSG_.exit.i
-  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %44 unwind label %41
 
 41:                                               ; preds = %39
@@ -3717,7 +3717,7 @@ _ZNSt8functionIFfRKN3gmx3AnyEEEC2IZNS0_26OptionValueConverterSimpleIfE12addConve
   br i1 %.not.i.i.i2, label %_ZZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFfRKT_EEENUlRKNS_3AnyEE_D2Ev.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFfRKT_EEENUlRKNS_3AnyEE_D2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -3738,7 +3738,7 @@ _ZZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringI
   br i1 %.not.i.i.i3, label %common.resume, label %54
 
 54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %common.resume unwind label %56
 
 56:                                               ; preds = %54
@@ -3817,11 +3817,11 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 2
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef %13, i64 noundef %32)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.39, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef %32)
           to label %33 unwind label %.thread.i
 
 33:                                               ; preds = %25
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %34 unwind label %.thread29.i
 
 34:                                               ; preds = %33
@@ -3866,7 +3866,7 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
   %.013.i = phi i1 [ false, %38 ], [ true, %36 ]
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   br label %45
 
@@ -4079,7 +4079,7 @@ define void @_ZN3gmx19StringOptionStorageC2ERKNS_12StringOptionE(ptr noundef non
   %12 = alloca %"class.gmx::APIError", align 8
   %13 = alloca %"class.gmx::ExceptionInitializer", align 8
   %14 = alloca %"class.gmx::ExceptionInfo", align 8
-  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2INS_12StringOptionEEERKNS_14OptionTemplateIS6_T_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
+  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2INS_12StringOptionEEERKNS_14OptionTemplateIS6_T_EENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 0)
   %15 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 160
@@ -4154,7 +4154,7 @@ define void @_ZN3gmx19StringOptionStorageC2ERKNS_12StringOptionE(ptr noundef non
   %.042 = phi i1 [ false, %35 ], [ true, %33 ]
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.042, label %42, label %120
@@ -4244,7 +4244,7 @@ define void @_ZN3gmx19StringOptionStorageC2ERKNS_12StringOptionE(ptr noundef non
   %.036 = phi i1 [ false, %63 ], [ true, %61 ]
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.036, label %68, label %120
@@ -4261,7 +4261,7 @@ define void @_ZN3gmx19StringOptionStorageC2ERKNS_12StringOptionE(ptr noundef non
   br i1 %.not.i, label %75, label %72
 
 72:                                               ; preds = %69
-  invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKPKcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKPKcEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %72
@@ -4342,7 +4342,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.033 = phi i1 [ false, %84 ], [ true, %82 ]
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #23
   br i1 %.033, label %89, label %120
@@ -4419,7 +4419,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %.0 = phi i1 [ false, %109 ], [ true, %107 ]
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #23
   br i1 %.0, label %114, label %120
@@ -4527,7 +4527,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -4544,7 +4544,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -4647,7 +4647,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   ret void
 }
 
@@ -4755,7 +4755,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -4977,7 +4977,7 @@ define internal fastcc ptr @_ZN12_GLOBAL__N_113findEnumValueERKSt6vectorINSt7__c
           to label %25 unwind label %.thread
 
 25:                                               ; preds = %._crit_edge.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %26 unwind label %.thread33
 
 26:                                               ; preds = %25
@@ -5022,7 +5022,7 @@ define internal fastcc ptr @_ZN12_GLOBAL__N_113findEnumValueERKSt6vectorINSt7__c
   %.0 = phi i1 [ false, %30 ], [ true, %28 ]
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   br label %37
 
@@ -5114,7 +5114,7 @@ define void @_ZN3gmx17EnumOptionStorageC2ERKNS_14AbstractOptionEPKPKciiiSt10uniq
   %16 = load i64, ptr %6, align 8
   %17 = inttoptr i64 %16 to ptr
   store ptr null, ptr %6, align 8
-  invoke void @_ZN3gmx21AbstractOptionStorageC2ERKNS_14AbstractOptionENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 0)
+  invoke void @_ZN3gmx21AbstractOptionStorageC2ERKNS_14AbstractOptionENS_13FlagsTemplateINS_10OptionFlagEEE(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 0)
           to label %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit unwind label %18
 
 18:                                               ; preds = %7
@@ -5205,7 +5205,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit:
   %.018 = phi i1 [ false, %41 ], [ true, %39 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.018, label %48, label %87
@@ -5289,7 +5289,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit:
   %.0 = phi i1 [ false, %65 ], [ true, %63 ]
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #23
   br i1 %.0, label %70, label %87
@@ -5306,7 +5306,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit:
   br i1 %.not.i47, label %77, label %74
 
 74:                                               ; preds = %71
-  invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKPKcEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(8) %57)
+  invoke void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKPKcEEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %74
@@ -5427,7 +5427,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE15setDefaultValueERKi
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -5523,7 +5523,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE20setDefaultValueIfSe
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %.sink.split, label %40
@@ -5573,7 +5573,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE20setDefaultValueIfSe
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %.sink.split, label %40
@@ -5735,7 +5735,7 @@ define void @_ZN3gmx17EnumOptionStorage13initConverterEPNS_26OptionValueConverte
   br i1 %.not.i.i, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %12
 
 12:                                               ; preds = %10
@@ -5756,7 +5756,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   br i1 %.not.i.i3, label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4, label %18
 
 18:                                               ; preds = %15
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit4 unwind label %20
 
 20:                                               ; preds = %18
@@ -5917,7 +5917,7 @@ define linkonce_odr void @_ZN3gmx20BooleanOptionStorageD0Ev(ptr noundef nonnull 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20BooleanOptionStorageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZN3gmx10OptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIbED2Ev(ptr noundef nonnull align 8 dereferenceable(209) %0) #23
+  tail call void @_ZN3gmx27OptionStorageTemplateSimpleIbED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -5936,7 +5936,7 @@ define linkonce_odr void @_ZNK3gmx20BooleanOptionStorage10typeStringB5cxx11Ev(pt
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -5946,7 +5946,7 @@ define linkonce_odr void @_ZNK3gmx20BooleanOptionStorage10typeStringB5cxx11Ev(pt
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -6753,7 +6753,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE10processSetEv(ptr no
   %.0 = phi i1 [ false, %51 ], [ true, %49 ]
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %56, label %99
@@ -6931,7 +6931,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx27OptionStorageTemplateSimpleIiED2Ev.exit
 
 _ZN3gmx27OptionStorageTemplateSimpleIiED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.i.i, %18
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -6961,7 +6961,7 @@ define linkonce_odr void @_ZNK3gmx20IntegerOptionStorage10typeStringB5cxx11Ev(pt
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %13
 
 .noexc2:                                          ; preds = %.noexc
@@ -6973,7 +6973,7 @@ define linkonce_odr void @_ZNK3gmx20IntegerOptionStorage10typeStringB5cxx11Ev(pt
 11:                                               ; preds = %.noexc2
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -7768,7 +7768,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE10processSetEv(ptr no
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br i1 %.0, label %48, label %79
@@ -7918,7 +7918,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIlEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx27OptionStorageTemplateSimpleIlED2Ev.exit
 
 _ZN3gmx27OptionStorageTemplateSimpleIlED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIlEESt14default_deleteIS2_EED2Ev.exit.i.i, %18
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -7943,7 +7943,7 @@ define linkonce_odr void @_ZNK3gmx18Int64OptionStorage10typeStringB5cxx11Ev(ptr 
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -7953,7 +7953,7 @@ define linkonce_odr void @_ZNK3gmx18Int64OptionStorage10typeStringB5cxx11Ev(ptr 
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -8748,7 +8748,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE10processSetEv(ptr no
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br i1 %.0, label %48, label %79
@@ -8903,7 +8903,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIdEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx27OptionStorageTemplateSimpleIdED2Ev.exit
 
 _ZN3gmx27OptionStorageTemplateSimpleIdED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIdEESt14default_deleteIS2_EED2Ev.exit.i.i, %18
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -9697,7 +9697,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE10processSetEv(ptr no
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br i1 %.0, label %48, label %79
@@ -9841,7 +9841,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIfEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx27OptionStorageTemplateSimpleIfED2Ev.exit
 
 _ZN3gmx27OptionStorageTemplateSimpleIfED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIfEESt14default_deleteIS2_EED2Ev.exit.i.i, %18
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -10635,7 +10635,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE10processSetEv(ptr no
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br i1 %.0, label %48, label %79
@@ -10771,7 +10771,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   unreachable
 
 _ZN3gmx27OptionStorageTemplateSimpleINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -10823,7 +10823,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   unreachable
 
 _ZN3gmx19StringOptionStorageD2Ev.exit:            ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
+  tail call void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -10848,7 +10848,7 @@ define linkonce_odr void @_ZNK3gmx19StringOptionStorage10typeStringB5cxx11Ev(ptr
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc2 unwind label %15
 
 .noexc2:                                          ; preds = %.noexc
@@ -10860,7 +10860,7 @@ define linkonce_odr void @_ZNK3gmx19StringOptionStorage10typeStringB5cxx11Ev(ptr
 13:                                               ; preds = %.noexc2
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc2
@@ -11701,7 +11701,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %43 ], [ true, %41 ]
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #23
   br i1 %.0, label %48, label %79
@@ -11889,7 +11889,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx27OptionStorageTemplateSimpleIiED2Ev.exit
 
 _ZN3gmx27OptionStorageTemplateSimpleIiED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.i.i, %25
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #23
   ret void
 }
 
@@ -11914,7 +11914,7 @@ define linkonce_odr void @_ZNK3gmx17EnumOptionStorage10typeStringB5cxx11Ev(ptr d
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -11924,7 +11924,7 @@ define linkonce_odr void @_ZNK3gmx17EnumOptionStorage10typeStringB5cxx11Ev(ptr d
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -12141,7 +12141,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbEC2INS_13BooleanOption
   %.0 = phi i1 [ false, %38 ], [ true, %36 ]
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %47, label %57
@@ -12282,7 +12282,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIbEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx21OptionStorageTemplateIbED2Ev.exit
 
 _ZN3gmx21OptionStorageTemplateIbED2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIbEESt14default_deleteIS2_EED2Ev.exit.i, %17
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #23
   ret void
 }
 
@@ -12382,7 +12382,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE11createStoreEPSt6vec
   %.015 = phi i1 [ false, %34 ], [ true, %32 ]
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %75
@@ -12438,7 +12438,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE11createStoreEPSt6vec
   %.0 = phi i1 [ false, %50 ], [ true, %48 ]
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %75
@@ -12556,7 +12556,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE15setDefaultValueERKb
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -12652,7 +12652,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE20setDefaultValueIfSe
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %.sink.split, label %41
@@ -12702,7 +12702,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE20setDefaultValueIfSe
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %.sink.split, label %41
@@ -13823,7 +13823,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFbRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -13939,7 +13939,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiEC2INS_13IntegerOption
   %.0 = phi i1 [ false, %34 ], [ true, %32 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %43, label %53
@@ -14072,7 +14072,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx21OptionStorageTemplateIiED2Ev.exit
 
 _ZN3gmx21OptionStorageTemplateIiED2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIiEESt14default_deleteIS2_EED2Ev.exit.i, %17
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
@@ -14166,7 +14166,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE11createStoreEPSt6vec
   %.015 = phi i1 [ false, %33 ], [ true, %31 ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %69
@@ -14222,7 +14222,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE11createStoreEPSt6vec
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %69
@@ -14919,7 +14919,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlEC2INS_11Int64OptionEE
   %.0 = phi i1 [ false, %34 ], [ true, %32 ]
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %43, label %53
@@ -15052,7 +15052,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIlEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx21OptionStorageTemplateIlED2Ev.exit
 
 _ZN3gmx21OptionStorageTemplateIlED2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIlEESt14default_deleteIS2_EED2Ev.exit.i, %17
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
@@ -15146,7 +15146,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE11createStoreEPSt6vec
   %.015 = phi i1 [ false, %33 ], [ true, %31 ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %69
@@ -15202,7 +15202,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE11createStoreEPSt6vec
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %69
@@ -15310,7 +15310,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE15setDefaultValueERKl
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -15406,7 +15406,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE20setDefaultValueIfSe
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %.sink.split, label %40
@@ -15456,7 +15456,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE20setDefaultValueIfSe
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %.sink.split, label %40
@@ -16058,7 +16058,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFlRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -16130,7 +16130,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIdEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx21OptionStorageTemplateIdED2Ev.exit
 
 _ZN3gmx21OptionStorageTemplateIdED2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIdEESt14default_deleteIS2_EED2Ev.exit.i, %17
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
@@ -16170,7 +16170,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFdRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -16290,7 +16290,7 @@ _ZNSt10unique_ptrIN3gmx17IOptionValueStoreIfEESt14default_deleteIS2_EED2Ev.exit.
   br label %_ZN3gmx21OptionStorageTemplateIfED2Ev.exit
 
 _ZN3gmx21OptionStorageTemplateIfED2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN3gmx17IOptionValueStoreIfEESt14default_deleteIS2_EED2Ev.exit.i, %17
-  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #23
+  tail call void @_ZN3gmx21AbstractOptionStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
@@ -16330,7 +16330,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFfRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -16463,7 +16463,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx3AnyEEEESt10_Select1stISG_ESt4lessIS0_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -16740,7 +16740,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   ret void
 }
 
@@ -16753,7 +16753,7 @@ declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
 }
@@ -16793,7 +16793,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %.07, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFiRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %12
 
 12:                                               ; preds = %9
@@ -17078,7 +17078,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFb
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFbRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFbRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %47
 
 47:                                               ; preds = %45
@@ -17292,7 +17292,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFbRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -17484,7 +17484,7 @@ _ZSt10__invoke_rIbRZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
   ret i1 %25
 }
 
@@ -17545,7 +17545,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFbRKT_EEEUlRKNS1_3AnyEE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataOSC_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -17564,7 +17564,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -17594,7 +17594,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIbE12addC
   br i1 %.not.i.i.i.i, label %_ZZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFbRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIbE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFbRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -17817,7 +17817,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFi
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFiRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFiRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %47
 
 47:                                               ; preds = %45
@@ -18028,7 +18028,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFiRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -18207,7 +18207,7 @@ _ZSt10__invoke_rIiRZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
   ret i32 %25
 }
 
@@ -18265,7 +18265,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EEEUlRKNS1_3AnyEE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataOSC_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -18284,7 +18284,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -18314,7 +18314,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIiE12addC
   br i1 %.not.i.i.i.i, label %_ZZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIiE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFiRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -18711,7 +18711,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFl
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFlRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFlRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %47
 
 47:                                               ; preds = %45
@@ -18922,7 +18922,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFlRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -19101,7 +19101,7 @@ _ZSt10__invoke_rIlRZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
   ret i64 %25
 }
 
@@ -19159,7 +19159,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFlRKT_EEEUlRKNS1_3AnyEE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataOSC_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -19178,7 +19178,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -19208,7 +19208,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIlE12addC
   br i1 %.not.i.i.i.i, label %_ZZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFlRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIlE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFlRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -19349,7 +19349,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdEC2INS_12DoubleOptionE
   %.0 = phi i1 [ false, %34 ], [ true, %32 ]
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %41, label %53
@@ -19518,7 +19518,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE11createStoreEPSt6vec
   %.015 = phi i1 [ false, %33 ], [ true, %31 ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %69
@@ -19574,7 +19574,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE11createStoreEPSt6vec
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %69
@@ -19682,7 +19682,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE15setDefaultValueERKd
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -19778,7 +19778,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE20setDefaultValueIfSe
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %.sink.split, label %40
@@ -19828,7 +19828,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE20setDefaultValueIfSe
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %.sink.split, label %40
@@ -20532,7 +20532,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFd
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFdRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFdRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %47
 
 47:                                               ; preds = %45
@@ -20743,7 +20743,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFdRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -20922,7 +20922,7 @@ _ZSt10__invoke_rIdRZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef double %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %25 = tail call noundef double %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
   ret double %25
 }
 
@@ -20980,7 +20980,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFdRKT_EEEUlRKNS1_3AnyEE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataOSC_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -20999,7 +20999,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -21029,7 +21029,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIdE12addC
   br i1 %.not.i.i.i.i, label %_ZZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFdRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIdE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFdRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -21409,7 +21409,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfEC2INS_11FloatOptionEE
   %.0 = phi i1 [ false, %34 ], [ true, %32 ]
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %41, label %53
@@ -21578,7 +21578,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE11createStoreEPSt6vec
   %.015 = phi i1 [ false, %33 ], [ true, %31 ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %69
@@ -21634,7 +21634,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE11createStoreEPSt6vec
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %69
@@ -21742,7 +21742,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE15setDefaultValueERKf
   %.0 = phi i1 [ false, %14 ], [ true, %12 ]
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %19, label %34
@@ -21838,7 +21838,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE20setDefaultValueIfSe
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %.sink.split, label %40
@@ -21888,7 +21888,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE20setDefaultValueIfSe
   %.0 = phi i1 [ false, %29 ], [ true, %27 ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %.sink.split, label %40
@@ -22592,7 +22592,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFf
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFfRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %45
 
 45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFfRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %47
 
 47:                                               ; preds = %45
@@ -22803,7 +22803,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIF
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3)
+  %9 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8_Rb_treeISt10type_indexSt4pairIKS0_St8functionIFfRKN3gmx3AnyEEEESt10_Select1stISA_ESt4lessIS0_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %10
 
 10:                                               ; preds = %7
@@ -22982,7 +22982,7 @@ _ZSt10__invoke_rIfRZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %25 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %22)
   ret float %25
 }
 
@@ -23040,7 +23040,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFfRKT_EEEUlRKNS1_3AnyEE_E15_M_init_functorIRKSK_EEvRSt9_Any_dataOSC_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 2)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %16 unwind label %20
 
 16:                                               ; preds = %14
@@ -23059,7 +23059,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN3
   br i1 %.not.i.i.i.i.i, label %.body.i.i, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %.body.i.i unwind label %25
 
 25:                                               ; preds = %23
@@ -23089,7 +23089,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmx26OptionValueConverterSimpleIfE12addC
   br i1 %.not.i.i.i.i, label %_ZZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFfRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZZN3gmx26OptionValueConverterSimpleIfE12addConverterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvSt8functionIFfRKT_EEENUlRKNS_3AnyEE_D2Ev.exit.i unwind label %36
 
 36:                                               ; preds = %34
@@ -23469,7 +23469,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %34 ], [ true, %32 ]
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %41, label %53
@@ -23621,7 +23621,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.015 = phi i1 [ false, %33 ], [ true, %31 ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #23
   br i1 %.015, label %.sink.split, label %69
@@ -23677,7 +23677,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %49 ], [ true, %47 ]
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #23
   br i1 %.0, label %.sink.split, label %69
@@ -23788,7 +23788,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.05 = phi i1 [ false, %17 ], [ true, %15 ]
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.05, label %22, label %common.resume
@@ -23843,7 +23843,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %30 ], [ true, %28 ]
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   br i1 %.0, label %35, label %common.resume
@@ -24576,7 +24576,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc3 unwind label %15
 
 .noexc3:                                          ; preds = %.noexc
@@ -24593,7 +24593,7 @@ define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11
 10:                                               ; preds = %12, %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   br label %.body
 
 12:                                               ; preds = %.noexc3
@@ -25113,7 +25113,7 @@ _ZNK3gmx3Any6isTypeIbEEbv.exit.thread:            ; preds = %54, %_ZNKSt3mapISt1
   %.0 = phi i1 [ false, %86 ], [ true, %84 ]
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %91, label %101
@@ -25137,7 +25137,7 @@ _ZNKSt8functionIFbRKN3gmx3AnyEEEclES3_.exit:      ; preds = %92
   %96 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %97 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %100
 
 100:                                              ; preds = %_ZNKSt8functionIFbRKN3gmx3AnyEEEclES3_.exit, %_ZNK3gmx3Any4castIbEERKT_v.exit
@@ -25226,7 +25226,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIbE8addValueERKb(ptr nou
   %.0 = phi i1 [ false, %28 ], [ true, %26 ]
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %33, label %57
@@ -25524,7 +25524,7 @@ _ZNK3gmx3Any6isTypeIiEEbv.exit.thread:            ; preds = %54, %_ZNKSt3mapISt1
   %.0 = phi i1 [ false, %85 ], [ true, %83 ]
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %90, label %100
@@ -25548,7 +25548,7 @@ _ZNKSt8functionIFiRKN3gmx3AnyEEEclES3_.exit:      ; preds = %91
   %95 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %96 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %98 = tail call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %99
 
 99:                                               ; preds = %_ZNKSt8functionIFiRKN3gmx3AnyEEEclES3_.exit, %_ZNK3gmx3Any4castIiEERKT_v.exit
@@ -25631,7 +25631,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIiE8addValueERKi(ptr nou
   %.0 = phi i1 [ false, %24 ], [ true, %22 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %29, label %64
@@ -25955,7 +25955,7 @@ _ZNK3gmx3Any6isTypeIlEEbv.exit.thread:            ; preds = %54, %_ZNKSt3mapISt1
   %.0 = phi i1 [ false, %85 ], [ true, %83 ]
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %90, label %100
@@ -25979,7 +25979,7 @@ _ZNKSt8functionIFlRKN3gmx3AnyEEEclES3_.exit:      ; preds = %91
   %95 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %96 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %98 = tail call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %99
 
 99:                                               ; preds = %_ZNKSt8functionIFlRKN3gmx3AnyEEEclES3_.exit, %_ZNK3gmx3Any4castIlEERKT_v.exit
@@ -26062,7 +26062,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIlE8addValueERKl(ptr nou
   %.0 = phi i1 [ false, %24 ], [ true, %22 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %29, label %64
@@ -26386,7 +26386,7 @@ _ZNK3gmx3Any6isTypeIdEEbv.exit.thread:            ; preds = %54, %_ZNKSt3mapISt1
   %.0 = phi i1 [ false, %85 ], [ true, %83 ]
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %90, label %100
@@ -26410,7 +26410,7 @@ _ZNKSt8functionIFdRKN3gmx3AnyEEEclES3_.exit:      ; preds = %91
   %95 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %96 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef double %97(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %98 = tail call noundef double %97(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %99
 
 99:                                               ; preds = %_ZNKSt8functionIFdRKN3gmx3AnyEEEclES3_.exit, %_ZNK3gmx3Any4castIdEERKT_v.exit
@@ -26493,7 +26493,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIdE8addValueERKd(ptr nou
   %.0 = phi i1 [ false, %24 ], [ true, %22 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %29, label %64
@@ -26817,7 +26817,7 @@ _ZNK3gmx3Any6isTypeIfEEbv.exit.thread:            ; preds = %54, %_ZNKSt3mapISt1
   %.0 = phi i1 [ false, %85 ], [ true, %83 ]
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %90, label %100
@@ -26841,7 +26841,7 @@ _ZNKSt8functionIFfRKN3gmx3AnyEEEclES3_.exit:      ; preds = %91
   %95 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %96 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef float %97(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %98 = tail call noundef float %97(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %99
 
 99:                                               ; preds = %_ZNKSt8functionIFfRKN3gmx3AnyEEEclES3_.exit, %_ZNK3gmx3Any4castIfEERKT_v.exit
@@ -26924,7 +26924,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateIfE8addValueERKf(ptr nou
   %.0 = phi i1 [ false, %24 ], [ true, %22 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %29, label %64
@@ -27210,7 +27210,7 @@ _ZNK3gmx3Any6isTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbv.exi
   %.0 = phi i1 [ false, %78 ], [ true, %76 ]
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br i1 %.0, label %83, label %92
@@ -27234,7 +27234,7 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx3Any
   %88 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
   %89 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
   %90 = load ptr, ptr %89, align 8, !noalias !200
-  tail call void %90(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  tail call void %90(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %91
 
 91:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx3AnyEEEclES9_.exit, %_ZNK3gmx3Any4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_v.exit
@@ -27316,7 +27316,7 @@ define linkonce_odr void @_ZN3gmx21OptionStorageTemplateINSt7__cxx1112basic_stri
   %.0 = phi i1 [ false, %24 ], [ true, %22 ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   br i1 %.0, label %29, label %40

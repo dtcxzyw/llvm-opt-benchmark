@@ -446,7 +446,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %77 = load i32, ptr @hf_rf4ce_nwk_vendor_string, align 4
   %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %77, ptr noundef %55, i32 noundef 4, i32 noundef 7, i32 noundef 2) #6
   store i32 11, ptr %9, align 4
-  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef %9, i8 noundef zeroext 1)
+  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %9, i8 noundef zeroext 1)
   %79 = load i32, ptr @hf_rf4ce_nwk_requested_dev_type, align 4
   %80 = load i32, ptr %9, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %79, ptr noundef %55, i32 noundef %80, i32 noundef 1, i32 noundef -2147483648) #6
@@ -468,7 +468,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %95 = load i32, ptr @hf_rf4ce_nwk_vendor_string, align 4
   %96 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %95, ptr noundef %55, i32 noundef 5, i32 noundef 7, i32 noundef 2) #6
   store i32 12, ptr %9, align 4
-  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef %9, i8 noundef zeroext 2)
+  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %9, i8 noundef zeroext 2)
   %97 = load i32, ptr @hf_rf4ce_nwk_disc_resp_lqi, align 4
   %98 = load i32, ptr %9, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %97, ptr noundef %55, i32 noundef %98, i32 noundef 1, i32 noundef -2147483648) #6
@@ -490,7 +490,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %113 = load i32, ptr @hf_rf4ce_nwk_vendor_string, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %113, ptr noundef %55, i32 noundef 6, i32 noundef 7, i32 noundef 2) #6
   store i32 13, ptr %9, align 4
-  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef %9, i8 noundef zeroext 1)
+  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %9, i8 noundef zeroext 1)
   %115 = load i32, ptr @hf_rf4ce_nwk_pair_req_key_exch_num, align 4
   %116 = load i32, ptr %9, align 4
   %117 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %115, ptr noundef %55, i32 noundef %116, i32 noundef 1, i32 noundef -2147483648) #6
@@ -525,7 +525,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %143 = load i32, ptr @hf_rf4ce_nwk_vendor_string, align 4
   %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %143, ptr noundef %55, i32 noundef 9, i32 noundef 7, i32 noundef 2) #6
   store i32 16, ptr %9, align 4
-  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef %9, i8 noundef zeroext 1)
+  call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %9, i8 noundef zeroext 1)
   %145 = getelementptr inbounds i8, ptr %1, i64 144
   %146 = load ptr, ptr %145, align 8
   call void @rf4ce_addr_table_add_addrs(ptr noundef %146, i16 noundef zeroext %130) #6

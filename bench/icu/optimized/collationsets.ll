@@ -2194,7 +2194,7 @@ for.body109:                                      ; preds = %for.body109.lr.ph, 
   %c.0137 = phi i32 [ %start, %for.body109.lr.ph ], [ %inc131, %for.inc130 ]
   %conv = trunc i32 %c.0137 to i16
   store i16 %conv, ptr %hangul, align 2
-  invoke void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(389) %iter)
+  invoke void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(416) %iter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body109

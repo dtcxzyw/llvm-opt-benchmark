@@ -783,7 +783,7 @@ ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i63, %ginVa
   call void @LockBufferForCleanup(i32 noundef %361) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i8 1, ptr %104, align 8
-  %362 = call fastcc zeroext i1 @ginScanToDelete(ptr noundef %8, i32 noundef %284, i1 noundef zeroext true, ptr noundef nonnull %5, i16 noundef zeroext 0)
+  %362 = call fastcc zeroext i1 @ginScanToDelete(ptr noundef nonnull %8, i32 noundef %284, i1 noundef zeroext true, ptr noundef nonnull %5, i16 noundef zeroext 0)
   %363 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %363, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i61

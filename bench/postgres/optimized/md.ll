@@ -709,7 +709,7 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
   store ptr %3, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 8192, ptr %26, align 8
-  %27 = call i64 @FileWriteV(i32 noundef %25, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %24, i32 noundef 167772173) #14
+  %27 = call i64 @FileWriteV(i32 noundef %25, ptr noundef nonnull %6, i32 noundef 1, i64 noundef range(i64 0, 1073733633) %24, i32 noundef 167772173) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %28 = trunc i64 %27 to i32
   %.not = icmp eq i32 %28, 8192

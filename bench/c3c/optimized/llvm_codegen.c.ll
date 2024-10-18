@@ -694,7 +694,7 @@ expand_.exit384:                                  ; preds = %99, %103
   br i1 %120, label %123, label %121
 
 121:                                              ; preds = %expand_.exit384
-  %122 = tail call ptr @LLVMArrayType(ptr noundef %77, i32 noundef %91) #10
+  %122 = tail call ptr @LLVMArrayType(ptr noundef %77, i32 noundef range(i32 1, -2147483648) %91) #10
   br label %123
 
 123:                                              ; preds = %expand_.exit384, %121
@@ -841,7 +841,7 @@ expand_.exit398:                                  ; preds = %175, %179
   br i1 %196, label %203, label %.thread491.critedge
 
 .thread491.critedge:                              ; preds = %expand_.exit398
-  %197 = tail call ptr @LLVMArrayType(ptr noundef %77, i32 noundef %167) #10
+  %197 = tail call ptr @LLVMArrayType(ptr noundef %77, i32 noundef range(i32 1, -2147483648) %167) #10
   %198 = tail call ptr @LLVMConstNull(ptr noundef %197) #10
   %199 = load i32, ptr %.1.i396, align 4
   %200 = add i32 %199, -1

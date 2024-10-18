@@ -951,7 +951,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   %call2.i = tail call ptr @__errno_location() #11
   store i32 0, ptr %call2.i, align 4
   tail call void @clearerr(ptr noundef %sys_stdin) #10
-  %call3.i = tail call ptr @fgets(ptr noundef %add.ptr, i32 noundef %conv, ptr noundef %sys_stdin)
+  %call3.i = tail call ptr @fgets(ptr noundef %add.ptr, i32 noundef range(i32 0, -2147483648) %conv, ptr noundef %sys_stdin)
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.end6.i, label %if.end22
 

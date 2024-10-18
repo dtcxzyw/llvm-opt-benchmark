@@ -626,7 +626,7 @@ entry:
   %sub.i = add i32 %2, -1
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx.i = getelementptr %struct.cmdinfo, ptr %call.i, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i, ptr noundef nonnull readonly align 8 dereferenceable(72) @help_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(72) @help_cmd, i64 72, i1 false)
   %conv2.i = sext i32 %2 to i64
   tail call void @qsort(ptr noundef %call.i, i64 noundef %conv2.i, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %3 = load ptr, ptr @cmdtab, align 8
@@ -640,7 +640,7 @@ entry:
   %sub.i4 = add i32 %5, -1
   %idxprom.i5 = sext i32 %sub.i4 to i64
   %arrayidx.i6 = getelementptr %struct.cmdinfo, ptr %call.i3, i64 %idxprom.i5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i6, ptr noundef nonnull readonly align 8 dereferenceable(72) @read_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i6, ptr noundef nonnull align 8 dereferenceable(72) @read_cmd, i64 72, i1 false)
   %conv2.i7 = sext i32 %5 to i64
   tail call void @qsort(ptr noundef %call.i3, i64 noundef %conv2.i7, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %6 = load ptr, ptr @cmdtab, align 8
@@ -654,7 +654,7 @@ entry:
   %sub.i11 = add i32 %8, -1
   %idxprom.i12 = sext i32 %sub.i11 to i64
   %arrayidx.i13 = getelementptr %struct.cmdinfo, ptr %call.i10, i64 %idxprom.i12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i13, ptr noundef nonnull readonly align 8 dereferenceable(72) @readv_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i13, ptr noundef nonnull align 8 dereferenceable(72) @readv_cmd, i64 72, i1 false)
   %conv2.i14 = sext i32 %8 to i64
   tail call void @qsort(ptr noundef %call.i10, i64 noundef %conv2.i14, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %9 = load ptr, ptr @cmdtab, align 8
@@ -668,7 +668,7 @@ entry:
   %sub.i18 = add i32 %11, -1
   %idxprom.i19 = sext i32 %sub.i18 to i64
   %arrayidx.i20 = getelementptr %struct.cmdinfo, ptr %call.i17, i64 %idxprom.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i20, ptr noundef nonnull readonly align 8 dereferenceable(72) @write_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i20, ptr noundef nonnull align 8 dereferenceable(72) @write_cmd, i64 72, i1 false)
   %conv2.i21 = sext i32 %11 to i64
   tail call void @qsort(ptr noundef %call.i17, i64 noundef %conv2.i21, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %12 = load ptr, ptr @cmdtab, align 8
@@ -682,7 +682,7 @@ entry:
   %sub.i25 = add i32 %14, -1
   %idxprom.i26 = sext i32 %sub.i25 to i64
   %arrayidx.i27 = getelementptr %struct.cmdinfo, ptr %call.i24, i64 %idxprom.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i27, ptr noundef nonnull readonly align 8 dereferenceable(72) @writev_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i27, ptr noundef nonnull align 8 dereferenceable(72) @writev_cmd, i64 72, i1 false)
   %conv2.i28 = sext i32 %14 to i64
   tail call void @qsort(ptr noundef %call.i24, i64 noundef %conv2.i28, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %15 = load ptr, ptr @cmdtab, align 8
@@ -696,7 +696,7 @@ entry:
   %sub.i32 = add i32 %17, -1
   %idxprom.i33 = sext i32 %sub.i32 to i64
   %arrayidx.i34 = getelementptr %struct.cmdinfo, ptr %call.i31, i64 %idxprom.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i34, ptr noundef nonnull readonly align 8 dereferenceable(72) @aio_read_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i34, ptr noundef nonnull align 8 dereferenceable(72) @aio_read_cmd, i64 72, i1 false)
   %conv2.i35 = sext i32 %17 to i64
   tail call void @qsort(ptr noundef %call.i31, i64 noundef %conv2.i35, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %18 = load ptr, ptr @cmdtab, align 8
@@ -710,7 +710,7 @@ entry:
   %sub.i39 = add i32 %20, -1
   %idxprom.i40 = sext i32 %sub.i39 to i64
   %arrayidx.i41 = getelementptr %struct.cmdinfo, ptr %call.i38, i64 %idxprom.i40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i41, ptr noundef nonnull readonly align 8 dereferenceable(72) @aio_write_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i41, ptr noundef nonnull align 8 dereferenceable(72) @aio_write_cmd, i64 72, i1 false)
   %conv2.i42 = sext i32 %20 to i64
   tail call void @qsort(ptr noundef %call.i38, i64 noundef %conv2.i42, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %21 = load ptr, ptr @cmdtab, align 8
@@ -724,7 +724,7 @@ entry:
   %sub.i46 = add i32 %23, -1
   %idxprom.i47 = sext i32 %sub.i46 to i64
   %arrayidx.i48 = getelementptr %struct.cmdinfo, ptr %call.i45, i64 %idxprom.i47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i48, ptr noundef nonnull readonly align 8 dereferenceable(72) @aio_flush_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i48, ptr noundef nonnull align 8 dereferenceable(72) @aio_flush_cmd, i64 72, i1 false)
   %conv2.i49 = sext i32 %23 to i64
   tail call void @qsort(ptr noundef %call.i45, i64 noundef %conv2.i49, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %24 = load ptr, ptr @cmdtab, align 8
@@ -738,7 +738,7 @@ entry:
   %sub.i53 = add i32 %26, -1
   %idxprom.i54 = sext i32 %sub.i53 to i64
   %arrayidx.i55 = getelementptr %struct.cmdinfo, ptr %call.i52, i64 %idxprom.i54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i55, ptr noundef nonnull readonly align 8 dereferenceable(72) @flush_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i55, ptr noundef nonnull align 8 dereferenceable(72) @flush_cmd, i64 72, i1 false)
   %conv2.i56 = sext i32 %26 to i64
   tail call void @qsort(ptr noundef %call.i52, i64 noundef %conv2.i56, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %27 = load ptr, ptr @cmdtab, align 8
@@ -752,7 +752,7 @@ entry:
   %sub.i60 = add i32 %29, -1
   %idxprom.i61 = sext i32 %sub.i60 to i64
   %arrayidx.i62 = getelementptr %struct.cmdinfo, ptr %call.i59, i64 %idxprom.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i62, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_report_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i62, ptr noundef nonnull align 8 dereferenceable(72) @zone_report_cmd, i64 72, i1 false)
   %conv2.i63 = sext i32 %29 to i64
   tail call void @qsort(ptr noundef %call.i59, i64 noundef %conv2.i63, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %30 = load ptr, ptr @cmdtab, align 8
@@ -766,7 +766,7 @@ entry:
   %sub.i67 = add i32 %32, -1
   %idxprom.i68 = sext i32 %sub.i67 to i64
   %arrayidx.i69 = getelementptr %struct.cmdinfo, ptr %call.i66, i64 %idxprom.i68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i69, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_open_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i69, ptr noundef nonnull align 8 dereferenceable(72) @zone_open_cmd, i64 72, i1 false)
   %conv2.i70 = sext i32 %32 to i64
   tail call void @qsort(ptr noundef %call.i66, i64 noundef %conv2.i70, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %33 = load ptr, ptr @cmdtab, align 8
@@ -780,7 +780,7 @@ entry:
   %sub.i74 = add i32 %35, -1
   %idxprom.i75 = sext i32 %sub.i74 to i64
   %arrayidx.i76 = getelementptr %struct.cmdinfo, ptr %call.i73, i64 %idxprom.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i76, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_close_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i76, ptr noundef nonnull align 8 dereferenceable(72) @zone_close_cmd, i64 72, i1 false)
   %conv2.i77 = sext i32 %35 to i64
   tail call void @qsort(ptr noundef %call.i73, i64 noundef %conv2.i77, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %36 = load ptr, ptr @cmdtab, align 8
@@ -794,7 +794,7 @@ entry:
   %sub.i81 = add i32 %38, -1
   %idxprom.i82 = sext i32 %sub.i81 to i64
   %arrayidx.i83 = getelementptr %struct.cmdinfo, ptr %call.i80, i64 %idxprom.i82
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i83, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_finish_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i83, ptr noundef nonnull align 8 dereferenceable(72) @zone_finish_cmd, i64 72, i1 false)
   %conv2.i84 = sext i32 %38 to i64
   tail call void @qsort(ptr noundef %call.i80, i64 noundef %conv2.i84, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %39 = load ptr, ptr @cmdtab, align 8
@@ -808,7 +808,7 @@ entry:
   %sub.i88 = add i32 %41, -1
   %idxprom.i89 = sext i32 %sub.i88 to i64
   %arrayidx.i90 = getelementptr %struct.cmdinfo, ptr %call.i87, i64 %idxprom.i89
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i90, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_reset_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i90, ptr noundef nonnull align 8 dereferenceable(72) @zone_reset_cmd, i64 72, i1 false)
   %conv2.i91 = sext i32 %41 to i64
   tail call void @qsort(ptr noundef %call.i87, i64 noundef %conv2.i91, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %42 = load ptr, ptr @cmdtab, align 8
@@ -822,7 +822,7 @@ entry:
   %sub.i95 = add i32 %44, -1
   %idxprom.i96 = sext i32 %sub.i95 to i64
   %arrayidx.i97 = getelementptr %struct.cmdinfo, ptr %call.i94, i64 %idxprom.i96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i97, ptr noundef nonnull readonly align 8 dereferenceable(72) @zone_append_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i97, ptr noundef nonnull align 8 dereferenceable(72) @zone_append_cmd, i64 72, i1 false)
   %conv2.i98 = sext i32 %44 to i64
   tail call void @qsort(ptr noundef %call.i94, i64 noundef %conv2.i98, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %45 = load ptr, ptr @cmdtab, align 8
@@ -836,7 +836,7 @@ entry:
   %sub.i102 = add i32 %47, -1
   %idxprom.i103 = sext i32 %sub.i102 to i64
   %arrayidx.i104 = getelementptr %struct.cmdinfo, ptr %call.i101, i64 %idxprom.i103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i104, ptr noundef nonnull readonly align 8 dereferenceable(72) @truncate_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i104, ptr noundef nonnull align 8 dereferenceable(72) @truncate_cmd, i64 72, i1 false)
   %conv2.i105 = sext i32 %47 to i64
   tail call void @qsort(ptr noundef %call.i101, i64 noundef %conv2.i105, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %48 = load ptr, ptr @cmdtab, align 8
@@ -850,7 +850,7 @@ entry:
   %sub.i109 = add i32 %50, -1
   %idxprom.i110 = sext i32 %sub.i109 to i64
   %arrayidx.i111 = getelementptr %struct.cmdinfo, ptr %call.i108, i64 %idxprom.i110
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i111, ptr noundef nonnull readonly align 8 dereferenceable(72) @length_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i111, ptr noundef nonnull align 8 dereferenceable(72) @length_cmd, i64 72, i1 false)
   %conv2.i112 = sext i32 %50 to i64
   tail call void @qsort(ptr noundef %call.i108, i64 noundef %conv2.i112, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %51 = load ptr, ptr @cmdtab, align 8
@@ -864,7 +864,7 @@ entry:
   %sub.i116 = add i32 %53, -1
   %idxprom.i117 = sext i32 %sub.i116 to i64
   %arrayidx.i118 = getelementptr %struct.cmdinfo, ptr %call.i115, i64 %idxprom.i117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i118, ptr noundef nonnull readonly align 8 dereferenceable(72) @info_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i118, ptr noundef nonnull align 8 dereferenceable(72) @info_cmd, i64 72, i1 false)
   %conv2.i119 = sext i32 %53 to i64
   tail call void @qsort(ptr noundef %call.i115, i64 noundef %conv2.i119, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %54 = load ptr, ptr @cmdtab, align 8
@@ -878,7 +878,7 @@ entry:
   %sub.i123 = add i32 %56, -1
   %idxprom.i124 = sext i32 %sub.i123 to i64
   %arrayidx.i125 = getelementptr %struct.cmdinfo, ptr %call.i122, i64 %idxprom.i124
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i125, ptr noundef nonnull readonly align 8 dereferenceable(72) @discard_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i125, ptr noundef nonnull align 8 dereferenceable(72) @discard_cmd, i64 72, i1 false)
   %conv2.i126 = sext i32 %56 to i64
   tail call void @qsort(ptr noundef %call.i122, i64 noundef %conv2.i126, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %57 = load ptr, ptr @cmdtab, align 8
@@ -892,7 +892,7 @@ entry:
   %sub.i130 = add i32 %59, -1
   %idxprom.i131 = sext i32 %sub.i130 to i64
   %arrayidx.i132 = getelementptr %struct.cmdinfo, ptr %call.i129, i64 %idxprom.i131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i132, ptr noundef nonnull readonly align 8 dereferenceable(72) @alloc_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i132, ptr noundef nonnull align 8 dereferenceable(72) @alloc_cmd, i64 72, i1 false)
   %conv2.i133 = sext i32 %59 to i64
   tail call void @qsort(ptr noundef %call.i129, i64 noundef %conv2.i133, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %60 = load ptr, ptr @cmdtab, align 8
@@ -906,7 +906,7 @@ entry:
   %sub.i137 = add i32 %62, -1
   %idxprom.i138 = sext i32 %sub.i137 to i64
   %arrayidx.i139 = getelementptr %struct.cmdinfo, ptr %call.i136, i64 %idxprom.i138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i139, ptr noundef nonnull readonly align 8 dereferenceable(72) @map_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i139, ptr noundef nonnull align 8 dereferenceable(72) @map_cmd, i64 72, i1 false)
   %conv2.i140 = sext i32 %62 to i64
   tail call void @qsort(ptr noundef %call.i136, i64 noundef %conv2.i140, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %63 = load ptr, ptr @cmdtab, align 8
@@ -920,7 +920,7 @@ entry:
   %sub.i144 = add i32 %65, -1
   %idxprom.i145 = sext i32 %sub.i144 to i64
   %arrayidx.i146 = getelementptr %struct.cmdinfo, ptr %call.i143, i64 %idxprom.i145
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i146, ptr noundef nonnull readonly align 8 dereferenceable(72) @reopen_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i146, ptr noundef nonnull align 8 dereferenceable(72) @reopen_cmd, i64 72, i1 false)
   %conv2.i147 = sext i32 %65 to i64
   tail call void @qsort(ptr noundef %call.i143, i64 noundef %conv2.i147, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %66 = load ptr, ptr @cmdtab, align 8
@@ -934,7 +934,7 @@ entry:
   %sub.i151 = add i32 %68, -1
   %idxprom.i152 = sext i32 %sub.i151 to i64
   %arrayidx.i153 = getelementptr %struct.cmdinfo, ptr %call.i150, i64 %idxprom.i152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i153, ptr noundef nonnull readonly align 8 dereferenceable(72) @break_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i153, ptr noundef nonnull align 8 dereferenceable(72) @break_cmd, i64 72, i1 false)
   %conv2.i154 = sext i32 %68 to i64
   tail call void @qsort(ptr noundef %call.i150, i64 noundef %conv2.i154, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %69 = load ptr, ptr @cmdtab, align 8
@@ -948,7 +948,7 @@ entry:
   %sub.i158 = add i32 %71, -1
   %idxprom.i159 = sext i32 %sub.i158 to i64
   %arrayidx.i160 = getelementptr %struct.cmdinfo, ptr %call.i157, i64 %idxprom.i159
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i160, ptr noundef nonnull readonly align 8 dereferenceable(72) @remove_break_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i160, ptr noundef nonnull align 8 dereferenceable(72) @remove_break_cmd, i64 72, i1 false)
   %conv2.i161 = sext i32 %71 to i64
   tail call void @qsort(ptr noundef %call.i157, i64 noundef %conv2.i161, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %72 = load ptr, ptr @cmdtab, align 8
@@ -962,7 +962,7 @@ entry:
   %sub.i165 = add i32 %74, -1
   %idxprom.i166 = sext i32 %sub.i165 to i64
   %arrayidx.i167 = getelementptr %struct.cmdinfo, ptr %call.i164, i64 %idxprom.i166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i167, ptr noundef nonnull readonly align 8 dereferenceable(72) @resume_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i167, ptr noundef nonnull align 8 dereferenceable(72) @resume_cmd, i64 72, i1 false)
   %conv2.i168 = sext i32 %74 to i64
   tail call void @qsort(ptr noundef %call.i164, i64 noundef %conv2.i168, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %75 = load ptr, ptr @cmdtab, align 8
@@ -976,7 +976,7 @@ entry:
   %sub.i172 = add i32 %77, -1
   %idxprom.i173 = sext i32 %sub.i172 to i64
   %arrayidx.i174 = getelementptr %struct.cmdinfo, ptr %call.i171, i64 %idxprom.i173
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i174, ptr noundef nonnull readonly align 8 dereferenceable(72) @wait_break_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i174, ptr noundef nonnull align 8 dereferenceable(72) @wait_break_cmd, i64 72, i1 false)
   %conv2.i175 = sext i32 %77 to i64
   tail call void @qsort(ptr noundef %call.i171, i64 noundef %conv2.i175, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %78 = load ptr, ptr @cmdtab, align 8
@@ -990,7 +990,7 @@ entry:
   %sub.i179 = add i32 %80, -1
   %idxprom.i180 = sext i32 %sub.i179 to i64
   %arrayidx.i181 = getelementptr %struct.cmdinfo, ptr %call.i178, i64 %idxprom.i180
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i181, ptr noundef nonnull readonly align 8 dereferenceable(72) @abort_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i181, ptr noundef nonnull align 8 dereferenceable(72) @abort_cmd, i64 72, i1 false)
   %conv2.i182 = sext i32 %80 to i64
   tail call void @qsort(ptr noundef %call.i178, i64 noundef %conv2.i182, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %81 = load ptr, ptr @cmdtab, align 8
@@ -1004,7 +1004,7 @@ entry:
   %sub.i186 = add i32 %83, -1
   %idxprom.i187 = sext i32 %sub.i186 to i64
   %arrayidx.i188 = getelementptr %struct.cmdinfo, ptr %call.i185, i64 %idxprom.i187
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i188, ptr noundef nonnull readonly align 8 dereferenceable(72) @sleep_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i188, ptr noundef nonnull align 8 dereferenceable(72) @sleep_cmd, i64 72, i1 false)
   %conv2.i189 = sext i32 %83 to i64
   tail call void @qsort(ptr noundef %call.i185, i64 noundef %conv2.i189, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   %84 = load ptr, ptr @cmdtab, align 8
@@ -1018,7 +1018,7 @@ entry:
   %sub.i193 = add i32 %86, -1
   %idxprom.i194 = sext i32 %sub.i193 to i64
   %arrayidx.i195 = getelementptr %struct.cmdinfo, ptr %call.i192, i64 %idxprom.i194
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i195, ptr noundef nonnull readonly align 8 dereferenceable(72) @sigraise_cmd, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx.i195, ptr noundef nonnull align 8 dereferenceable(72) @sigraise_cmd, i64 72, i1 false)
   %conv2.i196 = sext i32 %86 to i64
   tail call void @qsort(ptr noundef %call.i192, i64 noundef %conv2.i196, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #25
   ret void
@@ -1442,13 +1442,13 @@ if.end86:                                         ; preds = %if.end68.if.end86_c
 
 if.then92:                                        ; preds = %if.end86
   %conv.i105 = trunc nuw nsw i64 %retval.0.i98 to i32
-  %call.i106 = call i32 @blk_load_vmstate(ptr noundef %blk, ptr noundef %call89, i64 noundef %retval.0.i86, i32 noundef %conv.i105) #25
+  %call.i106 = call i32 @blk_load_vmstate(ptr noundef %blk, ptr noundef %call89, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i86, i32 noundef %conv.i105) #25
   %conv1.i = zext nneg i32 %call.i106 to i64
   %cmp2.i = icmp slt i32 %call.i106, 0
   br i1 %cmp2.i, label %if.then100, label %if.end104
 
 if.else94:                                        ; preds = %if.end86
-  %call.i108 = call i32 @blk_pread(ptr noundef %blk, i64 noundef %retval.0.i86, i64 noundef %retval.0.i98, ptr noundef %call89, i32 noundef %flags.0) #25
+  %call.i108 = call i32 @blk_pread(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i86, i64 noundef range(i64 0, 2147483137) %retval.0.i98, ptr noundef %call89, i32 noundef range(i32 0, 16) %flags.0) #25
   %cmp1.i109 = icmp slt i32 %call.i108, 0
   br i1 %cmp1.i109, label %if.then100, label %if.end104
 
@@ -1999,7 +1999,7 @@ if.end23:                                         ; preds = %if.end15
   %call24 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t1) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %async_ret.i)
   store i32 2147483647, ptr %async_ret.i, align 4
-  %call.i30 = call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef %retval.0.i29, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph97, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #25
+  %call.i30 = call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i29, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph97, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #25
   %8 = load i32, ptr %async_ret.i, align 4
   %cmp2.i = icmp eq i32 %8, 2147483647
   br i1 %cmp2.i, label %while.body.i, label %do_aio_readv.exit
@@ -2556,14 +2556,14 @@ if.then126:                                       ; preds = %if.end123.thread, %
 
 if.end.i84:                                       ; preds = %if.then126
   %conv.i85 = trunc nuw nsw i64 %call66 to i32
-  %call.i86 = call i32 @blk_save_vmstate(ptr noundef %blk, ptr noundef %buf.0112, i64 noundef %retval.0.i77, i32 noundef %conv.i85) #25
+  %call.i86 = call i32 @blk_save_vmstate(ptr noundef %blk, ptr noundef %buf.0112, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i77, i32 noundef %conv.i85) #25
   %conv1.i = zext nneg i32 %call.i86 to i64
   %cmp2.i = icmp slt i32 %call.i86, 0
   br i1 %cmp2.i, label %if.then144, label %if.end148
 
 if.then130:                                       ; preds = %if.end123.thread
   %or.i = or i32 %flags.0, 2
-  %call.i88 = call i32 @blk_pwrite_zeroes(ptr noundef %blk, i64 noundef %retval.0.i77, i64 noundef %call66, i32 noundef %or.i) #25
+  %call.i88 = call i32 @blk_pwrite_zeroes(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i77, i64 noundef range(i64 0, -9223372036854775808) %call66, i32 noundef %or.i) #25
   %cmp.i89 = icmp slt i32 %call.i88, 0
   br i1 %cmp.i89, label %if.then144, label %if.end148
 
@@ -2575,7 +2575,7 @@ if.then134:                                       ; preds = %if.else132
   br i1 %cmp73, label %if.end.i93, label %if.then144
 
 if.end.i93:                                       ; preds = %if.then134
-  %call.i94 = call i32 @blk_pwrite_compressed(ptr noundef %blk, i64 noundef %retval.0.i77, i64 noundef %call66, ptr noundef %buf.0) #25
+  %call.i94 = call i32 @blk_pwrite_compressed(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i77, i64 noundef range(i64 0, -9223372036854775808) %call66, ptr noundef %buf.0) #25
   %cmp1.i95 = icmp slt i32 %call.i94, 0
   br i1 %cmp1.i95, label %if.then144, label %if.end148
 
@@ -2584,7 +2584,7 @@ if.else136:                                       ; preds = %if.else132
   br i1 %cmp.i97, label %if.then144, label %if.end.i98
 
 if.end.i98:                                       ; preds = %if.else136
-  %call.i99 = call i32 @blk_pwrite(ptr noundef %blk, i64 noundef %retval.0.i77, i64 noundef %call66, ptr noundef %buf.0, i32 noundef %flags.0) #25
+  %call.i99 = call i32 @blk_pwrite(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i77, i64 noundef range(i64 0, -9223372036854775808) %call66, ptr noundef %buf.0, i32 noundef %flags.0) #25
   %cmp1.i100 = icmp slt i32 %call.i99, 0
   br i1 %cmp1.i100, label %if.then144, label %if.end148
 
@@ -2891,7 +2891,7 @@ if.end24:                                         ; preds = %if.end16
   %call25 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t1) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %async_ret.i)
   store i32 2147483647, ptr %async_ret.i, align 4
-  %call.i25 = call ptr @blk_aio_pwritev(ptr noundef %blk, i64 noundef %retval.0.i24, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #25
+  %call.i25 = call ptr @blk_aio_pwritev(ptr noundef %blk, i64 noundef range(i64 0, -9223372036854775808) %retval.0.i24, ptr noundef nonnull %qiov, i32 noundef %flags.0.ph, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %async_ret.i) #25
   %8 = load i32, ptr %async_ret.i, align 4
   %cmp2.i = icmp eq i32 %8, 2147483647
   br i1 %cmp2.i, label %while.body.i, label %do_aio_writev.exit
@@ -4598,7 +4598,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %bytes.022 = phi i64 [ %sub21, %if.end13 ], [ %call, %while.cond.preheader ]
   %call3 = call ptr @blk_bs(ptr noundef %blk) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %num.i)
-  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.023, i64 noundef %bytes.022, ptr noundef nonnull %num.i) #25
+  %call.i = call i32 @bdrv_is_allocated(ptr noundef %call3, i64 noundef %offset.023, i64 noundef range(i64 1, 0) %bytes.022, ptr noundef nonnull %num.i) #25
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %map_is_allocated.exit.thread, label %if.end.i
 

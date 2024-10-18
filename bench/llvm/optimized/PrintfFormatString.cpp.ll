@@ -760,7 +760,7 @@ define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_s
   %365 = sub i64 %318, %364
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #12
   %366 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %366, ptr noundef nonnull align 1 dereferenceable(1) %14) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef %366, ptr noundef nonnull align 1 dereferenceable(1) %14) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 78, ptr %10, align 8
   %367 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0) #12
@@ -776,7 +776,7 @@ define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_s
   %371 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   %372 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   call void @_ZN4llvm5RegexC1ENS_9StringRefENS0_10RegexFlagsE(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr %371, i64 %372, i32 noundef 0) #12
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %319, i64 noundef 2) #12
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %319, i64 noundef 2) #12
   %373 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr nonnull %363, i64 %365, ptr noundef nonnull %16, ptr noundef null) #12
   br i1 %373, label %374, label %397
 
@@ -954,7 +954,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.0219.1 = phi ptr [ %.sroa.0219.0.copyload, %390 ], [ %.sroa.0219.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.0219.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit.thread234 ], [ %.sroa.0219.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit179 ], [ %.sroa.0219.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit179.thread237 ], [ %.sroa.0219.0, %410 ], [ %.sroa.0219.0, %417 ], [ %.sroa.0219.0.copyload, %395 ], [ %.sroa.0219.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit183 ]
   %.2 = phi i8 [ %.0149, %390 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.thread234 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit179 ], [ %.0149, %_ZN4llvmeqENS_9StringRefES0_.exit179.thread237 ], [ %.0149, %410 ], [ %.0149, %417 ], [ 0, %395 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit183 ]
   %cond = phi i1 [ true, %390 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread234 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit179 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit179.thread237 ], [ false, %410 ], [ true, %417 ], [ true, %395 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit183 ]
-  %421 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #12
+  %421 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #12
   %422 = load ptr, ptr %16, align 8
   %423 = icmp eq ptr %422, %319
   br i1 %423, label %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit, label %424
@@ -1707,7 +1707,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %.loopexit
 
 724:                                              ; preds = %706
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %12, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(384) %12, i64 384, i1 false)
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %storemerge279288, ptr %725, align 8
   %726 = getelementptr inbounds nuw i8, ptr %0, i64 392

@@ -2946,7 +2946,7 @@ proto_tree_add_text_node.exit:                    ; preds = %58, %64, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %1, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, ptr noundef %6, ptr noundef %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, ptr noundef nonnull %6, ptr noundef %5, i32 noundef 0)
   %78 = load i32, ptr %5, align 4
   %79 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %9, ptr noundef nonnull @hfi_text_only, ptr noundef %75, i32 noundef %77, i32 noundef %78)
   %80 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %9, ptr noundef %79)
@@ -3220,7 +3220,7 @@ proto_tree_add_text_node.exit:                    ; preds = %64, %70, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.032, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %7, ptr noundef %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %6, i32 noundef 0)
   %80 = load i32, ptr %6, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -3395,7 +3395,7 @@ proto_tree_add_text_node.exit:                    ; preds = %57, %63, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %3, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %73 = load i32, ptr %7, align 4
   %74 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %73)
   %75 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %74)
@@ -3706,7 +3706,7 @@ proto_tree_add_text_node.exit:                    ; preds = %55, %61, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %6, ptr noundef %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef %5, i32 noundef 0)
   %71 = load i32, ptr %5, align 4
   %72 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %71)
   %73 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %72)
@@ -3936,7 +3936,7 @@ proto_tree_add_text_node.exit:                    ; preds = %55, %61, %proto_ite
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %3, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef %6, ptr noundef %5, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef %5, i32 noundef 0)
   %71 = load i32, ptr %5, align 4
   %72 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull @hfi_text_only, ptr noundef %1, i32 noundef %2, i32 noundef %71)
   %73 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %72)
@@ -13786,7 +13786,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %80 = load i32, ptr %7, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -13979,7 +13979,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
 
 .split:                                           ; preds = %80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef %9, ptr noundef %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %9, ptr noundef %8, i32 noundef 0)
   %82 = load i32, ptr %8, align 4
   %83 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, i32 noundef %82)
   %84 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %83)
@@ -13989,7 +13989,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %58, %64, %proto_ite
 .split44:                                         ; preds = %80
   %85 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %7, i32 noundef 0)
   %86 = load i32, ptr %7, align 4
   %87 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, i32 noundef %86)
   %88 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %87)
@@ -14233,7 +14233,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %76, %82, %proto_ite
 
 98:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %99 = load i32, ptr %7, align 4
   %100 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, i32 noundef %99)
   %101 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %100)
@@ -14460,7 +14460,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %77, %83, %proto_ite
 
 99:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %8, i32 noundef 0)
   %100 = load i32, ptr %8, align 4
   %101 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %2, i32 noundef %3, i32 noundef %100)
   %102 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %101)
@@ -14973,7 +14973,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -15195,7 +15195,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -15410,7 +15410,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %8, i32 noundef 0)
   %80 = load i32, ptr %8, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -15628,7 +15628,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %57, %63, %proto_ite
 
 79:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %8, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %9, ptr noundef %8, i32 noundef 0)
   %80 = load i32, ptr %8, align 4
   %81 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef %80)
   %82 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %81)
@@ -15855,7 +15855,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16077,7 +16077,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16366,7 +16366,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %76, %82, %proto_ite
 
 97:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %98 = load i32, ptr %7, align 4
   %99 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %2, i32 noundef %3, i32 noundef %98)
   %100 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %99)
@@ -16591,7 +16591,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -16805,7 +16805,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -17017,7 +17017,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -17232,7 +17232,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -17446,7 +17446,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 74:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %75 = load i32, ptr %7, align 4
   %76 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %75)
   %77 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %76)
@@ -17663,7 +17663,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 74:                                               ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %75 = load i32, ptr %7, align 4
   %76 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %75)
   %77 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %76)
@@ -17876,7 +17876,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 75:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %76 = load i32, ptr %7, align 4
   %77 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %76)
   %78 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %77)
@@ -18089,7 +18089,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 75:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %76 = load i32, ptr %7, align 4
   %77 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %76)
   %78 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %77)
@@ -18307,7 +18307,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %56, %62, %proto_ite
 
 78:                                               ; preds = %proto_item_is_hidden.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef %7, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef %7, i32 noundef 0)
   %79 = load i32, ptr %7, align 4
   %80 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, i32 noundef %79)
   %81 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %80)
@@ -18848,7 +18848,7 @@ define i32 @proto_item_fill_display_label(ptr nocapture noundef readonly %0, ptr
 
 15:                                               ; preds = %13
   %16 = sext i32 %2 to i64
-  %17 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.71, i64 noundef %16) #33
+  %17 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull @.str.71, i64 noundef range(i64 -2147483648, 2147483648) %16) #33
   %.not.i = icmp ult i64 %17, %16
   %18 = add nsw i64 %16, 4294967295
   %spec.select.i = select i1 %.not.i, i64 %17, i64 %18
@@ -18868,7 +18868,7 @@ define i32 @proto_item_fill_display_label(ptr nocapture noundef readonly %0, ptr
   br i1 %29, label %protoo_strlcpy.exit251, label %30
 
 30:                                               ; preds = %20
-  %31 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %28, i64 noundef %27) #33
+  %31 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %28, i64 noundef range(i64 -2147483648, 2147483648) %27) #33
   %.not.i248 = icmp ult i64 %31, %27
   %32 = add nsw i64 %27, 4294967295
   %spec.select.i249 = select i1 %.not.i248, i64 %31, i64 %32
@@ -18892,7 +18892,7 @@ protoo_strlcpy.exit251:                           ; preds = %20, %30
 
 42:                                               ; preds = %34
   %43 = sext i32 %2 to i64
-  %44 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %40, i64 noundef %43) #33
+  %44 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %40, i64 noundef range(i64 -2147483648, 2147483648) %43) #33
   %.not.i252 = icmp ult i64 %44, %43
   %45 = add nsw i64 %43, 4294967295
   %spec.select.i253 = select i1 %.not.i252, i64 %44, i64 %45
@@ -18914,7 +18914,7 @@ protoo_strlcpy.exit255:                           ; preds = %34, %42
 
 53:                                               ; preds = %47
   %54 = sext i32 %2 to i64
-  %55 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %51, i64 noundef %54) #33
+  %55 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %51, i64 noundef range(i64 -2147483648, 2147483648) %54) #33
   %.not.i256 = icmp ult i64 %55, %54
   %56 = add nsw i64 %54, 4294967295
   %spec.select.i257 = select i1 %.not.i256, i64 %55, i64 %56
@@ -18940,7 +18940,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 
 68:                                               ; preds = %58
   %69 = sext i32 %2 to i64
-  %70 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %66, i64 noundef %69) #33
+  %70 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %66, i64 noundef range(i64 -2147483648, 2147483648) %69) #33
   %.not.i260 = icmp ult i64 %70, %69
   %71 = add nsw i64 %69, 4294967295
   %spec.select.i261 = select i1 %.not.i260, i64 %70, i64 %71
@@ -18974,7 +18974,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 
 87:                                               ; preds = %85
   %88 = sext i32 %2 to i64
-  %89 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %7, i64 noundef %88) #33
+  %89 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %7, i64 noundef range(i64 -2147483648, 2147483648) %88) #33
   %.not.i264 = icmp ult i64 %89, %88
   %90 = add nsw i64 %88, 4294967295
   %spec.select.i265 = select i1 %.not.i264, i64 %89, i64 %90
@@ -19000,7 +19000,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 
 99:                                               ; preds = %97
   %100 = sext i32 %2 to i64
-  %101 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.0219, i64 noundef %100) #33
+  %101 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.0219, i64 noundef range(i64 -2147483648, 2147483648) %100) #33
   %.not.i268 = icmp ult i64 %101, %100
   %102 = add nsw i64 %100, 4294967295
   %spec.select.i269 = select i1 %.not.i268, i64 %101, i64 %102
@@ -19014,7 +19014,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 
 107:                                              ; preds = %104
   %108 = sext i32 %2 to i64
-  %109 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %105, i64 noundef %108) #33
+  %109 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %105, i64 noundef range(i64 -2147483648, 2147483648) %108) #33
   %.not.i272 = icmp ult i64 %109, %108
   %110 = add nsw i64 %108, 4294967295
   %spec.select.i273 = select i1 %.not.i272, i64 %109, i64 %110
@@ -19061,7 +19061,7 @@ protoo_strlcpy.exit259:                           ; preds = %47, %53
 
 131:                                              ; preds = %129
   %132 = sext i32 %2 to i64
-  %133 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %8, i64 noundef %132) #33
+  %133 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 2147483648) %132) #33
   %.not.i276 = icmp ult i64 %133, %132
   %134 = add nsw i64 %132, 4294967295
   %spec.select.i277 = select i1 %.not.i276, i64 %133, i64 %134
@@ -19090,7 +19090,7 @@ protoo_strlcpy.exit283.thread:                    ; preds = %139
 
 protoo_strlcpy.exit283:                           ; preds = %139
   %143 = sext i32 %2 to i64
-  %144 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %140, i64 noundef %143) #33
+  %144 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %140, i64 noundef range(i64 -2147483648, 2147483648) %143) #33
   %.not.i280 = icmp ult i64 %144, %143
   %145 = add nsw i64 %143, 4294967295
   %spec.select.i281 = select i1 %.not.i280, i64 %144, i64 %145
@@ -19105,7 +19105,7 @@ protoo_strlcpy.exit283:                           ; preds = %139
   %sext = shl i64 %spec.select.i281, 32
   %152 = ashr exact i64 %sext, 32
   %153 = getelementptr i8, ptr %1, i64 %152
-  %154 = call i64 @g_strlcpy(ptr noundef %153, ptr noundef %147, i64 noundef %151) #33
+  %154 = call i64 @g_strlcpy(ptr noundef %153, ptr noundef %147, i64 noundef range(i64 -2147483648, 2147483648) %151) #33
   %.not.i284 = icmp ult i64 %154, %151
   %155 = add nsw i64 %151, 4294967295
   %spec.select.i285 = select i1 %.not.i284, i64 %154, i64 %155
@@ -19135,7 +19135,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 
 165:                                              ; preds = %163
   %166 = sext i32 %2 to i64
-  %167 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.1, i64 noundef %166) #33
+  %167 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.1, i64 noundef range(i64 -2147483648, 2147483648) %166) #33
   %.not.i288 = icmp ult i64 %167, %166
   %168 = add nsw i64 %166, 4294967295
   %spec.select.i289 = select i1 %.not.i288, i64 %167, i64 %168
@@ -19145,13 +19145,13 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 170:                                              ; preds = %136
   %171 = icmp eq i32 %.pre, 35
   %spec.store.select.i = select i1 %171, i32 1, i32 %122
-  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i, ptr noundef %5, i32 noundef %120)
+  %172 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i, ptr noundef nonnull %5, i32 noundef %120)
   %173 = icmp eq i32 %2, 0
   br i1 %173, label %protoo_strlcpy.exit, label %174
 
 174:                                              ; preds = %170
   %175 = sext i32 %2 to i64
-  %176 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %172, i64 noundef %175) #33
+  %176 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %172, i64 noundef range(i64 -2147483648, 2147483648) %175) #33
   %.not.i292 = icmp ult i64 %176, %175
   %177 = add nsw i64 %175, 4294967295
   %spec.select.i293 = select i1 %.not.i292, i64 %176, i64 %177
@@ -19198,7 +19198,7 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
 
 198:                                              ; preds = %196
   %199 = sext i32 %2 to i64
-  %200 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %199) #33
+  %200 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef nonnull %9, i64 noundef range(i64 -2147483648, 2147483648) %199) #33
   %.not.i296 = icmp ult i64 %200, %199
   %201 = add nsw i64 %199, 4294967295
   %spec.select.i297 = select i1 %.not.i296, i64 %200, i64 %201
@@ -19234,13 +19234,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 hfinfo_numeric_value_format64.exit:               ; preds = %switch.lookup, %switch.hole_check, %206
   %.0.i = phi i32 [ %spec.store.select.i300, %206 ], [ %spec.store.select.i300, %switch.hole_check ], [ %switch.load, %switch.lookup ]
-  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %.0.i, ptr noundef %5, i64 noundef %187)
+  %211 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %.0.i, ptr noundef nonnull %5, i64 noundef %187)
   %212 = icmp eq i32 %2, 0
   br i1 %212, label %protoo_strlcpy.exit304, label %213
 
 213:                                              ; preds = %hfinfo_numeric_value_format64.exit
   %214 = sext i32 %2 to i64
-  %215 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %211, i64 noundef %214) #33
+  %215 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %211, i64 noundef range(i64 -2147483648, 2147483648) %214) #33
   %.not.i301 = icmp ult i64 %215, %214
   %216 = add nsw i64 %214, 4294967295
   %spec.select.i302 = select i1 %.not.i301, i64 %215, i64 %216
@@ -19304,7 +19304,7 @@ hf_try_val64_to_str.exit:                         ; preds = %223, %225, %229, %2
   %243 = sext i32 %242 to i64
   %244 = sext i32 %.08.i303 to i64
   %245 = getelementptr i8, ptr %1, i64 %244
-  %246 = call i64 @g_strlcpy(ptr noundef %245, ptr noundef %.0.i306, i64 noundef %243) #33
+  %246 = call i64 @g_strlcpy(ptr noundef %245, ptr noundef %.0.i306, i64 noundef range(i64 -2147483648, 2147483648) %243) #33
   %.not.i307 = icmp ult i64 %246, %243
   %247 = add nsw i64 %243, 4294967295
   %spec.select.i308 = select i1 %.not.i307, i64 %246, i64 %247
@@ -19366,7 +19366,7 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
 
 270:                                              ; preds = %268
   %271 = sext i32 %2 to i64
-  %272 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.2, i64 noundef %271) #33
+  %272 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.2, i64 noundef range(i64 -2147483648, 2147483648) %271) #33
   %.not.i317 = icmp ult i64 %272, %271
   %273 = add nsw i64 %271, 4294967295
   %spec.select.i318 = select i1 %.not.i317, i64 %272, i64 %273
@@ -19377,13 +19377,13 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
   %276 = load i32, ptr %11, align 8
   %277 = icmp eq i32 %276, 35
   %spec.store.select.i321 = select i1 %277, i32 1, i32 %189
-  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i321, ptr noundef %5, i64 noundef %187)
+  %278 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %10, i32 noundef %spec.store.select.i321, ptr noundef nonnull %5, i64 noundef %187)
   %279 = icmp eq i32 %2, 0
   br i1 %279, label %protoo_strlcpy.exit, label %280
 
 280:                                              ; preds = %275
   %281 = sext i32 %2 to i64
-  %282 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %278, i64 noundef %281) #33
+  %282 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %278, i64 noundef range(i64 -2147483648, 2147483648) %281) #33
   %.not.i322 = icmp ult i64 %282, %281
   %283 = add nsw i64 %281, 4294967295
   %spec.select.i323 = select i1 %.not.i322, i64 %282, i64 %283
@@ -19400,7 +19400,7 @@ hf_try_val64_to_str.exit316:                      ; preds = %254, %256, %260
 
 291:                                              ; preds = %285
   %292 = sext i32 %2 to i64
-  %293 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %289, i64 noundef %292) #33
+  %293 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %289, i64 noundef range(i64 -2147483648, 2147483648) %292) #33
   %.not.i326 = icmp ult i64 %293, %292
   %294 = add nsw i64 %292, 4294967295
   %spec.select.i327 = select i1 %.not.i326, i64 %293, i64 %294
@@ -19435,7 +19435,7 @@ protoo_strlcpy.exit329:                           ; preds = %285, %291
 
 308:                                              ; preds = %296
   %309 = sext i32 %2 to i64
-  %310 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %306, i64 noundef %309) #33
+  %310 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %306, i64 noundef range(i64 -2147483648, 2147483648) %309) #33
   %.not.i330 = icmp ult i64 %310, %309
   %311 = add nsw i64 %309, 4294967295
   %spec.select.i331 = select i1 %.not.i330, i64 %310, i64 %311
@@ -19478,7 +19478,7 @@ protoo_strlcpy.exit333:                           ; preds = %296, %308
 
 328:                                              ; preds = %319
   %329 = sext i32 %2 to i64
-  %330 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %326, i64 noundef %329) #33
+  %330 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %326, i64 noundef range(i64 -2147483648, 2147483648) %329) #33
   %.not.i334 = icmp ult i64 %330, %329
   %331 = add nsw i64 %329, 4294967295
   %spec.select.i335 = select i1 %.not.i334, i64 %330, i64 %331
@@ -19521,7 +19521,7 @@ protoo_strlcpy.exit337:                           ; preds = %319, %328
 
 348:                                              ; preds = %339
   %349 = sext i32 %2 to i64
-  %350 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %346, i64 noundef %349) #33
+  %350 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %346, i64 noundef range(i64 -2147483648, 2147483648) %349) #33
   %.not.i341 = icmp ult i64 %350, %349
   %351 = add nsw i64 %349, 4294967295
   %spec.select.i342 = select i1 %.not.i341, i64 %350, i64 %351
@@ -19550,7 +19550,7 @@ protoo_strlcpy.exit344:                           ; preds = %339, %348
 
 362:                                              ; preds = %353
   %363 = sext i32 %2 to i64
-  %364 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %360, i64 noundef %363) #33
+  %364 = call i64 @g_strlcpy(ptr noundef %1, ptr noundef %360, i64 noundef range(i64 -2147483648, 2147483648) %363) #33
   %.not.i345 = icmp ult i64 %364, %363
   %365 = add nsw i64 %363, 4294967295
   %spec.select.i346 = select i1 %.not.i345, i64 %364, i64 %365
@@ -19572,7 +19572,7 @@ protoo_strlcpy.exit348:                           ; preds = %353, %362
 
 373:                                              ; preds = %367
   %374 = sext i32 %2 to i64
-  %375 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %371, i64 noundef %374) #33
+  %375 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %371, i64 noundef range(i64 -2147483648, 2147483648) %374) #33
   %.not.i349 = icmp ult i64 %375, %374
   %376 = add nsw i64 %374, 4294967295
   %spec.select.i350 = select i1 %.not.i349, i64 %375, i64 %376
@@ -19597,7 +19597,7 @@ protoo_strlcpy.exit352:                           ; preds = %367, %373
 
 387:                                              ; preds = %378
   %388 = sext i32 %2 to i64
-  %389 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %385, i64 noundef %388) #33
+  %389 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %385, i64 noundef range(i64 -2147483648, 2147483648) %388) #33
   %.not.i353 = icmp ult i64 %389, %388
   %390 = add nsw i64 %388, 4294967295
   %spec.select.i354 = select i1 %.not.i353, i64 %389, i64 %390
@@ -19622,7 +19622,7 @@ protoo_strlcpy.exit356:                           ; preds = %378, %387
 
 401:                                              ; preds = %392
   %402 = sext i32 %2 to i64
-  %403 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %399, i64 noundef %402) #33
+  %403 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %399, i64 noundef range(i64 -2147483648, 2147483648) %402) #33
   %.not.i357 = icmp ult i64 %403, %402
   %404 = add nsw i64 %402, 4294967295
   %spec.select.i358 = select i1 %.not.i357, i64 %403, i64 %404
@@ -19647,7 +19647,7 @@ protoo_strlcpy.exit360:                           ; preds = %392, %401
 
 415:                                              ; preds = %406
   %416 = sext i32 %2 to i64
-  %417 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %413, i64 noundef %416) #33
+  %417 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %413, i64 noundef range(i64 -2147483648, 2147483648) %416) #33
   %.not.i361 = icmp ult i64 %417, %416
   %418 = add nsw i64 %416, 4294967295
   %spec.select.i362 = select i1 %.not.i361, i64 %417, i64 %418
@@ -19707,7 +19707,7 @@ protoo_strlcpy.exit364:                           ; preds = %406, %415
 
 448:                                              ; preds = %446
   %449 = sext i32 %2 to i64
-  %450 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.0218, i64 noundef %449) #33
+  %450 = tail call i64 @g_strlcpy(ptr noundef %1, ptr noundef %.0218, i64 noundef range(i64 -2147483648, 2147483648) %449) #33
   %.not.i366 = icmp ult i64 %450, %449
   %451 = add nsw i64 %449, 4294967295
   %spec.select.i367 = select i1 %.not.i366, i64 %450, i64 %451
@@ -20604,7 +20604,7 @@ hf_try_double_val_to_str.exit:                    ; preds = %38
   %46 = sext i32 %45 to i64
   %47 = zext nneg i32 %.034 to i64
   %48 = getelementptr i8, ptr %1, i64 %47
-  %49 = tail call i64 @g_strlcpy(ptr noundef %48, ptr noundef %42, i64 noundef %46) #33
+  %49 = tail call i64 @g_strlcpy(ptr noundef %48, ptr noundef %42, i64 noundef range(i64 -2147483648, 2147483648) %46) #33
   %.not.i39 = icmp ult i64 %49, %46
   %50 = add nsw i64 %46, 4294967295
   %spec.select.i = select i1 %.not.i39, i64 %49, i64 %50
@@ -20776,7 +20776,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   %60 = sext i32 %59 to i64
   %61 = sext i32 %.2255 to i64
   %62 = getelementptr i8, ptr %3, i64 %61
-  %63 = call i64 @g_strlcpy(ptr noundef %62, ptr noundef %42, i64 noundef %60) #33
+  %63 = call i64 @g_strlcpy(ptr noundef %62, ptr noundef %42, i64 noundef range(i64 -2147483648, 2147483648) %60) #33
   %.not.i = icmp ult i64 %63, %60
   %64 = add nsw i64 %60, 4294967295
   %spec.select.i = select i1 %.not.i, i64 %63, i64 %64
@@ -20794,7 +20794,7 @@ protoo_strlcpy.exit:                              ; preds = %56, %58
   %70 = sext i32 %69 to i64
   %71 = sext i32 %.2249 to i64
   %72 = getelementptr i8, ptr %4, i64 %71
-  %73 = call i64 @g_strlcpy(ptr noundef %72, ptr noundef %42, i64 noundef %70) #33
+  %73 = call i64 @g_strlcpy(ptr noundef %72, ptr noundef %42, i64 noundef range(i64 -2147483648, 2147483648) %70) #33
   %.not.i314 = icmp ult i64 %73, %70
   %74 = add nsw i64 %70, 4294967295
   %spec.select.i315 = select i1 %.not.i314, i64 %73, i64 %74
@@ -20869,7 +20869,7 @@ protoo_strlcpy.exit317:                           ; preds = %protoo_strlcpy.exit
   %101 = sext i32 %100 to i64
   %102 = sext i32 %.4257 to i64
   %103 = getelementptr i8, ptr %3, i64 %102
-  %104 = call i64 @g_strlcpy(ptr noundef %103, ptr noundef nonnull @.str.71, i64 noundef %101) #33
+  %104 = call i64 @g_strlcpy(ptr noundef %103, ptr noundef nonnull @.str.71, i64 noundef range(i64 -2147483648, 2147483648) %101) #33
   %.not.i318 = icmp ult i64 %104, %101
   %105 = add nsw i64 %101, 4294967295
   %spec.select.i319 = select i1 %.not.i318, i64 %104, i64 %105
@@ -20903,7 +20903,7 @@ protoo_strlcpy.exit321:                           ; preds = %97, %99
   %119 = sext i32 %118 to i64
   %120 = sext i32 %.4251 to i64
   %121 = getelementptr i8, ptr %4, i64 %120
-  %122 = call i64 @g_strlcpy(ptr noundef %121, ptr noundef nonnull @.str.71, i64 noundef %119) #33
+  %122 = call i64 @g_strlcpy(ptr noundef %121, ptr noundef nonnull @.str.71, i64 noundef range(i64 -2147483648, 2147483648) %119) #33
   %.not.i322 = icmp ult i64 %122, %119
   %123 = add nsw i64 %119, 4294967295
   %spec.select.i323 = select i1 %.not.i322, i64 %122, i64 %123
@@ -21693,7 +21693,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %404, %406, %410, %4
   %458 = sext i32 %457 to i64
   %459 = sext i32 %.7 to i64
   %460 = getelementptr i8, ptr %4, i64 %459
-  %461 = call i64 @g_strlcpy(ptr noundef %460, ptr noundef %454, i64 noundef %458) #33
+  %461 = call i64 @g_strlcpy(ptr noundef %460, ptr noundef %454, i64 noundef range(i64 -2147483648, 2147483648) %458) #33
   %.not.i340 = icmp ult i64 %461, %458
   %462 = add nsw i64 %458, 4294967295
   %spec.select.i341 = select i1 %.not.i340, i64 %461, i64 %462
@@ -26162,7 +26162,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %96
   %spec.store.select.i = select i1 %101, i32 1, i32 %99
   %102 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %102, i32 2, i32 %spec.store.select.i
-  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i32 noundef %.064)
+  %103 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.064)
   %104 = load i32, ptr %86, align 4
   %105 = and i32 %104, 32768
   %.not72 = icmp eq i32 %105, 0
@@ -26217,7 +26217,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %96
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 35
   %spec.store.select.i90 = select i1 %122, i32 1, i32 %87
-  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef %4, i32 noundef %.064)
+  %123 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i90, ptr noundef nonnull %4, i32 noundef %.064)
   %sext = shl i64 %85, 32
   %124 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %124, ptr noundef nonnull %6, ptr noundef %123)
@@ -26289,7 +26289,7 @@ hfinfo_number_vals_format.exit:                   ; preds = %27
   %spec.store.select.i = select i1 %32, i32 1, i32 %30
   %33 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %33, i32 2, i32 %spec.store.select.i
-  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select1.i, ptr noundef %4, i32 noundef %.0)
+  %34 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %.0)
   %35 = load i32, ptr %15, align 4
   %36 = and i32 %35, 32768
   %.not53 = icmp eq i32 %36, 0
@@ -26352,7 +26352,7 @@ switch.lookup:                                    ; preds = %47
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 35
   %spec.store.select.i57 = select i1 %53, i32 1, i32 %16
-  %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef %4, i32 noundef %.0)
+  %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %54)
   br label %55
 
@@ -26654,7 +26654,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %116, i32 1, i32 %114
   %117 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %117, i32 2, i32 %spec.store.select.i
-  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i64 noundef %.064)
+  %118 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.064)
   %119 = load i32, ptr %84, align 4
   %120 = and i32 %119, 32768
   %.not72 = icmp eq i32 %120, 0
@@ -26709,7 +26709,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %136 = load i32, ptr %135, align 8
   %137 = icmp eq i32 %136, 35
   %spec.store.select.i92 = select i1 %137, i32 1, i32 %85
-  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef %4, i64 noundef %.064)
+  %138 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i92, ptr noundef nonnull %4, i64 noundef %.064)
   %sext = shl i64 %83, 32
   %139 = ashr exact i64 %sext, 32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef %139, ptr noundef nonnull %6, ptr noundef %138)
@@ -26816,7 +26816,7 @@ hfinfo_number_vals_format64.exit:                 ; preds = %hf_try_val64_to_str
   %spec.store.select.i = select i1 %45, i32 1, i32 %43
   %46 = icmp eq i32 %spec.store.select.i, 5
   %spec.store.select1.i = select i1 %46, i32 2, i32 %spec.store.select.i
-  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef %4, i64 noundef %.0)
+  %47 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select1.i, ptr noundef nonnull %4, i64 noundef %.0)
   %48 = load i32, ptr %14, align 4
   %49 = and i32 %48, 32768
   %.not42 = icmp eq i32 %49, 0
@@ -26865,7 +26865,7 @@ hfinfo_number_vals_format64.exit.thread:          ; preds = %hf_try_val64_to_str
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 35
   %spec.store.select.i46 = select i1 %63, i32 1, i32 %15
-  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef %4, i64 noundef %.0)
+  %64 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %6, i32 noundef %spec.store.select.i46, ptr noundef nonnull %4, i64 noundef %.0)
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %6, ptr noundef %64)
   br label %65
 
@@ -29898,7 +29898,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %162 = load i32, ptr %97, align 8
   %163 = icmp eq i32 %162, 35
   %spec.store.select.i = select i1 %163, i32 1, i32 %160
-  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i, ptr noundef %15, i32 noundef %161)
+  %164 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i, ptr noundef nonnull %15, i32 noundef %161)
   br label %165
 
 165:                                              ; preds = %.thread407, %156
@@ -30021,7 +30021,7 @@ ws_sign_ext32.exit:                               ; preds = %180, %176, %174
   %213 = load i32, ptr %97, align 8
   %214 = icmp eq i32 %213, 35
   %spec.store.select.i391 = select i1 %214, i32 1, i32 %212
-  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i391, ptr noundef %17, i32 noundef %.0280)
+  %215 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i391, ptr noundef nonnull %17, i32 noundef %.0280)
   br label %216
 
 216:                                              ; preds = %.thread410, %209
@@ -30156,7 +30156,7 @@ hf_try_val64_to_str.exit.thread:                  ; preds = %hf_try_val64_to_str
   %267 = load i32, ptr %97, align 8
   %268 = icmp eq i32 %267, 35
   %spec.store.select.i394 = select i1 %268, i32 1, i32 %266
-  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i394, ptr noundef %19, i64 noundef %101)
+  %269 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i394, ptr noundef nonnull %19, i64 noundef %101)
   br label %270
 
 270:                                              ; preds = %hf_try_val64_to_str.exit.thread, %hf_try_val64_to_str.exit
@@ -30317,7 +30317,7 @@ hf_try_val64_to_str.exit404.thread:               ; preds = %hf_try_val64_to_str
   %332 = load i32, ptr %97, align 8
   %333 = icmp eq i32 %332, 35
   %spec.store.select.i405 = select i1 %333, i32 1, i32 %331
-  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i405, ptr noundef %21, i64 noundef %.0279)
+  %334 = call fastcc ptr @hfinfo_number_value_format_display64(ptr noundef nonnull readonly %66, i32 noundef %spec.store.select.i405, ptr noundef nonnull %21, i64 noundef %.0279)
   br label %335
 
 335:                                              ; preds = %hf_try_val64_to_str.exit404.thread, %hf_try_val64_to_str.exit404
@@ -32096,7 +32096,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
   br i1 %or.cond.i, label %18, label %19
 
 18:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 13357, ptr noundef nonnull @__func__._proto_tree_add_bits_format_value, ptr noundef nonnull @.str.2, i32 noundef %1) #35
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 13357, ptr noundef nonnull @__func__._proto_tree_add_bits_format_value, ptr noundef nonnull @.str.2, i32 noundef range(i32 1, -2147483648) %1) #35
   unreachable
 
 19:                                               ; preds = %8
@@ -32277,32 +32277,32 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %65, %58, %proto_ite
 
 107:                                              ; preds = %91
   %108 = load i64, ptr %5, align 8
-  %109 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %108, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %109 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %108, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 110:                                              ; preds = %91, %91, %91, %91, %91
   %111 = load i32, ptr %5, align 4
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i32 noundef %111, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i32 noundef %111, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 113:                                              ; preds = %91, %91, %91, %91
   %114 = load i64, ptr %5, align 8
-  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %114, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %114, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 116:                                              ; preds = %91, %91, %91, %91
   %117 = load i32, ptr %5, align 4
-  %118 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i32 noundef %117, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %118 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i32 noundef %117, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 119:                                              ; preds = %91, %91, %91, %91
   %120 = load i64, ptr %5, align 8
-  %121 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %120, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %121 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, i64 noundef %120, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 122:                                              ; preds = %91
   %123 = load float, ptr %5, align 4
-  %124 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, float noundef %123, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
+  %124 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, i32 noundef %83, i32 noundef %spec.select.i, float noundef %123, ptr noundef nonnull @.str.126, ptr noundef %98, ptr noundef %7)
   br label %_proto_tree_add_bits_format_value.exit
 
 125:                                              ; preds = %91
@@ -33292,7 +33292,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %55, %61, %proto_ite
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @tvb_get_ts_23_038_7bits_string_packed(ptr noundef %87, ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef %7, ptr noundef %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef nonnull %7, ptr noundef %6, i32 noundef 0)
   %89 = load i32, ptr %6, align 4
   %90 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, i32 noundef %89)
   %91 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %90)
@@ -33475,7 +33475,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %55, %61, %proto_ite
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @tvb_get_ascii_7bits_string(ptr noundef %87, ptr noundef %2, i32 noundef %3, i32 noundef %4) #33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef %7, ptr noundef %6, i32 noundef 0)
+  call fastcc void @get_hfi_length(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, ptr noundef nonnull %7, ptr noundef %6, i32 noundef 0)
   %89 = load i32, ptr %6, align 4
   %90 = tail call fastcc ptr @new_field_info(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %2, i32 noundef %83, i32 noundef %89)
   %91 = tail call fastcc noundef ptr @proto_tree_add_node(ptr noundef nonnull %0, ptr noundef %90)

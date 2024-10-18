@@ -369,7 +369,7 @@ entry:
 define hidden void @_ZThn32_N7specrel6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
   ret void
 }
 
@@ -377,7 +377,7 @@ entry:
 define hidden void @_ZThn40_N7specrel6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
   ret void
 }
 
@@ -385,14 +385,14 @@ entry:
 define hidden void @_ZThn48_N7specrel6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7specrel6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) #18
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
@@ -404,8 +404,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZThn32_N7specrel6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
   ret void
 }
 
@@ -413,8 +413,8 @@ entry:
 define hidden void @_ZThn40_N7specrel6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
   ret void
 }
 
@@ -422,8 +422,8 @@ entry:
 define hidden void @_ZThn48_N7specrel6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(128) %0) #20
   ret void
 }
 
@@ -481,7 +481,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNK6vectorI6symbol
 
 _ZNK11ast_manager15get_family_nameEi.exit.i:      ; preds = %cond.true.i.i.i, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i, %land.lhs.true.i.i.i, %entry
   %cond-lvalue.i.i.i = phi ptr [ %arrayidx.i3.i.i.i, %cond.true.i.i.i ], [ @_ZN6symbol4nullE, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i ], [ @_ZN6symbol4nullE, %entry ], [ @_ZN6symbol4nullE, %land.lhs.true.i.i.i ]
-  tail call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(108) %call, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i.i.i, i32 noundef %0)
+  tail call void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr noundef nonnull align 8 dereferenceable(128) %call, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i.i.i, i32 noundef %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7specrel6solverE, i64 16), ptr %call, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7specrel6solverE, i64 624), ptr %add.ptr.i, align 8
@@ -510,7 +510,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont7.i
 lpad.i:                                           ; preds = %invoke.cont11.i, %invoke.cont7.i, %_ZNK11ast_manager15get_family_nameEi.exit.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %call) #18
+  tail call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %call) #18
   resume { ptr, i32 } %5
 
 _ZN7specrel6solverC2ERN3euf6solverEi.exit:        ; preds = %invoke.cont11.i
@@ -855,7 +855,7 @@ declare noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonn
 define hidden noundef zeroext i1 @_ZThn48_N7specrel6solver7visitedEP4expr(ptr noundef %this, ptr noundef %e) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %e)
+  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %e)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZN7specrel6solver7visitedEP4expr.exit, label %land.rhs.i
 
@@ -916,12 +916,12 @@ declare noundef ptr @_ZN3euf13th_euf_solver8mk_enodeEP4exprb(ptr noundef nonnull
 define hidden noundef zeroext i1 @_ZThn48_N7specrel6solver10post_visitEP4exprbb(ptr noundef %this, ptr noundef %term, i1 zeroext %sign, i1 zeroext %root) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
-  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %term)
+  %call.i = tail call noundef ptr @_ZNK3euf13th_euf_solver10expr2enodeEP4expr(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %term)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN7specrel6solver10post_visitEP4exprbb.exit
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = tail call noundef ptr @_ZN3euf13th_euf_solver8mk_enodeEP4exprb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %term, i1 noundef zeroext false)
+  %call3.i = tail call noundef ptr @_ZN3euf13th_euf_solver8mk_enodeEP4exprb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %term, i1 noundef zeroext false)
   br label %_ZN7specrel6solver10post_visitEP4exprbb.exit
 
 _ZN7specrel6solver10post_visitEP4exprbb.exit:     ; preds = %entry, %if.then.i
@@ -1266,7 +1266,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1276,7 +1276,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1533,7 +1533,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

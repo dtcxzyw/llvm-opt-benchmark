@@ -223,12 +223,12 @@ define internal fastcc void @layoutTree(ptr noundef %0) unnamed_addr #0 {
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, i64 noundef %4, i64 noundef 8) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, i64 noundef range(i64 1, 0) %4, i64 noundef 8) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
 10:                                               ; preds = %6
-  %11 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #15
+  %11 = tail call noalias ptr @calloc(i64 noundef range(i64 1, 0) %4, i64 noundef 8) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %gv_calloc.exit
 
@@ -256,7 +256,7 @@ gv_calloc.exit:                                   ; preds = %10
 
 22:                                               ; preds = %18
   tail call void @qsort(ptr noundef nonnull %11, i64 noundef %4, i64 noundef 8, ptr noundef nonnull @nodecmp) #14
-  %23 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #15
+  %23 = tail call noalias ptr @calloc(i64 noundef range(i64 1, 0) %4, i64 noundef 8) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %gv_calloc.exit103
 

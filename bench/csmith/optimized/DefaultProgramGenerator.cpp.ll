@@ -149,7 +149,7 @@ define dso_local void @_ZN23DefaultProgramGeneratorD0Ev(ptr noundef nonnull alig
   unreachable
 
 _ZN23DefaultProgramGeneratorD2Ev.exit:            ; preds = %2, %6
-  tail call void @_ZN19AbsProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9
+  tail call void @_ZN19AbsProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }

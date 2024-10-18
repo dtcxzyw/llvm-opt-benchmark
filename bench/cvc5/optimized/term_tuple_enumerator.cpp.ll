@@ -3979,7 +3979,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   unreachable
 
 _ZN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasicD2Ev.exit: ; preds = %entry
-  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #22
+  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -4662,7 +4662,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers21TermTupleEnumeratorRDD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #22
+  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -4952,7 +4952,7 @@ terminate.lpad.i.i:                               ; preds = %if.then13.i.i.i
   unreachable
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorPoolD2Ev.exit: ; preds = %_ZNSt3mapImSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessImESaISt4pairIKmS6_EEED2Ev.exit.i, %if.then.i.i.i, %if.then13.i.i.i
-  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #22
+  tail call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }

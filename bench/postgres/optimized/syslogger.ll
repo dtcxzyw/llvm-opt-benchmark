@@ -840,11 +840,11 @@ set_next_rotation_time.exit84:                    ; preds = %114, %116
 
 229:                                              ; preds = %228, %176
   %.0.i8.ph = phi i64 [ %177, %176 ], [ %.0.i9, %228 ]
-  %230 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.042, i32 noundef %spec.store.select7, i64 noundef %.0.i8.ph, i32 noundef 8, ptr noundef nonnull @last_csv_file_name, ptr noundef nonnull @csvlogFile)
+  %230 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.042, i32 noundef range(i32 0, 32) %spec.store.select7, i64 noundef %.0.i8.ph, i32 noundef 8, ptr noundef nonnull @last_csv_file_name, ptr noundef nonnull @csvlogFile)
   br i1 %230, label %231, label %logfile_rotate.exit
 
 231:                                              ; preds = %229
-  %232 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.042, i32 noundef %spec.store.select7, i64 noundef %.0.i8.ph, i32 noundef 16, ptr noundef nonnull @last_json_file_name, ptr noundef nonnull @jsonlogFile)
+  %232 = call fastcc zeroext i1 @logfile_rotate_dest(i1 noundef zeroext %.042, i32 noundef range(i32 0, 32) %spec.store.select7, i64 noundef %.0.i8.ph, i32 noundef 16, ptr noundef nonnull @last_json_file_name, ptr noundef nonnull @jsonlogFile)
   br i1 %232, label %233, label %logfile_rotate.exit
 
 233:                                              ; preds = %231

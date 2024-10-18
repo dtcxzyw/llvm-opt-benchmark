@@ -5711,7 +5711,7 @@ _ZN8QuantLib21FdmHestonVariancePartD2Ev.exit:     ; preds = %entry, %if.then.i.i
   %dyMap_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %mapT_.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapT_.i) #23
-  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %dyMap_) #23
+  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %dyMap_) #23
   %correlationMap_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %correlationMap_) #23
   ret void
@@ -5765,7 +5765,7 @@ _ZN8QuantLib11FdmHestonOpD2Ev.exit:               ; preds = %entry, %if.then.i.i
   %dyMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %mapT_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %mapT_.i.i) #23
-  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %dyMap_.i) #23
+  tail call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %dyMap_.i) #23
   %correlationMap_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8QuantLib17NinePointLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %correlationMap_.i) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 728) #25

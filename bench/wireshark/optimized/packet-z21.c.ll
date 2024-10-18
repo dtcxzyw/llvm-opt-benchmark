@@ -845,8 +845,8 @@ update_command_field.exit:                        ; preds = %32, %48
   %.0944 = and i32 %.0944.in, 255
   %53 = icmp samesign ult i32 %.1, 16777216
   %spec.select.i = select i1 %53, i32 6, i32 8
-  %54 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0940, ptr noundef nonnull @.str.452, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef %.1) #2
+  %54 = call ptr @val_to_str_const(i32 noundef range(i32 0, 1090512434) %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0940, ptr noundef nonnull @.str.452, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef range(i32 0, 1090512434) %.1) #2
   %55 = load ptr, ptr %15, align 8
   %56 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.390, ptr noundef %56) #2
@@ -1590,8 +1590,8 @@ update_command_field.exit966:                     ; preds = %14
   %581 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %580, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %579) #2
   %582 = icmp ult i16 %23, 256
   %spec.select = select i1 %582, i32 2, i32 4
-  %583 = call ptr @val_to_str_const(i32 noundef %579, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %581, ptr noundef nonnull @.str.452, ptr noundef %583, i32 noundef %spec.select, i32 noundef %579) #2
+  %583 = call ptr @val_to_str_const(i32 noundef range(i32 0, 1090512434) %579, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %581, ptr noundef nonnull @.str.452, ptr noundef %583, i32 noundef %spec.select, i32 noundef range(i32 0, 1090512434) %579) #2
   %584 = load ptr, ptr %15, align 8
   %585 = call ptr @val_to_str_const(i32 noundef %579, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %584, i32 noundef 25, ptr noundef nonnull @.str.390, ptr noundef %585) #2

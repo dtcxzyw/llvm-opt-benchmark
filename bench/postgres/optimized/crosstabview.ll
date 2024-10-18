@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr %70, ptr %3, align 8
   store i32 %65, ptr %61, align 8
   store ptr %.0.us, ptr %62, align 8
-  call fastcc void @avlInsertNode(ptr noundef %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
+  call fastcc void @avlInsertNode(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %75 = load i32, ptr %4, align 8
   %76 = icmp sgt i32 %75, 1600
@@ -210,7 +210,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %83 = load i32, ptr %5, align 8
   store i32 %83, ptr %63, align 8
   store ptr null, ptr %64, align 8
-  call fastcc void @avlInsertNode(ptr noundef %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %84 = add nuw nsw i32 %.06489.us, 1
   %85 = tail call i32 @PQntuples(ptr noundef %0) #10
@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr %92, ptr %3, align 8
   store i32 %87, ptr %61, align 8
   store ptr null, ptr %62, align 8
-  call fastcc void @avlInsertNode(ptr noundef %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
+  call fastcc void @avlInsertNode(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull byval(%struct._pivot_field) align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %93 = load i32, ptr %4, align 8
   %94 = icmp sgt i32 %93, 1600
@@ -262,7 +262,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %101 = load i32, ptr %5, align 8
   store i32 %101, ptr %63, align 8
   store ptr null, ptr %64, align 8
-  call fastcc void @avlInsertNode(ptr noundef %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
+  call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %102 = add nuw nsw i32 %.06489, 1
   %103 = tail call i32 @PQntuples(ptr noundef %0) #10

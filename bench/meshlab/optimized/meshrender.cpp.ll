@@ -9348,7 +9348,7 @@ _ZNSt3mapI7QString10ShaderInfoSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boundERS5
   %2056 = getelementptr inbounds i8, ptr %.sroa.05.0.i1622, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %2057 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2056, ptr noundef nonnull align 8 dereferenceable(8) %44) #23
+  %2057 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(140) %2056, ptr noundef nonnull align 8 dereferenceable(140) %44) #23
   %2058 = getelementptr inbounds i8, ptr %.sroa.05.0.i1622, i64 48
   %2059 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %2058, ptr noundef nonnull align 8 dereferenceable(8) %256) #23
   %2060 = getelementptr inbounds i8, ptr %.sroa.05.0.i1622, i64 56
@@ -11040,7 +11040,7 @@ _ZNSt12_Vector_baseI11TextureInfoSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
   %.012.i.i.i.i.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i25 ], [ %49, %.lr.ph.preheader.i.i.i.i.i ]
   %.0811.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i25 ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0910.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i25 ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.0910.i.i.i.i.i) #23
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i) #23
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
@@ -11107,7 +11107,7 @@ _ZSt8_DestroyI11TextureInfoEvPT_.exit.i.i.i28:    ; preds = %_ZN9QtPrivate8RefCo
   %.012.i.i.i.i.i38 = phi i64 [ %73, %.lr.ph.i.i.i.i.i37 ], [ %67, %.lr.ph.preheader.i.i.i.i.i36 ]
   %.0811.i.i.i.i.i39 = phi ptr [ %72, %.lr.ph.i.i.i.i.i37 ], [ %12, %.lr.ph.preheader.i.i.i.i.i36 ]
   %.0910.i.i.i.i.i40 = phi ptr [ %71, %.lr.ph.i.i.i.i.i37 ], [ %6, %.lr.ph.preheader.i.i.i.i.i36 ]
-  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %.0811.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(8) %.0910.i.i.i.i.i40) #23
+  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i39, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i40) #23
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i39, i64 8
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i40, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
@@ -16030,7 +16030,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread7:      ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN8QMapDataIibE7destroyEv.exit
 
 _ZN8QMapDataIibE7destroyEv.exit:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread7, %21
-  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull %18)
+  tail call void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef nonnull align 8 dereferenceable(40) %18)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %14, %_ZN8QMapDataIibE7destroyEv.exit, %_ZN9QtPrivate8RefCount5derefEv.exit

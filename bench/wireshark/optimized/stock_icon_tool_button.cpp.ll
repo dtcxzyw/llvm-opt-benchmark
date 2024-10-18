@@ -696,7 +696,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %1
 _ZN19StockIconToolButtonD2Ev.exit:                ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
+  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -824,7 +824,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %1
 _ZN19StockIconToolButtonD2Ev.exit:                ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
+  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #12
   ret void
 }
 
@@ -851,8 +851,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %1
 _ZN19StockIconToolButtonD0Ev.exit:                ; preds = %1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
+  tail call void @_ZN11QToolButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #13
   ret void
 }
 

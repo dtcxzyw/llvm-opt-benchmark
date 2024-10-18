@@ -4399,20 +4399,20 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i.i, label %.thread157.sink.split.i, label %367
 
 367:                                              ; preds = %366
-  %368 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %368 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 369:                                              ; preds = %365
-  %370 = call fastcc i32 @decode_mp_next_hop_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %370 = call fastcc i32 @decode_mp_next_hop_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 371:                                              ; preds = %365, %365, %365
-  %372 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %372 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %374, label %.thread157.i
 
 374:                                              ; preds = %371
-  %375 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %375 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 376:                                              ; preds = %365, %365
@@ -4420,7 +4420,7 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %.not140.i, label %.thread157.i, label %377
 
 377:                                              ; preds = %376
-  %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1767, i32 noundef %351) #4
+  %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1767, i32 noundef range(i32 0, 256) %351) #4
   br label %.thread.i
 
 379:                                              ; preds = %365
@@ -4446,11 +4446,11 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   ]
 
 383:                                              ; preds = %382, %382, %382, %382, %382, %382, %382, %382
-  %384 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %384 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 385:                                              ; preds = %382, %382, %382
-  %386 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %386 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 387:                                              ; preds = %382, %382
@@ -4458,7 +4458,7 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %.not.i1765, label %.thread157.i, label %388
 
 388:                                              ; preds = %387
-  %389 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1767, i32 noundef %351) #4
+  %389 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1767, i32 noundef range(i32 0, 256) %351) #4
   br label %.thread.i
 
 390:                                              ; preds = %382
@@ -4480,7 +4480,7 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i143.i, label %.thread157.sink.split.i, label %395
 
 395:                                              ; preds = %394
-  %396 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %396 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 397:                                              ; preds = %393
@@ -4499,16 +4499,16 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
   br i1 %cond.i146.i, label %.thread157.sink.split.i, label %402
 
 402:                                              ; preds = %401
-  %403 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %403 = call fastcc i32 @decode_mp_next_hop_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 404:                                              ; preds = %400
-  %405 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %405 = call fastcc i32 @decode_mp_next_hop_vpn_ipv4(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   %406 = icmp eq i32 %405, 0
   br i1 %406, label %407, label %.thread157.i
 
 407:                                              ; preds = %404
-  %408 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef %351)
+  %408 = call fastcc i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %353, ptr noundef %363, ptr noundef nonnull %4, ptr noundef %359, i32 noundef range(i32 0, 256) %351)
   br label %414
 
 409:                                              ; preds = %400
@@ -4540,13 +4540,13 @@ save_afi_safi_data.exit:                          ; preds = %329, %345
 .thread.i:                                        ; preds = %414, %412, %409, %397, %390, %388, %379, %377
   %420 = icmp eq i8 %337, 1
   %421 = select i1 %420, ptr @.str, ptr @.str.11
-  %422 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1769, i32 noundef %351, ptr noundef nonnull %421) #4
+  %422 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %4, ptr noundef %361, ptr noundef nonnull @ei_bgp_length_invalid, ptr noundef nonnull @.str.1769, i32 noundef range(i32 0, 256) %351, ptr noundef nonnull %421) #4
   %.not142.i = icmp eq i8 %337, 0
   br i1 %.not142.i, label %decode_mp_next_hop.exit, label %423
 
 423:                                              ; preds = %.thread.i
   %424 = load ptr, ptr %10, align 8
-  %425 = call ptr @tvb_bytes_to_str(ptr noundef %424, ptr noundef %353, i32 noundef 1, i32 noundef %351) #4
+  %425 = call ptr @tvb_bytes_to_str(ptr noundef %424, ptr noundef %353, i32 noundef 1, i32 noundef range(i32 0, 256) %351) #4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %423, %.thread157.i

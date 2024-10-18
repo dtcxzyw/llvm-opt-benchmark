@@ -61,7 +61,7 @@ declare void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue216ReferenceVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
+  tail call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
   ret void
 }
@@ -74,7 +74,7 @@ define hidden void @_ZN3ue215checkReferencesERKNS_9ComponentEjRKNS_8flat_setINSt
 entry:
   %vis = alloca %"class.ue2::ReferenceVisitor", align 8
   %conv = zext i32 %groupIndices to i64
-  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
+  call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue216ReferenceVisitorE, i64 16), ptr %vis, align 8
   %num_ids.i = getelementptr inbounds i8, ptr %vis, i64 8
   store i64 %conv, ptr %num_ids.i, align 8
@@ -87,13 +87,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #8
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis) #8
   ret void
 
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis) #8
+  call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vis) #8
   resume { ptr, i32 } %1
 }
 

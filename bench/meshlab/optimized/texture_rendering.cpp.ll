@@ -1309,7 +1309,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vecto
           to label %341 unwind label %.loopexit.split-lp178.i.loopexit.split-lp, !noalias !13
 
 341:                                              ; preds = %340
-  %342 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.14)
+  %342 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %14, ptr noundef nonnull @.str.14)
           to label %_ZN7logging6BufferlsIA29_cEERS0_RKT_.exit.i unwind label %347, !noalias !13
 
 _ZN7logging6BufferlsIA29_cEERS0_RKT_.exit.i:      ; preds = %341
@@ -1318,7 +1318,7 @@ _ZN7logging6BufferlsIA29_cEERS0_RKT_.exit.i:      ; preds = %341
           to label %345 unwind label %347, !noalias !13
 
 345:                                              ; preds = %_ZN7logging6BufferlsIA29_cEERS0_RKT_.exit.i
-  %346 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %344)
+  %346 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(376) %14, i32 noundef %344)
           to label %_ZN7logging6BufferlsIjEERS0_RKT_.exit.i unwind label %347, !noalias !13
 
 _ZN7logging6BufferlsIjEERS0_RKT_.exit.i:          ; preds = %345
@@ -1469,11 +1469,11 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12
           to label %407 unwind label %.loopexit.i, !noalias !13
 
 407:                                              ; preds = %406
-  %408 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.15)
+  %408 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %15, ptr noundef nonnull @.str.15)
           to label %_ZN7logging6BufferlsIA22_cEERS0_RKT_.exit.i unwind label %434, !noalias !13
 
 _ZN7logging6BufferlsIA22_cEERS0_RKT_.exit.i:      ; preds = %407
-  %409 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %381)
+  %409 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(376) %15, i32 noundef %381)
           to label %_ZN7logging6BufferlsIiEERS0_RKT_.exit.i unwind label %434, !noalias !13
 
 _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6BufferlsIA22_cEERS0_RKT_.exit.i

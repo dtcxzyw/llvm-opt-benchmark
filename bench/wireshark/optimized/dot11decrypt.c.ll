@@ -1366,7 +1366,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull readonly align 1 dereferenceable(12) %13, i64 12, i1 false)
-  %50 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %46)
+  %50 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %46)
   br label %51
 
 51:                                               ; preds = %48, %41
@@ -1583,7 +1583,7 @@ Dot11DecryptIsFtAkm.exit.i:                       ; preds = %Dot11DecryptDeriveP
   br i1 %153, label %Dot11DecryptGetDeriveFuncFromAkm.exit.i.i, label %154
 
 154:                                              ; preds = %152
-  %155 = call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef %.3113.i, i32 noundef %.3109.i)
+  %155 = call fastcc i32 @Dot11DecryptGetPtkLen(i32 noundef range(i32 0, 256) %.3113.i, i32 noundef range(i32 0, 256) %.3109.i)
   %switch.tableidx = add i8 %trunc.i.i, -1
   %156 = icmp ult i8 %switch.tableidx, 18
   br i1 %156, label %switch.lookup, label %Dot11DecryptGetHashAlgoFromAkm.exit.i.i
@@ -1628,11 +1628,11 @@ Dot11DecryptGetDeriveFuncFromAkm.exit.i.i:        ; preds = %Dot11DecryptGetHash
   br i1 %.064.i.i, label %167, label %169
 
 167:                                              ; preds = %160
-  %168 = call zeroext i1 @dot11decrypt_prf(ptr noundef nonnull %145, i64 noundef %148, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i64 noundef 76, i32 noundef %.066.i.i, ptr noundef nonnull %11, i64 noundef %162) #14
+  %168 = call zeroext i1 @dot11decrypt_prf(ptr noundef nonnull %145, i64 noundef range(i64 0, 256) %148, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i64 noundef 76, i32 noundef %.066.i.i, ptr noundef nonnull %11, i64 noundef %162) #14
   br label %Dot11DecryptDerivePtk.exit.i
 
 169:                                              ; preds = %160
-  %170 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %145, i64 noundef %148, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i64 noundef 76, i32 noundef %.066.i.i, ptr noundef nonnull %11, i64 noundef %162) #14
+  %170 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %145, i64 noundef range(i64 0, 256) %148, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i64 noundef 76, i32 noundef %.066.i.i, ptr noundef nonnull %11, i64 noundef %162) #14
   br label %Dot11DecryptDerivePtk.exit.i
 
 Dot11DecryptDerivePtk.exit.i:                     ; preds = %169, %167, %Dot11DecryptGetDeriveFuncFromAkm.exit.i.i, %151
@@ -1802,7 +1802,7 @@ Dot11DecryptIsWpaKeyType.exit141.thread.i:        ; preds = %185, %.thread.i.i, 
   %213 = getelementptr inbounds i8, ptr %1, i64 72
   %214 = load i16, ptr %213, align 8
   %215 = zext i16 %214 to i64
-  %216 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef %0, ptr noundef %212, i64 noundef %215, ptr noundef %13)
+  %216 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef %0, ptr noundef %212, i64 noundef %215, ptr noundef nonnull %13)
   br label %Dot11DecryptRsna4WHandshake.exit
 
 217:                                              ; preds = %208, %34
@@ -1828,7 +1828,7 @@ Dot11DecryptRsna4WHandshake.exit:                 ; preds = %Dot11DecryptIsWpaKe
   %224 = getelementptr inbounds i8, ptr %1, i64 72
   %225 = load i16, ptr %224, align 8
   %226 = zext i16 %225 to i64
-  %227 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly %0, ptr noundef %223, i64 noundef %226, ptr noundef %13)
+  %227 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly %0, ptr noundef %223, i64 noundef %226, ptr noundef nonnull %13)
   br label %Dot11DecryptGroupHandshake.exit
 
 228:                                              ; preds = %19
@@ -3428,7 +3428,7 @@ switch.lookup147:                                 ; preds = %119
 
 126:                                              ; preds = %switch.lookup147
   %127 = load ptr, ptr %8, align 8
-  %128 = call i32 @gcry_mac_setkey(ptr noundef %127, ptr noundef nonnull %11, i64 noundef %.0.i109) #14
+  %128 = call i32 @gcry_mac_setkey(ptr noundef %127, ptr noundef nonnull %11, i64 noundef range(i64 0, 25) %.0.i109) #14
   %.not30.i = icmp eq i32 %128, 0
   br i1 %.not30.i, label %131, label %129
 

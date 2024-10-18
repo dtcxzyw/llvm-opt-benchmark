@@ -162,7 +162,7 @@ define void @_ZNK4LIEF3DEX9Prototype15parameters_typeEv(ptr dead_on_unwind noali
 _ZNSt16allocator_traitsISaIPN4LIEF3DEX4TypeEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %10
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #13
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %6, i64 %9, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #13
           to label %19 unwind label %_ZNSt6vectorIPN4LIEF3DEX4TypeESaIS3_EED2Ev.exit4
 

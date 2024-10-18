@@ -1899,7 +1899,7 @@ define linkonce_odr hidden void @_ZN4ncnn15DetectionOutputD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn15DetectionOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(244) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #20
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #19
   ret void
 }

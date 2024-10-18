@@ -113,7 +113,7 @@ define void @_ZN18AddressEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 der
 13:                                               ; preds = %8, %6, %2
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   resume { ptr, i32 } %14
 }
 
@@ -689,7 +689,7 @@ define void @_ZN18AddressEditorFrameD2Ev(ptr noundef nonnull align 8 dereference
   br label %7
 
 7:                                                ; preds = %6, %1
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   ret void
 }
 
@@ -714,7 +714,7 @@ define void @_ZN18AddressEditorFrameD0Ev(ptr noundef nonnull align 8 dereference
 define void @_ZThn16_N18AddressEditorFrameD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN18AddressEditorFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(72) %2) #18
   ret void
 }
 
@@ -930,7 +930,7 @@ define void @_ZN18AddressEditorFrame12addAddressesERK9ProtoNodeR5QListI7QStringE
           to label %8 unwind label %15
 
 8:                                                ; preds = %2
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
@@ -945,7 +945,7 @@ define void @_ZN18AddressEditorFrame12addAddressesERK9ProtoNodeR5QListI7QStringE
 15:                                               ; preds = %2
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   br label %_ZN7QStringD2Ev.exit12
 
 .loopexit:                                        ; preds = %19, %23, %25
@@ -1086,7 +1086,7 @@ define void @_ZN18AddressEditorFrame13editAddressesER11CaptureFilei(ptr noundef 
   %25 = getelementptr inbounds i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   br label %_ZN5QListI7QStringED2Ev.exit
 
 27:                                               ; preds = %3
@@ -1104,7 +1104,7 @@ define void @_ZN18AddressEditorFrame13editAddressesER11CaptureFilei(ptr noundef 
   %35 = getelementptr inbounds i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %36)
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   br label %_ZN5QListI7QStringED2Ev.exit
 
 37:                                               ; preds = %27
@@ -1292,13 +1292,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %108
   %115 = load i64, ptr %114, align 8
   store i64 %115, ptr %113, align 8
   store i64 0, ptr %114, align 8
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   br label %_ZN18AddressEditorFrame15isAddressColumnEP16epan_column_infoi.exit
 
 116:                                              ; preds = %108
   %117 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
   br label %.body
 
 _ZN18AddressEditorFrame15isAddressColumnEP16epan_column_infoi.exit: ; preds = %75, %81, %86, %72, %_ZN7QStringaSEPKc.exit, %104, %_ZN7QStringD2Ev.exit
@@ -1310,7 +1310,7 @@ _ZN18AddressEditorFrame15isAddressColumnEP16epan_column_infoi.exit: ; preds = %7
           to label %119 unwind label %100
 
 119:                                              ; preds = %118
-  %120 = invoke noundef i64 @_ZN9QtPrivate28QStringList_removeDuplicatesEP5QListI7QStringE(ptr noundef nonnull %7)
+  %120 = invoke noundef i64 @_ZN9QtPrivate28QStringList_removeDuplicatesEP5QListI7QStringE(ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %_ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit unwind label %100
 
 _ZN19QListSpecialMethodsI7QStringE16removeDuplicatesEv.exit: ; preds = %119
@@ -1877,7 +1877,7 @@ define void @_ZN18AddressEditorFrame13keyPressEventEP9QKeyEvent(ptr noundef nonn
   %14 = getelementptr inbounds i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   br label %28
 
 16:                                               ; preds = %5, %5
@@ -2220,7 +2220,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i58:    ; preds = %_ZN7QStringD2Ev.exi
           to label %.noexc61 unwind label %71
 
 .noexc61:                                         ; preds = %.noexc
-  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  invoke void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
           to label %_ZN18AddressEditorFrame21on_buttonBox_rejectedEv.exit unwind label %71
 
 _ZN18AddressEditorFrame21on_buttonBox_rejectedEv.exit: ; preds = %.noexc61
@@ -2326,7 +2326,7 @@ define void @_ZN18AddressEditorFrame46on_nameResolutionPreferencesToolButton_cli
   %9 = getelementptr inbounds i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN9QLineEdit5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, i64 7, ptr nonnull @.str.1)
   %11 = load ptr, ptr %2, align 8

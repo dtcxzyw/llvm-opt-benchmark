@@ -1312,7 +1312,7 @@ thread-pre-split:                                 ; preds = %13
   %173 = sext i32 %172 to i64
   %174 = tail call i32 @__SCT__might_resched() #14
   tail call void @_raw_spin_lock(ptr noundef nonnull %66) #14
-  %175 = tail call i32 @__xa_insert(ptr noundef nonnull %66, i64 noundef %173, ptr noundef %7, i32 noundef 3264) #14
+  %175 = tail call i32 @__xa_insert(ptr noundef nonnull %66, i64 noundef range(i64 -2147483648, 2147483648) %173, ptr noundef %7, i32 noundef 3264) #14
   tail call void @_raw_spin_unlock(ptr noundef nonnull %66) #14
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %180, label %177
@@ -4419,7 +4419,7 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
   br label %72
 
 72:                                               ; preds = %71, %66
-  tail call void @mutex_lock(ptr noundef %40) #14
+  tail call void @mutex_lock(ptr noundef nonnull %40) #14
   %73 = getelementptr inbounds i8, ptr %53, i64 56
   tail call void @_raw_spin_lock(ptr noundef %73) #14
   %74 = getelementptr inbounds i8, ptr %53, i64 60
@@ -4479,7 +4479,7 @@ define internal fastcc i32 @tcf_block_playback_offloads(ptr noundef %0, ptr noun
 
 __tcf_get_next_proto.exit:                        ; preds = %91, %77, %94, %101, %105
   %107 = phi ptr [ %97, %105 ], [ %97, %101 ], [ null, %94 ], [ null, %77 ], [ null, %91 ]
-  tail call void @mutex_unlock(ptr noundef %40) #14
+  tail call void @mutex_unlock(ptr noundef nonnull %40) #14
   %108 = getelementptr inbounds i8, ptr %53, i64 64
   %109 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %108, i32 -1, ptr elementtype(i32) %108) #14, !srcloc !20
   %110 = icmp eq i32 %109, 1

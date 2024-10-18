@@ -412,7 +412,7 @@ entry:
   %agg.tmp487 = alloca %"class.std::function.36", align 8
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %y, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !3
   store ptr %0, ptr %_M_invoker.i, align 8, !tbaa !3
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %y, i64 16
@@ -422,7 +422,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %y, i64 16, i1 false), !tbaa.struct !10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %y, i64 16, i1 false), !tbaa.struct !10
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !9
   store ptr %2, ptr %_M_manager.i.i, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -1703,7 +1703,7 @@ if.then.i434:                                     ; preds = %cond.end
 
 if.end.i:                                         ; preds = %cond.end
   %153 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !3
-  %call2.i436 = invoke noundef double %153(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp170)
+  %call2.i436 = invoke noundef double %153(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp170)
           to label %invoke.cont179 unwind label %lpad178.loopexit
 
 invoke.cont179:                                   ; preds = %if.end.i
@@ -3242,7 +3242,7 @@ _ZN8QuantLib14BiCGStabResultD2Ev.exit:            ; preds = %invoke.cont491, %_Z
 
 if.then.i.i1152:                                  ; preds = %_ZN8QuantLib14BiCGStabResultD2Ev.exit
   %M_.i = getelementptr inbounds nuw i8, ptr %ref.tmp479, i64 32
-  %call.i.i1153 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(16) %M_.i, ptr noundef nonnull align 8 dereferenceable(16) %M_.i, i32 noundef 3)
+  %call.i.i1153 = invoke noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(32) %M_.i, ptr noundef nonnull align 8 dereferenceable(32) %M_.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit.i unwind label %terminate.lpad.i.i1154
 
 terminate.lpad.i.i1154:                           ; preds = %if.then.i.i1152
@@ -3259,7 +3259,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %if.then.i.i1152, %_
   br i1 %tobool.not.i2.i, label %_ZN8QuantLib8BiCGstabD2Ev.exit, label %if.then.i3.i1155
 
 if.then.i3.i1155:                                 ; preds = %_ZNSt14_Function_baseD2Ev.exit.i
-  %call.i4.i = invoke noundef zeroext i1 %361(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp479, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp479, i32 noundef 3)
+  %call.i4.i = invoke noundef zeroext i1 %361(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp479, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp479, i32 noundef 3)
           to label %_ZN8QuantLib8BiCGstabD2Ev.exit unwind label %terminate.lpad.i5.i
 
 terminate.lpad.i5.i:                              ; preds = %if.then.i3.i1155
@@ -3276,7 +3276,7 @@ _ZN8QuantLib8BiCGstabD2Ev.exit:                   ; preds = %_ZNSt14_Function_ba
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i1156
 
 if.then.i1156:                                    ; preds = %_ZN8QuantLib8BiCGstabD2Ev.exit
-  %call.i = invoke noundef zeroext i1 %364(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp487, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp487, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %364(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp487, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp487, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i1156
@@ -3292,7 +3292,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN8QuantLib8BiCGst
   br i1 %tobool.not.i1159, label %_ZNSt14_Function_baseD2Ev.exit1164, label %if.then.i1160
 
 if.then.i1160:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i1161 = invoke noundef zeroext i1 %367(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp480, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp480, i32 noundef 3)
+  %call.i1161 = invoke noundef zeroext i1 %367(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp480, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp480, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit1164 unwind label %terminate.lpad.i1162
 
 terminate.lpad.i1162:                             ; preds = %if.then.i1160
@@ -3575,7 +3575,7 @@ ehcleanup496:                                     ; preds = %lpad490, %lpad488
   br i1 %tobool.not.i1246, label %_ZNSt14_Function_baseD2Ev.exit1251, label %if.then.i1247
 
 if.then.i1247:                                    ; preds = %ehcleanup496
-  %call.i1248 = invoke noundef zeroext i1 %406(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp487, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp487, i32 noundef 3)
+  %call.i1248 = invoke noundef zeroext i1 %406(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp487, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp487, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit1251 unwind label %terminate.lpad.i1249
 
 terminate.lpad.i1249:                             ; preds = %if.then.i1247
@@ -3591,7 +3591,7 @@ _ZNSt14_Function_baseD2Ev.exit1251:               ; preds = %ehcleanup496, %if.t
   br i1 %tobool.not.i1253, label %_ZNSt14_Function_baseD2Ev.exit1258, label %if.then.i1254
 
 if.then.i1254:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit1251
-  %call.i1255 = invoke noundef zeroext i1 %409(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp480, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp480, i32 noundef 3)
+  %call.i1255 = invoke noundef zeroext i1 %409(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp480, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp480, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit1258 unwind label %terminate.lpad.i1256
 
 terminate.lpad.i1256:                             ; preds = %if.then.i1254
@@ -3723,7 +3723,7 @@ _ZN8QuantLib5ArrayD2Ev.exit1291:                  ; preds = %_ZNSt6vectorImSaImE
   br i1 %tobool.not.i1293, label %_ZNSt14_Function_baseD2Ev.exit1298, label %if.then.i1294
 
 if.then.i1294:                                    ; preds = %_ZN8QuantLib5ArrayD2Ev.exit1291
-  %call.i1295 = invoke noundef zeroext i1 %417(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i1295 = invoke noundef zeroext i1 %417(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit1298 unwind label %terminate.lpad.i1296
 
 terminate.lpad.i1296:                             ; preds = %if.then.i1294
@@ -5112,7 +5112,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %M_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %M_, ptr noundef nonnull align 8 dereferenceable(16) %M_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %M_, ptr noundef nonnull align 8 dereferenceable(32) %M_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -5129,7 +5129,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %entry, %if.then.i
   br i1 %tobool.not.i2, label %_ZNSt14_Function_baseD2Ev.exit6, label %if.then.i3
 
 if.then.i3:                                       ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i4 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i4 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %terminate.lpad.i5
 
 terminate.lpad.i5:                                ; preds = %if.then.i3
@@ -5776,7 +5776,7 @@ if.then.i:                                        ; preds = %if.then37
 _ZNKSt8functionIFdRKSt6vectorImSaImEEEEclES4_.exit: ; preds = %if.then37
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %31 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !3
-  %call2.i = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %coordinates)
+  %call2.i = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %coordinates)
   %cmp41 = fcmp oeq double %call2.i, 0x47EFFFFFE0000000
   %cond = select i1 %cmp41, double 0.000000e+00, double %call2.i
   br label %return
@@ -6240,7 +6240,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i104, %
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i110
 
 if.then.i110:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit
-  %call.i = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i110
@@ -6339,7 +6339,7 @@ ehcleanup:                                        ; preds = %lpad35, %if.then.i.
   br i1 %tobool.not.i136, label %ehcleanup82, label %if.then.i137
 
 if.then.i137:                                     ; preds = %ehcleanup
-  %call.i138 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp33, i32 noundef 3)
+  %call.i138 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp33, i32 noundef 3)
           to label %ehcleanup82 unwind label %terminate.lpad.i139
 
 terminate.lpad.i139:                              ; preds = %if.then.i137
@@ -6589,7 +6589,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i, %if.
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit
-  %call.i = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i

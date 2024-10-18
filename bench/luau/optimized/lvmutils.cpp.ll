@@ -3740,7 +3740,7 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %43 = load ptr, ptr %39, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull readonly align 8 dereferenceable(16) @luaO_nilobject_, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) @luaO_nilobject_, i64 16, i1 false)
   %45 = getelementptr inbounds i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %39, align 8

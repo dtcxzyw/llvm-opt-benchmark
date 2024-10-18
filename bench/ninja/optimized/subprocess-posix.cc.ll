@@ -885,7 +885,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge17, 
 define dso_local noundef nonnull ptr @_ZN13SubprocessSet3AddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
   %5 = zext i1 %2 to i8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #20
   %6 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 -1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 36
@@ -1184,7 +1184,7 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %38, %.thread
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %.noexc16
-  %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull %2, i64 noundef %66)
+  %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(41) %58, ptr noundef nonnull %2, i64 noundef %66)
           to label %79 unwind label %.thread.loopexit
 
 70:                                               ; preds = %.noexc16

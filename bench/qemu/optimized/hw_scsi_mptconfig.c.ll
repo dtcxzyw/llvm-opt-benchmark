@@ -292,7 +292,7 @@ if.end108:                                        ; preds = %if.else101
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %25, i64 noundef %cond, i1 noundef zeroext true) #13
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %25, i64 noundef range(i64 0, -9223372036854775808) %cond, i1 noundef zeroext true) #13
   br label %done
 
 done:                                             ; preds = %if.then75, %if.then43, %if.end108
@@ -564,7 +564,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %ofs.012 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
   %i.011 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.011, i32 noundef 0) #13
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %i.011, i32 noundef 0) #13
   %tobool3.not.i = icmp eq ptr %call.i, null
   %add5.i = add nuw nsw i32 %i.011, 9
   %cond.i = select i1 %tobool3.not.i, i32 0, i32 %add5.i
@@ -597,7 +597,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %ofs.011 = phi i64 [ %sub, %if.then ], [ %add, %for.body ]
   %i.010 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %i.010, i32 noundef 0) #13
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %i.010, i32 noundef 0) #13
   %0 = load ptr, ptr %data, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 %ofs.011
   %tobool2.not = icmp eq ptr %call.i, null
@@ -671,11 +671,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -684,7 +684,7 @@ trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %if.end6.i
   %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %and4.i, i32 noundef 0) #13
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %and4.i, i32 noundef 0) #13
   %add.i = add nuw nsw i32 %and4.i, 1
   %tobool3.not.i = icmp eq ptr %call.i, null
   %add5.i = add nuw nsw i32 %and4.i, 9
@@ -714,11 +714,11 @@ if.then8.i.i23:                                   ; preds = %if.then.i.i20
   %10 = load i64, ptr %_now.i.i13, align 8
   %tv_usec.i.i26 = getelementptr inbounds i8, ptr %_now.i.i13, i64 8
   %11 = load i64, ptr %tv_usec.i.i26, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i25, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i25, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit27
 
 if.else.i.i22:                                    ; preds = %if.then.i.i20
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 0) #13
   br label %trace_mptsas_config_sas_phy.exit27
 
 trace_mptsas_config_sas_phy.exit27:               ; preds = %if.end, %land.lhs.true5.i.i17, %if.then8.i.i23, %if.else.i.i22
@@ -780,11 +780,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef -22, i32 noundef -1, i32 noundef -1, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) -22, i32 noundef -1, i32 noundef -1, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit
 
 trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -793,7 +793,7 @@ trace_mptsas_config_sas_phy.exit:                 ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %if.end6.i
   %bus.i = getelementptr inbounds i8, ptr %s, i64 6616
-  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %and4.i, i32 noundef 0) #13
+  %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %and4.i, i32 noundef 0) #13
   %add.i = add nuw nsw i32 %and4.i, 1
   %tobool3.not.i = icmp eq ptr %call.i, null
   %add5.i = add nuw nsw i32 %and4.i, 9
@@ -823,11 +823,11 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i18
   %10 = load i64, ptr %_now.i.i11, align 8
   %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %11 = load i64, ptr %tv_usec.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i23, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i23, i64 noundef %10, i64 noundef %11, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit25
 
 if.else.i.i20:                                    ; preds = %if.then.i.i18
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %and4.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 2) 1) #13
   br label %trace_mptsas_config_sas_phy.exit25
 
 trace_mptsas_config_sas_phy.exit25:               ; preds = %if.end, %land.lhs.true5.i.i15, %if.then8.i.i21, %if.else.i.i20
@@ -896,7 +896,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
   %bus.i9 = getelementptr inbounds i8, ptr %s, i64 6616
-  %call.i10 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i9, i32 noundef 0, i32 noundef %retval.0.i, i32 noundef 0) #13
+  %call.i10 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i9, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i10, null
   %add5.i = add nsw i32 %retval.0.i, 9
@@ -926,11 +926,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 0) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 0) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 0) #13
   br label %trace_mptsas_config_sas_device.exit
 
 trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_get.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1004,7 +1004,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
   %bus.i7 = getelementptr inbounds i8, ptr %s, i64 6616
-  %call.i8 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i7, i32 noundef 0, i32 noundef %retval.0.i, i32 noundef 0) #13
+  %call.i8 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i7, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i8, null
   %add5.i = add nsw i32 %retval.0.i, 9
@@ -1034,11 +1034,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 1) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 1) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 1) #13
   br label %trace_mptsas_config_sas_device.exit
 
 trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_get.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1112,7 +1112,7 @@ if.end22.i:                                       ; preds = %land.rhs.i, %do.bod
 mptsas_device_addr_get.exit:                      ; preds = %if.else5.i, %if.then7.i, %if.end22.i
   %retval.0.i = phi i32 [ -22, %if.then7.i ], [ -22, %if.else5.i ], [ %.i.0.i, %if.end22.i ]
   %bus.i6 = getelementptr inbounds i8, ptr %s, i64 6616
-  %call.i7 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i6, i32 noundef 0, i32 noundef %retval.0.i, i32 noundef 0) #13
+  %call.i7 = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i6, i32 noundef 0, i32 noundef range(i32 -2147483648, 8) %retval.0.i, i32 noundef 0) #13
   %add.i = add nsw i32 %retval.0.i, 1
   %tobool3.not.i = icmp eq ptr %call.i7, null
   %add5.i = add nsw i32 %retval.0.i, 9
@@ -1142,11 +1142,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 2) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 2) #13
   br label %trace_mptsas_config_sas_device.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef 2) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef %s, i32 noundef %address, i32 noundef range(i32 -22, 8) %retval.0.i, i32 noundef %add.i, i32 noundef %cond.i, i32 noundef range(i32 0, 3) 2) #13
   br label %trace_mptsas_config_sas_device.exit
 
 trace_mptsas_config_sas_device.exit:              ; preds = %mptsas_device_addr_get.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1175,7 +1175,7 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end6
@@ -1186,7 +1186,7 @@ if.then:                                          ; preds = %entry
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -1021
@@ -1446,7 +1446,7 @@ entry:
   br i1 %tobool.not.i, label %vpack.exit.thread, label %if.then
 
 vpack.exit.thread:                                ; preds = %entry
-  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i9 = call fastcc i64 @vfill(ptr noundef null, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %if.end5
@@ -1457,7 +1457,7 @@ if.then:                                          ; preds = %entry
   %call2.i = call noalias ptr @g_malloc(i64 noundef %call.i) #15
   store ptr %call2.i, ptr %data, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap2.i)
-  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef %ap)
+  %call4.i = call fastcc i64 @vfill(ptr noundef %call2.i, ptr noundef readonly %fmt, ptr noundef nonnull %ap)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ap2.i)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = and i64 %call4.i, -65533

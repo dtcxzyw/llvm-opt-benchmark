@@ -2367,7 +2367,7 @@ define hidden range(i32 2, 258) i32 @proto_mpeg_descriptor_dissect(ptr noundef %
 
 36:                                               ; preds = %18
   %37 = load i32, ptr @hf_mpeg_descr_stuffing, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %16, i32 noundef %8, i32 noundef 0) #5
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %16, i32 noundef range(i32 1, 256) %8, i32 noundef 0) #5
   br label %100
 
 39:                                               ; preds = %18
@@ -2515,7 +2515,7 @@ define hidden range(i32 2, 258) i32 @proto_mpeg_descriptor_dissect(ptr noundef %
 
 80:                                               ; preds = %18
   %81 = load i32, ptr @hf_mpeg_descr_service_identifier, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %81, ptr noundef %0, i32 noundef %16, i32 noundef %8, i32 noundef 0) #5
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %81, ptr noundef %0, i32 noundef %16, i32 noundef range(i32 1, 256) %8, i32 noundef 0) #5
   br label %100
 
 83:                                               ; preds = %18
@@ -2524,7 +2524,7 @@ define hidden range(i32 2, 258) i32 @proto_mpeg_descriptor_dissect(ptr noundef %
 
 84:                                               ; preds = %18
   %85 = load i32, ptr @hf_mpeg_descr_default_authority_name, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %85, ptr noundef %0, i32 noundef %16, i32 noundef %8, i32 noundef 0) #5
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %85, ptr noundef %0, i32 noundef %16, i32 noundef range(i32 1, 256) %8, i32 noundef 0) #5
   br label %100
 
 87:                                               ; preds = %18

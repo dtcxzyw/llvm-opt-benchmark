@@ -624,7 +624,7 @@ _ZN12_GLOBAL__N_14helpEPc.exit:                   ; preds = %.noexc81
 _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %240
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull %55)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(96) %55)
           to label %.noexc84 unwind label %544
 
 .noexc84:                                         ; preds = %_ZN2cv4Mat_IfEC2Eii.exit

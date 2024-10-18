@@ -1146,7 +1146,7 @@ define internal fastcc void @do_status() unnamed_addr #4 {
   br i1 %11, label %postmaster_is_alive.exit.thread, label %postmaster_is_alive.exit
 
 postmaster_is_alive.exit:                         ; preds = %9
-  %12 = tail call i32 @kill(i32 noundef %6, i32 noundef 0) #17
+  %12 = tail call i32 @kill(i32 noundef range(i32 1, -2147483647) %6, i32 noundef 0) #17
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %postmaster_is_alive.exit.thread
 
@@ -1166,7 +1166,7 @@ postmaster_is_alive.exit:                         ; preds = %9
   br i1 %22, label %postmaster_is_alive.exit.thread, label %postmaster_is_alive.exit18
 
 postmaster_is_alive.exit18:                       ; preds = %20
-  %23 = tail call i32 @kill(i32 noundef %2, i32 noundef 0) #17
+  %23 = tail call i32 @kill(i32 noundef range(i32 1, -2147483647) %2, i32 noundef 0) #17
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %postmaster_is_alive.exit.thread
 
@@ -1550,7 +1550,7 @@ print_msg.exit:                                   ; preds = %101, %103
   br label %free_readfile.exit25.i
 
 free_readfile.exit25.i:                           ; preds = %._crit_edge.i24.i, %138
-  %145 = call i32 @waitpid(i32 noundef %70, ptr noundef nonnull %2, i32 noundef 1) #17
+  %145 = call i32 @waitpid(i32 noundef range(i32 1, -2147483648) %70, ptr noundef nonnull %2, i32 noundef 1) #17
   %146 = icmp eq i32 %145, %70
   br i1 %146, label %166, label %147
 
@@ -1771,7 +1771,7 @@ define internal fastcc void @do_restart() unnamed_addr #4 {
   br i1 %13, label %postmaster_is_alive.exit.thread, label %postmaster_is_alive.exit
 
 postmaster_is_alive.exit:                         ; preds = %11
-  %14 = tail call i32 @kill(i32 noundef %8, i32 noundef 0) #17
+  %14 = tail call i32 @kill(i32 noundef range(i32 1, -2147483647) %8, i32 noundef 0) #17
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %postmaster_is_alive.exit.thread
 
@@ -1794,7 +1794,7 @@ postmaster_is_alive.exit.thread:                  ; preds = %11, %7, %5, %postma
   br i1 %22, label %postmaster_is_alive.exit11.thread, label %postmaster_is_alive.exit11
 
 postmaster_is_alive.exit11:                       ; preds = %20
-  %23 = tail call i32 @kill(i32 noundef %.0, i32 noundef 0) #17
+  %23 = tail call i32 @kill(i32 noundef range(i32 1, -2147483647) %.0, i32 noundef 0) #17
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %postmaster_is_alive.exit11.thread
 

@@ -1739,7 +1739,7 @@ sw.bb7.i:                                         ; preds = %print_signal.exit
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %print_signal.exit
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.423, i32 noundef %shr.i18) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.423, i32 noundef range(i32 -32768, 32768) %shr.i18) #9
   br label %print_si_code.exit
 
 sw.epilog.i:                                      ; preds = %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %print_signal.exit

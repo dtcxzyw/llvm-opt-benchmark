@@ -2348,7 +2348,7 @@ _ZN11DataPrinter8instanceEv.exit:                 ; preds = %70, %75
 79:                                               ; preds = %_ZN11DataPrinter8instanceEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store ptr %1, ptr %22, align 8, !noalias !15
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %22)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   %80 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %87 unwind label %81
@@ -2362,7 +2362,7 @@ _ZN11DataPrinter8instanceEv.exit:                 ; preds = %70, %75
 83:                                               ; preds = %_ZN11DataPrinter8instanceEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store ptr %0, ptr %21, align 8, !noalias !18
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %21)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %84 = invoke noundef zeroext i1 @_ZN7QObject11setPropertyEPKcRK8QVariant(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %87 unwind label %85
@@ -3573,13 +3573,13 @@ _ZN14VariantPointerI7QObjectE5asPtrE8QVariant.exit: ; preds = %28
   br label %45
 
 42:                                               ; preds = %38
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %7) #17
   br label %.critedge
 
 43:                                               ; preds = %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
+  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %7) #17
   br label %45
 
 .critedge:                                        ; preds = %13, %2, %_ZN14VariantPointerI7QObjectE5asPtrE8QVariant.exit, %33, %25, %10, %42, %37

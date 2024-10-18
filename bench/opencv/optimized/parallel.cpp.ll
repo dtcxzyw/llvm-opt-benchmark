@@ -10315,7 +10315,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv4impl21PluginParallelBa
   store i32 1, ptr %7, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4impl21PluginParallelBackendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load ptr, ptr %2, align 8
   store ptr %10, ptr %9, align 8
@@ -10352,7 +10352,7 @@ _ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEEC2ERKS4_.exit.i.i.i.i.i: ; preds
   %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #25
-  tail call void @_ZNSt23enable_shared_from_thisIN2cv4impl21PluginParallelBackendEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
+  tail call void @_ZNSt23enable_shared_from_thisIN2cv4impl21PluginParallelBackendEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #25
   tail call void @_ZdlPv(ptr noundef nonnull %5) #27
   resume { ptr, i32 } %23
 
@@ -11738,7 +11738,7 @@ define linkonce_odr hidden void @_ZN2cv4impl28PluginParallelBackendFactory11init
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv22getInitializationMutexEv()
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %4) #25
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #25
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %6
 
@@ -11841,7 +11841,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 46:                                               ; preds = %45, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %10
   store i8 1, ptr %7, align 8
-  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #25
+  %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #25
   ret void
 
 48:                                               ; preds = %45
@@ -11856,7 +11856,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %1
 
 51:                                               ; preds = %50, %48
   %.pn15 = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn, %50 ]
-  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #25
+  %52 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #25
   resume { ptr, i32 } %.pn15
 
 53:                                               ; preds = %50

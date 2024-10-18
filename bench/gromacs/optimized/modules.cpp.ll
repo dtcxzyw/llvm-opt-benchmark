@@ -119,7 +119,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   br i1 %.not.i.i.i, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %40
 
 40:                                               ; preds = %38
@@ -137,7 +137,7 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   br i1 %.not.i.i2.i, label %common.resume, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef 3)
           to label %common.resume unwind label %48
 
 48:                                               ; preds = %46
@@ -174,7 +174,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   br i1 %.not.i.i.i33, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %56
 
 56:                                               ; preds = %54
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %58
 
 58:                                               ; preds = %56
@@ -192,7 +192,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   br i1 %.not.i.i2.i31, label %common.resume, label %64
 
 64:                                               ; preds = %61
-  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %common.resume unwind label %66
 
 66:                                               ; preds = %64
@@ -225,7 +225,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   br i1 %.not.i.i.i36, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %74
 
 74:                                               ; preds = %72
-  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %75 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %76
 
 76:                                               ; preds = %74
@@ -243,7 +243,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   br i1 %.not.i.i2.i34, label %common.resume, label %82
 
 82:                                               ; preds = %79
-  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %83 = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %common.resume unwind label %84
 
 84:                                               ; preds = %82
@@ -276,7 +276,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   br i1 %.not.i.i.i39, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %92
 
 92:                                               ; preds = %90
-  %93 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
+  %93 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %94
 
 94:                                               ; preds = %92
@@ -294,7 +294,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   br i1 %.not.i.i2.i37, label %common.resume, label %100
 
 100:                                              ; preds = %97
-  %101 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
+  %101 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %common.resume unwind label %102
 
 102:                                              ; preds = %100
@@ -327,7 +327,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   br i1 %.not.i.i.i42, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %110
 
 110:                                              ; preds = %108
-  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %111 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %112
 
 112:                                              ; preds = %110
@@ -345,7 +345,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   br i1 %.not.i.i2.i40, label %common.resume, label %118
 
 118:                                              ; preds = %115
-  %119 = invoke noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %119 = invoke noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %common.resume unwind label %120
 
 120:                                              ; preds = %118
@@ -378,7 +378,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   br i1 %.not.i.i.i45, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %128
 
 128:                                              ; preds = %126
-  %129 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %129 = invoke noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %130
 
 130:                                              ; preds = %128
@@ -396,7 +396,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   br i1 %.not.i.i2.i43, label %common.resume, label %136
 
 136:                                              ; preds = %133
-  %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %common.resume unwind label %138
 
 138:                                              ; preds = %136
@@ -429,7 +429,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   br i1 %.not.i.i.i48, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %146
 
 146:                                              ; preds = %144
-  %147 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %147 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %148
 
 148:                                              ; preds = %146
@@ -447,7 +447,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   br i1 %.not.i.i2.i46, label %common.resume, label %154
 
 154:                                              ; preds = %151
-  %155 = invoke noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %155 = invoke noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %common.resume unwind label %156
 
 156:                                              ; preds = %154
@@ -480,7 +480,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   br i1 %.not.i.i.i51, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %164
 
 164:                                              ; preds = %162
-  %165 = invoke noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %165 = invoke noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %166
 
 166:                                              ; preds = %164
@@ -498,7 +498,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   br i1 %.not.i.i2.i49, label %common.resume, label %172
 
 172:                                              ; preds = %169
-  %173 = invoke noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %173 = invoke noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %common.resume unwind label %174
 
 174:                                              ; preds = %172
@@ -531,7 +531,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   br i1 %.not.i.i.i54, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %182
 
 182:                                              ; preds = %180
-  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %183 = invoke noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %184
 
 184:                                              ; preds = %182
@@ -549,7 +549,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   br i1 %.not.i.i2.i52, label %common.resume, label %190
 
 190:                                              ; preds = %187
-  %191 = invoke noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %191 = invoke noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %common.resume unwind label %192
 
 192:                                              ; preds = %190
@@ -582,7 +582,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   br i1 %.not.i.i.i57, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %200
 
 200:                                              ; preds = %198
-  %201 = invoke noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %201 = invoke noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %202
 
 202:                                              ; preds = %200
@@ -600,7 +600,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   br i1 %.not.i.i2.i55, label %common.resume, label %208
 
 208:                                              ; preds = %205
-  %209 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %209 = invoke noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %common.resume unwind label %210
 
 210:                                              ; preds = %208
@@ -633,7 +633,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   br i1 %.not.i.i.i60, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %218
 
 218:                                              ; preds = %216
-  %219 = invoke noundef zeroext i1 %217(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %219 = invoke noundef zeroext i1 %217(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %220
 
 220:                                              ; preds = %218
@@ -651,7 +651,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   br i1 %.not.i.i2.i58, label %common.resume, label %226
 
 226:                                              ; preds = %223
-  %227 = invoke noundef zeroext i1 %225(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %227 = invoke noundef zeroext i1 %225(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %common.resume unwind label %228
 
 228:                                              ; preds = %226
@@ -684,7 +684,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   br i1 %.not.i.i.i63, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %236
 
 236:                                              ; preds = %234
-  %237 = invoke noundef zeroext i1 %235(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %237 = invoke noundef zeroext i1 %235(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %238
 
 238:                                              ; preds = %236
@@ -702,7 +702,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   br i1 %.not.i.i2.i61, label %common.resume, label %244
 
 244:                                              ; preds = %241
-  %245 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %245 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %common.resume unwind label %246
 
 246:                                              ; preds = %244
@@ -735,7 +735,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   br i1 %.not.i.i.i66, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %254
 
 254:                                              ; preds = %252
-  %255 = invoke noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %255 = invoke noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %256
 
 256:                                              ; preds = %254
@@ -753,7 +753,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   br i1 %.not.i.i2.i64, label %common.resume, label %262
 
 262:                                              ; preds = %259
-  %263 = invoke noundef zeroext i1 %261(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %263 = invoke noundef zeroext i1 %261(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %264
 
 264:                                              ; preds = %262
@@ -786,7 +786,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   br i1 %.not.i.i.i69, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %272
 
 272:                                              ; preds = %270
-  %273 = invoke noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %273 = invoke noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %274
 
 274:                                              ; preds = %272
@@ -804,7 +804,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   br i1 %.not.i.i2.i67, label %common.resume, label %280
 
 280:                                              ; preds = %277
-  %281 = invoke noundef zeroext i1 %279(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %281 = invoke noundef zeroext i1 %279(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %common.resume unwind label %282
 
 282:                                              ; preds = %280
@@ -837,7 +837,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   br i1 %.not.i.i.i72, label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10GyrateInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit, label %290
 
 290:                                              ; preds = %288
-  %291 = invoke noundef zeroext i1 %289(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %291 = invoke noundef zeroext i1 %289(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10GyrateInfoEEEvPNS_24CommandLineModuleManagerENS_22CommandLineModuleGroupE.exit unwind label %292
 
 292:                                              ; preds = %290
@@ -855,7 +855,7 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   br i1 %.not.i.i2.i70, label %common.resume, label %298
 
 298:                                              ; preds = %295
-  %299 = invoke noundef zeroext i1 %297(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %299 = invoke noundef zeroext i1 %297(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %common.resume unwind label %300
 
 300:                                              ; preds = %298

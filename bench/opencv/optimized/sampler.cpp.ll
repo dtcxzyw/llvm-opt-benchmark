@@ -333,7 +333,7 @@ define hidden void @_ZN2cv4usac14UniformSampler6createEiii(ptr dead_on_unwind no
   store i32 1, ptr %7, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4usac18UniformSamplerImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !noalias !4
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %.noexc.i unwind label %19, !noalias !4
 
 .noexc.i:                                         ; preds = %4
@@ -364,7 +364,7 @@ define hidden void @_ZN2cv4usac14UniformSampler6createEiii(ptr dead_on_unwind no
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i:          ; preds = %18, %15
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14, !noalias !4
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #14, !noalias !4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac18UniformSamplerImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i
 
 19:                                               ; preds = %4
@@ -696,7 +696,7 @@ define linkonce_odr hidden void @_ZN2cv4usac18UniformSamplerImplD0Ev(ptr noundef
   br label %_ZN2cv4usac18UniformSamplerImplD2Ev.exit
 
 _ZN2cv4usac18UniformSamplerImplD2Ev.exit:         ; preds = %1, %4
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1211,7 +1211,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4usac23ProsacSimpleSamplerImplD2Ev.exit
 
 _ZN2cv4usac23ProsacSimpleSamplerImplD2Ev.exit:    ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -1853,7 +1853,7 @@ _ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_
   br label %_ZN2cv4usac17ProsacSamplerImplD2Ev.exit
 
 _ZN2cv4usac17ProsacSamplerImplD2Ev.exit:          ; preds = %_ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i, %40
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
@@ -2636,7 +2636,7 @@ _ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_
   br label %_ZN2cv4usac17ProsacSamplerImplD2Ev.exit
 
 _ZN2cv4usac17ProsacSamplerImplD2Ev.exit:          ; preds = %_ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i, %53
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %14) #14
   %54 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv4usac17ProsacSamplerImplE, i64 16), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2723,7 +2723,7 @@ _ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i10: ; preds = %_ZNSt16_S
   br label %_ZN2cv4usac17ProsacSamplerImplD2Ev.exit15
 
 _ZN2cv4usac17ProsacSamplerImplD2Ev.exit15:        ; preds = %_ZN2cv3PtrINS_4usac22UniformRandomGeneratorEED2Ev.exit.i10, %93
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #14
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %54) #14
   %94 = getelementptr inbounds i8, ptr %0, i64 40
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i.i16 = icmp eq ptr %95, null

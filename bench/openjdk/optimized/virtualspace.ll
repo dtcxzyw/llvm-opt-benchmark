@@ -135,7 +135,7 @@ define hidden void @_ZN13ReservedSpaceC2Em(ptr nocapture noundef nonnull align 8
   %5 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN13ReservedSpace10initializeEmmmPcb.exit, label %8
 
@@ -155,7 +155,7 @@ declare noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef, i64 
 define hidden void @_ZN13ReservedSpace10initializeEmmmPcb(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %_ZN13ReservedSpace7releaseEv.exit, label %9
 
@@ -223,7 +223,7 @@ _ZL30failed_to_reserve_as_requestedPcS_.exit:     ; preds = %9, %15, %17
 
 42:                                               ; preds = %40, %38, %36
   store i8 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   br label %_ZN13ReservedSpace7releaseEv.exit
 
 _ZN13ReservedSpace7releaseEv.exit:                ; preds = %42, %20, %6, %_ZL30failed_to_reserve_as_requestedPcS_.exit
@@ -252,7 +252,7 @@ define hidden void @_ZN13ReservedSpaceC2Emm(ptr nocapture noundef nonnull align 
   %.0 = phi i64 [ %8, %7 ], [ %5, %3 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %14, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %15 = icmp eq i64 %.08, 0
   br i1 %15, label %_ZN13ReservedSpace10initializeEmmmPcb.exit, label %16
 
@@ -738,7 +738,7 @@ define hidden void @_ZN13ReservedSpace7releaseEv(ptr nocapture noundef nonnull a
 23:                                               ; preds = %17, %19, %21
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   br label %25
 
 25:                                               ; preds = %23, %1
@@ -1007,7 +1007,7 @@ define hidden void @_ZN17ReservedHeapSpace16try_reserve_heapEmmmPc(ptr nocapture
 _ZN13ReservedSpace7releaseEv.exit:                ; preds = %21, %23, %25
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   br label %28
 
 28:                                               ; preds = %_ZN13ReservedSpace7releaseEv.exit, %5
@@ -1069,7 +1069,7 @@ _ZN13ReservedSpace7releaseEv.exit:                ; preds = %21, %23, %25
 _ZN13ReservedSpace7releaseEv.exit8:               ; preds = %55, %57, %59
   %61 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %61, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   br label %62
 
 62:                                               ; preds = %_ZN13ReservedSpace7releaseEv.exit8, %34, %32
@@ -1233,7 +1233,7 @@ define hidden void @_ZN17ReservedHeapSpace26initialize_compressed_heapEmmm(ptr n
 _ZN13ReservedSpace7releaseEv.exit.thread126:      ; preds = %52, %54, %56
   %58 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %58, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   br label %_ZN13ReservedSpace7releaseEv.exit.thread
 
 _ZN13ReservedSpace7releaseEv.exitthread-pre-split: ; preds = %31
@@ -1495,7 +1495,7 @@ _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.
 ._crit_edge124:                                   ; preds = %177, %179
   %180 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %180, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %181 = icmp eq i64 %.pre125, 0
   br i1 %181, label %_ZN13ReservedSpace10initializeEmmmPcb.exit, label %182
 
@@ -1525,7 +1525,7 @@ define hidden void @_ZN17ReservedHeapSpaceC2EmmmPKc(ptr nocapture noundef nonnul
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 32, i1 false)
   store i32 -1, ptr %9, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %10, align 8
@@ -1607,7 +1607,7 @@ _ZL21large_pages_requestedv.exit.thread18:        ; preds = %22, %12, %29, %_ZL2
 
 _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %35
   store i8 0, ptr %10, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %43 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %44 = call noundef i64 @llvm.umax.i64(i64 %2, i64 %43)
   call void @_ZN13ReservedSpace7reserveEmmmPcb(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %44, i64 noundef %3, ptr noundef null, i1 noundef zeroext false)
@@ -1692,7 +1692,7 @@ define hidden void @_ZN17ReservedCodeSpaceC2Emmm(ptr nocapture noundef nonnull a
   store i32 -1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %_ZN13ReservedSpace10initializeEmmmPcb.exit.thread, label %_ZN13ReservedSpace10initializeEmmmPcb.exit
 
@@ -1958,7 +1958,7 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr nocapture n
   %76 = getelementptr inbounds i8, ptr %0, i64 33
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
-  %79 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %62, i64 noundef %64, i64 noundef %38, i1 noundef zeroext %78) #13
+  %79 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %62, i64 noundef range(i64 1, 0) %64, i64 noundef %38, i1 noundef zeroext %78) #13
   br i1 %79, label %80, label %_ZL15commit_expandedPcmmbb.exit
 
 80:                                               ; preds = %75
@@ -1991,7 +1991,7 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr nocapture n
   %94 = getelementptr inbounds i8, ptr %0, i64 33
   %95 = load i8, ptr %94, align 1
   %96 = trunc i8 %95 to i1
-  %97 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %92, i64 noundef %.029, i64 noundef %93, i1 noundef zeroext %96) #13
+  %97 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %92, i64 noundef range(i64 1, 0) %.029, i64 noundef %93, i1 noundef zeroext %96) #13
   br i1 %97, label %98, label %_ZL15commit_expandedPcmmbb.exit
 
 98:                                               ; preds = %91
@@ -2024,7 +2024,7 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr nocapture n
   %112 = getelementptr inbounds i8, ptr %0, i64 33
   %113 = load i8, ptr %112, align 1
   %114 = trunc i8 %113 to i1
-  %115 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %110, i64 noundef %.0, i64 noundef %111, i1 noundef zeroext %114) #13
+  %115 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %110, i64 noundef range(i64 1, 0) %.0, i64 noundef %111, i1 noundef zeroext %114) #13
   br i1 %115, label %116, label %_ZL15commit_expandedPcmmbb.exit
 
 116:                                              ; preds = %109
@@ -2065,7 +2065,7 @@ _ZL15commit_expandedPcmmbb.exit:                  ; preds = %_ZL15commit_expande
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN12VirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 0, i64 34, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 34, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret void
 }

@@ -2225,7 +2225,7 @@ decr_dcc_refcount.exit:                           ; preds = %11, %6, %1
   %79 = sext i16 %66 to i32
   %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %80)
-  %81 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %79) #16
+  %81 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef range(i32 -32768, 32768) %79) #16
   call void @errfinish(ptr noundef nonnull @.str.17, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #16
   unreachable
 

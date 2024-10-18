@@ -1845,7 +1845,7 @@ if.end17.i:                                       ; preds = %if.end13.i, %if.the
 
 land.lhs.true.i158:                               ; preds = %if.end17.i
   %sub19.i = sub nuw i64 %and4.i, %align_bss.0.i
-  %call20.i = call i64 @target_mmap(i64 noundef %align_bss.0.i, i64 noundef %sub19.i, i32 noundef %elf_prot.2, i32 noundef 50, i32 noundef -1, i64 noundef 0) #20
+  %call20.i = call i64 @target_mmap(i64 noundef %align_bss.0.i, i64 noundef %sub19.i, i32 noundef range(i32 0, 8) %elf_prot.2, i32 noundef 50, i32 noundef -1, i64 noundef 0) #20
   %cmp21.i = icmp eq i64 %call20.i, -1
   br i1 %cmp21.i, label %if.then22.i, label %if.end211
 
@@ -2166,7 +2166,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub23 = sub i32 %len.045, %cond
   %idx.ext24 = sext i32 %sub22 to i64
   %add.ptr25 = getelementptr i8, ptr %scratch, i64 %idx.ext24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr readonly align 1 %add.ptr19, i64 %idx.ext18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr readonly align 1 %add.ptr19, i64 range(i64 -2147483648, 2147483648) %idx.ext18, i1 false)
   %cmp27 = icmp eq i32 %sub22, 0
   br i1 %cmp27, label %if.then29, label %if.end32
 

@@ -204,7 +204,7 @@ entry:
   %0 = load ptr, ptr %transform, align 8, !nonnull !4, !noundef !4
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev14RangeTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0) #20
   %m_data.i1 = getelementptr inbounds i8, ptr %1, i64 16
-  %call.i2 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
+  %call.i2 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev.exit: ; preds = %entry

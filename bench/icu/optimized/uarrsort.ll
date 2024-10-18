@@ -405,7 +405,7 @@ if.end.i24:                                       ; preds = %invoke.cont5.i, %if
   %21 = phi ptr [ %call.i5.i, %invoke.cont5.i ], [ %stackArray.i.i21, %if.else18 ]
   %idx.ext.i = zext nneg i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %struct.max_align_t, ptr %21, i64 %idx.ext.i
-  invoke fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef 0, i32 noundef %length, i32 noundef %itemSize, ptr noundef %cmp, ptr noundef %context, ptr noundef nonnull %21, ptr noundef nonnull %add.ptr.i)
+  invoke fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef 0, i32 noundef range(i32 9, -2147483648) %length, i32 noundef range(i32 1, -2147483648) %itemSize, ptr noundef nonnull %cmp, ptr noundef %context, ptr noundef nonnull %21, ptr noundef nonnull %add.ptr.i)
           to label %cleanup.i26 unwind label %lpad.i25
 
 cleanup.i26:                                      ; preds = %if.end.i24, %if.then.i35

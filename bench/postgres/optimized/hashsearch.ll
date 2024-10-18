@@ -427,7 +427,7 @@ BufferGetPage.exit42.i:                           ; preds = %149, %143
   br i1 %.not4344.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit42.i, %.lr.ph.i
-  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %161 = load ptr, ptr %5, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4

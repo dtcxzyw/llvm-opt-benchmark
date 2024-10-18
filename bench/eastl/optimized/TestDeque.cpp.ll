@@ -1658,7 +1658,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl5dequeIiNS_9allocatorELj64EEC2ESt16initializer_listIiERKS1_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl5dequeIiNS_9allocatorELj64EEC5ESt16initializer_listIiERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %this, i8 0, i64 80, i1 false)
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE18DoInitFromIteratorIPKiEEvT_S6_NS_20forward_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
@@ -3539,7 +3539,7 @@ entry:
   %6 = load ptr, ptr %mpEnd4.i.i7, align 8, !noalias !107
   %mpCurrentArrayPtr5.i.i9 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %mpCurrentArrayPtr5.i.i9, align 8, !noalias !107
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %x, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %x, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %0, ptr %agg.tmp.i.i, align 8
@@ -8091,7 +8091,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EEC5ESt16initializer_listIS1_ERKS2_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %this, i8 0, i64 80, i1 false)
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE18DoInitFromIteratorIPKS1_EEvT_S7_NS_20forward_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
@@ -10348,7 +10348,7 @@ entry:
   %6 = load ptr, ptr %mpEnd4.i.i7, align 8, !noalias !399
   %mpCurrentArrayPtr5.i.i9 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %mpCurrentArrayPtr5.i.i9, align 8, !noalias !399
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %x, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %x, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %0, ptr %agg.tmp.i.i, align 8
@@ -16979,7 +16979,7 @@ _ZN10TestObjectD2Ev.exit846:                      ; preds = %invoke.cont293, %if
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %temp.i)
   %mnPtrArraySize.i.i.i3351 = getelementptr inbounds i8, ptr %temp.i, i64 8
   %mAllocator.i.i.i3352 = getelementptr inbounds i8, ptr %temp.i, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %temp.i, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %temp.i, i8 0, i64 80, i1 false)
   %285 = load i32, ptr %mAllocator.i.i, align 8
   store i32 %285, ptr %mAllocator.i.i.i3352, align 8
   %mFreeCount.i.i.i.i = getelementptr inbounds i8, ptr %temp.i, i64 84
@@ -19265,7 +19265,7 @@ _ZN5eastl5dequeIi15MallocAllocatorLj64EED2Ev.exit1807: ; preds = %_ZN5eastl5dequ
           to label %invoke.cont551 unwind label %lpad550
 
 invoke.cont551:                                   ; preds = %_ZN5eastl5dequeIi15MallocAllocatorLj64EED2Ev.exit1807
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %constIntDeque2, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %constIntDeque2, i8 0, i64 80, i1 false)
   %mnPtrArraySize.i.i3426 = getelementptr inbounds i8, ptr %constIntDeque2, i64 8
   store i64 8, ptr %mnPtrArraySize.i.i3426, align 8
   %call.i.i.i.i.i34283443 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 64, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -19354,7 +19354,7 @@ invoke.cont554:                                   ; preds = %call.i.i.i10.i.i.no
           to label %invoke.cont558 unwind label %lpad557
 
 invoke.cont558:                                   ; preds = %invoke.cont554
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %constIntDeque3, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %constIntDeque3, i8 0, i64 80, i1 false)
   %mnPtrArraySize.i.i3447 = getelementptr inbounds i8, ptr %constIntDeque3, i64 8
   store i64 8, ptr %mnPtrArraySize.i.i3447, align 8
   %call.i.i.i.i.i34483477 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 64, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -19465,7 +19465,7 @@ invoke.cont568:                                   ; preds = %invoke.cont566
   store i64 %inc2.i, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mnPtrArraySize.i3480 = getelementptr inbounds i8, ptr %d573, i64 8
   %mAllocator.i3481 = getelementptr inbounds i8, ptr %d573, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %d573, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %d573, i8 0, i64 80, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i3481, align 8
   %inc.i.i3482 = add i64 %671, 2
   store i64 %inc.i.i3482, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -21683,7 +21683,7 @@ lpad14.loopexit.split-lp:                         ; preds = %invoke.cont11
   br label %ehcleanup158
 
 for.end:                                          ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit, %invoke.cont15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dD, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dD, i8 0, i64 80, i1 false)
   %mnPtrArraySize.i.i439 = getelementptr inbounds i8, ptr %dD, i64 8
   store i64 34, ptr %mnPtrArraySize.i.i439, align 8
   %call.i.i.i.i.i447 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 272, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -21940,7 +21940,7 @@ for.end62:                                        ; preds = %_ZN5eastl13DequeIte
   %62 = load ptr, ptr %mpBegin.i.i45, align 8, !noalias !769
   %63 = load ptr, ptr %mpEnd4.i.i65, align 8, !noalias !769
   %64 = load ptr, ptr %mpCurrentArrayPtr.i.i38, align 8, !noalias !769
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %57, ptr %agg.tmp.i.i, align 8
@@ -22785,7 +22785,7 @@ lpad14.loopexit.split-lp:                         ; preds = %invoke.cont11
   br label %ehcleanup179
 
 for.end:                                          ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit, %invoke.cont15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dD, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dD, i8 0, i64 80, i1 false)
   %mnPtrArraySize.i.i593 = getelementptr inbounds i8, ptr %dD, i64 8
   store i64 2003, ptr %mnPtrArraySize.i.i593, align 8
   %call.i.i.i.i.i610 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 16024, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -23041,7 +23041,7 @@ for.end71:                                        ; preds = %_ZN5eastl13DequeIte
   %57 = load ptr, ptr %mpBegin.i11.i.i.i74, align 8, !noalias !819
   %58 = load ptr, ptr %mpEnd.i13.i.i.i76, align 8, !noalias !819
   %59 = load ptr, ptr %mpCurrentArrayPtr.i10.i.i.i73, align 8, !noalias !819
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %52, ptr %agg.tmp.i.i, align 8
@@ -23962,7 +23962,7 @@ lpad14.loopexit.split-lp:                         ; preds = %invoke.cont11
   br label %ehcleanup179
 
 for.end:                                          ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit, %invoke.cont15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dD, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dD, i8 0, i64 80, i1 false)
   %mnPtrArraySize.i.i591 = getelementptr inbounds i8, ptr %dD, i64 8
   store i64 8, ptr %mnPtrArraySize.i.i591, align 8
   %call.i.i.i.i.i604 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 64, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -24196,7 +24196,7 @@ for.end71:                                        ; preds = %_ZN5eastl13DequeIte
   %51 = load ptr, ptr %mpBegin.i12.i.i.i74, align 8, !noalias !869
   %52 = load ptr, ptr %mpEnd.i14.i.i.i76, align 8, !noalias !869
   %53 = load ptr, ptr %mpCurrentArrayPtr.i11.i.i.i73, align 8, !noalias !869
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %46, ptr %agg.tmp.i.i, align 8
@@ -25362,7 +25362,7 @@ for.end79:                                        ; preds = %_ZN5eastl13DequeIte
   %94 = load ptr, ptr %mpBegin.i.i43, align 8, !noalias !918
   %95 = load ptr, ptr %mpEnd4.i.i65, align 8, !noalias !918
   %96 = load ptr, ptr %mpCurrentArrayPtr.i.i39, align 8, !noalias !918
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %89, ptr %agg.tmp.i.i, align 8
@@ -26426,7 +26426,7 @@ for.end85:                                        ; preds = %_ZN5eastl13DequeIte
   %88 = load ptr, ptr %mpBegin.i.i47, align 8, !noalias !966
   %89 = load ptr, ptr %mpEnd4.i.i67, align 8, !noalias !966
   %90 = load ptr, ptr %mpCurrentArrayPtr.i.i40, align 8, !noalias !966
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %83, ptr %agg.tmp.i.i, align 8
@@ -28084,7 +28084,7 @@ for.end85:                                        ; preds = %_ZN5eastl13DequeIte
   %88 = load ptr, ptr %mpBegin.i.i47, align 8, !noalias !1016
   %89 = load ptr, ptr %mpEnd4.i.i67, align 8, !noalias !1016
   %90 = load ptr, ptr %mpCurrentArrayPtr.i.i40, align 8, !noalias !1016
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dF, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %dF, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %83, ptr %agg.tmp.i.i, align 8
@@ -63453,7 +63453,7 @@ define linkonce_odr dso_local void @_ZN5eastl5dequeI10TestObject15MallocAllocato
 entry:
   %mnPtrArraySize.i = getelementptr inbounds i8, ptr %this, i64 8
   %mAllocator.i = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 80, i1 false)
   %0 = load i32, ptr %allocator, align 8
   store i32 %0, ptr %mAllocator.i, align 8
   %mFreeCount.i.i = getelementptr inbounds i8, ptr %this, i64 84
@@ -65392,7 +65392,7 @@ entry:
   %inc2.i.i = add i64 %9, 1
   store i64 %inc2.i.i, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %x, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %x, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %x, i8 0, i64 80, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17CountingAllocator, i64 16), ptr %mAllocator.i.i, align 8
   %inc.i.i.i = add i64 %8, 2
   store i64 %inc.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8

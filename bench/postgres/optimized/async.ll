@@ -2833,7 +2833,7 @@ define internal i32 @notification_hash(ptr nocapture noundef readonly %0, i64 %1
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %6, 1
   %11 = add nuw nsw i32 %10, %9
-  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef %11) #16
+  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef range(i32 1, 131072) %11) #16
   ret i32 %12
 }
 

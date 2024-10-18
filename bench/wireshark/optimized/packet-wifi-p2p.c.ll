@@ -1319,7 +1319,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 463:                                              ; preds = %13
   %464 = load i32, ptr @hf_p2p_attr_session_information, align 4
   %465 = add i32 %.0121148, 3
-  %466 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef %17, i32 noundef 0) #4
+  %466 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef range(i32 0, 65536) %17, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 467:                                              ; preds = %13
@@ -1340,7 +1340,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 478:                                              ; preds = %13
   %479 = add i32 %.0121148, 3
   %480 = load i32, ptr @ett_p2p_advertised_service, align 4
-  %481 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %479, i32 noundef %17, i32 noundef %480, ptr noundef null, ptr noundef nonnull @.str.333) #4
+  %481 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %479, i32 noundef range(i32 0, 65536) %17, i32 noundef %480, ptr noundef null, ptr noundef nonnull @.str.333) #4
   %482 = add i32 %479, %17
   %483 = icmp slt i32 %479, %482
   br i1 %483, label %.lr.ph.i132, label %dissect_channel_list.exit
@@ -1376,7 +1376,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 506:                                              ; preds = %13
   %507 = load i32, ptr @hf_p2p_attr_feature_capability, align 4
   %508 = add i32 %.0121148, 3
-  %509 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %507, ptr noundef %0, i32 noundef %508, i32 noundef %17, i32 noundef 0) #4
+  %509 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %507, ptr noundef %0, i32 noundef %508, i32 noundef range(i32 0, 65536) %17, i32 noundef 0) #4
   br label %dissect_channel_list.exit
 
 510:                                              ; preds = %13

@@ -328,7 +328,7 @@ define linkonce_odr void @_ZN14_TestResolver1C2Ev(ptr noundef nonnull align 8 de
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %5 = alloca %"class.std::vector.2", align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver1, i64 16), ptr %0, align 8
@@ -894,7 +894,7 @@ define linkonce_odr void @_ZN14_TestResolver2C2Ev(ptr noundef nonnull align 8 de
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   %6 = alloca %"class.std::vector.2", align 8
   %7 = alloca %"class.std::unique_ptr.12", align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTV14_TestResolver2, i64 16), ptr %0, align 8

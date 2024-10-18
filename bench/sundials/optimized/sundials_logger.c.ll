@@ -88,7 +88,7 @@ define internal noundef i32 @sunsnprintf(ptr nocapture noundef %0, i64 noundef r
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %5)
-  %6 = call noundef i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly @.str.6, ptr noundef nonnull %4) #14
+  %6 = call noundef i32 @vsnprintf(ptr noundef %0, i64 noundef range(i64 -2147483647, 2147483648) %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #14
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)

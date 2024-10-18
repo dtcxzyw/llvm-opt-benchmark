@@ -783,7 +783,7 @@ if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %processor, align 8
   %state.i = getelementptr inbounds i8, ptr %processor, i64 16
   %2 = load ptr, ptr %state.i, align 8
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 108, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %creds, ptr noundef %1, ptr noundef %2)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 108, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(40) %creds, ptr noundef %1, ptr noundef %2)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry

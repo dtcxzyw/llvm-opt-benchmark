@@ -978,7 +978,7 @@ Vec_PtrPush.exit113:                              ; preds = %.Vec_PtrGrow.exit11
   %331 = getelementptr inbounds i8, ptr %330, i64 20
   %332 = load i32, ptr %331, align 4
   %333 = lshr i32 %332, 12
-  %334 = tail call range(i32 -2147483648, 1048576) i32 @llvm.smin.i32(i32 %328, i32 %333)
+  %334 = tail call range(i32 -2147483648, 1048576) i32 @llvm.smin.i32(i32 %328, i32 range(i32 0, 1048576) %333)
   store i32 %334, ptr %322, align 4
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %.val83 = load i32, ptr %324, align 4

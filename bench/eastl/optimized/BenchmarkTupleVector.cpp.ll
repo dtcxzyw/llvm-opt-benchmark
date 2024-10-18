@@ -222,7 +222,7 @@ invoke.cont10:                                    ; preds = %for.cond.preheader,
   %cmp14 = phi i1 [ false, %for.cond.preheader ], [ true, %_ZNSt6vectorImSaImEED2Ev.exit ]
   %cmp = phi i1 [ true, %for.cond.preheader ], [ false, %_ZNSt6vectorImSaImEED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %eaTupleVectorUint64, i8 0, i64 40, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i32 = icmp eq i32 %5, 1
   br i1 %cmp.i.i.i32, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -336,7 +336,7 @@ for.end.i:                                        ; preds = %_ZNSt6vectorImSaImE
           to label %invoke.cont12 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont12:                                    ; preds = %for.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %12 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i40 = icmp eq i32 %12, 1
   br i1 %cmp.i.i.i40, label %if.then2.i.i.i69, label %if.else.i.i.i41
@@ -492,7 +492,7 @@ lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup224thread-pre-split
 
 if.end:                                           ; preds = %invoke.cont19, %invoke.cont13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %19 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i74 = icmp eq i32 %19, 1
   br i1 %cmp.i.i.i74, label %if.then2.i.i.i96, label %if.else.i.i.i75
@@ -554,7 +554,7 @@ for.end.i93:                                      ; preds = %for.end.loopexit.i,
 
 invoke.cont22:                                    ; preds = %for.end.i93
   %call2.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %temp.0.lcssa.i) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %25 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i100 = icmp eq i32 %25, 1
   br i1 %cmp.i.i.i100, label %if.then2.i.i.i125, label %if.else.i.i.i101
@@ -624,7 +624,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %if.end33 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end33:                                         ; preds = %invoke.cont30, %invoke.cont23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %32 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i130 = icmp eq i32 %32, 1
   br i1 %cmp.i.i.i130, label %if.then2.i.i.i145, label %if.else.i.i.i131
@@ -687,7 +687,7 @@ invoke.cont34:                                    ; preds = %if.then.i, %.noexc1
           to label %invoke.cont35 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont35:                                    ; preds = %invoke.cont34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %38 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i149 = icmp eq i32 %38, 1
   br i1 %cmp.i.i.i149, label %if.then2.i.i.i175, label %if.else.i.i.i150
@@ -766,7 +766,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %if.end47 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end47:                                         ; preds = %invoke.cont44, %invoke.cont37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %45 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i181 = icmp eq i32 %45, 1
   br i1 %cmp.i.i.i181, label %if.then2.i.i.i198, label %if.else.i.i.i182
@@ -915,7 +915,7 @@ invoke.cont48:                                    ; preds = %_ZN5eastl10quick_so
   %58 = load i64, ptr %stdVectorUint64.sroa.0.4, align 8
   %conv.i194 = trunc i64 %58 to i32
   %call7.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %conv.i194) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %59 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i203 = icmp eq i32 %59, 1
   br i1 %cmp.i.i.i203, label %if.then2.i.i.i217, label %if.else.i.i.i204
@@ -974,7 +974,7 @@ invoke.cont56:                                    ; preds = %invoke.cont54
           to label %if.end59 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end59:                                         ; preds = %invoke.cont56, %invoke.cont49
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %67 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i223 = icmp eq i32 %67, 1
   br i1 %cmp.i.i.i223, label %if.then2.i.i.i241, label %if.else.i.i.i224
@@ -1136,7 +1136,7 @@ for.end.i238:                                     ; preds = %call.i.i.noexc
           to label %invoke.cont60 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont60:                                    ; preds = %for.end.i238
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %73 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i247 = icmp eq i32 %73, 1
   br i1 %cmp.i.i.i247, label %if.then2.i.i.i266, label %if.else.i.i.i248
@@ -1299,7 +1299,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %if.end71 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end71:                                         ; preds = %invoke.cont68, %invoke.cont61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %86 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i272 = icmp eq i32 %86, 1
   br i1 %cmp.i.i.i272, label %if.then2.i.i.i306, label %if.else.i.i.i273
@@ -1371,7 +1371,7 @@ for.end.i303:                                     ; preds = %_ZNSt6vectorImSaImE
           to label %invoke.cont72 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont72:                                    ; preds = %for.end.i303
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %92 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i310 = icmp eq i32 %92, 1
   br i1 %cmp.i.i.i310, label %if.then2.i.i.i334, label %if.else.i.i.i311
@@ -1464,7 +1464,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 invoke.cont85:                                    ; preds = %invoke.cont73, %invoke.cont80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorMovableType, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %eaTupleVectorMovableType, i8 0, i64 40, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %103 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i339 = icmp eq i32 %103, 1
   br i1 %cmp.i.i.i339, label %if.then2.i.i.i362, label %if.else.i.i.i340
@@ -1595,7 +1595,7 @@ if.then.i.i.i14.i:                                ; preds = %if.else.i.i11.i
   unreachable
 
 _ZNKSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i11.i
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i32.i, i64 %sub.i.i)
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i32.i, i64 range(i64 1, 0) %sub.i.i)
   %add.i.i.i13.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i32.i
   %113 = call i64 @llvm.umin.i64(i64 %add.i.i.i13.i, i64 1152921504606846975)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %113, 3
@@ -1762,7 +1762,7 @@ while.end.i:                                      ; preds = %_ZNSt6vectorIN12_GL
           to label %invoke.cont87 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont87:                                    ; preds = %while.end.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %126 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i368 = icmp eq i32 %126, 1
   br i1 %cmp.i.i.i368, label %if.then2.i.i.i402, label %if.else.i.i.i369
@@ -1981,7 +1981,7 @@ lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: 
   br label %ehcleanup222
 
 if.end98:                                         ; preds = %invoke.cont95, %invoke.cont88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %132 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i409 = icmp eq i32 %132, 1
   br i1 %cmp.i.i.i409, label %if.then2.i.i.i438, label %if.else.i.i.i410
@@ -2072,7 +2072,7 @@ while.end.i432:                                   ; preds = %while.end.i432.loop
           to label %invoke.cont99 unwind label %lpad86.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont99:                                    ; preds = %while.end.i432
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %137 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i442 = icmp eq i32 %137, 1
   br i1 %cmp.i.i.i442, label %if.then2.i.i.i468, label %if.else.i.i.i443
@@ -2317,7 +2317,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i.i.i.i) #20, !noalias !41
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %first.addr.0.val.i.i.i.i.i.i.i) #20, !noalias !41
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i509
@@ -2391,7 +2391,7 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_112
   store ptr %cond.i.i.i.i.i.i1465, ptr %eaTupleVectorAutoRefCount, align 8, !noalias !41
   store i32 0, ptr @_ZN12_GLOBAL__N_110RefCounted13msAddRefCountE, align 4
   store i32 0, ptr @_ZN12_GLOBAL__N_110RefCounted14msReleaseCountE, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %156 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i523 = icmp eq i32 %156, 1
   br i1 %cmp.i.i.i523, label %if.then2.i.i.i567, label %if.else.i.i.i524
@@ -2462,7 +2462,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i.i558:            ; preds = %if.then.i.i.i.i.i.i.i.i.i557
-  call void @_ZdlPv(ptr noundef nonnull %160) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %160) #20
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i.i558, %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i553
@@ -2496,7 +2496,7 @@ if.then.i.i.i.i.i.i.i552:                         ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt6vectorIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i548:                  ; preds = %if.then.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %incdec.ptr.val.i.i.i545) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %incdec.ptr.val.i.i.i545) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i548, %if.then.i.i.i.i.i.i.i552, %if.end.i.i.i543
@@ -2511,7 +2511,7 @@ while.end.i551:                                   ; preds = %_ZNSt6vectorIN12_GL
 invoke.cont131:                                   ; preds = %while.end.i551
   store i32 0, ptr @_ZN12_GLOBAL__N_110RefCounted13msAddRefCountE, align 4
   store i32 0, ptr @_ZN12_GLOBAL__N_110RefCounted14msReleaseCountE, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %166 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i571 = icmp eq i32 %166, 1
   br i1 %cmp.i.i.i571, label %if.then2.i.i.i617, label %if.else.i.i.i572
@@ -2582,7 +2582,7 @@ if.then.i.i.i.i.i.i.i.i.i613:                     ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i610:              ; preds = %if.then.i.i.i.i.i.i.i.i607
-  call void @_ZdlPv(ptr noundef nonnull %170) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %170) #20
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i610, %if.then.i.i.i.i.i.i.i.i.i613, %for.body.i.i.i.i.i.i.i601
@@ -2612,7 +2612,7 @@ if.then.i.i.i.i.i.i.i598:                         ; preds = %if.then.i.i.i.i.i.i
   br label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_112AutoRefCountINS5_10RefCountedEEEEE5eraseENS0_12TupleVecIterIS4_JKS8_EEE.exit.i
 
 delete.notnull.i.i.i.i.i.i.i594:                  ; preds = %if.then.i.i.i.i.i.i592
-  call void @_ZdlPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i.i590) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %first.addr.0.val.i.i.i.i.i590) #20
   br label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_112AutoRefCountINS5_10RefCountedEEEEE5eraseENS0_12TupleVecIterIS4_JKS8_EEE.exit.i
 
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0EEEEJN12_GLOBAL__N_112AutoRefCountINS5_10RefCountedEEEEE5eraseENS0_12TupleVecIterIS4_JKS8_EEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i.i.i594, %if.then.i.i.i.i.i.i.i598, %for.body.i.i.preheader.i.i.i588
@@ -2645,7 +2645,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
 
 invoke.cont144:                                   ; preds = %invoke.cont132, %invoke.cont139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %eaTupleVectorUint64Padded, i8 0, i64 48, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %177 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i622 = icmp eq i32 %177, 1
   br i1 %cmp.i.i.i622, label %if.then2.i.i.i671, label %if.else.i.i.i623
@@ -2768,7 +2768,7 @@ for.end.i650:                                     ; preds = %_ZNSt6vectorIN5east
           to label %invoke.cont146 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont146:                                   ; preds = %for.end.i650
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %184 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i678 = icmp eq i32 %184, 1
   br i1 %cmp.i.i.i678, label %if.then2.i.i.i716, label %if.else.i.i.i679
@@ -2932,7 +2932,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %lpad145
   br label %ehcleanup
 
 if.end157:                                        ; preds = %invoke.cont154, %invoke.cont147
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %200 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i722 = icmp eq i32 %200, 1
   br i1 %cmp.i.i.i722, label %if.then2.i.i.i752, label %if.else.i.i.i723
@@ -2994,7 +2994,7 @@ for.end.i748:                                     ; preds = %for.end.loopexit.i7
 
 invoke.cont158:                                   ; preds = %for.end.i748
   %call3.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %temp.0.lcssa.i749) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %206 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i756 = icmp eq i32 %206, 1
   br i1 %cmp.i.i.i756, label %if.then2.i.i.i782, label %if.else.i.i.i757
@@ -3069,7 +3069,7 @@ invoke.cont166:                                   ; preds = %invoke.cont164
           to label %if.end169 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end169:                                        ; preds = %invoke.cont166, %invoke.cont159
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %215 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i787 = icmp eq i32 %215, 1
   br i1 %cmp.i.i.i787, label %if.then2.i.i.i808, label %if.else.i.i.i788
@@ -3132,7 +3132,7 @@ invoke.cont170:                                   ; preds = %if.then.i804, %.noe
           to label %invoke.cont171 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont171:                                   ; preds = %invoke.cont170
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %221 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i812 = icmp eq i32 %221, 1
   br i1 %cmp.i.i.i812, label %if.then2.i.i.i838, label %if.else.i.i.i813
@@ -3211,7 +3211,7 @@ invoke.cont180:                                   ; preds = %invoke.cont178
           to label %if.end183 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end183:                                        ; preds = %invoke.cont180, %invoke.cont173
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %228 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i844 = icmp eq i32 %228, 1
   br i1 %cmp.i.i.i844, label %if.then2.i.i.i878, label %if.else.i.i.i845
@@ -3394,7 +3394,7 @@ invoke.cont184:                                   ; preds = %_ZN5eastl10quick_so
   %241 = load i64, ptr %stdVectorUint64Padded.sroa.0.3, align 8
   %conv.i871 = trunc i64 %241 to i32
   %call9.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @_ZN9Benchmark14gScratchBufferE, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %conv.i871) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %242 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i884 = icmp eq i32 %242, 1
   br i1 %cmp.i.i.i884, label %if.then2.i.i.i907, label %if.else.i.i.i885
@@ -3609,7 +3609,7 @@ invoke.cont192:                                   ; preds = %invoke.cont190
 if.end195:                                        ; preds = %invoke.cont192, %invoke.cont185
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tup.i.sroa.6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tup.i.sroa.6, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %259 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i912 = icmp eq i32 %259, 1
   br i1 %cmp.i.i.i912, label %if.then2.i.i.i940, label %if.else.i.i.i913
@@ -3806,7 +3806,7 @@ invoke.cont196:                                   ; preds = %for.end.i937
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i945)
   store i64 4294967295, ptr %tup.i944, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %267 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i947 = icmp eq i32 %267, 1
   br i1 %cmp.i.i.i947, label %if.then2.i.i.i969, label %if.else.i.i.i948
@@ -3902,7 +3902,7 @@ invoke.cont204:                                   ; preds = %invoke.cont202
           to label %if.end207 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end207:                                        ; preds = %invoke.cont204, %invoke.cont197
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %284 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i975 = icmp eq i32 %284, 1
   br i1 %cmp.i.i.i975, label %if.then2.i.i.i1027, label %if.else.i.i.i976
@@ -3990,7 +3990,7 @@ for.end.i1013:                                    ; preds = %_ZNSt6vectorIN5east
           to label %invoke.cont208 unwind label %lpad145.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont208:                                   ; preds = %for.end.i1013
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2, i8 0, i64 16, i1 false)
   %291 = load i32, ptr %mnUnits.i.i.i39, align 8
   %cmp.i.i.i1031 = icmp eq i32 %291, 1
   br i1 %cmp.i.i.i1031, label %if.then2.i.i.i1057, label %if.else.i.i.i1032
@@ -4127,7 +4127,7 @@ if.then.i.i.i.i.i.i1079:                          ; preds = %if.then.i.i.i.i.i10
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i1074:                   ; preds = %if.then.i.i.i.i.i1073
-  call void @_ZdlPv(ptr noundef nonnull %first.addr.0.val.i.i.i.i1071) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %first.addr.0.val.i.i.i.i1071) #20
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i1074, %if.then.i.i.i.i.i.i1079, %for.body.i.i.i.i1069
@@ -4170,7 +4170,7 @@ if.then.i.i.i.i.i.i.i1092:                        ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i1087:                 ; preds = %if.then.i.i.i.i.i.i1084
-  call void @_ZdlPv(ptr noundef nonnull %__first.addr.0.val.i.i.i.i) #20
+  call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %__first.addr.0.val.i.i.i.i) #20
   br label %_ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i1087, %if.then.i.i.i.i.i.i.i1092, %for.body.i.i.i.i1082
@@ -4354,7 +4354,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18TestFindERN2EA4StdC9StopwatchERN5
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -4450,7 +4450,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 delete.notnull.i:                                 ; preds = %if.then
-  tail call void @_ZdlPv(ptr noundef nonnull %this.0.val) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %this.0.val) #20
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull.i, %if.then.i, %entry
@@ -4462,7 +4462,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113TestTupleFindIN5eastl12tuple_vec
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stopwatch, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i.i
@@ -4562,7 +4562,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %first.addr.0.val.i.i.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %first.addr.0.val.i.i.i) #20
   br label %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i
 
 _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEED2Ev.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i.i
@@ -4613,7 +4613,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__first.addr.0.val.i.i.i) #20
+  tail call void @_ZdlPv(ptr noundef nonnull align 4 dereferenceable(4) %__first.addr.0.val.i.i.i) #20
   br label %_ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEEEvPT_.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i

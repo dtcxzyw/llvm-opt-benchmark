@@ -900,12 +900,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %val, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %addr, i32 noundef %conv11.i.i) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 127) %addr, i32 noundef %conv11.i.i) #21
   br label %trace_acpi_gpe_sts_ioport_writeb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = and i32 %val, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %addr, i32 noundef %conv12.i.i) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef range(i32 0, 127) %addr, i32 noundef %conv12.i.i) #21
   br label %trace_acpi_gpe_sts_ioport_writeb.exit
 
 trace_acpi_gpe_sts_ioport_writeb.exit:            ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -951,12 +951,12 @@ if.then8.i.i25:                                   ; preds = %if.then.i.i21
   %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %16 = load i64, ptr %tv_usec.i.i28, align 8
   %conv11.i.i29 = and i32 %val, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i27, i64 noundef %15, i64 noundef %16, i32 noundef %sub, i32 noundef %conv11.i.i29) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i27, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 -127, 255) %sub, i32 noundef %conv11.i.i29) #21
   br label %trace_acpi_gpe_en_ioport_writeb.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
   %conv12.i.i24 = and i32 %val, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %sub, i32 noundef %conv12.i.i24) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef range(i32 -127, 255) %sub, i32 noundef %conv12.i.i24) #21
   br label %trace_acpi_gpe_en_ioport_writeb.exit
 
 trace_acpi_gpe_en_ioport_writeb.exit:             ; preds = %if.then10, %land.lhs.true5.i.i18, %if.then8.i.i25, %if.else.i.i23
@@ -1053,11 +1053,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef range(i32 0, 127) %addr, i32 noundef %val.0) #21
   br label %trace_acpi_gpe_sts_ioport_readb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %addr, i32 noundef %val.0) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef range(i32 0, 127) %addr, i32 noundef %val.0) #21
   br label %trace_acpi_gpe_sts_ioport_readb.exit
 
 trace_acpi_gpe_sts_ioport_readb.exit:             ; preds = %if.then4, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

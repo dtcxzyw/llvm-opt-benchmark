@@ -166,7 +166,7 @@ define linkonce_odr void @_ZN3g2o30SparseOptimizerTerminateActionD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o30SparseOptimizerTerminateActionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN3g2o16HyperGraphActionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN3g2o16HyperGraphActionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #9
   ret void
 }

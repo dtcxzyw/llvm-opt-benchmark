@@ -738,7 +738,7 @@ if.else42.i.i:                                    ; preds = %if.end19.i.i
   %algo3.i54.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 68
   store i32 %86, ptr %algo3.i54.i.i, align 4
   %local.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %local.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) @uninitialized, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %local.i.i, ptr noundef nonnull align 4 dereferenceable(32) @uninitialized, i64 32, i1 false)
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @uninitialized, i64 32), align 4
   %algo3.i55.i.i = getelementptr inbounds i8, ptr %call20.i.i, i64 104
   store i32 %87, ptr %algo3.i55.i.i, align 4
@@ -2136,7 +2136,7 @@ if.then30:                                        ; preds = %if.else26
   br i1 %cmp.i.i33, label %if.then.i.i, label %st_mult.exit.i
 
 if.then.i.i:                                      ; preds = %if.then30
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.35, i64 noundef 144, i64 noundef %conv) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.35, i64 noundef 144, i64 noundef range(i64 -2147483648, 2147483648) %conv) #15
   unreachable
 
 st_mult.exit.i:                                   ; preds = %if.then30

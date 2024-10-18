@@ -802,7 +802,7 @@ if.end26:                                         ; preds = %if.else21, %if.then
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i64 = getelementptr inbounds i8, ptr %msg.i.i62, i64 12
   store i64 %protocol_features.0, ptr %payload.i.i64, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef %msg.i.i62, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i62, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i62)
   %cmp30 = icmp slt i32 %call5.i.i, 0
   br i1 %cmp30, label %if.then31, label %if.end32
@@ -1779,7 +1779,7 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %ring.val, ptr %payload.i, align 4
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef %msg.i, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %call5.mux.i = call i32 @llvm.smin.i32(i32 %call5.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call5.mux.i
@@ -1800,7 +1800,7 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %ring.val, ptr %payload.i, align 4
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef %msg.i, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %call5.mux.i = call i32 @llvm.smin.i32(i32 %call5.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call5.mux.i
@@ -2983,7 +2983,7 @@ if.then1:                                         ; preds = %if.end
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 12
   store i64 0, ptr %payload.i.i, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef %msg.i.i, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
   br label %if.end3
 
@@ -4062,12 +4062,12 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
   br i1 %tobool.not.i, label %if.then3.i, label %fetch_or_create_notifier.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call.i28 = tail call ptr @g_ptr_array_remove_index(ptr noundef nonnull %8, i32 noundef %conv) #14
+  %call.i28 = tail call ptr @g_ptr_array_remove_index(ptr noundef nonnull %8, i32 noundef range(i32 0, 256) %conv) #14
   %call5.i = tail call noalias dereferenceable_or_null(320) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 320) #17
   %idx6.i = getelementptr inbounds i8, ptr %call5.i, i64 304
   store i32 %conv, ptr %idx6.i, align 16
   %11 = load ptr, ptr %notifiers.i, align 8
-  tail call void @g_ptr_array_insert(ptr noundef %11, i32 noundef %conv, ptr noundef %call5.i) #14
+  tail call void @g_ptr_array_insert(ptr noundef %11, i32 noundef range(i32 0, 256) %conv, ptr noundef %call5.i) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %12, 0
@@ -4093,11 +4093,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %16 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %conv, ptr noundef nonnull %call5.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i.i, i64 noundef %16, i64 noundef %17, i32 noundef range(i32 0, 256) %conv, ptr noundef nonnull %call5.i) #14
   br label %trace_vhost_user_create_notifier.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %conv, ptr noundef nonnull %call5.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef range(i32 0, 256) %conv, ptr noundef nonnull %call5.i) #14
   br label %trace_vhost_user_create_notifier.exit.i
 
 trace_vhost_user_create_notifier.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then3.i
@@ -4970,7 +4970,7 @@ vhost_user_fill_msg_region.exit.us.i:             ; preds = %for.body.us.i
   store i64 %53, ptr %region_buffer.sroa.2.0.region4.sroa_idx.i, align 1
   store i64 %52, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
-  %call5.us.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef %msg, ptr noundef null, i32 noundef 0)
+  %call5.us.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
   %cmp6.us.i = icmp slt i32 %call5.us.i, 0
   br i1 %cmp6.us.i, label %send_remove_regions.exit.thread, label %if.end.us.i
 
@@ -5055,7 +5055,7 @@ vhost_user_fill_msg_region.exit.i:                ; preds = %for.body.i25
   store i64 %71, ptr %region_buffer.sroa.2.0.region4.sroa_idx.i, align 1
   store i64 %70, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef %msg, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %send_remove_regions.exit.thread, label %if.end14.i
 
@@ -5217,7 +5217,7 @@ vhost_user_fill_msg_region.exit.i62:              ; preds = %trace_vhost_user_se
   store i64 %101, ptr %region_buffer.sroa.2.0.region14.sroa_idx.i, align 1
   store i64 %100, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
   store i64 %99, ptr %region_buffer.sroa.4.0.region14.sroa_idx.i, align 1
-  %call15.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef %msg, ptr noundef nonnull %fd.i, i32 noundef 1)
+  %call15.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fd.i, i32 noundef 1)
   %cmp16.i = icmp slt i32 %call15.i, 0
   br i1 %cmp16.i, label %send_add_regions.exit.thread, label %if.end18.i
 
@@ -5733,7 +5733,7 @@ if.end6:                                          ; preds = %if.end
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i9 = getelementptr inbounds i8, ptr %msg.i.i6, i64 12
   store i64 %conv.i7, ptr %payload.i.i9, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef %msg.i.i6, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i6, ptr noundef null, i32 noundef 0)
   %call5.mux.i.i = call range(i32 -2147483648, 1) i32 @llvm.smin.i32(i32 %call5.i.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i6)
   br label %return

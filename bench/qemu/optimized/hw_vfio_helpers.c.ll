@@ -326,11 +326,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, i32 noundef %conv16, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, i32 noundef range(i32 0, 256) %conv16, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
   br label %trace_vfio_region_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %5, i32 noundef %conv16, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %5, i32 noundef range(i32 0, 256) %conv16, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #11
   br label %trace_vfio_region_write.exit
 
 trace_vfio_region_write.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -438,11 +438,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %9, i32 noundef %conv16, i64 noundef %addr, i32 noundef %size, i64 noundef %data.0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %9, i32 noundef range(i32 0, 256) %conv16, i64 noundef %addr, i32 noundef %size, i64 noundef %data.0) #11
   br label %trace_vfio_region_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %9, i32 noundef %conv16, i64 noundef %addr, i32 noundef %size, i64 noundef %data.0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %9, i32 noundef range(i32 0, 256) %conv16, i64 noundef %addr, i32 noundef %size, i64 noundef %data.0) #11
   br label %trace_vfio_region_read.exit
 
 trace_vfio_region_read.exit:                      ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -689,11 +689,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %19 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, ptr noundef %12, i32 noundef %conv.i, i32 noundef %14) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, ptr noundef %12, i32 noundef range(i32 0, 256) %conv.i, i32 noundef %14) #11
   br label %trace_vfio_region_sparse_mmap_header.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %12, i32 noundef %conv.i, i32 noundef %14) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %12, i32 noundef range(i32 0, 256) %conv.i, i32 noundef %14) #11
   br label %trace_vfio_region_sparse_mmap_header.exit.i
 
 trace_vfio_region_sparse_mmap_header.exit.i:      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i
@@ -841,11 +841,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %47 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %48 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %47, i64 noundef %48, ptr noundef %39, i32 noundef %index, ptr noundef %name, i64 noundef %conv31, i64 noundef %41, i64 noundef %42) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %47, i64 noundef %48, ptr noundef %39, i32 noundef %index, ptr noundef %name, i64 noundef range(i64 0, 4294967296) %conv31, i64 noundef %41, i64 noundef %42) #11
   br label %trace_vfio_region_setup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, ptr noundef %39, i32 noundef %index, ptr noundef %name, i64 noundef %conv31, i64 noundef %41, i64 noundef %42) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, ptr noundef %39, i32 noundef %index, ptr noundef %name, i64 noundef range(i64 0, 4294967296) %conv31, i64 noundef %41, i64 noundef %42) #11
   br label %trace_vfio_region_setup.exit
 
 trace_vfio_region_setup.exit:                     ; preds = %if.end28, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1299,11 +1299,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %8, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %8, i32 noundef range(i32 0, 256) %conv) #11
   br label %trace_vfio_region_exit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, ptr noundef %8, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, ptr noundef %8, i32 noundef range(i32 0, 256) %conv) #11
   br label %trace_vfio_region_exit.exit
 
 trace_vfio_region_exit.exit:                      ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1405,11 +1405,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %18 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, ptr noundef %12, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, ptr noundef %12, i32 noundef range(i32 0, 256) %conv) #11
   br label %trace_vfio_region_finalize.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %12, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %12, i32 noundef range(i32 0, 256) %conv) #11
   br label %trace_vfio_region_finalize.exit
 
 trace_vfio_region_finalize.exit:                  ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

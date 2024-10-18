@@ -291,7 +291,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
   %cmp.i.i2 = icmp slt i32 %2, 1
   br i1 %cmp.i.i2, label %if.end.i3, label %_ZN6icu_75L22uspoof_loadDefaultDataER10UErrorCode.exit
@@ -556,7 +556,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %if.then
   tail call void @_ZN6icu_759SpoofDataD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull.i, %if.then, %entry
@@ -2927,7 +2927,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %if.then
   tail call void @_ZN6icu_759SpoofDataD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
   br label %_ZN6icu_759SpoofData15removeReferenceEv.exit
 
 _ZN6icu_759SpoofData15removeReferenceEv.exit:     ; preds = %if.then, %delete.notnull.i

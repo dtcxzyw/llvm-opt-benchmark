@@ -669,7 +669,7 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
   br i1 %cmp.not.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE15openAlternationERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit
 
@@ -780,7 +780,7 @@ if.then14:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i26, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %if.then14
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i28 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit
 
@@ -851,7 +851,7 @@ if.then16:                                        ; preds = %if.end.i45
   br i1 %cmp.not.i.i57, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit73, label %if.then.i.i58
 
 if.then.i.i58:                                    ; preds = %if.then16
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i59 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit73
 
@@ -929,7 +929,7 @@ if.then19:                                        ; preds = %if.end.i85
   br i1 %cmp.not.i.i97, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit113, label %if.then.i.i98
 
 if.then.i.i98:                                    ; preds = %if.then19
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i99 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit113
 
@@ -1001,7 +1001,7 @@ if.then22:                                        ; preds = %if.end.i125
   br i1 %cmp.not.i.i137, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit153, label %if.then.i.i138
 
 if.then.i.i138:                                   ; preds = %if.then22
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i139 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14openLookaroundERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEEbb.exit153
 
@@ -1102,7 +1102,7 @@ if.then28:                                        ; preds = %if.end.i183
   br i1 %cmp.not.i.i194, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE21openNonCapturingGroupERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit, label %if.then.i.i195
 
 if.then.i.i195:                                   ; preds = %if.then28
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i196 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE21openNonCapturingGroupERN4llvh11SmallVectorINS7_17ParseStackElementELj4EEE.exit
 
@@ -1171,7 +1171,7 @@ if.end.i210:                                      ; preds = %if.else29
   br i1 %cmp.not.i.i215, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE9push_backEOSA_.exit.i, label %if.then.i3.i
 
 if.then.i3.i:                                     ; preds = %if.end.i210
-  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %stack, i64 noundef 0)
+  call void @_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(336) %stack, i64 noundef 0)
   %.pre.i.i216 = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE9push_backEOSA_.exit.i
 
@@ -1793,7 +1793,7 @@ entry:
   %conv.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::regex::Parser<hermes::regex::Regex<hermes::regex::UTF16RegexTraits>, const char16_t *>::ParseStackElement", ptr %0, i64 %conv.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %elem, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %elem, ptr noundef nonnull align 8 dereferenceable(74) %arrayidx.i, i64 48, i1 false)
   %alternatives.i = getelementptr inbounds i8, ptr %elem, i64 48
   %alternatives3.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -32
   %2 = load ptr, ptr %alternatives3.i, align 8
@@ -2786,7 +2786,7 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
 for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mallocEm.exit, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i, %_ZN4llvh11safe_mallocEm.exit ]
   %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZN4llvh11safe_mallocEm.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.sroa.0.06.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(74) %__first.sroa.0.06.i.i.i.i, i64 48, i1 false)
   %alternatives.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %alternatives3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %3 = load ptr, ptr %alternatives3.i.i.i.i.i.i, align 8
@@ -3071,7 +3071,7 @@ if.then.i:                                        ; preds = %if.then7, %if.then7
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(26) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
   %.pre.i.i = load i32, ptr %Size.i.i.i13, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i
 
@@ -3202,7 +3202,7 @@ if.then.i12:                                      ; preds = %land.lhs.true6.i, %
   br i1 %cmp.not.i16.i, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i17, label %if.then.i17.i
 
 if.then.i17.i:                                    ; preds = %if.then.i12
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(26) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
   %.pre.i.i16 = load i32, ptr %Size.i.i.i13, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i17
 
@@ -3220,7 +3220,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i17: ; preds = %if
   br i1 %cmp.not.i20.i, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit27.i, label %if.then.i21.i
 
 if.then.i21.i:                                    ; preds = %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit.i17
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(26) %identifierName, ptr noundef nonnull %add.ptr.i.i.i.i.i15, i64 noundef 0, i64 noundef 2) #17
   %.pre.i23.i = load i32, ptr %Size.i.i.i13, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit27.i
 
@@ -3281,7 +3281,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %identifier)
+  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(26) %identifier)
   br label %_ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i, %if.then.i
@@ -4159,7 +4159,7 @@ _ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE22_M_reserve_map_at_backEm.exit:
   br i1 %tobool.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE22_M_reserve_map_at_backEm.exit
-  %call2.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %__args)
+  %call2.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(26) %9, ptr noundef nonnull align 8 dereferenceable(26) %__args)
   br label %_ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4llvh11SmallVectorIDsLj5EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EE22_M_reserve_map_at_backEm.exit, %if.then.i.i.i
@@ -5725,7 +5725,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %callNext_ = getelementptr inbounds i8, ptr %this, i64 104
-  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callNext_, ptr noundef nonnull align 8 dereferenceable(16) %callNext_, i32 noundef 3) #17
+  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %callNext_, ptr noundef nonnull align 8 dereferenceable(32) %callNext_, i32 noundef 3) #17
   br label %_ZNSt8functionIFbvEED2Ev.exit
 
 _ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
@@ -5993,7 +5993,7 @@ entry:
 _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %callNext_) #17
+  %call2.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %callNext_) #17
   br i1 %call2.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNKSt8functionIFbvEEclEv.exit
@@ -6014,7 +6014,7 @@ _ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump3
   br i1 %tobool.not.i, label %return, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZNSt6vectorIN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS1_10Jump32InsnEEESaIS5_EE5clearEv.exit
-  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %callNext_, ptr noundef nonnull align 8 dereferenceable(16) %callNext_, i32 noundef 3) #17
+  %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %callNext_, ptr noundef nonnull align 8 dereferenceable(32) %callNext_, i32 noundef 3) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %return
 
@@ -6052,7 +6052,7 @@ if.then9:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i13, label %if.then7.i.i
 
 if.then.i.i13:                                    ; preds = %if.then9
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %9, i64 noundef 7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %9, i64 noundef 7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15AlternationInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -6141,9 +6141,9 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15AlternationInsnE
   store ptr %bcs, ptr %ref.tmp.sroa.356.0.call.i.i.i.i.sroa_idx, align 8
   store ptr %call.i.i.i.i, ptr %ref.tmp.i37, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i37, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i37, ptr noundef nonnull align 8 dereferenceable(16) %callNext_, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callNext_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37, ptr noundef nonnull align 8 dereferenceable(32) %callNext_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callNext_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %27 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %27, ptr %_M_manager.i.i.i, align 8
@@ -6156,7 +6156,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15AlternationInsnE
   br i1 %tobool.not.i.i.i38, label %_ZNSt8functionIFbvEEaSIZN6hermes5regex15AlternationNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i39
 
 if.then.i.i.i39:                                  ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15AlternationInsnEEptEv.exit36
-  %call.i.i.i = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i37, i32 noundef 3) #17
+  %call.i.i.i = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i37, i32 noundef 3) #17
   br label %_ZNSt8functionIFbvEEaSIZN6hermes5regex15AlternationNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
 _ZNSt8functionIFbvEEaSIZN6hermes5regex15AlternationNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_15AlternationInsnEEptEv.exit36, %if.then.i.i.i39
@@ -6175,7 +6175,7 @@ if.end25:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i46)
   %_M_manager.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp.i46, i64 16
   %_M_invoker.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i46, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(16) %callNext_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(32) %callNext_, i64 16, i1 false)
   store ptr %this, ptr %callNext_, align 8
   %ref.tmp26.sroa.2.0.callNext_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %bcs, ptr %ref.tmp26.sroa.2.0.callNext_.sroa_idx, align 8
@@ -6190,7 +6190,7 @@ if.end25:                                         ; preds = %if.end
   br i1 %tobool.not.i.i.i51, label %_ZNSt8functionIFbvEEaSIZN6hermes5regex15AlternationNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i52
 
 if.then.i.i.i52:                                  ; preds = %if.end25
-  %call.i.i.i53 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, i32 noundef 3) #17
+  %call.i.i.i53 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i46, i32 noundef 3) #17
   %.pre = load ptr, ptr %_M_finish.i7, align 8
   br label %_ZNSt8functionIFbvEEaSIZN6hermes5regex15AlternationNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
@@ -6446,7 +6446,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %3, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %2, ptr %3, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %2, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_10Jump32InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -7445,7 +7445,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %2, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %2, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_28BeginMarkedSubexpressionInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -7501,7 +7501,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i9, label %if.then.i.i18, label %if.then7.i.i10
 
 if.then.i.i18:                                    ; preds = %if.end
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %9, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %9, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
   %.pre.i19 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_26EndMarkedSubexpressionInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -7797,7 +7797,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_8GoalInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -7828,7 +7828,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %endLookaround_ = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, i32 noundef 3) #17
+  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
@@ -7856,7 +7856,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %endLookaround_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_.i, ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_.i, i32 noundef 3) #17
+  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_.i, ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_.i, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEED2Ev.exit.i
 
 _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %if.then.i.i.i, %entry
@@ -7916,13 +7916,13 @@ entry:
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_) #17
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_) #17
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %return, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, i32 noundef 3) #17
+  %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, i32 noundef 3) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %return
 
@@ -7939,7 +7939,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %3, i64 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %3, i64 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14LookaroundInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -8065,9 +8065,9 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14LookaroundInsnEE
   store ptr %bcs, ptr %ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx, align 16
   store ptr %call.i.i.i.i, ptr %ref.tmp.i47, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i47, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i47, ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47, ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %endLookaround_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %23 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %23, ptr %_M_manager.i.i.i, align 8
@@ -8080,7 +8080,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14LookaroundInsnEE
   br i1 %tobool.not.i.i.i48, label %_ZNSt8functionIFvvEEaSIZN6hermes5regex14LookaroundNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i49
 
 if.then.i.i.i49:                                  ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14LookaroundInsnEEptEv.exit46
-  %call.i.i.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i47, i32 noundef 3) #17
+  %call.i.i.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i47, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEEaSIZN6hermes5regex14LookaroundNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
 _ZNSt8functionIFvvEEaSIZN6hermes5regex14LookaroundNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14LookaroundInsnEEptEv.exit46, %if.then.i.i.i49
@@ -8547,7 +8547,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %endLoop_ = getelementptr inbounds i8, ptr %this, i64 64
-  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, i32 noundef 3) #17
+  %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
@@ -8574,7 +8574,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %endLoop_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_.i, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_.i, i32 noundef 3) #17
+  %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_.i, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_.i, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEED2Ev.exit.i
 
 _ZNSt8functionIFvvEED2Ev.exit.i:                  ; preds = %if.then.i.i.i, %entry
@@ -8740,7 +8740,7 @@ if.then4:                                         ; preds = %_ZNK6hermes5regex8L
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then4
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %8, i64 noundef 18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %8, i64 noundef 18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14Width1LoopInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -8847,9 +8847,9 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14Width1LoopInsnEE
   store ptr %bcs, ptr %ref.tmp.sroa.2.0.call.i.i.i.i.sroa_idx, align 16
   store ptr %call.i.i.i.i, ptr %ref.tmp.i49, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i49, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i49, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %25 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %25, ptr %_M_manager.i.i.i, align 8
@@ -8862,7 +8862,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14Width1LoopInsnEE
   br i1 %tobool.not.i.i.i50, label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i51
 
 if.then.i.i.i51:                                  ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14Width1LoopInsnEEptEv.exit48
-  %call.i.i.i = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i49, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i49, i32 noundef 3) #17
+  %call.i.i.i = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i49, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
 _ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14Width1LoopInsnEEptEv.exit48, %if.then.i.i.i51
@@ -8912,7 +8912,7 @@ if.then13:                                        ; preds = %_ZNK6hermes5regex8L
   br i1 %cmp.i.i57, label %if.then.i.i66, label %if.then7.i.i58
 
 if.then.i.i66:                                    ; preds = %if.then13
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %34, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %34, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
   %.pre.i67 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_19BeginSimpleLoopInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -8965,9 +8965,9 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19BeginSimpleLoopI
   store ptr %bcs, ptr %ref.tmp17.sroa.3200.0.call.i.i.i.i81.sroa_idx, align 8
   store ptr %call.i.i.i.i81, ptr %ref.tmp.i78, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i77)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i77, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i78, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i78, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i77, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i77, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i78, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i78, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i77, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i77)
   %42 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %42, ptr %_M_manager.i.i.i79, align 8
@@ -8980,7 +8980,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19BeginSimpleLoopI
   br i1 %tobool.not.i.i.i84, label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i85
 
 if.then.i.i.i85:                                  ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19BeginSimpleLoopInsnEEptEv.exit
-  %call.i.i.i86 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i78, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i78, i32 noundef 3) #17
+  %call.i.i.i86 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i78, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i78, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
 _ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE0_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_19BeginSimpleLoopInsnEEptEv.exit, %if.then.i.i.i85
@@ -8999,7 +8999,7 @@ if.else20:                                        ; preds = %if.else, %land.lhs.
   br i1 %cmp.i.i92, label %if.then.i.i101, label %if.then7.i.i93
 
 if.then.i.i101:                                   ; preds = %if.else20
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %44, i64 noundef 23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i87)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %44, i64 noundef 23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i87)
   %.pre.i102 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_13BeginLoopInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -9160,9 +9160,9 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_13BeginLoopInsnEEp
   store ptr %bcs, ptr %ref.tmp42.sroa.3187.0.call.i.i.i.i176.sroa_idx, align 8
   store ptr %call.i.i.i.i176, ptr %ref.tmp.i173, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i172)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i172, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i172, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i172, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i173, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i172, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i172)
   %70 = load ptr, ptr %_M_manager.i.i, align 8
   store ptr %70, ptr %_M_manager.i.i.i174, align 8
@@ -9175,7 +9175,7 @@ _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_13BeginLoopInsnEEp
   br i1 %tobool.not.i.i.i179, label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE1_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_13BeginLoopInsnEEptEv.exit171
-  %call.i.i.i181 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, i32 noundef 3) #17
+  %call.i.i.i181 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i173, i32 noundef 3) #17
   br label %_ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE1_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit
 
 _ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStreamEEUlvE1_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %_ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_13BeginLoopInsnEEptEv.exit171, %if.then.i.i.i180
@@ -9185,13 +9185,13 @@ _ZNSt8functionIFvvEEaSIZN6hermes5regex8LoopNode8emitStepERNS4_19RegexBytecodeStr
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %entry
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 88
   %72 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_) #17
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_) #17
   %73 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i = icmp eq ptr %73, null
   br i1 %tobool.not.i, label %return, label %if.then.i185
 
 if.then.i185:                                     ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %call.i = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, ptr noundef nonnull align 8 dereferenceable(16) %endLoop_, i32 noundef 3) #17
+  %call.i = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, ptr noundef nonnull align 8 dereferenceable(32) %endLoop_, i32 noundef 3) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %return
 
@@ -9344,7 +9344,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %3, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_17EndSimpleLoopInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -9480,7 +9480,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %3, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_11EndLoopInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -10014,7 +10014,7 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE10tryConsumeEDs
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negate.addr.i)
   store i8 %frombool.i, ptr %negate.addr.i, align 1
   %flags_.i = getelementptr inbounds i8, ptr %4, i64 136
-  %call.i = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_11BracketNodeIS2_EEJRS2_RbRNS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 1 dereferenceable(1) %negate.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %flags_.i)
+  %call.i = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_11BracketNodeIS2_EEJRS2_RbRNS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 1 dereferenceable(1) %negate.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %flags_.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %negate.addr.i)
   store ptr %call.i, ptr %bracket, align 8
   store ptr %bracket, ptr %addClassAtom, align 8
@@ -10175,7 +10175,7 @@ if.end.i.i:                                       ; preds = %if.end41
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.else.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
-  %call10.i.i = call noundef ptr @_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE6insertEPS2_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %codePointSet_.i, ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %r.i.i)
+  %call10.i.i = call noundef ptr @_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE6insertEPS2_RKS2_(ptr noundef nonnull align 8 dereferenceable(48) %codePointSet_.i, ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(8) %r.i.i)
   br label %_ZN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEE8addRangeEjj.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -10439,7 +10439,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14LeftAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -10649,7 +10649,7 @@ entry:
   br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %0, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15RightAnchorInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -10865,7 +10865,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_16WordBoundaryInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -10912,7 +10912,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %negate.addr.i)
   store i8 0, ptr %negate.addr.i, align 1
   %flags_.i = getelementptr inbounds i8, ptr %this, i64 136
-  %call.i = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_11BracketNodeIS2_EEJRS2_RbRNS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 1 dereferenceable(1) %negate.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %flags_.i)
+  %call.i = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_11BracketNodeIS2_EEJRS2_RbRNS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 1 dereferenceable(1) %negate.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %flags_.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %negate.addr.i)
   %classes_.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
@@ -11177,7 +11177,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
-  %call2.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %identifier)
+  %call2.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(26) %identifier)
   br label %_ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
@@ -11895,7 +11895,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %1, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %1, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14U16BracketInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -11930,7 +11930,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i9, label %if.then.i.i18, label %if.then7.i.i10
 
 if.then.i.i18:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %5, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %5, i64 noundef 6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
   %.pre.i19 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_11BracketInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -12066,7 +12066,7 @@ if.end13.i.i.i:                                   ; preds = %cond.false
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %9 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #17
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %cond.end.thread71, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -12133,7 +12133,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i36 = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i.i.i
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %range.i)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin338.065, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i77
@@ -12280,7 +12280,7 @@ if.end13.i.i.i:                                   ; preds = %cond.false
 
 if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   %conv.i.i.i.i = zext i32 %9 to i64
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #17
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %cond.end.thread71, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
@@ -12347,7 +12347,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add.ptr.i.i.i36 = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i.i.i
-  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
+  call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %range.i)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin338.065, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i77
@@ -12735,7 +12735,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %1, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %1, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_11BackRefInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -13153,7 +13153,7 @@ _ZNSt12_Vector_baseISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRef
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EE11_M_allocateEm.exit
-  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args)
+  %call2.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIDsEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(26) %__args)
   br label %_ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEEEE9constructIS8_JS3_RS7_EEEvRS9_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvh11SmallVectorIDsLj5EEEPN6hermes5regex11BackRefNodeEESaIS8_EE11_M_allocateEm.exit, %if.then.i.i.i.i
@@ -13185,7 +13185,7 @@ if.end13.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i
 
 if.end28.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end13.i.i.i.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %5 to i64
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i, i64 noundef 2) #17
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i, i64 noundef 2) #17
   %.pre.i.i.i.i.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i
@@ -13245,7 +13245,7 @@ if.end13.i.i.i.i.i.i.i.i.i24:                     ; preds = %for.body.i.i.i.i.i1
 
 if.end28.i.i.i.i.i.i.i.i.i37:                     ; preds = %if.end13.i.i.i.i.i.i.i.i.i24
   %conv.i.i.i.i.i.i.i.i.i.i38 = zext i32 %10 to i64
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i15, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i17, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i38, i64 noundef 2) #17
+  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i.i.i15, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i17, i64 noundef %conv.i.i.i.i.i.i.i.i.i.i38, i64 noundef 2) #17
   %.pre.i.i.i.i.i.i.i.i39 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i20, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i40 = icmp eq i32 %.pre.i.i.i.i.i.i.i.i39, 0
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i40, label %return.sink.split.i.i.i.i.i.i.i.i.i29, label %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41
@@ -13545,7 +13545,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp.i.not.i, label %if.then7.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %2, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %2, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15U16MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -13576,7 +13576,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i.not.i9, label %if.then7.i.i16, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %5, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %5, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i4)
   %.pre.i11 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_25U16MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -13610,7 +13610,7 @@ if.then9:                                         ; preds = %if.else6
   br i1 %cmp.i.not.i24, label %if.then7.i.i31, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %if.then9
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %8, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i19)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %8, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i19)
   %.pre.i26 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_12MatchAnyInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -13641,7 +13641,7 @@ if.else12:                                        ; preds = %if.else6
   br i1 %cmp.i.not.i39, label %if.then7.i.i46, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.else12
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %11, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %11, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i34)
   %.pre.i41 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_22MatchAnyButNewlineInsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -13924,7 +13924,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.else.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.else
-  %call10.i.i.i = call noundef ptr @_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE6insertEPS2_RKS2_(ptr noundef nonnull align 8 dereferenceable(16) %codePointSet_.i, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(8) %r.i.i.i)
+  %call10.i.i.i = call noundef ptr @_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE6insertEPS2_RKS2_(ptr noundef nonnull align 8 dereferenceable(48) %codePointSet_.i, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(8) %r.i.i.i)
   br label %_ZN6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEE7addCharEj.exit
 
 if.else.i.i.i:                                    ; preds = %if.else
@@ -14462,7 +14462,7 @@ _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread:  ; preds = %entry
   br label %_ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit
 
 _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit:         ; preds = %entry
-  %call2.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %__args)
+  %call2.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvh15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(36) %__args)
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre6.pre = load ptr, ptr %agg.tmp, align 8
   %agg.tmp3.sroa.0.0.copyload = load i8, ptr %__args1, align 1
@@ -14497,7 +14497,7 @@ if.end24.i:                                       ; preds = %if.then.i.i
   br i1 %cmp26.i, label %if.end37.i, label %if.then.i.i.i
 
 if.end37.i:                                       ; preds = %if.end24.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chars_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 4) #17
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(36) %chars_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i30.i, i64 noundef 4) #17
   %.pre4 = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre5.pre8.pre = load ptr, ptr %agg.tmp, align 8
   %.pre11 = zext i32 %.pre4 to i64
@@ -15179,7 +15179,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %1, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchNCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15227,7 +15227,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp.i.i27, label %if.then.i.i36, label %if.then7.i.i28
 
 if.then.i.i36:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %7, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i22)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %7, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i22)
   %.pre.i37 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchNChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15376,7 +15376,7 @@ if.then28:                                        ; preds = %for.body24
   br i1 %cmp.i.i57, label %if.then.i.i66, label %if.then7.i.i58
 
 if.then.i.i66:                                    ; preds = %if.then28
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %22, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %22, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
   %.pre.i67 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_19MatchCharICase8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15424,7 +15424,7 @@ if.else34:                                        ; preds = %for.body24
   br i1 %cmp.i.i82, label %if.then.i.i91, label %if.then7.i.i83
 
 if.then.i.i91:                                    ; preds = %if.else34
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %28, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i77)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %28, i64 noundef 2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i77)
   %.pre.i92 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_14MatchChar8InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15520,7 +15520,7 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp.i.i11, label %if.then.i.i, label %if.then7.i.i
 
 if.then.i.i:                                      ; preds = %if.then4
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %4, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %.pre.i = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_23U16MatchCharICase32InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15570,7 +15570,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i.i19, label %if.then.i.i28, label %if.then7.i.i20
 
 if.then.i.i28:                                    ; preds = %if.else
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %10, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %10, i64 noundef 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i14)
   %.pre.i29 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_18U16MatchChar32InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15626,7 +15626,7 @@ if.then15:                                        ; preds = %if.else12
   br i1 %cmp.i.i44, label %if.then.i.i53, label %if.then7.i.i45
 
 if.then.i.i53:                                    ; preds = %if.then15
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %17, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i39)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %17, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i39)
   %.pre.i54 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_20MatchCharICase16InsnEEENS1_18InstructionWrapperIT_EEv.exit
 
@@ -15676,7 +15676,7 @@ if.else20:                                        ; preds = %if.else12
   br i1 %cmp.i.i69, label %if.then.i.i78, label %if.then7.i.i70
 
 if.then.i.i78:                                    ; preds = %if.else20
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %bcs, ptr %23, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i64)
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %23, i64 noundef 3, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i64)
   %.pre.i79 = load ptr, ptr %bcs, align 8
   br label %_ZN6hermes5regex19RegexBytecodeStream4emitINS0_15MatchChar16InsnEEENS1_18InstructionWrapperIT_EEv.exit
 

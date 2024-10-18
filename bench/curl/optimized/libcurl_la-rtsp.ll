@@ -1333,7 +1333,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true2.i
 
 rtp_write_body_junk.exit:                         ; preds = %land.rhs.i
   %sub.i = sub nsw i64 %13, %14
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.us-phi, i64 %sub.i)
+  %spec.select.i = tail call i64 @llvm.smin.i64(i64 range(i64 1, 0) %.us-phi, i64 %sub.i)
   %call.i = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %add.ptr, i64 noundef %spec.select.i) #7
   %tobool50.not = icmp eq i32 %call.i, 0
   br i1 %tobool50.not, label %if.end53, label %return
@@ -1577,7 +1577,7 @@ land.rhs.i128:                                    ; preds = %land.lhs.true2.i126
 
 if.then.i131:                                     ; preds = %land.rhs.i128
   %sub.i132 = sub nsw i64 %37, %38
-  %spec.select.i133 = tail call i64 @llvm.smin.i64(i64 %skip_len.2, i64 %sub.i132)
+  %spec.select.i133 = tail call i64 @llvm.smin.i64(i64 range(i64 1, 0) %skip_len.2, i64 %sub.i132)
   %call.i134 = tail call i32 @Curl_client_write(ptr noundef nonnull %data, i32 noundef 1, ptr noundef nonnull %add.ptr178, i64 noundef %spec.select.i133) #7
   br label %return
 

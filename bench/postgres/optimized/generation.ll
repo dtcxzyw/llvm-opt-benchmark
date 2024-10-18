@@ -375,9 +375,9 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %76
-  %86 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %83)
+  %86 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 range(i64 64, 4294967360) %83)
   %87 = icmp samesign ult i64 %86, 2
-  %88 = tail call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 %83, i1 true)
+  %88 = tail call range(i64 31, 65) i64 @llvm.ctlz.i64(i64 range(i64 64, 4294967360) %83, i1 true)
   %89 = sub nuw nsw i64 64, %88
   %90 = shl nuw nsw i64 1, %89
   %.0.i.i = select i1 %87, i64 %83, i64 %90

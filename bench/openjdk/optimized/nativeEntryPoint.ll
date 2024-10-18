@@ -433,7 +433,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ei.exit:          ; preds = %.lr.ph.i.i
   %114 = shl nuw nsw i64 %indvars.iv, %.7.i
   %115 = add nuw nsw i64 %113, %114
   %116 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %117 = call noundef ptr %116(ptr noundef nonnull %.0.i56, i64 noundef %115) #6
+  %117 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(16) %.0.i56, i64 noundef %115) #6
   %.not = icmp eq ptr %117, null
   br i1 %.not, label %136, label %118
 
@@ -542,7 +542,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ei.exit67:        ; preds = %.lr.ph.i.i63, %._cr
   %163 = shl nuw nsw i64 %indvars.iv111, %.7.i69
   %164 = add nuw nsw i64 %162, %163
   %165 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %166 = call noundef ptr %165(ptr noundef nonnull %.0.i59, i64 noundef %164) #6
+  %166 = call noundef ptr %165(ptr noundef nonnull align 8 dereferenceable(16) %.0.i59, i64 noundef %164) #6
   %167 = call i64 @_ZN14ForeignGlobals15parse_vmstorageEP7oopDesc(ptr noundef %166) #6
   %168 = load i32, ptr %13, align 8
   %169 = load i32, ptr %149, align 4
@@ -742,7 +742,7 @@ define linkonce_odr hidden void @_ZN13ABIDescriptorD2Ev(ptr noundef nonnull alig
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %6, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit
 
 _ZN13GrowableArrayI11XMMRegisterED2Ev.exit:       ; preds = %1, %5
@@ -755,7 +755,7 @@ _ZN13GrowableArrayI11XMMRegisterED2Ev.exit:       ; preds = %1, %5
 10:                                               ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 0, ptr %11, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
   br label %_ZN13GrowableArrayI8RegisterED2Ev.exit
 
 _ZN13GrowableArrayI8RegisterED2Ev.exit:           ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit, %10
@@ -768,7 +768,7 @@ _ZN13GrowableArrayI8RegisterED2Ev.exit:           ; preds = %_ZN13GrowableArrayI
 15:                                               ; preds = %_ZN13GrowableArrayI8RegisterED2Ev.exit
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %16, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
   br label %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit3
 
 _ZN13GrowableArrayI11XMMRegisterED2Ev.exit3:      ; preds = %_ZN13GrowableArrayI8RegisterED2Ev.exit, %15
@@ -781,7 +781,7 @@ _ZN13GrowableArrayI11XMMRegisterED2Ev.exit3:      ; preds = %_ZN13GrowableArrayI
 20:                                               ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit3
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %21, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  tail call void @_ZN26GrowableArrayWithAllocatorI11XMMRegister13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
   br label %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit5
 
 _ZN13GrowableArrayI11XMMRegisterED2Ev.exit5:      ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit3, %20
@@ -794,7 +794,7 @@ _ZN13GrowableArrayI11XMMRegisterED2Ev.exit5:      ; preds = %_ZN13GrowableArrayI
 25:                                               ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit5
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %26, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %26)
   br label %_ZN13GrowableArrayI8RegisterED2Ev.exit7
 
 _ZN13GrowableArrayI8RegisterED2Ev.exit7:          ; preds = %_ZN13GrowableArrayI11XMMRegisterED2Ev.exit5, %25
@@ -806,7 +806,7 @@ _ZN13GrowableArrayI8RegisterED2Ev.exit7:          ; preds = %_ZN13GrowableArrayI
 
 30:                                               ; preds = %_ZN13GrowableArrayI8RegisterED2Ev.exit7
   store i32 0, ptr %0, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_ZN26GrowableArrayWithAllocatorI8Register13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZN13GrowableArrayI8RegisterED2Ev.exit9
 
 _ZN13GrowableArrayI8RegisterED2Ev.exit9:          ; preds = %_ZN13GrowableArrayI8RegisterED2Ev.exit7, %30
@@ -1012,7 +1012,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 1720
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef i32 %32(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_ZL11NEP_methods, i32 noundef 2) #6
+  %33 = call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @_ZL11NEP_methods, i32 noundef 2) #6
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %40
 
@@ -1020,7 +1020,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 120
   %38 = load ptr, ptr %37, align 8
-  %39 = call noundef ptr %38(ptr noundef nonnull %0) #6
+  %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %42, label %40
 

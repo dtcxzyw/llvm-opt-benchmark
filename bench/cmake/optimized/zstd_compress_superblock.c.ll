@@ -196,7 +196,7 @@ ZSTD_estimateSubBlockSize_literal.exit.i.i:       ; preds = %116, %110, %107, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %120 = getelementptr inbounds i8, ptr %.0137.ph.i, i64 %.1143231.i
   store i32 31, ptr %9, align 4
-  %121 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %9, ptr noundef %.0137.ph.i, i64 noundef %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
+  %121 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %9, ptr noundef %.0137.ph.i, i64 noundef range(i64 1, 0) %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
   switch i32 %119, label %126 [
     i32 0, label %122
     i32 1, label %.preheader.i.i.i.i
@@ -257,7 +257,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit.i.i.i:  ; preds = %._crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %139 = getelementptr inbounds i8, ptr %.0133.ph.i, i64 %.1143231.i
   store i32 35, ptr %8, align 4
-  %140 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %8, ptr noundef %.0133.ph.i, i64 noundef %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
+  %140 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %8, ptr noundef %.0133.ph.i, i64 noundef range(i64 1, 0) %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
   switch i32 %138, label %145 [
     i32 0, label %141
     i32 1, label %.preheader.i28.i.i.i
@@ -321,7 +321,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit38.i.i.i: ; preds = %._crit_edge.i30.i.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %161 = getelementptr inbounds i8, ptr %.0135.ph.i, i64 %.1143231.i
   store i32 52, ptr %7, align 4
-  %162 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %7, ptr noundef %.0135.ph.i, i64 noundef %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
+  %162 = call i64 @HIST_countFast_wksp(ptr noundef %28, ptr noundef nonnull %7, ptr noundef %.0135.ph.i, i64 noundef range(i64 1, 0) %.1143231.i, ptr noundef %28, i64 noundef 8920) #4
   switch i32 %160, label %167 [
     i32 0, label %163
     i32 1, label %.preheader.i39.i.i.i

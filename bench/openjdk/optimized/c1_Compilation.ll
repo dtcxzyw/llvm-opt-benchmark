@@ -306,7 +306,7 @@ define hidden void @_ZN11Compilation9build_hirEv(ptr noundef nonnull align 8 der
 17:                                               ; preds = %13, %10
   %18 = load i8, ptr @CITime, align 1
   %19 = trunc i8 %18 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 72), i1 noundef zeroext %19, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull @.str.31, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 72), i1 noundef zeroext %19, i1 noundef zeroext false) #8
   %20 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %2, i64 64
@@ -368,7 +368,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %37, %39
   br label %_ZN14PhaseTraceTimeD2Ev.exit
 
 _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %47, %50
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %2) #8
   br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %_ZN14PhaseTraceTimeD2Ev.exit
@@ -415,7 +415,7 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %47, %50
 75:                                               ; preds = %56
   %76 = load i8, ptr @CITime, align 1
   %77 = trunc i8 %76 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 120), i1 noundef zeroext %77, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %3, ptr noundef nonnull @.str.33, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 120), i1 noundef zeroext %77, i1 noundef zeroext false) #8
   %78 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr null, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %3, i64 64
@@ -437,14 +437,14 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %47, %50
   br label %_ZN14PhaseTraceTimeD2Ev.exit11
 
 _ZN14PhaseTraceTimeD2Ev.exit11:                   ; preds = %75, %83
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %3) #8
   %88 = load ptr, ptr %48, align 8
   call void @_ZN2IR20split_critical_edgesEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #8
   %89 = load ptr, ptr %48, align 8
   call void @_ZN2IR12compute_codeEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #8
   %90 = load i8, ptr @CITime, align 1
   %91 = trunc i8 %90 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 96), i1 noundef zeroext %91, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %4, ptr noundef nonnull @.str.32, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 96), i1 noundef zeroext %91, i1 noundef zeroext false) #8
   %92 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %4, i64 64
@@ -497,7 +497,7 @@ _ZN20GlobalValueNumberingD2Ev.exit:               ; preds = %_ZN13GrowableArrayI
   br label %_ZN14PhaseTraceTimeD2Ev.exit13
 
 _ZN14PhaseTraceTimeD2Ev.exit13:                   ; preds = %_ZN20GlobalValueNumberingD2Ev.exit, %107
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #8
   %112 = load i8, ptr @RangeCheckElimination, align 1
   %113 = trunc i8 %112 to i1
   br i1 %113, label %114, label %146
@@ -534,7 +534,7 @@ _ZNK2IR9osr_entryEv.exit:                         ; preds = %_ZNK8BlockEnd13numb
 _ZNK2IR9osr_entryEv.exit.thread:                  ; preds = %114, %_ZNK8BlockEnd13number_of_suxEv.exit.i.i, %_ZNK2IR9osr_entryEv.exit
   %134 = load i8, ptr @CITime, align 1
   %135 = trunc i8 %134 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 168), i1 noundef zeroext %135, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %6, ptr noundef nonnull @.str.35, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 168), i1 noundef zeroext %135, i1 noundef zeroext false) #8
   %136 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr null, ptr %136, align 8
   %137 = getelementptr inbounds i8, ptr %6, i64 64
@@ -556,13 +556,13 @@ _ZNK2IR9osr_entryEv.exit.thread:                  ; preds = %114, %_ZNK8BlockEnd
   br label %_ZN14PhaseTraceTimeD2Ev.exit16
 
 _ZN14PhaseTraceTimeD2Ev.exit16:                   ; preds = %_ZNK2IR9osr_entryEv.exit.thread, %141
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %6) #8
   br label %146
 
 146:                                              ; preds = %_ZNK2IR9osr_entryEv.exit, %_ZN14PhaseTraceTimeD2Ev.exit16, %_ZN14PhaseTraceTimeD2Ev.exit13
   %147 = load i8, ptr @CITime, align 1
   %148 = trunc i8 %147 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 144), i1 noundef zeroext %148, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %7, ptr noundef nonnull @.str.34, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 144), i1 noundef zeroext %148, i1 noundef zeroext false) #8
   %149 = getelementptr inbounds i8, ptr %7, i64 56
   store ptr null, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %7, i64 64
@@ -584,7 +584,7 @@ _ZN14PhaseTraceTimeD2Ev.exit16:                   ; preds = %_ZNK2IR9osr_entryEv
   br label %_ZN14PhaseTraceTimeD2Ev.exit18
 
 _ZN14PhaseTraceTimeD2Ev.exit18:                   ; preds = %146, %154
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %7) #8
   %159 = load ptr, ptr %48, align 8
   call void @_ZN2IR18compute_use_countsEv(ptr noundef nonnull align 8 dereferenceable(32) %159) #8
   br label %_ZN11Compilation7bailoutEPKc.exit
@@ -669,7 +669,7 @@ define hidden void @_ZN11Compilation8emit_lirEv(ptr noundef nonnull align 8 dere
   call void @_ZN12LIRGeneratorC2EP11CompilationP8ciMethod(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %0, ptr noundef %9)
   %10 = load i8, ptr @CITime, align 1
   %11 = trunc i8 %10 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 240), i1 noundef zeroext %11, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %3, ptr noundef nonnull @.str.38, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 240), i1 noundef zeroext %11, i1 noundef zeroext false) #8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 64
@@ -693,7 +693,7 @@ define hidden void @_ZN11Compilation8emit_lirEv(ptr noundef nonnull align 8 dere
   br label %_ZN14PhaseTraceTimeD2Ev.exit
 
 _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %7, %19
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %3) #8
   %24 = load ptr, ptr %5, align 8
   %.not7 = icmp eq ptr %24, null
   br i1 %.not7, label %25, label %68
@@ -701,7 +701,7 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %7, %19
 25:                                               ; preds = %_ZN14PhaseTraceTimeD2Ev.exit
   %26 = load i8, ptr @CITime, align 1
   %27 = trunc i8 %26 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 216), i1 noundef zeroext %27, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %4, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 216), i1 noundef zeroext %27, i1 noundef zeroext false) #8
   %28 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 64
@@ -775,7 +775,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %45, %47
   br label %_ZN14PhaseTraceTimeD2Ev.exit6
 
 _ZN14PhaseTraceTimeD2Ev.exit6:                    ; preds = %61, %63
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #8
   br label %68
 
 68:                                               ; preds = %_ZN14PhaseTraceTimeD2Ev.exit, %_ZN14PhaseTraceTimeD2Ev.exit6
@@ -828,7 +828,7 @@ define linkonce_odr hidden void @_ZN12LIRGeneratorC2EP11CompilationP8ciMethod(pt
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 609, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef 0, i1 noundef zeroext true) #8
+  tail call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 0, i1 noundef zeroext true) #8
   %24 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 3, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 152
@@ -889,7 +889,7 @@ define linkonce_odr hidden void @_ZN12LIRGeneratorD2Ev(ptr noundef nonnull align
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 0, ptr %7, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11Instruction13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %_ZN13GrowableArrayIP11InstructionED2Ev.exit
 
 _ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %1, %6
@@ -902,7 +902,7 @@ _ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %1, %6
 11:                                               ; preds = %_ZN13GrowableArrayIP11InstructionED2Ev.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %12, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  tail call void @_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   br label %_ZN13GrowableArrayI7LIR_OprED2Ev.exit
 
 _ZN13GrowableArrayI7LIR_OprED2Ev.exit:            ; preds = %_ZN13GrowableArrayIP11InstructionED2Ev.exit, %11
@@ -915,7 +915,7 @@ _ZN13GrowableArrayI7LIR_OprED2Ev.exit:            ; preds = %_ZN13GrowableArrayI
 16:                                               ; preds = %_ZN13GrowableArrayI7LIR_OprED2Ev.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %17, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP9LIR_Const13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP9LIR_Const13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
   br label %_ZN13GrowableArrayIP9LIR_ConstED2Ev.exit
 
 _ZN13GrowableArrayIP9LIR_ConstED2Ev.exit:         ; preds = %_ZN13GrowableArrayI7LIR_OprED2Ev.exit, %16
@@ -929,7 +929,7 @@ _ZN13GrowableArrayIP9LIR_ConstED2Ev.exit:         ; preds = %_ZN13GrowableArrayI
 22:                                               ; preds = %_ZN13GrowableArrayIP9LIR_ConstED2Ev.exit
   %23 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %23, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
   br label %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit.i
 
 _ZN13GrowableArrayIP11ResolveNodeED2Ev.exit.i:    ; preds = %22, %_ZN13GrowableArrayIP9LIR_ConstED2Ev.exit
@@ -942,7 +942,7 @@ _ZN13GrowableArrayIP11ResolveNodeED2Ev.exit.i:    ; preds = %22, %_ZN13GrowableA
 27:                                               ; preds = %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit.i
   %28 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %28, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %28)
   br label %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit2.i
 
 _ZN13GrowableArrayIP11ResolveNodeED2Ev.exit2.i:   ; preds = %27, %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit.i
@@ -954,7 +954,7 @@ _ZN13GrowableArrayIP11ResolveNodeED2Ev.exit2.i:   ; preds = %27, %_ZN13GrowableA
 
 32:                                               ; preds = %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit2.i
   store i32 0, ptr %18, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(72) %18)
   br label %_ZN16PhiResolverStateD2Ev.exit
 
 _ZN16PhiResolverStateD2Ev.exit:                   ; preds = %_ZN13GrowableArrayIP11ResolveNodeED2Ev.exit2.i, %32
@@ -1164,9 +1164,9 @@ _ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit: ; preds = %1
   %38 = load ptr, ptr %37, align 8
   tail call void @_ZN10CodeBuffer23initialize_oop_recorderEP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef %38) #8
   %39 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #8
-  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull %3) #8
+  tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(44) %39, ptr noundef nonnull %3) #8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %39, align 8
-  tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #8
+  tail call void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull align 8 dereferenceable(44) %39) #8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17C1_MacroAssembler, i64 16), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 40
   store i32 0, ptr %40, align 8
@@ -1898,7 +1898,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %7, %_ZN11Compilatio
 31:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.thread, %_ZN11Compilation12is_profilingEv.exit
   %32 = load i8, ptr @CITime, align 1
   %33 = trunc i8 %32 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 48), i1 noundef zeroext %33, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 48), i1 noundef zeroext %33, i1 noundef zeroext false) #8
   %34 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %2, i64 64
@@ -1919,7 +1919,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %7, %_ZN11Compilatio
   br label %_ZN14PhaseTraceTimeD2Ev.exit
 
 _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %31, %38
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %2) #8
   %43 = load ptr, ptr %5, align 8
   %.not7 = icmp eq ptr %43, null
   br i1 %.not7, label %44, label %_ZN11Compilation7bailoutEPKc.exit
@@ -1927,7 +1927,7 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %31, %38
 44:                                               ; preds = %_ZN14PhaseTraceTimeD2Ev.exit
   %45 = load i8, ptr @CITime, align 1
   %46 = trunc i8 %45 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 192), i1 noundef zeroext %46, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %3, ptr noundef nonnull @.str.36, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 192), i1 noundef zeroext %46, i1 noundef zeroext false) #8
   %47 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %3, i64 64
@@ -1995,7 +1995,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %64, %66
   br label %_ZN14PhaseTraceTimeD2Ev.exit4
 
 _ZN14PhaseTraceTimeD2Ev.exit4:                    ; preds = %79, %82
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %3) #8
   %87 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %87, null
   br i1 %.not8, label %88, label %_ZN11Compilation7bailoutEPKc.exit
@@ -2017,7 +2017,7 @@ _ZN14PhaseTraceTimeD2Ev.exit4:                    ; preds = %79, %82
 97:                                               ; preds = %94, %88
   %98 = load i8, ptr @CITime, align 1
   %99 = trunc i8 %98 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.39, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 264), i1 noundef zeroext %99, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %4, ptr noundef nonnull @.str.39, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 264), i1 noundef zeroext %99, i1 noundef zeroext false) #8
   %100 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr null, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %4, i64 64
@@ -2038,7 +2038,7 @@ _ZN14PhaseTraceTimeD2Ev.exit4:                    ; preds = %79, %82
   br label %_ZN14PhaseTraceTimeD2Ev.exit6
 
 _ZN14PhaseTraceTimeD2Ev.exit6:                    ; preds = %97, %105
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #8
   br label %_ZN11Compilation7bailoutEPKc.exit
 
 _ZN11Compilation7bailoutEPKc.exit:                ; preds = %28, %25, %18, %_ZN14PhaseTraceTimeD2Ev.exit4, %_ZN14PhaseTraceTimeD2Ev.exit, %1, %_ZN14PhaseTraceTimeD2Ev.exit6
@@ -2103,7 +2103,7 @@ define hidden void @_ZN11Compilation14compile_methodEv(ptr noundef nonnull align
   %3 = alloca %class.PhaseTraceTime, align 8
   %4 = load i8, ptr @CITime, align 1
   %5 = trunc i8 %4 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 24), i1 noundef zeroext %5, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull @.str.29, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 24), i1 noundef zeroext %5, i1 noundef zeroext false) #8
   %6 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 64
@@ -2151,7 +2151,7 @@ define hidden void @_ZN11Compilation14compile_methodEv(ptr noundef nonnull align
   br label %_ZN14PhaseTraceTimeD2Ev.exit
 
 _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %1, %29
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %2) #8
   br i1 %.not5, label %34, label %_ZN11Compilation7bailoutEPKc.exit
 
 34:                                               ; preds = %_ZN14PhaseTraceTimeD2Ev.exit
@@ -2229,7 +2229,7 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %1, %29
 73:                                               ; preds = %69
   %74 = load i8, ptr @CITime, align 1
   %75 = trunc i8 %74 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 288), i1 noundef zeroext %75, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %3, ptr noundef nonnull @.str.40, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6timers, i64 288), i1 noundef zeroext %75, i1 noundef zeroext false) #8
   %76 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr null, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %3, i64 64
@@ -2281,7 +2281,7 @@ _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %1, %29
   br label %_ZN14PhaseTraceTimeD2Ev.exit4
 
 _ZN14PhaseTraceTimeD2Ev.exit4:                    ; preds = %73, %111
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %3) #8
   br label %116
 
 116:                                              ; preds = %_ZN14PhaseTraceTimeD2Ev.exit4, %69
@@ -2372,7 +2372,7 @@ define hidden void @_ZN11CompilationC2EP16AbstractCompilerP5ciEnvP8ciMethodiP10B
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   tail call void @_ZN21ExceptionHandlerTableC1Ei(ptr noundef nonnull align 8 dereferenceable(17) %44, i32 noundef 8) #8
   %45 = getelementptr inbounds i8, ptr %0, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %45, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds i8, ptr %0, i64 192
   %47 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
@@ -2413,7 +2413,7 @@ define hidden void @_ZN11CompilationC2EP16AbstractCompilerP5ciEnvP8ciMethodiP10B
   tail call void @_ZN22ImplicitExceptionTable8set_sizeEj(ptr noundef nonnull align 8 dereferenceable(17) %45, i32 noundef 0) #8
   %66 = load i8, ptr @CITime, align 1
   %67 = trunc i8 %66 to i1
-  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.28, ptr noundef nonnull @_ZL6timers, i1 noundef zeroext %67, i1 noundef zeroext false) #8
+  call void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(69) %9, ptr noundef nonnull @.str.28, ptr noundef nonnull @_ZL6timers, i1 noundef zeroext %67, i1 noundef zeroext false) #8
   %68 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr null, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %9, i64 64
@@ -2482,7 +2482,7 @@ _ZN11Compilation12is_profilingEv.exit15.thread:   ; preds = %82, %_ZN11Compilati
   br label %_ZN14PhaseTraceTimeD2Ev.exit
 
 _ZN14PhaseTraceTimeD2Ev.exit:                     ; preds = %92, %94
-  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #8
+  call void @_ZN9TraceTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(69) %9) #8
   ret void
 }
 
@@ -2858,7 +2858,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #8
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18
@@ -2930,7 +2930,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.i.i.i:          ; preds = %18
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %12) #8
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(144) %12) #8
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i, label %_ZNK11AccessField13is_init_pointEv.exitthread-pre-split
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread.i.i.i:   ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i.i, %18

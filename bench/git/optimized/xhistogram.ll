@@ -118,7 +118,7 @@ if.end21:                                         ; preds = %if.else
   store ptr %env, ptr %env1.i, align 8
   store ptr %xpp, ptr %xpp2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line_map.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @xdl_hashbits(i32 noundef %count1.addr.086) #6
+  %call.i = call i32 @xdl_hashbits(i32 noundef range(i32 1, 0) %count1.addr.086) #6
   store i32 %call.i, ptr %table_bits.i, align 8
   %shl.i = shl nuw i32 1, %call.i
   store i32 %shl.i, ptr %records_size.i, align 4
@@ -610,7 +610,7 @@ if.then26:                                        ; preds = %if.else24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, i8 0, i64 32, i1 false)
   %and.i = and i64 %xpp.val, -49153
   store i64 %and.i, ptr %xpparam.i, align 8
-  %call.i38 = call i32 @xdl_fall_back_diff(ptr noundef %env, ptr noundef nonnull %xpparam.i, i32 noundef %line1.addr.085, i32 noundef %count1.addr.086, i32 noundef %line2.addr.087, i32 noundef %count2.addr.088) #6
+  %call.i38 = call i32 @xdl_fall_back_diff(ptr noundef %env, ptr noundef nonnull %xpparam.i, i32 noundef %line1.addr.085, i32 noundef range(i32 1, 0) %count1.addr.086, i32 noundef %line2.addr.087, i32 noundef range(i32 1, 0) %count2.addr.088) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %xpparam.i)
   br label %return
 

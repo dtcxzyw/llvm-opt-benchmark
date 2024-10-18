@@ -300,7 +300,7 @@ define internal range(i32 -1, 49) i32 @archive_read_format_iso9660_bid(ptr nound
   br i1 %.not32, label %99, label %isJolietSVD.exit.thread
 
 99:                                               ; preds = %97
-  %100 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef readonly %.02667)
+  %100 = call fastcc i32 @isSVD(ptr noundef nonnull %8, ptr noundef nonnull readonly %.02667)
   %.not.i40 = icmp eq i32 %100, 0
   br i1 %.not.i40, label %isJolietSVD.exit.thread, label %101
 

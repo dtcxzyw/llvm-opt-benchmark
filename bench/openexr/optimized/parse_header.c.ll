@@ -1259,7 +1259,7 @@ read_text.exit.i:                                 ; preds = %if.end5.i.i, %if.th
   %gep = getelementptr i8, ptr %invariant.gep, i64 %42
   store i8 0, ptr %gep, align 1
   %43 = load ptr, ptr %print_error.i.i, align 8
-  %call11.i.i = call i32 (ptr, i32, ptr, ...) %43(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, ptr noundef nonnull %name.i, i32 noundef %conv.i103) #10
+  %call11.i.i = call i32 (ptr, i32, ptr, ...) %43(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, ptr noundef nonnull %name.i, i32 noundef range(i32 0, 256) %conv.i103) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %b.i.i)
   %cmp.not.i105 = icmp eq i32 %call11.i.i, 0
   br i1 %cmp.not.i105, label %read_text.exit.while.body.lr.ph.i100_crit_edge.i, label %if.end101.thread132
@@ -1307,7 +1307,7 @@ read_text.exit120.i:                              ; preds = %if.end5.i110.i
   %gep150 = getelementptr i8, ptr %invariant.gep149, i64 %48
   store i8 0, ptr %gep150, align 1
   %49 = load ptr, ptr %print_error.i.i, align 8
-  %call11.i118.i = call i32 (ptr, i32, ptr, ...) %49(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.12, ptr noundef nonnull %type.i, i32 noundef %conv.i103) #10
+  %call11.i118.i = call i32 (ptr, i32, ptr, ...) %49(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.12, ptr noundef nonnull %type.i, i32 noundef range(i32 0, 256) %conv.i103) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %b.i98.i)
   %cmp4.not.i = icmp eq i32 %call11.i118.i, 0
   br i1 %cmp4.not.i, label %if.end18.i, label %if.end101.thread132
@@ -1375,7 +1375,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %check_populate_channels.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
-  %call9.i.i.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %tmpchans.i.i.i, ptr noundef nonnull @.str.20, ptr noundef %type.i, i32 noundef %53)
+  %call9.i.i.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %tmpchans.i.i.i, ptr noundef nonnull @.str.20, ptr noundef nonnull %type.i, i32 noundef %53)
   %cmp10.not.i.i.i = icmp eq i32 %call9.i.i.i, 0
   br i1 %cmp10.not.i.i.i, label %if.end13.i.i.i, label %if.then11.i.i.i
 
@@ -1510,7 +1510,7 @@ if.end8.i.i:                                      ; preds = %if.end.i123.i
   br i1 %cmp10.i.i, label %if.then12.i.i, label %if.end35.i
 
 if.then12.i.i:                                    ; preds = %if.end8.i.i
-  %call13.i.i = call fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %36, ptr noundef %scratch, ptr noundef %type.i, i32 noundef %53)
+  %call13.i.i = call fastcc i32 @check_populate_chunk_count(ptr noundef %ctxt, ptr noundef %36, ptr noundef nonnull %scratch, ptr noundef nonnull %type.i, i32 noundef %53)
   br label %check_req_attr.exit.i
 
 sw.bb15.i.i:                                      ; preds = %if.end27.i
@@ -2454,7 +2454,7 @@ if.end35.i:                                       ; preds = %check_req_attr.exit
 
 if.then38.i:                                      ; preds = %if.end35.i
   %234 = load i32, ptr %attrsz.i, align 4
-  %call41.i = call fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr noundef %scratch, i32 noundef %234, i32 noundef 1, ptr noundef nonnull %name.i, ptr noundef %type.i, ptr noundef %n.i)
+  %call41.i = call fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr noundef nonnull %scratch, i32 noundef %234, i32 noundef 1, ptr noundef nonnull %name.i, ptr noundef %type.i, ptr noundef %n.i)
   %cmp42.not.i = icmp eq i32 %call41.i, 0
   br i1 %cmp42.not.i, label %if.end45.i, label %if.end101.thread132
 
@@ -2520,120 +2520,120 @@ sw.bb.i:                                          ; preds = %if.end60.i
   %239 = getelementptr inbounds i8, ptr %237, i64 24
   %240 = load ptr, ptr %239, align 8
   %241 = load i32, ptr %attrsz.i, align 4
-  %call64.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %240, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %241, i32 noundef 4)
+  %call64.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %240, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %241, i32 noundef 4)
   br label %sw.epilog.i
 
 sw.bb65.i:                                        ; preds = %if.end60.i
   %242 = getelementptr inbounds i8, ptr %237, i64 24
   %243 = load ptr, ptr %242, align 8
   %244 = load i32, ptr %attrsz.i, align 4
-  %call68.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %243, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %244, i32 noundef 4)
+  %call68.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %243, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %244, i32 noundef 4)
   br label %sw.epilog.i
 
 sw.bb69.i:                                        ; preds = %if.end60.i
   %245 = getelementptr inbounds i8, ptr %237, i64 24
   %246 = load ptr, ptr %245, align 8
   %247 = load i32, ptr %attrsz.i, align 4
-  %call72.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %246, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %247)
+  %call72.i = call fastcc i32 @extract_attr_chlist(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %246, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %247)
   br label %sw.epilog.i
 
 sw.bb73.i:                                        ; preds = %if.end60.i
   %248 = getelementptr inbounds i8, ptr %237, i64 24
   %249 = load ptr, ptr %248, align 8
   %250 = load i32, ptr %attrsz.i, align 4
-  %call76.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %249, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %250, i32 noundef 8)
+  %call76.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %249, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %250, i32 noundef 8)
   br label %sw.epilog.i
 
 sw.bb77.i:                                        ; preds = %if.end60.i
   %251 = getelementptr inbounds i8, ptr %237, i64 24
   %252 = load i32, ptr %attrsz.i, align 4
-  %call80.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %251, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %252, i8 noundef zeroext 10)
+  %call80.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %251, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %252, i8 noundef zeroext 10)
   br label %sw.epilog.i
 
 sw.bb81.i:                                        ; preds = %if.end60.i
   %253 = getelementptr inbounds i8, ptr %237, i64 24
   %254 = load i32, ptr %attrsz.i, align 4
-  %call84.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %253, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %254, i8 noundef zeroext 2)
+  %call84.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %253, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %254, i8 noundef zeroext 2)
   br label %sw.epilog.i
 
 sw.bb85.i:                                        ; preds = %if.end60.i
   %255 = getelementptr inbounds i8, ptr %237, i64 24
   %256 = load i32, ptr %attrsz.i, align 4
-  %call88.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %255, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %256, i8 noundef zeroext 3)
+  %call88.i = call fastcc i32 @extract_attr_uint8(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %255, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %256, i8 noundef zeroext 3)
   br label %sw.epilog.i
 
 sw.bb89.i:                                        ; preds = %if.end60.i
   %257 = getelementptr inbounds i8, ptr %237, i64 24
   %258 = load i32, ptr %attrsz.i, align 4
-  %call92.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %257, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %258, i32 noundef 1)
+  %call92.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %257, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %258, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb93.i:                                        ; preds = %if.end60.i
   %259 = getelementptr inbounds i8, ptr %237, i64 24
   %260 = load i32, ptr %attrsz.i, align 4
-  %call96.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %259, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %260, i32 noundef 1)
+  %call96.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %259, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %260, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb97.i:                                        ; preds = %if.end60.i
   %261 = getelementptr inbounds i8, ptr %237, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = load i32, ptr %attrsz.i, align 4
-  %call100.i = call fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %262, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %263)
+  %call100.i = call fastcc i32 @extract_attr_float_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %262, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %263)
   br label %sw.epilog.i
 
 sw.bb101.i:                                       ; preds = %if.end60.i
   %264 = getelementptr inbounds i8, ptr %237, i64 24
   %265 = load i32, ptr %attrsz.i, align 4
-  %call104.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef nonnull %264, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %265, i32 noundef 1)
+  %call104.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef nonnull %264, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %265, i32 noundef 1)
   br label %sw.epilog.i
 
 sw.bb105.i:                                       ; preds = %if.end60.i
   %266 = getelementptr inbounds i8, ptr %237, i64 24
   %267 = load ptr, ptr %266, align 8
   %268 = load i32, ptr %attrsz.i, align 4
-  %call108.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %267, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %268, i32 noundef 7)
+  %call108.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %267, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %268, i32 noundef 7)
   br label %sw.epilog.i
 
 sw.bb109.i:                                       ; preds = %if.end60.i
   %269 = getelementptr inbounds i8, ptr %237, i64 24
   %270 = load ptr, ptr %269, align 8
   %271 = load i32, ptr %attrsz.i, align 4
-  %call113.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %270, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %271, i32 noundef 9)
+  %call113.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %270, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %271, i32 noundef 9)
   br label %sw.epilog.i
 
 sw.bb114.i:                                       ; preds = %if.end60.i
   %272 = getelementptr inbounds i8, ptr %237, i64 24
   %273 = load ptr, ptr %272, align 8
   %274 = load i32, ptr %attrsz.i, align 4
-  %call119.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %273, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %274, i32 noundef 9)
+  %call119.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %273, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %274, i32 noundef 9)
   br label %sw.epilog.i
 
 sw.bb120.i:                                       ; preds = %if.end60.i
   %275 = getelementptr inbounds i8, ptr %237, i64 24
   %276 = load ptr, ptr %275, align 8
   %277 = load i32, ptr %attrsz.i, align 4
-  %call125.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %276, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %277, i32 noundef 16)
+  %call125.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %276, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %277, i32 noundef 16)
   br label %sw.epilog.i
 
 sw.bb126.i:                                       ; preds = %if.end60.i
   %278 = getelementptr inbounds i8, ptr %237, i64 24
   %279 = load ptr, ptr %278, align 8
   %280 = load i32, ptr %attrsz.i, align 4
-  %call131.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %279, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %280, i32 noundef 16)
+  %call131.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %279, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %280, i32 noundef 16)
   br label %sw.epilog.i
 
 sw.bb132.i:                                       ; preds = %if.end60.i
   %281 = getelementptr inbounds i8, ptr %237, i64 24
   %282 = load ptr, ptr %281, align 8
   %283 = load i32, ptr %attrsz.i, align 4
-  %call135.i = call fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %282, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %283)
+  %call135.i = call fastcc i32 @extract_attr_preview(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %282, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %283)
   br label %sw.epilog.i
 
 sw.bb136.i:                                       ; preds = %if.end60.i
   %284 = getelementptr inbounds i8, ptr %237, i64 24
   %285 = load ptr, ptr %284, align 8
   %286 = load i32, ptr %attrsz.i, align 4
-  %call139.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %285, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %286, i32 noundef 2)
+  %call139.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %285, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %286, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb140.i:                                       ; preds = %if.end60.i
@@ -2641,77 +2641,77 @@ sw.bb140.i:                                       ; preds = %if.end60.i
   %288 = load ptr, ptr %287, align 8
   %289 = load i32, ptr %attrsz.i, align 4
   %290 = load ptr, ptr %strptr.i, align 8
-  %call143.i = call fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %288, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %289, ptr noundef %290)
+  %call143.i = call fastcc i32 @extract_attr_string(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %288, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %289, ptr noundef %290)
   br label %sw.epilog.i
 
 sw.bb144.i:                                       ; preds = %if.end60.i
   %291 = getelementptr inbounds i8, ptr %237, i64 24
   %292 = load ptr, ptr %291, align 8
   %293 = load i32, ptr %attrsz.i, align 4
-  %call147.i = call fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %292, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %293)
+  %call147.i = call fastcc i32 @extract_attr_string_vector(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %292, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %293)
   br label %sw.epilog.i
 
 sw.bb148.i:                                       ; preds = %if.end60.i
   %294 = getelementptr inbounds i8, ptr %237, i64 24
   %295 = load ptr, ptr %294, align 8
   %296 = load i32, ptr %attrsz.i, align 4
-  %call151.i = call fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %295, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %296)
+  %call151.i = call fastcc i32 @extract_attr_tiledesc(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %295, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %296)
   br label %sw.epilog.i
 
 sw.bb152.i:                                       ; preds = %if.end60.i
   %297 = getelementptr inbounds i8, ptr %237, i64 24
   %298 = load ptr, ptr %297, align 8
   %299 = load i32, ptr %attrsz.i, align 4
-  %call155.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %298, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %299, i32 noundef 2)
+  %call155.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %298, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %299, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb156.i:                                       ; preds = %if.end60.i
   %300 = getelementptr inbounds i8, ptr %237, i64 24
   %301 = load ptr, ptr %300, align 8
   %302 = load i32, ptr %attrsz.i, align 4
-  %call160.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %301, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %302, i32 noundef 2)
+  %call160.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %301, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %302, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb161.i:                                       ; preds = %if.end60.i
   %303 = getelementptr inbounds i8, ptr %237, i64 24
   %304 = load ptr, ptr %303, align 8
   %305 = load i32, ptr %attrsz.i, align 4
-  %call165.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %304, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %305, i32 noundef 2)
+  %call165.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %304, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %305, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb166.i:                                       ; preds = %if.end60.i
   %306 = getelementptr inbounds i8, ptr %237, i64 24
   %307 = load ptr, ptr %306, align 8
   %308 = load i32, ptr %attrsz.i, align 4
-  %call170.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %307, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %308, i32 noundef 2)
+  %call170.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %307, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %308, i32 noundef 2)
   br label %sw.epilog.i
 
 sw.bb171.i:                                       ; preds = %if.end60.i
   %309 = getelementptr inbounds i8, ptr %237, i64 24
   %310 = load ptr, ptr %309, align 8
   %311 = load i32, ptr %attrsz.i, align 4
-  %call175.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %310, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %311, i32 noundef 3)
+  %call175.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %310, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %311, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb176.i:                                       ; preds = %if.end60.i
   %312 = getelementptr inbounds i8, ptr %237, i64 24
   %313 = load ptr, ptr %312, align 8
   %314 = load i32, ptr %attrsz.i, align 4
-  %call180.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %313, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %314, i32 noundef 3)
+  %call180.i = call fastcc i32 @extract_attr_32bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %313, ptr noundef nonnull %name.i, ptr noundef %type.i, i32 noundef %314, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb181.i:                                       ; preds = %if.end60.i
   %315 = getelementptr inbounds i8, ptr %237, i64 24
   %316 = load ptr, ptr %315, align 8
   %317 = load i32, ptr %attrsz.i, align 4
-  %call185.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %316, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %317, i32 noundef 3)
+  %call185.i = call fastcc i32 @extract_attr_64bit(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %316, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %317, i32 noundef 3)
   br label %sw.epilog.i
 
 sw.bb186.i:                                       ; preds = %if.end60.i
   %318 = getelementptr inbounds i8, ptr %237, i64 24
   %319 = load ptr, ptr %318, align 8
   %320 = load i32, ptr %attrsz.i, align 4
-  %call189.i = call fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef %scratch, ptr noundef %319, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %320)
+  %call189.i = call fastcc i32 @extract_attr_opaque(ptr noundef %ctxt, ptr noundef nonnull %scratch, ptr noundef %319, ptr noundef %name.i, ptr noundef %type.i, i32 noundef %320)
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end60.i
@@ -3338,7 +3338,7 @@ if.end5.i30:                                      ; preds = %if.end.i29
 read_text.exit:                                   ; preds = %if.end5.i30
   store i8 0, ptr %gep, align 1
   %12 = load ptr, ptr %print_error.i31, align 8
-  %call11.i = call i32 (ptr, i32, ptr, ...) %12(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef %aname, ptr noundef nonnull %chname, i32 noundef %conv) #10
+  %call11.i = call i32 (ptr, i32, ptr, ...) %12(ptr noundef %ctxt, i32 noundef 12, ptr noundef nonnull @.str.19, ptr noundef %aname, ptr noundef nonnull %chname, i32 noundef range(i32 0, 256) %conv) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %b.i)
   %cmp5.not = icmp eq i32 %call11.i, 0
   br i1 %cmp5.not, label %if.end.thread, label %return

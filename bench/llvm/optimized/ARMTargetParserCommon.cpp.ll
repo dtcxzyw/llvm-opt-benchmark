@@ -1093,7 +1093,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit53.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit53.thread127:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %5, %_ZN4llvmeqENS_9StringRefES0_.exit53
   %14 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %14, i64 noundef 4) #7
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull %14, i64 noundef 4) #7
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.86, i64 1, i32 noundef -1, i1 noundef zeroext true) #7
   %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %16 = trunc i64 %15 to i32
@@ -1255,7 +1255,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit79.thread142:    ; preds = %_ZN4llvmeqENS_9Stri
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit79.thread142, %.loopexit.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit53.thread127
   %.not154 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit53.thread127 ], [ false, %.loopexit.sink.split ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit79.thread142 ]
-  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
+  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %9) #7
   %61 = load ptr, ptr %9, align 8
   %62 = icmp eq ptr %61, %14
   br i1 %62, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %63

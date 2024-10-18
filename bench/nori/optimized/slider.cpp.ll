@@ -157,7 +157,7 @@ _ZNKSt8functionIFvfEEclEf.exit:                   ; preds = %10
   store float %42, ptr %6, align 4
   %47 = getelementptr inbounds i8, ptr %0, i64 168
   %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %49
 
@@ -224,7 +224,7 @@ _ZNKSt8functionIFvfEEclEf.exit:                   ; preds = %11
   store float %43, ptr %7, align 4
   %48 = getelementptr inbounds i8, ptr %0, i64 168
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  call void %49(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %50
 
@@ -242,7 +242,7 @@ _ZNKSt8functionIFvfEEclEf.exit13:                 ; preds = %50
   store float %54, ptr %6, align 4
   %55 = getelementptr inbounds i8, ptr %0, i64 200
   %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  call void %56(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %57
 
@@ -678,7 +678,7 @@ define linkonce_odr hidden void @_ZN7nanogui6SliderD2Ev(ptr noundef nonnull alig
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 176
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvfEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -696,7 +696,7 @@ _ZNSt8functionIFvfEED2Ev.exit:                    ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFvfEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 144
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFvfEED2Ev.exit2 unwind label %15
 
 15:                                               ; preds = %12
@@ -721,7 +721,7 @@ define linkonce_odr hidden void @_ZN7nanogui6SliderD0Ev(ptr noundef nonnull alig
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 176
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvfEED2Ev.exit.i unwind label %7
 
 7:                                                ; preds = %4
@@ -739,7 +739,7 @@ _ZNSt8functionIFvfEED2Ev.exit.i:                  ; preds = %4, %1
 
 12:                                               ; preds = %_ZNSt8functionIFvfEED2Ev.exit.i
   %13 = getelementptr inbounds i8, ptr %0, i64 144
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZN7nanogui6SliderD2Ev.exit unwind label %15
 
 15:                                               ; preds = %12
@@ -750,7 +750,7 @@ _ZNSt8functionIFvfEED2Ev.exit.i:                  ; preds = %4, %1
   unreachable
 
 _ZN7nanogui6SliderD2Ev.exit:                      ; preds = %_ZNSt8functionIFvfEED2Ev.exit.i, %12
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #13
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

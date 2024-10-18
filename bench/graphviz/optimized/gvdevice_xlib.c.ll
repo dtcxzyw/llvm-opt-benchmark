@@ -224,7 +224,7 @@ agxblen.exit.i.i:                                 ; preds = %35
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %agxblen.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %9, i64 noundef %36)
+  call fastcc void @agxbmore(ptr noundef nonnull %9, i64 noundef %36)
   %.val.i25.pre.i.i = load i8, ptr %38, align 1
   %.not.i26.i.i = icmp eq i8 %.val.i25.pre.i.i, -1
   br i1 %.not.i26.i.i, label %47, label %.thread
@@ -264,7 +264,7 @@ agxbput.exit:                                     ; preds = %47, %.thread, %35, 
   br i1 %.not.i.i, label %59, label %58
 
 58:                                               ; preds = %agxbput.exit
-  call fastcc void @agxbmore(ptr noundef %9, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %9, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %52, align 1
   br label %59
 
@@ -481,7 +481,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %141, %130
   br i1 %.not.i.i.i104, label %179, label %178
 
 178:                                              ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %7, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %7, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %86, align 1
   br label %179
 
@@ -640,7 +640,7 @@ init_window.exit:                                 ; preds = %127, %update_displa
 
 263:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %264 = call i32 (i32, i64, ...) @ioctl(i32 noundef %16, i64 noundef 21531, ptr noundef nonnull %4) #19
+  %264 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %16, i64 noundef 21531, ptr noundef nonnull %4) #19
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %266, label %269
 
@@ -666,7 +666,7 @@ init_window.exit:                                 ; preds = %127, %update_displa
   br label %handle_file_events.exit.thread
 
 277:                                              ; preds = %271
-  %278 = call i64 @read(i32 noundef %16, ptr noundef nonnull %273, i64 noundef %272) #19
+  %278 = call i64 @read(i32 noundef range(i32 0, -2147483648) %16, ptr noundef nonnull %273, i64 noundef %272) #19
   %279 = trunc i64 %278 to i32
   %280 = load i32, ptr %4, align 4
   %.not43.i = icmp eq i32 %280, %279
@@ -1258,7 +1258,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

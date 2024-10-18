@@ -294,8 +294,6 @@ $_ZN8QuantLib6detail15AbcdCoeffHolderD2Ev = comdat any
 
 $_ZN8QuantLib6detail15AbcdCoeffHolderD0Ev = comdat any
 
-$_ZN5boost14checked_deleteIN8QuantLib15AbcdCalibrationEEEvPT_ = comdat any
-
 $_ZN5boost6detail17sp_counted_impl_pIN8QuantLib15AbcdCalibrationEED0Ev = comdat any
 
 $_ZN5boost6detail17sp_counted_impl_pIN8QuantLib15AbcdCalibrationEE7disposeEv = comdat any
@@ -307,8 +305,6 @@ $_ZN5boost6detail17sp_counted_impl_pIN8QuantLib15AbcdCalibrationEE17get_local_de
 $_ZN5boost6detail17sp_counted_impl_pIN8QuantLib15AbcdCalibrationEE19get_untyped_deleterEv = comdat any
 
 $_ZN8QuantLib15AbcdCalibrationD2Ev = comdat any
-
-$_ZN5boost14checked_deleteIN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESA_EEEEvPT_ = comdat any
 
 $_ZN5boost6detail15sp_counted_baseD2Ev = comdat any
 
@@ -858,11 +854,11 @@ entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !47
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %2 = load ptr, ptr %vfn.i, align 8
-  call void %2(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %2(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !47
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -1519,7 +1515,7 @@ if.then.i.i.i168:                                 ; preds = %_ZNSt6vectorIN8Quan
 ehcleanup62:                                      ; preds = %lpad8, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit, %if.then.i.i.i168
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %lpad8 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit ], [ %.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i168 ]
   %68 = getelementptr inbounds i8, ptr %vtt, i64 24
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %68) #28
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %68) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -2730,11 +2726,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !47
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
-  call void %5(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %this)
+  call void %5(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Calendar") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(68) %this)
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !47
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %6 = load ptr, ptr %vfn3.i, align 8
-  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(64) %this)
+  %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(68) %this)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body
@@ -4347,7 +4343,7 @@ if.then.i.i.i173:                                 ; preds = %_ZNSt6vectorIN8Quan
 
 ehcleanup59:                                      ; preds = %lpad6, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit, %if.then.i.i.i173
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %lpad6 ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit ], [ %.pn.pn.pn.pn.pn.pn.pn, %if.then.i.i.i173 ]
-  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15AbcdAtmVolCurveE, i64 24)) #28
+  call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib15AbcdAtmVolCurveE, i64 24)) #28
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad
@@ -5852,7 +5848,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %10 = phi ptr [ %9, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %4)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5980,7 +5976,7 @@ define linkonce_odr void @_ZThn72_N8QuantLib15AbcdAtmVolCurveD0Ev(ptr noundef %t
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN8QuantLib15AbcdAtmVolCurveD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 464) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(352) %0, i64 noundef 464) #32
   ret void
 }
 
@@ -6003,7 +5999,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib15AbcdAtmVolCurveD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 464) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(352) %2, i64 noundef 464) #32
   ret void
 }
 
@@ -6996,7 +6992,7 @@ if.then.i.i.i51:                                  ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit56: ; preds = %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit, %if.then.i.i.i51
   %41 = getelementptr inbounds i8, ptr %vtt, i64 24
-  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %41) #28
+  tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull %41) #28
   ret void
 }
 
@@ -9187,7 +9183,8 @@ lpad.i.i:                                         ; preds = %invoke.cont12
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = call ptr @__cxa_begin_catch(ptr %7) #28
-  call void @_ZN5boost14checked_deleteIN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESA_EEEEvPT_(ptr noundef nonnull %call) #28
+  call void @_ZN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %call) #28
+  call void @_ZdlPvm(ptr noundef nonnull %call, i64 noundef 184) #32
   invoke void @__cxa_rethrow() #30
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -10483,7 +10480,8 @@ lpad.i.i:                                         ; preds = %invoke.cont23
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = call ptr @__cxa_begin_catch(ptr %28) #28
-  call void @_ZN5boost14checked_deleteIN8QuantLib15AbcdCalibrationEEEvPT_(ptr noundef nonnull %call9) #28
+  call void @_ZN8QuantLib15AbcdCalibrationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %call9) #28
+  call void @_ZdlPvm(ptr noundef nonnull %call9, i64 noundef 176) #32
   invoke void @__cxa_rethrow() #30
           to label %unreachable.i.i unwind label %lpad5.i.i
 
@@ -12072,7 +12070,7 @@ define linkonce_odr void @_ZThn32_N8QuantLib6detail21AbcdInterpolationImplIN9__g
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 184) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 184) #32
   ret void
 }
 
@@ -12147,21 +12145,6 @@ declare noundef double @_ZNK8QuantLib15AbcdCalibration5errorEv(ptr noundef nonnu
 declare noundef double @_ZNK8QuantLib15AbcdCalibration8maxErrorEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #6
 
 declare noundef i32 @_ZNK8QuantLib15AbcdCalibration11endCriteriaEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #6
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5boost14checked_deleteIN8QuantLib15AbcdCalibrationEEEvPT_(ptr noundef %x) local_unnamed_addr #4 comdat {
-entry:
-  %isnull = icmp eq ptr %x, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN8QuantLib15AbcdCalibrationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %x) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %x, i64 noundef 176) #32
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  ret void
-}
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail17sp_counted_impl_pIN8QuantLib15AbcdCalibrationEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
@@ -12374,21 +12357,6 @@ _ZN5boost10shared_ptrIN8QuantLib24ParametersTransformationEED2Ev.exit: ; preds =
 }
 
 declare noundef double @_ZNK8QuantLib15AbcdCalibration5valueEd(ptr noundef nonnull align 8 dereferenceable(176), double noundef) local_unnamed_addr #6
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5boost14checked_deleteIN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEESA_EEEEvPT_(ptr noundef %x) local_unnamed_addr #4 comdat {
-entry:
-  %isnull = icmp eq ptr %x, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN8QuantLib6detail21AbcdInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %x) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %x, i64 noundef 184) #32
-  br label %delete.end
-
-delete.end:                                       ; preds = %delete.notnull, %entry
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail15sp_counted_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 comdat align 2 {

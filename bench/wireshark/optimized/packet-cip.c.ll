@@ -8413,7 +8413,7 @@ cip_get_service.exit205:                          ; preds = %204, %209, %219
 
 254:                                              ; preds = %229
   %255 = load ptr, ptr %8, align 8
-  %256 = call fastcc i32 @dissect_cip_set_attribute_single_req(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %243, ptr noundef %255, i32 noundef %240, ptr noundef %11)
+  %256 = call fastcc i32 @dissect_cip_set_attribute_single_req(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %243, ptr noundef %255, i32 noundef %240, ptr noundef nonnull %11)
   br label %260
 
 257:                                              ; preds = %229
@@ -8864,7 +8864,7 @@ should_dissect_cip_response.exit:                 ; preds = %switch.early.test.i
 37:                                               ; preds = %should_dissect_cip_response.exit
   %38 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %14) #13
+  %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 4, 515) %14) #13
   %40 = icmp slt i32 %39, 2
   br i1 %40, label %41, label %43
 
@@ -8873,10 +8873,10 @@ should_dissect_cip_response.exit:                 ; preds = %switch.early.test.i
   br label %dissect_cip_get_attribute_list_rsp.exit
 
 43:                                               ; preds = %37
-  %44 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %14) #13
+  %44 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef range(i32 4, 515) %14) #13
   %45 = zext i16 %44 to i32
   %46 = load i32, ptr @hf_cip_sc_get_attr_list_attr_count, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %46, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #13
+  %47 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %46, ptr noundef %0, i32 noundef range(i32 4, 515) %14, i32 noundef 2, i32 noundef -2147483648) #13
   %48 = add nuw nsw i32 %13, 6
   %49 = shl nuw nsw i32 %45, 2
   %50 = load i32, ptr @ett_cip_get_attribute_list, align 4
@@ -9088,7 +9088,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
 
 148:                                              ; preds = %should_dissect_cip_response.exit
   %149 = load ptr, ptr %6, align 8
-  %150 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %14) #13
+  %150 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 4, 515) %14) #13
   %151 = getelementptr inbounds i8, ptr %7, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds i8, ptr %7, i64 12
@@ -9208,13 +9208,13 @@ cip_get_attribute.exit.i77:                       ; preds = %170, %187, %.prehea
   %203 = getelementptr inbounds i8, ptr %.0.i.i78, i64 16
   %204 = load ptr, ptr %203, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %149, ptr noundef nonnull @.str.148, ptr noundef %204) #13
-  %205 = call i32 @dissect_cip_attribute(ptr noundef %1, ptr noundef %22, ptr noundef %149, ptr noundef %0, ptr noundef nonnull %.0.i.i78, i32 noundef %14, i32 noundef %150)
+  %205 = call i32 @dissect_cip_attribute(ptr noundef %1, ptr noundef %22, ptr noundef %149, ptr noundef %0, ptr noundef nonnull %.0.i.i78, i32 noundef range(i32 4, 515) %14, i32 noundef %150)
   br label %dissect_cip_get_attribute_single_rsp.exit
 
 206:                                              ; preds = %should_dissect_cip_response.exit
   %207 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %208 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %14) #13
+  %208 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 4, 515) %14) #13
   %209 = icmp slt i32 %208, 1
   br i1 %209, label %210, label %212
 
@@ -9224,7 +9224,7 @@ cip_get_attribute.exit.i77:                       ; preds = %170, %187, %.prehea
 
 212:                                              ; preds = %206
   %213 = load i32, ptr @hf_cip_find_next_object_num_instances, align 4
-  %214 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %213, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %4) #13
+  %214 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %213, ptr noundef %0, i32 noundef range(i32 4, 515) %14, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %4) #13
   %215 = load i32, ptr %4, align 4
   %.not.i88 = icmp eq i32 %215, 0
   br i1 %.not.i88, label %.loopexit.i, label %.lr.ph.preheader.i
@@ -9726,7 +9726,7 @@ should_dissect_cip_response.exit:                 ; preds = %switch.early.test.i
 33:                                               ; preds = %should_dissect_cip_response.exit
   %34 = load ptr, ptr %6, align 8
   %35 = zext i1 %.not to i32
-  %36 = call i32 %.val(ptr noundef %1, ptr noundef %28, ptr noundef %34, ptr noundef %0, i32 noundef %14, i32 noundef %35) #13
+  %36 = call i32 %.val(ptr noundef %1, ptr noundef %28, ptr noundef %34, ptr noundef %0, i32 noundef range(i32 2, 515) %14, i32 noundef %35) #13
   br label %dissect_cip_service.exit
 
 dissect_cip_service.exit:                         ; preds = %should_dissect_cip_response.exit, %33
@@ -10396,12 +10396,12 @@ cip_get_service.exit.i:                           ; preds = %98, %91, %88, %prot
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %28)
   %208 = load i32, ptr @hf_cip_cm_ot_connid, align 4
-  %209 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %208, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %24) #13
+  %209 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %208, ptr noundef %0, i32 noundef range(i32 4, 260) %202, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %24) #13
   %210 = load i32, ptr @hf_cip_cm_to_connid, align 4
   %211 = add nuw nsw i32 %198, 8
   %212 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %25) #13
   %213 = load i32, ptr @hf_cip_connid, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %213, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef -2147483648) #13
+  %214 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %213, ptr noundef %0, i32 noundef range(i32 4, 260) %202, i32 noundef 4, i32 noundef -2147483648) #13
   %.not.i.i.i = icmp eq ptr %214, null
   br i1 %.not.i.i.i, label %proto_item_set_hidden.exit.i.i, label %215
 
@@ -10445,7 +10445,7 @@ proto_item_set_hidden.exit78.i.i:                 ; preds = %227, %224, %proto_i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
-  %235 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %232, ptr noundef %0, i32 noundef %231, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %21) #13
+  %235 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %232, ptr noundef %0, i32 noundef range(i32 4, 523) %231, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %21) #13
   %236 = add nuw nsw i32 %198, 14
   %237 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %233, ptr noundef %0, i32 noundef %236, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %22) #13
   %238 = add nuw nsw i32 %198, 16
@@ -10493,9 +10493,9 @@ proto_item_set_hidden.exit78.i.i:                 ; preds = %227, %224, %proto_i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   %269 = load i32, ptr @ett_cip_cm_safety, align 4
-  %270 = call ptr @proto_tree_add_subtree(ptr noundef %204, ptr noundef %0, i32 noundef %268, i32 noundef 0, i32 noundef %269, ptr noundef nonnull %19, ptr noundef nonnull @.str.157) #13
+  %270 = call ptr @proto_tree_add_subtree(ptr noundef %204, ptr noundef %0, i32 noundef range(i32 30, 286) %268, i32 noundef 0, i32 noundef %269, ptr noundef nonnull %19, ptr noundef nonnull @.str.157) #13
   %271 = load i32, ptr @hf_cip_cm_consumer_number, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %271, ptr noundef %0, i32 noundef %268, i32 noundef 2, i32 noundef -2147483648) #13
+  %272 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %271, ptr noundef %0, i32 noundef range(i32 30, 286) %268, i32 noundef 2, i32 noundef -2147483648) #13
   %273 = add nuw nsw i32 %198, 32
   %274 = load i32, ptr @ett_cip_cm_pid, align 4
   %275 = call ptr @proto_tree_add_subtree(ptr noundef %270, ptr noundef %0, i32 noundef %273, i32 noundef 8, i32 noundef %274, ptr noundef nonnull %20, ptr noundef nonnull @.str.157) #13
@@ -10730,7 +10730,7 @@ dissect_cip_cm_fwd_open_rsp_success.exit.i:       ; preds = %383, %367, %cip_con
   %400 = load i32, ptr @hf_cip_cm_orig_serial_num, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %398, ptr noundef %0, i32 noundef %202, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15) #13
+  %401 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %398, ptr noundef %0, i32 noundef range(i32 4, 260) %202, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15) #13
   %402 = add nuw nsw i32 %198, 6
   %403 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %399, ptr noundef %0, i32 noundef %402, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %16) #13
   %404 = add nuw nsw i32 %198, 8
@@ -10904,7 +10904,7 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   %496 = load i32, ptr @hf_cip_cm_orig_serial_num, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %497 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %494, ptr noundef %0, i32 noundef %202, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12) #13
+  %497 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %494, ptr noundef %0, i32 noundef range(i32 4, 523) %202, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12) #13
   %498 = add nuw nsw i32 %198, 6
   %499 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %204, i32 noundef %495, ptr noundef %0, i32 noundef %498, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %13) #13
   %500 = add nuw nsw i32 %198, 8
@@ -10999,12 +10999,12 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %546 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %536) #13
+  %546 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 513) %536) #13
   %547 = and i8 %546, 15
   %548 = load i32, ptr @hf_cip_cm_priority, align 4
-  %549 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %548, ptr noundef %0, i32 noundef %536, i32 noundef 1, i32 noundef -2147483648) #13
+  %549 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %548, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 1, i32 noundef -2147483648) #13
   %550 = load i32, ptr @hf_cip_cm_tick_time, align 4
-  %551 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %550, ptr noundef %0, i32 noundef %536, i32 noundef 1, i32 noundef -2147483648) #13
+  %551 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %550, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 1, i32 noundef -2147483648) #13
   %552 = add nuw nsw i32 %532, 3
   %553 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %552) #13
   %554 = load i32, ptr @hf_cip_cm_timeout_tick, align 4
@@ -11013,14 +11013,14 @@ dissect_cip_cm_fwd_close_rsp_success.exit.i:      ; preds = %display_connection_
   %557 = zext i8 %553 to i32
   %558 = shl nuw nsw i32 %557, %556
   %559 = load i32, ptr @hf_cip_cm_timeout, align 4
-  %560 = call ptr @proto_tree_add_uint(ptr noundef %538, i32 noundef %559, ptr noundef %0, i32 noundef %536, i32 noundef 2, i32 noundef %558) #13
+  %560 = call ptr @proto_tree_add_uint(ptr noundef %538, i32 noundef %559, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 2, i32 noundef %558) #13
   %561 = add nuw nsw i32 %532, 4
   %562 = load i32, ptr @hf_cip_cm_conn_serial_num, align 4
   %563 = load i32, ptr @hf_cip_cm_vendor, align 4
   %564 = load i32, ptr @hf_cip_cm_orig_serial_num, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %565 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %538, i32 noundef %562, ptr noundef %0, i32 noundef %561, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7) #13
+  %565 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %538, i32 noundef %562, ptr noundef %0, i32 noundef range(i32 4, 523) %561, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %7) #13
   %566 = add nuw nsw i32 %532, 6
   %567 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %538, i32 noundef %563, ptr noundef %0, i32 noundef %566, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %8) #13
   %568 = add nuw nsw i32 %532, 8
@@ -11116,7 +11116,7 @@ dissect_epath.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %.lr.
   store ptr %619, ptr %620, align 8
   %621 = getelementptr inbounds i8, ptr %615, i64 24
   store i32 %578, ptr %621, align 8
-  %622 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %619, i32 noundef %585, i64 noundef %618) #13
+  %622 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %619, i32 noundef range(i32 8, 66054) %585, i64 noundef %618) #13
   br label %save_route_connection_path.exit.i.i
 
 save_route_connection_path.exit.i.i:              ; preds = %616, %612, %dissect_epath.exit.i.i
@@ -11339,12 +11339,12 @@ dissect_cip_cm_fwd_close_req.exit.i:              ; preds = %730, %proto_item_se
 
 732:                                              ; preds = %535
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %733 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %536) #13
+  %733 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 513) %536) #13
   %734 = and i8 %733, 15
   %735 = load i32, ptr @hf_cip_cm_priority, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %735, ptr noundef %0, i32 noundef %536, i32 noundef 1, i32 noundef -2147483648) #13
+  %736 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %735, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 1, i32 noundef -2147483648) #13
   %737 = load i32, ptr @hf_cip_cm_tick_time, align 4
-  %738 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %737, ptr noundef %0, i32 noundef %536, i32 noundef 1, i32 noundef -2147483648) #13
+  %738 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %737, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 1, i32 noundef -2147483648) #13
   %739 = add nuw nsw i32 %532, 3
   %740 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %739) #13
   %741 = load i32, ptr @hf_cip_cm_timeout_tick, align 4
@@ -11353,7 +11353,7 @@ dissect_cip_cm_fwd_close_req.exit.i:              ; preds = %730, %proto_item_se
   %744 = zext i8 %740 to i32
   %745 = shl nuw nsw i32 %744, %743
   %746 = load i32, ptr @hf_cip_cm_timeout, align 4
-  %747 = call ptr @proto_tree_add_uint(ptr noundef %538, i32 noundef %746, ptr noundef %0, i32 noundef %536, i32 noundef 2, i32 noundef %745) #13
+  %747 = call ptr @proto_tree_add_uint(ptr noundef %538, i32 noundef %746, ptr noundef %0, i32 noundef range(i32 2, 513) %536, i32 noundef 2, i32 noundef %745) #13
   %748 = add nuw nsw i32 %532, 4
   %749 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %748) #13
   %750 = load i32, ptr @hf_cip_cm_msg_req_size, align 4
@@ -11480,7 +11480,7 @@ dissect_epath.exit.i349.i:                        ; preds = %.lr.ph.i.i353.i, %.
   store ptr %820, ptr %821, align 8
   %822 = getelementptr inbounds i8, ptr %816, i64 24
   store i32 %778, ptr %822, align 8
-  %823 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %820, i32 noundef %787, i64 noundef %819) #13
+  %823 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %820, i32 noundef range(i32 8, 66054) %787, i64 noundef %819) #13
   br label %dissect_cip_cm_unconnected_send_req.exit.i
 
 dissect_cip_cm_unconnected_send_req.exit.i:       ; preds = %817, %813, %dissect_epath.exit.i349.i
@@ -13637,12 +13637,12 @@ define internal fastcc void @dissect_cip_cm_fwd_open_req(ptr noundef %0, ptr nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %19, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #13
+  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef range(i32 2, 513) %4) #13
   %25 = and i8 %24, 15
   %26 = load i32, ptr @hf_cip_cm_priority, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #13
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %3, i32 noundef range(i32 2, 513) %4, i32 noundef 1, i32 noundef -2147483648) #13
   %28 = load i32, ptr @hf_cip_cm_tick_time, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #13
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %3, i32 noundef range(i32 2, 513) %4, i32 noundef 1, i32 noundef -2147483648) #13
   %30 = add nuw nsw i32 %4, 1
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %30) #13
   %32 = load i32, ptr @hf_cip_cm_timeout_tick, align 4
@@ -13651,7 +13651,7 @@ define internal fastcc void @dissect_cip_cm_fwd_open_req(ptr noundef %0, ptr nou
   %35 = zext i8 %31 to i32
   %36 = shl nuw nsw i32 %35, %34
   %37 = load i32, ptr @hf_cip_cm_timeout, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %37, ptr noundef %3, i32 noundef %4, i32 noundef 2, i32 noundef %36) #13
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %37, ptr noundef %3, i32 noundef range(i32 2, 513) %4, i32 noundef 2, i32 noundef %36) #13
   %39 = load i32, ptr @hf_cip_cm_ot_connid, align 4
   %40 = add nuw nsw i32 %4, 2
   %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %39, ptr noundef %3, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %20) #13
@@ -13705,7 +13705,7 @@ proto_item_set_hidden.exit131:                    ; preds = %proto_item_set_hidd
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %64, ptr noundef %3, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %14) #13
+  %67 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %64, ptr noundef %3, i32 noundef range(i32 4, 523) %63, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %14) #13
   %68 = add nuw nsw i32 %4, 12
   %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %65, ptr noundef %3, i32 noundef %68, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15) #13
   %70 = add nuw nsw i32 %4, 14
@@ -13914,7 +13914,7 @@ dissect_epath.exit:                               ; preds = %.lr.ph, %.lr.ph.i, 
   store ptr %189, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %185, i64 24
   store i32 %151, ptr %191, align 8
-  %192 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef %189, i32 noundef %155, i64 noundef %188) #13
+  %192 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef %189, i32 noundef range(i32 8, 66054) %155, i64 noundef %188) #13
   br label %save_route_connection_path.exit
 
 save_route_connection_path.exit:                  ; preds = %dissect_epath.exit, %182, %186

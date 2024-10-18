@@ -35,7 +35,7 @@ entry:
 if.end.thread:                                    ; preds = %entry
   %externalBytes.i8 = getelementptr inbounds i8, ptr %cell, i64 80
   %3 = load i32, ptr %externalBytes.i8, align 8
-  tail call void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %cell, i32 noundef %3) #10
+  tail call void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull align 8 dereferenceable(104) %cell, i32 noundef %3) #10
   store i32 0, ptr %externalBytes.i8, align 8
   br label %delete.end
 
@@ -52,17 +52,17 @@ if.then.i:                                        ; preds = %if.then
 delete.notnull:                                   ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %externalBytes.i = getelementptr inbounds i8, ptr %cell, i64 80
   %6 = load i32, ptr %externalBytes.i, align 8
-  tail call void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %cell, i32 noundef %6) #10
+  tail call void @_ZN6hermes2vm7HadesGC19debitExternalMemoryEPNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull align 8 dereferenceable(104) %cell, i32 noundef %6) #10
   store i32 0, ptr %externalBytes.i, align 8
   %7 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i7 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i7, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %delete.notnull
-  %call.i.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3) #10
+  %call.i.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3) #10
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %delete.notnull, %if.then.i.i
@@ -82,7 +82,7 @@ delete.notnull.i.i.i:                             ; preds = %delete.end
   br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14default_deleteISt8functionIFvPN6hermes2vm6GCCellERNS2_15WeakRefAcceptorEEEEclEPS8_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.i
-  %call.i.i.i.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 3) #10
+  %call.i.i.i.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #10
   br label %_ZNKSt14default_deleteISt8functionIFvPN6hermes2vm6GCCellERNS2_15WeakRefAcceptorEEEEclEPS8_.exit.i.i
 
 _ZNKSt14default_deleteISt8functionIFvPN6hermes2vm6GCCellERNS2_15WeakRefAcceptorEEEEclEPS8_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i.i
@@ -118,7 +118,7 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFvPN6hermes2vm6GCCellERNS1_15WeakRefAcceptorEEEclES3_S5_.exit: ; preds = %if.then
   %_M_invoker.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #10
+  call void %2(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br label %if.end
 
@@ -339,7 +339,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm9GCPointerINS0_11testhelpers11DummyObjectEE3setERNS0_11PointerBaseEPS3_RNS0_7HadesGCE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %other, ptr noundef %obj) #10
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull align 4 dereferenceable(4) %other, ptr noundef %obj) #10
   br label %_ZN6hermes2vm9GCPointerINS0_11testhelpers11DummyObjectEE3setERNS0_11PointerBaseEPS3_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_11testhelpers11DummyObjectEE3setERNS0_11PointerBaseEPS3_RNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i.i
@@ -370,7 +370,7 @@ entry:
   %2 = ptrtoint ptr %base to i64
   %sub.i.i.i.i.i.i = sub i64 %1, %2
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %gc, i32 %conv.i.i.i.i.i.i) #10
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %gc, i32 %conv.i.i.i.i.i.i) #10
   store ptr %call5.i.i, ptr %weak, align 8
   ret ptr %call.i.i.i
 }
@@ -385,7 +385,7 @@ entry:
   call void @_ZN6hermes2vm11testhelpers11DummyObjectC2ERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(104) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %gc)
   store i32 1308622952, ptr %call.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #10
+  %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i)
   ret ptr %call.i.i.i
 }

@@ -459,7 +459,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   store i64 %193, ptr %9, align 8
   %194 = load ptr, ptr %10, align 8
   %195 = load ptr, ptr %11, align 8
-  %196 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP11StringPieceSt6vectorIS2_SaIS2_EEEENS0_5__ops16_Iter_equals_valIKS2_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr %194, ptr %195, ptr nonnull %4)
+  %196 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP11StringPieceSt6vectorIS2_SaIS2_EEEENS0_5__ops16_Iter_equals_valIKS2_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr %194, ptr %195, ptr nonnull align 8 dereferenceable(16) %4)
   %197 = load ptr, ptr %11, align 8
   %198 = icmp eq ptr %196, %197
   br i1 %198, label %199, label %261
@@ -545,7 +545,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
 228:                                              ; preds = %199
   %229 = load ptr, ptr %0, align 8
   %230 = load ptr, ptr %13, align 8
-  %231 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP11StringPieceSt6vectorIS2_SaIS2_EEEENS0_5__ops16_Iter_equals_valIKS2_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr %229, ptr %230, ptr nonnull %4)
+  %231 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP11StringPieceSt6vectorIS2_SaIS2_EEEENS0_5__ops16_Iter_equals_valIKS2_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr %229, ptr %230, ptr nonnull align 8 dereferenceable(16) %4)
   %232 = load ptr, ptr %13, align 8
   %233 = icmp eq ptr %231, %232
   br i1 %233, label %234, label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit

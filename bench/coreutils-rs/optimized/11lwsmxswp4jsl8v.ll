@@ -228,11 +228,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 33:                                               ; preds = %28
   %34 = add nsw i64 %26, -256
   store i64 %34, ptr %25, align 8, !alias.scope !55, !noalias !56
-  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %23, ptr noalias noundef nonnull align 4 dereferenceable(256) %19), !noalias !43
+  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 16 dereferenceable(352) %19), !noalias !43
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i"
 
 35:                                               ; preds = %28, %22
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 4 dereferenceable(256) %19, i64 noundef %24), !noalias !43
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 16 dereferenceable(352) %19, i64 noundef %24), !noalias !43
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i": ; preds = %35, %33, %16
@@ -289,11 +289,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 65:                                               ; preds = %61
   %66 = add nsw i64 %59, -256
   store i64 %66, ptr %53, align 8, !alias.scope !75, !noalias !76
-  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %52, ptr noalias noundef nonnull align 4 dereferenceable(256) %50), !noalias !66
+  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 16 dereferenceable(352) %50), !noalias !66
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us"
 
 67:                                               ; preds = %61, %57
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 4 dereferenceable(256) %50, i64 noundef %58), !noalias !66
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 16 dereferenceable(352) %50, i64 noundef %58), !noalias !66
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us": ; preds = %67, %65, %55
@@ -351,11 +351,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 94:                                               ; preds = %89
   %95 = add nsw i64 %87, -256
   store i64 %95, ptr %86, align 8, !alias.scope !75, !noalias !76
-  call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %84, ptr noalias noundef nonnull align 4 dereferenceable(256) %80), !noalias !66
+  call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 16 dereferenceable(352) %80), !noalias !66
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10"
 
 96:                                               ; preds = %89, %83
-  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 4 dereferenceable(256) %80, i64 noundef %85), !noalias !66
+  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 16 dereferenceable(352) %80, i64 noundef %85), !noalias !66
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10": ; preds = %96, %94, %78
@@ -450,11 +450,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 33:                                               ; preds = %28
   %34 = add nsw i64 %26, -256
   store i64 %34, ptr %25, align 8, !alias.scope !100, !noalias !101
-  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %23, ptr noalias noundef nonnull align 4 dereferenceable(256) %19), !noalias !88
+  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 16 dereferenceable(352) %19), !noalias !88
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i"
 
 35:                                               ; preds = %28, %22
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 4 dereferenceable(256) %19, i64 noundef %24), !noalias !88
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %23, ptr noalias noundef nonnull align 16 dereferenceable(352) %19, i64 noundef %24), !noalias !88
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i": ; preds = %35, %33, %16
@@ -512,11 +512,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 65:                                               ; preds = %61
   %66 = add nsw i64 %59, -256
   store i64 %66, ptr %53, align 8, !alias.scope !123, !noalias !124
-  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %52, ptr noalias noundef nonnull align 4 dereferenceable(256) %50), !noalias !102
+  tail call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 16 dereferenceable(352) %50), !noalias !102
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9.us"
 
 67:                                               ; preds = %61, %57
-  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 4 dereferenceable(256) %50, i64 noundef %58), !noalias !102
+  tail call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %52, ptr noalias noundef nonnull align 16 dereferenceable(352) %50, i64 noundef %58), !noalias !102
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9.us"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9.us": ; preds = %67, %65, %55
@@ -576,11 +576,11 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
 94:                                               ; preds = %89
   %95 = add nsw i64 %87, -256
   store i64 %95, ptr %86, align 8, !alias.scope !123, !noalias !124
-  call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(48) %84, ptr noalias noundef nonnull align 4 dereferenceable(256) %80), !noalias !102
+  call void @"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 16 dereferenceable(352) %80), !noalias !102
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9"
 
 96:                                               ; preds = %89, %83
-  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 4 dereferenceable(256) %80, i64 noundef %85), !noalias !102
+  call void @"_ZN4rand4rngs7adapter9reseeding29ReseedingCore$LT$R$C$Rsdr$GT$19reseed_and_generate17h922f4c9a2b340867E.llvm.7846452103397059031"(ptr noalias noundef nonnull align 16 dereferenceable(80) %84, ptr noalias noundef nonnull align 16 dereferenceable(352) %80, i64 noundef %85), !noalias !102
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9"
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i9": ; preds = %96, %94, %78
@@ -1107,7 +1107,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !215
   %13 = call noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17h13166e323f3fc138E.llvm.18238287512701874823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4), !noalias !205
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !203
-  %14 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h407133eee8ce97c0E.llvm.1407976924502144584"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !189
+  %14 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h407133eee8ce97c0E.llvm.1407976924502144584"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !189
   %15 = icmp eq ptr %14, null
   br label %"_ZN7uu_shuf20NonrepeatingIterator7produce28_$u7b$$u7b$closure$u7d$$u7d$17h84115177d99c8f83E.llvm.7035662188962510802.exit"
 
@@ -1185,7 +1185,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE(ptr no
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h4f6f3287da900d64E.llvm.7035662188962510802"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  %7 = tail call noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$LT$usize$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$23sample_single_inclusive17h4f6f3287da900d64E.llvm.7035662188962510802"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   ret i64 %7
 
 8:                                                ; preds = %2
@@ -1258,7 +1258,7 @@ define hidden noundef zeroext i1 @"_ZN7uu_shuf20NonrepeatingIterator7produce28_$
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !260
   %12 = call noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17h13166e323f3fc138E.llvm.18238287512701874823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4), !noalias !250
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !248
-  %13 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h407133eee8ce97c0E.llvm.1407976924502144584"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
+  %13 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h407133eee8ce97c0E.llvm.1407976924502144584"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %14 = icmp eq ptr %13, null
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hed2a29019e4f6612E.exit"
 

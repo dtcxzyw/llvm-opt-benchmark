@@ -662,7 +662,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %entry
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !34
-  %call2.i = call noundef double %1(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %1(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %mul = fmul double %call2.i, 5.000000e-01
   %sub4 = add i64 %call, -2
@@ -683,7 +683,7 @@ if.then.i17:                                      ; preds = %for.cond.cleanup
 
 _ZNKSt8functionIFddEEclEd.exit18:                 ; preds = %for.cond.cleanup
   %3 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !34
-  %call2.i16 = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i12)
+  %call2.i16 = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i12)
   %4 = call double @llvm.fmuladd.f64(double %call2.i16, double 5.000000e-01, double %sum.0.lcssa)
   %call9 = call noundef i64 @_ZNK8QuantLib10Integrator14maxEvaluationsEv(ptr noundef nonnull align 8 dereferenceable(40) %this)
@@ -708,7 +708,7 @@ if.then.i24:                                      ; preds = %for.body
 
 _ZNKSt8functionIFddEEclEd.exit25:                 ; preds = %for.body
   %6 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !34
-  %call2.i23 = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i19)
+  %call2.i23 = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i19)
   %add6 = fadd double %sum.029, %call2.i23
   %inc = add nuw i64 %i.030, 1
@@ -775,7 +775,7 @@ if.then.i:                                        ; preds = %for.body
 
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %for.body
   %2 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !34
-  %call2.i = call noundef double %2(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %2(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %add4 = fadd double %sum.070, %call2.i
   %add5 = fadd double %mul, %x.071
@@ -799,7 +799,7 @@ if.then.i37:                                      ; preds = %for.cond.cleanup13
 _ZNKSt8functionIFddEEclEd.exit38:                 ; preds = %for.cond.cleanup13
   %_M_invoker.i35 = getelementptr inbounds nuw i8, ptr %f, i64 24
   %4 = load ptr, ptr %_M_invoker.i35, align 8, !tbaa !34
-  %call2.i36 = call noundef double %4(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i32)
+  %call2.i36 = call noundef double %4(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i32)
   %and = and i64 %sub, 1
   %cmp24.not = icmp eq i64 %and, 0
@@ -822,7 +822,7 @@ if.then.i44:                                      ; preds = %for.body14
 
 _ZNKSt8functionIFddEEclEd.exit45:                 ; preds = %for.body14
   %6 = load ptr, ptr %_M_invoker.i42, align 8, !tbaa !34
-  %call2.i43 = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i39)
+  %call2.i43 = call noundef double %6(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i39)
   %add16 = fadd double %sum.174, %call2.i43
   %add19 = add i64 %i9.076, 2
@@ -842,7 +842,7 @@ if.then.i51:                                      ; preds = %if.then
 
 _ZNKSt8functionIFddEEclEd.exit52:                 ; preds = %if.then
   %8 = load ptr, ptr %_M_invoker.i35, align 8, !tbaa !34
-  %call2.i50 = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i46)
+  %call2.i50 = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i46)
   %sub27 = fsub double %b, %div
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i53)
@@ -857,7 +857,7 @@ if.then.i58:                                      ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit59:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit52
   %10 = load ptr, ptr %_M_invoker.i35, align 8, !tbaa !34
-  %call2.i57 = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i53)
+  %call2.i57 = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i53)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i53)
   %mul29 = fmul double %call2.i57, 2.500000e+00
   %11 = call double @llvm.fmuladd.f64(double %call2.i50, double 1.500000e+00, double %mul29)
@@ -876,7 +876,7 @@ if.then.i65:                                      ; preds = %if.else
 
 _ZNKSt8functionIFddEEclEd.exit66:                 ; preds = %if.else
   %13 = load ptr, ptr %_M_invoker.i35, align 8, !tbaa !34
-  %call2.i64 = call noundef double %13(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i60)
+  %call2.i64 = call noundef double %13(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i60)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i60)
   br label %if.end
 

@@ -1516,7 +1516,7 @@ define hidden void @_Z24addPointRetrainAndRedrawR4Dataiii(ptr noundef nonnull al
           to label %35 unwind label %47
 
 35:                                               ; preds = %.preheader.preheader
-  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull align 8 dereferenceable(288) %0)
           to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %35
@@ -1542,7 +1542,7 @@ define hidden void @_Z24addPointRetrainAndRedrawR4Dataiii(ptr noundef nonnull al
 
 43:                                               ; preds = %41, %39
   %.pn.i = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %12) #14
   br label %.body
 
 _ZN4DataC2ERKS_.exit:                             ; preds = %37
@@ -1552,7 +1552,7 @@ _ZN4DataC2ERKS_.exit:                             ; preds = %37
 44:                                               ; preds = %_ZN4DataC2ERKS_.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %12) #14
   br label %56
 
 45:                                               ; preds = %23, %20, %4
@@ -1771,7 +1771,7 @@ define hidden noundef i32 @main() local_unnamed_addr #8 personality ptr @__gxx_p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
   %9 = getelementptr inbounds i8, ptr %1, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #14
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #14
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %1) #14
   ret i32 0
 
 10:                                               ; preds = %0

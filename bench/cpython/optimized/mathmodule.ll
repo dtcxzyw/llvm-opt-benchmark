@@ -2241,7 +2241,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i12
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i12
-  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call, i1 true)
+  %5 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 21, -9223372036854775808) %call, i1 true)
   %sub.i = sub nuw nsw i64 62, %5
   br label %for.body.i
 
@@ -2258,7 +2258,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %add.i = add nuw i64 %shr.i, 1
   %or.i = or i64 %add.i, 1
   %sub9.i = add i64 %or.i, -2
-  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub9.i, i1 true)
+  %6 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2) %sub9.i, i1 true)
   %sub.i36.i = sub nuw nsw i64 64, %6
   %call12.i = call fastcc ptr @factorial_partial_product(i64 noundef %upper.041.i, i64 noundef %or.i, i64 noundef %sub.i36.i)
   %cmp13.i = icmp eq ptr %call12.i, null
@@ -4486,7 +4486,7 @@ if.end22.i:                                       ; preds = %if.else10.i, %if.el
   br label %loghelper.exit
 
 if.end24.i:                                       ; preds = %if.end
-  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %1, ptr noundef nonnull readonly @m_log, i32 noundef 0)
+  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %1, ptr noundef nonnull @m_log, i32 noundef 0)
   br label %loghelper.exit
 
 loghelper.exit.thread:                            ; preds = %if.then3.i, %if.then7.i, %land.lhs.true14.i
@@ -4594,7 +4594,7 @@ if.end22.i36:                                     ; preds = %if.else10.i91, %if.
   br label %loghelper.exit57
 
 if.end24.i55:                                     ; preds = %if.end7
-  %call25.i56 = call fastcc ptr @math_1(ptr noundef nonnull %14, ptr noundef nonnull readonly @m_log, i32 noundef 0)
+  %call25.i56 = call fastcc ptr @math_1(ptr noundef nonnull %14, ptr noundef nonnull @m_log, i32 noundef 0)
   br label %loghelper.exit57
 
 loghelper.exit57.thread:                          ; preds = %if.then3.i29, %if.then7.i42, %land.lhs.true14.i52
@@ -4791,7 +4791,7 @@ if.end22.i:                                       ; preds = %if.else10.i, %if.el
   br label %loghelper.exit
 
 if.end24.i:                                       ; preds = %entry
-  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %x, ptr noundef nonnull readonly @m_log10, i32 noundef 0)
+  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %x, ptr noundef nonnull @m_log10, i32 noundef 0)
   br label %loghelper.exit
 
 loghelper.exit:                                   ; preds = %if.then3.i, %if.then7.i, %land.lhs.true14.i, %if.end22.i, %if.end24.i
@@ -4923,7 +4923,7 @@ if.end22.i:                                       ; preds = %if.else7.i, %if.the
   br label %loghelper.exit
 
 if.end24.i:                                       ; preds = %entry
-  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %x, ptr noundef nonnull readonly @m_log2, i32 noundef 0)
+  %call25.i = tail call fastcc ptr @math_1(ptr noundef nonnull %x, ptr noundef nonnull @m_log2, i32 noundef 0)
   br label %loghelper.exit
 
 loghelper.exit:                                   ; preds = %if.then3.i, %if.then7.i, %land.lhs.true14.i, %if.end22.i, %if.end24.i
@@ -8109,7 +8109,7 @@ if.end:                                           ; preds = %entry
   %add5 = add i64 %div19, %start
   %or = or i64 %add5, 1
   %sub6 = add i64 %or, -2
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub6, i1 true)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, -2) %sub6, i1 true)
   %sub.i = sub nuw nsw i64 64, %0
   %call8 = tail call fastcc ptr @factorial_partial_product(i64 noundef %start, i64 noundef %or, i64 noundef %sub.i)
   %cmp9 = icmp eq ptr %call8, null

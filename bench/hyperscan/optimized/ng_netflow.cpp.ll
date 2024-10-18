@@ -989,7 +989,7 @@ invoke.cont59.i:                                  ; preds = %if.end.i.i.i.i.i.i.
   store ptr %predecessors.sroa.0.042.i, ptr %agg.tmp52.i, align 8
   %61 = getelementptr inbounds i8, ptr %agg.tmp52.i, i64 8
   store i64 64, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp61.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp61.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %colors, i64 16, i1 false)
   %data.i.i20 = getelementptr inbounds i8, ptr %agg.tmp61.i, i64 16
   %62 = load ptr, ptr %data.i.i, align 8
   store ptr %62, ptr %data.i.i20, align 8
@@ -1992,7 +1992,7 @@ entry:
   %agg.tmp4 = alloca %"class.ue2::small_color_map", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %rev_map, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %pre_map, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
   %0 = load ptr, ptr %data3.i, align 8
@@ -2228,7 +2228,7 @@ invoke.cont:
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_N3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
@@ -2789,7 +2789,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeISt4pairImmES0_IKS1_N3ue212graph_d
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 16, i1 false)
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i, i64 16, i1 false)
@@ -2895,7 +2895,7 @@ entry:
   %m_pre_map = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pre_map, ptr noundef nonnull align 8 dereferenceable(16) %pre, i64 16, i1 false)
   %m_tree_map = getelementptr inbounds i8, ptr %this, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_tree_map, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_tree_map, ptr noundef nonnull align 8 dereferenceable(32) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %this, i64 96
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
   %0 = load ptr, ptr %data3.i, align 8
@@ -3308,7 +3308,7 @@ ehcleanup120:                                     ; preds = %ehcleanup119, %lpad
 while.body.i.i.i102:                              ; preds = %ehcleanup120, %while.body.i.i.i102
   %__cur.05.i.i.i = phi ptr [ %64, %while.body.i.i.i102 ], [ %63, %ehcleanup120 ]
   %64 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #22
   %cmp.not.i.i.i = icmp eq ptr %64, %m_orphans
   br i1 %cmp.not.i.i.i, label %ehcleanup121, label %while.body.i.i.i102, !llvm.loop !137
 
@@ -3406,7 +3406,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHol
 while.body.i.i.i:                                 ; preds = %_ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESt5dequeIS9_SaIS9_EEED2Ev.exit, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %9, %while.body.i.i.i ], [ %8, %_ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESt5dequeIS9_SaIS9_EEED2Ev.exit ]
   %9 = load ptr, ptr %__cur.05.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #22
   %cmp.not.i.i.i = icmp eq ptr %9, %m_orphans
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !137
 
@@ -5458,7 +5458,7 @@ if.then:                                          ; preds = %while.body
   %sub.i.i.i = add i64 %6, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
-  call void @_ZdlPv(ptr noundef %5) #22
+  call void @_ZdlPv(ptr noundef nonnull %5) #22
   br label %if.end
 
 if.else:                                          ; preds = %while.body

@@ -195,7 +195,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 %keytype.addr.0, ptr %keytype1, align 4
   %optype1 = getelementptr inbounds i8, ptr %tmpl, i64 12
   store i32 %optype, ptr %optype1, align 4
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -912,7 +912,7 @@ entry:
   store ptr %name, ptr %ctrl_str, align 8
   %ctrl_hexstr = getelementptr inbounds i8, ptr %tmpl, i64 32
   store ptr %name, ptr %ctrl_hexstr, align 8
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %if.end12, label %if.then
 
@@ -1036,7 +1036,7 @@ for.body:                                         ; preds = %land.rhs.lr.ph, %la
   store i32 %0, ptr %keytype1, align 4
   store i32 %spec.select, ptr %optype5, align 4
   store ptr %5, ptr %param_key, align 8
-  %call.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
+  %call.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl, ptr noundef nonnull @evp_pkey_ctx_translations, i64 noundef 86)
   %cmp7.not = icmp eq ptr %call.i, null
   br i1 %cmp7.not, label %if.end13, label %if.then
 
@@ -1140,7 +1140,7 @@ for.body.i:                                       ; preds = %land.rhs.lr.ph.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tmpl.i, i8 0, i64 64, i1 false)
   store i32 1, ptr %tmpl.i, align 8
   store ptr %1, ptr %param_key.i, align 8
-  %call.i.i = call fastcc ptr @lookup_translation(ptr noundef %tmpl.i, ptr noundef nonnull @evp_pkey_translations, i64 noundef 41)
+  %call.i.i = call fastcc ptr @lookup_translation(ptr noundef nonnull %tmpl.i, ptr noundef nonnull @evp_pkey_translations, i64 noundef 41)
   %cmp4.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp4.not.i, label %evp_pkey_setget_params_to_ctrl.exit, label %lor.lhs.false.i
 

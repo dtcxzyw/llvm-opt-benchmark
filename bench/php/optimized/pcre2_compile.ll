@@ -8069,7 +8069,7 @@ define internal fastcc i32 @check_lookbehinds(ptr noundef %0, ptr noundef writeo
   %.042.i = phi i32 [ 0, %55 ], [ %spec.select.i, %79 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 4
   store ptr %62, ptr %7, align 8
-  %63 = call fastcc i32 @get_branchlength(ptr noundef %7, ptr noundef %6, ptr noundef %8, ptr noundef %4, ptr noundef %2, ptr noundef %3)
+  %63 = call fastcc i32 @get_branchlength(ptr noundef nonnull %7, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull %3)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %74
 
@@ -9066,7 +9066,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %428 = load i32, ptr %427, align 4
   store i32 %428, ptr %102, align 4
   %429 = load i32, ptr %.02630.i148, align 4
-  %430 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %429, i32 noundef %428)
+  %430 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %429, i32 noundef %428)
   %.not.i150 = icmp eq i32 %421, -1
   br i1 %.not.i150, label %add_list_to_class.exit152, label %.preheader.i146
 
@@ -9079,7 +9079,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %434 = add i32 %432, -1
   store i32 0, ptr %101, align 8
   store i32 %434, ptr %102, align 4
-  %435 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef 0, i32 noundef %434)
+  %435 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %434)
   %.not3033.i134 = icmp eq i32 %432, -1
   br i1 %.not3033.i134, label %add_list_to_class.exit152, label %.preheader.i137.preheader
 
@@ -9104,7 +9104,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %444 = select i1 %442, i32 %290, i32 %443
   store i32 %439, ptr %101, align 8
   store i32 %444, ptr %102, align 4
-  %445 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %439, i32 noundef %444)
+  %445 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %439, i32 noundef %444)
   br i1 %442, label %add_list_to_class.exit152, label %.preheader.i137.backedge
 
 446:                                              ; preds = %374
@@ -9136,7 +9136,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %461 = load i32, ptr %460, align 4
   store i32 %461, ptr %102, align 4
   %462 = load i32, ptr %.02630.i, align 4
-  %463 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %462, i32 noundef %461)
+  %463 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %462, i32 noundef %461)
   %.not.i130 = icmp eq i32 %454, -1
   br i1 %.not.i130, label %add_list_to_class.exit152, label %.preheader.i128
 
@@ -9149,7 +9149,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %467 = add i32 %465, -1
   store i32 0, ptr %101, align 8
   store i32 %467, ptr %102, align 4
-  %468 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef 0, i32 noundef %467)
+  %468 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %467)
   %.not3033.i = icmp eq i32 %465, -1
   br i1 %.not3033.i, label %add_list_to_class.exit152, label %.preheader.i.preheader
 
@@ -9174,7 +9174,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %477 = select i1 %475, i32 %290, i32 %476
   store i32 %472, ptr %101, align 8
   store i32 %477, ptr %102, align 4
-  %478 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %288, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %472, i32 noundef %477)
+  %478 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef range(i32 0, -8) %288, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %472, i32 noundef %477)
   br i1 %475, label %add_list_to_class.exit152, label %.preheader.i.backedge
 
 479:                                              ; preds = %374, %374
@@ -9251,14 +9251,14 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
 513:                                              ; preds = %510, %508
   store i32 %.21258.i, ptr %101, align 8
   store i32 %.01269.i, ptr %102, align 4
-  %514 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %.21258.i, i32 noundef %.01269.i)
+  %514 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %.21258.i, i32 noundef %.01269.i)
   %515 = add i32 %514, %.01358.i849
   br label %add_list_to_class.exit152
 
 516:                                              ; preds = %498
   store i32 %.21258.i, ptr %101, align 8
   store i32 %.21258.i, ptr %102, align 4
-  %517 = call fastcc i32 @add_to_class_internal(ptr noundef %18, ptr noundef %19, i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef %12, i32 noundef %.21258.i, i32 noundef %.21258.i)
+  %517 = call fastcc i32 @add_to_class_internal(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef nonnull %12, i32 noundef %.21258.i, i32 noundef %.21258.i)
   %518 = add i32 %517, %.01358.i849
   br label %add_list_to_class.exit152
 
@@ -9786,7 +9786,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   br i1 %78, label %753, label %755
 
 753:                                              ; preds = %749
-  %754 = call fastcc i32 @find_dupname_details(ptr noundef %682, i32 noundef %672, ptr noundef %27, ptr noundef %26, ptr noundef %4, ptr noundef %12)
+  %754 = call fastcc i32 @find_dupname_details(ptr noundef %682, i32 noundef %672, ptr noundef %27, ptr noundef %26, ptr noundef nonnull %4, ptr noundef nonnull %12)
   %.not1483.i = icmp eq i32 %754, 0
   br i1 %.not1483.i, label %compile_branch.exit.thread, label %755
 
@@ -9998,7 +9998,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   store ptr %.11322.i, ptr %17, align 8
   %875 = load i32, ptr %88, align 4
   store i64 0, ptr %16, align 8
-  %876 = call fastcc i32 @compile_regex(i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef %17, ptr noundef %15, ptr noundef %4, i32 noundef %.11353.i, ptr noundef %21, ptr noundef %23, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %34, ptr noundef %.084, ptr noundef %12, ptr noundef %..i)
+  %876 = call fastcc i32 @compile_regex(i32 noundef %.01208.i, i32 noundef %.01211.i, ptr noundef %17, ptr noundef %15, ptr noundef nonnull %4, i32 noundef %.11353.i, ptr noundef %21, ptr noundef %23, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %34, ptr noundef %.084, ptr noundef nonnull %12, ptr noundef %..i)
   %877 = icmp eq i32 %876, 0
   br i1 %877, label %compile_branch.exit.thread, label %878
 
@@ -10269,7 +10269,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader379, %.pr
   br i1 %78, label %1005, label %1007
 
 1005:                                             ; preds = %1004
-  %1006 = call fastcc i32 @find_dupname_details(ptr noundef %966, i32 noundef %956, ptr noundef %29, ptr noundef %28, ptr noundef %4, ptr noundef %12)
+  %1006 = call fastcc i32 @find_dupname_details(ptr noundef %966, i32 noundef %956, ptr noundef %29, ptr noundef %28, ptr noundef nonnull %4, ptr noundef nonnull %12)
   %.not1478.i = icmp eq i32 %1006, 0
   br i1 %.not1478.i, label %compile_branch.exit.thread, label %1007
 
@@ -14097,7 +14097,7 @@ define internal fastcc range(i32 -2147483648, 65536) i32 @get_branchlength(ptr n
   %.042.i = phi i32 [ 0, %83 ], [ %spec.select.i, %111 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 4
   store ptr %90, ptr %10, align 8
-  %91 = call fastcc i32 @get_branchlength(ptr noundef %10, ptr noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %91 = call fastcc i32 @get_branchlength(ptr noundef nonnull %10, ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %106
 
@@ -14411,7 +14411,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
   br label %274
 
 251:                                              ; preds = %246, %239, %.critedge
-  %252 = call fastcc i32 @get_branchlength(ptr noundef %12, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11, ptr noundef %5)
+  %252 = call fastcc i32 @get_branchlength(ptr noundef nonnull %12, ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noundef nonnull %5)
   %253 = icmp slt i32 %252, 0
   br i1 %253, label %._crit_edge310, label %.lr.ph309
 
@@ -14430,7 +14430,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
 259:                                              ; preds = %.lr.ph309
   %260 = getelementptr inbounds i8, ptr %256, i64 4
   store ptr %260, ptr %12, align 8
-  %261 = call fastcc i32 @get_branchlength(ptr noundef %12, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11, ptr noundef %5)
+  %261 = call fastcc i32 @get_branchlength(ptr noundef nonnull %12, ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noundef nonnull %5)
   %262 = icmp slt i32 %261, 0
   br i1 %262, label %._crit_edge310, label %.lr.ph309
 
@@ -14526,7 +14526,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
 301:                                              ; preds = %.sink.split, %293, %286, %279
   %302 = phi i1 [ true, %293 ], [ true, %286 ], [ false, %279 ], [ false, %.sink.split ]
   %303 = phi ptr [ %285, %293 ], [ %285, %286 ], [ %285, %279 ], [ %300, %.sink.split ]
-  %304 = call fastcc i32 @get_branchlength(ptr noundef %10, ptr noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %304 = call fastcc i32 @get_branchlength(ptr noundef nonnull %10, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5)
   %305 = icmp slt i32 %304, 0
   br i1 %305, label %._crit_edge, label %.lr.ph
 
@@ -14545,7 +14545,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
 311:                                              ; preds = %.lr.ph
   %312 = getelementptr inbounds i8, ptr %308, i64 4
   store ptr %312, ptr %10, align 8
-  %313 = call fastcc i32 @get_branchlength(ptr noundef %10, ptr noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %313 = call fastcc i32 @get_branchlength(ptr noundef nonnull %10, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5)
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %._crit_edge, label %.lr.ph
 
@@ -15253,7 +15253,7 @@ define internal fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr no
   %101 = zext i32 %.1.i to i64
   %102 = getelementptr inbounds i32, ptr %.021.i177, i64 %101
   %103 = load i32, ptr %102, align 4
-  %104 = tail call fastcc i32 @add_to_class_internal(ptr noundef %0, ptr noundef %1, i32 noundef %16, i32 noundef %3, ptr noundef %4, i32 noundef %91, i32 noundef %103)
+  %104 = tail call fastcc i32 @add_to_class_internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, -8) %16, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %91, i32 noundef %103)
   %105 = add i32 %104, %.019.i178
   br label %106
 

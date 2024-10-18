@@ -245,7 +245,7 @@ define internal noundef zeroext i1 @"_ZN61_$LT$core..cell..Ref$LT$T$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !46
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !41
   %9 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %6, i64 %8
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4c9f8454ccc349d4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, ptr noundef nonnull %9), !noalias !41
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4c9f8454ccc349d4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 %6, ptr noundef nonnull %9), !noalias !41
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46
   ret i1 %11
@@ -263,7 +263,7 @@ define internal noundef zeroext i1 @"_ZN61_$LT$core..cell..Ref$LT$T$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !54
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !58
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
-  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hf0b93997ec53d3e6E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %9), !noalias !49
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hf0b93997ec53d3e6E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %6, ptr noundef nonnull readonly %9), !noalias !49
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hadbed7078d8807f7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !54
   ret i1 %11

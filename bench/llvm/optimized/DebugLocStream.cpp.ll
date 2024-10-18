@@ -153,7 +153,7 @@ define dso_local void @_ZN4llvm14DebugLocStream11ListBuilderD2Ev(ptr nocapture n
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1465) %5) #8
   %10 = getelementptr inbounds %"struct.llvm::DebugLocStream::List", ptr %8, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8
@@ -163,9 +163,9 @@ define dso_local void @_ZN4llvm14DebugLocStream11ListBuilderD2Ev(ptr nocapture n
   br i1 %.not, label %_ZN4llvm14DebugLocStream12finalizeListERNS_10AsmPrinterE.exit, label %17
 
 _ZN4llvm14DebugLocStream12finalizeListERNS_10AsmPrinterE.exit: ; preds = %1
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1465) %5) #8
   %16 = add i64 %15, -1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #8
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(1465) %5, i64 noundef %16) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %37
 
@@ -177,7 +177,7 @@ _ZN4llvm14DebugLocStream12finalizeListERNS_10AsmPrinterE.exit: ; preds = %1
   store i8 3, ptr %18, align 8
   %20 = call noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(785) %7, ptr noundef nonnull align 8 dereferenceable(34) %4) #8
   %21 = load ptr, ptr %5, align 8
-  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
+  %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(1465) %5) #8
   %23 = getelementptr inbounds %"struct.llvm::DebugLocStream::List", ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
   store ptr %20, ptr %24, align 8
@@ -268,7 +268,7 @@ define linkonce_odr hidden void @_ZSt10__do_visitINSt8__detail9__variant20__vari
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #8
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %20) #8
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 24
   %24 = icmp eq ptr %22, %23
@@ -309,7 +309,7 @@ _ZN4llvm3Loc6SingleaSEOS1_.exit.i.i.i.i:          ; preds = %_ZNKSt14default_del
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %35, ptr noundef nonnull align 8 dereferenceable(6) %1, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %35, ptr noundef nonnull align 8 dereferenceable(49) %1, i64 6, i1 false)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS5_S8_S9_SA_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SL_.exit
 
 40:                                               ; preds = %34
@@ -320,11 +320,11 @@ _ZN4llvm3Loc6SingleaSEOS1_.exit.i.i.i.i:          ; preds = %_ZNKSt14default_del
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS5_S8_S9_SA_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SL_.exit
 
 42:                                               ; preds = %2
-  tail call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEEaSEOS9_ENUlOT_T0_E_clIRS7_St17integral_constantImLm3EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  tail call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEEaSEOS9_ENUlOT_T0_E_clIRS7_St17integral_constantImLm3EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS5_S8_S9_SA_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SL_.exit
 
 43:                                               ; preds = %2
-  tail call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm4EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  tail call void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS4_5MultiENS4_3MMIENS4_10EntryValueEEEaSEOS9_ENUlOT_T0_E_clIRS8_St17integral_constantImLm4EEEEDaSC_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1)
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJSt9monostateN4llvm3Loc6SingleENS7_5MultiENS7_3MMIENS7_10EntryValueEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS5_S8_S9_SA_SB_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESI_SL_.exit
 
 44:                                               ; preds = %2
@@ -359,7 +359,7 @@ define linkonce_odr hidden void @_ZNSt8__detail9__variant16_Variant_storageILb0E
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = icmp eq ptr %9, %10
@@ -380,13 +380,13 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Varia
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  tail call void @_ZNSt8_Rb_treeIN4llvm14FrameIndexExprES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %15)
+  tail call void @_ZNSt8_Rb_treeIN4llvm14FrameIndexExprES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %15)
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN4llvm3Loc6SingleENS5_5MultiENS5_3MMIENS5_10EntryValueEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_EEEEDcOT0_DpOT1_.exit
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void @_ZNSt8_Rb_treeIN4llvm14EntryValueInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %18)
+  tail call void @_ZNSt8_Rb_treeIN4llvm14EntryValueInfoES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %18)
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN4llvm3Loc6SingleENS5_5MultiENS5_3MMIENS5_10EntryValueEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_S7_S8_S9_EEEEDcOT0_DpOT1_.exit
 
 19:                                               ; preds = %1

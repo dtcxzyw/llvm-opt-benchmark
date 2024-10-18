@@ -73,7 +73,7 @@ if.then12:                                        ; preds = %if.end10
 
 if.then15:                                        ; preds = %if.then12
   %3 = load ptr, ptr @sig_app, align 8
-  %call.i11 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %call.i10) #5
+  %call.i11 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef range(i32 0, -2147483648) %call.i10) #5
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %if.then15, %if.end10
@@ -170,7 +170,7 @@ if.end17.thread:                                  ; preds = %if.then11, %if.end9
 
 if.end17:                                         ; preds = %if.then11
   %4 = load ptr, ptr @sigx_app, align 8
-  %call.i8 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %call.i7) #5
+  %call.i8 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef range(i32 0, -2147483648) %call.i7) #5
   store ptr %call.i8, ptr %t, align 8
   %5 = load ptr, ptr @sig_lock, align 8
   %call18 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #5
@@ -273,7 +273,7 @@ if.then12.i:                                      ; preds = %if.end5.i
 
 if.end18.i:                                       ; preds = %if.then12.i
   %4 = load ptr, ptr @sig_app, align 8
-  %call.i11.i = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %call.i10.i) #5
+  %call.i11.i = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef range(i32 0, -2147483648) %call.i10.i) #5
   %cmp23.i = icmp eq ptr %call.i11.i, null
   br i1 %cmp23.i, label %if.end18, label %if.then15
 

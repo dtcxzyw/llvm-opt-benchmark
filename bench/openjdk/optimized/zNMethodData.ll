@@ -11,14 +11,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12ZNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 40, i1 false)
+  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store volatile ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
+  tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #7
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   store volatile ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -70,7 +70,7 @@ define hidden void @_ZN12ZNMethodData4swapEP18GrowableArrayCHeapI19ZNMethodDataB
   br i1 %.not.i.i, label %13, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #7
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %6) #7
   store volatile ptr %8, ptr %9, align 8
   br label %13
 
@@ -123,7 +123,7 @@ define hidden void @_ZN12ZNMethodData4swapEP18GrowableArrayCHeapI19ZNMethodDataB
 
 43:                                               ; preds = %13
   store volatile ptr null, ptr %9, align 8
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #7
+  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #7
   br label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit
 
 _ZN7ZLockerI14ZReentrantLockED2Ev.exit:           ; preds = %13, %43

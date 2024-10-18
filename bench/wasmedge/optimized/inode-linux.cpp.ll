@@ -466,7 +466,7 @@ declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 define i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15__wasi_fdstat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
   store i8 1, ptr %4, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #24
@@ -563,7 +563,7 @@ _ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit: ; preds = %18, %switch.loo
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10updateStatEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
   store i8 1, ptr %3, align 8
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @fstat(i32 noundef %4, ptr noundef nonnull %2) #24
@@ -662,7 +662,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode16fdFdstatSetFlags
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode13fdFilestatGetER17__wasi_filestat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
   store i8 1, ptr %4, align 8
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #24
@@ -3533,7 +3533,7 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr nocapture noundef nonnu
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
   %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
@@ -3584,7 +3584,7 @@ define noundef zeroext i1 @_ZNK8WasmEdge4Host4WASI5INode11isDirectoryEv(ptr noca
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
   %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
@@ -3618,7 +3618,7 @@ define noundef zeroext i1 @_ZNK8WasmEdge4Host4WASI5INode9isSymlinkEv(ptr nocaptu
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
   %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
@@ -3652,7 +3652,7 @@ define { i8, i64 } @_ZNK8WasmEdge4Host4WASI5INode8filesizeEv(ptr nocapture nound
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
   %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
@@ -3700,7 +3700,7 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host4WASI13PollerContext12acquireTimerE16__wasi_clockid_t(ptr dead_on_unwind noalias nocapture writable sret(%"class.cxx20::expected.80") align 4 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<__wasi_clockid_t, std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>, std::allocator<std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>>, std::__detail::_Select1st, std::equal_to<__wasi_clockid_t>, std::hash<__wasi_clockid_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %1) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
@@ -3868,7 +3868,7 @@ _ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7:    ; preds = %55, %69, %75
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7, %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit.thread, %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit
-  %86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #24
+  %86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
   ret void
 
 87:                                               ; preds = %.loopexit.i.i, %6
@@ -3966,7 +3966,7 @@ _ZNSt16allocator_traitsISaIN8WasmEdge4Host4WASI6Poller5TimerEEE7destroyIS4_EEvRS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<__wasi_clockid_t, std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>, std::allocator<std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>>, std::__detail::_Select1st, std::equal_to<__wasi_clockid_t>, std::hash<__wasi_clockid_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #24
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %5
 
@@ -4104,7 +4104,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %70
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %67, %59, %40
-  %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #24
+  %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   ret void
 
 70:                                               ; preds = %5, %67
@@ -6386,7 +6386,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
   %4 = alloca %"struct.spdlog::source_loc", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #24
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load atomic i32, ptr %6 monotonic, align 8
@@ -6400,7 +6400,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, ptr %13, i64 %14, i32 noundef 3, ptr nonnull %1, i64 %5)
+  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, ptr %13, i64 %14, i32 noundef 3, ptr nonnull align 1 dereferenceable(27) %1, i64 %5)
   call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i1 noundef zeroext %8, i1 noundef zeroext %10)
   br label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
 

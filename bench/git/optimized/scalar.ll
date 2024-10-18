@@ -759,7 +759,7 @@ lor.lhs.false.i:                                  ; preds = %do.body.i.i
 lor.lhs.false.i.i51:                              ; preds = %lor.lhs.false.i
   %sub.i.i52 = add i64 %sub.ptr.sub.i, -5
   %add.ptr.i.i53 = getelementptr inbounds i8, ptr %line.054.i, i64 %sub.i.i52
-  %bcmp.i.i54 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i53, ptr noundef nonnull readonly dereferenceable(5) @.str.70, i64 5)
+  %bcmp.i.i54 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i53, ptr noundef nonnull dereferenceable(5) @.str.70, i64 5)
   %tobool.not.i11.i = icmp eq i32 %bcmp.i.i54, 0
   br i1 %tobool.not.i11.i, label %if.end.i55, label %if.then5.i
 

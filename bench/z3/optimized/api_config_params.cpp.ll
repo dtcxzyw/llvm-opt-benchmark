@@ -393,7 +393,7 @@ if.end:                                           ; preds = %if.then, %entry
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %if.end
-  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(24) %call5, ptr noundef nonnull align 8 dereferenceable(3048) %c)
+  invoke void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(32) %call5, ptr noundef nonnull align 8 dereferenceable(3048) %c)
           to label %.noexc unwind label %lpad1
 
 .noexc:                                           ; preds = %invoke.cont4
@@ -524,7 +524,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 
 invoke.cont5:                                     ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call6, i8 0, i64 128, i1 false)
-  invoke void @_ZN14context_paramsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %call6)
+  invoke void @_ZN14context_paramsC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %call6)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont5

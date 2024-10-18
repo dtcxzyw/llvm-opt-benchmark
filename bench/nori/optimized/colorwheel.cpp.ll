@@ -703,7 +703,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   store <2 x float> %103, ptr %.sink117.sroa.phi, align 4
   %104 = getelementptr inbounds i8, ptr %0, i64 184
   %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
+  call void %105(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
   br label %106
 
 106:                                              ; preds = %.sink.split, %49, %85, %40
@@ -1029,7 +1029,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD2Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 160
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -1054,7 +1054,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD0Ev(ptr noundef nonnull
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 160
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN7nanogui10ColorWheelD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -1065,7 +1065,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD0Ev(ptr noundef nonnull
   unreachable
 
 _ZN7nanogui10ColorWheelD2Ev.exit:                 ; preds = %1, %4
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #17
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

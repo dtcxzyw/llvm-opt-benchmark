@@ -81,7 +81,7 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerC2ERKNS0_27Comp
   %14 = alloca %"class.std::vector.11", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i64 16), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -797,7 +797,7 @@ _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EE
   br label %_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev.exit
 
 _ZN5ceres8internal25SchurJacobiPreconditionerD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit.i, %14
-  tail call void @_ZN5ceres8internal14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN5ceres8internal14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

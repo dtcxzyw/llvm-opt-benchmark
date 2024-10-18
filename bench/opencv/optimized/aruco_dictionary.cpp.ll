@@ -540,7 +540,7 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %99, %93, %86
           to label %132 unwind label %.loopexit.split-lp87
 
 132:                                              ; preds = %129
-  %133 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %25)
+  %133 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %25)
           to label %134 unwind label %143
 
 134:                                              ; preds = %132
@@ -548,7 +548,7 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %99, %93, %86
   %136 = getelementptr inbounds i8, ptr %25, i64 96
   %137 = load i64, ptr %136, align 8
   store i64 %137, ptr %135, align 8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %25) #11
   br label %145
 
 138:                                              ; preds = %._crit_edge102
@@ -570,7 +570,7 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %99, %93, %86
 143:                                              ; preds = %132
   %144 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %25) #11
   br label %147
 
 .critedge59:                                      ; preds = %66
@@ -3027,7 +3027,7 @@ switch.lookup:                                    ; preds = %222
 314:                                              ; preds = %222, %switch.lookup
   %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink = phi ptr [ %switch.load, %switch.lookup ], [ @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, %222 ]
   %.sink.in = phi ptr [ %switch.load98, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), %222 ]
-  call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink)
+  call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink)
   %.sink = load i64, ptr %.sink.in, align 8
   %315 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %.sink, ptr %315, align 8
@@ -3608,7 +3608,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 201:                                              ; preds = %.loopexit121, %.loopexit.split-lp, %200, %125, %116, %69
   %.pn71.pn.pn = phi { ptr, i32 } [ %.pn71.pn, %125 ], [ %.pn68.pn, %200 ], [ %.pn64, %116 ], [ %.pn62, %69 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #11
   br label %202
 
 202:                                              ; preds = %201, %60, %36

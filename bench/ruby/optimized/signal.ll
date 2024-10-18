@@ -380,7 +380,7 @@ rb_num2int_inline.exit52:                         ; preds = %84, %86
   %91 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !11
   store volatile i64 %91, ptr %5, align 8
   %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8
-  %92 = call i32 @sigaction(i32 noundef %.039.fr, ptr noundef null, ptr noundef nonnull %3) #16
+  %92 = call i32 @sigaction(i32 noundef range(i32 1, -2147483648) %.039.fr, ptr noundef null, ptr noundef nonnull %3) #16
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %signal_ignored.exit.thread, label %94
 

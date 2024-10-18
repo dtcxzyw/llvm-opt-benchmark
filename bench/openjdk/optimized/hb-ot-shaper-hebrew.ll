@@ -25,7 +25,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 128
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef i32 %10(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %12)
+  %13 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %12)
   %.not41 = icmp eq i32 %13, 0
   br i1 %.not41, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread, label %52
 

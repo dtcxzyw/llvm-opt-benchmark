@@ -3838,7 +3838,7 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %pmix_
 .lr.ph.i161:                                      ; preds = %176, %.lr.ph.i161
   %182 = phi ptr [ %184, %.lr.ph.i161 ], [ %181, %176 ]
   %.07.i162 = phi ptr [ %183, %.lr.ph.i161 ], [ %180, %176 ]
-  tail call void %182(ptr noundef %159) #15
+  tail call void %182(ptr noundef nonnull %159) #15
   %183 = getelementptr inbounds i8, ptr %.07.i162, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not.i163 = icmp eq ptr %184, null
@@ -3931,7 +3931,7 @@ pmix_obj_run_destructors.exit170:                 ; preds = %.lr.ph.i167, %._cri
 .lr.ph.i174:                                      ; preds = %221, %.lr.ph.i174
   %227 = phi ptr [ %229, %.lr.ph.i174 ], [ %226, %221 ]
   %.07.i175 = phi ptr [ %228, %.lr.ph.i174 ], [ %225, %221 ]
-  tail call void %227(ptr noundef %204) #15
+  tail call void %227(ptr noundef nonnull %204) #15
   %228 = getelementptr inbounds i8, ptr %.07.i175, i64 8
   %229 = load ptr, ptr %228, align 8
   %.not.i176 = icmp eq ptr %229, null
@@ -4024,7 +4024,7 @@ pmix_obj_run_destructors.exit183:                 ; preds = %.lr.ph.i180, %._cri
 .lr.ph.i187:                                      ; preds = %266, %.lr.ph.i187
   %272 = phi ptr [ %274, %.lr.ph.i187 ], [ %271, %266 ]
   %.07.i188 = phi ptr [ %273, %.lr.ph.i187 ], [ %270, %266 ]
-  tail call void %272(ptr noundef %249) #15
+  tail call void %272(ptr noundef nonnull %249) #15
   %273 = getelementptr inbounds i8, ptr %.07.i188, i64 8
   %274 = load ptr, ptr %273, align 8
   %.not.i189 = icmp eq ptr %274, null
@@ -4117,7 +4117,7 @@ pmix_obj_run_destructors.exit196:                 ; preds = %.lr.ph.i193, %._cri
 .lr.ph.i200:                                      ; preds = %311, %.lr.ph.i200
   %317 = phi ptr [ %319, %.lr.ph.i200 ], [ %316, %311 ]
   %.07.i201 = phi ptr [ %318, %.lr.ph.i200 ], [ %315, %311 ]
-  tail call void %317(ptr noundef %294) #15
+  tail call void %317(ptr noundef nonnull %294) #15
   %318 = getelementptr inbounds i8, ptr %.07.i201, i64 8
   %319 = load ptr, ptr %318, align 8
   %.not.i202 = icmp eq ptr %319, null

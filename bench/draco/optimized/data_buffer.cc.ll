@@ -27,7 +27,7 @@ define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull
   br i1 %5, label %_ZN5draco10DataBuffer6UpdateEPKvll.exit, label %7
 
 7:                                                ; preds = %6
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2)
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i
 
 8:                                                ; preds = %3
@@ -44,7 +44,7 @@ define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %9
-  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2)
+  tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2)
   br label %18
 
 18:                                               ; preds = %17, %9

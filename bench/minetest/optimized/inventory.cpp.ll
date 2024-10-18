@@ -2290,7 +2290,7 @@ invoke.cont288:                                   ; preds = %if.then285
   %_M_string_length.i.i.i.i79 = getelementptr inbounds i8, ptr %fnd290, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i79, align 8, !tbaa !14
   store i8 0, ptr %202, align 8, !tbaa !16
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %fnd290, ptr noundef nonnull align 8 dereferenceable(32) %all286)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %fnd290, ptr noundef nonnull align 8 dereferenceable(32) %all286)
           to label %invoke.cont292 unwind label %lpad.i80
 
 lpad.i80:                                         ; preds = %invoke.cont288

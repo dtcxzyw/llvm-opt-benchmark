@@ -427,7 +427,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 2
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #15
   %52 = load ptr, ptr %0, align 8
@@ -906,7 +906,7 @@ define dso_local void @_ZN4llvm8codeview30DebugInlineeLinesSubsectionRefC2Ev(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -1003,7 +1003,7 @@ define linkonce_odr hidden void @_ZN4llvm18BinaryStreamReader9readArrayINS_8code
   %.sroa.5 = alloca { ptr, i64, %"class.std::optional" }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 32, i1 false)
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %3) #15
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
@@ -1395,7 +1395,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %16, %51
   %.sroa.034.046 = phi ptr [ %52, %51 ], [ %18, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.034.046, i64 24
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %21, i64 12) #15
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(12) %21, i64 12) #15
   %22 = load ptr, ptr %0, align 8
   %.not42 = icmp eq ptr %22, null
   br i1 %.not42, label %23, label %.loopexit
@@ -1704,7 +1704,7 @@ _ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaI
   br label %_ZN4llvm8codeview27DebugInlineeLinesSubsectionD2Ev.exit
 
 _ZN4llvm8codeview27DebugInlineeLinesSubsectionD2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm8codeview27DebugInlineeLinesSubsection5EntryES3_EvT_S5_RSaIT0_E.exit.i.i, %15
-  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
+  tail call void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #18
   ret void
 }
@@ -1865,7 +1865,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview30DebugInlineeLinesSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview30DebugInlineeLinesSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #18
   ret void
 }
@@ -2040,7 +2040,7 @@ _ZNSt12_Vector_baseIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE1
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !44, !noalias !41
   store ptr %31, ptr %29, align 8, !alias.scope !41, !noalias !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !44, !noalias !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !44, !noalias !41
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(12) %33, i64 12, i1 false), !alias.scope !46
@@ -2070,7 +2070,7 @@ _ZNSt6vectorIN4llvm8codeview27DebugInlineeLinesSubsection5EntryESaIS3_EE11_S_rel
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !51, !noalias !48
   store ptr %43, ptr %41, align 8, !alias.scope !48, !noalias !51
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !51, !noalias !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !51, !noalias !48
   %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false), !alias.scope !53

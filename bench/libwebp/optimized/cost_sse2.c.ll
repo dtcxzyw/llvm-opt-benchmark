@@ -30,7 +30,7 @@ define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture nound
 9:                                                ; preds = %2
   %10 = xor i16 %8, -1
   %11 = zext i16 %10 to i32
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %11, i1 true)
   %13 = xor i32 %12, 31
   br label %14
 

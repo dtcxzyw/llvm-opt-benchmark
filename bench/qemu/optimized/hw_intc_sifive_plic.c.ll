@@ -328,7 +328,7 @@ if.then.i:                                        ; preds = %while.cond.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %conv4.i = trunc nuw nsw i32 %modes.0.i to i8
-  %3 = tail call range(i8 1, 4) i8 @llvm.ctpop.i8(i8 %conv4.i)
+  %3 = tail call range(i8 1, 4) i8 @llvm.ctpop.i8(i8 range(i8 1, 8) %conv4.i)
   %4 = zext nneg i8 %3 to i32
   %add.i = add i32 %addrid.0.i.ph, %4
   %inc.i = add i32 %hartid.0.i.ph, 1
@@ -369,7 +369,7 @@ while.end.i:                                      ; preds = %while.cond.i
 
 if.then15.i:                                      ; preds = %while.end.i
   %conv16.i = trunc nuw nsw i32 %modes.0.i to i8
-  %5 = tail call range(i8 1, 4) i8 @llvm.ctpop.i8(i8 %conv16.i)
+  %5 = tail call range(i8 1, 4) i8 @llvm.ctpop.i8(i8 range(i8 1, 8) %conv16.i)
   %6 = zext nneg i8 %5 to i32
   %add18.i = add i32 %addrid.0.i.ph, %6
   %inc19.i = add i32 %hartid.0.i.ph, 1

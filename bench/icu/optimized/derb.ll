@@ -744,7 +744,7 @@ if.then65:                                        ; preds = %for.body
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then65, %for.body
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %locale)
   store i32 0, ptr %len.i, align 8
   %35 = load ptr, ptr %locale, align 8
   store i8 0, ptr %35, align 1
@@ -790,11 +790,11 @@ if.end81:                                         ; preds = %invoke.cont74.invok
   br i1 %cmp.i, label %if.end86, label %cleanup285.thread
 
 cleanup285.thread:                                ; preds = %if.end81
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %locale) #14
   br label %return
 
 if.end86:                                         ; preds = %if.end81
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %infile)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %infile)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %if.end86
@@ -906,7 +906,7 @@ if.then162:                                       ; preds = %if.then146, %if.end
           to label %if.end210 unwind label %lpad102
 
 if.else165:                                       ; preds = %if.end160
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %thefile)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %thefile)
           to label %invoke.cont166 unwind label %lpad102
 
 invoke.cont166:                                   ; preds = %if.else165
@@ -928,7 +928,7 @@ invoke.cont171:                                   ; preds = %if.then168
 lpad170:                                          ; preds = %invoke.cont190, %invoke.cont171, %invoke.cont206, %if.then203, %if.end197, %if.end188, %if.then180, %invoke.cont176, %if.end174, %if.then168
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %thefile) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %thefile) #14
   br label %ehcleanup
 
 if.end174:                                        ; preds = %invoke.cont171, %invoke.cont166
@@ -991,11 +991,11 @@ invoke.cont206:                                   ; preds = %if.then203
 
 cleanup.thread:                                   ; preds = %invoke.cont206, %invoke.cont191
   %retval.5.ph = phi i32 [ %67, %invoke.cont191 ], [ 4, %invoke.cont206 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %thefile) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %thefile) #14
   br label %cleanup285
 
 cleanup:                                          ; preds = %invoke.cont200
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %thefile) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %thefile) #14
   br label %if.end210
 
 if.end210:                                        ; preds = %cleanup, %if.then162
@@ -1139,18 +1139,18 @@ if.end282:                                        ; preds = %call.i.noexc106, %i
 cleanup285:                                       ; preds = %if.then222, %invoke.cont220, %if.end282, %if.end116, %cleanup.thread
   %switch = phi i1 [ false, %if.then222 ], [ false, %invoke.cont220 ], [ true, %if.end282 ], [ false, %if.end116 ], [ false, %cleanup.thread ]
   %retval.3 = phi i32 [ 3, %if.then222 ], [ 3, %invoke.cont220 ], [ %retval.1141, %if.end282 ], [ %51, %if.end116 ], [ %retval.5.ph, %cleanup.thread ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %infile) #14
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %infile) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %locale) #14
   br i1 %switch, label %for.cond, label %return
 
 ehcleanup:                                        ; preds = %lpad170, %lpad102
   %.pn = phi { ptr, i32 } [ %50, %lpad102 ], [ %60, %lpad170 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %infile) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %infile) #14
   br label %ehcleanup288
 
 ehcleanup288:                                     ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %41, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale) #14
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %locale) #14
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %cleanup285, %for.cond, %if.end57, %cleanup285.thread, %if.then27, %if.then18, %if.then9
@@ -2040,7 +2040,7 @@ land.lhs.true.i:                                  ; preds = %_ZL12quotedStringPK
 
 if.then.i304:                                     ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %inchar.i.i)
-  call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i.i, i32 noundef %add154, i32 noundef 32, i32 noundef %add154)
+  call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i.i, i32 noundef range(i32 -2147483644, -2147483648) %add154, i32 noundef 32, i32 noundef range(i32 -2147483644, -2147483648) %add154)
   %67 = load i16, ptr %fUnion.i.i.i, align 8
   %conv1.i.i.i = zext i16 %67 to i32
   %and.i.i.i = and i32 %conv1.i.i.i, 17
@@ -2050,7 +2050,7 @@ if.then.i304:                                     ; preds = %land.lhs.true.i
   %68 = load ptr, ptr %fArray.i.i.i, align 8
   %spec.select = select i1 %tobool6.not.i.i.i, ptr %68, ptr %fBuffer.i.i.i
   %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %spec.select, ptr null
-  %call.i3.i.i = invoke i32 @u_file_write_75(ptr noundef %retval.0.i.i.i, i32 noundef %add154, ptr noundef %out)
+  %call.i3.i.i = invoke i32 @u_file_write_75(ptr noundef %retval.0.i.i.i, i32 noundef range(i32 -2147483644, -2147483648) %add154, ptr noundef %out)
           to label %_ZL11printIndentP5UFILEi.exit.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i304
@@ -2079,7 +2079,7 @@ if.end.i:                                         ; preds = %_ZL11printIndentP5U
 
 if.then8.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %inchar.i15.i)
-  call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i15.i, i32 noundef %add154, i32 noundef 32, i32 noundef %add154)
+  call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i15.i, i32 noundef range(i32 -2147483644, -2147483648) %add154, i32 noundef 32, i32 noundef range(i32 -2147483644, -2147483648) %add154)
   %75 = load i16, ptr %fUnion.i.i16.i, align 8
   %conv1.i.i17.i = zext i16 %75 to i32
   %and.i.i18.i = and i32 %conv1.i.i17.i, 17
@@ -2089,7 +2089,7 @@ if.then8.i:                                       ; preds = %if.end.i
   %76 = load ptr, ptr %fArray.i.i30.i, align 8
   %spec.select344 = select i1 %tobool6.not.i.i26.i, ptr %76, ptr %fBuffer.i.i28.i
   %retval.0.i.i21.i = select i1 %tobool.not.i.i19.i, ptr %spec.select344, ptr null
-  %call.i3.i22.i = invoke i32 @u_file_write_75(ptr noundef %retval.0.i.i21.i, i32 noundef %add154, ptr noundef %out)
+  %call.i3.i22.i = invoke i32 @u_file_write_75(ptr noundef %retval.0.i.i21.i, i32 noundef range(i32 -2147483644, -2147483648) %add154, ptr noundef %out)
           to label %_ZL11printIndentP5UFILEi.exit31.i unwind label %lpad.i23.i
 
 lpad.i23.i:                                       ; preds = %if.then8.i

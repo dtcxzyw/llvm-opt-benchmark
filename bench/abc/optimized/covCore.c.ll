@@ -2074,7 +2074,7 @@ Abc_NodeCovPropagate.exit:                        ; preds = %Abc_NodeCovSum.exit
   store i32 %484, ptr %482, align 8
   %485 = getelementptr inbounds i8, ptr %0, i64 108
   %486 = load i32, ptr %485, align 4
-  %487 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %486, i32 %484)
+  %487 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %486, i32 range(i32 -2147483647, -2147483648) %484)
   store i32 %487, ptr %485, align 4
   br label %578
 

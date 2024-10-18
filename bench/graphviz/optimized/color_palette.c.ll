@@ -554,17 +554,17 @@ define range(i32 0, 2) i32 @knownColorScheme(ptr nocapture noundef readonly %0) 
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(4) @.str) #4
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str) #4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %color_palettes_Q.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.1) #4
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.1) #4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %color_palettes_Q.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.2) #4
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.2) #4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %color_palettes_Q.exit, label %.preheader
 

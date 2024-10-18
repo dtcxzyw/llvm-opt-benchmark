@@ -513,7 +513,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %cond.false, %cond.true
   %0 = phi i32 [ %length, %cond.false ], [ %.pre5, %cond.true ]
   %1 = phi ptr [ %localeID, %cond.false ], [ %.pre, %cond.true ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %str)
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %str)
   %len.i = getelementptr inbounds i8, ptr %str, i64 56
   store i32 0, ptr %len.i, align 8
   %2 = load ptr, ptr %str, align 8
@@ -523,7 +523,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %7, %lpad4 ], [ %5, %lpad ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %str) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %str) #11
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %cond.end
@@ -562,7 +562,7 @@ lpad4:                                            ; preds = %invoke.cont3
 
 cleanup:                                          ; preds = %_ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit, %invoke.cont5
   %retval.0 = phi ptr [ %call6, %invoke.cont5 ], [ null, %_ZN6icu_7510CharStringC2ENS_11StringPieceER10UErrorCode.exit ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %str) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %str) #11
   ret ptr %retval.0
 }
 

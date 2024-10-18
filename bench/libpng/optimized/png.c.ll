@@ -2549,7 +2549,7 @@ png_muldiv.exit101.i.i:                           ; preds = %165, %154
   br label %png_XYZ_normalize.exit.i
 
 png_XYZ_normalize.exit.i:                         ; preds = %png_muldiv.exit101.i.i, %48
-  %167 = call fastcc i32 @png_xy_from_XYZ(ptr noundef %7, ptr noundef %6)
+  %167 = call fastcc i32 @png_xy_from_XYZ(ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not11.i = icmp eq i32 %167, 0
   br i1 %.not11.i, label %png_colorspace_check_XYZ.exit, label %png_colorspace_check_XYZ.exit.thread
 

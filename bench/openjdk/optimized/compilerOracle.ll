@@ -388,7 +388,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 7, i32 noundef 0) #19
-  tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 40
@@ -477,7 +477,7 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternER
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 7, i32 noundef 0) #19
-  tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 40
@@ -506,7 +506,7 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternER
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %10, %18
-  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
+  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %5) #19
   br label %20
 
@@ -1912,7 +1912,7 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 231:                                              ; preds = %219
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef %14)
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef range(i32 7, 6) %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef nonnull %14)
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 232:                                              ; preds = %191
@@ -2243,7 +2243,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
   br label %53
 
@@ -2360,7 +2360,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
   br label %50
 
@@ -2663,7 +2663,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %120, %113
-  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
@@ -3056,7 +3056,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit.i102:      ; preds = %308, %301
-  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
@@ -3105,7 +3105,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_fileEv() local
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %7, ptr %6, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %7, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %3, ptr %8, align 8
@@ -3238,7 +3238,7 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   store i64 %6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
-  %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %3, ptr noundef nonnull readonly @_ZN14CompilerOracle15parse_from_lineEPc)
+  %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %3, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %11 = load ptr, ptr @CompileOnly, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -3250,7 +3250,7 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   store i64 %12, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
-  %16 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %2, ptr noundef nonnull readonly @_ZN14CompilerOracle18parse_compile_onlyEPc)
+  %16 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %2, ptr noundef nonnull @_ZN14CompilerOracle18parse_compile_onlyEPc)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %narrow = and i1 %10, %16
   %17 = load ptr, ptr @CompileCommandFile, align 8
@@ -3272,7 +3272,7 @@ _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %22, ptr %21, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %22, i1 noundef zeroext false) #19
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %22, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %19, ptr %23, align 8
@@ -3600,7 +3600,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
-  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
   br label %53
 

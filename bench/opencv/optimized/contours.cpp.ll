@@ -4590,7 +4590,7 @@ _ZNK2cv3SeqIP5CvSeqE4sizeEv.exit:                 ; preds = %.thread, %150
           to label %154 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 154:                                              ; preds = %_ZNK2cv3SeqIP5CvSeqE4sizeEv.exit
-  invoke void @cvStartReadSeq(ptr noundef %136, ptr noundef nonnull %23, i32 noundef 0)
+  invoke void @cvStartReadSeq(ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(68) %23, i32 noundef 0)
           to label %_ZNK2cv3SeqIP5CvSeqE5beginEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZNK2cv3SeqIP5CvSeqE5beginEv.exit:                ; preds = %154
@@ -4680,7 +4680,7 @@ _ZNK2cv11_InputArray6getMatEi.exit96:             ; preds = %.noexc94
   br i1 %.not.i97, label %_ZN2cv11SeqIteratorIP5CvSeqEppEv.exit, label %189
 
 189:                                              ; preds = %184
-  invoke void @cvChangeSeqBlock(ptr noundef nonnull %23, i32 noundef 1)
+  invoke void @cvChangeSeqBlock(ptr noundef nonnull align 8 dereferenceable(68) %23, i32 noundef 1)
           to label %_ZN2cv11SeqIteratorIP5CvSeqEppEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN2cv11SeqIteratorIP5CvSeqEppEv.exit:            ; preds = %189, %184
@@ -4735,7 +4735,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %203, %206
   %207 = getelementptr inbounds i8, ptr %27, i64 16
   %208 = load ptr, ptr %207, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #14
-  invoke void @cvStartReadSeq(ptr noundef %136, ptr noundef nonnull %28, i32 noundef 0)
+  invoke void @cvStartReadSeq(ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(68) %28, i32 noundef 0)
           to label %209 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 209:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit102
@@ -4820,7 +4820,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %203, %206
   br i1 %.not.i105, label %_ZN2cv11SeqIteratorIP5CvSeqEppEv.exit109, label %249
 
 249:                                              ; preds = %243
-  invoke void @cvChangeSeqBlock(ptr noundef nonnull %23, i32 noundef 1)
+  invoke void @cvChangeSeqBlock(ptr noundef nonnull align 8 dereferenceable(68) %23, i32 noundef 1)
           to label %_ZN2cv11SeqIteratorIP5CvSeqEppEv.exit109 unwind label %.loopexit123
 
 _ZN2cv11SeqIteratorIP5CvSeqEppEv.exit109:         ; preds = %249, %243

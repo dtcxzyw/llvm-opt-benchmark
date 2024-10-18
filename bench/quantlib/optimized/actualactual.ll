@@ -341,7 +341,7 @@ _ZN8QuantLib12ActualActual9ISMA_ImplC2ENS_8ScheduleE.exit: ; preds = %_ZN8QuantL
   store ptr %call1, ptr %agg.result, align 8, !tbaa !23
   %pn.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i, align 8, !tbaa !16
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual9ISMA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call1, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual9ISMA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call1, ptr noundef nonnull align 8 dereferenceable(8) %pn.i)
           to label %return unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZN8QuantLib12ActualActual9ISMA_ImplC2ENS_8ScheduleE.exit
@@ -357,7 +357,7 @@ if.else:                                          ; preds = %sw.bb
   store ptr %call3, ptr %agg.result, align 8, !tbaa !23
   %pn.i10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i10, align 8, !tbaa !16
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual13Old_ISMA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call3, ptr noundef nonnull align 8 dereferenceable(8) %pn.i10)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual13Old_ISMA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call3, ptr noundef nonnull align 8 dereferenceable(8) %pn.i10)
           to label %return unwind label %lpad.i11
 
 common.resume:                                    ; preds = %ehcleanup36, %lpad.i, %lpad.i15, %lpad.i13, %lpad.i11
@@ -376,7 +376,7 @@ sw.bb4:                                           ; preds = %entry, %entry, %ent
   store ptr %call5, ptr %agg.result, align 8, !tbaa !23
   %pn.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i12, align 8, !tbaa !16
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual9ISDA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call5, ptr noundef nonnull align 8 dereferenceable(8) %pn.i12)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual9ISDA_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call5, ptr noundef nonnull align 8 dereferenceable(8) %pn.i12)
           to label %return unwind label %lpad.i13
 
 lpad.i13:                                         ; preds = %sw.bb4
@@ -391,7 +391,7 @@ sw.bb6:                                           ; preds = %entry, %entry
   store ptr %call7, ptr %agg.result, align 8, !tbaa !23
   %pn.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %pn.i14, align 8, !tbaa !16
-  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual8AFB_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull %agg.result, ptr noundef nonnull %call7, ptr noundef nonnull align 8 dereferenceable(8) %pn.i14)
+  invoke void @_ZN5boost6detail20sp_pointer_constructIN8QuantLib10DayCounter4ImplENS2_12ActualActual8AFB_ImplEEEvPNS_10shared_ptrIT_EEPT0_RNS0_12shared_countE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %call7, ptr noundef nonnull align 8 dereferenceable(8) %pn.i14)
           to label %return unwind label %lpad.i15
 
 lpad.i15:                                         ; preds = %sw.bb6

@@ -168,7 +168,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD0Ev(ptr noundef nonnull al
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #11
-  tail call void @_ZN20ShenandoahHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) #11
+  tail call void @_ZN20ShenandoahHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #11
   ret void
 }

@@ -8598,10 +8598,10 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %46 = load i32, ptr @hf_mapi_mapi_response_rpcResponse, align 4
   %47 = call i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef nonnull %29, i32 noundef 2, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0)
   %48 = load i32, ptr @hf_mapi_mapi_response_handles, align 4
-  %49 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %29, i32 noundef %41) #5
+  %49 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %29, i32 noundef range(i32 0, 65536) %41) #5
   %50 = sdiv i32 %49, 4
   %51 = load i32, ptr @ett_mapi_mapi_request, align 4
-  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %38, ptr noundef nonnull %29, i32 noundef %41, i32 noundef %49, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %50) #5
+  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %38, ptr noundef nonnull %29, i32 noundef range(i32 0, 65536) %41, i32 noundef %49, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %50) #5
   %53 = icmp sgt i32 %49, 3
   br i1 %53, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.exit
 
@@ -9598,10 +9598,10 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %32
   %63 = load i32, ptr @hf_mapi_mapi_request_rpcRequest, align 4
   %64 = call i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef nonnull %46, i32 noundef 2, ptr noundef %2, ptr noundef %55, ptr noundef %4, ptr noundef %5, i32 noundef %63, i32 noundef 0)
   %65 = load i32, ptr @hf_mapi_mapi_request_handles, align 4
-  %66 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %46, i32 noundef %58) #5
+  %66 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %46, i32 noundef range(i32 0, 65536) %58) #5
   %67 = sdiv i32 %66, 4
   %68 = load i32, ptr @ett_mapi_mapi_request, align 4
-  %69 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef nonnull %46, i32 noundef %58, i32 noundef %66, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %67) #5
+  %69 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef nonnull %46, i32 noundef range(i32 0, 65536) %58, i32 noundef %66, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %67) #5
   %70 = icmp sgt i32 %66, 3
   br i1 %70, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.exit
 

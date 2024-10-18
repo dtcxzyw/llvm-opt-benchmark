@@ -885,7 +885,7 @@ define internal noundef i32 @prte_ras_slurm_finalize() #0 {
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %26 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %26 ]
-  tail call void %32(ptr noundef %9) #20
+  tail call void %32(ptr noundef nonnull %9) #20
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
@@ -1889,7 +1889,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %299, %
 .lr.ph.i195:                                      ; preds = %380, %.lr.ph.i195
   %386 = phi ptr [ %388, %.lr.ph.i195 ], [ %385, %380 ]
   %.07.i196 = phi ptr [ %387, %.lr.ph.i195 ], [ %384, %380 ]
-  call void %386(ptr noundef %348) #20
+  call void %386(ptr noundef nonnull %348) #20
   %387 = getelementptr inbounds i8, ptr %.07.i196, i64 8
   %388 = load ptr, ptr %387, align 8
   %.not.i197 = icmp eq ptr %388, null
@@ -2444,7 +2444,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
 
 55:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %52, align 1
-  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef readonly %.0111289, ptr noundef %.02942.i, ptr noundef %4)
+  %56 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.02942.i, ptr noundef nonnull %4)
   switch i32 %56, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %57
     i32 -43, label %.thread148
@@ -2486,7 +2486,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_discover(ptr noundef %0, ptr 
   br label %72
 
 72:                                               ; preds = %70, %65, %63
-  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef %4)
+  %73 = call fastcc i32 @prte_ras_slurm_parse_range(ptr noundef nonnull readonly %.0111289, ptr noundef %.029.lcssa.i, ptr noundef nonnull %4)
   switch i32 %73, label %prte_ras_slurm_parse_ranges.exit [
     i32 0, label %prte_ras_slurm_parse_ranges.exit.thread145
     i32 -43, label %.thread148

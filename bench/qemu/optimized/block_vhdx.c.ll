@@ -1367,7 +1367,7 @@ if.then59:                                        ; preds = %if.end50
   br label %return
 
 if.end60:                                         ; preds = %if.end50
-  %12 = tail call range(i64 1, 13) i64 @llvm.ctpop.i64(i64 %conv51)
+  %12 = tail call range(i64 1, 13) i64 @llvm.ctpop.i64(i64 range(i64 1048576, 4294967296) %conv51)
   %tobool1.not.i = icmp samesign ult i64 %12, 2
   br i1 %tobool1.not.i, label %if.end63, label %if.then62
 

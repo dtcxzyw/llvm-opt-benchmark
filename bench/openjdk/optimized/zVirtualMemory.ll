@@ -112,7 +112,7 @@ _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i: ; preds = %16
 
 22:                                               ; preds = %16
   tail call void @_ZN4ZNMT7reserveE15zaddress_unsafem(i64 noundef %18, i64 noundef %9) #7
-  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.014.i.i, i64 noundef %9) #7
+  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.014.i.i, i64 noundef %9) #7
   br label %"_ZZN21ZVirtualMemoryManager7reserveEmENK3$_0clEv.exit"
 
 .loopexit.i:                                      ; preds = %_ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i, %2
@@ -195,7 +195,7 @@ define hidden noundef i64 @_ZN21ZVirtualMemoryManager21reserve_discontiguousE7zo
 
 _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.thread: ; preds = %.lr.ph
   tail call void @_ZN4ZNMT7reserveE15zaddress_unsafem(i64 noundef %7, i64 noundef %.tr2533) #7
-  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.tr2432, i64 noundef %.tr2533) #7
+  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.tr2432, i64 noundef %.tr2533) #7
   br label %.loopexit
 
 _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit: ; preds = %.lr.ph
@@ -305,7 +305,7 @@ define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager18reserve_contiguous
 
 _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.thread: ; preds = %9
   tail call void @_ZN4ZNMT7reserveE15zaddress_unsafem(i64 noundef %11, i64 noundef %1) #7
-  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.014, i64 noundef %1) #7
+  tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %.014, i64 noundef %1) #7
   br label %.loopexit
 
 _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit: ; preds = %9

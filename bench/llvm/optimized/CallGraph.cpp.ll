@@ -424,7 +424,7 @@ define dso_local void @_ZN4llvm9CallGraphD2Ev(ptr noundef nonnull align 8 derefe
   ]
 
 17:                                               ; preds = %14
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %17, %14, %14, %14, %.lr.ph.i.i.i.i.i.i.i
@@ -873,7 +873,7 @@ define linkonce_odr hidden void @_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_
   ]
 
 9:                                                ; preds = %6
-  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %_ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit
 
 _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit: ; preds = %3, %9, %6, %6
@@ -914,7 +914,7 @@ _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__an
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %27) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %27) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %25, %20, %20, %20
@@ -952,7 +952,7 @@ _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES
   ]
 
 39:                                               ; preds = %36
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   br label %_ZNSt8optionalIN4llvm14WeakTrackingVHEED2Ev.exit
 
 _ZNSt8optionalIN4llvm14WeakTrackingVHEED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE12emplace_backIJS4_RS6_EEERS7_DpOT_.exit, %36, %36, %36, %39
@@ -1075,7 +1075,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %53
   ]
 
 63:                                               ; preds = %61
-  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
+  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit.i
 
 _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit.i: ; preds = %63, %61, %61
@@ -1110,7 +1110,7 @@ _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__an
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %10, align 8
   %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %76 = inttoptr i64 %75 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef %76) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef %76) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %74, %70, %70, %70
@@ -1145,7 +1145,7 @@ _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES
   ]
 
 85:                                               ; preds = %83
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit
 
 _ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit: ; preds = %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE12emplace_backIJS4_RS6_EEERS7_DpOT_.exit.i, %83, %83, %83, %85
@@ -1259,7 +1259,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
   ]
 
 130:                                              ; preds = %127
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i.i.i.i.i.i.i) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i.i.i.i.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %130, %127, %127, %127, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1325,7 +1325,7 @@ _ZNSt10unique_ptrIN4llvm13CallGraphNodeESt14default_deleteIS1_EED2Ev.exit.i: ; p
   ]
 
 145:                                              ; preds = %144
-  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
+  call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %_ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit.i37
 
 _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_IS9_ISt10in_place_tSG_EESt16is_constructibleIS1_JSC_EESt14is_convertibleISC_S1_EEEbE4typeELb1EEEOSC_.exit.i37: ; preds = %145, %144, %144
@@ -1360,7 +1360,7 @@ _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__an
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45 = load i64, ptr %8, align 8
   %157 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45, -8
   %158 = inttoptr i64 %157 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %146, ptr noundef %158) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef %158) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i44
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i44: ; preds = %156, %152, %152, %152
@@ -1395,7 +1395,7 @@ _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES
   ]
 
 167:                                              ; preds = %165
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   br label %_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit46
 
 _ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit46: ; preds = %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE12emplace_backIJS4_RS6_EEERS7_DpOT_.exit.i41, %165, %165, %165, %167
@@ -1412,7 +1412,7 @@ _ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit46: ; preds = 
   %.0.i.i110 = phi ptr [ %48, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %49, %_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit46 ], [ %48, %_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %36, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %36, i64 noundef 4) #19
   call void @_ZN4llvm16AbstractCallSite15getCallbackUsesERKNS_8CallBaseERNS_15SmallVectorImplIPKNS_3UseEEE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i110, ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %173 = load ptr, ptr %5, align 8
   %174 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
@@ -1557,7 +1557,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
   ]
 
 235:                                              ; preds = %232
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i.i.i.i.i.i.i86) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i.i.i.i.i.i.i86) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i87
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i87: ; preds = %235, %232, %232, %232, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i85
@@ -1644,7 +1644,7 @@ _ZNSt10unique_ptrIN4llvm13CallGraphNodeESt14default_deleteIS1_EED2Ev.exit.i.i.i.
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i58 = load i64, ptr %4, align 8
   %260 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i58, -8
   %261 = inttoptr i64 %260 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %249, ptr noundef %261) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %249, ptr noundef %261) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i57
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i57: ; preds = %259, %255, %255, %255
@@ -1679,7 +1679,7 @@ _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES
   ]
 
 270:                                              ; preds = %268
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %_ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit59
 
 _ZN4llvm13CallGraphNode17addCalledFunctionEPNS_8CallBaseEPS0_.exit59: ; preds = %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE12emplace_backIJS4_RS6_EEERS7_DpOT_.exit.i54, %268, %268, %268, %270
@@ -1708,7 +1708,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i:          ; preds = %278, %"_ZZN4llvm23f
   br i1 %.not.i.i47, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm16AbstractCallSiteD2Ev.exit.i.i, %172
-  %280 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %280 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #19
   %281 = load ptr, ptr %5, align 8
   %282 = icmp eq ptr %281, %36
   br i1 %282, label %"_ZN4llvm23forEachCallbackFunctionIZNS_9CallGraph21populateCallGraphNodeEPNS_13CallGraphNodeEE3$_0EEvRKNS_8CallBaseET_.exit", label %283
@@ -1749,7 +1749,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZNK4llvm9CallGraph5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.119", align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 16) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %4, i64 noundef 16) #19
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
@@ -1796,7 +1796,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13CallGraphNodeELb1EE9push_backES2_.exit: 
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_13CallGraphNodeELb1EE9push_backES2_.exit, %_ZN4llvm15SmallVectorImplIPNS_13CallGraphNodeEE7reserveEm.exit
   %26 = load ptr, ptr %3, align 8
-  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #19
   %.idx.i = shl nsw i64 %27, 3
   %28 = getelementptr inbounds i8, ptr %26, i64 %.idx.i
   %.not.i.i.i.i = icmp eq i64 %27, 0
@@ -1893,7 +1893,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; p
   br i1 %.not, label %._crit_edge21, label %.lr.ph20
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_13CallGraphNodeELj16EEEZNKS_9CallGraph5printERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit"
-  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %3) #19
   %62 = load ptr, ptr %3, align 8
   %63 = icmp eq ptr %62, %4
   br i1 %63, label %_ZN4llvm11SmallVectorIPNS_13CallGraphNodeELj16EED2Ev.exit, label %64
@@ -2320,7 +2320,7 @@ define dso_local noundef ptr @_ZN4llvm9CallGraph24removeFunctionFromModuleEPNS_1
   %spec.select.i.i.i.i = select i1 %11, ptr null, ptr %12
   %13 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 -56
   %14 = select i1 %11, ptr null, ptr %13
-  call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %14) #19
+  call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %14) #19
   %15 = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 64
@@ -2454,7 +2454,7 @@ define dso_local void @_ZN4llvm13CallGraphNode17removeCallEdgeForERNS_8CallBaseE
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 -40
-  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(25) %24)
+  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(40) %24)
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %17, align 8
@@ -2478,14 +2478,14 @@ define dso_local void @_ZN4llvm13CallGraphNode17removeCallEdgeForERNS_8CallBaseE
   ]
 
 35:                                               ; preds = %32
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %28) #19
   br label %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit
 
 _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit: ; preds = %16, %32, %32, %32, %35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %36 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %36, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %36, i64 noundef 4) #19
   call void @_ZN4llvm16AbstractCallSite15getCallbackUsesERKNS_8CallBaseERNS_15SmallVectorImplIPKNS_3UseEEE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   %37 = load ptr, ptr %4, align 8
   %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
@@ -2589,7 +2589,7 @@ _ZN4llvm9CallGraph19getOrInsertFunctionEPKNS_8FunctionE.exit.i.i.i.i: ; preds = 
   store i32 %86, ptr %84, align 8
   %87 = load ptr, ptr %22, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 -40
-  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(25) %88)
+  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %88)
   %89 = getelementptr inbounds i8, ptr %87, i64 -8
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %83, align 8
@@ -2613,7 +2613,7 @@ _ZN4llvm9CallGraph19getOrInsertFunctionEPKNS_8FunctionE.exit.i.i.i.i: ; preds = 
   ]
 
 99:                                               ; preds = %96
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %92) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %92) #19
   br label %"_ZZN4llvm23forEachCallbackFunctionIZNS_13CallGraphNode17removeCallEdgeForERNS_8CallBaseEE3$_0EEvRKS2_T_ENKUlRNS_16AbstractCallSiteEE_clES9_.exit.i.i"
 
 100:                                              ; preds = %78, %74
@@ -2636,7 +2636,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i:          ; preds = %105, %"_ZZN4llvm23f
   br i1 %.not.i.i, label %._crit_edge.i.i, label %42
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm16AbstractCallSiteD2Ev.exit.i.i, %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit
-  %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #19
   %108 = load ptr, ptr %4, align 8
   %109 = icmp eq ptr %108, %36
   br i1 %109, label %"_ZN4llvm23forEachCallbackFunctionIZNS_13CallGraphNode17removeCallEdgeForERNS_8CallBaseEE3$_0EEvRKS2_T_.exit", label %110
@@ -2691,7 +2691,7 @@ define dso_local void @_ZN4llvm13CallGraphNode19removeAnyCallEdgeToEPS0_(ptr noc
   %23 = getelementptr inbounds i8, ptr %22, i64 -40
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds %"struct.std::pair.125", ptr %24, i64 %14
-  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %25, ptr noundef nonnull align 8 dereferenceable(25) %23)
+  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %23)
   %26 = getelementptr inbounds i8, ptr %22, i64 -8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -2716,7 +2716,7 @@ define dso_local void @_ZN4llvm13CallGraphNode19removeAnyCallEdgeToEPS0_(ptr noc
   ]
 
 37:                                               ; preds = %34
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %30) #19
   br label %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit
 
 _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit: ; preds = %19, %34, %34, %34, %37
@@ -2763,7 +2763,7 @@ define dso_local void @_ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_(ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 -40
-  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(25) %20)
+  tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(40) %20)
   %21 = getelementptr inbounds i8, ptr %19, i64 -8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %14, align 8
@@ -2787,7 +2787,7 @@ define dso_local void @_ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_(ptr
   ]
 
 31:                                               ; preds = %28
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %24) #19
   br label %_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit
 
 _ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEESaIS7_EE8pop_backEv.exit: ; preds = %13, %28, %28, %28, %31
@@ -2852,7 +2852,7 @@ define dso_local void @_ZN4llvm13CallGraphNode15replaceCallEdgeERNS_8CallBaseES2
   ]
 
 37:                                               ; preds = %36
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.059.0) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.059.0) #19
   br label %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i
 
 _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i: ; preds = %37, %36, %36, %36
@@ -2865,7 +2865,7 @@ _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i: ; preds = %37, 
   ]
 
 38:                                               ; preds = %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i
-  tail call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.059.0) #19
+  tail call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.059.0) #19
   br label %_ZNSt8optionalIN4llvm14WeakTrackingVHEEaSIPNS0_8CallBaseEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
 
 39:                                               ; preds = %23
@@ -2881,7 +2881,7 @@ _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i: ; preds = %37, 
   ]
 
 41:                                               ; preds = %39
-  tail call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.059.0) #19
+  tail call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.059.0) #19
   br label %_ZNSt19_Optional_base_implIN4llvm14WeakTrackingVHESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJPNS0_8CallBaseEEEEvDpOT_.exit.i
 
 _ZNSt19_Optional_base_implIN4llvm14WeakTrackingVHESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJPNS0_8CallBaseEEEEvDpOT_.exit.i: ; preds = %41, %39, %39, %39
@@ -2895,13 +2895,13 @@ _ZNSt8optionalIN4llvm14WeakTrackingVHEEaSIPNS0_8CallBaseEEENSt9enable_ifIX7__and
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 8
   %45 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %45, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %45, i64 noundef 4) #19
   %46 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %46, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %46, i64 noundef 4) #19
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %47 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %47, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %47, i64 noundef 4) #19
   call void @_ZN4llvm16AbstractCallSite15getCallbackUsesERKNS_8CallBaseERNS_15SmallVectorImplIPKNS_3UseEEE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   %48 = load ptr, ptr %9, align 8
   %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
@@ -3018,7 +3018,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i:          ; preds = %96, %"_ZZN4llvm23fo
   br i1 %.not.i.i, label %._crit_edge.i.i, label %53
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm16AbstractCallSiteD2Ev.exit.i.i, %_ZNSt8optionalIN4llvm14WeakTrackingVHEEaSIPNS0_8CallBaseEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
-  %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
+  %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #19
   %99 = load ptr, ptr %9, align 8
   %100 = icmp eq ptr %99, %47
   br i1 %100, label %"_ZN4llvm23forEachCallbackFunctionIZNS_13CallGraphNode15replaceCallEdgeERNS_8CallBaseES3_PS1_E3$_0EEvRKS2_T_.exit", label %101
@@ -3033,7 +3033,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i:          ; preds = %96, %"_ZZN4llvm23fo
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %102 = getelementptr inbounds i8, ptr %6, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %102, i64 noundef 4) #19
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %102, i64 noundef 4) #19
   call void @_ZN4llvm16AbstractCallSite15getCallbackUsesERKNS_8CallBaseERNS_15SmallVectorImplIPKNS_3UseEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   %103 = load ptr, ptr %6, align 8
   %104 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
@@ -3150,7 +3150,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i44:        ; preds = %151, %"_ZZN4llvm23f
   br i1 %.not.i.i45, label %._crit_edge.i.i46, label %108
 
 ._crit_edge.i.i46:                                ; preds = %_ZN4llvm16AbstractCallSiteD2Ev.exit.i.i44, %"_ZN4llvm23forEachCallbackFunctionIZNS_13CallGraphNode15replaceCallEdgeERNS_8CallBaseES3_PS1_E3$_0EEvRKS2_T_.exit"
-  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #19
   %154 = load ptr, ptr %6, align 8
   %155 = icmp eq ptr %154, %102
   br i1 %155, label %"_ZN4llvm23forEachCallbackFunctionIZNS_13CallGraphNode15replaceCallEdgeERNS_8CallBaseES3_PS1_E3$_1EEvRKS2_T_.exit", label %156
@@ -3256,7 +3256,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i44:        ; preds = %151, %"_ZZN4llvm23f
   store i32 %211, ptr %209, align 8
   %212 = load ptr, ptr %195, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 -40
-  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(25) %213)
+  call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(40) %213)
   %214 = getelementptr inbounds i8, ptr %212, i64 -8
   %215 = load ptr, ptr %214, align 8
   store ptr %215, ptr %208, align 8
@@ -3280,7 +3280,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i44:        ; preds = %151, %"_ZZN4llvm23f
   ]
 
 224:                                              ; preds = %221
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %217) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %217) #19
   br label %_ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_.exit
 
 225:                                              ; preds = %203, %199
@@ -3308,7 +3308,7 @@ _ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_.exit: ; preds = %207, %221
   br i1 %.not35, label %.loopexit, label %.lr.ph77
 
 .loopexit:                                        ; preds = %.lr.ph77, %177, %._crit_edge, %.preheader
-  %233 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #19
+  %233 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #19
   %234 = load ptr, ptr %12, align 8
   %235 = icmp eq ptr %234, %46
   br i1 %235, label %_ZN4llvm11SmallVectorIPNS_13CallGraphNodeELj4EED2Ev.exit, label %236
@@ -3318,7 +3318,7 @@ _ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_.exit: ; preds = %207, %221
   br label %_ZN4llvm11SmallVectorIPNS_13CallGraphNodeELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_13CallGraphNodeELj4EED2Ev.exit: ; preds = %.loopexit, %236
-  %237 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #19
+  %237 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #19
   %238 = load ptr, ptr %11, align 8
   %239 = icmp eq ptr %238, %45
   br i1 %239, label %_ZN4llvm11SmallVectorIPNS_13CallGraphNodeELj4EED2Ev.exit55, label %240
@@ -3714,7 +3714,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %157, %159, %.thread
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.07.011.i, align 8
   %186 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %187 = inttoptr i64 %186 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %187) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %187) #19
   %.pre42 = load ptr, ptr %33, align 8
   %.pre44 = ptrtoint ptr %.pre42 to i64
   br label %190
@@ -3737,7 +3737,7 @@ _ZNSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS1_13CallGraphNodeEEC2ERKS6_.ex
   ]
 
 193:                                              ; preds = %190
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
   br label %_ZNK4llvm15mapped_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPNS_13CallGraphNodeEESt6vectorIS9_SaIS9_EEEEPFS8_S9_ES8_EdeEv.exit.i
 
 _ZNK4llvm15mapped_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPNS_13CallGraphNodeEESt6vectorIS9_SaIS9_EEEEPFS8_S9_ES8_EdeEv.exit.i: ; preds = %193, %190, %190, %190, %_ZNSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS1_13CallGraphNodeEEC2ERKS6_.exit.i.i.i
@@ -3801,7 +3801,7 @@ define dso_local void @_ZN4llvm20CallGraphWrapperPassC2Ev(ptr nocapture noundef 
   store ptr %2, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %11, align 8
-  %12 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL38InitializeCallGraphWrapperPassPassFlag, ptr noundef nonnull @__once_proxy) #19
+  %12 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL38InitializeCallGraphWrapperPassPassFlag, ptr noundef nonnull @__once_proxy) #19
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %_ZN4llvm34initializeCallGraphWrapperPassPassERNS_12PassRegistryE.exit, label %13
 
@@ -3830,7 +3830,7 @@ define dso_local void @_ZN4llvm34initializeCallGraphWrapperPassPassERNS_12PassRe
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL38InitializeCallGraphWrapperPassPassFlag, ptr noundef nonnull @__once_proxy) #19
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL38InitializeCallGraphWrapperPassPassFlag, ptr noundef nonnull @__once_proxy) #19
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -4058,7 +4058,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10uniqu
   ]
 
 20:                                               ; preds = %17
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %20, %17, %17, %17, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4089,7 +4089,7 @@ _ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i: ; preds 
   br label %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit
 
 _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef %.07, i64 noundef 48) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #21
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
@@ -4161,7 +4161,7 @@ _ZNSt12_Vector_baseISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraph
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %37 = inttoptr i64 %36 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef %37) #19
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %37) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %35, %30, %30, %30
@@ -4204,7 +4204,7 @@ _ZNSt16allocator_traitsISaISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13Ca
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.0810.i.i.i.i.i, align 8
   %50 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %51 = inttoptr i64 %50 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef %51) #19
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i.i, ptr noundef %51) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %49, %44, %44, %44
@@ -4256,7 +4256,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairISt8optionalIN4llvm14WeakTracki
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i28 = load i64, ptr %.0810.i.i.i.i.i22, align 8
   %68 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i28, -8
   %69 = inttoptr i64 %68 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i21, ptr noundef %69) #19
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i.i21, ptr noundef %69) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i27
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i27: ; preds = %67, %62, %62, %62
@@ -4297,7 +4297,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairISt8optionalIN4llvm14WeakTracki
   ]
 
 81:                                               ; preds = %78
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i: ; preds = %81, %78, %78, %78, %.lr.ph.i.i.i
@@ -4430,7 +4430,7 @@ _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i: ; preds = %17, %1
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %29) #19
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %29) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit: ; preds = %22, %22, %22, %27
@@ -4449,7 +4449,7 @@ _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvD
   ]
 
 33:                                               ; preds = %30
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(25) %0) #19
   br label %_ZN4llvm14WeakTrackingVHaSERKS0_.exit
 
 _ZN4llvm14WeakTrackingVHaSERKS0_.exit:            ; preds = %.thread, %33, %30, %30, %30, %19, %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i, %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i, %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i, %10, %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit
@@ -5340,7 +5340,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10uniqu
   ]
 
 18:                                               ; preds = %15
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %18, %15, %15, %15, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5636,7 +5636,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St
   ]
 
 18:                                               ; preds = %15
-  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
+  tail call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i.i.i.i.i.i.i.i) #19
   br label %_ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %18, %15, %15, %15, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5667,7 +5667,7 @@ _ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i: ; preds 
   br label %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit
 
 _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %4, %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef 48) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 48) #21
   br label %27
 
 27:                                               ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit, %1
@@ -6548,7 +6548,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %18, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %30 = inttoptr i64 %29 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %30) #19
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %30) #19
   br label %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %28, %25, %25, %25
@@ -6575,7 +6575,7 @@ _ZNSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS1_13CallGraphNodeEEC2ERKS6_.ex
   ]
 
 38:                                               ; preds = %36
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #19
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #19
   br label %_ZNK4llvm15mapped_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPNS_13CallGraphNodeEESt6vectorIS9_SaIS9_EEEEPFS8_S9_ES8_EdeEv.exit
 
 _ZNK4llvm15mapped_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPNS_13CallGraphNodeEESt6vectorIS9_SaIS9_EEEEPFS8_S9_ES8_EdeEv.exit: ; preds = %_ZNSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS1_13CallGraphNodeEEC2ERKS6_.exit.i.i, %36, %36, %36, %38

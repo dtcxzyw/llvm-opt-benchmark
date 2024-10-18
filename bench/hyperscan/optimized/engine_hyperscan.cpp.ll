@@ -606,7 +606,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN15EngineHyperscanD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.i.i, %if.then.i.i9.i.i
-  tail call void @_ZN6EngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #29
+  tail call void @_ZN6EngineD2Ev(ptr noundef nonnull align 16 dereferenceable(192) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }

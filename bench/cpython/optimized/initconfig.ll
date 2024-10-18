@@ -4602,7 +4602,7 @@ if.end23.i:                                       ; preds = %config_run_filename
 
 if.end.i.i59.i:                                   ; preds = %if.end23.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %context.i.i), !noalias !51
-  %call.i.i60.i = call ptr @getenv(ptr noundef nonnull readonly @.str.122) #21, !noalias !75
+  %call.i.i60.i = call ptr @getenv(ptr noundef nonnull @.str.122) #21, !noalias !75
   %tobool1.not.i.i.i = icmp eq ptr %call.i.i60.i, null
   br i1 %tobool1.not.i.i.i, label %config_init_env_warnoptions.exit.i.thread, label %lor.lhs.false.i.i.i
 
@@ -5554,7 +5554,7 @@ if.then14.i:                                      ; preds = %if.end13.i
   br i1 %tobool.not.i.i, label %if.end19.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then14.i
-  %call.i47.i = call ptr @getenv(ptr noundef nonnull readonly @.str.138) #21, !noalias !135
+  %call.i47.i = call ptr @getenv(ptr noundef nonnull @.str.138) #21, !noalias !135
   %tobool1.not.i.i = icmp eq ptr %call.i47.i, null
   br i1 %tobool1.not.i.i, label %if.then3.i.i, label %lor.lhs.false.i.i
 
@@ -5643,7 +5643,7 @@ if.then.i73.i:                                    ; preds = %if.then21.i, %if.en
   br label %if.end28.i
 
 if.end.i52.i:                                     ; preds = %if.then21.i
-  %call.i53.i = call ptr @getenv(ptr noundef nonnull readonly @.str.141) #21, !noalias !141
+  %call.i53.i = call ptr @getenv(ptr noundef nonnull @.str.141) #21, !noalias !141
   %tobool1.not.i54.i = icmp eq ptr %call.i53.i, null
   br i1 %tobool1.not.i54.i, label %if.then3.i72.i, label %lor.lhs.false.i55.i
 
@@ -5724,7 +5724,7 @@ if.then.i100.i:                                   ; preds = %if.then30.i
   br label %if.end37.i
 
 if.end.i79.i:                                     ; preds = %if.then30.i
-  %call.i80.i = call ptr @getenv(ptr noundef nonnull readonly @.str.144) #21, !noalias !147
+  %call.i80.i = call ptr @getenv(ptr noundef nonnull @.str.144) #21, !noalias !147
   %tobool1.not.i81.i = icmp eq ptr %call.i80.i, null
   br i1 %tobool1.not.i81.i, label %if.then3.i99.i, label %lor.lhs.false.i82.i
 
@@ -6286,7 +6286,7 @@ if.then.i.i.i66:                                  ; preds = %if.end15.i.i
   br label %if.end10
 
 if.end.i.i.i:                                     ; preds = %if.end15.i.i
-  %call.i9.i113.i = call ptr @getenv(ptr noundef nonnull readonly @.str.172) #21, !noalias !174
+  %call.i9.i113.i = call ptr @getenv(ptr noundef nonnull @.str.172) #21, !noalias !174
   %tobool1.not.i.i.i = icmp eq ptr %call.i9.i113.i, null
   br i1 %tobool1.not.i.i.i, label %if.then3.i.i.i, label %lor.lhs.false.i.i114.i
 

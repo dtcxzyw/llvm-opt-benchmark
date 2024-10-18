@@ -326,7 +326,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %23, %.lr.ph
   %.1 = phi ptr [ %22, %23 ], [ %.030, %.lr.ph ]
-  %26 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef %.02029) #5
+  %26 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef range(i64 0, 2097152) %.02029) #5
   %27 = add nuw nsw i64 %.02029, 1
   %.not27 = icmp slt i64 %.02029, 2097151
   %spec.select = select i1 %.not27, i64 %27, i64 0
@@ -352,7 +352,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
-  %38 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef %.020.lcssa) #5
+  %38 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef range(i64 0, 2097152) %.020.lcssa) #5
   tail call void @LWLockRelease(ptr noundef %34) #5
   ret void
 }
@@ -384,7 +384,7 @@ define dso_local void @ExtendSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr %union.LWLockPadded, ptr %13, i64 %10
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #5
-  %16 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef %7) #5
+  %16 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef range(i64 0, 2097152) %7) #5
   tail call void @LWLockRelease(ptr noundef %14) #5
   br label %17
 

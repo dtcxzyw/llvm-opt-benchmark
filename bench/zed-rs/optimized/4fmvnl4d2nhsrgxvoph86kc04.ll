@@ -16,7 +16,7 @@ define hidden ptr @_ZN5alloc5alloc15exchange_malloc17hde58a8eaf63fda2cE(i64 %0, 
 
 6:                                                ; preds = %2
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %8 = tail call noalias ptr @__rust_alloc(i64 %0, i64 %1) #8
+  %8 = tail call noalias ptr @__rust_alloc(i64 range(i64 1, 0) %0, i64 %1) #8
   br label %_ZN5alloc5alloc6Global10alloc_impl17h2170065ba5980bc2E.exit
 
 _ZN5alloc5alloc6Global10alloc_impl17h2170065ba5980bc2E.exit: ; preds = %4, %6
@@ -95,7 +95,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 _ZN5alloc5alloc6Global10alloc_impl17h2170065ba5980bc2E.exit: ; preds = %10
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %19 = tail call noalias ptr @__rust_alloc(i64 %5, i64 %4) #8
+  %19 = tail call noalias ptr @__rust_alloc(i64 range(i64 1, 0) %5, i64 %4) #8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %15, label %22
 
@@ -124,7 +124,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 7:                                                ; preds = %3
   %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %9 = tail call noalias ptr @__rust_alloc(i64 %2, i64 %1) #8
+  %9 = tail call noalias ptr @__rust_alloc(i64 range(i64 1, 0) %2, i64 %1) #8
   br label %_ZN5alloc5alloc6Global10alloc_impl17h2170065ba5980bc2E.exit
 
 _ZN5alloc5alloc6Global10alloc_impl17h2170065ba5980bc2E.exit: ; preds = %5, %7

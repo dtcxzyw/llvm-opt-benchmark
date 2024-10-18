@@ -615,7 +615,7 @@ if.end:                                           ; preds = %invoke.cont4
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %nsName, ptr noundef nonnull dereferenceable(5) @.str) #18
   %cmp = icmp eq i32 %call8, 0
   %cmp9 = icmp eq i32 %compactStyle, 0
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %resourceKey)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %resourceKey)
           to label %invoke.cont11 unwind label %lpad5
 
 invoke.cont11:                                    ; preds = %if.end
@@ -656,7 +656,7 @@ invoke.cont22.if.end28_crit_edge:                 ; preds = %invoke.cont22
 lpad12:                                           ; preds = %invoke.cont48, %if.then47, %invoke.cont34, %if.then33, %invoke.cont22, %if.then21, %invoke.cont13, %invoke.cont11
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %resourceKey) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %resourceKey) #15
   br label %ehcleanup
 
 if.end28:                                         ; preds = %invoke.cont22.if.end28_crit_edge, %invoke.cont18
@@ -710,7 +710,7 @@ if.then57:                                        ; preds = %if.end54
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then57, %if.end54
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %resourceKey) #15
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %resourceKey) #15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont4, %if.end58
@@ -729,7 +729,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup, %if.then.i
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #15
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #15
   ret void
 
 ehcleanup:                                        ; preds = %lpad12, %lpad5
@@ -739,7 +739,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad5
 
 ehcleanup60:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ]
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #15
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1245,7 +1245,7 @@ if.end:                                           ; preds = %if.then, %if.else
 
 ehcleanup:                                        ; preds = %lpad10, %lpad6
   %.pn = phi { ptr, i32 } [ %2, %lpad10 ], [ %1, %lpad6 ]
-  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data) #15
+  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(1375) %data) #15
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad4
@@ -1560,7 +1560,7 @@ if.end56:                                         ; preds = %invoke.cont50
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #15
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #15
-  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo) #15
+  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %patternInfo) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hello) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %precomputedModsLength, align 8
@@ -1573,7 +1573,7 @@ cleanup:                                          ; preds = %invoke.cont50, %inv
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #15
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #15
-  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo) #15
+  call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %patternInfo) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hello) #15
   br label %cleanup60
 
@@ -1691,9 +1691,9 @@ for.end:                                          ; preds = %for.inc, %entry
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i1.i) #15
   %pattern.i = getelementptr inbounds i8, ptr %this, i64 1624
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern.i) #15
-  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unsafePatternInfo) #15
+  tail call void @_ZN6icu_756number4impl20AffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %unsafePatternInfo) #15
   %data = getelementptr inbounds i8, ptr %this, i64 240
-  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data) #15
+  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(1375) %data) #15
   %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %7 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %7, 0
@@ -1891,7 +1891,7 @@ declare void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr sret(%"cla
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl11CompactData15CompactDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -1901,7 +1901,7 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl11CompactDataD0Ev(ptr noundef nonnull align 8 dereferenceable(1375) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(1375) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }

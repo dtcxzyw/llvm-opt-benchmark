@@ -158,7 +158,7 @@ define hidden noundef ptr @_ZN21G1RegionToSpaceMapper13create_mapperE13ReservedS
 
 8:                                                ; preds = %6
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 144, i8 noundef zeroext 5, i32 noundef 0) #8
-  tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(129) %9, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
+  tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV35G1RegionsLargerThanCommitSizeMapper, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 136
   %11 = udiv i64 %3, %7
@@ -174,7 +174,7 @@ define hidden noundef ptr @_ZN21G1RegionToSpaceMapper13create_mapperE13ReservedS
 
 _ZN36G1RegionsSmallerThanCommitSizeMapperC2E13ReservedSpacemmmm8MEMFLAGS.exit: ; preds = %6
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 248, i8 noundef zeroext 5, i32 noundef 0) #8
-  tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(129) %14, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
+  tail call void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(248) %14, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV36G1RegionsSmallerThanCommitSizeMapper, i64 16), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 136
   %16 = udiv i64 %7, %3

@@ -991,7 +991,7 @@ if.end85.i:                                       ; preds = %if.end78.i
   br i1 %cmp91.i, label %doh_decode.exit, label %if.end94.i
 
 if.end94.i:                                       ; preds = %if.end85.i
-  %call95.i = call fastcc i32 @rdata(ptr noundef %call27, i64 noundef %call29, i16 noundef zeroext %or.i120.i, i16 noundef zeroext %or.i102.i, i32 noundef %add80.i, ptr noundef %de)
+  %call95.i = call fastcc i32 @rdata(ptr noundef %call27, i64 noundef %call29, i16 noundef zeroext %or.i120.i, i16 noundef zeroext %or.i102.i, i32 noundef %add80.i, ptr noundef nonnull %de)
   %tobool96.not.i = icmp eq i32 %call95.i, 0
   br i1 %tobool96.not.i, label %while.cond26.i, label %doh_decode.exit
 

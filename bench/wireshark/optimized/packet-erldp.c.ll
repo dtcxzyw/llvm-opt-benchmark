@@ -940,7 +940,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %55, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #5
   %57 = add i32 %3, 2
   %58 = load i32, ptr %9, align 4
-  %59 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %57, i32 noundef %58, ptr noundef %19, ptr noundef %16)
+  %59 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %57, i32 noundef %58, ptr noundef %19, ptr noundef nonnull %16)
   br label %dissect_etf_type_content.exit
 
 60:                                               ; preds = %27
@@ -948,7 +948,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %61, ptr noundef %2, i32 noundef %22, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #5
   %63 = add i32 %3, 5
   %64 = load i32, ptr %9, align 4
-  %65 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %63, i32 noundef %64, ptr noundef %19, ptr noundef %16)
+  %65 = call fastcc i32 @dissect_etf_big_ext(ptr noundef %2, ptr noundef %1, i32 noundef %63, i32 noundef %64, ptr noundef %19, ptr noundef nonnull %16)
   br label %dissect_etf_type_content.exit
 
 66:                                               ; preds = %27

@@ -6816,7 +6816,7 @@ define internal fastcc ptr @__alloc_pages_slowpath(i32 noundef %0, i32 noundef r
   br i1 %149, label %152, label %150
 
 150:                                              ; preds = %146
-  call void @wakeup_kswapd(ptr noundef nonnull %140, i32 noundef %0, i32 noundef %1, i32 noundef %126) #22
+  call void @wakeup_kswapd(ptr noundef nonnull %140, i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef %126) #22
   %151 = load ptr, ptr %147, align 8
   br label %152
 
@@ -6979,7 +6979,7 @@ wake_all_kswapds.exit:                            ; preds = %163, %136, %.thread
   br i1 %251, label %254, label %252
 
 252:                                              ; preds = %248
-  call void @wakeup_kswapd(ptr noundef nonnull %242, i32 noundef %0, i32 noundef %1, i32 noundef %228) #22
+  call void @wakeup_kswapd(ptr noundef nonnull %242, i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef %228) #22
   %253 = load ptr, ptr %249, align 8
   br label %254
 

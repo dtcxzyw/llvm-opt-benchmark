@@ -1483,7 +1483,7 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary16getObjectForArchE
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
   br i1 %19, label %_ZN4llvm5ErrorD2Ev.exit, label %28
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
@@ -1507,12 +1507,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
 
 28:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @_ZN4llvm6object20MachOUniversalBinary13ObjectForArchC1EPKS1_j(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %1, i32 noundef 0) #14, !noalias !93
+  call void @_ZN4llvm6object20MachOUniversalBinary13ObjectForArchC1EPKS1_j(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 0) #14, !noalias !93
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 64
   call void @_ZN4llvm6object20MachOUniversalBinary13ObjectForArchC1EPKS1_j(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef null, i32 noundef 0) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 64, i1 false)
   %.sroa.08.0.copyload = load ptr, ptr %29, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 72
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 8
@@ -1557,7 +1557,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %38
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   br label %59
 
 43:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20, %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -1617,7 +1617,7 @@ define linkonce_odr hidden void @_ZNK4llvm6object20MachOUniversalBinary13ObjectF
   %.0.in.i4 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.in.v.i3
   %.0.i5 = load i32, ptr %.0.in.i4, align 4
   call void @_ZN4llvm6object15MachOObjectFile13getArchTripleEjjPPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Triple") align 8 %5, i32 noundef %.0.i, i32 noundef %.0.i5, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
   %11 = load ptr, ptr %4, align 8
   %.not.not = icmp eq ptr %11, null
   br i1 %.not.not, label %.thread, label %12
@@ -1629,7 +1629,7 @@ define linkonce_odr hidden void @_ZNK4llvm6object20MachOUniversalBinary13ObjectF
 12:                                               ; preds = %2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
   %15 = getelementptr inbounds i8, ptr %11, i64 %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %11, ptr noundef nonnull %15)
@@ -1869,7 +1869,7 @@ define linkonce_odr hidden void @_ZN4llvm6object20MachOUniversalBinaryD2Ev(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm6object20MachOUniversalBinaryD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN4llvm6object6BinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
+  tail call void @_ZN4llvm6object6BinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #17
   ret void
 }

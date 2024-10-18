@@ -597,7 +597,7 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775804) i64 @llvm.umin.i64(i64 %20, i64 4)
   %22 = sub nsw i64 %20, %.sroa.0.0.sroa.speculated.i
   %23 = add nuw i64 %20, 4
-  %.sroa.0.0.sroa.speculated.i45 = tail call noundef range(i64 0, -9223372036854775804) i64 @llvm.umin.i64(i64 %23, i64 %19)
+  %.sroa.0.0.sroa.speculated.i45 = tail call noundef range(i64 0, -9223372036854775804) i64 @llvm.umin.i64(i64 range(i64 4, -9223372036854775804) %23, i64 %19)
   %24 = icmp ult i64 %22, %.sroa.0.0.sroa.speculated.i45
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -691,7 +691,7 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
   br i1 %64, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit17.preheader.i, label %66
 
 65:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !116
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef range(i64 0, 9) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !116
   unreachable
 
 66:                                               ; preds = %61
@@ -742,7 +742,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit21.preheader.i: ; preds = %_ZN5r
   br i1 %81, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit17.backedge.i, label %83
 
 82:                                               ; preds = %.lr.ph.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.131.i, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !120
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.131.i, i64 noundef range(i64 0, 9) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !120
   unreachable
 
 83:                                               ; preds = %78
@@ -781,8 +781,8 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit21.thread.i: ; preds = %_ZN5rope
   br i1 %97, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit21.backedge.i, label %99
 
 98:                                               ; preds = %.lr.ph37.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %54, i64 %.sroa.05.133.i)
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %umax.i, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !124
+  %umax.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, 9) %54, i64 %.sroa.05.133.i)
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %umax.i, i64 noundef range(i64 0, 9) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.97a15ab3566b6bb1a7918a289d96ccd2.9) #18, !noalias !124
   unreachable
 
 99:                                               ; preds = %94
@@ -2182,7 +2182,7 @@ define noundef zeroext i1 @"_ZN73_$LT$ropey..tree..node_text..NodeText$u20$as$u2
   br i1 %.not.i, label %27, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
 
 27:                                               ; preds = %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit3"
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %.sink8.i.i, ptr nonnull readonly %.sink8.i.i1, i64 %.sink7.i.i), !alias.scope !425
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sink8.i.i, ptr nonnull readonly align 1 %.sink8.i.i1, i64 %.sink7.i.i), !alias.scope !425
   %28 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
 
@@ -2222,7 +2222,7 @@ define noundef zeroext i1 @"_ZN5ropey4tree9node_text98_$LT$impl$u20$core..cmp..P
 
 17:                                               ; preds = %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit"
   %18 = load ptr, ptr %0, align 8, !nonnull !4, !align !436, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %18, ptr nonnull readonly %.sink8.i.i, i64 %.sink7.i.i), !alias.scope !437
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %18, ptr nonnull readonly align 1 %.sink8.i.i, i64 %.sink7.i.i), !alias.scope !437
   %19 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
 
@@ -2262,7 +2262,7 @@ define noundef zeroext i1 @"_ZN88_$LT$ropey..tree..node_text..NodeText$u20$as$u2
 
 17:                                               ; preds = %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit"
   %18 = load ptr, ptr %1, align 8, !nonnull !4, !align !436, !noundef !4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %.sink8.i.i, ptr nonnull readonly %18, i64 %.sink7.i.i), !alias.scope !448
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sink8.i.i, ptr nonnull readonly align 1 %18, i64 %.sink7.i.i), !alias.scope !448
   %19 = icmp eq i32 %bcmp.i, 0
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbf4c568d65485ac3E.exit"
 

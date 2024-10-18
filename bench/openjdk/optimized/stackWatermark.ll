@@ -329,7 +329,7 @@ define hidden void @_ZN28StackWatermarkFramesIterator4nextEv(ptr noundef nonnull
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %8)
+  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(5041) %3, ptr noundef nonnull %8)
   %9 = getelementptr inbounds i8, ptr %0, i64 5061
   %10 = load i8, ptr %9, align 1, !noalias !6
   %11 = trunc i8 %10 to i1
@@ -353,7 +353,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK11RegisterMap7in_contEv.exit.i.i, %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5041) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   %.pre = load i8, ptr %4, align 8
   br label %_ZN16StackFrameStream4nextEv.exit
 
@@ -371,7 +371,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %1, %_ZNK5frame6send
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %21
-  %27 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
+  %27 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %3) #17
   br i1 %27, label %_ZNK5frame14is_first_frameEv.exit.i, label %28
 
 28:                                               ; preds = %26, %21
@@ -387,7 +387,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %28
   br i1 %33, label %34, label %_ZNK5frame14is_first_frameEv.exit.i
 
 34:                                               ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
-  %35 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
+  %35 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %3) #17
   %36 = zext i1 %35 to i8
   br label %_ZNK5frame14is_first_frameEv.exit.i
 
@@ -734,7 +734,7 @@ define hidden void @_ZN28StackWatermarkFramesIteratorC2ER14StackWatermark(ptr no
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
+  %18 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %6) #17
   br i1 %18, label %_ZNK5frame14is_first_frameEv.exit.i, label %19
 
 19:                                               ; preds = %17, %12
@@ -750,7 +750,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %19
   br i1 %24, label %25, label %_ZNK5frame14is_first_frameEv.exit.i
 
 25:                                               ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
-  %26 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
+  %26 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %6) #17
   %27 = zext i1 %26 to i8
   br label %_ZNK5frame14is_first_frameEv.exit.i
 
@@ -934,7 +934,7 @@ define hidden void @_ZN14StackWatermark21start_processing_implEPv(ptr noundef no
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %31
-  %37 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %25) #17
+  %37 = tail call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %25) #17
   br i1 %37, label %_ZNK5frame14is_first_frameEv.exit.i.i, label %38
 
 38:                                               ; preds = %36, %31
@@ -950,7 +950,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i.i:    ; preds = %38
   br i1 %43, label %44, label %_ZNK5frame14is_first_frameEv.exit.i.i
 
 44:                                               ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i.i
-  %45 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %25) #17
+  %45 = tail call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %25) #17
   %46 = zext i1 %45 to i8
   br label %_ZNK5frame14is_first_frameEv.exit.i.i
 
@@ -1760,7 +1760,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deo
   br i1 %68, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i:   ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i, %69, %58, %51
-  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull %0) #17
+  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   %73 = load ptr, ptr %72, align 8
   %.not.i.i.i9 = icmp eq ptr %73, null
   br i1 %.not.i.i.i9, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i, label %74
@@ -1886,7 +1886,7 @@ _ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %34, %31
   br label %59
 
 _ZNK5frame7oop_mapEv.exit:                        ; preds = %38, %42
-  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #17
+  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #17
   store ptr %57, ptr %28, align 8
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %59, label %_ZNK5frame7oop_mapEv.exit.thread
@@ -2027,7 +2027,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i:             ; preds = %_ZN7nmethod14is_deo
   br i1 %43, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i:       ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i, %44, %33, %26
-  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull %0) #17
+  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i, label %49

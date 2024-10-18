@@ -1323,7 +1323,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
 230:                                              ; preds = %229
   %231 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %176) #11
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #11
   br label %.body
 
 232:                                              ; preds = %186
@@ -1864,7 +1864,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc
 .body.i:                                          ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
   tail call void @_ZdlPv(ptr noundef nonnull %8) #13
   br label %.body
 
@@ -1924,7 +1924,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i11:                  ; preds = %37, %.noexc13
 .body.i12:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i11
   %41 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #11
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #11
   tail call void @_ZdlPv(ptr noundef nonnull %31) #13
   br label %.body14
 
@@ -2299,7 +2299,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #11
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #11
   tail call void @_ZdlPv(ptr noundef nonnull %5) #13
   br label %24
 

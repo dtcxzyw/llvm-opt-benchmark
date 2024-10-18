@@ -1859,7 +1859,7 @@ check_sapdiag_dp.exit.thread:                     ; preds = %14, %4, %check_sapd
   br i1 %199, label %200, label %dissect_sapdiag_snc_frame.exit
 
 200:                                              ; preds = %197
-  %201 = tail call ptr @dissect_sapsnc_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %174) #2
+  %201 = tail call ptr @dissect_sapsnc_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 8, 209) %174) #2
   %.not.i = icmp eq ptr %201, null
   br i1 %.not.i, label %dissect_sapdiag_snc_frame.exit, label %202
 
@@ -4556,8 +4556,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %130 = load i32, ptr @hf_sapdiag_item_value, align 4
   %131 = zext i16 %124 to i32
   %.val364 = load ptr, ptr %8, align 8
-  %132 = tail call ptr @tvb_get_string_enc(ptr noundef %.val364, ptr noundef %0, i32 noundef %123, i32 noundef %131, i32 noundef 0) #2
-  %133 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %130, ptr noundef %0, i32 noundef %123, i32 noundef %131, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %132) #2
+  %132 = tail call ptr @tvb_get_string_enc(ptr noundef %.val364, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, -2147483648) %131, i32 noundef 0) #2
+  %133 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %130, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, -2147483648) %131, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %132) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1141, ptr noundef nonnull @.str.1156, ptr noundef %132) #2
   %134 = load ptr, ptr %8, align 8
   %135 = tail call ptr @tvb_get_string_enc(ptr noundef %134, ptr noundef %0, i32 noundef %123, i32 noundef %131, i32 noundef 0) #2
@@ -4711,8 +4711,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %256 = load i32, ptr @hf_sapdiag_item_value, align 4
   %257 = zext i16 %124 to i32
   %.val363 = load ptr, ptr %8, align 8
-  %258 = tail call ptr @tvb_get_string_enc(ptr noundef %.val363, ptr noundef %0, i32 noundef %123, i32 noundef %257, i32 noundef 0) #2
-  %259 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %256, ptr noundef %0, i32 noundef %123, i32 noundef %257, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1166, ptr noundef %258) #2
+  %258 = tail call ptr @tvb_get_string_enc(ptr noundef %.val363, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, -2147483648) %257, i32 noundef 0) #2
+  %259 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %256, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, -2147483648) %257, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1166, ptr noundef %258) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1141, ptr noundef nonnull @.str.1166, ptr noundef %258) #2
   %260 = load ptr, ptr %8, align 8
   %261 = tail call ptr @tvb_get_string_enc(ptr noundef %260, ptr noundef %0, i32 noundef %123, i32 noundef %257, i32 noundef 0) #2
@@ -4760,8 +4760,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %296 = load i32, ptr @hf_sapdiag_item_value, align 4
   %297 = zext i16 %295 to i32
   %.val362 = load ptr, ptr %8, align 8
-  %298 = tail call ptr @tvb_get_string_enc(ptr noundef %.val362, ptr noundef %0, i32 noundef %294, i32 noundef %297, i32 noundef 0) #2
-  %299 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %296, ptr noundef %0, i32 noundef %294, i32 noundef %297, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %298) #2
+  %298 = tail call ptr @tvb_get_string_enc(ptr noundef %.val362, ptr noundef %0, i32 noundef %294, i32 noundef range(i32 0, -2147483648) %297, i32 noundef 0) #2
+  %299 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %296, ptr noundef %0, i32 noundef %294, i32 noundef range(i32 0, -2147483648) %297, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %298) #2
   br label %419
 
 300:                                              ; preds = %128
@@ -4787,8 +4787,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %318 = load i32, ptr @hf_sapdiag_item_value, align 4
   %319 = zext i16 %317 to i32
   %.val361 = load ptr, ptr %8, align 8
-  %320 = tail call ptr @tvb_get_string_enc(ptr noundef %.val361, ptr noundef %0, i32 noundef %316, i32 noundef %319, i32 noundef 0) #2
-  %321 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %318, ptr noundef %0, i32 noundef %316, i32 noundef %319, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %320) #2
+  %320 = tail call ptr @tvb_get_string_enc(ptr noundef %.val361, ptr noundef %0, i32 noundef %316, i32 noundef range(i32 0, -2147483648) %319, i32 noundef 0) #2
+  %321 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %318, ptr noundef %0, i32 noundef %316, i32 noundef range(i32 0, -2147483648) %319, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %320) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1141, ptr noundef nonnull @.str.1156, ptr noundef %320) #2
   %322 = add i32 %316, %319
   br label %419
@@ -4852,8 +4852,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %373 = load i32, ptr @hf_sapdiag_item_value, align 4
   %374 = zext i16 %372 to i32
   %.val360 = load ptr, ptr %8, align 8
-  %375 = tail call ptr @tvb_get_string_enc(ptr noundef %.val360, ptr noundef %0, i32 noundef %371, i32 noundef %374, i32 noundef 0) #2
-  %376 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %373, ptr noundef %0, i32 noundef %371, i32 noundef %374, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %375) #2
+  %375 = tail call ptr @tvb_get_string_enc(ptr noundef %.val360, ptr noundef %0, i32 noundef %371, i32 noundef range(i32 0, -2147483648) %374, i32 noundef 0) #2
+  %376 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %373, ptr noundef %0, i32 noundef %371, i32 noundef range(i32 0, -2147483648) %374, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %375) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1141, ptr noundef nonnull @.str.1156, ptr noundef %375) #2
   br label %419
 
@@ -4898,8 +4898,8 @@ define internal fastcc void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr nounde
   %411 = load i32, ptr @hf_sapdiag_item_value, align 4
   %412 = zext i16 %410 to i32
   %.val = load ptr, ptr %8, align 8
-  %413 = tail call ptr @tvb_get_string_enc(ptr noundef %.val, ptr noundef %0, i32 noundef %409, i32 noundef %412, i32 noundef 0) #2
-  %414 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %411, ptr noundef %0, i32 noundef %409, i32 noundef %412, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %413) #2
+  %413 = tail call ptr @tvb_get_string_enc(ptr noundef %.val, ptr noundef %0, i32 noundef %409, i32 noundef range(i32 0, -2147483648) %412, i32 noundef 0) #2
+  %414 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %29, i32 noundef %411, ptr noundef %0, i32 noundef %409, i32 noundef range(i32 0, -2147483648) %412, ptr noundef nonnull @.str.1140, ptr noundef nonnull @.str.1156, ptr noundef %413) #2
   br label %419
 
 415:                                              ; preds = %128

@@ -1769,7 +1769,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end, %for.cond.i.i
   %nf.029.i.i = phi ptr [ %nf.0.i.i, %for.cond.i.i ], [ %nf.027.i.i, %if.end ]
-  %call.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i.i, i32 noundef 2, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %sent_cb) #27
+  %call.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i.i, i32 noundef 2, ptr noundef %sender, i32 noundef range(i32 0, 2) %flags, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %sent_cb) #27
   %tobool1.not.i.i = icmp eq i64 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %for.cond.i.i, label %filter_receive.exit
 
@@ -1813,7 +1813,7 @@ for.cond5.i.i:                                    ; preds = %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %if.end7, %for.cond5.i.i
   %nf.125.i.i = phi ptr [ %nf.1.i.i, %for.cond5.i.i ], [ %nf.123.i.i, %if.end7 ]
-  %call8.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i.i, i32 noundef 1, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i21, i32 noundef 1, ptr noundef %sent_cb) #27
+  %call8.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i.i, i32 noundef 1, ptr noundef %sender, i32 noundef range(i32 0, 2) %flags, ptr noundef nonnull %iov.i21, i32 noundef 1, ptr noundef %sent_cb) #27
   %tobool9.not.i.i = icmp eq i64 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %for.cond5.i.i, label %filter_receive.exit24
 
@@ -4073,7 +4073,7 @@ if.else.i:                                        ; preds = %if.else18
 
 if.end.i:                                         ; preds = %if.else.i
   %call4.i = tail call noalias ptr @g_malloc(i64 noundef %call.i) #29
-  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef 0, ptr noundef %call4.i, i64 noundef %call.i) #27
+  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef range(i32 2, 1) %iovcnt, i64 noundef 0, ptr noundef %call4.i, i64 noundef range(i64 0, 69633) %call.i) #27
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i, %if.then.i

@@ -339,7 +339,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169
   br i1 %23, label %24, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit"
 
 24:                                               ; preds = %21
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 %18, i64 %22, ptr nonnull align 8 @anon.4e7a7cddd1f3e551fe8a7710671527a6.9) #8
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 range(i64 1, 0) %18, i64 %22, ptr nonnull align 8 @anon.4e7a7cddd1f3e551fe8a7710671527a6.9) #8
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h11190927024b44d9E.exit": ; preds = %21

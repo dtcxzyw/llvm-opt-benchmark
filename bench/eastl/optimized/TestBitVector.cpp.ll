@@ -3025,7 +3025,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %allocator) unnamed_addr #1 comdat($_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEEC5ERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 24, i1 false)
   %0 = load i32, ptr %allocator, align 8
   store i32 %0, ptr %mSecond.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
@@ -3061,7 +3061,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i, label %for.body.preheader.i.i
 
 _ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 24, i1 false)
   br label %_ZN5eastl6vectorIm15MallocAllocatorEC2EmRKS1_.exit
 
 for.body.preheader.i.i:                           ; preds = %entry
@@ -3110,7 +3110,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i, label %_ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.i
 
 _ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.thread.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 24, i1 false)
   br label %_ZN5eastl6vectorIm15MallocAllocatorEC2EmRKmRKS1_.exit
 
 _ZN5eastl10VectorBaseIm15MallocAllocatorEC2EmRKS1_.exit.i: ; preds = %entry
@@ -4962,7 +4962,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN5eastl9bitvectorI15MallocAllocatormNS_6vectorImS1_EEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 24, i1 false)
   %mFreeBitCount = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %mFreeBitCount, align 8
   ret void
@@ -17540,7 +17540,7 @@ while.end:                                        ; preds = %while.cond
           to label %invoke.cont773 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont773:                                   ; preds = %while.end
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(40) %bv0678)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(48) %bv0678)
           to label %invoke.cont775 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont775:                                   ; preds = %invoke.cont773
@@ -17563,7 +17563,7 @@ invoke.cont775:                                   ; preds = %invoke.cont773
 invoke.cont779:                                   ; preds = %invoke.cont775
   %.pre12.i5.i = load ptr, ptr %bv0678, align 8
   store ptr %.pre12.i5.i, ptr %mpEnd.i.i1618, align 8
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(40) %bv0678)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(48) %bv0678)
           to label %invoke.cont781 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont781:                                   ; preds = %invoke.cont779
@@ -17775,7 +17775,7 @@ if.then5.i:                                       ; preds = %while.end.i
 
 if.then.i.i1891:                                  ; preds = %if.then5.i
   %sub.i11.i = sub nuw nsw i64 13, %sub.ptr.div.i.i1888
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %bv0678, i64 noundef %sub.i11.i, ptr noundef nonnull align 8 dereferenceable(8) %element.i)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef %sub.i11.i, ptr noundef nonnull align 8 dereferenceable(8) %element.i)
           to label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.else.i.i1890:                                  ; preds = %if.then5.i
@@ -18143,7 +18143,7 @@ while.end.i2133.thread:                           ; preds = %invoke.cont864
   store i64 0, ptr %mFreeBitCount.i1625, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2120)
   store i64 -1, ptr %element.i2120, align 8
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2120)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2120)
           to label %invoke.cont873 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont873:                                   ; preds = %while.end.i2133.thread
@@ -18618,7 +18618,7 @@ while.end.i2406.thread:                           ; preds = %invoke.cont946
   store i64 0, ptr %mFreeBitCount.i1625, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2393)
   store i64 -1, ptr %element.i2393, align 8
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2393)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2393)
           to label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2416 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2416: ; preds = %while.end.i2406.thread
@@ -18884,7 +18884,7 @@ while.end.i2808.thread:                           ; preds = %invoke.cont1139
   store i64 0, ptr %mFreeBitCount.i1625, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %element.i2795)
   store i64 -1, ptr %element.i2795, align 8
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2795)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %element.i2795)
           to label %_ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2818 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl6vectorIm15MallocAllocatorE6resizeEmRKm.exit.i2818: ; preds = %while.end.i2808.thread
@@ -19089,7 +19089,7 @@ invoke.cont1182:                                  ; preds = %invoke.cont1180
 invoke.cont1186:                                  ; preds = %invoke.cont1182
   %.pre12.i5.i3021 = load ptr, ptr %bv0678, align 8
   store ptr %.pre12.i5.i3021, ptr %mpEnd.i.i1618, align 8
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(40) %bv0678)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(48) %bv0678)
           to label %invoke.cont1188 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1188:                                  ; preds = %invoke.cont1186
@@ -19231,13 +19231,13 @@ if.then5.i3052:                                   ; preds = %while.end.i3050
 
 if.then.i.i3061:                                  ; preds = %if.then5.i3052
   %sub.i11.i3062 = sub nuw nsw i64 2, %sub.ptr.div.i.i3056
-  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(40) %bv0678, i64 noundef %sub.i11.i3062, ptr noundef nonnull align 8 dereferenceable(8) %element.i3037)
+  invoke void @_ZN5eastl6vectorIm15MallocAllocatorE17DoInsertValuesEndEmRKm(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i64 noundef %sub.i11.i3062, ptr noundef nonnull align 8 dereferenceable(8) %element.i3037)
           to label %invoke.cont1193 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont1193:                                  ; preds = %if.then.i.i3061, %if.then5.i3052, %while.end.i3050
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %element.i3037)
   %708 = load ptr, ptr @_ZN15MallocAllocator16mpLastAllocationE, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bv0678, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bv0678, i8 0, i64 24, i1 false)
   store i64 0, ptr %mFreeBitCount.i1625, align 8
   %call1196 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @.str.4)
           to label %invoke.cont1195 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -20004,7 +20004,7 @@ entry:
   %1 = load ptr, ptr %mpEnd.i, align 8
   %mSecond.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %temp, i8 0, i64 24, i1 false)
   %2 = load i32, ptr %mSecond.i.i.i, align 8
   store i32 %2, ptr %mSecond.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 28

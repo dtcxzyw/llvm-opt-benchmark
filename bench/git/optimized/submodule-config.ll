@@ -989,7 +989,7 @@ if.then11:                                        ; preds = %do.body
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %if.then11
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.30, i64 noundef 24, i64 noundef %conv) #15
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.30, i64 noundef 24, i64 noundef range(i64 -2147483648, 2147483648) %conv) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then11

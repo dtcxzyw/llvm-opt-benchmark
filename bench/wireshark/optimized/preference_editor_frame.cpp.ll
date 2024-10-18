@@ -186,7 +186,7 @@ define void @_ZN21PreferenceEditorFrameC2EP7QWidget(ptr noundef nonnull align 8 
 
 41:                                               ; preds = %39, %37
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
-  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
+  call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   resume { ptr, i32 } %.pn
 }
 
@@ -1078,7 +1078,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %7
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %11
-  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
+  tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   ret void
 }
 
@@ -1103,7 +1103,7 @@ define void @_ZN21PreferenceEditorFrameD0Ev(ptr noundef nonnull align 8 derefere
 define void @_ZThn16_N21PreferenceEditorFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21PreferenceEditorFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #16
   ret void
 }
 
@@ -2618,7 +2618,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %19, %_ZN17QArrayDat
   %28 = load ptr, ptr %27, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %28)
   store ptr null, ptr %27, align 8
-  call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   ret void
 }
 
@@ -2771,7 +2771,7 @@ define void @_ZN21PreferenceEditorFrame21on_buttonBox_acceptedEv(ptr noundef non
   %54 = load ptr, ptr %53, align 8
   call void @wmem_free(ptr noundef null, ptr noundef %54)
   store ptr null, ptr %53, align 8
-  call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br i1 %.not14, label %62, label %55
 
 55:                                               ; preds = %.thread
@@ -2922,7 +2922,7 @@ define void @_ZN21PreferenceEditorFrame13keyPressEventEP9QKeyEvent(ptr noundef n
   %17 = load ptr, ptr %16, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %17)
   store ptr null, ptr %16, align 8
-  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br label %_ZN7QStringD2Ev.exit12
 
 18:                                               ; preds = %12, %12

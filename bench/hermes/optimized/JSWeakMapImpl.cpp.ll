@@ -329,7 +329,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %4 = inttoptr i64 %and.i.i.i.i.i6.i to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %valueStorage_.i, ptr noundef %4) #15
+  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %valueStorage_.i, ptr noundef %4) #15
   br label %_ZN6hermes2vm17JSWeakMapImplBaseC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBaseC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -473,7 +473,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %4 = inttoptr i64 %and.i.i.i.i.i6.i to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %valueStorage_.i, ptr noundef %4) #15
+  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 4 dereferenceable(4) %valueStorage_.i, ptr noundef %4) #15
   br label %_ZN6hermes2vm17JSWeakMapImplBaseC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBaseC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE.exit: ; preds = %entry, %if.then.i.i.i.i.i
@@ -504,7 +504,7 @@ entry:
   %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
   %call = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.coerce) #15
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -635,7 +635,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
   br i1 %cmp.i.i.i.i22, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit, label %if.then.i.i2.i
 
 if.then.i.i2.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %retval.0.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i) #15
+  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.i, i64 %retval.sroa.0.0.copyload.i.i.i) #15
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i, %if.then.i.i2.i
@@ -653,7 +653,7 @@ if.end34:                                         ; preds = %if.end
   %cr.sroa.2.0.extract.trunc = trunc nuw i64 %cr.sroa.2.0.extract.shift to i32
   store i32 %cr.sroa.2.0.extract.trunc, ptr %i, align 4
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -668,7 +668,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %if.end34
   %sub.i.i.i.i.i.i28 = sub i64 %retval.sroa.0.0.copyload.i.i.i.i25, %0
   %conv.i.i.i.i.i.i29 = trunc i64 %sub.i.i.i.i.i.i28 to i32
   %retval.sroa.0.0.i.i.i.i.i30 = select i1 %tobool.not.i.i.i.i.i27, i32 0, i32 %conv.i.i.i.i.i.i29
-  %call5.i.i31 = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i30) #15
+  %call5.i.i31 = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i30) #15
   %call47 = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.coerce) #15
   %conv48 = trunc i64 %call47 to i32
   store ptr %call5.i.i31, ptr %mapKey39, align 8
@@ -679,7 +679,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %if.end34
   %19 = inttoptr i64 %and.i.i.i.i.i34 to ptr
   %map_52 = getelementptr inbounds i8, ptr %19, i64 24
   call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS5_jS6_S9_Lb0EEEbERKS5_DpOT_(ptr nonnull sret(%"struct.std::pair.187") align 8 %result, ptr noundef nonnull align 1 dereferenceable(1) %map_52, ptr noundef nonnull align 8 dereferenceable(12) %mapKey39, ptr noundef nonnull align 4 dereferenceable(4) %i)
-  %call1.i.i.i.i35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i35 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   %agg.tmp.sroa.0.0.copyload.i.i36 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i37 = and i64 %agg.tmp.sroa.0.0.copyload.i.i36, 281474976710655
   %20 = inttoptr i64 %and.i.i.i.i.i37 to ptr
@@ -725,7 +725,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
   br i1 %cmp.i.i.i.i58, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit65, label %if.then.i.i2.i59
 
 if.then.i.i2.i59:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i54
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %retval.0.i.i.i55, i64 %retval.sroa.0.0.copyload.i.i.i41) #15
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.i55, i64 %retval.sroa.0.0.copyload.i.i.i41) #15
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit65
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE3setILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit65: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i54, %if.then.i.i2.i59
@@ -902,7 +902,7 @@ if.then.i.i.i:                                    ; preds = %if.end31
   %and.i.i.i.i.i48 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %26 = inttoptr i64 %and.i.i.i.i.i48 to ptr
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %valueStorage_33, ptr noundef %26) #15
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_13GCPointerBaseEPKNS0_6GCCellE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull align 4 dereferenceable(4) %valueStorage_33, ptr noundef %26) #15
   br label %_ZN6hermes2vm9GCPointerINS0_18SegmentedArrayBaseINS0_11HermesValueEEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit
 
 _ZN6hermes2vm9GCPointerINS0_18SegmentedArrayBaseINS0_11HermesValueEEEE10setNonNullERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit: ; preds = %if.end31, %if.then.i.i.i
@@ -1097,7 +1097,7 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase11deleteValueE
 entry:
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1113,7 +1113,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
   %call11 = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.coerce) #15
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -1275,7 +1275,7 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E4findERKS5_.exit, %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
-  %call1.i.i.i.i15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   ret i1 %cmp.i
 }
 
@@ -1642,7 +1642,7 @@ entry:
   %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
   %call = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.coerce) #15
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -1741,7 +1741,7 @@ entry:
   %sub.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i, %0
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
-  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
+  %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i) #15
   %call = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %key.coerce) #15
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -1893,7 +1893,7 @@ define hidden void @_ZN6hermes2vm17JSWeakMapImplBase22findAndDeleteFreeSlotsERNS
 entry:
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -2045,7 +2045,7 @@ _ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10WeakRefKeyEjNS3_11WeakRefInfoENS_
 for.end:                                          ; preds = %while.body.i6.i12.i12.i, %_ZN4llvh16DenseMapIteratorIN6hermes2vm6detail10WeakRefKeyEjNS3_11WeakRefInfoENS_6detail12DenseMapPairIS4_jEELb0EEppEv.exit, %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRefInfoENS_6detail12DenseMapPairIS5_jEEEES5_jS6_S9_E5beginEv.exit
   %hasFreeableSlots_ = getelementptr inbounds i8, ptr %this, i64 60
   store i8 0, ptr %hasFreeableSlots_, align 4
-  %call1.i.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #15
+  %call1.i.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #15
   ret void
 }
 

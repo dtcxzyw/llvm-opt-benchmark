@@ -947,14 +947,14 @@ switch.early.test44.i:                            ; preds = %21
 .critedge.i:                                      ; preds = %31, %29, %27, %23, %switch.early.test44.i
   %33 = getelementptr inbounds i8, ptr %7, i64 16
   %34 = load i32, ptr %33, align 4
-  %35 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %34, i32 noundef %3)
+  %35 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %34, i32 noundef range(i32 1, 0) %3)
   %.not35.i = icmp eq i32 %35, 0
   br i1 %.not35.i, label %36, label %psa_key_policy_permits.exit
 
 36:                                               ; preds = %.critedge.i
   %37 = getelementptr inbounds i8, ptr %7, i64 20
   %38 = load i32, ptr %37, align 4
-  %39 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %38, i32 noundef %3)
+  %39 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %38, i32 noundef range(i32 1, 0) %3)
   %.not36.i = icmp eq i32 %39, 0
   br i1 %.not36.i, label %psa_key_policy_permits.exit.thread, label %psa_key_policy_permits.exit
 
@@ -2854,7 +2854,7 @@ define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %10, i32 noundef 256, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %10, i32 noundef 256, i32 noundef %1)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -2916,7 +2916,7 @@ define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef %10, i32 noundef 512, i32 noundef %1)
+  %16 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0, ptr noundef nonnull %10, i32 noundef 512, i32 noundef %1)
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -5952,7 +5952,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, i8 0, i64 232, i1 false)
-  %11 = call i32 @psa_driver_wrapper_hash_setup(ptr noundef nonnull %3, i32 noundef %8) #15
+  %11 = call i32 @psa_driver_wrapper_hash_setup(ptr noundef nonnull %3, i32 noundef range(i32 33554432, 33554688) %8) #15
   %.pr.i = load i32, ptr %3, align 8
   %12 = icmp eq i32 %.pr.i, 0
   br i1 %12, label %psa_hash_try_support.exit, label %psa_hash_abort.exit.sink.split.i
@@ -6577,7 +6577,7 @@ psa_tls12_prf_psk_to_ms_input.exit.thread:        ; preds = %14, %13, %12, %5, %
 define hidden i32 @psa_key_derivation_input_key(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
-  %6 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %4, i32 noundef 16384, i32 noundef %5)
+  %6 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 16384, i32 noundef %5)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %14
 
@@ -6638,7 +6638,7 @@ define hidden i32 @psa_key_derivation_key_agreement(ptr noundef %0, i16 noundef 
   br i1 %11, label %12, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
 12:                                               ; preds = %5
-  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef %8, i32 noundef 16384, i32 noundef %9)
+  %13 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %2, ptr noundef nonnull %8, i32 noundef 16384, i32 noundef %9)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %psa_get_and_lock_transparent_key_slot_with_policy.exit.thread
 
@@ -6717,7 +6717,7 @@ define hidden i32 @psa_raw_key_agreement(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %10, label %11, label %.thread26
 
 11:                                               ; preds = %7
-  %12 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef %8, i32 noundef 16384, i32 noundef %0)
+  %12 = call fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %1, ptr noundef nonnull %8, i32 noundef 16384, i32 noundef %0)
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %13, label %.thread26
 

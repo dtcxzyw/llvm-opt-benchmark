@@ -4600,7 +4600,7 @@ find_rpc_over_tcp_reply_start.exit.i:             ; preds = %60
   br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %find_rpc_over_tcp_reply_start.exit.i
-  %85 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %82, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %21, i32 noundef %22, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %85 = tail call fastcc i32 @dissect_rpc_fragment(ptr noundef %0, i32 noundef %82, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %21, i32 noundef %22, i32 noundef 1, ptr noundef %4, ptr noundef %5)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.thread, label %87
 

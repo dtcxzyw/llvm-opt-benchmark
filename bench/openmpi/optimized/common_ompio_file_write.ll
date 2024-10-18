@@ -160,7 +160,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %58
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %20, i64 96
   store ptr %76, ptr %77, align 8
-  %78 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %20, ptr noundef %3, i64 noundef %67, ptr noundef %1) #9
+  %78 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %20, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %67, ptr noundef %1) #9
   %79 = getelementptr inbounds i8, ptr %20, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = load i32, ptr %74, align 4
@@ -391,7 +391,7 @@ mca_common_ompio_file_write_pipelined.exit:       ; preds = %opal_convertor_clea
   store i32 0, ptr %11, align 4
   %159 = getelementptr inbounds i8, ptr %0, i64 72
   %160 = load ptr, ptr %159, align 8
-  %161 = call i32 @mca_common_ompio_decode_datatype(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %160, ptr noundef nonnull %7, ptr noundef nonnull %6) #9
+  %161 = call i32 @mca_common_ompio_decode_datatype(ptr noundef nonnull %0, ptr noundef %3, i32 noundef range(i32 1, 0) %2, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %160, ptr noundef nonnull %7, ptr noundef nonnull %6) #9
   %162 = getelementptr inbounds i8, ptr %0, i64 456
   %163 = load ptr, ptr %162, align 8
   %164 = call i32 %163(ptr noundef nonnull @.str.3, i32 noundef 18) #9
@@ -639,7 +639,7 @@ opal_obj_run_constructors.exit:                   ; preds = %opal_obj_run_constr
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %70, i64 336
   store ptr %83, ptr %84, align 8
-  %85 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %74, ptr noundef %3, i64 noundef %73, ptr noundef %1) #9
+  %85 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %74, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %73, ptr noundef %1) #9
   %86 = load ptr, ptr %6, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 240
   %88 = getelementptr inbounds i8, ptr %86, i64 264
@@ -1161,7 +1161,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %20
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %7, i64 96
   store ptr %38, ptr %39, align 8
-  %40 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %7, ptr noundef %3, i64 noundef %29, ptr noundef %1) #9
+  %40 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %7, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %29, ptr noundef %1) #9
   %41 = getelementptr inbounds i8, ptr %7, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = load i32, ptr %36, align 4

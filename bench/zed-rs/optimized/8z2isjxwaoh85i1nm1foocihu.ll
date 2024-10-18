@@ -48,7 +48,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hcd51fd6049d6cc2aE.exit": ; preds = %13
   %19 = add nuw i64 %.sroa.01.0.i.i.i, 1
-  %20 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h148f42a5a17354d0E"(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %19)
+  %20 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h148f42a5a17354d0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %19)
   %21 = extractvalue { i64, i64 } %20, 0
   switch i64 %21, label %22 [
     i64 -9223372036854775807, label %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hcd51fd6049d6cc2aE.exit._ZN8smallvec10infallible17hbf40cfe6aa4791f9E.exit_crit_edge"
@@ -107,7 +107,7 @@ _ZN8smallvec10infallible17hbf40cfe6aa4791f9E.exit: ; preds = %"_ZN8smallvec17Sma
   br i1 %36, label %37, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h65260ddf1f54fb76E.exit"
 
 37:                                               ; preds = %.lr.ph56
-  tail call fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h9bdbe9bf6e31b90aE"(ptr noalias noundef align 8 dereferenceable(40) %0)
+  tail call fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h9bdbe9bf6e31b90aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %38 = load ptr, ptr %0, align 8, !alias.scope !20, !nonnull !4, !noundef !4
   %.pre.i = load i64, ptr %7, align 8, !alias.scope !20
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h65260ddf1f54fb76E.exit"

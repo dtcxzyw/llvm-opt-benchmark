@@ -101007,7 +101007,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %cond.true.i.i, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE12_M_check_lenEmPKc.exit.i
@@ -126252,7 +126252,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   %.pre13 = load i32, ptr %key, align 4, !tbaa !58
   %.pre14 = zext i32 %.pre13 to i64
   br label %invoke.cont.i
@@ -126437,7 +126437,7 @@ _ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE12_M_check_lenEmPKc.exit.i
-  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %packed, i64 noundef %cond.i.i)
+  %call.i.i.i = tail call noundef ptr @_ZN4test18throwing_allocatorIN4entt8internal14dense_map_nodeImmEEE8allocateEm(ptr noundef nonnull align 8 dereferenceable(48) %packed, i64 noundef %cond.i.i)
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %cond.true.i.i, %_ZNKSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE12_M_check_lenEmPKc.exit.i
@@ -128134,7 +128134,7 @@ lpad.i:                                           ; preds = %for.body.i7
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = call ptr @__cxa_begin_catch(ptr %21) #25
-  call void @_ZSt8_DestroyIPN4entt8internal14dense_map_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEEiEENS8_ISB_EEEvT_SE_RT0_(ptr noundef %cond.i63, ptr noundef nonnull %__cur.021.i, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  call void @_ZSt8_DestroyIPN4entt8internal14dense_map_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEEiEENS8_ISB_EEEvT_SE_RT0_(ptr noundef nonnull %cond.i63, ptr noundef nonnull %__cur.021.i, ptr noundef nonnull align 8 dereferenceable(8) %this)
   invoke void @__cxa_rethrow() #28
           to label %unreachable.i unwind label %lpad7.i
 
@@ -129185,7 +129185,7 @@ lpad.i:                                           ; preds = %for.body.i7
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = call ptr @__cxa_begin_catch(ptr %21) #25
-  call void @_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIiNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEEEENS8_ISB_EEEvT_SE_RT0_(ptr noundef %cond.i63, ptr noundef nonnull %__cur.021.i, ptr noundef nonnull align 8 dereferenceable(8) %this)
+  call void @_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIiNSt7__cxx1112basic_stringIcSt11char_traitsIcENSt3pmr21polymorphic_allocatorIcEEEEEENS8_ISB_EEEvT_SE_RT0_(ptr noundef nonnull %cond.i63, ptr noundef nonnull %__cur.021.i, ptr noundef nonnull align 8 dereferenceable(8) %this)
   invoke void @__cxa_rethrow() #28
           to label %unreachable.i unwind label %lpad7.i
 

@@ -489,7 +489,7 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   %54 = add nsw i32 %1, 9
   %55 = and i32 %54, -4
   %56 = add nsw i32 %55, 16
-  call fastcc void @calculate_intermediate_result(ptr noundef readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %13, ptr noundef %14)
+  call fastcc void @calculate_intermediate_result(ptr noundef nonnull readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483642, -2147483648) %16, i32 noundef %8, i32 noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %13, ptr noundef %14)
   %57 = mul nsw i32 %56, 3
   %58 = or disjoint i32 %57, 3
   %59 = sext i32 %58 to i64
@@ -646,7 +646,7 @@ selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, 
   %156 = add nsw i32 %1, 9
   %157 = and i32 %156, -4
   %158 = add nsw i32 %157, 16
-  call fastcc void @calculate_intermediate_result(ptr noundef readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef %16, i32 noundef %8, i32 noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %11, ptr noundef %12)
+  call fastcc void @calculate_intermediate_result(ptr noundef nonnull readonly %20, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483642, -2147483648) %16, i32 noundef %8, i32 noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %11, ptr noundef %12)
   %159 = mul nsw i32 %158, 3
   %160 = or disjoint i32 %159, 3
   %161 = sext i32 %160 to i64
@@ -864,15 +864,15 @@ av1_decode_xq.exit:                               ; preds = %18, %22, %27
   ]
 
 68:                                               ; preds = %47
-  %69 = tail call i32 @llvm.umin.i32(i32 %67, i32 1023)
+  %69 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %67, i32 1023)
   br label %clip_pixel_highbd.exit.us.us.us.us.us.us.us
 
 70:                                               ; preds = %47
-  %71 = tail call i32 @llvm.umin.i32(i32 %67, i32 4095)
+  %71 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %67, i32 4095)
   br label %clip_pixel_highbd.exit.us.us.us.us.us.us.us
 
 72:                                               ; preds = %47
-  %73 = tail call i32 @llvm.umin.i32(i32 %67, i32 255)
+  %73 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %67, i32 255)
   br label %clip_pixel_highbd.exit.us.us.us.us.us.us.us
 
 clip_pixel_highbd.exit.us.us.us.us.us.us.us:      ; preds = %72, %70, %68
@@ -932,15 +932,15 @@ clip_pixel_highbd.exit.us.us.us.us.us.us.us:      ; preds = %72, %70, %68
   ]
 
 108:                                              ; preds = %84
-  %109 = tail call i32 @llvm.umin.i32(i32 %107, i32 1023)
+  %109 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %107, i32 1023)
   br label %clip_pixel_highbd.exit.us.us.us.us.us
 
 110:                                              ; preds = %84
-  %111 = tail call i32 @llvm.umin.i32(i32 %107, i32 4095)
+  %111 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %107, i32 4095)
   br label %clip_pixel_highbd.exit.us.us.us.us.us
 
 112:                                              ; preds = %84
-  %113 = tail call i32 @llvm.umin.i32(i32 %107, i32 255)
+  %113 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %107, i32 255)
   br label %clip_pixel_highbd.exit.us.us.us.us.us
 
 clip_pixel_highbd.exit.us.us.us.us.us:            ; preds = %112, %110, %108
@@ -1010,15 +1010,15 @@ clip_pixel_highbd.exit.us.us.us.us.us:            ; preds = %112, %110, %108
   ]
 
 149:                                              ; preds = %137
-  %150 = tail call i32 @llvm.umin.i32(i32 %148, i32 1023)
+  %150 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %148, i32 1023)
   br label %clip_pixel_highbd.exit.us.us.us
 
 151:                                              ; preds = %137
-  %152 = tail call i32 @llvm.umin.i32(i32 %148, i32 4095)
+  %152 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %148, i32 4095)
   br label %clip_pixel_highbd.exit.us.us.us
 
 153:                                              ; preds = %137
-  %154 = tail call i32 @llvm.umin.i32(i32 %148, i32 255)
+  %154 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %148, i32 255)
   br label %clip_pixel_highbd.exit.us.us.us
 
 clip_pixel_highbd.exit.us.us.us:                  ; preds = %153, %151, %149
@@ -1106,15 +1106,15 @@ clip_pixel_highbd.exit.us.us.us:                  ; preds = %153, %151, %149
   ]
 
 196:                                              ; preds = %192
-  %197 = tail call i32 @llvm.umin.i32(i32 %195, i32 1023)
+  %197 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %195, i32 1023)
   br label %clip_pixel_highbd.exit.us65
 
 198:                                              ; preds = %192
-  %199 = tail call i32 @llvm.umin.i32(i32 %195, i32 4095)
+  %199 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %195, i32 4095)
   br label %clip_pixel_highbd.exit.us65
 
 200:                                              ; preds = %192
-  %201 = tail call i32 @llvm.umin.i32(i32 %195, i32 255)
+  %201 = tail call i32 @llvm.umin.i32(i32 range(i32 -32768, 32768) %195, i32 255)
   br label %clip_pixel_highbd.exit.us65
 
 clip_pixel_highbd.exit.us65:                      ; preds = %200, %198, %196
@@ -2369,11 +2369,11 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %21, %.split.us
   %88 = ptrtoint ptr %70 to i64
   %89 = lshr i64 %88, 1
   %90 = inttoptr i64 %89 to ptr
-  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %87, i32 noundef %58, ptr noundef %90, i32 noundef %65, i32 noundef %42, i32 noundef %73) #12
+  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %87, i32 noundef %58, ptr noundef %90, i32 noundef %65, i32 noundef range(i32 -2147483648, 3) %42, i32 noundef %73) #12
   br label %.loopexit.i36.us
 
 91:                                               ; preds = %79
-  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %62, i32 noundef %58, ptr noundef nonnull %70, i32 noundef %65, i32 noundef %43, i32 noundef %73) #12
+  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %62, i32 noundef %58, ptr noundef nonnull %70, i32 noundef %65, i32 noundef range(i32 -2147483648, 3) %43, i32 noundef %73) #12
   br label %.loopexit.i36.us
 
 92:                                               ; preds = %51
@@ -2513,11 +2513,11 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %167 = ptrtoint ptr %149 to i64
   %168 = lshr i64 %167, 1
   %169 = inttoptr i64 %168 to ptr
-  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %166, i32 noundef %137, ptr noundef %169, i32 noundef %144, i32 noundef %44, i32 noundef %152) #12
+  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %166, i32 noundef %137, ptr noundef %169, i32 noundef %144, i32 noundef range(i32 -2147483648, 3) %44, i32 noundef %152) #12
   br label %.loopexit.i.us
 
 170:                                              ; preds = %158
-  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %141, i32 noundef %137, ptr noundef nonnull %149, i32 noundef %144, i32 noundef %45, i32 noundef %152) #12
+  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %141, i32 noundef %137, ptr noundef nonnull %149, i32 noundef %144, i32 noundef range(i32 -2147483648, 3) %45, i32 noundef %152) #12
   br label %.loopexit.i.us
 
 171:                                              ; preds = %131

@@ -3190,11 +3190,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef range(i64 0, 4294967296) %and.i42, i64 noundef %3) #18
   br label %trace_qed_aio_write_prefill.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef %and.i42, i64 noundef %3) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, ptr noundef nonnull %acb.val.val, ptr noundef nonnull %acb, i64 noundef %and.i, i64 noundef range(i64 0, 4294967296) %and.i42, i64 noundef %3) #18
   br label %trace_qed_aio_write_prefill.exit
 
 trace_qed_aio_write_prefill.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

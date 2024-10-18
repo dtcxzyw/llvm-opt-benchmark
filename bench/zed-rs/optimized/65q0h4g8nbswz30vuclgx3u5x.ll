@@ -526,7 +526,7 @@ define hidden void @_ZN14regex_automata4util8captures8Captures7extract17hee28d36
   %.sroa.4.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %41, ptr %.sroa.4.0..sroa_idx.i14, align 8, !noalias !83
   %42 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @_ZN4core5array18try_from_fn_erased17hbef252fb4e8ed953E.llvm.10896589736260722403(ptr noalias noundef nonnull align 8 %42, i64 noundef 3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
+  call void @_ZN4core5array18try_from_fn_erased17hbef252fb4e8ed953E.llvm.10896589736260722403(ptr noalias noundef nonnull align 8 dereferenceable(48) %42, i64 noundef 3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !75
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !70
   store ptr %40, ptr %0, align 8
@@ -582,7 +582,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17he515a009febd2d58E.l
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %3, i64 72, i1 false), !alias.scope !84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1, i64 24, i1 false), !alias.scope !84
   ret void
 }
 
@@ -642,7 +642,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i: ; preds = %15, %13, 
   br i1 %28, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.16791777274191314885.exit.i.i.i.i, label %29
 
 29:                                               ; preds = %27
-  tail call void @_ZN4core4sync6atomic12atomic_store17h90387485b67a1d8cE.llvm.16791777274191314885(ptr noundef nonnull %21, i8 noundef 1, i8 noundef 0), !noalias !90
+  tail call void @_ZN4core4sync6atomic12atomic_store17h90387485b67a1d8cE.llvm.16791777274191314885(ptr noundef nonnull align 1 %21, i8 noundef 1, i8 noundef 0), !noalias !90
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.16791777274191314885.exit.i.i.i.i
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.16791777274191314885.exit.i.i.i.i: ; preds = %29, %27, %23, %19

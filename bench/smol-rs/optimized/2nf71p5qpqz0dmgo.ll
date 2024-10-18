@@ -344,7 +344,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   br i1 %.not.i.i.i.i.i.i, label %114, label %115
 
 114:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc962ff881090dd74E.exit.i.i.i.i.i"
-  invoke fastcc void @"_ZN8fastrand3Rng5usize28_$u7b$$u7b$closure$u7d$$u7d$17hbd37b6bd3934b9d1E"(ptr nonnull readonly %4)
+  invoke fastcc void @"_ZN8fastrand3Rng5usize28_$u7b$$u7b$closure$u7d$$u7d$17hbd37b6bd3934b9d1E"(ptr nonnull readonly align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %114
@@ -480,7 +480,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %172 = ptrtoint ptr %168 to i64
   %173 = sub nuw i64 %171, %172
   %174 = lshr exact i64 %173, 3
-  %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i = call noundef range(i64 0, 2305843009213693952) i64 @llvm.umin.i64(i64 %174, i64 %167)
+  %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i = call noundef range(i64 0, 2305843009213693952) i64 @llvm.umin.i64(i64 range(i64 0, 2305843009213693952) %174, i64 range(i64 0, -1) %167)
   %175 = getelementptr inbounds ptr, ptr %168, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   %176 = sub i64 %167, %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   %177 = icmp ne i64 %176, 0
@@ -517,7 +517,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i", label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i": ; preds = %183, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20cf0cee51dcced2E.exit.i.i.i.i.i.i.i.i", %164
-  %191 = invoke { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hac976cc8fe4ac177E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.26.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.47.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  %191 = invoke { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hac976cc8fe4ac177E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.26.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.47.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc31.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.loopexit.split-lp, !noalias !13
 
 .noexc31.i.i.i.i.i:                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i"
@@ -563,7 +563,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
 206:                                              ; preds = %202
   %207 = getelementptr inbounds i8, ptr %203, i64 136
   call void @llvm.experimental.noalias.scope.decl(metadata !73), !noalias !13
-  %208 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b63b2c8d2f1b0E.llvm.10450706875658084634(ptr noundef nonnull %207, i64 noundef 2, i64 noundef 1, i8 noundef 4, i8 noundef 4)
+  %208 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b63b2c8d2f1b0E.llvm.10450706875658084634(ptr noundef nonnull align 8 %207, i64 noundef 2, i64 noundef 1, i8 noundef 4, i8 noundef 4)
           to label %.noexc34 unwind label %.loopexit.i.i.i.i.i.loopexit.split-lp
 
 .noexc34:                                         ; preds = %206
@@ -601,7 +601,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %.010.be.i.i = phi i64 [ %219, %.noexc35 ], [ %.fca.1.extract13.i.i, %215 ]
   %220 = and i64 %.010.be.i.i, -4
   %221 = or disjoint i64 %220, 1
-  %222 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b63b2c8d2f1b0E.llvm.10450706875658084634(ptr noundef nonnull %207, i64 noundef %.010.be.i.i, i64 noundef %221, i8 noundef 4, i8 noundef 4)
+  %222 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17hfb1b63b2c8d2f1b0E.llvm.10450706875658084634(ptr noundef nonnull align 8 %207, i64 noundef %.010.be.i.i, i64 noundef %221, i8 noundef 4, i8 noundef 4)
           to label %.noexc36 unwind label %.loopexit.i.i.i.i.i.loopexit
 
 .noexc36:                                         ; preds = %.backedge.i.i
@@ -709,7 +709,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i.i.i.i.
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1774aaa6362465c8E.exit.i.i.i.i.i": ; preds = %.noexc9.i.i.i.i, %.noexc8.i.i.i.i
   %.0.i.i.i.i3.i.i.i.i = phi i8 [ %255, %.noexc9.i.i.i.i ], [ 0, %.noexc8.i.i.i.i ]
   %256 = getelementptr inbounds i8, ptr %240, i64 516
-  %257 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull %256, i8 noundef 0)
+  %257 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %256, i8 noundef 0)
           to label %.noexc10.i.i.i.i unwind label %237
 
 .noexc10.i.i.i.i:                                 ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1774aaa6362465c8E.exit.i.i.i.i.i"

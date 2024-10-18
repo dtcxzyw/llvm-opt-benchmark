@@ -790,7 +790,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
-  invoke void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(281) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(281) %ref.tmp52)
+  invoke void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(281) %ref.tmp52)
           to label %.noexc unwind label %lpad69
 
 .noexc:                                           ; preds = %invoke.cont68
@@ -1245,7 +1245,7 @@ if.then.i.i.i.i:                                  ; preds = %ehcleanup24.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i, %ehcleanup24.i
   call void @_ZNSt6vectorIN8QuantLib5CloneINS0_10CurveStateEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %savedStates_.i) #21
-  call void @_ZN8QuantLib25CallSpecifiedMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %ref.tmp51) #21
+  call void @_ZN8QuantLib25CallSpecifiedMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp51) #21
   br label %ehcleanup77
 
 invoke.cont70:                                    ; preds = %invoke.cont.i.i.i.i, %for.cond.cleanup.i
@@ -4433,7 +4433,7 @@ _ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i:
 
 _ZN8QuantLib15ExerciseAdapterD2Ev.exit:           ; preds = %entry, %_ZNKSt14default_deleteIN8QuantLib24MarketModelExerciseValueEEclEPS1_.exit.i.i.i
   store ptr null, ptr %exercise_.i, align 8, !tbaa !3
-  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #21
+  tail call void @_ZN8QuantLib21MultiProductMultiStepD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 200) #22
   ret void
 }
@@ -5251,7 +5251,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 define internal void @_ZNK8QuantLib12_GLOBAL__N_114DecoratedHedge5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #24
-  invoke void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(281) %call, ptr noundef nonnull align 8 dereferenceable(281) %this)
+  invoke void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(376) %call, ptr noundef nonnull align 8 dereferenceable(376) %this)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -5406,7 +5406,7 @@ ehcleanup.i:                                      ; preds = %if.then.i.i.i27.i, 
 
 ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %7, %lpad.i ]
-  tail call void @_ZN8QuantLib25CallSpecifiedMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %call) #21
+  tail call void @_ZN8QuantLib25CallSpecifiedMultiProductD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %call) #21
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %invoke.cont.i16.i

@@ -513,7 +513,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call4)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call4)
           to label %_ZN6icu_7510CharStringC2Ev.exit unwind label %lpad
 
 _ZN6icu_7510CharStringC2Ev.exit:                  ; preds = %new.notnull
@@ -613,7 +613,7 @@ if.end:                                           ; preds = %entry
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call7)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call7)
           to label %_ZN6icu_7510CharStringC2Ev.exit unwind label %lpad
 
 _ZN6icu_7510CharStringC2Ev.exit:                  ; preds = %new.notnull
@@ -703,7 +703,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #11
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #11
   br label %delete.end
 

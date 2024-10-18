@@ -1120,7 +1120,7 @@ define dso_local range(i32 0, -2147483648) i32 @rt6_multipath_hash(ptr nocapture
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
-  %43 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %42, i32 noundef 8, ptr noundef nonnull %8)
+  %43 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %42, i32 noundef 8, ptr noundef nonnull %8)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %select.unfold.i, label %45
 
@@ -1142,7 +1142,7 @@ define dso_local range(i32 0, -2147483648) i32 @rt6_multipath_hash(ptr nocapture
   %58 = sub i64 %56, %57
   %59 = trunc i64 %58 to i32
   %60 = add i32 %59, 8
-  %61 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %60, i32 noundef 40, ptr noundef nonnull %7)
+  %61 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %60, i32 noundef 40, ptr noundef nonnull %7)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %select.unfold.i, label %.thread.i
 
@@ -1372,7 +1372,7 @@ ip6_multipath_l3_keys.exit:                       ; preds = %70, %72
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
   %180 = trunc i64 %179 to i32
-  %181 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %180, i32 noundef 8, ptr noundef nonnull %6)
+  %181 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %180, i32 noundef 8, ptr noundef nonnull %6)
   %182 = icmp eq ptr %181, null
   br i1 %182, label %select.unfold.i36, label %183
 
@@ -1394,7 +1394,7 @@ ip6_multipath_l3_keys.exit:                       ; preds = %70, %72
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
   %198 = add i32 %197, 8
-  %199 = call fastcc ptr @skb_header_pointer(ptr noundef %2, i32 noundef %198, i32 noundef 40, ptr noundef nonnull %5)
+  %199 = call fastcc ptr @skb_header_pointer(ptr noundef nonnull %2, i32 noundef %198, i32 noundef 40, ptr noundef nonnull %5)
   %200 = icmp eq ptr %199, null
   br i1 %200, label %select.unfold.i36, label %.thread.i37
 

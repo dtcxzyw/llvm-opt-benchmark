@@ -274,13 +274,13 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i21, 
   %62 = load ptr, ptr %3, align 8
   %63 = shl i64 %54, 3
   %64 = shl nuw i64 %.val, 3
-  %65 = call ptr @realloc(ptr noundef %62, i64 noundef %64) #20
+  %65 = call ptr @realloc(ptr noundef %62, i64 noundef range(i64 0, -7) %64) #20
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr @stderr, align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.5, i64 noundef %64) #17
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.5, i64 noundef range(i64 0, -7) %64) #17
   call fastcc void @graphviz_exit() #18
   unreachable
 

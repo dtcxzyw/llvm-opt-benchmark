@@ -2025,7 +2025,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %13
   %24 = add nsw i64 %.neg.i.i, 2
   %25 = and i64 %0, -4
   %26 = or i64 %24, %25
-  %27 = tail call noundef i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 61)
+  %27 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %26, i64 range(i64 1, 0) %26, i64 61)
   %28 = bitcast i64 %27 to double
   br label %rb_float_value_inline.exit
 
@@ -3689,7 +3689,7 @@ wmod.exit:                                        ; preds = %modv.exit.i, %38, %
   br i1 %.not45, label %.thread, label %53
 
 .thread:                                          ; preds = %50
-  %52 = tail call i64 @rb_str_cat(i64 noundef %10, ptr noundef nonnull @.str.122, i64 noundef 1) #18
+  %52 = tail call i64 @rb_str_cat(i64 noundef range(i64 1, 0) %10, ptr noundef nonnull @.str.122, i64 noundef 1) #18
   br label %84
 
 53:                                               ; preds = %50
@@ -3743,7 +3743,7 @@ RSTRING_PTR.exit:                                 ; preds = %RSTRING_PTR.exit, %
   br label %104
 
 75:                                               ; preds = %53
-  %76 = tail call i64 @rb_str_cat(i64 noundef %10, ptr noundef nonnull @.str.122, i64 noundef 1) #18
+  %76 = tail call i64 @rb_str_cat(i64 noundef range(i64 1, 0) %10, ptr noundef nonnull @.str.122, i64 noundef 1) #18
   %77 = lshr i64 %.023.i.i, 1
   %78 = udiv i64 %.023.i.i, 2000000000
   %79 = mul nuw nsw i64 %78, 1000000000
@@ -3798,7 +3798,7 @@ quov.exit:                                        ; preds = %quor.exit.i, %90, %
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  %109 = tail call i64 @rb_str_cat(i64 noundef %10, ptr noundef nonnull @.str.123, i64 noundef 4) #18
+  %109 = tail call i64 @rb_str_cat(i64 noundef range(i64 1, 0) %10, ptr noundef nonnull @.str.123, i64 noundef 4) #18
   br label %131
 
 110:                                              ; preds = %104
@@ -6227,7 +6227,7 @@ wmod.exit:                                        ; preds = %modv.exit.i, %38, %
   %49 = tail call fastcc i64 @wmul(i64 noundef %.023.i.i, i64 noundef 2000001)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call fastcc void @divmodv(i64 noundef %49, i64 noundef 2000000001, ptr noundef %2, ptr noundef %3)
+  call fastcc void @divmodv(i64 noundef %49, i64 noundef range(i64 1, 0) 2000000001, ptr noundef %2, ptr noundef %3)
   %50 = load i64, ptr %2, align 8
   %51 = and i64 %50, 7
   %52 = icmp ne i64 %51, 0
@@ -6885,7 +6885,7 @@ addv.exit.i:                                      ; preds = %70, %68, %65
 
 RSTRING_PTR.exit.i:                               ; preds = %138, %129
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %138 ], [ %137, %129 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %131, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0.i.i, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 range(i64 -2147483648, 2147483648) %131, i1 false)
   %139 = getelementptr i8, ptr %.sroa.2.0.i.i, i64 %131
   %140 = call i32 @rb_integer_pack(i64 noundef %.095.i, ptr noundef %139, i64 noundef %118, i64 noundef 1, i64 noundef 0, i32 noundef 34) #18
   br label %143

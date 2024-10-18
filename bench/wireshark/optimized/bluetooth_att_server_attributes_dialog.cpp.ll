@@ -1171,7 +1171,7 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %138, %_ZN17QArrayDa
   %147 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %145, ptr %147, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
   %148 = getelementptr inbounds i8, ptr %23, i64 24
   store i64 2, ptr %148, align 8
   %149 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %145)
@@ -1247,7 +1247,7 @@ _ZN7QStringD2Ev.exit116:                          ; preds = %158, %_ZN17QArrayDa
   %172 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %170, ptr %172, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   %173 = getelementptr inbounds i8, ptr %26, i64 24
   store i64 2, ptr %173, align 8
   %174 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %170)
@@ -2045,7 +2045,7 @@ _ZN7QStringD2Ev.exit.i91:                         ; preds = %.split.i.i90, %96
   %108 = load i64, ptr %107, align 8
   store i64 %108, ptr %106, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %28, i64 24
   store i64 2, ptr %109, align 8
   %110 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %99)
@@ -2276,7 +2276,7 @@ _ZN7QStringD2Ev.exit.i135:                        ; preds = %180, %_ZN7QStringD2
   %193 = load i64, ptr %192, align 8
   store i64 %193, ptr %191, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
   %194 = getelementptr inbounds i8, ptr %32, i64 24
   store i64 2, ptr %194, align 8
   %195 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %184)
@@ -2894,7 +2894,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i233:   ; preds = %.body203
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %421 = getelementptr inbounds i8, ptr %1, i64 20
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIjE8metaTypeE, ptr noundef nonnull %421)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIjE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %421)
           to label %_ZN8QVariant9fromValueIjEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %.loopexit.split-lp
 
 _ZN8QVariant9fromValueIjEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %420
@@ -3187,7 +3187,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %17
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #17
   ret void
 }
 
@@ -3212,7 +3212,7 @@ define void @_ZN34BluetoothAttServerAttributesDialogD0Ev(ptr noundef nonnull ali
 define void @_ZThn16_N34BluetoothAttServerAttributesDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN34BluetoothAttServerAttributesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(208) %2) #18
   ret void
 }
 
@@ -4106,7 +4106,7 @@ define void @_ZN34BluetoothAttServerAttributesDialog34on_actionMark_Unmark_Row_t
           to label %.noexc26 unwind label %.loopexit
 
 88:                                               ; preds = %83
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i64 2, ptr %74, align 8
   br label %.noexc26
 
@@ -4138,7 +4138,7 @@ define void @_ZN34BluetoothAttServerAttributesDialog34on_actionMark_Unmark_Row_t
           to label %.noexc30 unwind label %.loopexit
 
 99:                                               ; preds = %94
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   store i64 2, ptr %75, align 8
   br label %.noexc30
 
@@ -4360,7 +4360,7 @@ define void @_ZN34BluetoothAttServerAttributesDialog35on_actionMark_Unmark_Cell_
           to label %.noexc14 unwind label %48
 
 81:                                               ; preds = %76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %82 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 2, ptr %82, align 8
   br label %.noexc14
@@ -4400,7 +4400,7 @@ define void @_ZN34BluetoothAttServerAttributesDialog35on_actionMark_Unmark_Cell_
           to label %.noexc18 unwind label %48
 
 98:                                               ; preds = %93
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %99 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %99, align 8
   br label %.noexc18
@@ -6120,7 +6120,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31:    ; preds = %55
 
 69:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #17
+  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %2, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 16
   %71 = getelementptr inbounds i8, ptr %9, i64 16

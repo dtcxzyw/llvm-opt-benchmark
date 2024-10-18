@@ -1791,7 +1791,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d15ExtractRotation
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %5, ptr %7, align 8
   %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation7SetQuatERKNS_7GfQuatdE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -1809,7 +1809,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d17DecomposeRotati
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !15
   %9 = load double, ptr %7, align 8, !noalias !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !15
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %9, ptr %11, align 8, !noalias !15
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation7SetQuatERKNS_7GfQuatdE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6)

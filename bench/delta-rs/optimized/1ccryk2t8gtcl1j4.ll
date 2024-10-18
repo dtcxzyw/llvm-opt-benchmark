@@ -448,7 +448,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$all
           to label %25 unwind label %21, !noalias !198
 
 20:                                               ; preds = %21
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %10)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %10)
           to label %.body2 unwind label %29, !noalias !198
 
 21:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit.i"
@@ -464,7 +464,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$all
   br i1 %27, label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit", label %28
 
 28:                                               ; preds = %25
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %10)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %10)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit" unwind label %34
 
 29:                                               ; preds = %20
@@ -745,7 +745,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$alloc..vec..Vec$LT$datafusi
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 48, i64 noundef 16)
   ret void
 }
 
@@ -869,7 +869,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$alloc..sync..Weak$LT$$u5b$a
   br i1 %14, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f001b4a4a2f0111E.llvm.11705908289436625823.exit", label %15
 
 15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #15, !noalias !406
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %13, i64 noundef 8) #15, !noalias !406
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f001b4a4a2f0111E.llvm.11705908289436625823.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0f001b4a4a2f0111E.llvm.11705908289436625823.exit": ; preds = %1, %4, %8, %15
@@ -900,7 +900,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$alloc..sync..Weak$LT$$u5b$$
   br i1 %14, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ef82dfc1a5166efE.llvm.11705908289436625823.exit", label %15
 
 15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #15, !noalias !409
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %13, i64 noundef 8) #15, !noalias !409
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ef82dfc1a5166efE.llvm.11705908289436625823.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ef82dfc1a5166efE.llvm.11705908289436625823.exit": ; preds = %1, %4, %8, %15
@@ -1360,7 +1360,7 @@ define hidden void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h1
 
 136:                                              ; preds = %1
   %137 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$17h8a2e40e099c4a852E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %137)
+  tail call void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$17h8a2e40e099c4a852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %137)
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
 
 138:                                              ; preds = %1
@@ -2485,7 +2485,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlparser..ast..ListAgg$GT$1
 37:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit24"
   %38 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %33, i64 0, i64 %.0.i.i
   %39 = add i64 %.0.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %38)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %38)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit24" unwind label %41
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit": ; preds = %43, %41
@@ -2501,7 +2501,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlparser..ast..ListAgg$GT$1
 43:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %44 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %33, i64 0, i64 %.1.i.i
   %45 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %44)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %44)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %46
 
 46:                                               ; preds = %43
@@ -2589,7 +2589,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..ArrayAgg$GT$
 17:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i"
   %18 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %13, i64 0, i64 %.0.i
   %19 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %18)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %18)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i" unwind label %21, !noalias !906
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i": ; preds = %23, %21
@@ -2605,7 +2605,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..ArrayAgg$GT$
 23:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i"
   %24 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %13, i64 0, i64 %.1.i
   %25 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %24)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %24)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i" unwind label %26, !noalias !906
 
 26:                                               ; preds = %23
@@ -2908,7 +2908,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..Function$GT$
 71:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit23"
   %72 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %67, i64 0, i64 %.0.i.i17
   %73 = add i64 %.0.i.i17, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %72)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %72)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit23" unwind label %75
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit": ; preds = %77, %75
@@ -2924,7 +2924,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..Function$GT$
 77:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %78 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %67, i64 0, i64 %.1.i.i18
   %79 = add i64 %.1.i.i18, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %78)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %78)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %80
 
 80:                                               ; preds = %77
@@ -3094,7 +3094,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..OnI
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i": ; preds = %28, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c89b79775280de2E.llvm.11705908289436625823.exit.i.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %11)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %11)
           to label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit" unwind label %32
 
 30:                                               ; preds = %34, %32
@@ -3148,7 +3148,7 @@ common.resume:                                    ; preds = %56, %53, %.body, %4
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Assignment$GT$$GT$17hd25338f969e90bc2E.llvm.11705908289436625823.exit"
 
 47:                                               ; preds = %1
-  tail call void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..ConflictTarget$GT$17h36cc2ea49089cfb8E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
+  tail call void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..ConflictTarget$GT$17h36cc2ea49089cfb8E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %0)
   br label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..OnConflict$GT$17h8a9b4a03acfdd977E.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..OnConflict$GT$17h8a9b4a03acfdd977E.exit": ; preds = %1, %47
@@ -3169,7 +3169,7 @@ common.resume:                                    ; preds = %56, %53, %.body, %4
   br i1 %55, label %common.resume, label %56
 
 56:                                               ; preds = %53
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %48)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %48)
           to label %common.resume unwind label %57
 
 57:                                               ; preds = %56
@@ -3183,7 +3183,7 @@ common.resume:                                    ; preds = %56, %53, %.body, %4
   br i1 %59, label %"_ZN4core3ptr77drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Assignment$GT$$GT$17hd25338f969e90bc2E.llvm.11705908289436625823.exit", label %60
 
 60:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..DoUpdate$GT$17h5c1578d97f0029d2E.llvm.11705908289436625823.exit.i"
-  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %48)
+  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %48)
   br label %"_ZN4core3ptr77drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Assignment$GT$$GT$17hd25338f969e90bc2E.llvm.11705908289436625823.exit"
 
 "_ZN4core3ptr77drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Assignment$GT$$GT$17hd25338f969e90bc2E.llvm.11705908289436625823.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..OnConflict$GT$17h8a9b4a03acfdd977E.exit", %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..DoUpdate$GT$17h5c1578d97f0029d2E.llvm.11705908289436625823.exit.i", %60, %45, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Assignment$GT$$GT$17h629663fce9e31620E.exit"
@@ -3708,7 +3708,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %145, label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit", label %146
 
 146:                                              ; preds = %142
-  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef align 8 dereferenceable(176) %143)
+  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %143)
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 147:                                              ; preds = %1
@@ -3723,7 +3723,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %152, label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit", label %153
 
 153:                                              ; preds = %149
-  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef align 8 dereferenceable(176) %150)
+  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %150)
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 154:                                              ; preds = %1
@@ -3768,7 +3768,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %172, label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit", label %173
 
 173:                                              ; preds = %169
-  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef align 8 dereferenceable(176) %170)
+  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %170)
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 174:                                              ; preds = %1
@@ -4133,7 +4133,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %327, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit212", label %328
 
 328:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit209"
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef align 8 dereferenceable(8) %325)
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %325)
           to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit212" unwind label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit"
 
 329:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit"
@@ -4181,11 +4181,11 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %347, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$sqlparser..ast..OnInsert$GT$$GT$17hcd377417b931072aE.exit219", label %349
 
 348:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit214"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..OnInsert$GT$17he23b2a0076a605b3E"(ptr noalias noundef align 8 dereferenceable(232) %339)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..OnInsert$GT$17he23b2a0076a605b3E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %339)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$sqlparser..ast..OnInsert$GT$$GT$17hcd377417b931072aE.exit" unwind label %317
 
 349:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit216"
-  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..OnInsert$GT$17he23b2a0076a605b3E"(ptr noalias noundef align 8 dereferenceable(232) %345)
+  invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..OnInsert$GT$17he23b2a0076a605b3E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %345)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$sqlparser..ast..OnInsert$GT$$GT$17hcd377417b931072aE.exit219" unwind label %354
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$sqlparser..ast..OnInsert$GT$$GT$17hcd377417b931072aE.exit": ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17hd1df55a435f7570aE.exit214", %348, %354
@@ -4709,7 +4709,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %552, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit266", label %553
 
 553:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc99eb11db7ffbc2aE.llvm.11705908289436625823.exit262"
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef align 8 dereferenceable(8) %550)
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %550)
           to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit266" unwind label %317
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc99eb11db7ffbc2aE.llvm.11705908289436625823.exit264": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i263", %546, %542
@@ -4719,7 +4719,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %556, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit268", label %557
 
 557:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc99eb11db7ffbc2aE.llvm.11705908289436625823.exit264"
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef align 8 dereferenceable(8) %554)
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$17h7f291cc8114220c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %554)
           to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit268" unwind label %563
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$sqlparser..ast..query..Query$GT$$GT$$GT$17h66dbc40ef79ab05bE.exit266": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc99eb11db7ffbc2aE.llvm.11705908289436625823.exit262", %553, %563
@@ -5250,7 +5250,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 743:                                              ; preds = %156
-  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef align 8 dereferenceable(176) %158)
+  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %158)
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit184": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i183", %165, %161
@@ -5260,7 +5260,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..Statement$GT
   br i1 %746, label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit", label %747
 
 747:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit184"
-  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef align 8 dereferenceable(176) %744)
+  tail call fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..ShowStatementFilter$GT$17h470ca39a35ea6e77E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %744)
   br label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..CloseCursor$GT$17h207646073cd73e72E.exit"
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..TransactionMode$GT$$GT$17he3a0493b50780204E.exit188": ; preds = %192, %188
@@ -5605,7 +5605,7 @@ define hidden void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT
   %.07.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %3, i64 0, i64 %.07.i.i.i
   %8 = add nuw i64 %.07.i.i.i, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !2413
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !2413
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9d366dfe231fe244E.llvm.11705908289436625823.exit.i", label %.lr.ph.i.i.i
 
@@ -5675,13 +5675,13 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$arrow_schema..field..Field$G
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit" unwind label %14
 
 11:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha0b7b9dec2ee265eE.exit"
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 48, i64 noundef 16)
+  tail call void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 48, i64 noundef 16)
   ret void
 
 14:                                               ; preds = %7
@@ -6146,7 +6146,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..HiveFormat$G
 
 12:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..HiveRowFormat$GT$$GT$17hdaf34bf58ebee84cE.llvm.11705908289436625823.exit"
   %13 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %13)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(352) %13)
           to label %16 unwind label %14
 
 14:                                               ; preds = %12
@@ -6553,7 +6553,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowSpec$G
 36:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit12"
   %37 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %32, i64 0, i64 %.0.i.i
   %38 = add i64 %.0.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %37)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %37)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit12" unwind label %40
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit": ; preds = %42, %40
@@ -6569,7 +6569,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowSpec$G
 42:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %43 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %32, i64 0, i64 %.1.i.i
   %44 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %43)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %43)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %45
 
 45:                                               ; preds = %42
@@ -6609,7 +6609,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowSpec$G
   br i1 %56, label %common.resume23, label %57
 
 57:                                               ; preds = %.body2
-  invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..WindowFrame$GT$17h9b2d4dec2acac7f5E"(ptr noalias noundef align 8 dereferenceable(40) %0)
+  invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..WindowFrame$GT$17h9b2d4dec2acac7f5E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
           to label %common.resume23 unwind label %97
 
 "_ZN4core3ptr85drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..query..OrderByExpr$GT$$GT$17h98b1968c7e29c2c1E.llvm.11705908289436625823.exit": ; preds = %53, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..query..OrderByExpr$GT$$GT$17h1f4eae4b93856ca1E.exit"
@@ -6677,7 +6677,7 @@ default.unreachable26:                            ; preds = %"_ZN4core3ptr85drop
   br i1 %78, label %common.resume23, label %79
 
 79:                                               ; preds = %.body13
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..WindowFrameBound$GT$17h8bd2ffcda709ab4cE"(ptr noalias noundef align 8 dereferenceable(16) %76)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..WindowFrameBound$GT$17h8bd2ffcda709ab4cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %76)
           to label %common.resume23 unwind label %95
 
 common.resume23:                                  ; preds = %79, %.body13, %.body2, %57, %common.resume.i
@@ -6783,7 +6783,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowType$G
 15:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i"
   %16 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %11, i64 0, i64 %.0.i
   %17 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %16)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %16)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i" unwind label %19, !noalias !3144
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i": ; preds = %21, %19
@@ -6799,7 +6799,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowType$G
 21:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i"
   %22 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %11, i64 0, i64 %.1.i
   %23 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %22)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %22)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i" unwind label %24, !noalias !3144
 
 24:                                               ; preds = %21
@@ -6834,7 +6834,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowType$G
 
 .body:                                            ; preds = %30, %.body1, %5
   %.pn.i = phi { ptr, i32 } [ %6, %5 ], [ %20, %30 ], [ %20, %.body1 ]
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef align 8 dereferenceable(40) %0) #13
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #13
           to label %common.resume8 unwind label %34
 
 34:                                               ; preds = %.body, %5
@@ -7412,7 +7412,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..MergeClause$
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i": ; preds = %45, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c89b79775280de2E.llvm.11705908289436625823.exit.i.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %28)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %28)
           to label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit" unwind label %49
 
 47:                                               ; preds = %51, %49
@@ -7482,7 +7482,7 @@ common.resume:                                    ; preds = %96, %100, %18, %68,
   %70 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70) #13
   %71 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17he9afb83f03e66570E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$$GT$17he9afb83f03e66570E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %71)
           to label %common.resume unwind label %66
 
 "_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit": ; preds = %5, %7
@@ -7645,7 +7645,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..Win
   br i1 %19, label %common.resume, label %20
 
 20:                                               ; preds = %.body
-  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..WindowFrameBound$GT$17h8bd2ffcda709ab4cE"(ptr noalias noundef align 8 dereferenceable(16) %17)
+  invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..WindowFrameBound$GT$17h8bd2ffcda709ab4cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
           to label %common.resume unwind label %37
 
 "_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..WindowFrameBound$GT$17h8bd2ffcda709ab4cE.exit.sink.split": ; preds = %14, %7
@@ -8560,7 +8560,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
 43:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit50"
   %44 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %39, i64 0, i64 %.0.i.i
   %45 = add i64 %.0.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %44)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %44)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit50" unwind label %47
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit": ; preds = %49, %47
@@ -8576,7 +8576,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
 49:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %50 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %39, i64 0, i64 %.1.i.i
   %51 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %50)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %50)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %52
 
 52:                                               ; preds = %49
@@ -8719,7 +8719,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
   br i1 %106, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit", label %107
 
 107:                                              ; preds = %.body19
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %104)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %104)
           to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit" unwind label %126
 
 "_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Expr$GT$$GT$17hc188eff2affba728E.llvm.11705908289436625823.exit": ; preds = %101, %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Expr$GT$$GT$17h8a2e40e099c4a852E.exit"
@@ -8729,7 +8729,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
   br i1 %110, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit23", label %111
 
 111:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..Expr$GT$$GT$17hc188eff2affba728E.llvm.11705908289436625823.exit"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %108)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %108)
           to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit23" unwind label %116
 
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit": ; preds = %.body19, %107, %116
@@ -8741,7 +8741,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
   br i1 %switch, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Fetch$GT$$GT$17he8e23ac55f271cb8E.exit", label %115
 
 115:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %112)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %112)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Fetch$GT$$GT$17he8e23ac55f271cb8E.exit" unwind label %126
 
 116:                                              ; preds = %111
@@ -8757,7 +8757,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
   br i1 %switch52, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Fetch$GT$$GT$17he8e23ac55f271cb8E.exit26", label %121
 
 121:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit23"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %118)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %118)
           to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Fetch$GT$$GT$17he8e23ac55f271cb8E.exit26" unwind label %123
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Fetch$GT$$GT$17he8e23ac55f271cb8E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Offset$GT$$GT$17h86e299b1efc084bdE.exit", %115, %123
@@ -9239,7 +9239,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..ddl..ColumnD
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit.i"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i.i", %43, %37
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..ddl..ColumnOption$GT$17h5f4a178ae9815065E"(ptr noalias noundef align 8 dereferenceable(208) %38)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..ddl..ColumnOption$GT$17h5f4a178ae9815065E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %38)
           to label %"_ZN4core3ptr57drop_in_place$LT$sqlparser..ast..ddl..ColumnOptionDef$GT$17hf7a1bedef53f9034E.exit" unwind label %49
 
 47:                                               ; preds = %51, %49
@@ -9518,11 +9518,11 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..que
   br i1 %switch52, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Top$GT$$GT$17h8aeed4778c1fed44E.exit.i", label %55
 
 55:                                               ; preds = %.body49
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %53)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %53)
           to label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Top$GT$$GT$17h8aeed4778c1fed44E.exit.i" unwind label %303
 
 56:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Distinct$GT$$GT$17h8c89d65337ab1308E.exit.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %51)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %51)
           to label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Top$GT$$GT$17h8aeed4778c1fed44E.exit26.i" unwind label %77
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Top$GT$$GT$17h8aeed4778c1fed44E.exit26.i": ; preds = %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..Distinct$GT$$GT$17h8c89d65337ab1308E.exit.i", %56
@@ -9781,11 +9781,11 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..que
   br i1 %154, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit.i", label %155
 
 155:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..query..LateralView$GT$$GT$17he69a9a078df8a7a0E.exit32"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %19)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(960) %19)
           to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit.i" unwind label %303, !noalias !4824
 
 156:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..query..LateralView$GT$$GT$17he69a9a078df8a7a0E.exit"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %19)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(960) %19)
           to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit33.i" unwind label %164, !noalias !4824
 
 "_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit33.i": ; preds = %156, %"_ZN4core3ptr85drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..query..LateralView$GT$$GT$17he69a9a078df8a7a0E.exit"
@@ -10741,7 +10741,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFPa
   %.07.i.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %3, i64 0, i64 %.07.i.i.i.i
   %8 = add nuw i64 %.07.i.i.i.i, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !5271
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !5271
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9d366dfe231fe244E.llvm.11705908289436625823.exit.i.i", label %.lr.ph.i.i.i.i
 
@@ -11084,7 +11084,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..OnConflictAc
   br i1 %21, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit1", label %22
 
 22:                                               ; preds = %.body
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0)
           to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit1" unwind label %23
 
 23:                                               ; preds = %22
@@ -11102,7 +11102,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$sqlparser..ast..OnConflictAc
   br i1 %26, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit", label %27
 
 27:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..DoUpdate$GT$17h5c1578d97f0029d2E.llvm.11705908289436625823.exit"
-  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
+  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %0)
   br label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Expr$GT$$GT$17hb785d9dbb61399afE.llvm.11705908289436625823.exit"
 }
 
@@ -11379,7 +11379,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..ddl
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %13
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %14)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %14)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit" unwind label %23
 
 21:                                               ; preds = %25, %23
@@ -11993,7 +11993,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$$u5b$sqlparser..ast..MacroAr
   br i1 %12, label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit", label %13
 
 13:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %4)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %4)
           to label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit" unwind label %.body
 
 "_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit", %13
@@ -12045,7 +12045,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$deltalake_sql..parser..Delta
   %.07.i.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %3, i64 0, i64 %.07.i.i.i.i
   %8 = add nuw i64 %.07.i.i.i.i, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !6032
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !6032
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9d366dfe231fe244E.llvm.11705908289436625823.exit.i.i", label %.lr.ph.i.i.i.i
 
@@ -12215,7 +12215,7 @@ define internal fastcc void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..Cre
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %10
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %11)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %11)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit" unwind label %20
 
 18:                                               ; preds = %22, %20
@@ -12307,7 +12307,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i11"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i11": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i10", %40
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %41)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %41)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit12" unwind label %50
 
 48:                                               ; preds = %52, %50
@@ -12477,7 +12477,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..ddl..ViewCol
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %15
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %16)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %16)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit.i" unwind label %25, !noalias !6237
 
 23:                                               ; preds = %27, %25
@@ -14181,7 +14181,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$$u5b$sqlparser..ast..SqlOpti
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i", %4
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %5)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %5)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit" unwind label %.body
 
 12:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit"
@@ -15259,7 +15259,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$$u5b$sqlparser..ast..Assignm
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit": ; preds = %22, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c89b79775280de2E.llvm.11705908289436625823.exit.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %5)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %5)
           to label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit" unwind label %.body
 
 24:                                               ; preds = %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit"
@@ -16299,11 +16299,11 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$sqlparser..ast..query..
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %5) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %5) #13
           to label %.body unwind label %11
 
 10:                                               ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %5)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %5)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit" unwind label %16
 
 11:                                               ; preds = %8
@@ -16372,13 +16372,13 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$datafusion_common..dfschema.
           cleanup
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit" unwind label %33
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit2" unwind label %10
 
 "_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit": ; preds = %2, %10
@@ -16812,11 +16812,11 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$sqlparser..ast..query..Table
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %13) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %13) #13
           to label %.body2 unwind label %19, !noalias !9114
 
 18:                                               ; preds = %12
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %13)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %13)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit" unwind label %23
 
 19:                                               ; preds = %16
@@ -18725,7 +18725,7 @@ common.resume96:                                  ; preds = %333, %338, %346, %3
   br i1 %349, label %common.resume96, label %350
 
 350:                                              ; preds = %346
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0)
           to label %common.resume96 unwind label %355
 
 351:                                              ; preds = %344
@@ -18734,7 +18734,7 @@ common.resume96:                                  ; preds = %333, %338, %346, %3
   br i1 %353, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..ObjectName$GT$17h901044000ff48dfaE.exit", label %354
 
 354:                                              ; preds = %351
-  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
+  tail call void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0)
   br label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..ObjectName$GT$17h901044000ff48dfaE.exit"
 
 355:                                              ; preds = %350
@@ -19528,7 +19528,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$datafusion_sql..parser..Crea
   %.pn8 = phi { ptr, i32 } [ %54, %53 ], [ %10, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha0b7b9dec2ee265eE.exit17" ]
   %51 = getelementptr inbounds i8, ptr %0, i64 168
   %52 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %51, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %51, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit" unwind label %62
 
 53:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h07856a3408a7917cE.exit"
@@ -19539,7 +19539,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$datafusion_sql..parser..Crea
 55:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h07856a3408a7917cE.exit"
   %56 = getelementptr inbounds i8, ptr %0, i64 168
   %57 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %56, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 48, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h12d4638a59bbb7d3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %56, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit20" unwind label %59
 
 "_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h33a90324c313739cE.llvm.11705908289436625823.exit": ; preds = %50, %59
@@ -19604,7 +19604,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$sqlparser..ast..Operate
           to label %19 unwind label %15
 
 14:                                               ; preds = %15
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %4)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %4)
           to label %.body unwind label %23
 
 15:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit"
@@ -19620,7 +19620,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$sqlparser..ast..Operate
   br i1 %21, label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit", label %22
 
 22:                                               ; preds = %19
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %4)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %4)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit" unwind label %28
 
 23:                                               ; preds = %14
@@ -19739,7 +19739,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$sqlparser..ast..query..
 4:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %5 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %0, i64 0, i64 %.0
   %6 = add i64 %.0, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %5)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %5)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %9
 
 7:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
@@ -19758,7 +19758,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$sqlparser..ast..query..
 11:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7"
   %12 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %0, i64 0, i64 %.1
   %13 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %12)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %12)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7" unwind label %15
 
 14:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7"
@@ -19976,7 +19976,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$sqlparser..ast..que
 41:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i"
   %42 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %37, i64 0, i64 %.0.i
   %43 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %42)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %42)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i" unwind label %45, !noalias !10837
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i": ; preds = %47, %45
@@ -19992,7 +19992,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$sqlparser..ast..que
 47:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i"
   %48 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %37, i64 0, i64 %.1.i
   %49 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %48)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %48)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i" unwind label %50, !noalias !10837
 
 50:                                               ; preds = %47
@@ -20027,7 +20027,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$sqlparser..ast..que
 
 .body:                                            ; preds = %56, %.body3, %.body1
   %.pn.i = phi { ptr, i32 } [ %20, %.body1 ], [ %46, %56 ], [ %46, %.body3 ]
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef align 8 dereferenceable(40) %0) #13
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #13
           to label %common.resume17 unwind label %60
 
 60:                                               ; preds = %.body, %.body1
@@ -20444,7 +20444,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$$u5b$sqlparser..ast..query..
 4:                                                ; preds = %"_ZN4core3ptr58drop_in_place$LT$sqlparser..ast..query..TableWithJoins$GT$17hcc6d84f97159893dE.exit"
   %5 = getelementptr inbounds [0 x { { i64, [40 x i64] }, { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.0
   %6 = add i64 %.0, 1
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(328) %5)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(352) %5)
           to label %10 unwind label %7
 
 7:                                                ; preds = %4
@@ -20533,7 +20533,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
   br i1 %15, label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i", label %16
 
 16:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %7)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7)
           to label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i" unwind label %.body.i
 
 "_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit", %16
@@ -20743,7 +20743,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i", %7
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %8)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit.i" unwind label %.body.i
 
 15:                                               ; preds = %18, %.body.i
@@ -21157,7 +21157,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$sqlparser..ast..que
   %94 = add nuw i64 %.0.i.i17, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11382)
   %95 = load ptr, ptr %93, align 8, !alias.scope !11382, !noalias !11379, !noundef !4
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %95)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(216) %95)
           to label %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..ReplaceSelectElement$GT$$GT$17hf21418ddf66f74daE.exit.i" unwind label %96, !noalias !11385
 
 96:                                               ; preds = %.lr.ph
@@ -21256,7 +21256,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$sqlparser..tokenizer..T
   %.07 = phi i64 [ %5, %.lr.ph ], [ 0, %2 ]
   %4 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %0, i64 0, i64 %.07
   %5 = add nuw i64 %.07, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %4)
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4)
   %6 = icmp eq i64 %5, %1
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -21327,7 +21327,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit": ; preds = %25, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c89b79775280de2E.llvm.11705908289436625823.exit.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %8)
           to label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit.i" unwind label %.body.i
 
 27:                                               ; preds = %30, %.body.i
@@ -21902,11 +21902,11 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %8) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %8) #13
           to label %.body.i unwind label %14
 
 13:                                               ; preds = %7
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %8)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %8)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit.i" unwind label %18
 
 14:                                               ; preds = %11
@@ -22577,7 +22577,7 @@ define internal fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Optio
 
 5:                                                ; preds = %1
   %6 = icmp eq i64 %3, -9223372036854775794
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   br i1 %6, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..CastFormat$GT$17h09e0b3e1601a8588E.exit", label %7
 
 7:                                                ; preds = %5
@@ -22747,7 +22747,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Weak$LT$str$C$$
   br i1 %13, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3ff80ba9f881812E.llvm.11705908289436625823.exit", label %14
 
 14:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #15, !noalias !12046
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %12, i64 noundef 8) #15, !noalias !12046
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3ff80ba9f881812E.llvm.11705908289436625823.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3ff80ba9f881812E.llvm.11705908289436625823.exit": ; preds = %1, %4, %8, %14
@@ -23373,7 +23373,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlp
   ret void
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(352) %0)
           to label %8 unwind label %6
 
 6:                                                ; preds = %5
@@ -23647,7 +23647,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$
   %.0.i6 = phi i64 [ %8, %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit" ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.0.i6
   %8 = add nuw i64 %.0.i6, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %7)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(232) %7)
           to label %13 unwind label %9
 
 9:                                                ; preds = %.lr.ph
@@ -23818,7 +23818,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
 7:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i"
   %8 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %3, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %8)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit.i" unwind label %11
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i": ; preds = %13, %11
@@ -23834,7 +23834,7 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
 13:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i"
   %14 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %3, i64 0, i64 %.1.i
   %15 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %14)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %14)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit7.i" unwind label %16
 
 16:                                               ; preds = %13
@@ -24475,7 +24475,7 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %13, %7
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..ddl..ColumnOption$GT$17h5f4a178ae9815065E"(ptr noalias noundef align 8 dereferenceable(208) %8)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..ddl..ColumnOption$GT$17h5f4a178ae9815065E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %8)
           to label %"_ZN4core3ptr57drop_in_place$LT$sqlparser..ast..ddl..ColumnOptionDef$GT$17hf7a1bedef53f9034E.exit.i" unwind label %.body.i
 
 17:                                               ; preds = %20, %.body.i
@@ -24633,7 +24633,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
 7:                                                ; preds = %"_ZN4core3ptr58drop_in_place$LT$sqlparser..ast..query..TableWithJoins$GT$17hcc6d84f97159893dE.exit.i"
   %8 = getelementptr inbounds [0 x { { i64, [40 x i64] }, { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(328) %8)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(352) %8)
           to label %13 unwind label %10
 
 10:                                               ; preds = %7
@@ -25400,7 +25400,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$sqlparser
   %.07.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %3, i64 0, i64 %.07.i.i
   %8 = add nuw i64 %.07.i.i, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !13365
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7), !noalias !13365
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9d366dfe231fe244E.llvm.11705908289436625823.exit", label %.lr.ph.i.i
 
@@ -26068,7 +26068,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i", %7
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowSpec$GT$17h10678116cedc461dE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8)
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowSpec$GT$17h10678116cedc461dE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(120) %8)
           to label %"_ZN4core3ptr65drop_in_place$LT$sqlparser..ast..query..NamedWindowDefinition$GT$17h5b08a34da0e76911E.exit.i" unwind label %.body.i
 
 15:                                               ; preds = %18, %.body.i
@@ -26123,7 +26123,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..ReplaceSelectElement$GT$$GT$17hf21418ddf66f74daE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %2)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
           to label %"_ZN4core3ptr64drop_in_place$LT$sqlparser..ast..query..ReplaceSelectElement$GT$17h8167cf79ed8feb35E.exit" unwind label %3
 
 3:                                                ; preds = %1
@@ -26633,7 +26633,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$allo
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %10
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %11)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %11)
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit" unwind label %20
 
 18:                                               ; preds = %22, %20
@@ -28007,7 +28007,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %15, label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i", label %16
 
 16:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %7)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %7)
           to label %"_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i" unwind label %.body.i
 
 "_ZN4core3ptr45drop_in_place$LT$sqlparser..ast..MacroArg$GT$17h4cc171eb83e92f1fE.llvm.11705908289436625823.exit.i": ; preds = %16, %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
@@ -28181,7 +28181,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i.i", %7
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8) #16
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(208) %8) #16
           to label %"_ZN4core3ptr46drop_in_place$LT$sqlparser..ast..SqlOption$GT$17h9d7c28f487ba359eE.llvm.11705908289436625823.exit" unwind label %17
 
 15:                                               ; preds = %19, %17
@@ -28646,7 +28646,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.0.i27 = phi i64 [ %8, %"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlparser..ast..query..Join$GT$$GT$17hfeb312be53cecd7bE.llvm.11705908289436625823.exit" ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i64, [40 x i64] }, { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.0.i27
   %8 = add nuw i64 %.0.i27, 1
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(328) %7)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..TableFactor$GT$17h6fd74e13b035b7ffE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(352) %7)
           to label %12 unwind label %9
 
 9:                                                ; preds = %.lr.ph
@@ -28680,11 +28680,11 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 23:                                               ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %20) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %20) #13
           to label %.body.i unwind label %26, !noalias !14287
 
 25:                                               ; preds = %19
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %20)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %20)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit.i" unwind label %29, !noalias !14287
 
 26:                                               ; preds = %23
@@ -28716,12 +28716,12 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %32) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %32) #13
           to label %.body6 unwind label %38, !noalias !14287
 
 36:                                               ; preds = %31
   %37 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %32)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %32)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit" unwind label %40
 
 38:                                               ; preds = %34
@@ -28982,7 +28982,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { i64, i64 } }], ptr %3, i64 0, i64 %.07.i
   %8 = add nuw i64 %.07.i, 1
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %7)
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN4core3ptr70drop_in_place$LT$$u5b$sqlparser..tokenizer..TokenWithLocation$u5d$$GT$17h1bf3533021eb3483E.llvm.11705908289436625823.exit", label %.lr.ph.i
 
@@ -29031,7 +29031,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
           to label %22 unwind label %18
 
 17:                                               ; preds = %18
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %7) #16
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %7) #16
           to label %.body unwind label %26
 
 18:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$sqlparser..ast..Ident$GT$$GT$17hf3466902586f198dE.llvm.11705908289436625823.exit.i"
@@ -29047,7 +29047,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %24, label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit", label %25
 
 25:                                               ; preds = %22
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %7) #16
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(264) %7) #16
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..OperateFunctionArg$GT$17hf2f59399455b0788E.llvm.11705908289436625823.exit" unwind label %31
 
 26:                                               ; preds = %17
@@ -29203,11 +29203,11 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %8) #13
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %8) #13
           to label %.body unwind label %14
 
 13:                                               ; preds = %7
-  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef align 8 dereferenceable(184) %8)
+  invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$sqlparser..ast..query..JoinOperator$GT$17h8367d03fca502e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(512) %8)
           to label %"_ZN4core3ptr48drop_in_place$LT$sqlparser..ast..query..Join$GT$17haa94f31d49f65309E.exit" unwind label %18
 
 14:                                               ; preds = %11
@@ -29906,7 +29906,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$sqlparser..ast..Ident$GT$$GT$17h5712a5f2aeb93b7dE.exit.i": ; preds = %25, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c89b79775280de2E.llvm.11705908289436625823.exit.i.i"
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8) #16
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(200) %8) #16
           to label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Assignment$GT$17h69d30e9b3a58048aE.llvm.11705908289436625823.exit" unwind label %29
 
 27:                                               ; preds = %31, %29
@@ -30030,7 +30030,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 7:                                                ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit"
   %8 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %3, i64 0, i64 %.0.i
   %9 = add i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %8)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %8)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit" unwind label %11
 
 "_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit3": ; preds = %13, %11
@@ -30046,7 +30046,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 13:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit3"
   %14 = getelementptr inbounds [0 x { { i64, [21 x i64] }, i8, i8, [6 x i8] }], ptr %3, i64 0, i64 %.1.i
   %15 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %14)
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(184) %14)
           to label %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit3" unwind label %17
 
 16:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..OrderByExpr$GT$17h121959148bb9ad75E.llvm.11705908289436625823.exit3"
@@ -30224,7 +30224,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %14, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit", label %15
 
 15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %13, i64 noundef 8) #15
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit": ; preds = %15, %8, %1, %4
@@ -30254,7 +30254,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %14, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit", label %15
 
 15:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %13, i64 noundef 8) #15
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit": ; preds = %15, %8, %1, %4
@@ -30304,7 +30304,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %13, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit", label %14
 
 14:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #15
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 0, -7) %12, i64 noundef 8) #15
   br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit"
 
 "_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hac9da670e5b554aeE.exit": ; preds = %14, %8, %1, %4

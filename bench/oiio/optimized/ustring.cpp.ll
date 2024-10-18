@@ -596,7 +596,7 @@ invoke.cont51:                                    ; preds = %if.end36
   %or = or disjoint i64 %and53, %and48
   store i64 %or, ptr %hash, align 8
   %inc = add i64 %num_rehashes.0, 1
-  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   %tobool.not.i.i78 = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i78, label %invoke.cont54, label %if.then.i.i79
 
@@ -609,13 +609,13 @@ invoke.cont54:                                    ; preds = %invoke.cont51
           to label %_ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8iteratorD2Ev.exit100 unwind label %lpad55
 
 _ZN18OpenImageIO_v2_6_024unordered_map_concurrentImPKcNS_8identityImEESt8equal_toImELm256ESt13unordered_mapImS2_S4_S6_SaISt4pairIKmS2_EEEE8iteratorD2Ev.exit100: ; preds = %invoke.cont54
-  %call1.i.i.i85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   br label %while.body
 
 lpad55:                                           ; preds = %invoke.cont54
   %46 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i102 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i102 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   br label %common.resume
 
 while.end.loopexit:                               ; preds = %if.end36
@@ -628,7 +628,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %tobool63.not, label %if.end70, label %if.then64
 
 if.then64:                                        ; preds = %while.end
-  %call1.i.i.i119 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i119 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   %tobool.not.i.i120 = icmp eq i32 %call1.i.i.i119, 0
   br i1 %tobool.not.i.i120, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit122, label %if.then.i.i121
 
@@ -719,13 +719,13 @@ _ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRS2_RmEEEvN9__gnu_cxx17__
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %_ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRS2_RmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i124
-  %call1.i.i.i135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i135 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   br label %if.end70
 
 lpad66:                                           ; preds = %cond.true.i.i.i, %if.then.i.i.i131
   %55 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i137 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i137 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   br label %common.resume
 
 if.end70:                                         ; preds = %invoke.cont67, %while.end
@@ -1337,7 +1337,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZN18OpenImageIO_v2_6_07ustring15hash_collisionsEPSt6vectorIS0_SaIS0_EE(ptr noundef %collisions) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1460,7 +1460,7 @@ lpad5.loopexit.split-lp:                          ; preds = %if.then.i.i.i
 
 lpad5:                                            ; preds = %lpad5.loopexit.split-lp, %lpad5.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]
-  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   resume { ptr, i32 } %lpad.phi
 
 if.end.loopexit:                                  ; preds = %invoke.cont6
@@ -1475,7 +1475,7 @@ if.end:                                           ; preds = %if.end.loopexit, %i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
+  %call1.i.i.i5 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115collision_mutexE) #22
   ret i64 %sub.ptr.div.i
 }
 

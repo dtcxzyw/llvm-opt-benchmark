@@ -874,7 +874,7 @@ while.cond.preheader.i:                           ; preds = %if.end107
   %sext20.i = shl i64 %38, 32
   %conv221.i = ashr exact i64 %sext20.i, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i.i)
-  %call.i22.i = call ptr @find_header_mem(ptr noundef %37, i64 noundef %conv221.i, ptr noundef nonnull @.str.83, ptr noundef nonnull %out_len.i.i) #16
+  %call.i22.i = call ptr @find_header_mem(ptr noundef %37, i64 noundef range(i64 -2147483648, 2147483648) %conv221.i, ptr noundef nonnull @.str.83, ptr noundef nonnull %out_len.i.i) #16
   %tobool.not.i23.i = icmp eq ptr %call.i22.i, null
   br i1 %tobool.not.i23.i, label %find_header.exit.thread.i, label %find_header.exit.lr.ph.i
 
@@ -923,7 +923,7 @@ if.end12.i:                                       ; preds = %lor.lhs.false.i
   %sext.i37 = shl i64 %sub.i, 32
   %conv2.i = ashr exact i64 %sext.i37, 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i.i)
-  %call.i.i38 = call ptr @find_header_mem(ptr noundef nonnull %add.ptr3.i.i, i64 noundef %conv2.i, ptr noundef nonnull @.str.83, ptr noundef nonnull %out_len.i.i) #16
+  %call.i.i38 = call ptr @find_header_mem(ptr noundef nonnull %add.ptr3.i.i, i64 noundef range(i64 -2147483648, 2147483648) %conv2.i, ptr noundef nonnull @.str.83, ptr noundef nonnull %out_len.i.i) #16
   %tobool.not.i.i39 = icmp eq ptr %call.i.i38, null
   br i1 %tobool.not.i.i39, label %find_header.exit.thread.i, label %find_header.exit.i, !llvm.loop !7
 
@@ -1017,7 +1017,7 @@ if.then119:                                       ; preds = %is_null_oid.exit.i
   br i1 %.b.i43, label %if.end.i47, label %if.then.i44
 
 if.then.i44:                                      ; preds = %if.then119
-  %call.i45 = call fastcc ptr @unpack(i32 noundef 0, ptr noundef readonly %si)
+  %call.i45 = call fastcc ptr @unpack(i32 noundef 0, ptr noundef nonnull readonly %si)
   br label %unpack_with_sideband.exit
 
 if.end.i47:                                       ; preds = %if.then119
@@ -1033,7 +1033,7 @@ if.end.i47:                                       ; preds = %if.then119
 
 if.end4.i:                                        ; preds = %if.end.i47
   %53 = load i32, ptr %in.i, align 8
-  %call6.i = call fastcc ptr @unpack(i32 noundef %53, ptr noundef readonly %si)
+  %call6.i = call fastcc ptr @unpack(i32 noundef %53, ptr noundef nonnull readonly %si)
   %call7.i = call i32 @finish_async(ptr noundef nonnull %muxer.i) #16
   br label %unpack_with_sideband.exit
 
@@ -1800,7 +1800,7 @@ if.end39.loopexit.i:                              ; preds = %for.inc36.i
 
 if.end39.i:                                       ; preds = %if.end39.loopexit.i, %reject_updates_to_hidden.exit.i
   %run_proc_receive.0.i = phi i1 [ true, %reject_updates_to_hidden.exit.i ], [ %169, %if.end39.loopexit.i ]
-  %call40.i = call fastcc i32 @run_receive_hook(ptr noundef %34, ptr noundef nonnull @.str.110, i32 noundef 0, ptr noundef %push_options)
+  %call40.i = call fastcc i32 @run_receive_hook(ptr noundef nonnull %34, ptr noundef nonnull @.str.110, i32 noundef 0, ptr noundef nonnull %push_options)
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %land.rhs57.i, label %for.body45.i
 
@@ -2034,7 +2034,7 @@ check_aliased_updates.exit.if.end112_crit_edge.i: ; preds = %check_aliased_updat
   br i1 %.b48.pre.i, label %if.then114.i, label %if.else.i
 
 land.lhs.true.i101:                               ; preds = %check_aliased_updates.exit.i
-  %call85.i = call fastcc i32 @run_proc_receive_hook(ptr noundef %34, ptr noundef %push_options)
+  %call85.i = call fastcc i32 @run_proc_receive_hook(ptr noundef nonnull %34, ptr noundef nonnull %push_options)
   %tobool86.not.i = icmp eq i32 %call85.i, 0
   %.b48.pre114.i = load i1, ptr @use_atomic, align 4
   br i1 %tobool86.not.i, label %if.end112.i, label %for.body90.i
@@ -2070,11 +2070,11 @@ if.end112.i:                                      ; preds = %for.inc109.i, %land
   br i1 %.b48.pre114.i, label %if.then114.i, label %if.else.i
 
 if.then114.i:                                     ; preds = %if.end112.i, %check_aliased_updates.exit.if.end112_crit_edge.i
-  call fastcc void @execute_commands_atomic(ptr noundef %34, ptr noundef %si)
+  call fastcc void @execute_commands_atomic(ptr noundef nonnull %34, ptr noundef nonnull %si)
   br label %if.end115.i
 
 if.else.i:                                        ; preds = %if.end112.i, %check_aliased_updates.exit.if.end112_crit_edge.i
-  call fastcc void @execute_commands_non_atomic(ptr noundef %34, ptr noundef %si)
+  call fastcc void @execute_commands_non_atomic(ptr noundef nonnull %34, ptr noundef nonnull %si)
   br label %if.end115.i
 
 if.end115.i:                                      ; preds = %if.else.i, %if.then114.i
@@ -2083,7 +2083,7 @@ if.end115.i:                                      ; preds = %if.else.i, %if.then
   br i1 %tobool116.not.i, label %execute_commands.exit, label %if.then117.i
 
 if.then117.i:                                     ; preds = %if.end115.i
-  call fastcc void @BUG_if_skipped_connectivity_check(ptr noundef %34, ptr noundef %si)
+  call fastcc void @BUG_if_skipped_connectivity_check(ptr noundef nonnull %34, ptr noundef nonnull %si)
   br label %execute_commands.exit
 
 execute_commands.exit:                            ; preds = %for.body.i86, %for.inc51.i, %for.inc63.i, %for.inc79.i, %if.end115.i, %if.then117.i
@@ -3074,7 +3074,7 @@ if.end5.i.i:                                      ; preds = %if.then4.i.i, %if.t
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @push_cert, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bohmac.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i.i.i.i)
-  %call.i.i.i.i = call ptr @find_header_mem(ptr noundef %21, i64 noundef %conv7.i.i, ptr noundef nonnull @.str.229, ptr noundef nonnull %out_len.i.i.i.i) #16
+  %call.i.i.i.i = call ptr @find_header_mem(ptr noundef %21, i64 noundef range(i64 -2147483648, 2147483648) %conv7.i.i, ptr noundef nonnull @.str.229, ptr noundef nonnull %out_len.i.i.i.i) #16
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %find_header.exit.thread.i.i.i, label %find_header.exit.i.i.i
 
@@ -3935,7 +3935,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   br i1 %cmp.i, label %if.then.i, label %st_add.exit
 
 if.then.i:                                        ; preds = %if.end
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, i64 noundef 104, i64 noundef %conv12) #17
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, i64 noundef 104, i64 noundef range(i64 -2147483648, 2147483648) %conv12) #17
   unreachable
 
 st_add.exit:                                      ; preds = %if.end

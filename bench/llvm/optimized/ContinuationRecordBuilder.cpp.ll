@@ -89,7 +89,7 @@ $_ZTVN4llvm18BinaryStreamWriterE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview25ContinuationRecordBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2, i64 noundef 4) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2, i64 noundef 4) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -108,7 +108,7 @@ define dso_local void @_ZN4llvm8codeview25ContinuationRecordBuilderC2Ev(ptr noun
   store i8 0, ptr %10, align 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef 2) #13
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull %12, i64 noundef 2) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -125,7 +125,7 @@ define dso_local void @_ZN4llvm8codeview25ContinuationRecordBuilderD2Ev(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview17TypeRecordMappingE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   %7 = icmp eq ptr %5, %6
@@ -229,7 +229,7 @@ _ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %_ZN4llvm8codeview17
   br label %_ZN4llvm25AppendingBinaryByteStreamD2Ev.exit
 
 _ZN4llvm25AppendingBinaryByteStreamD2Ev.exit:     ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit, %49
-  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 16
   %58 = icmp eq ptr %56, %57
@@ -414,7 +414,7 @@ _ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %_ZN4llvm25Appending
   %37 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %37, null
   call void @llvm.assume(i1 %.not.i)
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr nonnull %3, i64 4) #13
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr nonnull align 1 dereferenceable(4) %3, i64 4) #13
   %38 = load ptr, ptr %6, align 8
   %.not.i5 = icmp eq ptr %38, null
   call void @llvm.assume(i1 %.not.i5)
@@ -824,7 +824,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -936,7 +936,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1044,7 +1044,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1152,7 +1152,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1260,7 +1260,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1368,7 +1368,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1476,7 +1476,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1584,7 +1584,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1692,7 +1692,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4
@@ -1800,7 +1800,7 @@ _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZL10addPaddingRN4l
   %.pre-phi = phi i32 [ %.pre10, %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit.loopexit ], [ %27, %_ZN4llvm5ErrorD2Ev.exit9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8
-  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(248) %0) #13
   %44 = getelementptr inbounds i32, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4

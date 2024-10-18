@@ -711,11 +711,11 @@ _ZN10QByteArrayD2Ev.exit19:                       ; preds = %_ZN10QByteArrayD2Ev
   %36 = getelementptr inbounds i8, ptr %35, i64 424
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(52) %0)
-  call void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
-  call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  call void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext false)
+  call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
   call void @filter_expression_iterate_expressions(ptr noundef nonnull @_ZN23FilterExpressionToolBar28filter_expression_add_actionEPKvPvS2_, ptr noundef nonnull %4)
-  call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  call void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
+  call void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %38
 
@@ -2035,7 +2035,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %59, %_ZN17QArrayDat
 
 78:                                               ; preds = %69
   store i8 0, ptr %14, align 1
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull %14)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %_ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %105
 
 _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %78
@@ -2062,11 +2062,11 @@ _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
           to label %.noexc unwind label %105
 
 .noexc:                                           ; preds = %84
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext false)
           to label %.noexc26 unwind label %105
 
 .noexc26:                                         ; preds = %.noexc
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
           to label %.noexc27 unwind label %105
 
 .noexc27:                                         ; preds = %.noexc26
@@ -2074,11 +2074,11 @@ _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_
           to label %.noexc28 unwind label %105
 
 .noexc28:                                         ; preds = %.noexc27
-  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
           to label %.noexc29 unwind label %105
 
 .noexc29:                                         ; preds = %.noexc28
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext true)
           to label %_ZN23FilterExpressionToolBar24filterExpressionsChangedEv.exit unwind label %105
 
 _ZN23FilterExpressionToolBar24filterExpressionsChangedEv.exit: ; preds = %.noexc29
@@ -2434,11 +2434,11 @@ _ZN18QAbstractItemModel9removeRowEiRK11QModelIndex.exit: ; preds = %76
           to label %.noexc unwind label %112
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false)
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext false)
           to label %.noexc26 unwind label %112
 
 .noexc26:                                         ; preds = %.noexc
-  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
           to label %.noexc27 unwind label %112
 
 .noexc27:                                         ; preds = %.noexc26
@@ -2446,11 +2446,11 @@ _ZN18QAbstractItemModel9removeRowEiRK11QModelIndex.exit: ; preds = %76
           to label %.noexc28 unwind label %112
 
 .noexc28:                                         ; preds = %.noexc27
-  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
           to label %.noexc29 unwind label %112
 
 .noexc29:                                         ; preds = %.noexc28
-  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
+  invoke void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext true)
           to label %_ZN23FilterExpressionToolBar24filterExpressionsChangedEv.exit unwind label %112
 
 _ZN23FilterExpressionToolBar24filterExpressionsChangedEv.exit: ; preds = %.noexc29
@@ -4475,7 +4475,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %74, %_ZN17QArrayDat
   br label %_ZNK11QModelIndex4dataEi.exit
 
 90:                                               ; preds = %81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !44
   store i64 2, ptr %60, align 8, !alias.scope !44
   br label %_ZNK11QModelIndex4dataEi.exit
 
@@ -5326,7 +5326,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i142: ; preds = %139
 
 147:                                              ; preds = %145
   store i8 1, ptr %15, align 1
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull %15)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %15)
           to label %_ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %101
 
 _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %147
@@ -5471,7 +5471,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165:   ; preds = %_ZN9QtPrivate17QFor
 
 193:                                              ; preds = %191
   store i8 1, ptr %19, align 1
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull %19)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIbE8metaTypeE, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %_ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit169 unwind label %223
 
 _ZN8QVariant9fromValueIbEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit169: ; preds = %193

@@ -845,7 +845,7 @@ entry:
   store ptr null, ptr %channel_control_helper.i.i, align 8, !noalias !11
   %args.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   call void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %args.i.i) #32, !noalias !11
-  invoke void @_ZN9grpc_core19LoadBalancingPolicyC2ENS0_4ArgsEl(ptr noundef nonnull align 8 dereferenceable(56) %call.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 1)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicyC2ENS0_4ArgsEl(ptr noundef nonnull align 8 dereferenceable(480) %call.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 1)
           to label %invoke.cont.i.i unwind label %lpad.i.i, !noalias !11
 
 invoke.cont.i.i:                                  ; preds = %entry
@@ -974,7 +974,7 @@ invoke.cont38.i.i:                                ; preds = %invoke.cont16.i.i
   %conv.i.i = select i1 %tobool.i.i19.not.i.i, i64 250, i64 %26
   store i64 %conv.i.i, ptr %connection_attempt_delay_.i.i, align 8, !noalias !11
   %latest_update_args_.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
-  invoke void @_ZN4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_.i.i)
+  invoke void @_ZN4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %latest_update_args_.i.i)
           to label %.noexc.i.i unwind label %lpad2.i.i, !noalias !11
 
 .noexc.i.i:                                       ; preds = %invoke.cont38.i.i
@@ -1008,7 +1008,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.i.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i, %lpad2.i.i.i
-  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_.i.i) #32, !noalias !11
+  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %latest_update_args_.i.i) #32, !noalias !11
   br label %ehcleanup.i.i
 
 invoke.cont41.i.i:                                ; preds = %.noexc.i.i
@@ -1045,7 +1045,7 @@ invoke.cont43.i.i:                                ; preds = %.noexc26.i.i
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i, label %invoke.cont.i
 
 if.then.i.i:                                      ; preds = %invoke.cont43.i.i
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.9, i32 noundef 368, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %call.i)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.9, i32 noundef 368, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(480) %call.i)
           to label %invoke.cont.i unwind label %lpad42.i.i, !noalias !11
 
 lpad.i.i:                                         ; preds = %entry
@@ -1069,7 +1069,7 @@ lpad42.i.i:                                       ; preds = %if.then.i.i, %.noex
 
 ehcleanup.i.i:                                    ; preds = %lpad42.i.i, %lpad2.i.i, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.i.i.i
   %.pn.i.i = phi { ptr, i32 } [ %36, %lpad42.i.i ], [ %35, %lpad2.i.i ], [ %27, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.i.i.i ]
-  call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i) #32, !noalias !11
+  call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %call.i) #32, !noalias !11
   br label %lpad.body.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i, %invoke.cont43.i.i
@@ -1224,13 +1224,13 @@ invoke.cont6.i:                                   ; preds = %if.then.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %cleanup.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont6.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %ref.tmp)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont8.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #32
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #32
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #32
   br label %ehcleanup.i
 
@@ -1312,7 +1312,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
   %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !noalias !17
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %errors.i, ptr noundef %15)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(72) %errors.i, ptr noundef %15)
           to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i
@@ -1592,7 +1592,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 _ZN9grpc_core19LoadBalancingPolicy10UpdateArgsD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelListENS0_16OrphanableDeleteEED2Ev.exit6, %if.then.i.i, %if.then.i.i.i
   %latest_update_args_ = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_) #32
+  tail call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %latest_update_args_) #32
   tail call void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #32
   ret void
 
@@ -1810,7 +1810,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   br i1 %call.i45, label %if.then66, label %for.inc
 
 if.then66:                                        ; preds = %invoke.cont64
-  %call.i47 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull %__begin5.sroa.0.0282)
+  %call.i47 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull align 4 dereferenceable(132) %__begin5.sroa.0.0282)
           to label %invoke.cont67 unwind label %lpad49.loopexit
 
 invoke.cont67:                                    ; preds = %if.then66
@@ -2194,7 +2194,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 land.rhs.i:                                       ; preds = %for.body.i
   %add.ptr.i.i96 = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %48, i64 %49
   %52 = load ptr, ptr %add.ptr.i.i96, align 8
-  %call.i.i97101 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull %52)
+  %call.i.i97101 = invoke noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(ptr noundef nonnull align 4 dereferenceable(132) %52)
           to label %call.i.i97.noexc unwind label %lpad101.thread
 
 lpad101.thread:                                   ; preds = %land.rhs.i
@@ -2645,7 +2645,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
           to label %if.end137 unwind label %lpad9
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(8) %latest_update_args_)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_)
           to label %if.end137 unwind label %lpad9
 
 if.end137:                                        ; preds = %if.then131, %if.then2.i.i, %if.else.i.i, %if.end124
@@ -2660,11 +2660,11 @@ if.end.i.i.i:                                     ; preds = %if.end137
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %110 = getelementptr inbounds i8, ptr %args, i64 8
-  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE6AssignIS6_EEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_138, ptr noundef nonnull align 8 dereferenceable(16) %110)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE6AssignIS6_EEvOT_(ptr noundef nonnull align 8 dereferenceable(72) %latest_update_args_138, ptr noundef nonnull align 8 dereferenceable(16) %110)
           to label %_ZN4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEaSEOS6_.exit.i unwind label %lpad9
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
-  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %latest_update_args_138, ptr noundef nonnull align 8 dereferenceable(8) %args)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE12AssignStatusINS0_6StatusEEEvOT_(ptr noundef nonnull align 8 dereferenceable(72) %latest_update_args_138, ptr noundef nonnull align 8 dereferenceable(72) %args)
           to label %_ZN4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEaSEOS6_.exit.i unwind label %lpad9
 
 _ZN4absl12lts_202308028StatusOrISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEEaSEOS6_.exit.i: ; preds = %if.else.i.i.i, %if.then2.i.i.i, %if.end137
@@ -2923,13 +2923,13 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #32
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #32
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #32
   resume { ptr, i32 } %1
 
@@ -3191,7 +3191,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -3201,7 +3201,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #32
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #32
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
@@ -3530,7 +3530,7 @@ if.then.i.i10:                                    ; preds = %invoke.cont4.i.i
 
 invoke.cont14.i.i:                                ; preds = %if.then.i.i10
   %call15.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i) #32, !noalias !45
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.9, i32 noundef 1066, i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %policy_.val.i.i, ptr noundef nonnull %call.i11, ptr noundef %call15.i.i)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.9, i32 noundef 1066, i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %policy_.val.i.i, ptr noundef nonnull align 8 dereferenceable(112) %call.i11, ptr noundef %call15.i.i)
           to label %invoke.cont17.i.i unwind label %lpad16.i.i, !noalias !45
 
 invoke.cont17.i.i:                                ; preds = %invoke.cont14.i.i
@@ -3702,7 +3702,7 @@ if.then.i.i.i24:                                  ; preds = %call.i22.noexc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i24, %call.i22.noexc
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i2225)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i2225)
           to label %.noexc.i unwind label %lpad1.i, !noalias !48
 
 .noexc.i:                                         ; preds = %invoke.cont.i
@@ -3763,7 +3763,7 @@ if.then.i.i29:                                    ; preds = %invoke.cont.i28
 if.then.i.i.i32:                                  ; preds = %if.then.i.i29
   %vtable.i.i.i33 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %vtable.i.i.i33, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %41)
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %41)
           to label %if.end.i.i.i unwind label %terminate.lpad.i.i34
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i32, %if.then.i.i29
@@ -3809,7 +3809,7 @@ if.then.i37:                                      ; preds = %invoke.cont44
 if.then.i.i44:                                    ; preds = %if.then.i37
   %vtable.i.i45 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %vtable.i.i45, align 8
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %49)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %49)
           to label %if.end.i.i40 unwind label %terminate.lpad.i46
 
 if.end.i.i40:                                     ; preds = %if.then.i.i44, %if.then.i37
@@ -3846,7 +3846,7 @@ if.then.i48:                                      ; preds = %_ZN9grpc_core13RefC
 if.then.i.i57:                                    ; preds = %if.then.i48
   %vtable.i.i58 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %vtable.i.i58, align 8
-  invoke void %58(ptr noundef nonnull align 8 dereferenceable(8) %56)
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %56)
           to label %if.end.i.i52 unwind label %terminate.lpad.i59
 
 if.end.i.i52:                                     ; preds = %if.then.i.i57, %if.then.i48
@@ -5464,7 +5464,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i.i6, label %if.then.i7, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE11EnsureNotOkEv.exit
 
 if.then.i7:                                       ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
-  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  tail call void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this)
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE11EnsureNotOkEv.exit
 
 _ZN4absl12lts_2023080217internal_statusor12StatusOrDataISt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEEE11EnsureNotOkEv.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i7
@@ -5520,7 +5520,7 @@ if.then.i:                                        ; preds = %invoke.cont
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
@@ -5570,7 +5570,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call)
           to label %.noexc unwind label %lpad1
 
 .noexc:                                           ; preds = %invoke.cont
@@ -5626,7 +5626,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -5669,7 +5669,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -5743,7 +5743,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN4absl12lts_20230
 if.then.i.i1.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %if.end.i.i.i.i.i.i.i unwind label %terminate.lpad.i2.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i1.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -5873,7 +5873,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %vtable.i.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i.i
@@ -6178,7 +6178,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont.i.i.i.i
   %__first.addr.02.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %subchannels_32.val.i.i.i.i, %invoke.cont.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %__cur.03.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !91
   %subchannel_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i.i, i64 16
   %subchannel_3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %subchannel_3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !89, !noalias !86
@@ -6270,7 +6270,7 @@ if.then.i23.i.i.i.i:                              ; preds = %cleanup.i.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i23.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %23)
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %if.end.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %if.then.i23.i.i.i.i
@@ -6325,7 +6325,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -7000,7 +7000,7 @@ if.then.i.i.i44:                                  ; preds = %call.i.noexc
   br label %invoke.cont.i46
 
 invoke.cont.i46:                                  ; preds = %if.then.i.i.i44, %call.i.noexc
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i49)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i49)
           to label %.noexc.i unwind label %lpad1.i, !noalias !99
 
 .noexc.i:                                         ; preds = %invoke.cont.i46
@@ -7061,7 +7061,7 @@ if.then.i.i78.i:                                  ; preds = %invoke.cont.i.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i78.i
   %vtable.i.i.i.i = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %vtable.i.i.i.i, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %67)
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %67)
           to label %if.end.i.i.i.i unwind label %terminate.lpad.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %if.then.i.i78.i
@@ -7107,7 +7107,7 @@ if.then.i81.i:                                    ; preds = %invoke.cont110.i
 if.then.i.i85.i:                                  ; preds = %if.then.i81.i
   %vtable.i.i.i = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(8) %75)
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(16) %75)
           to label %if.end.i.i.i unwind label %terminate.lpad.i86.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i85.i, %if.then.i81.i
@@ -7144,7 +7144,7 @@ if.then.i88.i:                                    ; preds = %_ZN9grpc_core13RefC
 if.then.i.i98.i:                                  ; preds = %if.then.i88.i
   %vtable.i.i99.i = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %vtable.i.i99.i, align 8
-  invoke void %84(ptr noundef nonnull align 8 dereferenceable(8) %82)
+  invoke void %84(ptr noundef nonnull align 8 dereferenceable(16) %82)
           to label %if.end.i.i92.i unwind label %terminate.lpad.i100.i
 
 if.end.i.i92.i:                                   ; preds = %if.then.i.i98.i, %if.then.i88.i
@@ -7204,7 +7204,7 @@ if.then114.i:                                     ; preds = %if.else.i
           to label %call.i101.noexc.i unwind label %lpad119.i
 
 call.i101.noexc.i:                                ; preds = %if.then114.i
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i101102.i)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i101102.i)
           to label %invoke.cont120.i unwind label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit8.i.i, !noalias !102
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit8.i.i: ; preds = %call.i101.noexc.i
@@ -7244,7 +7244,7 @@ if.then.i.i112.i:                                 ; preds = %invoke.cont.i110.i
 if.then.i.i.i121.i:                               ; preds = %if.then.i.i112.i
   %vtable.i.i.i122.i = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %vtable.i.i.i122.i, align 8
-  invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %96)
+  invoke void %98(ptr noundef nonnull align 8 dereferenceable(16) %96)
           to label %if.end.i.i.i116.i unwind label %terminate.lpad.i.i123.i
 
 if.end.i.i.i116.i:                                ; preds = %if.then.i.i.i121.i, %if.then.i.i112.i
@@ -7290,7 +7290,7 @@ if.then.i127.i:                                   ; preds = %invoke.cont122.i
 if.then.i.i137.i:                                 ; preds = %if.then.i127.i
   %vtable.i.i138.i = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %vtable.i.i138.i, align 8
-  invoke void %106(ptr noundef nonnull align 8 dereferenceable(8) %104)
+  invoke void %106(ptr noundef nonnull align 8 dereferenceable(16) %104)
           to label %if.end.i.i131.i unwind label %terminate.lpad.i139.i
 
 if.end.i.i131.i:                                  ; preds = %if.then.i.i137.i, %if.then.i127.i
@@ -7327,7 +7327,7 @@ if.then.i142.i:                                   ; preds = %_ZN9grpc_core13RefC
 if.then.i.i152.i:                                 ; preds = %if.then.i142.i
   %vtable.i.i153.i = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %vtable.i.i153.i, align 8
-  invoke void %113(ptr noundef nonnull align 8 dereferenceable(8) %111)
+  invoke void %113(ptr noundef nonnull align 8 dereferenceable(16) %111)
           to label %if.end.i.i146.i unwind label %terminate.lpad.i154.i
 
 if.end.i.i146.i:                                  ; preds = %if.then.i.i152.i, %if.then.i142.i
@@ -7424,7 +7424,7 @@ invoke.cont137.i:                                 ; preds = %if.then.i.i172.i, %
           to label %call.i176.noexc.i unwind label %if.then.i249.i
 
 call.i176.noexc.i:                                ; preds = %invoke.cont137.i
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i176180.i)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i176180.i)
           to label %invoke.cont139.i unwind label %if.then.i2.i.i, !noalias !108
 
 if.then.i2.i.i:                                   ; preds = %call.i176.noexc.i
@@ -7479,7 +7479,7 @@ if.then.i.i190.i:                                 ; preds = %invoke.cont.i188.i
 if.then.i.i.i199.i:                               ; preds = %if.then.i.i190.i
   %vtable.i.i.i200.i = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %vtable.i.i.i200.i, align 8
-  invoke void %138(ptr noundef nonnull align 8 dereferenceable(8) %136)
+  invoke void %138(ptr noundef nonnull align 8 dereferenceable(16) %136)
           to label %if.end.i.i.i194.i unwind label %terminate.lpad.i.i201.i
 
 if.end.i.i.i194.i:                                ; preds = %if.then.i.i.i199.i, %if.then.i.i190.i
@@ -7525,7 +7525,7 @@ if.then.i205.i:                                   ; preds = %invoke.cont141.i
 if.then.i.i215.i:                                 ; preds = %if.then.i205.i
   %vtable.i.i216.i = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %vtable.i.i216.i, align 8
-  invoke void %146(ptr noundef nonnull align 8 dereferenceable(8) %144)
+  invoke void %146(ptr noundef nonnull align 8 dereferenceable(16) %144)
           to label %if.end.i.i209.i unwind label %terminate.lpad.i217.i
 
 if.end.i.i209.i:                                  ; preds = %if.then.i.i215.i, %if.then.i205.i
@@ -7562,7 +7562,7 @@ if.then.i220.i:                                   ; preds = %_ZN9grpc_core13RefC
 if.then.i.i230.i:                                 ; preds = %if.then.i220.i
   %vtable.i.i231.i = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %vtable.i.i231.i, align 8
-  invoke void %153(ptr noundef nonnull align 8 dereferenceable(8) %151)
+  invoke void %153(ptr noundef nonnull align 8 dereferenceable(16) %151)
           to label %if.end.i.i224.i unwind label %terminate.lpad.i232.i
 
 if.end.i.i224.i:                                  ; preds = %if.then.i.i230.i, %if.then.i220.i
@@ -8006,7 +8006,7 @@ invoke.cont71.i.i:                                ; preds = %if.end39.i.i
 call.i.noexc.i.i:                                 ; preds = %invoke.cont71.i.i
   store ptr %this.val.i261.i, ptr %agg.tmp.i.i.i, align 8, !noalias !123
   store ptr null, ptr %ref.tmp67.i.i, align 8, !noalias !123
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i77.i.i)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i77.i.i)
           to label %invoke.cont73.i.i unwind label %lpad.i.i.i, !noalias !123
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i
@@ -8049,7 +8049,7 @@ if.then.i.i80.i.i:                                ; preds = %invoke.cont.i.i.i
 if.then.i.i.i85.i.i:                              ; preds = %if.then.i.i80.i.i
   %vtable.i.i.i86.i.i = load ptr, ptr %225, align 8
   %227 = load ptr, ptr %vtable.i.i.i86.i.i, align 8
-  invoke void %227(ptr noundef nonnull align 8 dereferenceable(8) %225)
+  invoke void %227(ptr noundef nonnull align 8 dereferenceable(16) %225)
           to label %if.end.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i85.i.i, %if.then.i.i80.i.i
@@ -8094,7 +8094,7 @@ if.then.i89.i.i:                                  ; preds = %invoke.cont75.i.i
 if.then.i.i94.i.i:                                ; preds = %if.then.i89.i.i
   %vtable.i.i95.i.i = load ptr, ptr %233, align 8
   %235 = load ptr, ptr %vtable.i.i95.i.i, align 8
-  invoke void %235(ptr noundef nonnull align 8 dereferenceable(8) %233)
+  invoke void %235(ptr noundef nonnull align 8 dereferenceable(16) %233)
           to label %if.end.i.i.i266.i unwind label %terminate.lpad.i.i275.i
 
 if.end.i.i.i266.i:                                ; preds = %if.then.i.i94.i.i, %if.then.i89.i.i
@@ -8131,7 +8131,7 @@ if.then.i110.i.i:                                 ; preds = %_ZN9grpc_core13RefC
 if.then.i.i119.i.i:                               ; preds = %if.then.i110.i.i
   %vtable.i.i120.i.i = load ptr, ptr %240, align 8
   %242 = load ptr, ptr %vtable.i.i120.i.i, align 8
-  invoke void %242(ptr noundef nonnull align 8 dereferenceable(8) %240)
+  invoke void %242(ptr noundef nonnull align 8 dereferenceable(16) %240)
           to label %if.end.i.i114.i.i unwind label %terminate.lpad.i121.i.i
 
 if.end.i.i114.i.i:                                ; preds = %if.then.i.i119.i.i, %if.then.i110.i.i
@@ -8261,7 +8261,7 @@ if.then.i.i130.i.i:                               ; preds = %.noexc24
 if.then.i.i.i139.i.i:                             ; preds = %if.then.i.i130.i.i
   %vtable.i.i.i140.i.i = load ptr, ptr %264, align 8
   %266 = load ptr, ptr %vtable.i.i.i140.i.i, align 8
-  invoke void %266(ptr noundef nonnull align 8 dereferenceable(8) %264)
+  invoke void %266(ptr noundef nonnull align 8 dereferenceable(16) %264)
           to label %if.end.i.i.i134.i.i unwind label %lpad.loopexit
 
 if.end.i.i.i134.i.i:                              ; preds = %if.then.i.i.i139.i.i, %if.then.i.i130.i.i
@@ -8804,7 +8804,7 @@ declare noundef ptr @_ZN9grpc_core21ConnectivityStateNameE23grpc_connectivity_st
 define linkonce_odr void @_ZN9grpc_core14MakeRefCountedINS_19LoadBalancingPolicy11QueuePickerEJDnEEENS_13RefCountedPtrIT_EEDpOT0_(ptr noalias sret(%"class.grpc_core::RefCountedPtr.226") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call)
           to label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit unwind label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit8
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit: ; preds = %entry
@@ -8838,7 +8838,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -9092,7 +9092,7 @@ if.then.i.i.i:                                    ; preds = %call.i35.noexc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i, %call.i35.noexc
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i3536)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i3536)
           to label %.noexc.i unwind label %lpad1.i, !noalias !128
 
 .noexc.i:                                         ; preds = %invoke.cont.i
@@ -9153,7 +9153,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i40
 if.then.i.i.i41:                                  ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %43)
           to label %if.end.i.i.i unwind label %terminate.lpad.i.i42
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i41, %if.then.i.i
@@ -9199,7 +9199,7 @@ if.then.i45:                                      ; preds = %invoke.cont61
 if.then.i.i48:                                    ; preds = %if.then.i45
   %vtable.i.i = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %53(ptr noundef nonnull align 8 dereferenceable(8) %51)
+  invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %51)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i48, %if.then.i45
@@ -9236,7 +9236,7 @@ if.then.i50:                                      ; preds = %_ZN9grpc_core13RefC
 if.then.i.i60:                                    ; preds = %if.then.i50
   %vtable.i.i61 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %vtable.i.i61, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %58)
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) %58)
           to label %if.end.i.i54 unwind label %terminate.lpad.i62
 
 if.end.i.i54:                                     ; preds = %if.then.i.i60, %if.then.i50
@@ -9350,7 +9350,7 @@ if.then88:                                        ; preds = %land.lhs.true
           to label %call.i70.noexc unwind label %lpad93
 
 call.i70.noexc:                                   ; preds = %if.then88
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i7071)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i7071)
           to label %invoke.cont94 unwind label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit8.i, !noalias !131
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit8.i: ; preds = %call.i70.noexc
@@ -9391,7 +9391,7 @@ if.then.i.i81:                                    ; preds = %invoke.cont.i79
 if.then.i.i.i90:                                  ; preds = %if.then.i.i81
   %vtable.i.i.i91 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %vtable.i.i.i91, align 8
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %83)
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %83)
           to label %if.end.i.i.i85 unwind label %terminate.lpad.i.i92
 
 if.end.i.i.i85:                                   ; preds = %if.then.i.i.i90, %if.then.i.i81
@@ -9437,7 +9437,7 @@ if.then.i96:                                      ; preds = %invoke.cont96
 if.then.i.i106:                                   ; preds = %if.then.i96
   %vtable.i.i107 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %vtable.i.i107, align 8
-  invoke void %93(ptr noundef nonnull align 8 dereferenceable(8) %91)
+  invoke void %93(ptr noundef nonnull align 8 dereferenceable(16) %91)
           to label %if.end.i.i100 unwind label %terminate.lpad.i108
 
 if.end.i.i100:                                    ; preds = %if.then.i.i106, %if.then.i96
@@ -9474,7 +9474,7 @@ if.then.i111:                                     ; preds = %_ZN9grpc_core13RefC
 if.then.i.i121:                                   ; preds = %if.then.i111
   %vtable.i.i122 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %vtable.i.i122, align 8
-  invoke void %100(ptr noundef nonnull align 8 dereferenceable(8) %98)
+  invoke void %100(ptr noundef nonnull align 8 dereferenceable(16) %98)
           to label %if.end.i.i115 unwind label %terminate.lpad.i123
 
 if.end.i.i115:                                    ; preds = %if.then.i.i121, %if.then.i111
@@ -9662,14 +9662,14 @@ if.else.i.i:                                      ; preds = %invoke.cont40.i
 
 "_ZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0D2Ev.exit.i": ; preds = %if.else.i.i, %invoke.cont40.i
   %24 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %24(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp32.i, ptr noundef nonnull %agg.tmp32.i) #32
+  call void %24(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp32.i, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp32.i) #32
   br label %_ZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEv.exit
 
 lpad39.i:                                         ; preds = %invoke.cont.i
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %26(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp32.i, ptr noundef nonnull %agg.tmp32.i) #32
+  call void %26(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp32.i, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp32.i) #32
   resume { ptr, i32 } %25
 
 _ZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEv.exit: ; preds = %if.end14.i, %"_ZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0D2Ev.exit.i"
@@ -9871,7 +9871,7 @@ if.then.i.i.i:                                    ; preds = %call.i21.noexc
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i, %call.i21.noexc
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i2122)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i2122)
           to label %.noexc.i unwind label %lpad1.i, !noalias !138
 
 .noexc.i:                                         ; preds = %invoke.cont.i
@@ -9933,7 +9933,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i26
 if.then.i.i.i27:                                  ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %34)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %if.end.i.i.i unwind label %terminate.lpad.i.i28
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i27, %if.then.i.i
@@ -9979,7 +9979,7 @@ if.then.i31:                                      ; preds = %invoke.cont53
 if.then.i.i34:                                    ; preds = %if.then.i31
   %vtable.i.i = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %42)
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(16) %42)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i34, %if.then.i31
@@ -10016,7 +10016,7 @@ if.then.i36:                                      ; preds = %_ZN9grpc_core13RefC
 if.then.i.i46:                                    ; preds = %if.then.i36
   %vtable.i.i47 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %vtable.i.i47, align 8
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %49)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %49)
           to label %if.end.i.i40 unwind label %terminate.lpad.i48
 
 if.end.i.i40:                                     ; preds = %if.then.i.i46, %if.then.i36
@@ -10220,7 +10220,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %this.0.val, align 8
   %1 = load ptr, ptr %vtable.i, align 8
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %this.0.val)
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %this.0.val)
           to label %if.end.i unwind label %terminate.lpad
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -10407,7 +10407,7 @@ invoke.cont20:                                    ; preds = %if.end8
 call.i.noexc:                                     ; preds = %invoke.cont20
   store ptr %.val, ptr %agg.tmp.i, align 8, !noalias !147
   store ptr null, ptr %ref.tmp14, align 8, !noalias !147
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i17)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call.i17)
           to label %invoke.cont22 unwind label %lpad.i, !noalias !147
 
 lpad.i:                                           ; preds = %call.i.noexc
@@ -10444,7 +10444,7 @@ if.then.i:                                        ; preds = %invoke.cont24
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
@@ -10481,7 +10481,7 @@ if.then.i33:                                      ; preds = %_ZN9grpc_core13RefC
 if.then.i.i42:                                    ; preds = %if.then.i33
   %vtable.i.i43 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %vtable.i.i43, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %if.end.i.i37 unwind label %terminate.lpad.i44
 
 if.end.i.i37:                                     ; preds = %if.then.i.i42, %if.then.i33
@@ -10549,7 +10549,7 @@ invoke.cont38:                                    ; preds = %if.end8
           to label %call.i.noexc50 unwind label %if.then.i93
 
 call.i.noexc50:                                   ; preds = %invoke.cont38
-  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call.i51)
+  invoke void @_ZN9grpc_core19LoadBalancingPolicy16SubchannelPickerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i51)
           to label %invoke.cont40 unwind label %if.then.i2.i, !noalias !156
 
 if.then.i2.i:                                     ; preds = %call.i.noexc50
@@ -10599,7 +10599,7 @@ if.then.i54:                                      ; preds = %invoke.cont44
 if.then.i.i63:                                    ; preds = %if.then.i54
   %vtable.i.i64 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %vtable.i.i64, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %34)
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %if.end.i.i58 unwind label %terminate.lpad.i65
 
 if.end.i.i58:                                     ; preds = %if.then.i.i63, %if.then.i54
@@ -10636,7 +10636,7 @@ if.then.i68:                                      ; preds = %_ZN9grpc_core13RefC
 if.then.i.i77:                                    ; preds = %if.then.i68
   %vtable.i.i78 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %vtable.i.i78, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %41)
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %41)
           to label %if.end.i.i72 unwind label %terminate.lpad.i79
 
 if.end.i.i72:                                     ; preds = %if.then.i.i77, %if.then.i68
@@ -10730,7 +10730,7 @@ if.then.i102:                                     ; preds = %invoke.cont58
 if.then.i.i111:                                   ; preds = %if.then.i102
   %vtable.i.i112 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %vtable.i.i112, align 8
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %58)
+  invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) %58)
           to label %if.end.i.i106 unwind label %terminate.lpad.i113
 
 if.end.i.i106:                                    ; preds = %if.then.i.i111, %if.then.i102
@@ -10767,7 +10767,7 @@ if.then.i116:                                     ; preds = %_ZN9grpc_core13RefC
 if.then.i.i125:                                   ; preds = %if.then.i116
   %vtable.i.i126 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %vtable.i.i126, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %65)
+  invoke void %67(ptr noundef nonnull align 8 dereferenceable(16) %65)
           to label %if.end.i.i120 unwind label %terminate.lpad.i127
 
 if.end.i.i120:                                    ; preds = %if.then.i.i125, %if.then.i116
@@ -10846,7 +10846,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i.i unwind label %terminate.lpad.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
@@ -10891,7 +10891,7 @@ if.then.i.i:                                      ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end.i.i.i unwind label %terminate.lpad.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i.i
@@ -11164,7 +11164,7 @@ invoke.cont12.i.i.i.i.i:                          ; preds = %invoke.cont8.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i, label %"_ZZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0clEvENUlvE_D2Ev.exit.i.i.i.i.i", label %if.then.i.i9.i.i.i.i.i
 
 if.then.i.i9.i.i.i.i.i:                           ; preds = %invoke.cont12.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i32 noundef 3)
           to label %"_ZZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0clEvENUlvE_D2Ev.exit.i.i.i.i.i" unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i9.i.i.i.i.i
@@ -11389,7 +11389,7 @@ lpad10.i.i.i.i.i:                                 ; preds = %invoke.cont8.i.i.i.
   br i1 %tobool.not.i.i37.i.i.i.i.i, label %"_ZZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0clEvENUlvE_D2Ev.exit49.i.i.i.i.i", label %if.then.i.i38.i.i.i.i.i
 
 if.then.i.i38.i.i.i.i.i:                          ; preds = %lpad10.i.i.i.i.i
-  %call.i.i39.i.i.i.i.i = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i, i32 noundef 3)
+  %call.i.i39.i.i.i.i.i = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i32 noundef 3)
           to label %"_ZZZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelList14SubchannelData26RequestConnectionWithTimerEvEN3$_0clEvENUlvE_D2Ev.exit49.i.i.i.i.i" unwind label %terminate.lpad.i.i40.i.i.i.i.i
 
 terminate.lpad.i.i40.i.i.i.i.i:                   ; preds = %if.then.i.i38.i.i.i.i.i
@@ -11873,7 +11873,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl12lts_20230
 if.then.i.i1.i.i:                                 ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %vtable.i.i.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %if.end.i.i.i.i unwind label %terminate.lpad.i2.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i1.i.i, %if.then.i.i.i
@@ -12086,7 +12086,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit: ; preds = %invoke.cont.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i) #32
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #33
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !163

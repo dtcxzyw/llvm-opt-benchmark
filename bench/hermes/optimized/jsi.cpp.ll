@@ -3206,7 +3206,7 @@ lpad:                                             ; preds = %entry
   tail call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %0
 }
 
@@ -4592,7 +4592,7 @@ ehcleanup47:                                      ; preds = %ehcleanup45, %lpad4
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %lpad.val53.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup45
@@ -5409,7 +5409,7 @@ ehcleanup36:                                      ; preds = %ehcleanup31, %lpad3
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %lpad.val42.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup31
@@ -5537,7 +5537,7 @@ lpad2:                                            ; preds = %entry
   call void @_ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_) #25
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   resume { ptr, i32 } %0
 }
 
@@ -5619,7 +5619,7 @@ lpad4.body:                                       ; preds = %_ZNSt15__allocated_
   %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad4 ], [ %1, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook3jsi5ValueESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   br label %common.resume
 }
 
@@ -5645,7 +5645,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   ret void
 }
 
@@ -5742,7 +5742,7 @@ _ZNSt10shared_ptrIN8facebook3jsi5ValueEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #25
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   ret void
 }
 

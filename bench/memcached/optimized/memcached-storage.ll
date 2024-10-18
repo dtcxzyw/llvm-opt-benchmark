@@ -1321,7 +1321,7 @@ if.end22:                                         ; preds = %land.lhs.true, %lor
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it_info.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %io.i)
   store ptr null, ptr %it_info.i, align 8
-  %call.i40 = call i32 @lru_pull_tail(i32 noundef %7, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %it_info.i) #22
+  %call.i40 = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %7, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %it_info.i) #22
   %10 = load ptr, ptr %it_info.i, align 8
   %cmp.i41.not = icmp eq ptr %10, null
   br i1 %cmp.i41.not, label %while.end.thread, label %if.end.i.preheader
@@ -1623,7 +1623,7 @@ if.then32.critedge:                               ; preds = %if.end192.i, %if.th
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it_info.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %io.i)
   store ptr null, ptr %it_info.i, align 8
-  %call.i = call i32 @lru_pull_tail(i32 noundef %7, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %it_info.i) #22
+  %call.i = call i32 @lru_pull_tail(i32 noundef range(i32 -2147483648, 64) %7, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %it_info.i) #22
   %74 = load ptr, ptr %it_info.i, align 8
   %cmp.i = icmp eq ptr %74, null
   br i1 %cmp.i, label %while.end, label %if.end.i

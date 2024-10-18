@@ -571,7 +571,7 @@ if.end10:                                         ; preds = %madvise_MADV_DONTNE
   br i1 %cmp.i7, label %os_overcommits_proc.exit.thread, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end10
-  %call.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i6, ptr noundef nonnull %buf.i, i64 noundef 1) #8
+  %call.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i6, ptr noundef nonnull %buf.i, i64 noundef range(i64 -22, 25) 1) #8
   %or.cond.i = icmp slt i64 %call.i.i.i, 1
   %call34.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i6) #8
   br i1 %or.cond.i, label %os_overcommits_proc.exit.thread, label %os_overcommits_proc.exit
@@ -607,7 +607,7 @@ do.body.i.i12:                                    ; preds = %if.end14, %if.end3.
   %bytes_read.0.i.i = phi i64 [ %add.i.i, %if.end3.i.i14 ], [ 0, %if.end14 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buf.i8, i64 %bytes_read.0.i.i
   %sub.i.i = sub nuw nsw i64 24, %bytes_read.0.i.i
-  %call.i.i.i13 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i10, ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i) #8
+  %call.i.i.i13 = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef range(i32 0, -1) %conv.i10, ptr noundef nonnull %arrayidx.i.i, i64 noundef range(i64 -22, 25) %sub.i.i) #8
   %cmp.i.i = icmp slt i64 %call.i.i.i13, 0
   br i1 %cmp.i.i, label %malloc_read_fd.exit.thread.i, label %if.else.i.i
 

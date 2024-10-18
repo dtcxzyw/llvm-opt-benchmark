@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
   ret void
 }
 
@@ -745,7 +745,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %5, %15
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 152
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12SerialFullGC21mark_and_push_closureE, i64 16), align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %18, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, i32 noundef %19, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %18, ptr noundef nonnull align 8 dereferenceable(20) @_ZN12SerialFullGC21mark_and_push_closureE, i32 noundef %19, i1 noundef zeroext false) #16
   %20 = load i8, ptr @UseCompressedClassPointers, align 1
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, i64 12, i64 16
@@ -858,7 +858,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit: ; preds = %_ZNK7oopDes
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i3) #16
+  tail call void %25(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.0.i.i3) #16
   br label %26
 
 26:                                               ; preds = %_ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit, %21
@@ -909,7 +909,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %25, %15
   %32 = getelementptr inbounds i32, ptr %30, i64 %31
   %33 = sext i32 %10 to i64
   %34 = getelementptr inbounds i32, ptr %30, i64 %33
-  tail call void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop18MarkAndPushClosureEEvP15objArrayOopDescPT0_PvS7_(ptr noundef nonnull align 8 dereferenceable(232) %.0.i.i, ptr noundef nonnull %0, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef %32, ptr noundef %34)
+  tail call void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop18MarkAndPushClosureEEvP15objArrayOopDescPT0_PvS7_(ptr noundef nonnull align 8 dereferenceable(232) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef %32, ptr noundef %34)
   br label %_ZN15objArrayOopDesc17oop_iterate_rangeI18MarkAndPushClosureEEvPT_ii.exit
 
 35:                                               ; preds = %2
@@ -941,7 +941,7 @@ _ZNK7oopDesc5klassEv.exit7.i:                     ; preds = %46, %36
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
   %53 = sext i32 %10 to i64
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
-  tail call void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedIP7oopDesc18MarkAndPushClosureEEvP15objArrayOopDescPT0_PvS8_(ptr noundef nonnull align 8 dereferenceable(232) %.0.i6.i, ptr noundef nonnull %0, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef %52, ptr noundef %54)
+  tail call void @_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedIP7oopDesc18MarkAndPushClosureEEvP15objArrayOopDescPT0_PvS8_(ptr noundef nonnull align 8 dereferenceable(232) %.0.i6.i, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef %52, ptr noundef %54)
   br label %_ZN15objArrayOopDesc17oop_iterate_rangeI18MarkAndPushClosureEEvPT_ii.exit
 
 _ZN15objArrayOopDesc17oop_iterate_rangeI18MarkAndPushClosureEEvPT_ii.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %_ZNK7oopDesc5klassEv.exit7.i
@@ -1104,7 +1104,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %_ZNK7oopDesc11is_ob
   %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 152
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12SerialFullGC21mark_and_push_closureE, i64 16), align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %50, ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, i32 noundef %51, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %50, ptr noundef nonnull align 8 dereferenceable(20) @_ZN12SerialFullGC21mark_and_push_closureE, i32 noundef %51, i1 noundef zeroext false) #16
   %52 = load i8, ptr @UseCompressedClassPointers, align 1
   %53 = trunc i8 %52 to i1
   %54 = select i1 %53, i64 12, i64 16
@@ -1180,7 +1180,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i: ; preds = %_ZNK7oopD
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull %7, ptr noundef nonnull %.0.i.i3.i) #16
+  tail call void %88(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.0.i.i3.i) #16
   br label %_ZN12SerialFullGC13follow_objectEP7oopDesc.exit
 
 _ZN12SerialFullGC13follow_objectEP7oopDesc.exit:  ; preds = %_ZN12SerialFullGC13push_objarrayEP7oopDescm.exit.i, %_ZNK7oopDesc5klassEv.exit.i, %_ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i
@@ -1312,7 +1312,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i: ; preds = %_ZNK7oo
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull %3, ptr noundef nonnull %.0.i.i3.i.i) #16
+  tail call void %33(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %.0.i.i3.i.i) #16
   br label %_ZN12SerialFullGC11follow_rootIP7oopDescEEvPT_.exit
 
 _ZN12SerialFullGC11follow_rootIP7oopDescEEvPT_.exit: ; preds = %2, %5, %29, %_ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i
@@ -1379,7 +1379,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i: ; preds = %_ZNK7oo
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull %13, ptr noundef nonnull %.0.i.i3.i.i) #16
+  tail call void %41(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %.0.i.i3.i.i) #16
   br label %_ZN12SerialFullGC11follow_rootI9narrowOopEEvPT_.exit
 
 _ZN12SerialFullGC11follow_rootI9narrowOopEEvPT_.exit: ; preds = %2, %5, %37, %_ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i
@@ -4172,7 +4172,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   %62 = load ptr, ptr %.0.i.i, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 256
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.03269) #16
+  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03269) #16
   br label %_ZN7oopDesc4sizeEv.exit
 
 66:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -4205,7 +4205,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   %89 = load ptr, ptr %.0.i.i, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 256
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.03269) #16
+  %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03269) #16
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
@@ -4359,7 +4359,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %165, %155
   %176 = load ptr, ptr %.0.i.i.i, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 256
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef i64 %178(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %.01113.i) #16
+  %179 = tail call noundef i64 %178(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
   br label %_ZN7oopDesc4sizeEv.exit.i
 
 180:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -4392,7 +4392,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %165, %155
   %203 = load ptr, ptr %.0.i.i.i, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 256
   %205 = load ptr, ptr %204, align 8
-  %206 = tail call noundef i64 %205(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %.01113.i) #16
+  %206 = tail call noundef i64 %205(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
   br label %_ZN7oopDesc4sizeEv.exit.i
 
 _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %202, %182, %175, %172
@@ -4603,7 +4603,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %35, %25
   %46 = load ptr, ptr %.0.i.i, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 256
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.01617) #16
+  %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01617) #16
   br label %_ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -4636,7 +4636,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %35, %25
   %73 = load ptr, ptr %.0.i.i, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 256
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.01617) #16
+  %76 = tail call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01617) #16
   br label %_ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit
 
 _ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit: ; preds = %42, %45, %52, %72
@@ -4646,7 +4646,7 @@ _ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit: ; preds = %42, 
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20AdjustPointerClosureE6_tableE, i64 0, i64 %79
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull @_ZN12SerialFullGC22adjust_pointer_closureE, ptr noundef nonnull %.01617, ptr noundef nonnull %.0.i.i) #16
+  tail call void %81(ptr noundef nonnull @_ZN12SerialFullGC22adjust_pointer_closureE, ptr noundef nonnull align 8 dereferenceable(16) %.01617, ptr noundef nonnull %.0.i.i) #16
   %82 = getelementptr inbounds ptr, ptr %.01617, i64 %.0.i4.i
   br label %85
 
@@ -4783,7 +4783,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %46, %36
   %57 = load ptr, ptr %.0.i.i.i, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 256
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %.117) #16
+  %60 = tail call noundef i64 %59(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.117) #16
   br label %_ZN9Compacter8relocateEPP12HeapWordImpl.exit
 
 61:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -4816,7 +4816,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %46, %36
   %84 = load ptr, ptr %.0.i.i.i, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 256
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %.117) #16
+  %87 = tail call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.117) #16
   br label %_ZN9Compacter8relocateEPP12HeapWordImpl.exit
 
 _ZN9Compacter8relocateEPP12HeapWordImpl.exit:     ; preds = %53, %56, %63, %83
@@ -6501,7 +6501,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #16, !srcloc !33
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #16, !srcloc !33
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !34
 
@@ -7057,7 +7057,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
   br i1 %.not.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.lr.ph.i.i
-  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr %0) #16, !srcloc !33
+  %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #16, !srcloc !33
   %17 = icmp eq i64 %16, %phi.call9.i.i
   br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !34
 
@@ -8134,7 +8134,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %104, %94
   %115 = load ptr, ptr %.0.i.i.i, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 256
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call noundef i64 %117(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %118 = tail call noundef i64 %117(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 119:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -8167,7 +8167,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %104, %94
   %142 = load ptr, ptr %.0.i.i.i, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 256
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call noundef i64 %144(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %145 = tail call noundef i64 %144(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %111, %114, %121, %141
@@ -8351,7 +8351,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %94, %84
   %105 = load ptr, ptr %.0.i.i.i, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 256
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 109:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -8384,7 +8384,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %94, %84
   %132 = load ptr, ptr %.0.i.i.i, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 256
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %101, %104, %111, %131
@@ -8552,7 +8552,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %2, i64 464
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = load i32, ptr %8, align 8
@@ -8862,7 +8862,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %2, i64 464
   %8 = getelementptr inbounds i8, ptr %2, i64 160
   %9 = load i32, ptr %8, align 8
@@ -9188,7 +9188,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %7, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %7, i1 noundef zeroext false) #16
   %8 = getelementptr inbounds i8, ptr %0, i64 464
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
@@ -9999,7 +9999,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %7, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %7, i1 noundef zeroext false) #16
   %8 = getelementptr inbounds i8, ptr %0, i64 464
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
@@ -10784,7 +10784,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 464
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
@@ -11098,7 +11098,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosure9narrowOopEEvPT_PT0_.exit: ; preds
 
 .sink.split:                                      ; preds = %170
   %174 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %172, ptr noundef nonnull %2, i32 noundef %174, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %172, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %174, i1 noundef zeroext false) #16
   br label %175
 
 175:                                              ; preds = %.sink.split, %170, %._crit_edge45
@@ -11214,7 +11214,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 464
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
@@ -11521,7 +11521,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosureP7oopDescEEvPT_PT0_.exit: ; preds 
 
 .sink.split:                                      ; preds = %163
   %167 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %165, ptr noundef nonnull %2, i32 noundef %167, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %165, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %167, i1 noundef zeroext false) #16
   br label %168
 
 168:                                              ; preds = %.sink.split, %163, %._crit_edge45
@@ -11651,7 +11651,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 464
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
@@ -11958,7 +11958,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosure9narrowOopEEvPT_PT0_.exit: ; preds
 
 169:                                              ; preds = %._crit_edge37
   %170 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %168, ptr noundef nonnull %2, i32 noundef %170, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %168, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %170, i1 noundef zeroext false) #16
   br label %171
 
 171:                                              ; preds = %._crit_edge37, %169
@@ -11971,7 +11971,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull %2, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 464
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load i32, ptr %8, align 8
@@ -12271,7 +12271,7 @@ _ZN13Devirtualizer6do_oopI18MarkAndPushClosureP7oopDescEEvPT_PT0_.exit: ; preds 
 
 162:                                              ; preds = %._crit_edge37
   %163 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %161, ptr noundef nonnull %2, i32 noundef %163, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %161, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %163, i1 noundef zeroext false) #16
   br label %164
 
 164:                                              ; preds = %._crit_edge37, %162
@@ -12294,7 +12294,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %.val.i.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
   tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
   tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
   ret void
@@ -12306,7 +12306,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18MarkAndPushClosure
   %.val.i.i = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull %0, i32 noundef %6, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #16
   tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
   tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
   ret void
@@ -12349,7 +12349,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %33 = getelementptr inbounds i64, ptr %18, i64 %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2) #16
+  tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #16
   %34 = icmp ugt ptr %33, %26
   br i1 %34, label %35, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
 
@@ -12438,7 +12438,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   %87 = load ptr, ptr %.0.i.i.i, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 256
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -12471,7 +12471,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   %114 = load ptr, ptr %.0.i.i.i, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 256
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %83, %86, %93, %113
@@ -12843,7 +12843,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %33 = getelementptr inbounds i64, ptr %18, i64 %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2) #16
+  tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #16
   %34 = icmp ugt ptr %33, %26
   br i1 %34, label %35, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc18MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit
 
@@ -12932,7 +12932,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   %87 = load ptr, ptr %.0.i.i.i, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 256
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
@@ -12965,7 +12965,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   %114 = load ptr, ptr %.0.i.i.i, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 256
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull %1) #16
+  %117 = tail call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   br label %_ZN17stackChunkOopDesc5rangeEv.exit
 
 _ZN17stackChunkOopDesc5rangeEv.exit:              ; preds = %83, %86, %93, %113
@@ -13315,7 +13315,7 @@ _ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop18MarkAndPushClosureEEvP7oopDescPT
   %.val.i.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull %0, i32 noundef %21, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %21, i1 noundef zeroext false) #16
   tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef %0)
   ret void
 }
@@ -13349,7 +13349,7 @@ _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc18MarkAndPushClosureEEvS2_PT0_.exit
   %.val.i.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull %0, i32 noundef %21, i1 noundef zeroext false) #16
+  tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %21, i1 noundef zeroext false) #16
   tail call void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7oopDesc18MarkAndPushClosureEEvP15objArrayOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull %1, ptr noundef %0)
   ret void
 }

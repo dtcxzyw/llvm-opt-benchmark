@@ -217,13 +217,13 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   %32 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %32)
+  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
           to label %34 unwind label %.body6
 
 .body6:                                           ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #12
   call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %.body
 
@@ -546,13 +546,13 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   %32 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %32)
+  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
           to label %34 unwind label %.body6
 
 .body6:                                           ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #12
   call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %.body
 
@@ -720,13 +720,13 @@ define void @_ZN3gmx10TextWriterC2EPNS_16TextOutputStreamE(ptr nocapture noundef
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
   %26 = getelementptr inbounds i8, ptr %4, i64 16
-  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %26)
+  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %26)
           to label %28 unwind label %.body6
 
 .body6:                                           ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #12
   call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %.body
 
@@ -903,13 +903,13 @@ define void @_ZN3gmx10TextWriterC2ERKSt10shared_ptrINS_16TextOutputStreamEE(ptr 
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %14, %11, %2
   %16 = getelementptr inbounds i8, ptr %3, i64 16
-  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %16)
+  invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %16)
           to label %18 unwind label %.body
 
 .body:                                            ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #12
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   resume { ptr, i32 } %17
 
@@ -1042,7 +1042,7 @@ define void @_ZN3gmx10TextWriter11writeStringEPKc(ptr nocapture noundef nonnull 
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc6 unwind label %21
 
 .noexc6:                                          ; preds = %.noexc
@@ -1059,7 +1059,7 @@ define void @_ZN3gmx10TextWriter11writeStringEPKc(ptr nocapture noundef nonnull 
 15:                                               ; preds = %17, %13
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   br label %.body
 
 17:                                               ; preds = %.noexc6

@@ -38,7 +38,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden noundef ptr @_ZN15JfrMethodLookup6lookupEPK13InstanceKlassm(ptr noundef nonnull %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = trunc i64 %1 to i32
   %4 = and i32 %3, 65535
-  %5 = tail call noundef ptr @_ZN13InstanceKlass22method_with_orig_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %4) #5
+  %5 = tail call noundef ptr @_ZN13InstanceKlass22method_with_orig_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef range(i32 0, 65536) %4) #5
   ret ptr %5
 }
 

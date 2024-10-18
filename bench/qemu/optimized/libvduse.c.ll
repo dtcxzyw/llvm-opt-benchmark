@@ -1491,7 +1491,7 @@ entry:
   br i1 %cmp.i, label %if.then.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @ftruncate64(i32 noundef %call.i, i64 noundef %mul) #19
+  %call1.i = tail call i32 @ftruncate64(i32 noundef %call.i, i64 noundef range(i64 0, 1077919681) %mul) #19
   %cmp2.i = icmp eq i32 %call1.i, -1
   br i1 %cmp2.i, label %vduse_log_get.exit.thread13, label %vduse_log_get.exit
 
@@ -1500,7 +1500,7 @@ vduse_log_get.exit.thread13:                      ; preds = %if.end.i
   br label %if.then.sink.split
 
 vduse_log_get.exit:                               ; preds = %if.end.i
-  %call5.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %mul, i32 noundef 3, i32 noundef 1, i32 noundef %call.i, i64 noundef 0) #19
+  %call5.i = tail call ptr @mmap64(ptr noundef null, i64 noundef range(i64 0, 1077919681) %mul, i32 noundef 3, i32 noundef 1, i32 noundef %call.i, i64 noundef 0) #19
   %call6.i = tail call i32 @close(i32 noundef %call.i) #19
   %log2 = getelementptr inbounds i8, ptr %dev, i64 8264
   store ptr %call5.i, ptr %log2, align 8
@@ -2152,7 +2152,7 @@ if.end26:                                         ; preds = %for.end
   %sub.i = sub i64 %11, %10
   %add.i = add i64 %sub.i, 1
   %add1.i = add i64 %add.i, %9
-  %call.i = call ptr @mmap64(ptr noundef null, i64 noundef %add1.i, i32 noundef %prot.0.i, i32 noundef 1, i32 noundef %call, i64 noundef 0) #19
+  %call.i = call ptr @mmap64(ptr noundef null, i64 noundef %add1.i, i32 noundef range(i32 0, 4) %prot.0.i, i32 noundef 1, i32 noundef range(i32 0, -2147483648) %call, i64 noundef 0) #19
   %cmp.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i, label %vduse_iova_add_region.exit, label %for.body.i
 
@@ -2174,7 +2174,7 @@ if.else.i:                                        ; preds = %for.cond.i
   unreachable
 
 vduse_iova_add_region.exit:                       ; preds = %if.end26
-  %call25.i = call i32 @close(i32 noundef %call) #19
+  %call25.i = call i32 @close(i32 noundef range(i32 0, -2147483648) %call) #19
   br label %return
 
 if.then32:                                        ; preds = %for.body.i
@@ -2190,7 +2190,7 @@ if.then32:                                        ; preds = %for.body.i
   %16 = load i32, ptr %num_regions.i, align 8
   %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %num_regions.i, align 8
-  %call25.i27 = call i32 @close(i32 noundef %call) #19
+  %call25.i27 = call i32 @close(i32 noundef range(i32 0, -2147483648) %call) #19
   %call33 = call fastcc ptr @iova_to_va(ptr noundef nonnull %dev, ptr noundef %plen, i64 noundef %iova)
   br label %return
 

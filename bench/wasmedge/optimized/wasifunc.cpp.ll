@@ -424,7 +424,7 @@ define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 96, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %7, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i unwind label %8
 
 8:                                                ; preds = %2
@@ -446,13 +446,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %2
   store i64 0, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEEE, i64 16), ptr %0, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %_ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEEEC2ERNS3_7EnvironE.exit unwind label %15
 
 15:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #19
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #19
   resume { ptr, i32 } %16
 
 _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EEEEC2ERNS3_7EnvironE.exit: ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
@@ -475,7 +475,7 @@ define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !4
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !4
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -497,7 +497,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !4
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !4
   br label %.sink.split
 
 22:                                               ; preds = %16
@@ -509,7 +509,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds 
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !4
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !4
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !4
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.sink.split, label %28
 
@@ -711,7 +711,7 @@ _ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %119, %._crit_edge12
   call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
   %121 = load ptr, ptr %54, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 152
-  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %122) #19
+  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %122) #19
   %124 = icmp eq i32 %123, 35
   br i1 %124, label %125, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
@@ -915,7 +915,7 @@ _ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit:        ; preds = %203, %205
   unreachable
 
 _ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, %232
-  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %122) #19
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %122) #19
   br label %238
 
 238:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
@@ -1689,7 +1689,7 @@ define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 96, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %3)
+  invoke void @_ZN8WasmEdge3AST12FunctionTypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(73) %7, ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i unwind label %8
 
 8:                                                ; preds = %2
@@ -1711,13 +1711,13 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i: ; preds = %2
   store i64 0, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEEE, i64 16), ptr %0, align 8
-  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
+  invoke void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE18initializeFuncTypeEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %_ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEEEC2ERNS3_7EnvironE.exit unwind label %15
 
 15:                                               ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #19
+  call void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #19
   resume { ptr, i32 } %16
 
 _ZN8WasmEdge4Host4WasiINS0_14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EEEEC2ERNS3_7EnvironE.exit: ; preds = %_ZN8WasmEdge7Runtime16HostFunctionBaseC2Em.exit.i.i
@@ -1740,7 +1740,7 @@ define weak_odr void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !9
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !9
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -1762,7 +1762,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !9
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !9
   br label %.sink.split
 
 22:                                               ; preds = %16
@@ -1774,7 +1774,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread110: ; preds 
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !9
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !9
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !9
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.sink.split, label %28
 
@@ -1976,7 +1976,7 @@ _ZNK8WasmEdge4Host4WASI6Poller6resultEv.exit:     ; preds = %119, %._crit_edge12
   call void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr noundef nonnull align 8 dereferenceable(216) %73) #19
   %121 = load ptr, ptr %54, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 152
-  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %122) #19
+  %123 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %122) #19
   %124 = icmp eq i32 %123, 35
   br i1 %124, label %125, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit.i
 
@@ -2180,7 +2180,7 @@ _ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit:        ; preds = %203, %205
   unreachable
 
 _ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit: ; preds = %_ZN8WasmEdge4Host4WASI6PollerC2EOS2_.exit, %232
-  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %122) #19
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %122) #19
   br label %238
 
 238:                                              ; preds = %_ZN8WasmEdge4Host4WASI7Environ13releasePollerEONS1_8EVPollerE.exit, %._crit_edge
@@ -2219,7 +2219,7 @@ define void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !13
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !13
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2241,7 +2241,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !13
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !13
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2253,7 +2253,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !13
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !13
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !13
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2471,7 +2471,7 @@ define void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !19
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !19
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2493,7 +2493,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !19
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2505,7 +2505,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !19
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !19
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !19
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2582,7 +2582,7 @@ define void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameE
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !22
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !22
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2604,7 +2604,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !22
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !22
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2616,7 +2616,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !22
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !22
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !22
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2750,7 +2750,7 @@ define void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingF
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !25
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !25
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2772,7 +2772,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !25
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2784,7 +2784,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !25
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !25
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !25
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2861,7 +2861,7 @@ define void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrame
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !28
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !28
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -2883,7 +2883,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !28
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -2895,7 +2895,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !28
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !28
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !28
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -2945,7 +2945,7 @@ define void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFram
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !31
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !31
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -2967,7 +2967,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !31
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !31
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -2979,7 +2979,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !31
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !31
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !31
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -3312,7 +3312,7 @@ define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(p
 define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
-  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
+  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   %6 = icmp eq i32 %5, 35
   br i1 %6, label %7, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -3508,7 +3508,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %34, %.lr.ph.i.i.i.i, %13, %18, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
   %.sroa.014.0.insert.insert = phi i32 [ 524288, %18 ], [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i ], [ 524288, %13 ], [ 524288, %.lr.ph.i.i.i.i ], [ 524288, %34 ]
-  %99 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #19
+  %99 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   ret i32 %.sroa.014.0.insert.insert
 
 100:                                              ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, %7
@@ -3665,7 +3665,7 @@ define void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrame
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !37
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !37
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -3687,7 +3687,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !37
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !37
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -3699,7 +3699,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !37
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !37
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !37
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -4176,7 +4176,7 @@ define void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFra
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !40
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !40
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -4198,7 +4198,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !40
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !40
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -4210,7 +4210,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !40
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !40
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !40
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -4681,7 +4681,7 @@ define void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijj
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !43
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !43
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -4703,7 +4703,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !43
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !43
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -4715,7 +4715,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !43
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !43
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !43
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -4945,7 +4945,7 @@ define void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12Calling
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !46
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !46
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -4967,7 +4967,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !46
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !46
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -4979,7 +4979,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !46
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !46
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !46
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -5156,7 +5156,7 @@ define void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !49
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !49
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -5178,7 +5178,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !49
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !49
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -5190,7 +5190,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !49
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !49
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !49
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -5351,7 +5351,7 @@ define void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEij
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !52
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !52
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -5373,7 +5373,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !52
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !52
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -5385,7 +5385,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !52
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !52
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !52
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -5616,7 +5616,7 @@ define void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !55
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !55
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -5638,7 +5638,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !55
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !55
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -5650,7 +5650,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !55
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !55
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !55
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -5880,7 +5880,7 @@ define void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEi
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !58
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !58
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -5902,7 +5902,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !58
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !58
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -5914,7 +5914,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !58
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !58
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !58
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -6100,7 +6100,7 @@ define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ10fdRenumberEii(pt
   %4 = alloca %"class.std::_Node_handle", align 8
   %5 = alloca %"struct.std::_Node_insert_return", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %6) #19
+  %7 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   %8 = icmp eq i32 %7, 35
   br i1 %8, label %9, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -6536,7 +6536,7 @@ _ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeE
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %36, %.lr.ph.i.i.i.i, %15, %65, %.lr.ph.i.i.i.i4, %46, %20, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread38, %.thread, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i
   %.sroa.032.0.insert.insert = phi i32 [ 524288, %20 ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread38 ], [ 524288, %.thread ], [ 1, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit ], [ 1, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i ], [ 524288, %46 ], [ 524288, %.lr.ph.i.i.i.i4 ], [ 524288, %65 ], [ 524288, %15 ], [ 524288, %.lr.ph.i.i.i.i ], [ 524288, %36 ]
-  %201 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %6) #19
+  %201 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   ret i32 %.sroa.032.0.insert.insert
 
 202:                                              ; preds = %112, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i, %9
@@ -6559,7 +6559,7 @@ define void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj
   br label %13
 
 13:                                               ; preds = %13, %11
-  %14 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %12) #19, !noalias !72
+  %14 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19, !noalias !72
   switch i32 %14, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %13
     i32 35, label %15
@@ -6581,7 +6581,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %13
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !72
+  %20 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19, !noalias !72
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 21:                                               ; preds = %15
@@ -6593,7 +6593,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %24 = load ptr, ptr %19, align 8, !noalias !72
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19, !noalias !72
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19, !noalias !72
   %26 = icmp eq ptr %24, null
   br i1 %26, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -6900,7 +6900,7 @@ define void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(p
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !75
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !75
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -6922,7 +6922,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !75
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !75
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -6934,7 +6934,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !75
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !75
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !75
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -7105,7 +7105,7 @@ define void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijj
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !78
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !78
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -7127,7 +7127,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !78
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !78
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -7139,7 +7139,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !78
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !78
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !78
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -7369,7 +7369,7 @@ define void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12Call
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !81
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !81
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -7391,7 +7391,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !81
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !81
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -7403,7 +7403,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !81
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !81
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !81
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -7651,7 +7651,7 @@ define void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingF
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !84
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !84
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -7673,7 +7673,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !84
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -7685,7 +7685,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !84
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !84
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !84
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -7946,7 +7946,7 @@ define void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12Cal
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !87
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !87
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -7968,7 +7968,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !87
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !87
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -7980,7 +7980,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %27 = load ptr, ptr %22, align 8, !noalias !87
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !87
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !87
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -8263,7 +8263,7 @@ define void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEij
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %16) #19, !noalias !90
+  %18 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %16) #19, !noalias !90
   switch i32 %18, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %17
     i32 35, label %19
@@ -8285,7 +8285,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %17
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !90
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %16) #19, !noalias !90
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 25:                                               ; preds = %19
@@ -8297,7 +8297,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %28 = load ptr, ptr %23, align 8, !noalias !90
-  %29 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %16) #19, !noalias !90
+  %29 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %16) #19, !noalias !90
   %30 = icmp eq ptr %28, null
   br i1 %30, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %31
 
@@ -8751,7 +8751,7 @@ define void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEij
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !93
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !93
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -8773,7 +8773,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !93
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !93
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -8785,7 +8785,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread77: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %29 = load ptr, ptr %24, align 8, !noalias !93
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !93
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !93
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %33
 
@@ -9438,7 +9438,7 @@ define void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFram
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !96
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !96
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -9460,7 +9460,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !96
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !96
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -9472,7 +9472,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !96
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !96
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !96
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -9740,7 +9740,7 @@ define void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12Call
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !99
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !99
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -9762,7 +9762,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !99
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !99
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -9774,7 +9774,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !99
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !99
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !99
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -10023,7 +10023,7 @@ define void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !102
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !102
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -10045,7 +10045,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !102
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !102
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -10057,7 +10057,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %27 = load ptr, ptr %22, align 8, !noalias !102
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !102
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !102
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -10507,7 +10507,7 @@ define void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrame
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !105
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !105
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -10529,7 +10529,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !105
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !105
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -10541,7 +10541,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !105
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !105
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !105
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -10828,7 +10828,7 @@ define void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFr
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !108
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !108
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -10850,7 +10850,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !108
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !108
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -10862,7 +10862,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !108
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !108
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !108
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -11165,7 +11165,7 @@ define void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEj
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !111
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !111
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -11187,7 +11187,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !111
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !111
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -11199,7 +11199,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !111
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !111
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !111
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %25
 
@@ -11319,7 +11319,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !115
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !115
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -11341,7 +11341,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !115
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !115
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -11353,7 +11353,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !115
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !115
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !115
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -11759,7 +11759,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !118
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !118
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -11781,7 +11781,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !118
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !118
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -11793,7 +11793,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !118
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !118
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !118
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -12098,7 +12098,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFram
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %10) #19, !noalias !121
+  %12 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !121
   switch i32 %12, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %11
     i32 35, label %13
@@ -12120,7 +12120,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %11
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !121
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !121
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 19:                                               ; preds = %13
@@ -12132,7 +12132,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = load ptr, ptr %17, align 8, !noalias !121
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %10) #19, !noalias !121
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #19, !noalias !121
   %24 = icmp eq ptr %22, null
   br i1 %24, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -12581,7 +12581,7 @@ define void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFram
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !124
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !124
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -12603,7 +12603,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !124
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -12615,7 +12615,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread22: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !124
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !124
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !124
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -12697,7 +12697,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFra
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !127
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !127
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -12719,7 +12719,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !127
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !127
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -12731,7 +12731,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !127
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !127
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !127
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -12914,7 +12914,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !130
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !130
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -12936,7 +12936,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !130
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !130
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -12948,7 +12948,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %27 = load ptr, ptr %22, align 8, !noalias !130
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !130
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !130
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -13181,7 +13181,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFr
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !133
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !133
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -13203,7 +13203,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !133
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !133
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -13215,7 +13215,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %29 = load ptr, ptr %24, align 8, !noalias !133
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !133
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !133
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -13480,7 +13480,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !136
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !136
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -13502,7 +13502,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !136
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !136
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -13514,7 +13514,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !136
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !136
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !136
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -13739,7 +13739,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFram
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !139
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !139
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -13761,7 +13761,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !139
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -13773,7 +13773,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %29 = load ptr, ptr %24, align 8, !noalias !139
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !139
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !139
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -14173,7 +14173,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameE
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !142
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !142
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -14195,7 +14195,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !142
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !142
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -14207,7 +14207,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !142
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !142
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !142
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -14388,7 +14388,7 @@ define void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingF
   br label %33
 
 33:                                               ; preds = %33, %31
-  %34 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %32) #19, !noalias !145
+  %34 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #19, !noalias !145
   switch i32 %34, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %33
     i32 35, label %35
@@ -14410,7 +14410,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %33
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %40 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !145
+  %40 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #19, !noalias !145
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 41:                                               ; preds = %35
@@ -14422,7 +14422,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread168: ; preds 
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %44 = load ptr, ptr %39, align 8, !noalias !145
-  %45 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %32) #19, !noalias !145
+  %45 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #19, !noalias !145
   %46 = icmp eq ptr %44, null
   br i1 %46, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %48
 
@@ -15101,7 +15101,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12Calli
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !155
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !155
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -15123,7 +15123,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !155
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !155
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -15135,7 +15135,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !155
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !155
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !155
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -15340,7 +15340,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12Callin
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !158
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !158
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -15362,7 +15362,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !158
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !158
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -15374,7 +15374,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !158
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !158
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !158
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -15577,7 +15577,7 @@ define void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !161
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !161
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15599,7 +15599,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !161
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !161
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15611,7 +15611,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !161
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !161
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !161
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %27
 
@@ -15722,7 +15722,7 @@ define void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameE
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !164
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !164
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15744,7 +15744,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !164
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !164
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15756,7 +15756,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !164
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !164
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !164
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -15852,7 +15852,7 @@ define void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFra
   br label %12
 
 12:                                               ; preds = %12, %10
-  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %11) #19, !noalias !167
+  %13 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !167
   switch i32 %13, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %12
     i32 35, label %14
@@ -15874,7 +15874,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %12
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
+  %19 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !167
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 20:                                               ; preds = %14
@@ -15886,7 +15886,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %23 = load ptr, ptr %18, align 8, !noalias !167
-  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %11) #19, !noalias !167
+  %24 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %11) #19, !noalias !167
   %25 = icmp eq ptr %23, null
   br i1 %25, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %26
 
@@ -15969,7 +15969,7 @@ define void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameE
   br label %16
 
 16:                                               ; preds = %16, %14
-  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %15) #19, !noalias !170
+  %17 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !170
   switch i32 %17, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %16
     i32 35, label %18
@@ -15991,7 +15991,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %16
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !170
+  %23 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !170
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 24:                                               ; preds = %18
@@ -16003,7 +16003,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %27 = load ptr, ptr %22, align 8, !noalias !170
-  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %15) #19, !noalias !170
+  %28 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %15) #19, !noalias !170
   %29 = icmp eq ptr %27, null
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
@@ -16128,7 +16128,7 @@ define void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFr
   br label %20
 
 20:                                               ; preds = %20, %18
-  %21 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %19) #19, !noalias !173
+  %21 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %19) #19, !noalias !173
   switch i32 %21, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %20
     i32 35, label %22
@@ -16150,7 +16150,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %20
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !173
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %19) #19, !noalias !173
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 28:                                               ; preds = %22
@@ -16162,7 +16162,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105: ; preds 
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %31 = load ptr, ptr %26, align 8, !noalias !173
-  %32 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %19) #19, !noalias !173
+  %32 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %19) #19, !noalias !173
   %33 = icmp eq ptr %31, null
   br i1 %33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %34
 
@@ -16342,7 +16342,7 @@ define void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !176
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !176
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -16364,7 +16364,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !176
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !176
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -16376,7 +16376,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !176
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !176
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !176
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -16492,7 +16492,7 @@ define void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFram
   br label %18
 
 18:                                               ; preds = %18, %16
-  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %17) #19, !noalias !179
+  %19 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !179
   switch i32 %19, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %18
     i32 35, label %20
@@ -16514,7 +16514,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %18
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !179
+  %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !179
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 26:                                               ; preds = %20
@@ -16526,7 +16526,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %29 = load ptr, ptr %24, align 8, !noalias !179
-  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %17) #19, !noalias !179
+  %30 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %17) #19, !noalias !179
   %31 = icmp eq ptr %29, null
   br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
@@ -16685,7 +16685,7 @@ define void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameE
   br label %15
 
 15:                                               ; preds = %15, %13
-  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %14) #19, !noalias !182
+  %16 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !182
   switch i32 %16, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %15
     i32 35, label %17
@@ -16707,7 +16707,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
+  %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !182
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 23:                                               ; preds = %17
@@ -16719,7 +16719,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %26 = load ptr, ptr %21, align 8, !noalias !182
-  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %14) #19, !noalias !182
+  %27 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !182
   %28 = icmp eq ptr %26, null
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
@@ -16907,7 +16907,7 @@ define void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12Calli
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !185
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !185
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -16929,7 +16929,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !185
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !185
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -16941,7 +16941,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !185
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !185
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !185
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -17028,7 +17028,7 @@ define void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12Callin
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %13) #19, !noalias !188
+  %15 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !188
   switch i32 %15, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i [
     i32 11, label %14
     i32 35, label %16
@@ -17050,7 +17050,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
-  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !188
+  %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !188
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 22:                                               ; preds = %16
@@ -17062,7 +17062,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39: ; preds =
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %25 = load ptr, ptr %20, align 8, !noalias !188
-  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %13) #19, !noalias !188
+  %26 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !188
   %27 = icmp eq ptr %25, null
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
@@ -17161,7 +17161,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17213,7 +17213,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17328,7 +17328,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17380,7 +17380,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11T
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -17494,7 +17494,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #3
 define linkonce_odr hidden void @_ZZN8WasmEdge4Host4WASI7Environ13acquirePollerEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEEENKUlvE_clEv(ptr dead_on_unwind noalias writable sret(%"class.WasmEdge::Host::WASI::EVPoller") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 152
-  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
+  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   %6 = icmp eq i32 %5, 35
   br i1 %6, label %7, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -17527,7 +17527,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %13, %14
-  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #19
+  %18 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   ret void
 
 19:                                               ; preds = %7
@@ -17752,7 +17752,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EED2Ev.exit:      ; preds = %1, %4
   br i1 %16, label %17, label %_ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(5) %.05.i.i.i.i) #19
+  tail call void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4 dereferenceable(12) %.05.i.i.i.i) #19
   br label %_ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i: ; preds = %17, %.lr.ph.i.i.i.i
@@ -17901,7 +17901,7 @@ define linkonce_odr hidden void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullE
   br label %5
 
 5:                                                ; preds = %5, %3
-  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #19
+  %6 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   switch i32 %6, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit [
     i32 11, label %5
     i32 35, label %7
@@ -18003,7 +18003,7 @@ _ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
 _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %50, %47, %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %.loopexit
-  %52 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #19
+  %52 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   ret void
 }
 
@@ -18201,7 +18201,7 @@ declare i32 @_ZNK8WasmEdge4Host4WASI5INode10fdAllocateEmm(ptr noundef nonnull al
 define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
-  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #19
+  %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   %6 = icmp eq i32 %5, 35
   br i1 %6, label %7, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -18330,7 +18330,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt10shar
   br i1 %.not, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, label %14
 
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
-  %61 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #19
+  %61 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   ret void
 
 62:                                               ; preds = %7
@@ -18724,7 +18724,7 @@ _ZNSt12_Node_handleIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIN
 define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_reinsert_nodeEOSt12_Node_handleIiS8_SaINSA_10_Hash_nodeIS8_Lb0EEEEE(ptr dead_on_unwind noalias writable sret(%"struct.std::_Node_insert_return") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 9, i1 false)
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %39, label %7
@@ -18770,7 +18770,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8W
 
 _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %23, %18
   %.0.i = phi ptr [ %19, %18 ], [ %25, %23 ]
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEEaSEOSD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2) #19
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEEaSEOSD_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2) #19
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %33 = ptrtoint ptr %.0.i to i64
@@ -19246,7 +19246,7 @@ define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ22generateRandomFd
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.critedge
   store i32 %14, ptr %6, align 4
-  %15 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %12) #19
+  %15 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
   %16 = icmp eq i32 %15, 35
   br i1 %16, label %17, label %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
 
@@ -19264,7 +19264,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %_ZNSt24uniform_int_
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
   %19 = extractvalue { ptr, i8 } %18, 1
   %20 = trunc i8 %19 to i1
-  %21 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19
+  %21 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
   br i1 %20, label %24, label %.critedge
 
 .loopexit:                                        ; preds = %.critedge
@@ -19280,7 +19280,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11unique_lockI
 _ZNSt11unique_lockISt12shared_mutexED2Ev.exit8:   ; preds = %_ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %12) #19
+  %23 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %12) #19
   br label %29
 
 24:                                               ; preds = %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
@@ -19326,7 +19326,7 @@ define linkonce_odr hidden void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull al
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc4 unwind label %8
 
 .noexc4:                                          ; preds = %.noexc
@@ -19336,7 +19336,7 @@ define linkonce_odr hidden void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull al
 5:                                                ; preds = %.noexc4
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc4
@@ -20002,7 +20002,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev(ptr 
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20334,7 +20334,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -20386,7 +20386,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21042,7 +21042,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5
@@ -21094,7 +21094,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 13:                                               ; preds = %1
-  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #19
+  tail call void @_ZN8WasmEdge3AST12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #19
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS6_EENS5_12FunctionTypeEEE8_M_resetEvEUlOT_E_JRSt7variantIJS8_S9_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13, %7, %5

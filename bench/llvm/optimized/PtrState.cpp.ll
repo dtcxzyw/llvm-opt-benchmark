@@ -916,7 +916,7 @@ _ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit: ; preds = %._ZN4ll
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.0.i) #7
+  %23 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %.0.i) #7
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %15, %18, %22
@@ -1052,7 +1052,7 @@ _ZN4llvm7objcarc8PtrState21ResetSequenceProgressENS0_8SequenceE.exit: ; preds = 
   br label %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
 
 94:                                               ; preds = %._crit_edge.i.i.i, %76
-  %95 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef %2) #7, !noalias !14
+  %95 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %52, ptr noundef nonnull %2) #7, !noalias !14
   br label %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
 
 _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i, %94, %92, %_ZN4llvm7objcarc8PtrState21ResetSequenceProgressENS0_8SequenceE.exit
@@ -1105,7 +1105,7 @@ _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; pred
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
 122:                                              ; preds = %._crit_edge.i.i.i15, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
-  %123 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef %2) #7, !noalias !17
+  %123 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef nonnull %2) #7, !noalias !17
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
 _ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i12, %120, %122
@@ -1426,7 +1426,7 @@ _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11I
   br label %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
 
 59:                                               ; preds = %._crit_edge.i.i.i, %36
-  %60 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef %39) #7, !noalias !20
+  %60 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull %39) #7, !noalias !20
   br label %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
 
 _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i60, %57, %59
@@ -1458,14 +1458,14 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4ll
   br i1 %76, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %73
-  %77 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #7, !noalias !23
+  %77 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %62) #7, !noalias !23
   %78 = extractvalue { ptr, i64 } %77, 0
   %.pr.i.i.i = load i32, ptr %74, align 4, !noalias !23
   %79 = icmp slt i32 %.pr.i.i.i, 0
   br i1 %79, label %80, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
 80:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
-  %81 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #7, !noalias !23
+  %81 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %62) #7, !noalias !23
   %82 = extractvalue { ptr, i64 } %81, 0
   %83 = extractvalue { ptr, i64 } %81, 1
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
@@ -1496,7 +1496,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %80, %_ZNK4llvm8C
   %92 = load i32, ptr %74, align 4, !noalias !27
   %93 = icmp slt i32 %92, 0
   tail call void @llvm.assume(i1 %93)
-  %94 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #7, !noalias !27
+  %94 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %62) #7, !noalias !27
   %95 = extractvalue { ptr, i64 } %94, 0
   %96 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %95, i64 %indvars.iv.i
   %97 = load ptr, ptr %96, align 8, !noalias !30
@@ -1703,7 +1703,7 @@ _ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit: ; preds = %._ZN4ll
   br i1 %.not.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.0.i) #7
+  %23 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %.0.i) #7
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %15, %18, %22

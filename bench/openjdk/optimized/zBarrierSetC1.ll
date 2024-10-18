@@ -931,7 +931,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %21, %23
   %53 = sub nuw nsw i32 32, %52
   %54 = shl nuw i32 1, %53
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %48, i32 %54
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %6, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -1161,7 +1161,7 @@ _ZN22CompilationResourceObjnwEm.exit15:           ; preds = %91, %93
   %127 = sub nuw nsw i32 32, %126
   %128 = shl nuw i32 1, %127
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %122, i32 %128
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %78, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -1380,7 +1380,7 @@ _ZN22CompilationResourceObjnwEm.exit29:           ; preds = %78, %80
   %116 = sub nuw nsw i32 32, %115
   %117 = shl nuw i32 1, %116
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %111, i32 %117
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %64, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -1526,7 +1526,7 @@ switch.lookup:                                    ; preds = %33
   %73 = sub nuw nsw i32 32, %72
   %74 = shl nuw i32 1, %73
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %68, i32 %74
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -1965,7 +1965,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %23, %25
   %66 = sub nuw nsw i32 32, %65
   %67 = shl nuw i32 1, %66
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %61, i32 %67
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -2135,7 +2135,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %57, %59
   %90 = sub nuw nsw i32 32, %89
   %91 = shl nuw i32 1, %90
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %85, i32 %91
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %42, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %42, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 
@@ -2260,7 +2260,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %20, %22
   %61 = sub nuw nsw i32 32, %60
   %62 = shl nuw i32 1, %61
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %0, align 8
   br label %_ZN8LIR_List6appendEP6LIR_Op.exit
 

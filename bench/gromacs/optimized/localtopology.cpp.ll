@@ -313,7 +313,7 @@ define noundef i32 @_Z17dd_make_local_topRK12gmx_domdec_tRK18gmx_domdec_zones_ti
 
 138:                                              ; preds = %126
   %139 = sub nuw nsw i64 1, %136
-  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %139)
+  call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %105, i64 noundef %139)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 140:                                              ; preds = %126
@@ -375,7 +375,7 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit.i:           ; preds = %149, %_ZNSt6vectorI
   %168 = trunc i64 %167 to i32
   store i32 %168, ptr %25, align 4
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %106, i32 %168)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 19, ptr nonnull @_ZL24make_local_bondeds_exclsRK12gmx_domdec_tRK18gmx_domdec_zones_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEEbPKibfPK5t_pbcNS9_IKNS8_11BasicVectorIfEEEEP22InteractionDefinitionsPNS8_11ListOfListsIiEE.omp_outlined, ptr nonnull %25, ptr nonnull %22, ptr nonnull %23, ptr nonnull %17, ptr nonnull %24, ptr nonnull %1, ptr nonnull %128, ptr nonnull %0, ptr nonnull %8, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %20, ptr nonnull %16, ptr nonnull %26, ptr nonnull %21, ptr nonnull %19, ptr nonnull %18, ptr nonnull %12)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 19, ptr nonnull @_ZL24make_local_bondeds_exclsRK12gmx_domdec_tRK18gmx_domdec_zones_tRK10gmx_mtop_tN3gmx8ArrayRefIKlEEbPKibfPK5t_pbcNS9_IKNS8_11BasicVectorIfEEEEP22InteractionDefinitionsPNS8_11ListOfListsIiEE.omp_outlined, ptr nonnull %25, ptr nonnull %22, ptr nonnull %23, ptr nonnull %17, ptr nonnull %24, ptr nonnull align 8 dereferenceable(548) %1, ptr nonnull %128, ptr nonnull align 8 dereferenceable(456) %0, ptr nonnull align 8 dereferenceable(768) %8, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %20, ptr nonnull %16, ptr nonnull align 8 %26, ptr nonnull %21, ptr nonnull %19, ptr nonnull %18, ptr nonnull %12)
   %.sroa.0.0.copyload.i27.i = load ptr, ptr %24, align 8
   %169 = load ptr, ptr %152, align 8
   %170 = ptrtoint ptr %169 to i64
@@ -1319,7 +1319,7 @@ _ZN3gmx5RangeIiEC2Eii.exit:                       ; preds = %80
 
 131:                                              ; preds = %119
   %132 = sub nuw nsw i64 1, %129
-  invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %122, i64 noundef %132)
+  invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %122, i64 noundef %132)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i unwind label %.loopexit
 
 133:                                              ; preds = %119

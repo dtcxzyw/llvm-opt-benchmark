@@ -780,7 +780,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %153
   store ptr @.str.47, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %213, i64 16
   store i32 -1, ptr %215, align 8
-  %216 = call ptr @CreateTemplateTupleDesc(i32 noundef %.1281.i) #10
+  %216 = call ptr @CreateTemplateTupleDesc(i32 noundef range(i32 1, -2147483648) %.1281.i) #10
   %217 = getelementptr inbounds i8, ptr %213, i64 32
   store ptr %216, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %213, i64 40

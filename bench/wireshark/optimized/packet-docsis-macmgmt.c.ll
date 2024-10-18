@@ -3538,7 +3538,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %74 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %72, ptr noundef nonnull %30, i32 noundef %49, i32 noundef %73, i32 noundef 0) #6
   %75 = load i32, ptr %7, align 4
   %76 = trunc i32 %75 to i16
-  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef %30, ptr noundef %74, i32 noundef %49, i16 noundef zeroext %76)
+  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef nonnull %30, ptr noundef %74, i32 noundef %49, i16 noundef zeroext %76)
   br label %178
 
 77:                                               ; preds = %.lr.ph.i
@@ -3577,7 +3577,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %98 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %96, ptr noundef nonnull %30, i32 noundef %49, i32 noundef %97, i32 noundef 0) #6
   %99 = load i32, ptr %7, align 4
   %100 = trunc i32 %99 to i16
-  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef %30, ptr noundef %98, i32 noundef %49, i16 noundef zeroext %100)
+  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef nonnull %30, ptr noundef %98, i32 noundef %49, i16 noundef zeroext %100)
   br label %178
 
 101:                                              ; preds = %.lr.ph.i
@@ -3613,13 +3613,13 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 119:                                              ; preds = %.lr.ph.i
   %120 = load i32, ptr %7, align 4
   %121 = trunc i32 %120 to i16
-  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %121)
+  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef nonnull %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %121)
   br label %178
 
 122:                                              ; preds = %.lr.ph.i
   %123 = load i32, ptr %7, align 4
   %124 = trunc i32 %123 to i16
-  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %124)
+  call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef nonnull %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %124)
   br label %178
 
 125:                                              ; preds = %.lr.ph.i, %.lr.ph.i

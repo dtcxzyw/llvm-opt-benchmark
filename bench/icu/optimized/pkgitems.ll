@@ -230,7 +230,7 @@ if.end10.i:                                       ; preds = %if.then6.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %poolName.i, i64 %conv14.i.i
   store i32 1819242352, ptr %add.ptr.i.i, align 1
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   invoke void %check(ptr noundef %context, ptr noundef %21, ptr noundef nonnull %poolName.i)
           to label %.noexc19 unwind label %lpad
 
@@ -402,7 +402,7 @@ if.end56.i:                                       ; preds = %if.then47.i, %if.en
   %nativePool.sroa.12.0.i = phi ptr [ null, %if.end.i ], [ %nativePool.sroa.12.3.i, %if.then47.i ]
   %rootRes.i = getelementptr inbounds i8, ptr %resData.i, i64 32
   %55 = load i32, ptr %rootRes.i, align 8
-  %call58.i = invoke fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %21, ptr noundef %resData.i, i32 noundef %55, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %check, ptr noundef %context, ptr noundef %errorCode)
+  %call58.i = invoke fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %21, ptr noundef %resData.i, i32 noundef %55, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %errorCode)
           to label %invoke.cont57.i unwind label %lpad.i
 
 invoke.cont57.i:                                  ; preds = %if.end56.i
@@ -748,7 +748,7 @@ if.end70.i:                                       ; preds = %if.end63.i
   %90 = load ptr, ptr %swapInvChars.i, align 8
   %add71.i = add nsw i32 %conv67.i, 1
   %call72.i = call noundef i32 %90(ptr noundef nonnull %call12, ptr noundef nonnull %add.ptr65.i, i32 noundef %add71.i, ptr noundef nonnull %baseName.i, ptr noundef nonnull %errorCode)
-  call fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %73, ptr noundef nonnull %baseName.i, i32 noundef -1, ptr noundef nonnull @.str.24, ptr noundef readonly %check, ptr noundef %context, ptr noundef %errorCode)
+  call fastcc void @_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode(ptr noundef %73, ptr noundef nonnull %baseName.i, i32 noundef -1, ptr noundef nonnull @.str.24, ptr noundef readonly %check, ptr noundef %context, ptr noundef nonnull %errorCode)
   br label %_ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit
 
 _ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit: ; preds = %if.then14.i, %if.end15.i, %if.then20.i, %if.else46.i, %if.end54.i, %if.then62.i, %if.then69.i, %if.end70.i

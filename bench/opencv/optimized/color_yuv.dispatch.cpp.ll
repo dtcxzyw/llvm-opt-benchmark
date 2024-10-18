@@ -429,7 +429,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit: ; preds = %34
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   br label %87
@@ -437,7 +437,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111RGB
 .body:                                            ; preds = %67, %85, %49
   %.sink = phi ptr [ %14, %67 ], [ %12, %85 ], [ %16, %49 ]
   %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %86, %85 ], [ %50, %49 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #13
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #13
   resume { ptr, i32 } %eh.lpad-body
 
@@ -498,7 +498,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit: ; preds = %.s
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   br label %87
@@ -560,7 +560,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit: ; preds = %.s
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   br label %87
@@ -680,7 +680,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit: ; preds = %.s
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   br label %71
@@ -688,7 +688,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111YCr
 .body:                                            ; preds = %53, %69, %37
   %.sink = phi ptr [ %14, %53 ], [ %12, %69 ], [ %16, %37 ]
   %eh.lpad-body = phi { ptr, i32 } [ %54, %53 ], [ %70, %69 ], [ %38, %37 ]
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink) #13
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #13
   resume { ptr, i32 } %eh.lpad-body
 
@@ -740,7 +740,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit: ; preds = %.s
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   br label %71
@@ -793,7 +793,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit: ; preds = %.s
   br label %.body
 
 _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEEEEvPKhmPhmiiRKT_.exit: ; preds = %_ZN2cv3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEC2Eiib.exit
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
   br label %71
@@ -960,7 +960,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -971,7 +971,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1010,7 +1010,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1021,7 +1021,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1060,7 +1060,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1071,7 +1071,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1110,7 +1110,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1121,7 +1121,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1160,7 +1160,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1171,7 +1171,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1210,7 +1210,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1221,7 +1221,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1260,7 +1260,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1271,7 +1271,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1310,7 +1310,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
 24:                                               ; preds = %22
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -1321,7 +1321,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_115cvtYUV420sp2RGBILi
   br label %28
 
 28:                                               ; preds = %26, %22
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   ret void
 }
 
@@ -1493,7 +1493,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi0
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %10
@@ -1504,7 +1504,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi0
   br label %32
 
 32:                                               ; preds = %30, %26
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   ret void
 }
 
@@ -1547,7 +1547,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi2
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %10
@@ -1558,7 +1558,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi2
   br label %32
 
 32:                                               ; preds = %30, %26
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   ret void
 }
 
@@ -1601,7 +1601,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi0
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %10
@@ -1612,7 +1612,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi0
   br label %32
 
 32:                                               ; preds = %30, %26
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   ret void
 }
 
@@ -1655,7 +1655,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi2
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %10
@@ -1666,7 +1666,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV420p2RGBILi2
   br label %32
 
 32:                                               ; preds = %30, %26
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11) #13
   ret void
 }
 
@@ -1721,7 +1721,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline21cvtBGRtoThreePlaneYUVEPKhmPhmiiibi
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(63) %11) #13
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #13
   resume { ptr, i32 } %37
 
@@ -1733,7 +1733,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline21cvtBGRtoThreePlaneYUVEPKhmPhmiiibi
   br label %40
 
 40:                                               ; preds = %38, %34
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(63) %11) #13
   %41 = getelementptr inbounds i8, ptr %10, i64 8
   %42 = load i32, ptr %41, align 8
   %.not.i = icmp eq i32 %42, 0
@@ -2081,7 +2081,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline19cvtBGRtoTwoPlaneYUVEPKhmPhS4_miiib
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(63) %12) #13
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #13
   resume { ptr, i32 } %35
 
@@ -2093,7 +2093,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline19cvtBGRtoTwoPlaneYUVEPKhmPhS4_miiib
   br label %38
 
 38:                                               ; preds = %36, %32
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(63) %12) #13
   %39 = getelementptr inbounds i8, ptr %11, i64 8
   %40 = load i32, ptr %39, align 8
   %.not.i = icmp eq i32 %40, 0
@@ -2268,7 +2268,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2279,7 +2279,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2313,7 +2313,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2324,7 +2324,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2358,7 +2358,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2369,7 +2369,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2403,7 +2403,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2414,7 +2414,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2448,7 +2448,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2459,7 +2459,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2493,7 +2493,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2504,7 +2504,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2538,7 +2538,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2549,7 +2549,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2583,7 +2583,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2594,7 +2594,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2628,7 +2628,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2639,7 +2639,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi0
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2673,7 +2673,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2684,7 +2684,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2718,7 +2718,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2729,7 +2729,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2763,7 +2763,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %6
@@ -2774,7 +2774,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtYUV422toRGBILi2
   br label %23
 
 23:                                               ; preds = %21, %17
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -2931,7 +2931,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3044,7 +3044,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !10
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3077,7 +3077,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3190,7 +3190,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !12
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3223,7 +3223,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3336,7 +3336,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !14
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3369,7 +3369,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3482,7 +3482,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !16
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3515,7 +3515,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3628,7 +3628,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !18
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3661,7 +3661,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3774,7 +3774,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi3EEclERKNS_5RangeE.exit, label %22, !llvm.loop !20
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi3EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3807,7 +3807,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -3920,7 +3920,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !22
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -3953,7 +3953,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -4066,7 +4066,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !24
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -4099,7 +4099,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -4212,7 +4212,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi0
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !26
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -4245,7 +4245,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -4358,7 +4358,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !28
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -4391,7 +4391,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -4504,7 +4504,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !30
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -4537,7 +4537,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %6
@@ -4650,7 +4650,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_114cvtRGBtoYUV422ILi2
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi4EEclERKNS_5RangeE.exit, label %22, !llvm.loop !32
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi4EEclERKNS_5RangeE.exit: ; preds = %._crit_edge.i, %20, %16
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #13
   ret void
 }
 
@@ -5079,7 +5079,7 @@ define hidden void @_ZN2cv15cvtColorBGR2YUVERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %11) #13
   %12 = getelementptr inbounds i8, ptr %11, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
   %13 = getelementptr inbounds i8, ptr %11, i64 200
@@ -5203,7 +5203,7 @@ define hidden void @_ZN2cv15cvtColorBGR2YUVERKNS_11_InputArrayERKNS_12_OutputArr
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %17
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %59, %57
-  %60 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %9)
+  %60 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %11, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %61 unwind label %62
 
 61:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -5263,7 +5263,7 @@ _ZNK2cv11_InputArray6getMatEi.exit27.i:           ; preds = %78, %76
 common.resume:                                    ; preds = %106, %103, %17, %26, %52, %62, %80
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %26 ], [ %81, %80 ], [ %18, %17 ], [ %53, %52 ], [ %63, %62 ], [ %107, %106 ], [ %104, %103 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %11) #13
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi2ELi5EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit27.i
@@ -5321,7 +5321,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EE
 105:                                              ; preds = %99, %96
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %11) #13
   ret void
 
 106:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi2ELi5EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit
@@ -5346,7 +5346,7 @@ define hidden void @_ZN2cv15cvtColorYUV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   %14 = getelementptr inbounds i8, ptr %12, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
   %15 = getelementptr inbounds i8, ptr %12, i64 200
@@ -5476,7 +5476,7 @@ define hidden void @_ZN2cv15cvtColorYUV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %19
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %63, %61
-  %64 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  %64 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %65 unwind label %66
 
 65:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -5538,7 +5538,7 @@ _ZNK2cv11_InputArray6getMatEi.exit27.i:           ; preds = %84, %82
 common.resume:                                    ; preds = %111, %108, %19, %28, %56, %66, %86
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %28 ], [ %87, %86 ], [ %20, %19 ], [ %57, %56 ], [ %67, %66 ], [ %112, %111 ], [ %109, %108 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELi2ELi5EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit27.i
@@ -5595,7 +5595,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELin1ELin1EEENS3_ILi3ELi4ELin1EE
 110:                                              ; preds = %104, %101
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   ret void
 
 111:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELi2ELi5EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit
@@ -5622,7 +5622,7 @@ define hidden void @_ZN2cv23cvtColorOnePlaneYUV2BGRERKNS_11_InputArrayERKNS_12_O
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %15) #13
   %16 = getelementptr inbounds i8, ptr %15, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #13
   %17 = getelementptr inbounds i8, ptr %15, i64 200
@@ -5749,7 +5749,7 @@ define hidden void @_ZN2cv23cvtColorOnePlaneYUV2BGRERKNS_11_InputArrayERKNS_12_O
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %21
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %66, %64
-  %67 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %11)
+  %67 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %68 unwind label %69
 
 68:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -5842,7 +5842,7 @@ _ZNK2cv11_InputArray6getMatEi.exit28.i:           ; preds = %98, %96
 common.resume:                                    ; preds = %124, %121, %21, %30, %59, %69, %85, %100
   %common.resume.op = phi { ptr, i32 } [ %.pn20.i, %30 ], [ %101, %100 ], [ %22, %21 ], [ %.pn.i, %85 ], [ %60, %59 ], [ %70, %69 ], [ %125, %124 ], [ %122, %121 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %15) #13
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi2ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE2EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit28.i
@@ -5900,7 +5900,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi2ELin1ELin1EEENS3_ILi3ELi4ELin1EE
 123:                                              ; preds = %117, %114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %15) #13
   ret void
 
 124:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi2ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE2EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit
@@ -5927,7 +5927,7 @@ define hidden void @_ZN2cv23cvtColorOnePlaneBGR2YUVERKNS_11_InputArrayERKNS_12_O
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %14) #13
   %15 = getelementptr inbounds i8, ptr %14, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
   %16 = getelementptr inbounds i8, ptr %14, i64 200
@@ -6048,7 +6048,7 @@ define hidden void @_ZN2cv23cvtColorOnePlaneBGR2YUVERKNS_11_InputArrayERKNS_12_O
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %20
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %63, %61
-  %64 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %10)
+  %64 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %14, ptr noundef nonnull align 8 dereferenceable(96) %10)
           to label %65 unwind label %66
 
 65:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -6139,7 +6139,7 @@ _ZNK2cv11_InputArray6getMatEi.exit28.i:           ; preds = %93, %91
 common.resume:                                    ; preds = %120, %117, %20, %29, %56, %66, %82, %95
   %common.resume.op = phi { ptr, i32 } [ %.pn20.i, %29 ], [ %96, %95 ], [ %21, %20 ], [ %.pn.i, %82 ], [ %57, %56 ], [ %67, %66 ], [ %121, %120 ], [ %118, %117 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %14) #13
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi2ELin1ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE3EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit28.i
@@ -6198,7 +6198,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi2ELin1ELin1EE
 119:                                              ; preds = %113, %110
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %14) #13
   ret void
 
 120:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi2ELin1ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE3EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit
@@ -6277,7 +6277,7 @@ define hidden void @_ZN2cv25cvtColorBGR2ThreePlaneYUVERKNS_11_InputArrayERKNS_12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
   %15 = getelementptr inbounds i8, ptr %13, i64 200
@@ -6398,7 +6398,7 @@ define hidden void @_ZN2cv25cvtColorBGR2ThreePlaneYUVERKNS_11_InputArrayERKNS_12
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %19
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %62, %60
-  %63 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %9)
+  %63 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %13, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %64 unwind label %65
 
 64:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -6495,7 +6495,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31.i:           ; preds = %95, %93
 common.resume:                                    ; preds = %122, %119, %19, %28, %55, %65, %84, %97
   %common.resume.op = phi { ptr, i32 } [ %.pn22.i, %28 ], [ %98, %97 ], [ %20, %19 ], [ %.pn.i, %84 ], [ %56, %55 ], [ %66, %65 ], [ %123, %122 ], [ %120, %119 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #13
   resume { ptr, i32 } %common.resume.op
 
 _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi1ELin1ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE0EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit31.i
@@ -6554,7 +6554,7 @@ _ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi1ELin1ELin1EE
 121:                                              ; preds = %115, %112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %13) #13
   ret void
 
 122:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi1ELin1ELin1EEENS3_ILi0ELin1ELin1EEELNS1_10SizePolicyE0EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi.exit
@@ -6584,7 +6584,7 @@ define hidden void @_ZN2cv20cvtColorYUV2Gray_420ERKNS_11_InputArrayERKNS_12_Outp
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   %15 = getelementptr inbounds i8, ptr %12, i64 96
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
   %16 = getelementptr inbounds i8, ptr %12, i64 200
@@ -6704,7 +6704,7 @@ define hidden void @_ZN2cv20cvtColorYUV2Gray_420ERKNS_11_InputArrayERKNS_12_Outp
           to label %_ZNK2cv11_InputArray6getMatEi.exit.i unwind label %20
 
 _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %62, %60
-  %63 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %8)
+  %63 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %64 unwind label %65
 
 64:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit.i
@@ -6801,7 +6801,7 @@ _ZNK2cv11_InputArray6getMatEi.exit31.i:           ; preds = %95, %93
 common.resume:                                    ; preds = %105, %107, %20, %29, %55, %65, %84, %97
   %common.resume.op = phi { ptr, i32 } [ %.pn22.i, %29 ], [ %98, %97 ], [ %21, %20 ], [ %.pn.i, %84 ], [ %56, %55 ], [ %66, %65 ], [ %108, %107 ], [ %106, %105 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   resume { ptr, i32 } %common.resume.op
 
 99:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit31.i
@@ -6837,7 +6837,7 @@ common.resume:                                    ; preds = %105, %107, %20, %29
 104:                                              ; preds = %101
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #13
   ret void
 
 105:                                              ; preds = %99
@@ -6911,7 +6911,7 @@ define hidden void @_ZN2cv25cvtColorThreePlaneYUV2BGRERKNS_11_InputArrayERKNS_12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %31 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #13
   ret void
 
 32:                                               ; preds = %5
@@ -6923,7 +6923,7 @@ define hidden void @_ZN2cv25cvtColorThreePlaneYUV2BGRERKNS_11_InputArrayERKNS_12
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %29, %28 ]
   %34 = getelementptr inbounds i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #13
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -7195,7 +7195,7 @@ define hidden void @_ZN2cv23cvtColorTwoPlaneYUV2BGRERKNS_11_InputArrayERKNS_12_O
 20:                                               ; preds = %5
   %21 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #13
   ret void
 
 22:                                               ; preds = %5
@@ -7203,7 +7203,7 @@ define hidden void @_ZN2cv23cvtColorTwoPlaneYUV2BGRERKNS_11_InputArrayERKNS_12_O
           cleanup
   %24 = getelementptr inbounds i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #13
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #13
   resume { ptr, i32 } %23
 }
 
@@ -7514,7 +7514,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120RGB8toYUV420pInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(63) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(63) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -7541,7 +7541,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -7653,16 +7653,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %84 = mul nsw i32 %83, %39
   %85 = add nsw i32 %84, 2105344
   %86 = ashr i32 %85, 14
-  %87 = call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %87 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %88 = call i32 @llvm.umin.i32(i32 %87, i32 255)
   %89 = trunc nuw i32 %88 to i8
   store i8 %89, ptr %.03033.i, align 1
-  %90 = call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %90 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %79, i32 0)
   %91 = call i32 @llvm.umin.i32(i32 %90, i32 255)
   %92 = trunc nuw i32 %91 to i8
   %93 = getelementptr inbounds i8, ptr %.03033.i, i64 %53
   store i8 %92, ptr %93, align 1
-  %94 = call i32 @llvm.smax.i32(i32 %86, i32 0)
+  %94 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %86, i32 0)
   %95 = call i32 @llvm.umin.i32(i32 %94, i32 255)
   %96 = trunc nuw i32 %95 to i8
   %97 = getelementptr inbounds i8, ptr %.03033.i, i64 %55
@@ -7718,7 +7718,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -7830,16 +7830,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %84 = mul nsw i32 %83, %39
   %85 = add nsw i32 %84, 536879104
   %86 = ashr i32 %85, 14
-  %87 = call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %87 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %72, i32 0)
   %88 = call i32 @llvm.umin.i32(i32 %87, i32 65535)
   %89 = trunc nuw i32 %88 to i16
   store i16 %89, ptr %.03033.i, align 2
-  %90 = call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %90 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %79, i32 0)
   %91 = call i32 @llvm.umin.i32(i32 %90, i32 65535)
   %92 = trunc nuw i32 %91 to i16
   %93 = getelementptr inbounds i16, ptr %.03033.i, i64 %53
   store i16 %92, ptr %93, align 2
-  %94 = call i32 @llvm.smax.i32(i32 %86, i32 0)
+  %94 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %86, i32 0)
   %95 = call i32 @llvm.umin.i32(i32 %94, i32 65535)
   %96 = trunc nuw i32 %95 to i16
   %97 = getelementptr inbounds i16, ptr %.03033.i, i64 %55
@@ -7895,7 +7895,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -8053,7 +8053,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -8156,17 +8156,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %74 = add nsw i32 %73, 8192
   %75 = ashr i32 %74, 14
   %76 = add nsw i32 %75, %58
-  %77 = call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %77 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %64, i32 0)
   %78 = call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = getelementptr inbounds i8, ptr %.03740.us.i, i64 %48
   store i8 %79, ptr %80, align 1
-  %81 = call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %81 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %82 = call i32 @llvm.umin.i32(i32 %81, i32 255)
   %83 = trunc nuw i32 %82 to i8
   %84 = getelementptr inbounds i8, ptr %.03740.us.i, i64 1
   store i8 %83, ptr %84, align 1
-  %85 = call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %85 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %86 = call i32 @llvm.umin.i32(i32 %85, i32 255)
   %87 = trunc nuw i32 %86 to i8
   %88 = getelementptr inbounds i8, ptr %.03740.us.i, i64 %50
@@ -8207,17 +8207,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %114 = add nsw i32 %113, 8192
   %115 = ashr i32 %114, 14
   %116 = add nsw i32 %115, %98
-  %117 = call i32 @llvm.smax.i32(i32 %104, i32 0)
+  %117 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %104, i32 0)
   %118 = call i32 @llvm.umin.i32(i32 %117, i32 255)
   %119 = trunc nuw i32 %118 to i8
   %120 = getelementptr inbounds i8, ptr %.03740.i, i64 %48
   store i8 %119, ptr %120, align 1
-  %121 = call i32 @llvm.smax.i32(i32 %112, i32 0)
+  %121 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %112, i32 0)
   %122 = call i32 @llvm.umin.i32(i32 %121, i32 255)
   %123 = trunc nuw i32 %122 to i8
   %124 = getelementptr inbounds i8, ptr %.03740.i, i64 1
   store i8 %123, ptr %124, align 1
-  %125 = call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %125 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %116, i32 0)
   %126 = call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = getelementptr inbounds i8, ptr %.03740.i, i64 %50
@@ -8267,7 +8267,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_iItEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -8370,17 +8370,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %74 = add nsw i32 %73, 8192
   %75 = ashr i32 %74, 14
   %76 = add nsw i32 %75, %58
-  %77 = call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %77 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %64, i32 0)
   %78 = call i32 @llvm.umin.i32(i32 %77, i32 65535)
   %79 = trunc nuw i32 %78 to i16
   %80 = getelementptr inbounds i16, ptr %.03740.us.i, i64 %48
   store i16 %79, ptr %80, align 2
-  %81 = call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %81 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %72, i32 0)
   %82 = call i32 @llvm.umin.i32(i32 %81, i32 65535)
   %83 = trunc nuw i32 %82 to i16
   %84 = getelementptr inbounds i8, ptr %.03740.us.i, i64 2
   store i16 %83, ptr %84, align 2
-  %85 = call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %85 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %76, i32 0)
   %86 = call i32 @llvm.umin.i32(i32 %85, i32 65535)
   %87 = trunc nuw i32 %86 to i16
   %88 = getelementptr inbounds i16, ptr %.03740.us.i, i64 %50
@@ -8421,17 +8421,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %114 = add nsw i32 %113, 8192
   %115 = ashr i32 %114, 14
   %116 = add nsw i32 %115, %98
-  %117 = call i32 @llvm.smax.i32(i32 %104, i32 0)
+  %117 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %104, i32 0)
   %118 = call i32 @llvm.umin.i32(i32 %117, i32 65535)
   %119 = trunc nuw i32 %118 to i16
   %120 = getelementptr inbounds i16, ptr %.03740.i, i64 %48
   store i16 %119, ptr %120, align 2
-  %121 = call i32 @llvm.smax.i32(i32 %112, i32 0)
+  %121 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %112, i32 0)
   %122 = call i32 @llvm.umin.i32(i32 %121, i32 65535)
   %123 = trunc nuw i32 %122 to i16
   %124 = getelementptr inbounds i8, ptr %.03740.i, i64 2
   store i16 %123, ptr %124, align 2
-  %125 = call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %125 = call i32 @llvm.smax.i32(i32 range(i32 -131072, 196607) %116, i32 0)
   %126 = call i32 @llvm.umin.i32(i32 %125, i32 65535)
   %127 = trunc nuw i32 %126 to i16
   %128 = getelementptr inbounds i16, ptr %.03740.i, i64 %50
@@ -8481,7 +8481,7 @@ define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_111YCrCb2RGB_fIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -8735,17 +8735,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -8754,17 +8754,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = getelementptr inbounds i8, ptr %.03944, i64 2
@@ -8784,17 +8784,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %112 = add nsw i32 %111, -19528672
   %113 = add nsw i32 %112, %59
   %114 = ashr i32 %113, 20
-  %115 = tail call i32 @llvm.smax.i32(i32 %114, i32 0)
+  %115 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %114, i32 0)
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 255)
   %117 = trunc nuw i32 %116 to i8
   %118 = add nsw i32 %112, %63
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %112, %65
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -8803,17 +8803,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %131 = add nsw i32 %130, -19528672
   %132 = add nsw i32 %131, %59
   %133 = ashr i32 %132, 20
-  %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 0)
+  %134 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %133, i32 0)
   %135 = tail call i32 @llvm.umin.i32(i32 %134, i32 255)
   %136 = trunc nuw i32 %135 to i8
   %137 = add nsw i32 %131, %63
   %138 = ashr i32 %137, 20
-  %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 255)
   %141 = trunc nuw i32 %140 to i8
   %142 = add nsw i32 %131, %65
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   %147 = getelementptr inbounds i8, ptr %.04043, i64 2
@@ -8863,7 +8863,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi0ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -8960,17 +8960,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -8979,17 +8979,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = getelementptr inbounds i8, ptr %.03944, i64 2
@@ -9009,17 +9009,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %112 = add nsw i32 %111, -19528672
   %113 = add nsw i32 %112, %59
   %114 = ashr i32 %113, 20
-  %115 = tail call i32 @llvm.smax.i32(i32 %114, i32 0)
+  %115 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %114, i32 0)
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 255)
   %117 = trunc nuw i32 %116 to i8
   %118 = add nsw i32 %112, %63
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %112, %65
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -9028,17 +9028,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %131 = add nsw i32 %130, -19528672
   %132 = add nsw i32 %131, %59
   %133 = ashr i32 %132, 20
-  %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 0)
+  %134 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %133, i32 0)
   %135 = tail call i32 @llvm.umin.i32(i32 %134, i32 255)
   %136 = trunc nuw i32 %135 to i8
   %137 = add nsw i32 %131, %63
   %138 = ashr i32 %137, 20
-  %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 255)
   %141 = trunc nuw i32 %140 to i8
   %142 = add nsw i32 %131, %65
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   %147 = getelementptr inbounds i8, ptr %.04043, i64 2
@@ -9088,7 +9088,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi0ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -9185,17 +9185,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -9204,17 +9204,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   store i8 %74, ptr %.03944, align 1
@@ -9234,17 +9234,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %112 = add nsw i32 %111, -19528672
   %113 = add nsw i32 %112, %59
   %114 = ashr i32 %113, 20
-  %115 = tail call i32 @llvm.smax.i32(i32 %114, i32 0)
+  %115 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %114, i32 0)
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 255)
   %117 = trunc nuw i32 %116 to i8
   %118 = add nsw i32 %112, %63
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %112, %65
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -9253,17 +9253,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %131 = add nsw i32 %130, -19528672
   %132 = add nsw i32 %131, %59
   %133 = ashr i32 %132, 20
-  %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 0)
+  %134 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %133, i32 0)
   %135 = tail call i32 @llvm.umin.i32(i32 %134, i32 255)
   %136 = trunc nuw i32 %135 to i8
   %137 = add nsw i32 %131, %63
   %138 = ashr i32 %137, 20
-  %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 255)
   %141 = trunc nuw i32 %140 to i8
   %142 = add nsw i32 %131, %65
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   store i8 %117, ptr %.04043, align 1
@@ -9313,7 +9313,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi2ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -9410,17 +9410,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -9429,17 +9429,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   store i8 %74, ptr %.03944, align 1
@@ -9459,17 +9459,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %112 = add nsw i32 %111, -19528672
   %113 = add nsw i32 %112, %59
   %114 = ashr i32 %113, 20
-  %115 = tail call i32 @llvm.smax.i32(i32 %114, i32 0)
+  %115 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %114, i32 0)
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 255)
   %117 = trunc nuw i32 %116 to i8
   %118 = add nsw i32 %112, %63
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %112, %65
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -9478,17 +9478,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %131 = add nsw i32 %130, -19528672
   %132 = add nsw i32 %131, %59
   %133 = ashr i32 %132, 20
-  %134 = tail call i32 @llvm.smax.i32(i32 %133, i32 0)
+  %134 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %133, i32 0)
   %135 = tail call i32 @llvm.umin.i32(i32 %134, i32 255)
   %136 = trunc nuw i32 %135 to i8
   %137 = add nsw i32 %131, %63
   %138 = ashr i32 %137, 20
-  %139 = tail call i32 @llvm.smax.i32(i32 %138, i32 0)
+  %139 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %138, i32 0)
   %140 = tail call i32 @llvm.umin.i32(i32 %139, i32 255)
   %141 = trunc nuw i32 %140 to i8
   %142 = add nsw i32 %131, %65
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   store i8 %117, ptr %.04043, align 1
@@ -9538,7 +9538,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi2ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -9635,17 +9635,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -9654,17 +9654,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = getelementptr inbounds i8, ptr %.03944, i64 2
@@ -9688,17 +9688,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %114 = add nsw i32 %113, -19528672
   %115 = add nsw i32 %114, %59
   %116 = ashr i32 %115, 20
-  %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %117 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 255)
   %119 = trunc nuw i32 %118 to i8
   %120 = add nsw i32 %114, %63
   %121 = ashr i32 %120, 20
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %122 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %121, i32 0)
   %123 = tail call i32 @llvm.umin.i32(i32 %122, i32 255)
   %124 = trunc nuw i32 %123 to i8
   %125 = add nsw i32 %114, %65
   %126 = ashr i32 %125, 20
-  %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
+  %127 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %126, i32 0)
   %128 = tail call i32 @llvm.umin.i32(i32 %127, i32 255)
   %129 = trunc nuw i32 %128 to i8
   %130 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -9707,17 +9707,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %133 = add nsw i32 %132, -19528672
   %134 = add nsw i32 %133, %59
   %135 = ashr i32 %134, 20
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %136 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %135, i32 0)
   %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 255)
   %138 = trunc nuw i32 %137 to i8
   %139 = add nsw i32 %133, %63
   %140 = ashr i32 %139, 20
-  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %141 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 255)
   %143 = trunc nuw i32 %142 to i8
   %144 = add nsw i32 %133, %65
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   %149 = getelementptr inbounds i8, ptr %.04043, i64 2
@@ -9771,7 +9771,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi0ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -9868,17 +9868,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -9887,17 +9887,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = getelementptr inbounds i8, ptr %.03944, i64 2
@@ -9921,17 +9921,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %114 = add nsw i32 %113, -19528672
   %115 = add nsw i32 %114, %59
   %116 = ashr i32 %115, 20
-  %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %117 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 255)
   %119 = trunc nuw i32 %118 to i8
   %120 = add nsw i32 %114, %63
   %121 = ashr i32 %120, 20
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %122 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %121, i32 0)
   %123 = tail call i32 @llvm.umin.i32(i32 %122, i32 255)
   %124 = trunc nuw i32 %123 to i8
   %125 = add nsw i32 %114, %65
   %126 = ashr i32 %125, 20
-  %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
+  %127 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %126, i32 0)
   %128 = tail call i32 @llvm.umin.i32(i32 %127, i32 255)
   %129 = trunc nuw i32 %128 to i8
   %130 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -9940,17 +9940,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %133 = add nsw i32 %132, -19528672
   %134 = add nsw i32 %133, %59
   %135 = ashr i32 %134, 20
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %136 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %135, i32 0)
   %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 255)
   %138 = trunc nuw i32 %137 to i8
   %139 = add nsw i32 %133, %63
   %140 = ashr i32 %139, 20
-  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %141 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 255)
   %143 = trunc nuw i32 %142 to i8
   %144 = add nsw i32 %133, %65
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   %149 = getelementptr inbounds i8, ptr %.04043, i64 2
@@ -10004,7 +10004,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi0ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -10101,17 +10101,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -10120,17 +10120,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   store i8 %74, ptr %.03944, align 1
@@ -10154,17 +10154,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %114 = add nsw i32 %113, -19528672
   %115 = add nsw i32 %114, %59
   %116 = ashr i32 %115, 20
-  %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %117 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 255)
   %119 = trunc nuw i32 %118 to i8
   %120 = add nsw i32 %114, %63
   %121 = ashr i32 %120, 20
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %122 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %121, i32 0)
   %123 = tail call i32 @llvm.umin.i32(i32 %122, i32 255)
   %124 = trunc nuw i32 %123 to i8
   %125 = add nsw i32 %114, %65
   %126 = ashr i32 %125, 20
-  %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
+  %127 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %126, i32 0)
   %128 = tail call i32 @llvm.umin.i32(i32 %127, i32 255)
   %129 = trunc nuw i32 %128 to i8
   %130 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -10173,17 +10173,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %133 = add nsw i32 %132, -19528672
   %134 = add nsw i32 %133, %59
   %135 = ashr i32 %134, 20
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %136 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %135, i32 0)
   %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 255)
   %138 = trunc nuw i32 %137 to i8
   %139 = add nsw i32 %133, %63
   %140 = ashr i32 %139, 20
-  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %141 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 255)
   %143 = trunc nuw i32 %142 to i8
   %144 = add nsw i32 %133, %65
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   store i8 %119, ptr %.04043, align 1
@@ -10237,7 +10237,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi2ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -10334,17 +10334,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %69 = add nsw i32 %68, -19528672
   %70 = add nsw i32 %69, %59
   %71 = ashr i32 %70, 20
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %71, i32 0)
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 255)
   %74 = trunc nuw i32 %73 to i8
   %75 = add nsw i32 %69, %63
   %76 = ashr i32 %75, 20
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %77 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %76, i32 0)
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 255)
   %79 = trunc nuw i32 %78 to i8
   %80 = add nsw i32 %69, %65
   %81 = ashr i32 %80, 20
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
+  %82 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %81, i32 0)
   %83 = tail call i32 @llvm.umin.i32(i32 %82, i32 255)
   %84 = trunc nuw i32 %83 to i8
   %85 = tail call i8 @llvm.umax.i8(i8 %49, i8 16)
@@ -10353,17 +10353,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %88 = add nsw i32 %87, -19528672
   %89 = add nsw i32 %88, %59
   %90 = ashr i32 %89, 20
-  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %91 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %90, i32 0)
   %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
   %93 = trunc nuw i32 %92 to i8
   %94 = add nsw i32 %88, %63
   %95 = ashr i32 %94, 20
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %96 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   %98 = trunc nuw i32 %97 to i8
   %99 = add nsw i32 %88, %65
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   store i8 %74, ptr %.03944, align 1
@@ -10387,17 +10387,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %114 = add nsw i32 %113, -19528672
   %115 = add nsw i32 %114, %59
   %116 = ashr i32 %115, 20
-  %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
+  %117 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 255)
   %119 = trunc nuw i32 %118 to i8
   %120 = add nsw i32 %114, %63
   %121 = ashr i32 %120, 20
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %122 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %121, i32 0)
   %123 = tail call i32 @llvm.umin.i32(i32 %122, i32 255)
   %124 = trunc nuw i32 %123 to i8
   %125 = add nsw i32 %114, %65
   %126 = ashr i32 %125, 20
-  %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 0)
+  %127 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %126, i32 0)
   %128 = tail call i32 @llvm.umin.i32(i32 %127, i32 255)
   %129 = trunc nuw i32 %128 to i8
   %130 = tail call i8 @llvm.umax.i8(i8 %53, i8 16)
@@ -10406,17 +10406,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invo
   %133 = add nsw i32 %132, -19528672
   %134 = add nsw i32 %133, %59
   %135 = ashr i32 %134, 20
-  %136 = tail call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %136 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %135, i32 0)
   %137 = tail call i32 @llvm.umin.i32(i32 %136, i32 255)
   %138 = trunc nuw i32 %137 to i8
   %139 = add nsw i32 %133, %63
   %140 = ashr i32 %139, 20
-  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %141 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 255)
   %143 = trunc nuw i32 %142 to i8
   %144 = add nsw i32 %133, %65
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   store i8 %119, ptr %.04043, align 1
@@ -10470,7 +10470,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8Invok
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_120YUV420sp2RGB8InvokerILi2ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -10606,17 +10606,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %98 = add nsw i32 %97, -19528672
   %99 = add nsw i32 %98, %88
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = add nsw i32 %98, %92
   %105 = ashr i32 %104, 20
-  %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  %106 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %105, i32 0)
   %107 = tail call i32 @llvm.umin.i32(i32 %106, i32 255)
   %108 = trunc nuw i32 %107 to i8
   %109 = add nsw i32 %98, %94
   %110 = ashr i32 %109, 20
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %111 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = trunc nuw i32 %112 to i8
   %114 = tail call i8 @llvm.umax.i8(i8 %78, i8 16)
@@ -10625,17 +10625,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %117 = add nsw i32 %116, -19528672
   %118 = add nsw i32 %117, %88
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %117, %92
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = add nsw i32 %117, %94
   %129 = ashr i32 %128, 20
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %130 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %129, i32 0)
   %131 = tail call i32 @llvm.umin.i32(i32 %130, i32 255)
   %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %.05558, i64 2
@@ -10655,17 +10655,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %141 = add nsw i32 %140, -19528672
   %142 = add nsw i32 %141, %88
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   %147 = add nsw i32 %141, %92
   %148 = ashr i32 %147, 20
-  %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
+  %149 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %148, i32 0)
   %150 = tail call i32 @llvm.umin.i32(i32 %149, i32 255)
   %151 = trunc nuw i32 %150 to i8
   %152 = add nsw i32 %141, %94
   %153 = ashr i32 %152, 20
-  %154 = tail call i32 @llvm.smax.i32(i32 %153, i32 0)
+  %154 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %153, i32 0)
   %155 = tail call i32 @llvm.umin.i32(i32 %154, i32 255)
   %156 = trunc nuw i32 %155 to i8
   %157 = tail call i8 @llvm.umax.i8(i8 %82, i8 16)
@@ -10674,17 +10674,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %160 = add nsw i32 %159, -19528672
   %161 = add nsw i32 %160, %88
   %162 = ashr i32 %161, 20
-  %163 = tail call i32 @llvm.smax.i32(i32 %162, i32 0)
+  %163 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %162, i32 0)
   %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 255)
   %165 = trunc nuw i32 %164 to i8
   %166 = add nsw i32 %160, %92
   %167 = ashr i32 %166, 20
-  %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
+  %168 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 255)
   %170 = trunc nuw i32 %169 to i8
   %171 = add nsw i32 %160, %94
   %172 = ashr i32 %171, 20
-  %173 = tail call i32 @llvm.smax.i32(i32 %172, i32 0)
+  %173 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %172, i32 0)
   %174 = tail call i32 @llvm.umin.i32(i32 %173, i32 255)
   %175 = trunc nuw i32 %174 to i8
   %176 = getelementptr inbounds i8, ptr %.05657, i64 2
@@ -10746,7 +10746,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8InvokerILi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -10882,17 +10882,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %98 = add nsw i32 %97, -19528672
   %99 = add nsw i32 %98, %88
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = add nsw i32 %98, %92
   %105 = ashr i32 %104, 20
-  %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  %106 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %105, i32 0)
   %107 = tail call i32 @llvm.umin.i32(i32 %106, i32 255)
   %108 = trunc nuw i32 %107 to i8
   %109 = add nsw i32 %98, %94
   %110 = ashr i32 %109, 20
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %111 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = trunc nuw i32 %112 to i8
   %114 = tail call i8 @llvm.umax.i8(i8 %78, i8 16)
@@ -10901,17 +10901,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %117 = add nsw i32 %116, -19528672
   %118 = add nsw i32 %117, %88
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %117, %92
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = add nsw i32 %117, %94
   %129 = ashr i32 %128, 20
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %130 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %129, i32 0)
   %131 = tail call i32 @llvm.umin.i32(i32 %130, i32 255)
   %132 = trunc nuw i32 %131 to i8
   store i8 %103, ptr %.05558, align 1
@@ -10931,17 +10931,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %141 = add nsw i32 %140, -19528672
   %142 = add nsw i32 %141, %88
   %143 = ashr i32 %142, 20
-  %144 = tail call i32 @llvm.smax.i32(i32 %143, i32 0)
+  %144 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %143, i32 0)
   %145 = tail call i32 @llvm.umin.i32(i32 %144, i32 255)
   %146 = trunc nuw i32 %145 to i8
   %147 = add nsw i32 %141, %92
   %148 = ashr i32 %147, 20
-  %149 = tail call i32 @llvm.smax.i32(i32 %148, i32 0)
+  %149 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %148, i32 0)
   %150 = tail call i32 @llvm.umin.i32(i32 %149, i32 255)
   %151 = trunc nuw i32 %150 to i8
   %152 = add nsw i32 %141, %94
   %153 = ashr i32 %152, 20
-  %154 = tail call i32 @llvm.smax.i32(i32 %153, i32 0)
+  %154 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %153, i32 0)
   %155 = tail call i32 @llvm.umin.i32(i32 %154, i32 255)
   %156 = trunc nuw i32 %155 to i8
   %157 = tail call i8 @llvm.umax.i8(i8 %82, i8 16)
@@ -10950,17 +10950,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %160 = add nsw i32 %159, -19528672
   %161 = add nsw i32 %160, %88
   %162 = ashr i32 %161, 20
-  %163 = tail call i32 @llvm.smax.i32(i32 %162, i32 0)
+  %163 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %162, i32 0)
   %164 = tail call i32 @llvm.umin.i32(i32 %163, i32 255)
   %165 = trunc nuw i32 %164 to i8
   %166 = add nsw i32 %160, %92
   %167 = ashr i32 %166, 20
-  %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
+  %168 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %167, i32 0)
   %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 255)
   %170 = trunc nuw i32 %169 to i8
   %171 = add nsw i32 %160, %94
   %172 = ashr i32 %171, 20
-  %173 = tail call i32 @llvm.smax.i32(i32 %172, i32 0)
+  %173 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %172, i32 0)
   %174 = tail call i32 @llvm.umin.i32(i32 %173, i32 255)
   %175 = trunc nuw i32 %174 to i8
   store i8 %146, ptr %.05657, align 1
@@ -11022,7 +11022,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8InvokerILi2ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -11158,17 +11158,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %98 = add nsw i32 %97, -19528672
   %99 = add nsw i32 %98, %88
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = add nsw i32 %98, %92
   %105 = ashr i32 %104, 20
-  %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  %106 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %105, i32 0)
   %107 = tail call i32 @llvm.umin.i32(i32 %106, i32 255)
   %108 = trunc nuw i32 %107 to i8
   %109 = add nsw i32 %98, %94
   %110 = ashr i32 %109, 20
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %111 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = trunc nuw i32 %112 to i8
   %114 = tail call i8 @llvm.umax.i8(i8 %78, i8 16)
@@ -11177,17 +11177,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %117 = add nsw i32 %116, -19528672
   %118 = add nsw i32 %117, %88
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %117, %92
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = add nsw i32 %117, %94
   %129 = ashr i32 %128, 20
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %130 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %129, i32 0)
   %131 = tail call i32 @llvm.umin.i32(i32 %130, i32 255)
   %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %.05558, i64 2
@@ -11211,17 +11211,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %143 = add nsw i32 %142, -19528672
   %144 = add nsw i32 %143, %88
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   %149 = add nsw i32 %143, %92
   %150 = ashr i32 %149, 20
-  %151 = tail call i32 @llvm.smax.i32(i32 %150, i32 0)
+  %151 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %150, i32 0)
   %152 = tail call i32 @llvm.umin.i32(i32 %151, i32 255)
   %153 = trunc nuw i32 %152 to i8
   %154 = add nsw i32 %143, %94
   %155 = ashr i32 %154, 20
-  %156 = tail call i32 @llvm.smax.i32(i32 %155, i32 0)
+  %156 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %155, i32 0)
   %157 = tail call i32 @llvm.umin.i32(i32 %156, i32 255)
   %158 = trunc nuw i32 %157 to i8
   %159 = tail call i8 @llvm.umax.i8(i8 %82, i8 16)
@@ -11230,17 +11230,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %162 = add nsw i32 %161, -19528672
   %163 = add nsw i32 %162, %88
   %164 = ashr i32 %163, 20
-  %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
+  %165 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %164, i32 0)
   %166 = tail call i32 @llvm.umin.i32(i32 %165, i32 255)
   %167 = trunc nuw i32 %166 to i8
   %168 = add nsw i32 %162, %92
   %169 = ashr i32 %168, 20
-  %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
+  %170 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 255)
   %172 = trunc nuw i32 %171 to i8
   %173 = add nsw i32 %162, %94
   %174 = ashr i32 %173, 20
-  %175 = tail call i32 @llvm.smax.i32(i32 %174, i32 0)
+  %175 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %174, i32 0)
   %176 = tail call i32 @llvm.umin.i32(i32 %175, i32 255)
   %177 = trunc nuw i32 %176 to i8
   %178 = getelementptr inbounds i8, ptr %.05657, i64 2
@@ -11306,7 +11306,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8InvokerILi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -11442,17 +11442,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %98 = add nsw i32 %97, -19528672
   %99 = add nsw i32 %98, %88
   %100 = ashr i32 %99, 20
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %101 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %100, i32 0)
   %102 = tail call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
   %104 = add nsw i32 %98, %92
   %105 = ashr i32 %104, 20
-  %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  %106 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %105, i32 0)
   %107 = tail call i32 @llvm.umin.i32(i32 %106, i32 255)
   %108 = trunc nuw i32 %107 to i8
   %109 = add nsw i32 %98, %94
   %110 = ashr i32 %109, 20
-  %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
+  %111 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = trunc nuw i32 %112 to i8
   %114 = tail call i8 @llvm.umax.i8(i8 %78, i8 16)
@@ -11461,17 +11461,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %117 = add nsw i32 %116, -19528672
   %118 = add nsw i32 %117, %88
   %119 = ashr i32 %118, 20
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
+  %120 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %119, i32 0)
   %121 = tail call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw i32 %121 to i8
   %123 = add nsw i32 %117, %92
   %124 = ashr i32 %123, 20
-  %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
+  %125 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %124, i32 0)
   %126 = tail call i32 @llvm.umin.i32(i32 %125, i32 255)
   %127 = trunc nuw i32 %126 to i8
   %128 = add nsw i32 %117, %94
   %129 = ashr i32 %128, 20
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %130 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %129, i32 0)
   %131 = tail call i32 @llvm.umin.i32(i32 %130, i32 255)
   %132 = trunc nuw i32 %131 to i8
   store i8 %103, ptr %.05558, align 1
@@ -11495,17 +11495,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %143 = add nsw i32 %142, -19528672
   %144 = add nsw i32 %143, %88
   %145 = ashr i32 %144, 20
-  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %146 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %145, i32 0)
   %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
   %148 = trunc nuw i32 %147 to i8
   %149 = add nsw i32 %143, %92
   %150 = ashr i32 %149, 20
-  %151 = tail call i32 @llvm.smax.i32(i32 %150, i32 0)
+  %151 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %150, i32 0)
   %152 = tail call i32 @llvm.umin.i32(i32 %151, i32 255)
   %153 = trunc nuw i32 %152 to i8
   %154 = add nsw i32 %143, %94
   %155 = ashr i32 %154, 20
-  %156 = tail call i32 @llvm.smax.i32(i32 %155, i32 0)
+  %156 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %155, i32 0)
   %157 = tail call i32 @llvm.umin.i32(i32 %156, i32 255)
   %158 = trunc nuw i32 %157 to i8
   %159 = tail call i8 @llvm.umax.i8(i8 %82, i8 16)
@@ -11514,17 +11514,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invok
   %162 = add nsw i32 %161, -19528672
   %163 = add nsw i32 %162, %88
   %164 = ashr i32 %163, 20
-  %165 = tail call i32 @llvm.smax.i32(i32 %164, i32 0)
+  %165 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %164, i32 0)
   %166 = tail call i32 @llvm.umin.i32(i32 %165, i32 255)
   %167 = trunc nuw i32 %166 to i8
   %168 = add nsw i32 %162, %92
   %169 = ashr i32 %168, 20
-  %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
+  %170 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %169, i32 0)
   %171 = tail call i32 @llvm.umin.i32(i32 %170, i32 255)
   %172 = trunc nuw i32 %171 to i8
   %173 = add nsw i32 %162, %94
   %174 = ashr i32 %173, 20
-  %175 = tail call i32 @llvm.smax.i32(i32 %174, i32 0)
+  %175 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %174, i32 0)
   %176 = tail call i32 @llvm.umin.i32(i32 %175, i32 255)
   %177 = trunc nuw i32 %176 to i8
   store i8 %148, ptr %.05657, align 1
@@ -11590,7 +11590,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV420p2RGB8InvokerILi2ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -11665,17 +11665,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -11684,17 +11684,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -11740,7 +11740,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi0ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -11815,17 +11815,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -11834,17 +11834,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -11890,7 +11890,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi0ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -11965,17 +11965,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -11984,17 +11984,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -12040,7 +12040,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi1ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12115,17 +12115,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12134,17 +12134,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -12190,7 +12190,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi0ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12265,17 +12265,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12284,17 +12284,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -12340,7 +12340,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi0ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12415,17 +12415,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12434,17 +12434,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -12490,7 +12490,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi1ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12565,17 +12565,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12584,17 +12584,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -12644,7 +12644,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi0ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12719,17 +12719,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12738,17 +12738,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -12798,7 +12798,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi0ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -12873,17 +12873,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -12892,17 +12892,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   %86 = getelementptr inbounds i8, ptr %.02629, i64 2
@@ -12952,7 +12952,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi0ELi1ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13027,17 +13027,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -13046,17 +13046,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -13106,7 +13106,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi0ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13181,17 +13181,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -13200,17 +13200,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -13260,7 +13260,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi0ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13335,17 +13335,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %51 = add nsw i32 %50, -19528672
   %52 = add nsw i32 %51, %41
   %53 = ashr i32 %52, 20
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %54 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %53, i32 0)
   %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = add nsw i32 %51, %45
   %58 = ashr i32 %57, 20
-  %59 = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
+  %59 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %58, i32 0)
   %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %61 = trunc nuw i32 %60 to i8
   %62 = add nsw i32 %51, %47
   %63 = ashr i32 %62, 20
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %63, i32 0)
   %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = tail call i8 @llvm.umax.i8(i8 %35, i8 16)
@@ -13354,17 +13354,17 @@ define internal void @_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invok
   %70 = add nsw i32 %69, -19528672
   %71 = add nsw i32 %70, %41
   %72 = ashr i32 %71, 20
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %73 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %72, i32 0)
   %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 255)
   %75 = trunc nuw i32 %74 to i8
   %76 = add nsw i32 %70, %45
   %77 = ashr i32 %76, 20
-  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %77, i32 0)
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
   %81 = add nsw i32 %70, %47
   %82 = ashr i32 %81, 20
-  %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
+  %83 = tail call i32 @llvm.smax.i32(i32 range(i32 -131072, 131327) %82, i32 0)
   %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 255)
   %85 = trunc nuw i32 %84 to i8
   store i8 %56, ptr %.02629, align 1
@@ -13414,7 +13414,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119YUV422toRGB8InvokerILi2ELi1ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13555,7 +13555,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13696,7 +13696,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13837,7 +13837,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -13978,7 +13978,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14119,7 +14119,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14260,7 +14260,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi3EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14401,7 +14401,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14542,7 +14542,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi0ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14683,7 +14683,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi0ELi1ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14824,7 +14824,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -14965,7 +14965,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi0ELi1ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }
@@ -15106,7 +15106,7 @@ define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422Invoke
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_119RGB8toYUV422InvokerILi2ELi1ELi0ELi4EED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

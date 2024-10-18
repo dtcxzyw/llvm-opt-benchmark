@@ -1076,17 +1076,17 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly 
   %34 = load i32, ptr @ett_vrt, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #8
   %36 = load i32, ptr @hf_vrt_header, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #8
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef range(i32 0, 5) %.0, i32 noundef 4, i32 noundef 0) #8
   %38 = load i32, ptr @ett_header, align 4
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #8
   %40 = load i32, ptr @hf_vrt_type, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #8
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef range(i32 0, 5) %.0, i32 noundef 1, i32 noundef 0) #8
   %42 = load i32, ptr @hf_vrt_cidflag, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #8
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef range(i32 0, 5) %.0, i32 noundef 1, i32 noundef 0) #8
   %hf_vrt_tsmflag.val.i = load i32, ptr @hf_vrt_tsmflag, align 4
   %hf_vrt_tflag.val.i = load i32, ptr @hf_vrt_tflag, align 4
   %44 = select i1 %22, i32 %hf_vrt_tsmflag.val.i, i32 %hf_vrt_tflag.val.i
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %44, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #8
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %44, ptr noundef %0, i32 noundef range(i32 0, 5) %.0, i32 noundef 1, i32 noundef 0) #8
   %46 = load i32, ptr @hf_vrt_tsi, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %46, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0) #8
   %48 = load i32, ptr @hf_vrt_tsf, align 4
@@ -1114,7 +1114,7 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly 
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_vrt_cid, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %63, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef 0) #8
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %63, ptr noundef %0, i32 noundef range(i32 4, 13) %.1, i32 noundef 8, i32 noundef 0) #8
   %65 = load i32, ptr @ett_cid, align 4
   %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #8
   %67 = add nuw nsw i32 %.1, 1

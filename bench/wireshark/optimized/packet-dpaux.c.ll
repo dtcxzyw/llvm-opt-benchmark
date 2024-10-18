@@ -421,7 +421,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %146, i64 16
   %157 = load ptr, ptr %156, align 8
-  %158 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef %134, i32 noundef %155, i32 noundef 0, ptr noundef %157, i32 noundef 0, i32 noundef 0) #2
+  %158 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef range(i32 1, 256) %134, i32 noundef %155, i32 noundef 0, ptr noundef %157, i32 noundef 0, i32 noundef 0) #2
   br label %dissect_dpaux_register.exit.i
 
 dissect_dpaux_register.exit.i:                    ; preds = %144, %152, %149

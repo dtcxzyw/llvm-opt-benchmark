@@ -478,7 +478,7 @@ define range(i32 -1, 2) i32 @init_nop(ptr noundef %0, i32 noundef %1) local_unna
 
 37:                                               ; preds = %.lr.ph
   %38 = call ptr @agnameof(ptr noundef nonnull %32) #20
-  %39 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(8) @.str.9, i64 noundef 7) #24
+  %39 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #24
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %._crit_edge153, label %41
 
@@ -1280,17 +1280,17 @@ define noundef i32 @setSeed(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(5) @.str.13, i64 noundef 4) #24
+  %16 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #24
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.thread33, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(8) @.str.14, i64 noundef 7) #24
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.14, i64 noundef 7) #24
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.thread33, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(7) @.str.15, i64 noundef 6) #24
+  %22 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.15, i64 noundef 6) #24
   %23 = icmp eq i32 %22, 0
   %24 = getelementptr inbounds i8, ptr %6, i64 6
   br i1 %23, label %.thread, label %29
@@ -1506,22 +1506,22 @@ sub_1.i:                                          ; preds = %38
   br i1 %43, label %neatoMode.exit, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %38
-  %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(6) @.str.38) #24
+  %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.38) #24
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %neatoMode.exit, label %46
 
 46:                                               ; preds = %.tail.thread.i
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(4) @.str.39) #24
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.39) #24
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %neatoMode.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(5) @.str.40) #24
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.40) #24
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %neatoMode.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(6) @.str.41) #24
+  %53 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.41) #24
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %neatoMode.exit, label %55
 
@@ -1544,22 +1544,22 @@ neatoMode.exit:                                   ; preds = %33, %38, %.tail.i, 
   br i1 %61, label %neatoModel.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(8) @.str.44) #24
+  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull dereferenceable(8) @.str.44) #24
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %neatoModel.exit, label %65
 
 65:                                               ; preds = %62
-  %66 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(7) @.str.45) #24
+  %66 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull dereferenceable(7) @.str.45) #24
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %neatoModel.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(10) @.str.46) #24
+  %69 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull dereferenceable(10) @.str.46) #24
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %neatoModel.exit, label %71
 
 71:                                               ; preds = %68
-  %72 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(4) @.str.47) #24
+  %72 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %59, ptr noundef nonnull dereferenceable(4) @.str.47) #24
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %80
 
@@ -1761,7 +1761,7 @@ addZ.exit81:                                      ; preds = %.lr.ph.i78, %128, %
 157:                                              ; preds = %183, %.lr.ph.i82
   %.09.i = phi ptr [ %155, %.lr.ph.i82 ], [ %184, %183 ]
   %158 = call ptr @agnameof(ptr noundef nonnull %.09.i) #20
-  %159 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %158, ptr noundef nonnull readonly dereferenceable(8) @.str.9, i64 noundef 7) #24
+  %159 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %158, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #24
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %183
 
@@ -2030,8 +2030,8 @@ define internal fastcc void @neatoLayout(ptr noundef %0, ptr noundef %1, i32 nou
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %28 = call fastcc ptr @makeGraphData(ptr noundef %1, i32 noundef %21, ptr noundef %11, i32 noundef 0, i32 noundef 2, ptr noundef null)
-  %29 = tail call ptr @compute_apsp_artificial_weights(ptr noundef %28, i32 noundef %21) #20
+  %28 = call fastcc ptr @makeGraphData(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21, ptr noundef %11, i32 noundef 0, i32 noundef 2, ptr noundef null)
+  %29 = tail call ptr @compute_apsp_artificial_weights(ptr noundef %28, i32 noundef range(i32 2, -2147483648) %21) #20
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   %wide.trip.count26.i.i = zext nneg i32 %21 to i64
   br label %.preheader.i.i
@@ -2072,7 +2072,7 @@ subset_model.exit.i:                              ; preds = %43
   br label %mds_model.exit.i
 
 45:                                               ; preds = %26
-  %46 = tail call i32 @circuit_model(ptr noundef %1, i32 noundef %21) #20
+  %46 = tail call i32 @circuit_model(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %mds_model.exit.i
 
@@ -2082,11 +2082,11 @@ subset_model.exit.i:                              ; preds = %43
   %50 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.55) #20
   %51 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.56) #20
   %52 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.57) #20
-  tail call void @shortest_path(ptr noundef %1, i32 noundef %21) #20
+  tail call void @shortest_path(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   br label %mds_model.exit.i
 
 53:                                               ; preds = %26
-  tail call void @shortest_path(ptr noundef %1, i32 noundef %21) #20
+  tail call void @shortest_path(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   %54 = tail call ptr @agfstnode(ptr noundef %1) #20
   %.not30.i.i = icmp eq ptr %54, null
   br i1 %.not30.i.i, label %mds_model.exit.i, label %.lr.ph33.i.i
@@ -2159,12 +2159,12 @@ default.unreachable:                              ; preds = %26
   unreachable
 
 95:                                               ; preds = %26
-  tail call void @shortest_path(ptr noundef %1, i32 noundef %21) #20
+  tail call void @shortest_path(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   br label %mds_model.exit.i
 
 mds_model.exit.i:                                 ; preds = %._crit_edge.i.i, %95, %53, %47, %45, %subset_model.exit.i
-  tail call void @initial_positions(ptr noundef %1, i32 noundef %21) #20
-  tail call void @diffeq_model(ptr noundef %1, i32 noundef %21) #20
+  tail call void @initial_positions(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
+  tail call void @diffeq_model(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   %96 = load i8, ptr @Verbose, align 1
   %.not21.i = icmp eq i8 %96, 0
   br i1 %.not21.i, label %kkNeato.exit, label %97
@@ -2173,12 +2173,12 @@ mds_model.exit.i:                                 ; preds = %._crit_edge.i.i, %9
   %98 = load ptr, ptr @stderr, align 8
   %99 = load i32, ptr @MaxIter, align 4
   %100 = load double, ptr @Epsilon, align 8
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.58, i32 noundef %3, i32 noundef %99, double noundef %100) #22
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.58, i32 noundef range(i32 0, 4) %3, i32 noundef %99, double noundef %100) #22
   tail call void @start_timer() #20
   br label %kkNeato.exit
 
 kkNeato.exit:                                     ; preds = %mds_model.exit.i, %97
-  tail call void @solve_model(ptr noundef %1, i32 noundef %21) #20
+  tail call void @solve_model(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21) #20
   br label %375
 
 102:                                              ; preds = %25
@@ -2192,7 +2192,7 @@ kkNeato.exit:                                     ; preds = %mds_model.exit.i, %
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   %105 = icmp eq i32 %2, 2
   %106 = select i1 %105, i32 0, i32 2
-  %107 = tail call i32 @checkStart(ptr noundef %1, i32 noundef %21, i32 noundef %106)
+  %107 = tail call i32 @checkStart(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21, i32 noundef %106)
   %108 = tail call ptr @agattr(ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.73, ptr noundef null) #20
   %109 = tail call i32 @late_int(ptr noundef %1, ptr noundef %108, i32 noundef 2, i32 noundef 0) #20
   %110 = icmp eq i32 %109, 0
@@ -2245,7 +2245,7 @@ checkExp.exit.i:                                  ; preds = %112, %103
   %131 = and i32 %spec.select.i, 3
   %132 = load i32, ptr @MaxIter, align 4
   %133 = load double, ptr @Epsilon, align 8
-  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.61, i32 noundef %3, i32 noundef %130, i32 noundef %131, i32 noundef %132, double noundef %133) #22
+  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.61, i32 noundef range(i32 0, 4) %3, i32 noundef %130, i32 noundef %131, i32 noundef %132, double noundef %133) #22
   %135 = load ptr, ptr @stderr, align 8
   %136 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 15, i64 1, ptr %135) #25
   tail call void @start_timer() #20
@@ -2254,7 +2254,7 @@ checkExp.exit.i:                                  ; preds = %112, %103
   br label %139
 
 139:                                              ; preds = %128, %._crit_edge.i
-  %140 = call fastcc ptr @makeGraphData(ptr noundef %1, i32 noundef %21, ptr noundef %8, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9)
+  %140 = call fastcc ptr @makeGraphData(ptr noundef %1, i32 noundef range(i32 2, -2147483648) %21, ptr noundef %8, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 0, 4) %3, ptr noundef nonnull %9)
   %141 = load i8, ptr @Verbose, align 1
   %.not97.i = icmp eq i8 %141, 0
   br i1 %.not97.i, label %146, label %142
@@ -2262,7 +2262,7 @@ checkExp.exit.i:                                  ; preds = %112, %103
 142:                                              ; preds = %139
   %143 = load ptr, ptr @stderr, align 8
   %144 = call double @elapsed_sec() #20
-  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.64, i32 noundef %21, double noundef %144) #22
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.64, i32 noundef range(i32 2, -2147483648) %21, double noundef %144) #22
   br label %146
 
 146:                                              ; preds = %142, %139
@@ -2278,7 +2278,7 @@ checkExp.exit.i:                                  ; preds = %112, %103
   %151 = load ptr, ptr %9, align 8
   %152 = load i32, ptr @Ndim, align 4
   %153 = load i32, ptr @MaxIter, align 4
-  %154 = call i32 @stress_majorization_with_hierarchy(ptr noundef %140, i32 noundef %21, ptr noundef nonnull %117, ptr noundef %151, i32 noundef %152, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %153, double noundef %149) #20
+  %154 = call i32 @stress_majorization_with_hierarchy(ptr noundef %140, i32 noundef range(i32 2, -2147483648) %21, ptr noundef nonnull %117, ptr noundef %151, i32 noundef %152, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %153, double noundef %149) #20
   br label %347
 
 155:                                              ; preds = %147
@@ -2339,7 +2339,7 @@ gv_alloc.exit.i.i:                                ; preds = %bitarray_new.exit.i
   %.05372.i.i = phi ptr [ %185, %.lr.ph.i.i24 ], [ %180, %gv_alloc.exit.i.i ]
   %.05471.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i24 ], [ 0, %gv_alloc.exit.i.i ]
   %181 = call ptr @agnameof(ptr noundef nonnull %.05372.i.i) #20
-  %182 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %181, ptr noundef nonnull readonly dereferenceable(8) @.str.9, i64 noundef 7) #24
+  %182 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %181, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #24
   %183 = icmp eq i32 %182, 0
   %184 = zext i1 %183 to i32
   %spec.select.i.i = add nuw nsw i32 %.05471.i.i, %184
@@ -2368,7 +2368,7 @@ gv_alloc.exit.i.i:                                ; preds = %bitarray_new.exit.i
   %.05988.i.i = phi ptr [ %.160.i.i, %.loopexit.i.i ], [ %190, %._crit_edge.i.i26 ]
   %.06187.i.i = phi ptr [ %.162.i.i, %.loopexit.i.i ], [ %188, %._crit_edge.i.i26 ]
   %193 = call ptr @agnameof(ptr noundef nonnull %.189.i.i) #20
-  %194 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %193, ptr noundef nonnull readonly dereferenceable(8) @.str.9, i64 noundef 7) #24
+  %194 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %193, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #24
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %.loopexit.i.i
 
@@ -2655,7 +2655,7 @@ cluster_map.exit.i:                               ; preds = %260, %._crit_edge98
   %329 = load ptr, ptr %9, align 8
   %330 = load i32, ptr @Ndim, align 4
   %331 = load i32, ptr @MaxIter, align 4
-  %332 = call i32 @stress_majorization_cola(ptr noundef %140, i32 noundef %21, ptr noundef nonnull %117, ptr noundef %329, i32 noundef %330, i32 noundef %3, i32 noundef %331, ptr noundef nonnull %10) #20
+  %332 = call i32 @stress_majorization_cola(ptr noundef %140, i32 noundef range(i32 2, -2147483648) %21, ptr noundef nonnull %117, ptr noundef %329, i32 noundef %330, i32 noundef range(i32 0, 4) %3, i32 noundef %331, ptr noundef nonnull %10) #20
   %333 = load i32, ptr %186, align 4
   %334 = icmp sgt i32 %333, 0
   br i1 %334, label %335, label %freeClusterData.exit.i
@@ -2683,7 +2683,7 @@ freeClusterData.exit.i:                           ; preds = %335, %._crit_edge11
   %343 = load ptr, ptr %9, align 8
   %344 = load i32, ptr @Ndim, align 4
   %345 = load i32, ptr @MaxIter, align 4
-  %346 = call i32 @stress_majorization_kD_mkernel(ptr noundef %140, i32 noundef %21, ptr noundef nonnull %117, ptr noundef %343, i32 noundef %344, i32 noundef %spec.select.i, i32 noundef %3, i32 noundef %345) #20
+  %346 = call i32 @stress_majorization_kD_mkernel(ptr noundef %140, i32 noundef range(i32 2, -2147483648) %21, ptr noundef nonnull %117, ptr noundef %343, i32 noundef %344, i32 noundef %spec.select.i, i32 noundef range(i32 0, 4) %3, i32 noundef %345) #20
   br label %347
 
 347:                                              ; preds = %342, %freeClusterData.exit.i, %150
@@ -2794,7 +2794,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr nocapture noundef r
   %5 = alloca %struct.boxf, align 8
   %6 = alloca %struct.boxf, align 8
   %7 = tail call ptr @agnameof(ptr noundef nonnull %0) #20
-  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(8) @.str.9, i64 noundef 7) #24
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %7, ptr noundef nonnull dereferenceable(8) @.str.9, i64 noundef 7) #24
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %48
 
@@ -2900,13 +2900,13 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
   br label %gv_realloc.exit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef %10) #27
+  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef range(i64 0, 17179869177) %10) #27
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.21, i64 noundef %10) #22
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.21, i64 noundef range(i64 0, 17179869177) %10) #22
   tail call fastcc void @graphviz_exit() #23
   unreachable
 
@@ -3230,7 +3230,7 @@ define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 no
   br i1 %.not215, label %142, label %139
 
 139:                                              ; preds = %137
-  %140 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(5) @.str.60, i64 noundef 4) #24
+  %140 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %138, ptr noundef nonnull dereferenceable(5) @.str.60, i64 noundef 4) #24
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %.thread220.sink.split, label %142
 

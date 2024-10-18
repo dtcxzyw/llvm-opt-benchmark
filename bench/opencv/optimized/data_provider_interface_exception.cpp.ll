@@ -350,7 +350,7 @@ define void @_ZN2cv4gapi3wip6onevpl32DataProviderUnsupportedExceptionC2ERKNSt7__
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   resume { ptr, i32 } %5
 
 _ZN2cv4gapi3wip6onevpl21DataProviderExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -368,7 +368,7 @@ define void @_ZN2cv4gapi3wip6onevpl35DataProviderImplementationExceptionC2ERKNSt
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   resume { ptr, i32 } %5
 
 _ZN2cv4gapi3wip6onevpl21DataProviderExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %2
@@ -390,7 +390,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl21DataProviderExceptionD0
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -400,7 +400,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl32DataProviderSystemError
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   ret void
 }
 
@@ -409,7 +409,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl32DataProviderSystemError
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -419,7 +419,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl32DataProviderUnsupported
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   ret void
 }
 
@@ -428,7 +428,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl32DataProviderUnsupported
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }
@@ -438,7 +438,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl35DataProviderImplementat
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   ret void
 }
 
@@ -447,7 +447,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl35DataProviderImplementat
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4gapi3wip6onevpl21DataProviderExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
 }

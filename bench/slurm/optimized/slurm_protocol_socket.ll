@@ -971,7 +971,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
 
 42:                                               ; preds = %45, %37
   %.05.i = phi i32 [ 0, %37 ], [ %50, %45 ]
-  %43 = call i32 @bind(i32 noundef %26, ptr nonnull %5, i32 noundef 128) #10
+  %43 = call i32 @bind(i32 noundef range(i32 0, -2147483648) %26, ptr nonnull %5, i32 noundef 128) #10
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %_sock_bind_wild.exit, label %45
 
@@ -992,7 +992,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
 51:                                               ; preds = %25, %_sock_bind_wild.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %52 = call i32 (i32, i32, ...) @fcntl(i32 noundef %26, i32 noundef 3) #10
+  %52 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %26, i32 noundef 3) #10
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %54, label %56
 
@@ -1003,7 +1003,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
 56:                                               ; preds = %54, %51
   %.026.i = phi i32 [ 0, %54 ], [ %52, %51 ]
   %57 = or i32 %.026.i, 2048
-  %58 = call i32 (i32, i32, ...) @fcntl(i32 noundef %26, i32 noundef 4, i32 noundef %57) #10
+  %58 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %26, i32 noundef 4, i32 noundef %57) #10
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %62
 
@@ -1012,7 +1012,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
   br label %62
 
 62:                                               ; preds = %60, %56
-  %63 = call i32 @connect(i32 noundef %26, ptr nonnull %0, i32 noundef 128) #10
+  %63 = call i32 @connect(i32 noundef range(i32 0, -2147483648) %26, ptr nonnull %0, i32 noundef 128) #10
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %68
 
@@ -1085,7 +1085,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
   br i1 %.not33.i, label %107, label %97
 
 97:                                               ; preds = %94
-  %98 = call i32 @fd_get_socket_error(i32 noundef %26, ptr noundef nonnull %4) #10
+  %98 = call i32 @fd_get_socket_error(i32 noundef range(i32 0, -2147483648) %26, ptr noundef nonnull %4) #10
   %.not34.i = icmp eq i32 %98, 0
   br i1 %.not34.i, label %99, label %_slurm_connect.exit.thread36
 
@@ -1108,7 +1108,7 @@ _sock_bind_wild.exit:                             ; preds = %42, %45
   br i1 %53, label %_slurm_connect.exit.thread, label %108
 
 108:                                              ; preds = %107
-  %109 = call i32 (i32, i32, ...) @fcntl(i32 noundef %26, i32 noundef 4, i32 noundef %52) #10
+  %109 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -2147483648) %26, i32 noundef 4, i32 noundef %52) #10
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %_slurm_connect.exit.thread
 

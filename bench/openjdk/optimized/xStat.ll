@@ -5708,8 +5708,8 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 define linkonce_odr hidden void @_ZN5XStatD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV5XStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #22
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #22
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #22
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #22
   ret void
 }
 
@@ -5717,8 +5717,8 @@ define linkonce_odr hidden void @_ZN5XStatD2Ev(ptr noundef nonnull align 8 deref
 define linkonce_odr hidden void @_ZN5XStatD0Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV5XStat, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
-  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #22
-  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #22
+  tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #22
+  tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %0) #22
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #22
   ret void
 }

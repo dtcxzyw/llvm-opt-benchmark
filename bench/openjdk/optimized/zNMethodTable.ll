@@ -344,7 +344,7 @@ _ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds
   br i1 %.not.i.i.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %73) #13
+  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %73) #13
   br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i
 
 _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
@@ -360,7 +360,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
   br i1 %.not.i.i.i, label %_ZN15ZActivatedArrayIA_18ZNMethodTableEntryE16add_if_activatedEPS0_.exit.i, label %80
 
 80:                                               ; preds = %79
-  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %73) #13
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %73) #13
   br label %_ZN15ZActivatedArrayIA_18ZNMethodTableEntryE16add_if_activatedEPS0_.exit.i
 
 _ZN15ZActivatedArrayIA_18ZNMethodTableEntryE16add_if_activatedEPS0_.exit.i: ; preds = %80, %79
@@ -687,11 +687,11 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.thread.i.i:       ; preds = %_ZN11MutexLockerC2E
   br label %_ZN11ZSafeDeleteIA_18ZNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #13
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13ZNMethodTable12_safe_deleteE, i64 8), align 8
   %10 = add i64 %9, 1
   store i64 %10, ptr getelementptr inbounds (i8, ptr @_ZN13ZNMethodTable12_safe_deleteE, i64 8), align 8
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #13
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   br label %_ZN11ZSafeDeleteIA_18ZNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 _ZN11ZSafeDeleteIA_18ZNMethodTableEntryE22enable_deferred_deleteEv.exit: ; preds = %_ZN7ZLockerI5ZLockEC2EPS0_.exit.thread.i.i, %7
@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZN11ZSafeDeleteIA_18ZNMethodTableEntryE23disab
   br i1 %.not.i.i, label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #13
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZN7ZLockerI5ZLockEC2EPS0_.exit.i
 
 _ZN7ZLockerI5ZLockEC2EPS0_.exit.i:                ; preds = %3, %1
@@ -779,7 +779,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i:                ; preds = %3, %1
   br i1 %.not.i.i, label %_ZN7ZLockerI5ZLockED2Ev.exit.i, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #13
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i:                   ; preds = %18, %17

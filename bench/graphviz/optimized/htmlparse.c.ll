@@ -276,7 +276,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 86:                                               ; preds = %79
   %87 = getelementptr inbounds i8, ptr %.2192, i64 -8
   %88 = load ptr, ptr %87, align 8
-  %89 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #18
+  %89 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 16) #18
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %mkLabel.exit
 
@@ -296,7 +296,7 @@ mkLabel.exit:                                     ; preds = %86
 95:                                               ; preds = %79
   %96 = getelementptr inbounds i8, ptr %.2192, i64 -8
   %97 = load ptr, ptr %96, align 8
-  %98 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #18
+  %98 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 16) #18
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %mkLabel.exit224
 
@@ -323,7 +323,7 @@ mkLabel.exit224:                                  ; preds = %95
 
 107:                                              ; preds = %79
   %108 = load ptr, ptr @HTMLstate.4, align 8
-  %109 = call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #18
+  %109 = call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 88) #18
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %gv_alloc.exit.i
 
@@ -650,7 +650,7 @@ nonSpace.exit235:                                 ; preds = %219
   %252 = load ptr, ptr @Dtqueue, align 8
   %253 = call ptr @dtopen(ptr noundef nonnull @cellDisc, ptr noundef %252) #17
   %254 = load ptr, ptr @HTMLstate.1, align 8
-  %255 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #18
+  %255 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #18
   %256 = icmp eq ptr %255, null
   br i1 %256, label %257, label %gv_alloc.exit.i236
 
@@ -710,7 +710,7 @@ addRow.exit:                                      ; preds = %gv_alloc.exit.i236,
   %288 = getelementptr inbounds i8, ptr %.2192, i64 -8
   %289 = load ptr, ptr %288, align 8
   %290 = load ptr, ptr %.2192, align 8
-  %291 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #18
+  %291 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #18
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %gv_alloc.exit.i237
 
@@ -759,7 +759,7 @@ setCell.exit:                                     ; preds = %gv_alloc.exit.i237,
   %317 = getelementptr inbounds i8, ptr %.2192, i64 -8
   %318 = load ptr, ptr %317, align 8
   %319 = load ptr, ptr %.2192, align 8
-  %320 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #18
+  %320 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #18
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %gv_alloc.exit.i239
 
@@ -808,7 +808,7 @@ setCell.exit241:                                  ; preds = %gv_alloc.exit.i239,
   %346 = getelementptr inbounds i8, ptr %.2192, i64 -8
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %.2192, align 8
-  %349 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #18
+  %349 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #18
   %350 = icmp eq ptr %349, null
   br i1 %350, label %351, label %gv_alloc.exit.i242
 
@@ -856,7 +856,7 @@ setCell.exit244:                                  ; preds = %gv_alloc.exit.i242,
 374:                                              ; preds = %79
   %375 = load ptr, ptr %.2192, align 8
   %376 = call fastcc ptr @mkText()
-  %377 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #18
+  %377 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 32) #18
   %378 = icmp eq ptr %377, null
   br i1 %378, label %379, label %gv_alloc.exit.i245
 
@@ -1098,7 +1098,7 @@ freeFontstack.exit:                               ; preds = %.lr.ph.i, %._crit_e
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @mkText() unnamed_addr #0 {
   %1 = load ptr, ptr @HTMLstate.3, align 8
-  %2 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #18
+  %2 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 56) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 
@@ -1154,7 +1154,7 @@ gv_alloc.exit:                                    ; preds = %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @appendFLineList(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #18
+  %2 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 56) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 
@@ -1196,7 +1196,7 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
 20:                                               ; preds = %gv_alloc.exit
-  %21 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
+  %21 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 72) #18
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %gv_alloc.exit24
 
@@ -1240,7 +1240,7 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit24
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pushFont(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.textfont_t, align 8
-  %3 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #18
+  %3 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 16) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 

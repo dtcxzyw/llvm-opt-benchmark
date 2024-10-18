@@ -4464,7 +4464,7 @@ ractor_try_take.exit.thread.i:                    ; preds = %25, %25
   unreachable
 
 ractor_try_take.exit.i:                           ; preds = %.critedge.i.i
-  %29 = call fastcc i64 @ractor_basket_accept(ptr noundef %6)
+  %29 = call fastcc i64 @ractor_basket_accept(ptr noundef nonnull %6)
   %30 = icmp eq i64 %29, 36
   br i1 %30, label %31, label %ractor_take.exit
 

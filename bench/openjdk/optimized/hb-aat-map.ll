@@ -1006,7 +1006,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97: ; pr
 
 99:                                               ; preds = %._crit_edge
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %.sroa.17.1 to i64
-  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %.sroa.31.1, i64 noundef %.sroa.2.8.insert.ext.i.i.i, i64 noundef 24, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t15feature_event_t3cmpEPKvS2_)
+  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %.sroa.31.1, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i, i64 noundef range(i64 0, 4294967296) 24, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t15feature_event_t3cmpEPKvS2_)
           to label %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge unwind label %19
 
 ._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge: ; preds = %99
@@ -1246,7 +1246,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit: ; p
 176:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit
   %.sroa.2.8.insert.ext.i.i.i120 = zext i32 %173 to i64
   %177 = load ptr, ptr %138, align 8
-  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %177, i64 noundef %.sroa.2.8.insert.ext.i.i.i120, i64 noundef 16, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_)
+  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %177, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i120, i64 noundef range(i64 0, 4294967296) 16, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_)
           to label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit unwind label %223
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit: ; preds = %176

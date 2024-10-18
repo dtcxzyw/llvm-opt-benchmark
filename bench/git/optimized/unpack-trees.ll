@@ -1475,7 +1475,7 @@ if.end.i:                                         ; preds = %_.exit.i, %strbuf_s
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.27, i32 noundef 1775, ptr noundef nonnull @.str.33, ptr noundef nonnull %label.i, ptr noundef %16) #17
   %17 = load ptr, ptr %istate, align 8
   %18 = load i32, ptr %cache_nr, align 4
-  %call7.i = call fastcc i32 @clear_ce_flags_1(ptr noundef nonnull %istate, ptr noundef %17, i32 noundef %18, i32 noundef %select_flag, i32 noundef %skip_wt_flag, ptr noundef %pl, i32 noundef 0, i32 noundef 0)
+  %call7.i = call fastcc i32 @clear_ce_flags_1(ptr noundef nonnull %istate, ptr noundef %17, i32 noundef %18, i32 noundef range(i32 0, 524289) %select_flag, i32 noundef range(i32 33554432, 1107296257) %skip_wt_flag, ptr noundef %pl, i32 noundef 0, i32 noundef 0)
   %19 = load ptr, ptr @the_repository, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.27, i32 noundef 1782, ptr noundef nonnull @.str.33, ptr noundef nonnull %label.i, ptr noundef %19) #17
   %20 = load i32, ptr @git_gettext_enabled, align 4
@@ -1799,7 +1799,7 @@ land.lhs.true.i82:                                ; preds = %if.end.i79
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %traverse_path_len.exit.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i82
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val.i, i64 noundef %conv5.i) #19
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val.i, i64 noundef range(i64 -2147483648, 2147483648) %conv5.i) #19
   unreachable
 
 traverse_path_len.exit.i:                         ; preds = %land.lhs.true.i82
@@ -1819,7 +1819,7 @@ if.end10.i:                                       ; preds = %traverse_path_len.e
   br i1 %cmp.i.i14.i, label %if.then.i.i16.i, label %if.end21
 
 if.then.i.i16.i:                                  ; preds = %if.end10.i
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val12.i, i64 noundef %conv14.pre-phi.i) #19
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val12.i, i64 noundef range(i64 -2147483648, 2147483648) %conv14.pre-phi.i) #19
   unreachable
 
 compare_entry.exit:                               ; preds = %if.end.i.i71, %do_compare_entry.exit.i
@@ -2583,7 +2583,7 @@ if.then40.i.i:                                    ; preds = %for.end38.i.i
   %arrayidx51.i.i = getelementptr i8, ptr %180, i64 -8
   %181 = load ptr, ptr %arrayidx51.i.i, align 8
   %name52.i.i = getelementptr inbounds i8, ptr %181, i64 108
-  %call54.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %call7.i.i, ptr noundef nonnull %name45.i.i, ptr noundef nonnull %name52.i.i)
+  %call54.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef range(i32 1, -2147483648) %call7.i.i, ptr noundef nonnull %name45.i.i, ptr noundef nonnull %name52.i.i)
   br label %traverse_by_cache_tree.exit.i
 
 traverse_by_cache_tree.exit.i:                    ; preds = %if.then40.i.i, %for.end38.i.i, %if.then33.i.i
@@ -2626,7 +2626,7 @@ while.end.i197:                                   ; preds = %while.cond.i195
   br i1 %cmp.i83.i, label %if.then.i84.i, label %st_add.exit.i
 
 if.then.i84.i:                                    ; preds = %while.end.i197
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %186, i64 noundef %conv.i201) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %186, i64 noundef range(i64 -2147483648, 2147483648) %conv.i201) #19
   unreachable
 
 st_add.exit.i:                                    ; preds = %while.end.i197
@@ -2650,7 +2650,7 @@ st_add.exit89.i:                                  ; preds = %st_add.exit.i
   br i1 %mul.ov.i.i, label %if.then.i90.i, label %st_mult.exit.i
 
 if.then.i90.i:                                    ; preds = %st_add.exit89.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.64, i64 noundef 72, i64 noundef %conv19.i) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.64, i64 noundef 72, i64 noundef range(i64 -2147483648, 2147483648) %conv19.i) #19
   unreachable
 
 st_mult.exit.i:                                   ; preds = %st_add.exit89.i
@@ -6471,7 +6471,7 @@ if.else18.i:                                      ; preds = %for.end.i
   br i1 %or.cond1.i, label %clear_ce_flags_dir.exit, label %if.else30.i
 
 if.else30.i:                                      ; preds = %if.else18.i
-  %call36.i = call fastcc i32 @clear_ce_flags_1(ptr noundef %istate, ptr noundef nonnull %cache.addr.015, i32 noundef %conv29.i, i32 noundef %select_mask, i32 noundef %clear_mask, ptr noundef nonnull %pl, i32 noundef %default_match.call.i, i32 noundef %progress_nr.addr.014)
+  %call36.i = call fastcc i32 @clear_ce_flags_1(ptr noundef %istate, ptr noundef nonnull %cache.addr.015, i32 noundef %conv29.i, i32 noundef range(i32 0, 524289) %select_mask, i32 noundef range(i32 33554432, 1107296257) %clear_mask, ptr noundef nonnull %pl, i32 noundef %default_match.call.i, i32 noundef %progress_nr.addr.014)
   br label %clear_ce_flags_dir.exit
 
 clear_ce_flags_dir.exit:                          ; preds = %while.body.i, %if.else18.i, %if.then12.i, %if.else30.i
@@ -7190,7 +7190,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %traverse_path_len.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val, i64 noundef %conv) #19
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.57, i64 noundef %info.val, i64 noundef range(i64 -2147483648, 2147483648) %conv) #19
   unreachable
 
 traverse_path_len.exit:                           ; preds = %entry

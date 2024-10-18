@@ -194,7 +194,7 @@ define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   %4 = getelementptr inbounds i8, ptr %2, i64 104
   store i64 0, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 20, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = getelementptr inbounds i8, ptr %2, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %5, ptr noundef nonnull align 4 dereferenceable(52) %6, i64 52, i1 false)

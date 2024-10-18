@@ -3326,7 +3326,7 @@ if.then24:                                        ; preds = %xso_blocking_mode.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %actual_written.i)
   %19 = load ptr, ptr %xso, align 8
   store i64 0, ptr %actual_written.i, align 8
-  %call.i20 = call fastcc i32 @xso_sstream_append(ptr noundef %19, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull %actual_written.i)
+  %call.i20 = call fastcc i32 @xso_sstream_append(ptr noundef %19, ptr noundef %buf, i64 noundef range(i64 1, 0) %len, ptr noundef nonnull %actual_written.i)
   %tobool.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool.not.i21, label %if.then.i27, label %if.end.i22
 
@@ -3588,7 +3588,7 @@ if.then4.split.i:                                 ; preds = %lor.lhs.false.i25
 
 if.end5.i:                                        ; preds = %if.then4.split.i, %lor.lhs.false.i25
   %.sink.i = phi i64 [ 1, %if.then4.split.i ], [ 0, %lor.lhs.false.i25 ]
-  %call611.i = tail call fastcc ptr @quic_conn_stream_new(ptr noundef %ctx, i64 noundef %.sink.i, i32 noundef 0)
+  %call611.i = tail call fastcc ptr @quic_conn_stream_new(ptr noundef nonnull %ctx, i64 noundef %.sink.i, i32 noundef 0)
   %default_xso.i.i.i = getelementptr inbounds i8, ptr %12, i64 88
   %15 = load ptr, ptr %default_xso.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, %call611.i

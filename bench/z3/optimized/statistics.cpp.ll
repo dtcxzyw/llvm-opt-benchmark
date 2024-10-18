@@ -433,7 +433,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   %2 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %2, ptr %ref.tmp.i.i.i, align 8
-  %call.i.i.i26 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
+  %call.i.i.i26 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad5.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
@@ -451,7 +451,7 @@ if.then.i:                                        ; preds = %call.i.i.i.noexc
   %5 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %5, ptr %ref.tmp.i.i, align 8
   store i32 %add.i, ptr %m_value.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad5.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i
@@ -465,7 +465,7 @@ if.else.i:                                        ; preds = %call.i.i.i.noexc
   store ptr %6, ptr %ref.tmp.i10.i, align 8
   %7 = load i32, ptr %second5.i, align 4
   store i32 %7, ptr %m_value.i.i11.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
           to label %.noexc27 unwind label %lpad5.loopexit.split-lp
 
 .noexc27:                                         ; preds = %if.else.i
@@ -501,7 +501,7 @@ for.body.i38:                                     ; preds = %for.inc.i45, %for.b
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i30)
   %10 = load ptr, ptr %__begin0.05.i39, align 8
   store ptr %10, ptr %ref.tmp.i.i.i30, align 8
-  %call.i.i.i51 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i30)
+  %call.i.i.i51 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i30)
           to label %call.i.i.i.noexc50 unwind label %lpad5.loopexit
 
 call.i.i.i.noexc50:                               ; preds = %for.body.i38
@@ -519,7 +519,7 @@ if.then.i41:                                      ; preds = %call.i.i.i.noexc50
   %13 = load ptr, ptr %__begin0.05.i39, align 8
   store ptr %13, ptr %ref.tmp.i.i29, align 8
   store double %add.i44, ptr %m_value.i.i.i36, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i29)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i29)
           to label %.noexc52 unwind label %lpad5.loopexit
 
 .noexc52:                                         ; preds = %if.then.i41
@@ -533,7 +533,7 @@ if.else.i48:                                      ; preds = %call.i.i.i.noexc50
   store ptr %14, ptr %ref.tmp.i10.i28, align 8
   %15 = load double, ptr %second5.i49, align 8
   store double %15, ptr %m_value.i.i11.i37, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i28)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i28)
           to label %.noexc53 unwind label %lpad5.loopexit
 
 .noexc53:                                         ; preds = %if.else.i48
@@ -843,7 +843,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %44 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i134)
   store ptr %44, ptr %ref.tmp.i.i134, align 8
-  %call.i.i136 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i134)
+  %call.i.i136 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i134)
           to label %call.i.i.noexc unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc:                                   ; preds = %for.body
@@ -984,7 +984,7 @@ invoke.cont35:                                    ; preds = %for.end
 if.else:                                          ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i145)
   store ptr %44, ptr %ref.tmp.i.i145, align 8
-  %call.i.i150 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i145)
+  %call.i.i150 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i145)
           to label %call.i.i.noexc149 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc149:                                ; preds = %if.else
@@ -1301,7 +1301,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   %2 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %2, ptr %ref.tmp.i.i.i, align 8
-  %call.i.i.i21 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
+  %call.i.i.i21 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad5.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
@@ -1319,7 +1319,7 @@ if.then.i:                                        ; preds = %call.i.i.i.noexc
   %5 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %5, ptr %ref.tmp.i.i, align 8
   store i32 %add.i, ptr %m_value.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad5.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i
@@ -1333,7 +1333,7 @@ if.else.i:                                        ; preds = %call.i.i.i.noexc
   store ptr %6, ptr %ref.tmp.i10.i, align 8
   %7 = load i32, ptr %second5.i, align 4
   store i32 %7, ptr %m_value.i.i11.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
           to label %.noexc22 unwind label %lpad5.loopexit.split-lp
 
 .noexc22:                                         ; preds = %if.else.i
@@ -1369,7 +1369,7 @@ for.body.i33:                                     ; preds = %for.inc.i40, %for.b
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i25)
   %10 = load ptr, ptr %__begin0.05.i34, align 8
   store ptr %10, ptr %ref.tmp.i.i.i25, align 8
-  %call.i.i.i46 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i25)
+  %call.i.i.i46 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i25)
           to label %call.i.i.i.noexc45 unwind label %lpad5.loopexit
 
 call.i.i.i.noexc45:                               ; preds = %for.body.i33
@@ -1387,7 +1387,7 @@ if.then.i36:                                      ; preds = %call.i.i.i.noexc45
   %13 = load ptr, ptr %__begin0.05.i34, align 8
   store ptr %13, ptr %ref.tmp.i.i24, align 8
   store double %add.i39, ptr %m_value.i.i.i31, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i24)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i24)
           to label %.noexc47 unwind label %lpad5.loopexit
 
 .noexc47:                                         ; preds = %if.then.i36
@@ -1401,7 +1401,7 @@ if.else.i43:                                      ; preds = %call.i.i.i.noexc45
   store ptr %14, ptr %ref.tmp.i10.i23, align 8
   %15 = load double, ptr %second5.i44, align 8
   store double %15, ptr %m_value.i.i11.i32, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i23)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i23)
           to label %.noexc48 unwind label %lpad5.loopexit
 
 .noexc48:                                         ; preds = %if.else.i43
@@ -1700,7 +1700,7 @@ for.body:                                         ; preds = %for.body.i128, %for
   %43 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i129)
   store ptr %43, ptr %ref.tmp.i.i129, align 8
-  %call.i.i131 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i129)
+  %call.i.i131 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i129)
           to label %call.i.i.noexc unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc:                                   ; preds = %for.body
@@ -1804,7 +1804,7 @@ invoke.cont38.invoke:                             ; preds = %invoke.cont73, %inv
 if.else:                                          ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i132)
   store ptr %43, ptr %ref.tmp.i.i132, align 8
-  %call.i.i137 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i132)
+  %call.i.i137 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i132)
           to label %call.i.i.noexc136 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.noexc136:                                ; preds = %if.else
@@ -1988,7 +1988,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   %2 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %2, ptr %ref.tmp.i.i.i, align 8
-  %call.i.i.i10 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
+  %call.i.i.i10 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
@@ -2006,7 +2006,7 @@ if.then.i:                                        ; preds = %call.i.i.i.noexc
   %5 = load ptr, ptr %__begin0.05.i, align 8
   store ptr %5, ptr %ref.tmp.i.i, align 8
   store i32 %add.i, ptr %m_value.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i
@@ -2020,7 +2020,7 @@ if.else.i:                                        ; preds = %call.i.i.i.noexc
   store ptr %6, ptr %ref.tmp.i10.i, align 8
   %7 = load i32, ptr %second5.i, align 4
   store i32 %7, ptr %m_value.i.i11.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(20) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcjEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_jE(ptr noundef nonnull align 8 dereferenceable(24) %m_u, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i10.i)
           to label %.noexc11 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc11:                                         ; preds = %if.else.i
@@ -2056,7 +2056,7 @@ for.body.i22:                                     ; preds = %for.inc.i29, %for.b
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i14)
   %10 = load ptr, ptr %__begin0.05.i23, align 8
   store ptr %10, ptr %ref.tmp.i.i.i14, align 8
-  %call.i.i.i35 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i14)
+  %call.i.i.i35 = invoke noundef ptr @_ZNK14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE9find_coreERK9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i14)
           to label %call.i.i.i.noexc34 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc34:                               ; preds = %for.body.i22
@@ -2074,7 +2074,7 @@ if.then.i25:                                      ; preds = %call.i.i.i.noexc34
   %13 = load ptr, ptr %__begin0.05.i23, align 8
   store ptr %13, ptr %ref.tmp.i.i13, align 8
   store double %add.i28, ptr %m_value.i.i.i20, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i13)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i13)
           to label %.noexc36 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %if.then.i25
@@ -2088,7 +2088,7 @@ if.else.i32:                                      ; preds = %call.i.i.i.noexc34
   store ptr %14, ptr %ref.tmp.i10.i12, align 8
   %15 = load double, ptr %second5.i33, align 8
   store double %15, ptr %m_value.i.i11.i21, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(20) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i12)
+  invoke void @_ZN14core_hashtableI17default_map_entryIPKcdEN9table2mapIS3_13str_hash_proc11str_eq_procE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIS2_dE(ptr noundef nonnull align 8 dereferenceable(24) %m_d, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10.i12)
           to label %.noexc37 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc37:                                         ; preds = %if.else.i32
@@ -2618,7 +2618,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i28
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i28
-  tail call void @_ZN6vectorISt4pairIPKcjELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %st)
+  tail call void @_ZN6vectorISt4pairIPKcjELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %st)
   %.pre.i.i.i = load ptr, ptr %st, align 8
   %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
@@ -2711,7 +2711,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i
   br i1 %cmp5.i.i.i, label %if.then.i.i.i, label %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i, %if.then.i.i
-  tail call void @_ZN6vectorISt4pairIPKcjELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %st)
+  tail call void @_ZN6vectorISt4pairIPKcjELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %st)
   %.pre.i.i.i = load ptr, ptr %st, align 8
   %arrayidx8.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre1.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i, align 4
@@ -2934,7 +2934,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #21
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

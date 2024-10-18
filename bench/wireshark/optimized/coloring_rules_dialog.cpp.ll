@@ -282,7 +282,7 @@ define void @_ZN19ColoringRulesDialogC2EP7QWidget7QString(ptr noundef nonnull al
   %49 = alloca %class.QModelIndex, align 8
   %50 = alloca %class.QModelIndex, align 8
   %51 = alloca %class.QModelIndex, align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   %53 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
@@ -3025,7 +3025,7 @@ define void @_ZN19ColoringRulesDialog15treeItemClickedERK11QModelIndex(ptr nound
   br label %_ZNK11QModelIndex4dataEi.exit
 
 30:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false), !alias.scope !16
   %31 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 2, ptr %31, align 8, !alias.scope !16
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -3076,7 +3076,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %32, %40
           to label %_ZNK11QModelIndex4dataEi.exit26 unwind label %77
 
 51:                                               ; preds = %44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !19
   %52 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %52, align 8, !alias.scope !19
   br label %_ZNK11QModelIndex4dataEi.exit26
@@ -3220,7 +3220,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit.thread: ; preds
 98:                                               ; preds = %.noexc.i.i, %.lr.ph.i.i.i
   %.sroa.02.06.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i ], [ %101, %.noexc.i.i ]
   %99 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %99, i64 24, i1 false)
   %100 = load i64, ptr %97, align 8, !alias.scope !28
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI11QModelIndexE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %100, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i.i unwind label %.loopexit.i.i
@@ -3832,7 +3832,7 @@ _ZNK4QMapI11QModelIndex7QStringE5countEv.exit:    ; preds = %2
 38:                                               ; preds = %.noexc.i.i, %.lr.ph.i.i.i
   %.sroa.02.06.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i ], [ %41, %.noexc.i.i ]
   %39 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 24, i1 false)
   %40 = load i64, ptr %37, align 8, !alias.scope !41
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI11QModelIndexE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %.noexc.i.i unwind label %.loopexit.i.i
@@ -4284,7 +4284,7 @@ _ZN7QStringpLERKS_.exit71:                        ; preds = %169
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %125
 
 198:                                              ; preds = %191
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !alias.scope !42
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false), !alias.scope !42
   %199 = getelementptr inbounds i8, ptr %19, i64 24
   store i64 2, ptr %199, align 8, !alias.scope !42
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -4515,7 +4515,7 @@ define void @_ZN19ColoringRulesDialogD0Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZThn16_N19ColoringRulesDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN19ColoringRulesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(200) %2) #21
   ret void
 }
 
@@ -4873,7 +4873,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit.thread: ; preds
 16:                                               ; preds = %.noexc.i.i, %.lr.ph.i.i.i
   %.sroa.02.06.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %19, %.noexc.i.i ]
   %17 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 24, i1 false)
   %18 = load i64, ptr %15, align 8, !alias.scope !51
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI11QModelIndexE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc.i.i unwind label %.loopexit.i.i
@@ -5166,7 +5166,7 @@ _ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i.i:   ; preds = %64
   br i1 %68, label %_ZNSt3mapI11QModelIndex7QStringSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread, label %_ZN7QStringD2Ev.exit
 
 _ZNSt3mapI11QModelIndex7QStringSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread: ; preds = %60, %54, %48, %_ZN4QMapI11QModelIndex7QStringE6detachEv.exit, %_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %69 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   %70 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE16_M_insert_uniqueIS4_EES1_ISt17_Rb_tree_iteratorIS4_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -9826,7 +9826,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStrin
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
   %7 = getelementptr inbounds i8, ptr %6, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 56
   %9 = getelementptr inbounds i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
@@ -9903,7 +9903,7 @@ _ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_E
 .noexc:                                           ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %.039, i64 32
   %35 = getelementptr inbounds i8, ptr %33, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %34, i64 24, i1 false)
   %36 = getelementptr inbounds i8, ptr %33, i64 56
   %37 = getelementptr inbounds i8, ptr %.039, i64 56
   %38 = load ptr, ptr %37, align 8
@@ -9992,7 +9992,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_S
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %4, align 8
   %12 = inttoptr i64 %11 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %7, i64 56
   %14 = load ptr, ptr %12, align 8
   store ptr %14, ptr %13, align 8
@@ -11794,7 +11794,7 @@ _ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i:     ; preds = %34, %32, %26, %24, 
   %40 = phi i1 [ true, %8 ], [ true, %11 ], [ false, %16 ], [ true, %18 ], [ false, %24 ], [ true, %26 ], [ false, %32 ], [ %39, %34 ]
   %41 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
   %42 = getelementptr inbounds i8, ptr %41, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 24, i1 false)
   %43 = getelementptr inbounds i8, ptr %41, i64 56
   %44 = getelementptr inbounds i8, ptr %2, i64 24
   %45 = load ptr, ptr %44, align 8
@@ -12750,7 +12750,7 @@ _ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_E
   %38 = phi i1 [ true, %6 ], [ true, %9 ], [ false, %14 ], [ true, %16 ], [ false, %22 ], [ true, %24 ], [ false, %30 ], [ %37, %32 ]
   %39 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
   %40 = getelementptr inbounds i8, ptr %39, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 24, i1 false)
   %41 = getelementptr inbounds i8, ptr %39, i64 56
   %42 = getelementptr inbounds i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8
@@ -13328,7 +13328,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit31, label %30
@@ -13610,7 +13610,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeIi11QModelIndexEEEC2Em.exit, label %27
@@ -13768,7 +13768,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38

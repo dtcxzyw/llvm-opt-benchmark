@@ -151,7 +151,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %this, i32 noundef 129, i32 noundef 1) #5
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef 129, i32 noundef 1) #5
   %cmp.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp.i.i, label %_ZN4absl24synchronization_internal9FutexImpl4WakeEPSt6atomicIiEi.exit.i, label %if.end
 

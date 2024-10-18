@@ -326,7 +326,7 @@ land.lhs.true129:                                 ; preds = %if.then124
 
 if.then131:                                       ; preds = %land.lhs.true129
   %conv132 = zext i32 %inc to i64
-  %retval.0.idx.i = tail call i64 @llvm.usub.sat.i64(i64 60, i64 %conv132)
+  %retval.0.idx.i = tail call i64 @llvm.usub.sat.i64(i64 60, i64 range(i64 0, 4294967296) %conv132)
   %retval.0.i214 = getelementptr inbounds i8, ptr @.str.9, i64 %retval.0.idx.i
   tail call void (ptr, i8, ptr, ...) @_ZN8facebook4yoga3logEPKNS0_4NodeENS0_8LogLevelEPKcz(ptr noundef nonnull %node, i8 noundef zeroext 4, ptr noundef nonnull @.str, ptr noundef nonnull %retval.0.i214, i32 noundef %inc) #12
   tail call void @_ZN8facebook4yoga4Node5printEv(ptr noundef nonnull align 8 dereferenceable(640) %node)
@@ -389,7 +389,7 @@ if.else146:                                       ; preds = %for.cond, %for.inc1
 
 if.then148:                                       ; preds = %if.else146
   %conv149 = zext i32 %inc to i64
-  %retval.0.idx.i224 = tail call i64 @llvm.usub.sat.i64(i64 60, i64 %conv149)
+  %retval.0.idx.i224 = tail call i64 @llvm.usub.sat.i64(i64 60, i64 range(i64 0, 4294967296) %conv149)
   %retval.0.i225 = getelementptr inbounds i8, ptr @.str.9, i64 %retval.0.idx.i224
   %cond = select i1 %3, ptr @.str.3, ptr @.str.4
   tail call void (ptr, i8, ptr, ...) @_ZN8facebook4yoga3logEPKNS0_4NodeENS0_8LogLevelEPKcz(ptr noundef nonnull %node, i8 noundef zeroext 4, ptr noundef nonnull @.str.2, ptr noundef nonnull %retval.0.i225, i32 noundef %inc, ptr noundef nonnull %cond) #12
@@ -4452,7 +4452,7 @@ cond.false545.i:                                  ; preds = %cond.false535.i
 
 cond.end549.i:                                    ; preds = %sw.default.i, %sw.bb2.i646, %cond.true537.i, %cond.false545.i, %cond.true533.i
   %cond550.i = phi float [ %add534.i, %cond.true533.i ], [ %add546.i, %cond.false545.i ], [ 0x7FF8000000000000, %sw.default.i ], [ %mul4.i, %sw.bb2.i646 ], [ %404, %cond.true537.i ]
-  %call.i637 = call float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef %node, i8 noundef zeroext %171, float %cond550.i, float noundef %ownerHeight)
+  %call.i637 = call float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %node, i8 noundef zeroext %171, float %cond550.i, float noundef %ownerHeight)
   %call.i.i638 = call noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %node, i8 noundef zeroext %171, i8 noundef zeroext 1, float noundef %ownerWidth)
   %call1.i.i639 = call noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %node, i8 noundef zeroext %171, i8 noundef zeroext 1, float noundef %ownerWidth)
   %add.i.i640 = fadd float %call.i.i638, %call1.i.i639
@@ -5553,7 +5553,7 @@ _ZN8facebook4yogaL19calculateLayoutImplEPNS0_4NodeEffNS0_9DirectionENS0_10Sizing
 
 if.then162:                                       ; preds = %_ZN8facebook4yogaL19calculateLayoutImplEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbRNS0_10LayoutDataEjjNS0_16LayoutPassReasonE.exit
   %conv163 = zext i32 %inc to i64
-  %retval.0.idx.i250 = call i64 @llvm.usub.sat.i64(i64 60, i64 %conv163)
+  %retval.0.idx.i250 = call i64 @llvm.usub.sat.i64(i64 60, i64 range(i64 0, 4294967296) %conv163)
   %retval.0.i251 = getelementptr inbounds i8, ptr @.str.9, i64 %retval.0.idx.i250
   %cond166 = select i1 %3, ptr @.str.3, ptr @.str.4
   call void (ptr, i8, ptr, ...) @_ZN8facebook4yoga3logEPKNS0_4NodeENS0_8LogLevelEPKcz(ptr noundef nonnull %node, i8 noundef zeroext 4, ptr noundef nonnull @.str.6, ptr noundef nonnull %retval.0.i251, i32 noundef %inc, ptr noundef nonnull %cond166) #12

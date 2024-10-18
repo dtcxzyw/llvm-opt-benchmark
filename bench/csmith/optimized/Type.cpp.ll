@@ -1244,7 +1244,7 @@ declare void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17NonVoidTypeFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -1327,7 +1327,7 @@ define dso_local void @_ZN28NonVoidNonVolatileTypeFilterD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN28NonVoidNonVolatileTypeFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -1496,7 +1496,7 @@ define dso_local void @_ZN22ChooseRandomTypeFilterD2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22ChooseRandomTypeFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -3061,7 +3061,7 @@ define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef
   br i1 %.not.i, label %12, label %_ZN4Type33choose_random_nonvoid_nonvolatileEv.exit
 
 12:                                               ; preds = %10
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %13, align 8
@@ -3080,13 +3080,13 @@ define dso_local noundef ptr @_ZN4Type21random_type_from_typeEPKS_bb(ptr noundef
   %.not3.i = icmp eq i32 %23, 0
   %24 = load ptr, ptr %13, align 8
   %spec.select.i = select i1 %.not3.i, ptr %24, ptr null
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
   br label %_ZN4Type33choose_random_nonvoid_nonvolatileEv.exit
 
 common.resume:                                    ; preds = %42, %25
   %.sink = phi ptr [ %4, %42 ], [ %5, %25 ]
   %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %26, %25 ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %12
@@ -3106,7 +3106,7 @@ _ZN4Type33choose_random_nonvoid_nonvolatileEv.exit: ; preds = %10, %22
   br i1 %.not.i12, label %29, label %_ZN4Type21choose_random_nonvoidEv.exit
 
 29:                                               ; preds = %27
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %4, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
@@ -3125,7 +3125,7 @@ _ZN4Type33choose_random_nonvoid_nonvolatileEv.exit: ; preds = %10, %22
   %.not3.i14 = icmp eq i32 %40, 0
   %41 = load ptr, ptr %30, align 8
   %spec.select.i15 = select i1 %.not3.i14, ptr %41, ptr null
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
   br label %_ZN4Type21choose_random_nonvoidEv.exit
 
 42:                                               ; preds = %29
@@ -3189,7 +3189,7 @@ define dso_local noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv() lo
   br i1 %.not, label %3, label %18
 
 3:                                                ; preds = %0
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
@@ -3208,13 +3208,13 @@ define dso_local noundef ptr @_ZN4Type33choose_random_nonvoid_nonvolatileEv() lo
   %.not3 = icmp eq i32 %14, 0
   %15 = load ptr, ptr %4, align 8
   %spec.select = select i1 %.not3, ptr %15, ptr null
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   br label %18
 
 16:                                               ; preds = %3
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %0, %13
@@ -3230,7 +3230,7 @@ define dso_local noundef ptr @_ZN4Type21choose_random_nonvoidEv() local_unnamed_
   br i1 %.not, label %3, label %18
 
 3:                                                ; preds = %0
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17NonVoidTypeFilter, i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
@@ -3249,13 +3249,13 @@ define dso_local noundef ptr @_ZN4Type21choose_random_nonvoidEv() local_unnamed_
   %.not3 = icmp eq i32 %14, 0
   %15 = load ptr, ptr %4, align 8
   %spec.select = select i1 %.not3, ptr %15, ptr null
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   br label %18
 
 16:                                               ; preds = %3
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #24
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %0, %13
@@ -3588,7 +3588,7 @@ define dso_local void @_ZN4Type21make_one_struct_fieldERSt6vectorIPKS_SaIS2_EERS
   %5 = alloca %class.ChooseRandomTypeFilter, align 8
   %6 = alloca %class.CVQualifiers, align 8
   %7 = zext i1 %3 to i8
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   store i8 1, ptr %8, align 8
@@ -3816,12 +3816,12 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br label %105
 
 105:                                              ; preds = %19, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   ret void
 
 106:                                              ; preds = %64, %21
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %22, %21 ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -4577,7 +4577,7 @@ define dso_local void @_ZN4Type27init_is_bitfield_enumeratorER10EnumeratorINSt7_
   store i8 %.0.i, ptr %22, align 1
   %23 = getelementptr inbounds i8, ptr %19, i64 10
   store i8 0, ptr %23, align 2
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %25 unwind label %28
 
 25:                                               ; preds = %.noexc
@@ -4613,7 +4613,7 @@ define dso_local void @_ZN4Type27init_is_bitfield_enumeratorER10EnumeratorINSt7_
   store i8 0, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %32, i64 10
   store i8 0, ptr %36, align 2
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %38 unwind label %39
 
 38:                                               ; preds = %.noexc14
@@ -4691,7 +4691,7 @@ define dso_local void @_ZN4Type22init_fields_enumeratorER10EnumeratorINSt7__cxx1
           to label %26 unwind label %79
 
 26:                                               ; preds = %25
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc unwind label %81
 
 .noexc:                                           ; preds = %26
@@ -4780,7 +4780,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i8 0, ptr %65, align 1
   %66 = getelementptr inbounds i8, ptr %62, i64 10
   store i8 0, ptr %66, align 2
-  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %68 unwind label %89
 
 68:                                               ; preds = %.noexc40
@@ -4797,7 +4797,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i32 %4, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %70, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %71, i8 0, i64 7, i1 false)
-  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %73 unwind label %91
 
 73:                                               ; preds = %.noexc42
@@ -4814,7 +4814,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i32 2, ptr %75, align 4
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %76, i8 0, i64 7, i1 false)
-  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %78 unwind label %93
 
 78:                                               ; preds = %.noexc44
@@ -4918,7 +4918,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i32 %2, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %110, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %111, i8 0, i64 7, i1 false)
-  %112 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %112 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %113 unwind label %123
 
 113:                                              ; preds = %.noexc47
@@ -4935,7 +4935,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i32 %3, ptr %115, align 4
   %116 = getelementptr inbounds i8, ptr %115, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %116, i8 0, i64 7, i1 false)
-  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %118 unwind label %125
 
 118:                                              ; preds = %.noexc50
@@ -5014,7 +5014,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
   store i8 0, ptr %139, align 1
   %140 = getelementptr inbounds i8, ptr %135, i64 10
   store i8 0, ptr %140, align 2
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %142 unwind label %145
 
 142:                                              ; preds = %.noexc53
@@ -5108,7 +5108,7 @@ define dso_local noundef zeroext i1 @_ZN4Type25make_one_bitfield_by_enumER10Enum
           to label %29 unwind label %56
 
 29:                                               ; preds = %28
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %29
@@ -5249,7 +5249,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4Ty
           to label %91 unwind label %56
 
 91:                                               ; preds = %_ZNSt6vectorIPK4TypeSaIS2_EE9push_backERKS2_.exit
-  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc32 unwind label %152
 
 .noexc32:                                         ; preds = %91
@@ -5314,7 +5314,7 @@ _ZNSt6vectorI12CVQualifiersSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc35, %
           to label %122 unwind label %154
 
 122:                                              ; preds = %_ZNSt6vectorI12CVQualifiersSaIS0_EE9push_backERKS0_.exit
-  %123 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %123 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %.noexc38 unwind label %156
 
 .noexc38:                                         ; preds = %122
@@ -5528,7 +5528,7 @@ define dso_local noundef zeroext i1 @_ZN4Type29make_one_normal_field_by_enumER10
           to label %19 unwind label %54
 
 19:                                               ; preds = %18
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %19
@@ -5682,7 +5682,7 @@ _ZNSt6vectorIPK4TypeSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4Ty
           to label %93 unwind label %54
 
 93:                                               ; preds = %92
-  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc24 unwind label %154
 
 .noexc24:                                         ; preds = %93
@@ -5994,7 +5994,7 @@ define dso_local void @_ZN4Type36make_all_struct_types_with_bitfieldsER10Enumera
           to label %23 unwind label %46
 
 23:                                               ; preds = %22
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %23
@@ -6114,7 +6114,7 @@ _ZN10EnumeratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8get_elemES
           to label %70 unwind label %161
 
 70:                                               ; preds = %69
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN10EnumeratorIS5_E10EnumObjectESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %.noexc49 unwind label %163
 
 .noexc49:                                         ; preds = %70
@@ -8161,7 +8161,7 @@ _ZNK4Type18get_indirect_levelEv.exit:             ; preds = %21
 
 27:                                               ; preds = %5, %_ZNK4Type18get_indirect_levelEv.exit, %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %28, align 8
@@ -8187,7 +8187,7 @@ _ZNK4Type18get_indirect_levelEv.exit:             ; preds = %21
 41:                                               ; preds = %48, %27
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %39
@@ -8207,7 +8207,7 @@ _ZNK4Type18get_indirect_levelEv.exit:             ; preds = %21
 
 _ZN4Type13choose_randomEv.exit:                   ; preds = %39, %43, %49
   %.0.i11 = phi ptr [ null, %39 ], [ %44, %49 ], [ %44, %43 ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   %50 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not8 = icmp eq i32 %50, 0
@@ -8256,7 +8256,7 @@ declare noundef i32 @_ZN9CGOptions18max_indirect_levelEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %class.ChooseRandomTypeFilter, align 8
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV22ChooseRandomTypeFilter, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %2, align 8
@@ -8282,7 +8282,7 @@ define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 
 15:                                               ; preds = %22, %0
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %13
@@ -8302,7 +8302,7 @@ define dso_local noundef ptr @_ZN4Type13choose_randomEv() local_unnamed_addr #4 
 
 24:                                               ; preds = %17, %23, %13
   %.0 = phi ptr [ null, %13 ], [ %18, %23 ], [ %18, %17 ]
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   ret ptr %.0
 }
 
@@ -11019,7 +11019,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %21 unwind label %11
 
 11:                                               ; preds = %5
@@ -11104,7 +11104,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %common.resume
 
 44:                                               ; preds = %25
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #24
   tail call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN10EnumeratorIS5_E10EnumObjectEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev.exit
 
@@ -11441,7 +11441,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %6
 
@@ -11473,7 +11473,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %5 = getelementptr inbounds i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #24
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59

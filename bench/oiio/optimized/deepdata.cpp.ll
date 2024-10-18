@@ -257,7 +257,7 @@ if.then.i.i.i5:                                   ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.then.i.i.i5
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_data) #27
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data) #27
   %m_cumcapacity = getelementptr inbounds i8, ptr %this, i64 120
   %5 = load ptr, ptr %m_cumcapacity, align 8
   %tobool.not.i.i.i7 = icmp eq ptr %5, null
@@ -339,8 +339,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #29
   %m_data.i = getelementptr inbounds i8, ptr %call, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call, i8 0, i64 144, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_data.i) #27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(250) %call, i8 0, i64 144, i1 false)
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i) #27
   %m_allocated.i = getelementptr inbounds i8, ptr %call, i64 248
   store i8 0, ptr %m_allocated.i, align 8
   %m_mutex.i = getelementptr inbounds i8, ptr %call, i64 249
@@ -349,7 +349,7 @@ invoke.cont:                                      ; preds = %entry
   tail call void @_ZN18OpenImageIO_v2_6_08DeepData4Impl5clearEv(ptr noundef nonnull align 8 dereferenceable(250) %call)
   store ptr %call, ptr %this, align 8
   %3 = load ptr, ptr %src, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(250) %call, ptr noundef nonnull align 8 dereferenceable(250) %3)
   %m_channelsizes.i = getelementptr inbounds i8, ptr %call, i64 24
   %m_channelsizes3.i = getelementptr inbounds i8, ptr %3, i64 24
   %call4.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_channelsizes.i, ptr noundef nonnull align 8 dereferenceable(24) %m_channelsizes3.i)
@@ -479,12 +479,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 if.else.i:                                        ; preds = %if.end.i
   %m_nsamples.i12 = getelementptr inbounds i8, ptr %9, i64 72
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %sub.ptr.sub.i6.i.i
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples.i12, ptr noundef %spec.select.i.i, ptr noundef %arrayidx.i5.i)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples.i12, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %arrayidx.i5.i)
   %13 = load ptr, ptr %this, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load i64, ptr %m_npixels, align 8
   %arrayidx.i7.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %14
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity.i, ptr noundef %spec.select.i.i, ptr noundef %arrayidx.i7.i)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity.i, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %arrayidx.i7.i)
   %.pre = load i64, ptr %m_npixels, align 8
   br label %_ZN18OpenImageIO_v2_6_08DeepData15set_all_samplesENS_4spanIKjLln1EEE.exit
 
@@ -534,8 +534,8 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #29
   %m_data.i = getelementptr inbounds i8, ptr %call, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call, i8 0, i64 144, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_data.i) #27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(250) %call, i8 0, i64 144, i1 false)
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i) #27
   %m_allocated.i = getelementptr inbounds i8, ptr %call, i64 248
   store i8 0, ptr %m_allocated.i, align 8
   %m_mutex.i = getelementptr inbounds i8, ptr %call, i64 249
@@ -552,7 +552,7 @@ if.end:                                           ; preds = %invoke.cont, %if.th
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(250) %3, ptr noundef nonnull align 8 dereferenceable(250) %4)
   %m_channelsizes.i = getelementptr inbounds i8, ptr %3, i64 24
   %m_channelsizes3.i = getelementptr inbounds i8, ptr %4, i64 24
   %call4.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorImSaImEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_channelsizes.i, ptr noundef nonnull align 8 dereferenceable(24) %m_channelsizes3.i)
@@ -686,8 +686,8 @@ cond.end:                                         ; preds = %_ZN18OpenImageIO_v2
 invoke.cont:                                      ; preds = %cond.end
   %call3 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #29
   %m_data.i = getelementptr inbounds i8, ptr %call3, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call3, i8 0, i64 144, i1 false)
-  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %m_data.i) #27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(250) %call3, i8 0, i64 144, i1 false)
+  tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i) #27
   %m_allocated.i = getelementptr inbounds i8, ptr %call3, i64 248
   store i8 0, ptr %m_allocated.i, align 8
   %m_mutex.i = getelementptr inbounds i8, ptr %call3, i64 249
@@ -2218,12 +2218,12 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.else:                                          ; preds = %if.end
   %m_nsamples = getelementptr inbounds i8, ptr %1, i64 72
   %arrayidx.i5 = getelementptr inbounds i32, ptr %samples.coerce0, i64 %samples.coerce1
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples, ptr noundef %samples.coerce0, ptr noundef %arrayidx.i5)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples, ptr noundef nonnull %samples.coerce0, ptr noundef nonnull %arrayidx.i5)
   %5 = load ptr, ptr %this, align 8
   %m_capacity = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load i64, ptr %m_npixels, align 8
   %arrayidx.i7 = getelementptr inbounds i32, ptr %samples.coerce0, i64 %6
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity, ptr noundef %samples.coerce0, ptr noundef %arrayidx.i7)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity, ptr noundef nonnull %samples.coerce0, ptr noundef nonnull %arrayidx.i7)
   br label %if.end14
 
 if.end14:                                         ; preds = %for.body, %for.cond.preheader, %entry, %if.else
@@ -5631,7 +5631,7 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !64
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i
-  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %5, ptr noundef %add.ptr, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
+  invoke fastcc void @_ZSt21__inplace_stable_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef nonnull %5, ptr noundef nonnull %add.ptr, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then2.i.i
@@ -5641,7 +5641,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i, %if.th
   resume { ptr, i32 } %6
 
 if.else.i.i:                                      ; preds = %while.body.i.i.i.i
-  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef %5, ptr noundef %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
+  invoke fastcc void @_ZSt22__stable_sort_adaptiveIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_(ptr noundef nonnull %5, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp27)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 if.end10.i.i:                                     ; preds = %if.else.i.i, %if.then2.i.i
@@ -10497,7 +10497,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 _ZSt22__chunk_insertion_sortIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_.exit: ; preds = %while.body.i, %entry
   %__first.addr.0.lcssa.i = phi ptr [ %__first, %entry ], [ %add.ptr.i, %while.body.i ]
-  tail call fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first.addr.0.lcssa.i, ptr noundef %__last, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
+  tail call fastcc void @_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_(ptr noundef %__first.addr.0.lcssa.i, ptr noundef nonnull %__last, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   %cmp618 = icmp sgt i64 %sub.ptr.div, 7
   br i1 %cmp618, label %while.body.lr.ph, label %while.end
 
@@ -11164,7 +11164,7 @@ _ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_
   %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %__first.addr.0.lcssa.i21 = phi ptr [ %__first, %while.body ], [ %add.ptr2.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div, %while.body ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__step_size.0619, i64 %sub.ptr.div.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 4611686018427387901) %__step_size.0619, i64 %sub.ptr.div.lcssa.i)
   %add.ptr9.i = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i21, i64 %.sroa.speculated.i
   tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i21, ptr noundef %add.ptr9.i, ptr noundef %add.ptr9.i, ptr noundef nonnull %__last, ptr noundef %__result.addr.0.lcssa.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp115)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp115)
@@ -11850,7 +11850,7 @@ _ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_
   %__result.addr.0.lcssa.i39 = phi ptr [ %__first, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i.i19.i69.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
   %__first.addr.0.lcssa.i40 = phi ptr [ %__buffer, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr2.i33.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
   %sub.ptr.div.lcssa.i41 = phi i64 [ %sub.ptr.div, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %sub.ptr.div.i37.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %sub.ptr.div.i37, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
-  %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 %mul.i, i64 %sub.ptr.div.lcssa.i41)
+  %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775808, 4611686018427387901) %mul.i, i64 %sub.ptr.div.lcssa.i41)
   %add.ptr9.i43 = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i40, i64 %.sroa.speculated.i42
   tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i40, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr, ptr noundef %__result.addr.0.lcssa.i39, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp222)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp222)

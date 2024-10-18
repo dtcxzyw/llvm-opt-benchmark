@@ -716,7 +716,7 @@ define hidden noundef ptr @_ZN17ConstantPoolCache17set_method_handleEiRK8CallInf
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 23:                                               ; preds = %11
-  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef 8, i32 noundef 0) #12
+  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef 8, i32 noundef 0) #12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %23, %21
@@ -788,7 +788,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_Z11as_TosState9Bas
   %60 = shl nuw nsw i64 %58, %.8.i
   %61 = add nuw nsw i64 %59, %60
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %62(ptr noundef nonnull %52, i64 noundef %61, ptr noundef %53) #12
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef %61, ptr noundef %53) #12
   br label %63
 
 63:                                               ; preds = %_ZNK6HandleclEv.exit, %_Z11as_TosState9BasicType.exit
@@ -1016,7 +1016,7 @@ _ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassL
 
 55:                                               ; preds = %_ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit
   store i32 0, ptr %7, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI18ResolvedFieldEntry13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @_ZN26GrowableArrayWithAllocatorI18ResolvedFieldEntry13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %_ZN13GrowableArrayI18ResolvedFieldEntryED2Ev.exit
 
 _ZN13GrowableArrayI18ResolvedFieldEntryED2Ev.exit: ; preds = %_ZL33initialize_resolved_entries_arrayI18ResolvedFieldEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, %55
@@ -1182,7 +1182,7 @@ _ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15Class
 
 125:                                              ; preds = %_ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit
   store i32 0, ptr %8, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI19ResolvedMethodEntry13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  call void @_ZN26GrowableArrayWithAllocatorI19ResolvedMethodEntry13GrowableArrayIS0_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %_ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit
 
 _ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit: ; preds = %_ZL33initialize_resolved_entries_arrayI19ResolvedMethodEntryEP5ArrayIT_EP15ClassLoaderData13GrowableArrayIS2_EP10JavaThread.exit, %125
@@ -1338,7 +1338,7 @@ define hidden void @_ZN17ConstantPoolCache50remove_resolved_field_entries_if_non
   br label %72
 
 30:                                               ; preds = %.thread41, %.thread37
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #12
   store i32 1, ptr %12, align 8
@@ -1590,7 +1590,7 @@ _ZN17ConstantPoolCache27can_archive_resolved_methodEP19ResolvedMethodEntry.exit:
 
 85:                                               ; preds = %.thread53, %.thread
   %.04052 = phi i1 [ true, %.thread ], [ false, %.thread53 ]
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #12
   store i32 1, ptr %12, align 8
@@ -2482,7 +2482,7 @@ define hidden noundef zeroext i1 @_ZN17ConstantPoolCache23save_and_throw_indy_ex
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 23:                                               ; preds = %11
-  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef 8, i32 noundef 0) #12
+  %24 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %13, i64 noundef 8, i32 noundef 0) #12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %23, %21
@@ -2673,7 +2673,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 56:                                               ; preds = %44
-  %57 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %46, i64 noundef 8, i32 noundef 0) #12
+  %57 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %46, i64 noundef 8, i32 noundef 0) #12
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %56, %54
@@ -2716,7 +2716,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %_ZN26GrowableA
   %80 = shl nuw nsw i64 %78, %.7.i.i
   %81 = add nuw nsw i64 %79, %80
   %82 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %83 = call noundef ptr %82(ptr noundef nonnull %66, i64 noundef %81) #12
+  %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef %81) #12
   br label %173
 
 84:                                               ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
@@ -2749,7 +2749,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %_ZN26GrowableA
   %98 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i = load ptr, ptr %98, align 8
   %.not58 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #12
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
   %99 = getelementptr inbounds i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %99) #12
@@ -2841,7 +2841,7 @@ _ZNK6HandleclEv.exit35:                           ; preds = %_ZN12ResourceMarkD2
   %143 = shl nuw nsw i64 %141, %.8.i
   %144 = add nuw nsw i64 %142, %143
   %145 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %145(ptr noundef nonnull %135, i64 noundef %144, ptr noundef %136) #12
+  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %135, i64 noundef %144, ptr noundef %136) #12
   br label %146
 
 146:                                              ; preds = %_ZNK6HandleclEv.exit35, %_ZN12ResourceMarkD2Ev.exit
@@ -3071,7 +3071,7 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %31 = shl nuw nsw i64 %29, %.7.i.i
   %32 = add nuw nsw i64 %30, %31
   %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull %17, i64 noundef %32) #12
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %32) #12
   tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %1) #12
   br label %35
 
@@ -3134,7 +3134,7 @@ define hidden void @_ZNK17ConstantPoolCache27print_resolved_indy_entriesEP12outp
   %31 = shl nuw nsw i64 %29, %.7.i.i
   %32 = add nuw nsw i64 %30, %31
   %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull %17, i64 noundef %32) #12
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %32) #12
   tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %1) #12
   br label %35
 

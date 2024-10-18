@@ -969,12 +969,12 @@ thread-pre-split276:                              ; preds = %304, %309
 
 426:                                              ; preds = %420
   %427 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
-  %428 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %393, i64 noundef %427, i32 noundef %423, i32 noundef 1)
+  %428 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %427, i32 noundef %423, i32 noundef 1)
   %.not.i.i = icmp eq i32 %428, 0
   br i1 %.not.i.i, label %429, label %onas_ddd_unwatch.exit.i
 
 429:                                              ; preds = %426
-  %430 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %393, i64 noundef %427, i32 noundef %422, i32 noundef 2)
+  %430 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %427, i32 noundef %422, i32 noundef 2)
   br label %onas_ddd_unwatch.exit.i
 
 onas_ddd_unwatch.exit.i:                          ; preds = %429, %426, %420
@@ -1021,12 +1021,12 @@ onas_ddd_handle_in_delete.exit:                   ; preds = %413, %417, %onas_dd
 
 452:                                              ; preds = %446
   %453 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
-  %454 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %393, i64 noundef %453, i32 noundef %449, i32 noundef 1)
+  %454 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %453, i32 noundef %449, i32 noundef 1)
   %.not.i.i261 = icmp eq i32 %454, 0
   br i1 %.not.i.i261, label %455, label %onas_ddd_unwatch.exit.i262
 
 455:                                              ; preds = %452
-  %456 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef %393, i64 noundef %453, i32 noundef %448, i32 noundef 2)
+  %456 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %453, i32 noundef %448, i32 noundef 2)
   br label %onas_ddd_unwatch.exit.i262
 
 onas_ddd_unwatch.exit.i262:                       ; preds = %455, %452, %446
@@ -1059,7 +1059,7 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
 
 469:                                              ; preds = %464
   %470 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef %393, i32 noundef 1)
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 1)
   br label %471
 
 471:                                              ; preds = %469, %464
@@ -1075,12 +1075,12 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
 
 479:                                              ; preds = %471
   %480 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
-  %481 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %480, i32 noundef %476, i64 noundef 16778184, i32 noundef 1)
+  %481 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %480, i32 noundef %476, i64 noundef 16778184, i32 noundef 1)
   %.not.i.i265 = icmp eq i32 %481, 0
   br i1 %.not.i.i265, label %482, label %onas_ddd_handle_in_create.exit
 
 482:                                              ; preds = %479
-  %483 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %480, i32 noundef %474, i64 noundef %475, i32 noundef 2)
+  %483 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %480, i32 noundef %474, i64 noundef %475, i32 noundef 2)
   br label %onas_ddd_handle_in_create.exit
 
 484:                                              ; preds = %460
@@ -1109,7 +1109,7 @@ onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_dd
   br i1 %497, label %498, label %onas_ddd_handle_in_close_write.exit
 
 498:                                              ; preds = %494
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef %393, i32 noundef 2)
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 2)
   br label %onas_ddd_handle_in_close_write.exit
 
 onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %498
@@ -1142,7 +1142,7 @@ onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %4
   br i1 %512, label %513, label %514
 
 513:                                              ; preds = %509
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef %393, i32 noundef 2)
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
 514:                                              ; preds = %509, %508
@@ -1153,7 +1153,7 @@ onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %4
 
 517:                                              ; preds = %514
   %518 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef %393, i32 noundef 1)
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 1)
   %519 = load ptr, ptr @ddd_ht, align 8
   %520 = call i32 @onas_ht_add_hierarchy(ptr noundef %519, ptr noundef nonnull %393) #16
   %521 = load i32, ptr %344, align 1
@@ -1166,12 +1166,12 @@ onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %4
 
 526:                                              ; preds = %517
   %527 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
-  %528 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %527, i32 noundef %523, i64 noundef 16778184, i32 noundef 1)
+  %528 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %527, i32 noundef %523, i64 noundef 16778184, i32 noundef 1)
   %.not.i.i269 = icmp eq i32 %528, 0
   br i1 %.not.i.i269, label %529, label %onas_ddd_handle_in_moved_to.exit
 
 529:                                              ; preds = %526
-  %530 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %527, i32 noundef %521, i64 noundef %522, i32 noundef 2)
+  %530 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %527, i32 noundef %521, i64 noundef %522, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
 531:                                              ; preds = %501
@@ -1203,12 +1203,12 @@ onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %4
 
 548:                                              ; preds = %539
   %549 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
-  %550 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %549, i32 noundef %545, i64 noundef 16778184, i32 noundef 1)
+  %550 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %549, i32 noundef %545, i64 noundef 16778184, i32 noundef 1)
   %.not.i27.i = icmp eq i32 %550, 0
   br i1 %.not.i27.i, label %551, label %onas_ddd_handle_in_moved_to.exit
 
 551:                                              ; preds = %548
-  %552 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef %393, i64 noundef %549, i32 noundef %543, i64 noundef %544, i32 noundef 2)
+  %552 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %549, i32 noundef %543, i64 noundef %544, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
 onas_ddd_handle_in_moved_to.exit:                 ; preds = %513, %514, %517, %526, %529, %532, %536, %539, %548, %551

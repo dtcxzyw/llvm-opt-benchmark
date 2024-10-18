@@ -641,7 +641,7 @@ default.unreachable621:                           ; preds = %203, %46
   br i1 %or.cond, label %178, label %200
 
 178:                                              ; preds = %.loopexit565
-  %179 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0530) #3
+  %179 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef range(i32 0, -3) %.0530) #3
   %.not8.i = icmp eq i32 %.0530, 0
   br i1 %.not8.i, label %crc_calc.exit, label %.lr.ph.i
 

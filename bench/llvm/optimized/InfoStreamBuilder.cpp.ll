@@ -341,7 +341,7 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit:       ; preds = %_ZN4llvm23WritableB
   %68 = load i32, ptr %67, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   store i32 %68, ptr %10, align 4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull %10, i64 28) #15
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr nonnull align 1 dereferenceable(28) %10, i64 28) #15
   %69 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge

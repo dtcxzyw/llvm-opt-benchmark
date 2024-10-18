@@ -187,7 +187,7 @@ entry:
   %min_length.i = getelementptr inbounds i8, ptr %this, i64 32
   %lit = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %min_length.i, i8 0, i64 17, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit) #18
   %nocase.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nocase.i, i8 0, i64 32, i1 false)
   %tobool3.not = icmp ult i32 %flags, 2048
@@ -332,7 +332,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #18
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -2564,7 +2564,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup
   br label %_ZN3ue219ParsedLitExpressionD2Ev.exit
 
 _ZN3ue219ParsedLitExpressionD2Ev.exit:            ; preds = %cleanup, %if.then.i.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit) #18
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup53, %cleanup.action56, %ehcleanup36, %cleanup.action39, %ehcleanup18, %cleanup.action21, %ehcleanup, %cleanup.action, %lpad63
@@ -2591,7 +2591,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %entry, %if.then.i.i.i.i.i
   %lit = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lit) #18
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %lit) #18
   ret void
 }
 
@@ -2757,7 +2757,7 @@ if.end.i17:                                       ; preds = %call.i.noexc19
   store i32 %9, ptr %length.i, align 8
   %platform9.i = getelementptr inbounds i8, ptr %call.i20, i64 16
   store i64 %p.2.i, ptr %platform9.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %3, i64 %conv31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %3, i64 range(i64 0, 4294967296) %conv31, i1 false)
   %16 = load i32, ptr %length.i, align 8
   %conv11.i = zext i32 %16 to i64
   %call12.i21 = invoke i32 @Crc32c_ComputeBuf(i32 noundef 0, ptr noundef nonnull %add.ptr.i, i64 noundef %conv11.i)

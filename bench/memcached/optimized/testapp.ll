@@ -2637,7 +2637,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -2867,7 +2867,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -2990,7 +2990,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 do.body:                                          ; preds = %do.body.preheader, %safe_recv_packet.exit
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %do.body
@@ -3075,7 +3075,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -3368,7 +3368,7 @@ sw.bb32.i:                                        ; preds = %while.body.i, %whil
   %call7.i91.i = call i32 @htonl(i32 noundef %conv6.i90.i) #24
   store i32 %call7.i91.i, ptr %bodylen.i.i99.i, align 8
   store i32 -559038737, ptr %opaque.i.i100.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i94.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i94.i, ptr nonnull readonly align 16 %key.i, i64 range(i64 -248, 251) %conv3.i, i1 false)
   %add10.i.i = add nsw i64 %conv3.i, 28
   br label %sw.epilog.i
 
@@ -4974,7 +4974,7 @@ safe_send.exit:                                   ; preds = %do.cond.us.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %safe_send.exit
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %buffer, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %buffer, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %if.then
@@ -5123,7 +5123,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i9.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i9.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i9.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -5237,7 +5237,7 @@ safe_send.exit31:                                 ; preds = %do.cond.us.i22
   br i1 %cmp3, label %if.then19, label %return.sink.split
 
 if.then19:                                        ; preds = %safe_send.exit31
-  %call.i32 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i32 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i32, label %if.end2.i34, label %safe_recv_packet.exit44
 
 if.end2.i34:                                      ; preds = %if.then19
@@ -5352,7 +5352,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %cmp3.us = icmp eq i32 %ii.024.us, 0
-  %call.i7.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i7.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   %. = select i1 %cmp3.us, i16 0, i16 2
   br i1 %call.i7.us, label %for.inc.us.sink.split, label %for.inc.us
 
@@ -5419,7 +5419,7 @@ safe_send.exit:                                   ; preds = %do.cond.us.i
   br i1 %cmp3, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %safe_send.exit
-  %call.i11 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i11 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i11, label %if.end2.i13, label %safe_recv_packet.exit23
 
 if.end2.i13:                                      ; preds = %if.else
@@ -5525,7 +5525,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i13 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i13 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i13, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -5611,7 +5611,7 @@ if.then10.i50:                                    ; preds = %if.then6.us.i47
   unreachable
 
 safe_send.exit53:                                 ; preds = %do.cond.us.i44
-  %call.i54 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i54 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i54, label %if.end2.i56, label %safe_recv_packet.exit66
 
 if.end2.i56:                                      ; preds = %safe_send.exit53
@@ -5699,7 +5699,7 @@ do.cond.us.i94.us:                                ; preds = %if.then6.us.i97.us,
   br i1 %cmp21.us.i96.us, label %do.body.us.i85.us, label %safe_send.exit103.us, !llvm.loop !19
 
 safe_send.exit103.us:                             ; preds = %do.cond.us.i94.us
-  %call.i104.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i104.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i104.us, label %if.end2.i106.us, label %safe_recv_packet.exit116.us
 
 if.end2.i106.us:                                  ; preds = %safe_send.exit103.us
@@ -5851,7 +5851,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -5939,7 +5939,7 @@ if.then10.i32:                                    ; preds = %if.then6.us.i29
   unreachable
 
 safe_send.exit35:                                 ; preds = %do.cond.us.i26
-  %call.i36 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i36 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i36, label %if.end2.i38, label %safe_recv_packet.exit48
 
 if.end2.i38:                                      ; preds = %safe_send.exit35
@@ -6029,7 +6029,7 @@ safe_send.exit83:                                 ; preds = %do.cond.us.i74
   br i1 %cmp, label %if.then, label %do.body.us.i97.preheader
 
 if.then:                                          ; preds = %safe_send.exit83
-  %call.i84 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i84 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i84, label %if.end2.i86, label %safe_recv_packet.exit96
 
 if.end2.i86:                                      ; preds = %if.then
@@ -6091,7 +6091,7 @@ if.then10.i112:                                   ; preds = %if.then6.us.i109
   unreachable
 
 safe_send.exit115:                                ; preds = %do.cond.us.i106
-  %call.i116 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i116 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i116, label %if.end2.i118, label %safe_recv_packet.exit128
 
 if.end2.i118:                                     ; preds = %safe_send.exit115
@@ -6167,7 +6167,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then19.i:                                      ; preds = %if.end.i, %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i, %if.then19.i
@@ -6216,7 +6216,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i24 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i24 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i24, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -6303,7 +6303,7 @@ if.then10.i54:                                    ; preds = %if.then6.us.i51
   unreachable
 
 safe_send.exit57:                                 ; preds = %do.cond.us.i48
-  %call.i58 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i58 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i58, label %if.end2.i60, label %safe_recv_packet.exit70
 
 if.end2.i60:                                      ; preds = %safe_send.exit57
@@ -6366,7 +6366,7 @@ if.end.i75:                                       ; preds = %for.body
   ]
 
 if.then19.i88:                                    ; preds = %if.end.i75, %if.end.i75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %if.end20.i90
 
 if.end20.i90:                                     ; preds = %if.end.i75, %if.then19.i88
@@ -6426,7 +6426,7 @@ if.then10.i110:                                   ; preds = %if.then6.us.i107
 
 for.body32:                                       ; preds = %for.cond29.preheader, %safe_recv_packet.exit126
   %ii.1132 = phi i32 [ 0, %for.cond29.preheader ], [ %inc36, %safe_recv_packet.exit126 ]
-  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i114, label %if.end2.i116, label %safe_recv_packet.exit126
 
 if.end2.i116:                                     ; preds = %for.body32
@@ -6525,12 +6525,12 @@ storage_command.exit:                             ; preds = %entry
 
 if.then19.i:                                      ; preds = %storage_command.exit, %storage_command.exit
   %add.ptr.i27 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %storage_command.exit, %if.then19.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %temp, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
   store i32 -17958194, ptr %opaque.i26, align 4
   %add.ptr = getelementptr inbounds i8, ptr %send, i64 %add1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 8 dereferenceable(1) %temp, i64 %add1.i19, i1 false)
@@ -6561,7 +6561,7 @@ if.end.i32:                                       ; preds = %ext_command.exit
 
 if.then19.i44:                                    ; preds = %if.end.i32, %if.end.i32
   %add.ptr.i45 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 range(i64 0, 5) %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i32, %if.then19.i44
@@ -6612,7 +6612,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i49 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i49 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i49, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -6635,7 +6635,7 @@ if.end2.i:                                        ; preds = %safe_send.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  %call.i53 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i53 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i53, label %if.end2.i55, label %safe_recv_packet.exit65
 
 if.end2.i55:                                      ; preds = %safe_recv_packet.exit
@@ -6743,7 +6743,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i8.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i8.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i8.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -6917,7 +6917,7 @@ do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %
   br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
-  %call.i10.us = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i10.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i10.us, label %if.end2.i.us, label %safe_recv_packet.exit.us
 
 if.end2.i.us:                                     ; preds = %safe_send.exit.us
@@ -7034,7 +7034,7 @@ safe_send.exit33:                                 ; preds = %do.cond.us.i24
   br i1 %cmp3, label %if.then17, label %if.else28
 
 if.then17:                                        ; preds = %safe_send.exit33
-  %call.i34 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i34 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i34, label %if.end2.i36, label %safe_recv_packet.exit46
 
 if.end2.i36:                                      ; preds = %if.then17
@@ -7144,7 +7144,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i21 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i21 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i21, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -7216,7 +7216,7 @@ safe_send.exit49:                                 ; preds = %do.cond.us.i40
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %safe_send.exit49
-  %call.i50 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i50 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i50, label %if.end2.i52, label %safe_recv_packet.exit62
 
 if.end2.i52:                                      ; preds = %if.then
@@ -7305,7 +7305,7 @@ if.then10.i78:                                    ; preds = %if.then6.us.i75
   unreachable
 
 safe_send.exit81:                                 ; preds = %do.cond.us.i72
-  %call.i82 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i82 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i82, label %if.end2.i84, label %safe_recv_packet.exit94
 
 if.end2.i84:                                      ; preds = %safe_send.exit81
@@ -7365,7 +7365,7 @@ if.then10.i110:                                   ; preds = %if.then6.us.i107
   unreachable
 
 safe_send.exit113:                                ; preds = %do.cond.us.i104
-  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i114, label %if.end2.i116, label %safe_recv_packet.exit126
 
 if.end2.i116:                                     ; preds = %safe_send.exit113
@@ -7457,7 +7457,7 @@ if.then10.i158:                                   ; preds = %if.then6.us.i155
   unreachable
 
 safe_send.exit161:                                ; preds = %do.cond.us.i152
-  %call.i162 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i162 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i162, label %if.end2.i164, label %safe_recv_packet.exit174
 
 if.end2.i164:                                     ; preds = %safe_send.exit161
@@ -7530,7 +7530,7 @@ safe_send.exit200:                                ; preds = %do.cond.us.i191
   br i1 %cmp, label %if.then37, label %if.end40
 
 if.then37:                                        ; preds = %safe_send.exit200
-  %call.i201 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i201 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i201, label %if.end2.i203, label %safe_recv_packet.exit213
 
 if.end2.i203:                                     ; preds = %if.then37
@@ -7614,7 +7614,7 @@ if.then10.i245:                                   ; preds = %if.then6.us.i242
   unreachable
 
 safe_send.exit248:                                ; preds = %do.cond.us.i239
-  %call.i249 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i249 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i249, label %if.end2.i251, label %safe_recv_packet.exit261
 
 if.end2.i251:                                     ; preds = %safe_send.exit248
@@ -7717,7 +7717,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i
   unreachable
 
 safe_send.exit:                                   ; preds = %do.cond.us.i
-  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %safe_recv_packet.exit
 
 if.end2.i:                                        ; preds = %safe_send.exit
@@ -7770,7 +7770,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %add.ptr.i44 = getelementptr inbounds i8, ptr %send, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr readonly align 1 %key, i64 %call7, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %call7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i45
 
 do.body.us.i45:                                   ; preds = %do.cond.us.i54, %storage_command.exit
@@ -7807,7 +7807,7 @@ if.then10.i60:                                    ; preds = %if.then6.us.i57
   unreachable
 
 safe_send.exit63:                                 ; preds = %do.cond.us.i54
-  %call.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i64 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i64, label %if.end2.i66, label %safe_recv_packet.exit76
 
 if.end2.i66:                                      ; preds = %safe_send.exit63
@@ -7901,7 +7901,7 @@ safe_send.exit114:                                ; preds = %do.cond.us.i105
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %safe_send.exit114
-  %call.i115 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i115 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i115, label %if.end.sink.split, label %if.end
 
 if.else:                                          ; preds = %safe_send.exit114
@@ -7949,7 +7949,7 @@ if.then10.i150:                                   ; preds = %if.then6.us.i147
   unreachable
 
 safe_send.exit153:                                ; preds = %do.cond.us.i144
-  %call.i154 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i154 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i154, label %if.end.sink.split, label %if.end
 
 if.end.sink.split:                                ; preds = %safe_send.exit153, %if.then
@@ -8037,7 +8037,7 @@ if.then10.i200:                                   ; preds = %if.then6.us.i197
   unreachable
 
 safe_send.exit203:                                ; preds = %do.cond.us.i194
-  %call.i204 = call fastcc zeroext i1 @safe_recv(ptr noundef %receive, i64 noundef 24)
+  %call.i204 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
   br i1 %call.i204, label %if.end2.i206, label %safe_recv_packet.exit216
 
 if.end2.i206:                                     ; preds = %safe_send.exit203
@@ -8131,7 +8131,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  %call.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef %call, i64 noundef 24)
+  %call.i = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %call, i64 noundef 24)
   br i1 %call.i, label %if.end2.i, label %while.end
 
 if.end2.i:                                        ; preds = %entry.split
@@ -8160,7 +8160,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load i8, ptr %opcode, align 1
   %4 = load i16, ptr %status.i, align 2
   tail call fastcc void @validate_response_header(ptr noundef %call, i8 noundef zeroext %3, i16 noundef zeroext %4)
-  %call.i8 = tail call fastcc zeroext i1 @safe_recv(ptr noundef %call, i64 noundef 24)
+  %call.i8 = tail call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %call, i64 noundef 24)
   br i1 %call.i8, label %if.end2.i10, label %while.end
 
 if.end2.i10:                                      ; preds = %while.body

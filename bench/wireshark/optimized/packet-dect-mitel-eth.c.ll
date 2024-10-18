@@ -626,8 +626,8 @@ define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr 
 .thread:                                          ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %36 = load i32, ptr @hf_dect_mitel_eth_rfpc_message_type, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %36, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0) #3
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #3
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %36, ptr noundef %0, i32 noundef range(i32 1, 7) %26, i32 noundef 1, i32 noundef 0) #3
+  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %26) #3
   %39 = load ptr, ptr %6, align 8
   %40 = zext i8 %38 to i32
   %41 = tail call ptr @val_to_str(i32 noundef %40, ptr noundef nonnull @dect_mitel_eth_rfpc_message_type_val, ptr noundef nonnull @.str.366) #3
@@ -864,7 +864,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
 
 183:                                              ; preds = %170
   %184 = load i32, ptr @hf_dect_mitel_eth_pmid, align 4
-  %185 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %184, ptr noundef %0, i32 noundef %34, i32 noundef 3, i32 noundef 0) #3
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %184, ptr noundef %0, i32 noundef range(i32 1, 7) %34, i32 noundef 3, i32 noundef 0) #3
   br label %.loopexit
 
 186:                                              ; preds = %170
@@ -892,13 +892,13 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   %.sink = phi i32 [ 1, %195 ], [ 0, %170 ]
   %197 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 %.sink, ptr %197, align 4
-  %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %34) #3
+  %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %34) #3
   %199 = zext i8 %198 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %199) #3
   %200 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %200, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %199) #3
   %201 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %201, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0) #3
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %201, ptr noundef %0, i32 noundef range(i32 1, 7) %34, i32 noundef 1, i32 noundef 0) #3
   %203 = or disjoint i32 %.0144, 3
   %204 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
@@ -962,14 +962,14 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 1
   %12 = load i32, ptr @hf_dect_mitel_eth_mac_enc_key_req_key, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 8, i32 noundef 0) #3
@@ -981,14 +981,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 1
   %12 = load i32, ptr @hf_dect_mitel_eth_mac_enc_eks_ind_type, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #3
@@ -1011,14 +1011,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 1
   %12 = load i32, ptr @hf_dect_mitel_eth_pmid, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0) #3
@@ -1027,14 +1027,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 2
   %12 = load i32, ptr @hf_dect_mitel_eth_mac_ho_in_progress_res_key, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 8, i32 noundef 0) #3
@@ -1046,14 +1046,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 1
   %12 = load i32, ptr @hf_dect_mitel_eth_mac_ho_failed_ind_reason, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #3
@@ -1064,14 +1064,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr nounde
 define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %7 = zext i8 %6 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %7) #3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %7) #3
   %10 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %12 = add nuw nsw i32 %3, 1
   %13 = load i32, ptr @hf_dect_mitel_eth_pmid, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #3
@@ -1086,14 +1086,14 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, 
 define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %7 = zext i8 %6 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %7) #3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %7) #3
   %10 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %12 = add nuw nsw i32 %3, 1
   %13 = load i32, ptr @hf_dect_mitel_eth_pmid, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef 0) #3
@@ -1121,14 +1121,14 @@ define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field(pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
+  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 1, 7) %3, i32 noundef 1, i32 noundef 0) #3
   %11 = add nuw nsw i32 %3, 1
   %12 = load i32, ptr @hf_dect_mitel_eth_mac_dis_ind_reason, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #3

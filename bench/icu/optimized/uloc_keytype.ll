@@ -597,16 +597,16 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bcpTypeAliasDataEntry.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %toLen366.i)
   tail call void @ucln_common_registerCleanup_75(i32 noundef 5, ptr noundef nonnull @_ZL21uloc_key_type_cleanupv)
-  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashIChars_75, ptr noundef nonnull @uhash_compareIChars_75, ptr noundef null, ptr noundef nonnull %sts)
+  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashIChars_75, ptr noundef nonnull @uhash_compareIChars_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
   store ptr %call.i, ptr @_ZL13gLocExtKeyMap, align 8
-  %call1.i = call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %sts)
+  %call1.i = call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %sts)
   store ptr %call1.i, ptr %keyTypeDataRes.i, align 8
-  %call4.i = invoke ptr @ures_getByKey_75(ptr noundef %call1.i, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull %sts)
+  %call4.i = invoke ptr @ures_getByKey_75(ptr noundef %call1.i, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %if.then4.i
   store ptr %call4.i, ptr %keyMapRes.i, align 8
-  %call10.i = invoke ptr @ures_getByKey_75(ptr noundef %call1.i, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull %sts)
+  %call10.i = invoke ptr @ures_getByKey_75(ptr noundef %call1.i, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont11.i unwind label %lpad6.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont5.i
@@ -707,7 +707,7 @@ invoke.cont63.i:                                  ; preds = %while.cond.i
 
 while.body.i:                                     ; preds = %invoke.cont63.i
   store ptr null, ptr %keyMapEntry.i, align 8
-  %call71.i = invoke ptr @ures_getNextResource_75(ptr noundef %6, ptr noundef %.pr277.pre.pre392.i, ptr noundef nonnull %sts)
+  %call71.i = invoke ptr @ures_getNextResource_75(ptr noundef %6, ptr noundef %.pr277.pre.pre392.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont72.i unwind label %lpad60.i
 
 invoke.cont72.i:                                  ; preds = %while.body.i
@@ -732,7 +732,7 @@ invoke.cont79.i:                                  ; preds = %if.end76.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpKeyId.i, align 8, !alias.scope !4
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !4
   store i32 0, ptr %len.i.i, align 4, !noalias !4
-  %call.i.i = invoke ptr @ures_getString_75(ptr noundef %call71.i, ptr noundef nonnull %len.i.i, ptr noundef nonnull %sts)
+  %call.i.i = invoke ptr @ures_getString_75(ptr noundef %call71.i, ptr noundef nonnull %len.i.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont3.i.i unwind label %lpad.i.i, !noalias !4
 
 invoke.cont3.i.i:                                 ; preds = %invoke.cont79.i
@@ -820,7 +820,7 @@ if.end106.i:                                      ; preds = %if.end103.i, %if.en
   %bcpKeyId.0.i = phi ptr [ %call80.i, %if.end87.i ], [ %19, %if.end103.i ]
   %call107.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call80.i, ptr noundef nonnull dereferenceable(9) @.str.6) #16
   %cmp108.i = icmp eq i32 %call107.i, 0
-  %call110.i = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashIChars_75, ptr noundef nonnull @uhash_compareIChars_75, ptr noundef null, ptr noundef nonnull %sts)
+  %call110.i = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashIChars_75, ptr noundef nonnull @uhash_compareIChars_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont109.i unwind label %lpad88.i
 
 invoke.cont109.i:                                 ; preds = %if.end106.i
@@ -871,7 +871,7 @@ invoke.cont143.i:                                 ; preds = %if.then138.i
 
 if.end150.i:                                      ; preds = %invoke.cont143.i, %if.end134.i
   %24 = load ptr, ptr %typeMapRes.i, align 8
-  %call154.i = invoke ptr @ures_getByKey_75(ptr noundef %24, ptr noundef %call80.i, ptr noundef null, ptr noundef nonnull %sts)
+  %call154.i = invoke ptr @ures_getByKey_75(ptr noundef %24, ptr noundef %call80.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont155.i unwind label %lpad118.i
 
 invoke.cont155.i:                                 ; preds = %if.end150.i
@@ -902,7 +902,7 @@ while.body168.i:                                  ; preds = %invoke.cont165.i
   %28 = load ptr, ptr %typeMapResByKey.i, align 8
   %29 = load ptr, ptr %typeMapEntry.i, align 8
   store ptr null, ptr %typeMapEntry.i, align 8
-  %call174.i = invoke ptr @ures_getNextResource_75(ptr noundef %28, ptr noundef %29, ptr noundef nonnull %sts)
+  %call174.i = invoke ptr @ures_getNextResource_75(ptr noundef %28, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont175.i unwind label %lpad162.i
 
 invoke.cont175.i:                                 ; preds = %while.body168.i
@@ -1012,7 +1012,7 @@ if.end223.i:                                      ; preds = %_ZSt7replaceIPccEvT
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %uBcpTypeId.i, align 8, !alias.scope !11
   store i16 2, ptr %fUnion2.i.i166.i, align 8, !alias.scope !11
   store i32 0, ptr %len.i164.i, align 4, !noalias !11
-  %call.i167.i = invoke ptr @ures_getString_75(ptr noundef %call174.i, ptr noundef nonnull %len.i164.i, ptr noundef nonnull %sts)
+  %call.i167.i = invoke ptr @ures_getString_75(ptr noundef %call174.i, ptr noundef nonnull %len.i164.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont3.i171.i unwind label %lpad.i168.i, !noalias !11
 
 invoke.cont3.i171.i:                              ; preds = %if.end223.i
@@ -1104,7 +1104,7 @@ if.end254.i:                                      ; preds = %invoke.cont250.i
   store ptr %bcpTypeId.0.i, ptr %bcpId.i, align 8
   %50 = load ptr, ptr %legacyTypeId.i, align 8
   store ptr %50, ptr %call251.i, align 8
-  %call256.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %50, ptr noundef nonnull %call251.i, ptr noundef nonnull %sts)
+  %call256.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %50, ptr noundef nonnull %call251.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont255.i unwind label %lpad231.i
 
 invoke.cont255.i:                                 ; preds = %if.end254.i
@@ -1113,7 +1113,7 @@ invoke.cont255.i:                                 ; preds = %if.end254.i
   br i1 %cmp257.not.i, label %if.end261.i, label %if.then258.i
 
 if.then258.i:                                     ; preds = %invoke.cont255.i
-  %call260.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %bcpTypeId.0.i, ptr noundef nonnull %call251.i, ptr noundef nonnull %sts)
+  %call260.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %bcpTypeId.0.i, ptr noundef nonnull %call251.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %if.end261.i unwind label %lpad231.i
 
 if.end261.i:                                      ; preds = %if.then258.i, %invoke.cont255.i
@@ -1145,7 +1145,7 @@ invoke.cont278.i:                                 ; preds = %while.cond275.i
 while.body284.i:                                  ; preds = %invoke.cont278.i
   %55 = load ptr, ptr %typeAliasDataEntry.i, align 8
   store ptr null, ptr %typeAliasDataEntry.i, align 8
-  %call290.i = invoke ptr @ures_getNextResource_75(ptr noundef nonnull %53, ptr noundef %55, ptr noundef nonnull %sts)
+  %call290.i = invoke ptr @ures_getNextResource_75(ptr noundef nonnull %53, ptr noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont289.i unwind label %lpad271.loopexit.i
 
 invoke.cont289.i:                                 ; preds = %while.body284.i
@@ -1159,7 +1159,7 @@ if.then.i194.i:                                   ; preds = %invoke.cont289.i
 
 invoke.cont291.i:                                 ; preds = %if.then.i194.i, %invoke.cont289.i
   store ptr %call290.i, ptr %typeAliasDataEntry.i, align 8
-  %call295.i = invoke ptr @ures_getString_75(ptr noundef %call290.i, ptr noundef nonnull %toLen.i, ptr noundef nonnull %sts)
+  %call295.i = invoke ptr @ures_getString_75(ptr noundef %call290.i, ptr noundef nonnull %toLen.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont294.i unwind label %lpad271.loopexit.i
 
 invoke.cont294.i:                                 ; preds = %invoke.cont291.i
@@ -1259,7 +1259,7 @@ _ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.i:        ; preds = %_ZSt7replaceIPccEvT
 
 if.end336.i:                                      ; preds = %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.i, %if.then309.i, %invoke.cont306.i
   %67 = phi ptr [ %call307.i, %if.then309.i ], [ %66, %_ZSt7replaceIPccEvT_S1_RKT0_S4_.exit210.i ], [ %call307.i, %invoke.cont306.i ]
-  %call338.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %67, ptr noundef nonnull %call251.i, ptr noundef nonnull %sts)
+  %call338.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %67, ptr noundef nonnull %call251.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %while.cond275.i.backedge unwind label %lpad271.loopexit.i
 
 while.cond275.i.backedge:                         ; preds = %if.end336.i, %invoke.cont300.i
@@ -1294,7 +1294,7 @@ invoke.cont357.i:                                 ; preds = %while.cond354.i
 while.body365.i:                                  ; preds = %invoke.cont357.i
   %71 = load ptr, ptr %bcpTypeAliasDataEntry.i, align 8
   store ptr null, ptr %bcpTypeAliasDataEntry.i, align 8
-  %call372.i = invoke ptr @ures_getNextResource_75(ptr noundef nonnull %69, ptr noundef %71, ptr noundef nonnull %sts)
+  %call372.i = invoke ptr @ures_getNextResource_75(ptr noundef nonnull %69, ptr noundef %71, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont371.i unwind label %lpad350.loopexit.i
 
 invoke.cont371.i:                                 ; preds = %while.body365.i
@@ -1308,7 +1308,7 @@ if.then.i218.i:                                   ; preds = %invoke.cont371.i
 
 invoke.cont373.i:                                 ; preds = %if.then.i218.i, %invoke.cont371.i
   store ptr %call372.i, ptr %bcpTypeAliasDataEntry.i, align 8
-  %call378.i = invoke ptr @ures_getString_75(ptr noundef %call372.i, ptr noundef nonnull %toLen366.i, ptr noundef nonnull %sts)
+  %call378.i = invoke ptr @ures_getString_75(ptr noundef %call372.i, ptr noundef nonnull %toLen366.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont377.i unwind label %lpad350.loopexit.i
 
 invoke.cont377.i:                                 ; preds = %invoke.cont373.i
@@ -1346,7 +1346,7 @@ if.then386.i:                                     ; preds = %invoke.cont383.i
           to label %invoke.cont390.i unwind label %lpad350.loopexit.i
 
 invoke.cont390.i:                                 ; preds = %if.then386.i
-  %call393.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %call391.i, ptr noundef nonnull %call251.i, ptr noundef nonnull %sts)
+  %call393.i = invoke ptr @uhash_put_75(ptr noundef %call110.i, ptr noundef %call391.i, ptr noundef nonnull %call251.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %while.cond354.i.backedge unwind label %lpad350.loopexit.i
 
 while.cond354.i.backedge:                         ; preds = %invoke.cont390.i, %invoke.cont383.i
@@ -1444,7 +1444,7 @@ if.then.i230.i:                                   ; preds = %if.end418.i
 invoke.cont422.i:                                 ; preds = %if.then.i230.i, %if.end418.i
   store ptr %call110.i, ptr %typeMap.i, align 8
   %81 = load ptr, ptr @_ZL13gLocExtKeyMap, align 8
-  %call424.i = invoke ptr @uhash_put_75(ptr noundef %81, ptr noundef %call80.i, ptr noundef nonnull %call415.i, ptr noundef nonnull %sts)
+  %call424.i = invoke ptr @uhash_put_75(ptr noundef %81, ptr noundef %call80.i, ptr noundef nonnull %call415.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont423.i unwind label %lpad159.i
 
 invoke.cont423.i:                                 ; preds = %invoke.cont422.i
@@ -1453,7 +1453,7 @@ invoke.cont423.i:                                 ; preds = %invoke.cont422.i
 
 if.then426.i:                                     ; preds = %invoke.cont423.i
   %82 = load ptr, ptr @_ZL13gLocExtKeyMap, align 8
-  %call428.i = invoke ptr @uhash_put_75(ptr noundef %82, ptr noundef %bcpKeyId.0.i, ptr noundef nonnull %call415.i, ptr noundef nonnull %sts)
+  %call428.i = invoke ptr @uhash_put_75(ptr noundef %82, ptr noundef %bcpKeyId.0.i, ptr noundef nonnull %call415.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %if.end429.i unwind label %lpad159.i
 
 if.end429.i:                                      ; preds = %if.then426.i, %invoke.cont423.i
@@ -2316,7 +2316,7 @@ for.body.i30:                                     ; preds = %for.inc.i36, %for.b
   br i1 %isnull.i33, label %for.inc.i36, label %delete.notnull.i34
 
 delete.notnull.i34:                               ; preds = %for.body.i30
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %30) #13
+  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %30) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %30) #13
   %.pre.i35 = load i32, ptr %26, align 8
   br label %for.inc.i36
@@ -2440,7 +2440,7 @@ if.end:                                           ; preds = %_ZN6icu_7515MaybeSt
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call7)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call7)
           to label %_ZN6icu_7510CharStringC2Ev.exit unwind label %lpad
 
 _ZN6icu_7510CharStringC2Ev.exit:                  ; preds = %new.notnull
@@ -2549,7 +2549,7 @@ invoke.cont:                                      ; preds = %new.notnull
   %7 = load ptr, ptr %agg.tmp, align 8
   %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %9 = load i32, ptr %8, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call9)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call9)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
@@ -2563,7 +2563,7 @@ invoke.cont:                                      ; preds = %new.notnull
 lpad.i:                                           ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %call9) #13
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %call9) #13
   br label %lpad.body
 
 new.cont:                                         ; preds = %.noexc, %if.end

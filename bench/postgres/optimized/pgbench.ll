@@ -987,7 +987,7 @@ sub_1382:                                         ; preds = %.tail.thread, %.thr
   %.val = load ptr, ptr %78, align 8
   %79 = getelementptr i8, ptr %77, i64 16
   %.val281 = load ptr, ptr %79, align 8
-  call fastcc void @ParseScript(ptr noundef %.val281, ptr noundef %.val, i32 noundef %75)
+  call fastcc void @ParseScript(ptr noundef %.val281, ptr noundef %.val, i32 noundef range(i32 0, -2147483648) %75)
   br label %checkInitSteps.exit
 
 80:                                               ; preds = %66
@@ -1142,7 +1142,7 @@ read_file_contents.exit.i:                        ; preds = %.lr.ph.i.i, %127
   br label %process_file.exit
 
 process_file.exit:                                ; preds = %141, %143
-  call fastcc void @ParseScript(ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull %117, i32 noundef %116)
+  call fastcc void @ParseScript(ptr noundef nonnull %.0.lcssa.i.i, ptr noundef nonnull %117, i32 noundef range(i32 0, -2147483648) %116)
   call void @free(ptr noundef nonnull %.0.lcssa.i.i) #26
   br label %checkInitSteps.exit
 
@@ -2809,7 +2809,7 @@ tryExecuteStatement.exit324:                      ; preds = %795, %800
 
 846:                                              ; preds = %._crit_edge705
   %847 = call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull @handle_sig_alarm) #26
-  %848 = call i32 @alarm(i32 noundef %844) #26
+  %848 = call i32 @alarm(i32 noundef range(i32 1, -2147483648) %844) #26
   br label %849
 
 849:                                              ; preds = %846, %._crit_edge705
@@ -3847,7 +3847,7 @@ define internal fastcc void @runInitSteps(ptr nocapture noundef readonly %0) unn
 23:                                               ; preds = %16
   %24 = load ptr, ptr @stderr, align 8
   %25 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %24, ptr noundef nonnull @.str.213) #26
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.214)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.214)
   br label %.loopexit
 
 26:                                               ; preds = %16
@@ -4014,7 +4014,7 @@ executeStatement.exit:                            ; preds = %56
   %104 = load i32, ptr @fillfactor, align 4
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.231, i32 noundef %104) #26
   %105 = load ptr, ptr %5, align 8
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef %105)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %105)
   %106 = add i32 %.014.i.i, 1
   %107 = load i32, ptr @partitions, align 4
   %.not.i.i = icmp sgt i32 %106, %107
@@ -4032,48 +4032,48 @@ initCreateTables.exit:                            ; preds = %62, %createPartitio
 108:                                              ; preds = %16
   %109 = load ptr, ptr @stderr, align 8
   %110 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %109, ptr noundef nonnull @.str.241) #26
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.242)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.244)
-  call fastcc void @initPopulateTable(ptr noundef %9, ptr noundef nonnull @.str.225, i64 noundef 1, ptr noundef nonnull @initBranch)
-  call fastcc void @initPopulateTable(ptr noundef %9, ptr noundef nonnull @.str.220, i64 noundef 10, ptr noundef nonnull @initTeller)
-  call fastcc void @initPopulateTable(ptr noundef %9, ptr noundef nonnull @.str.222, i64 noundef 100000, ptr noundef nonnull @initAccount)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.243)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.242)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.244)
+  call fastcc void @initPopulateTable(ptr noundef nonnull %9, ptr noundef nonnull @.str.225, i64 noundef 1, ptr noundef nonnull @initBranch)
+  call fastcc void @initPopulateTable(ptr noundef nonnull %9, ptr noundef nonnull @.str.220, i64 noundef 10, ptr noundef nonnull @initTeller)
+  call fastcc void @initPopulateTable(ptr noundef nonnull %9, ptr noundef nonnull @.str.222, i64 noundef 100000, ptr noundef nonnull @initAccount)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.243)
   br label %.loopexit
 
 111:                                              ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %112 = load ptr, ptr @stderr, align 8
   %113 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %112, ptr noundef nonnull @.str.259) #26
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.242)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.244)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.242)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.244)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #26
   %114 = load i32, ptr @scale, align 4
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.260, i32 noundef %114) #26
   %115 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef %115)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %115)
   %116 = load i32, ptr @scale, align 4
   %117 = mul i32 %116, 10
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.261, i32 noundef 10, i32 noundef %117) #26
   %118 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef %118)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %118)
   %119 = load i32, ptr @scale, align 4
   %120 = sext i32 %119 to i64
   %121 = mul nsw i64 %120, 100000
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.262, i32 noundef 100000, i64 noundef %121) #26
   %122 = load ptr, ptr %4, align 8
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef %122)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef %122)
   call void @termPQExpBuffer(ptr noundef nonnull %4) #26
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.243)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.243)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %.loopexit
 
 123:                                              ; preds = %16
   %124 = load ptr, ptr @stderr, align 8
   %125 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %124, ptr noundef nonnull @.str.263) #26
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.264)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.265)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.122)
-  call fastcc void @executeStatement(ptr noundef %9, ptr noundef nonnull @.str.266)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.264)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.265)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.122)
+  call fastcc void @executeStatement(ptr noundef nonnull %9, ptr noundef nonnull @.str.266)
   br label %.loopexit
 
 126:                                              ; preds = %16
@@ -4965,7 +4965,7 @@ pg_time_now_lazy.exit213.i:                       ; preds = %303, %300
   br i1 %314, label %315, label %324
 
 315:                                              ; preds = %pg_time_now_lazy.exit213.i
-  call fastcc void @processXactStats(ptr noundef nonnull %0, ptr noundef nonnull %190, ptr noundef %22, i1 noundef zeroext true, ptr noundef %28)
+  call fastcc void @processXactStats(ptr noundef nonnull %0, ptr noundef nonnull %190, ptr noundef %22, i1 noundef zeroext true, ptr noundef nonnull %28)
   %316 = load volatile i32, ptr @timer_exceeded, align 4
   %.not209.i = icmp eq i32 %316, 0
   br i1 %.not209.i, label %317, label %323
@@ -6862,7 +6862,7 @@ doRetry.exit245.thread.i:                         ; preds = %doRetry.exit245.i, 
   br label %.thread.i.backedge
 
 1232:                                             ; preds = %.thread.i
-  call fastcc void @processXactStats(ptr noundef %0, ptr noundef nonnull %190, ptr noundef %22, i1 noundef zeroext false, ptr noundef %28)
+  call fastcc void @processXactStats(ptr noundef %0, ptr noundef nonnull %190, ptr noundef %22, i1 noundef zeroext false, ptr noundef nonnull %28)
   %1233 = load ptr, ptr %190, align 8
   %1234 = call i32 @PQtransactionStatus(ptr noundef %1233) #26
   switch i32 %1234, label %getTransactionStatus.exit247.i [
@@ -11522,7 +11522,7 @@ define internal fastcc range(i64 0, 9223372036854775807) i64 @permute(i64 nounde
 
 6:                                                ; preds = %3
   call void @pg_prng_seed(ptr noundef nonnull %4, i64 noundef %2) #26
-  %7 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %7 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 2, -9223372036854775808) %1, i1 true)
   %8 = xor i64 %7, 63
   %notmask = shl nsw i64 -1, %8
   %9 = xor i64 %notmask, -1

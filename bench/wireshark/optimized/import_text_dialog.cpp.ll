@@ -11269,7 +11269,7 @@ define void @_ZN16ImportTextDialog19storeDialogSettingsEv(ptr noundef nonnull al
 232:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(32) %118, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %118, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115)
@@ -11340,7 +11340,7 @@ _ZN7QStringD2Ev.exit169:                          ; preds = %241, %_ZN17QArrayDa
 254:                                              ; preds = %244
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %120, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i171 = getelementptr inbounds i8, ptr %120, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i171, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112)
@@ -11427,7 +11427,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringD2Ev.exi
 281:                                              ; preds = %271
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %122, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i181 = getelementptr inbounds i8, ptr %122, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i181, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109)
@@ -11505,7 +11505,7 @@ _ZN7QStringD2Ev.exit189:                          ; preds = %290, %_ZN17QArrayDa
 308:                                              ; preds = %298
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %124, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i191 = getelementptr inbounds i8, ptr %124, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i191, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106)
@@ -11583,7 +11583,7 @@ _ZN7QStringD2Ev.exit199:                          ; preds = %317, %_ZN17QArrayDa
 335:                                              ; preds = %325
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %104)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %126, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i201 = getelementptr inbounds i8, ptr %126, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i201, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103)
@@ -11654,7 +11654,7 @@ _ZN7QStringD2Ev.exit209:                          ; preds = %344, %_ZN17QArrayDa
 357:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %101)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %128, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i211 = getelementptr inbounds i8, ptr %128, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i211, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100)
@@ -11738,7 +11738,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %_ZN7QStringD2Ev.exi
 383:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i221 = getelementptr inbounds i8, ptr %130, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i221, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97)
@@ -11791,7 +11791,7 @@ _ZN7QStringD2Ev.exit225:                          ; preds = %383, %_ZN17QArrayDa
 401:                                              ; preds = %392
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i227 = getelementptr inbounds i8, ptr %132, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i227, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94)
@@ -11847,7 +11847,7 @@ _ZN7QStringD2Ev.exit231:                          ; preds = %401, %_ZN17QArrayDa
 419:                                              ; preds = %410
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %134, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i233 = getelementptr inbounds i8, ptr %134, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i233, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91)
@@ -12052,7 +12052,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i255:   ; preds = %467
 485:                                              ; preds = %476
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %138, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i259 = getelementptr inbounds i8, ptr %138, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i259, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87)
@@ -12125,7 +12125,7 @@ _ZN7QStringD2Ev.exit267:                          ; preds = %494, %_ZN17QArrayDa
 507:                                              ; preds = %498
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %140, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i269 = getelementptr inbounds i8, ptr %140, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i269, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
@@ -12198,7 +12198,7 @@ _ZN7QStringD2Ev.exit277:                          ; preds = %516, %_ZN17QArrayDa
 529:                                              ; preds = %520
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %142, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i279 = getelementptr inbounds i8, ptr %142, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i279, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81)
@@ -12271,7 +12271,7 @@ _ZN7QStringD2Ev.exit287:                          ; preds = %538, %_ZN17QArrayDa
 551:                                              ; preds = %542
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %144, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %144, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i289 = getelementptr inbounds i8, ptr %144, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i289, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78)
@@ -12344,7 +12344,7 @@ _ZN7QStringD2Ev.exit297:                          ; preds = %560, %_ZN17QArrayDa
 573:                                              ; preds = %564
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %146, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %146, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i299 = getelementptr inbounds i8, ptr %146, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i299, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75)
@@ -12436,7 +12436,7 @@ _ZN7QStringD2Ev.exit307:                          ; preds = %582, %_ZN17QArrayDa
 600:                                              ; preds = %591
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %148, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %148, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i309 = getelementptr inbounds i8, ptr %148, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i309, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
@@ -12510,7 +12510,7 @@ _ZN7QStringD2Ev.exit317:                          ; preds = %_ZN7QStringD2Ev.exi
 623:                                              ; preds = %614
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %151, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i319 = getelementptr inbounds i8, ptr %151, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i319, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69)
@@ -12584,7 +12584,7 @@ _ZN7QStringD2Ev.exit327:                          ; preds = %_ZN7QStringD2Ev.exi
 646:                                              ; preds = %637
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %154, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i329 = getelementptr inbounds i8, ptr %154, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i329, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
@@ -12680,7 +12680,7 @@ _ZN7QStringD2Ev.exit337:                          ; preds = %_ZN7QStringD2Ev.exi
 680:                                              ; preds = %671
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %158, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i340 = getelementptr inbounds i8, ptr %158, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i340, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62)
@@ -12902,7 +12902,7 @@ _ZN7QStringD2Ev.exit372:                          ; preds = %736, %_ZN17QArrayDa
 749:                                              ; preds = %740
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %160, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i374 = getelementptr inbounds i8, ptr %160, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i374, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
@@ -12994,7 +12994,7 @@ _ZN7QStringD2Ev.exit344:                          ; preds = %_ZN7QStringD2Ev.exi
 777:                                              ; preds = %768
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %162, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %162, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i384 = getelementptr inbounds i8, ptr %162, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i384, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56)
@@ -13077,7 +13077,7 @@ _ZN7QStringD2Ev.exit392:                          ; preds = %786, %_ZN17QArrayDa
 805:                                              ; preds = %796
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i394 = getelementptr inbounds i8, ptr %164, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i394, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -13160,7 +13160,7 @@ _ZN7QStringD2Ev.exit402:                          ; preds = %814, %_ZN17QArrayDa
 833:                                              ; preds = %824
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %166, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i404 = getelementptr inbounds i8, ptr %166, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i404, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50)
@@ -13243,7 +13243,7 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %842, %_ZN17QArrayDa
 861:                                              ; preds = %852
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %168, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %168, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i414 = getelementptr inbounds i8, ptr %168, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i414, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47)
@@ -13326,7 +13326,7 @@ _ZN7QStringD2Ev.exit422:                          ; preds = %870, %_ZN17QArrayDa
 889:                                              ; preds = %880
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %170, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %170, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i424 = getelementptr inbounds i8, ptr %170, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i424, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
@@ -13397,7 +13397,7 @@ _ZN7QStringD2Ev.exit432:                          ; preds = %898, %_ZN17QArrayDa
 910:                                              ; preds = %908
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %172, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i433 = getelementptr inbounds i8, ptr %172, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i433, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
@@ -13468,7 +13468,7 @@ _ZN7QStringD2Ev.exit441:                          ; preds = %919, %_ZN17QArrayDa
 931:                                              ; preds = %929
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %174, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i442 = getelementptr inbounds i8, ptr %174, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i442, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
@@ -13529,7 +13529,7 @@ _ZN7QStringD2Ev.exit450:                          ; preds = %940, %_ZN17QArrayDa
 946:                                              ; preds = %944
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %176, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %176, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i451 = getelementptr inbounds i8, ptr %176, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i451, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
@@ -13622,7 +13622,7 @@ _ZN7QStringD2Ev.exit388:                          ; preds = %_ZN7QStringD2Ev.exi
 974:                                              ; preds = %965
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %178, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %178, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i461 = getelementptr inbounds i8, ptr %178, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i461, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
@@ -13682,7 +13682,7 @@ _ZN7QStringD2Ev.exit465:                          ; preds = %974, %_ZN17QArrayDa
 993:                                              ; preds = %984
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %181, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %181, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i467 = getelementptr inbounds i8, ptr %181, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i467, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
@@ -13756,7 +13756,7 @@ _ZN7QStringD2Ev.exit475:                          ; preds = %_ZN7QStringD2Ev.exi
 1016:                                             ; preds = %1007
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %184, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %184, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i477 = getelementptr inbounds i8, ptr %184, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i477, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
@@ -13830,7 +13830,7 @@ _ZN7QStringD2Ev.exit485:                          ; preds = %_ZN7QStringD2Ev.exi
 1039:                                             ; preds = %1030
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %187, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i487 = getelementptr inbounds i8, ptr %187, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i487, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
@@ -13904,7 +13904,7 @@ _ZN7QStringD2Ev.exit495:                          ; preds = %_ZN7QStringD2Ev.exi
 1062:                                             ; preds = %1053
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %190, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i497 = getelementptr inbounds i8, ptr %190, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
@@ -13978,7 +13978,7 @@ _ZN7QStringD2Ev.exit505:                          ; preds = %_ZN7QStringD2Ev.exi
 1085:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %193, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %193, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %193, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i507 = getelementptr inbounds i8, ptr %193, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i507, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
@@ -14052,7 +14052,7 @@ _ZN7QStringD2Ev.exit515:                          ; preds = %_ZN7QStringD2Ev.exi
 1108:                                             ; preds = %1099
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %196, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %196, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %196, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i517 = getelementptr inbounds i8, ptr %196, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i517, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
@@ -14126,7 +14126,7 @@ _ZN7QStringD2Ev.exit525:                          ; preds = %_ZN7QStringD2Ev.exi
 1131:                                             ; preds = %1122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %199, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i527 = getelementptr inbounds i8, ptr %199, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i527, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
@@ -14200,7 +14200,7 @@ _ZN7QStringD2Ev.exit535:                          ; preds = %_ZN7QStringD2Ev.exi
 1154:                                             ; preds = %1145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %202, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %202, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i537 = getelementptr inbounds i8, ptr %202, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i537, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -14278,7 +14278,7 @@ _ZN7QStringD2Ev.exit545:                          ; preds = %_ZN7QStringD2Ev.exi
 1178:                                             ; preds = %1169
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %205, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %205, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i547 = getelementptr inbounds i8, ptr %205, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i547, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -14353,7 +14353,7 @@ _ZN7QStringD2Ev.exit555:                          ; preds = %_ZN7QStringD2Ev.exi
 1201:                                             ; preds = %1192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %209, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %209, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i557 = getelementptr inbounds i8, ptr %209, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i557, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -14427,7 +14427,7 @@ _ZN7QStringD2Ev.exit565:                          ; preds = %_ZN7QStringD2Ev.exi
 1224:                                             ; preds = %1215
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %212, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %212, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %212, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i567 = getelementptr inbounds i8, ptr %212, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i567, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -15096,7 +15096,7 @@ define void @_ZN16ImportTextDialogD0Ev(ptr noundef nonnull align 8 dereferenceab
 define void @_ZThn16_N16ImportTextDialogD0Ev(ptr noundef %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN16ImportTextDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(313) %2) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(313) %2) #25
   ret void
 }
 
@@ -15845,7 +15845,7 @@ _ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit: ; p
   br i1 %31, label %_ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread, label %47
 
 _ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread: ; preds = %_ZN4QMapI7QString8QVariantE6detachEv.exit, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %_ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %32, align 8
   %33 = load ptr, ptr %1, align 8
@@ -15864,7 +15864,7 @@ _ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thre
 _ZNSt4pairIK7QString8QVariantEC2IRS1_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit: ; preds = %_ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE4findERS5_.exit.thread, %36
   %38 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 2, ptr %32, align 8
   %39 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE16_M_insert_uniqueIS4_EES1_ISt17_Rb_tree_iteratorIS4_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %_ZNSt3mapI7QString8QVariantSt4lessIS0_ESaISt4pairIKS0_S1_EEE6insertEOS6_.exit unwind label %45
@@ -16122,7 +16122,7 @@ define noundef i32 @_ZN16ImportTextDialog4execEv(ptr noundef nonnull align 8 der
   %25 = alloca %class.QByteArray, align 8
   %26 = alloca %class.QByteArray, align 8
   %27 = alloca %class.QByteArray, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %28, align 8
   store ptr null, ptr %8, align 8
@@ -16574,7 +16574,7 @@ _ZN7QStringD2Ev.exit51:                           ; preds = %184, %_ZN17QArrayDa
 211:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 24
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -25233,7 +25233,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %12, %3
 .body:                                            ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
+  tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   %17 = extractvalue { ptr, i32 } %16, 0
   %18 = tail call ptr @__cxa_begin_catch(ptr %17) #23
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
@@ -25374,7 +25374,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS
   %44 = getelementptr inbounds i8, ptr %37, i64 56
   %45 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false)
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %36, ptr noundef nonnull %37, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #23

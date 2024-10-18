@@ -7744,7 +7744,7 @@ Mini_AigLevelNum.exit:                            ; preds = %._crit_edge.i, %68
   br label %Exa_ManPrintFanin.exit
 
 98:                                               ; preds = %92
-  %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %94, i32 noundef %80)
+  %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %94, i32 noundef range(i32 -1073741824, 1073741824) %80)
   br label %Exa_ManPrintFanin.exit
 
 Exa_ManPrintFanin.exit:                           ; preds = %83, %88, %95, %98
@@ -7820,7 +7820,7 @@ Exa_ManPrintFanin.exit:                           ; preds = %83, %88, %95, %98
   br label %Exa_ManPrintFanin.exit93
 
 136:                                              ; preds = %130
-  %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %132, i32 noundef %118)
+  %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %132, i32 noundef range(i32 -1073741824, 1073741824) %118)
   br label %Exa_ManPrintFanin.exit93
 
 Exa_ManPrintFanin.exit93:                         ; preds = %121, %126, %133, %136
@@ -7863,7 +7863,7 @@ Exa_ManPrintFanin.exit93:                         ; preds = %121, %126, %133, %1
   br label %Exa_ManPrintFanin.exit101
 
 157:                                              ; preds = %151
-  %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %153, i32 noundef %139)
+  %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %153, i32 noundef range(i32 -1073741824, 1073741824) %139)
   br label %Exa_ManPrintFanin.exit101
 
 159:                                              ; preds = %107
@@ -7905,7 +7905,7 @@ Exa_ManPrintFanin.exit93:                         ; preds = %121, %126, %133, %1
   br label %Exa_ManPrintFanin.exit109
 
 178:                                              ; preds = %172
-  %179 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %174, i32 noundef %160)
+  %179 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %174, i32 noundef range(i32 -1073741824, 1073741824) %160)
   br label %Exa_ManPrintFanin.exit109
 
 Exa_ManPrintFanin.exit109:                        ; preds = %163, %168, %175, %178
@@ -7948,7 +7948,7 @@ Exa_ManPrintFanin.exit109:                        ; preds = %163, %168, %175, %1
   br label %Exa_ManPrintFanin.exit101
 
 199:                                              ; preds = %193
-  %200 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %195, i32 noundef %181)
+  %200 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.106, ptr noundef nonnull %195, i32 noundef range(i32 -1073741824, 1073741824) %181)
   br label %Exa_ManPrintFanin.exit101
 
 Exa_ManPrintFanin.exit101:                        ; preds = %199, %196, %189, %184, %157, %154, %147, %142
@@ -8383,7 +8383,7 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %21
-  %25 = call range(i32 1, -2147483648) i32 @llvm.abs.i32(i32 %22, i1 true)
+  %25 = call range(i32 1, -2147483648) i32 @llvm.abs.i32(i32 range(i32 1, 0) %22, i1 true)
   %26 = icmp sgt i32 %22, 0
   %27 = zext i1 %26 to i32
   %28 = add nuw nsw i32 %25, 1

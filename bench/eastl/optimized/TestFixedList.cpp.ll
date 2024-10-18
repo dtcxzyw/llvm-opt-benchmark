@@ -355,16 +355,16 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -380,16 +380,16 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -406,16 +406,16 @@ entry:
   %ref.tmp.i = alloca i32, align 4
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -487,16 +487,16 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -651,16 +651,16 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -689,16 +689,16 @@ invoke.cont:
   %agg.tmp2.i = alloca %"struct.eastl::ListIterator.0", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -733,16 +733,16 @@ invoke.cont:
   %agg.tmp2.i = alloca %"struct.eastl::ListIterator.0", align 8
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -775,16 +775,16 @@ define weak_odr dso_local void @_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEC2
 entry:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef %0, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -957,7 +957,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %mSize.i.i, align 8
   %5 = load ptr, ptr %x, align 8
-  tail call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %5, ptr nonnull %x)
+  tail call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(119) %this, ptr %5, ptr nonnull align 8 dereferenceable(119) %x)
   br label %_ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEaSERKS2_.exit
 
 _ZN5eastl10fixed_listIiLm1ELb1ENS_9allocatorEEaSERKS2_.exit: ; preds = %entry, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i
@@ -981,7 +981,7 @@ entry:
   store i64 0, ptr %mSize.i, align 8
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef nonnull %mBuffer, i64 noundef 47, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  tail call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i, ptr noundef nonnull %mBuffer, i64 noundef 47, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
   ret void
@@ -1050,7 +1050,7 @@ entry:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1071,7 +1071,7 @@ entry:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1092,7 +1092,7 @@ entry:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1206,7 +1206,7 @@ entry:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1321,7 +1321,7 @@ for.end.i.i:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1395,7 +1395,7 @@ for.end.i.i:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1469,7 +1469,7 @@ for.end.i.i:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -1543,7 +1543,7 @@ for.end.i.i:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 24, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
@@ -2117,7 +2117,7 @@ entry:
   %mBuffer.i = getelementptr inbounds i8, ptr %listInt64, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt64, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1615) %listInt64, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64, i64 16
   %mpNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i.i, align 8
@@ -2507,16 +2507,16 @@ while.body.i.i.i.i95:                             ; preds = %while.body.i.i.i.i9
 _ZN5eastl10fixed_listIiLm64ELb0ENS_9allocatorEED2Ev.exit98: ; preds = %while.body.i.i.i.i95, %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i99)
   %mBuffer.i100 = getelementptr inbounds i8, ptr %listInt6467, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i99, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i99, ptr noundef nonnull %mBuffer.i100, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i99, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i99, ptr noundef nonnull %mBuffer.i100, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i99, i64 40
   store ptr %mBuffer.i100, ptr %mpPoolBegin.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt6467, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %listInt6467, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i101 = getelementptr inbounds i8, ptr %listInt6467, i64 16
   %mpNext.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i99, i64 8
   %67 = load ptr, ptr %mpNext.i.i.i.i.i.i102, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i101, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i101, ptr noundef %67, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i101, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i101, ptr noundef %67, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt6467, i64 56
   store ptr %67, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
   %mSize.i.i.i103 = getelementptr inbounds i8, ptr %listInt6467, i64 64
@@ -2810,17 +2810,17 @@ _ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocat
 _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEE10deallocateEPvm.exit.i.i.i.i, %invoke.cont139
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i181)
   %mBuffer.i182 = getelementptr inbounds i8, ptr %listInt64145, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i181, i8 0, i64 48, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181, ptr noundef nonnull %mBuffer.i182, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i181, i8 0, i64 48, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i181, ptr noundef nonnull %mBuffer.i182, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i183 = getelementptr inbounds i8, ptr %ref.tmp.i181, i64 48
   store ptr %mBuffer.i182, ptr %mpPoolBegin.i.i.i183, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt64145, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1639) %listInt64145, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i184 = getelementptr inbounds i8, ptr %listInt64145, i64 16
   %mpNext.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %ref.tmp.i181, i64 8
   %108 = load ptr, ptr %mpNext.i.i.i.i.i.i185, align 8
   %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i181, i64 32
   %mOverflowAllocator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64145, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i184, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i184, i8 0, i64 32, i1 false)
   %109 = load i32, ptr %mOverflowAllocator.i.i.i.i.i.i, align 8
   store i32 %109, ptr %mOverflowAllocator.i.i.i.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %listInt64145, i64 52
@@ -2831,7 +2831,7 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20
   %mAllocVolume4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i181, i64 40
   %111 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i, align 8
   store i64 %111, ptr %mAllocVolume.i.i.i.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i184, ptr noundef %108, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i184, ptr noundef %108, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i186 = getelementptr inbounds i8, ptr %listInt64145, i64 64
   store ptr %108, ptr %mpPoolBegin.i.i.i.i.i.i.i186, align 8
   %mSize.i.i.i187 = getelementptr inbounds i8, ptr %listInt64145, i64 72
@@ -3135,16 +3135,16 @@ terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
 _ZN5eastl10fixed_listIiLm64ELb1E15MallocAllocatorED2Ev.exit: ; preds = %_ZN5eastl20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1E15MallocAllocatorE10deallocateEPvm.exit.i.i.i.i, %invoke.cont217
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i284)
   %mBuffer.i285 = getelementptr inbounds i8, ptr %fl, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i284, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i284, ptr noundef nonnull %mBuffer.i285, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i284, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i284, ptr noundef nonnull %mBuffer.i285, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
   %mpPoolBegin.i.i.i286 = getelementptr inbounds i8, ptr %ref.tmp.i284, i64 40
   store ptr %mBuffer.i285, ptr %mpPoolBegin.i.i.i286, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fl, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(327) %fl, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i287 = getelementptr inbounds i8, ptr %fl, i64 16
   %mpNext.i.i.i.i.i.i288 = getelementptr inbounds i8, ptr %ref.tmp.i284, i64 8
   %156 = load ptr, ptr %mpNext.i.i.i.i.i.i288, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i287, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i287, ptr noundef %156, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i287, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i287, ptr noundef %156, i64 noundef 128, i64 noundef 128, i64 noundef 64, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i289 = getelementptr inbounds i8, ptr %fl, i64 56
   store ptr %156, ptr %mpPoolBegin.i.i.i.i.i.i.i289, align 8
   %mSize.i.i.i290 = getelementptr inbounds i8, ptr %fl, i64 64
@@ -3457,19 +3457,19 @@ _ZN5eastl10fixed_listI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit: ; preds = %_Z
   %call234 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i403)
   %mBuffer.i404 = getelementptr inbounds i8, ptr %call234, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i403, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i403, ptr noundef nonnull %mBuffer.i404, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i403, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i403, ptr noundef nonnull %mBuffer.i404, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc411 unwind label %lpad235
 
 .noexc411:                                        ; preds = %_ZN5eastl10fixed_listI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit
   %mpPoolBegin.i.i.i405 = getelementptr inbounds i8, ptr %ref.tmp.i403, i64 40
   store ptr %mBuffer.i404, ptr %mpPoolBegin.i.i.i405, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call234, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %call234, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i406 = getelementptr inbounds i8, ptr %call234, i64 16
   %mpNext.i.i.i.i.i.i407 = getelementptr inbounds i8, ptr %ref.tmp.i403, i64 8
   %205 = load ptr, ptr %mpNext.i.i.i.i.i.i407, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i406, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i406, ptr noundef %205, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i406, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i406, ptr noundef %205, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont236 unwind label %lpad235
 
 invoke.cont236:                                   ; preds = %.noexc411
@@ -3484,19 +3484,19 @@ invoke.cont236:                                   ; preds = %.noexc411
   %call237 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i413)
   %mBuffer.i414 = getelementptr inbounds i8, ptr %call237, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i413, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i413, ptr noundef nonnull %mBuffer.i414, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i413, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i413, ptr noundef nonnull %mBuffer.i414, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc421 unwind label %lpad238
 
 .noexc421:                                        ; preds = %invoke.cont236
   %mpPoolBegin.i.i.i415 = getelementptr inbounds i8, ptr %ref.tmp.i413, i64 40
   store ptr %mBuffer.i414, ptr %mpPoolBegin.i.i.i415, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call237, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %call237, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i416 = getelementptr inbounds i8, ptr %call237, i64 16
   %mpNext.i.i.i.i.i.i417 = getelementptr inbounds i8, ptr %ref.tmp.i413, i64 8
   %206 = load ptr, ptr %mpNext.i.i.i.i.i.i417, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i416, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i416, ptr noundef %206, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i416, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i416, ptr noundef %206, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %.noexc421
@@ -3662,19 +3662,19 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit490: ; preds = %_ZN5east
   %call246 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i491)
   %mBuffer.i492 = getelementptr inbounds i8, ptr %call246, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i491, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i491, ptr noundef nonnull %mBuffer.i492, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i491, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i491, ptr noundef nonnull %mBuffer.i492, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc499 unwind label %lpad247
 
 .noexc499:                                        ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit490
   %mpPoolBegin.i.i.i493 = getelementptr inbounds i8, ptr %ref.tmp.i491, i64 40
   store ptr %mBuffer.i492, ptr %mpPoolBegin.i.i.i493, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call246, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %call246, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i494 = getelementptr inbounds i8, ptr %call246, i64 16
   %mpNext.i.i.i.i.i.i495 = getelementptr inbounds i8, ptr %ref.tmp.i491, i64 8
   %231 = load ptr, ptr %mpNext.i.i.i.i.i.i495, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i494, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i494, ptr noundef %231, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i494, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i494, ptr noundef %231, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont248 unwind label %lpad247
 
 invoke.cont248:                                   ; preds = %.noexc499
@@ -3689,19 +3689,19 @@ invoke.cont248:                                   ; preds = %.noexc499
   %call250 = call noalias noundef nonnull dereferenceable(1632) ptr @_Znwm(i64 noundef 1632) #15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i502)
   %mBuffer.i503 = getelementptr inbounds i8, ptr %call250, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i502, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i502, ptr noundef nonnull %mBuffer.i503, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i502, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i502, ptr noundef nonnull %mBuffer.i503, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc510 unwind label %lpad251
 
 .noexc510:                                        ; preds = %invoke.cont248
   %mpPoolBegin.i.i.i504 = getelementptr inbounds i8, ptr %ref.tmp.i502, i64 40
   store ptr %mBuffer.i503, ptr %mpPoolBegin.i.i.i504, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call250, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %call250, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i505 = getelementptr inbounds i8, ptr %call250, i64 16
   %mpNext.i.i.i.i.i.i506 = getelementptr inbounds i8, ptr %ref.tmp.i502, i64 8
   %232 = load ptr, ptr %mpNext.i.i.i.i.i.i506, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i505, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i505, ptr noundef %232, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i505, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i505, ptr noundef %232, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont252 unwind label %lpad251
 
 invoke.cont252:                                   ; preds = %.noexc510
@@ -3836,7 +3836,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   store ptr %call246, ptr %mpPrev.i.i.i.i498, align 8
   store i64 0, ptr %mSize.i.i.i497, align 8
   %252 = load ptr, ptr %call250, align 8
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %call246, ptr %252, ptr nonnull %call250)
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(1631) %call246, ptr %252, ptr nonnull align 8 dereferenceable(1631) %call250)
   br label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEaSERKS2_.exit
 
 _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEaSERKS2_.exit: ; preds = %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE9push_backEOi.exit550, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i
@@ -3912,7 +3912,7 @@ _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEED2Ev.exit586: ; preds = %_ZN5east
   %mBuffer.i588 = getelementptr inbounds i8, ptr %listInt5, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i587, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i587, ptr noundef nonnull %mBuffer.i588, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(199) %listInt5, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i589 = getelementptr inbounds i8, ptr %listInt5, i64 16
   %mpNext.i.i.i.i.i.i590 = getelementptr inbounds i8, ptr %ref.tmp.i587, i64 8
   %263 = load ptr, ptr %mpNext.i.i.i.i.i.i590, align 8
@@ -4216,16 +4216,16 @@ while.body.i.i.i.i705:                            ; preds = %while.body.i.i.i.i7
 _ZN5eastl10fixed_listIiLm5ELb0ENS_9allocatorEED2Ev.exit: ; preds = %while.body.i.i.i.i705, %invoke.cont328
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i708)
   %mBuffer.i709 = getelementptr inbounds i8, ptr %listInt5330, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i708, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i708, ptr noundef nonnull %mBuffer.i709, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i708, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i708, ptr noundef nonnull %mBuffer.i709, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i710 = getelementptr inbounds i8, ptr %ref.tmp.i708, i64 40
   store ptr %mBuffer.i709, ptr %mpPoolBegin.i.i.i710, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listInt5330, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(215) %listInt5330, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i711 = getelementptr inbounds i8, ptr %listInt5330, i64 16
   %mpNext.i.i.i.i.i.i712 = getelementptr inbounds i8, ptr %ref.tmp.i708, i64 8
   %317 = load ptr, ptr %mpNext.i.i.i.i.i.i712, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i711, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i711, ptr noundef %317, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i711, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i711, ptr noundef %317, i64 noundef 120, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i713 = getelementptr inbounds i8, ptr %listInt5330, i64 56
   store ptr %317, ptr %mpPoolBegin.i.i.i.i.i.i.i713, align 8
   %mSize.i.i.i714 = getelementptr inbounds i8, ptr %listInt5330, i64 64
@@ -4630,16 +4630,16 @@ _ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20f
   %add.ptr = getelementptr inbounds i8, ptr %A, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i884)
   %mBuffer.i885 = getelementptr inbounds i8, ptr %list0401, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i884, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i884, ptr noundef nonnull %mBuffer.i885, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i884, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i884, ptr noundef nonnull %mBuffer.i885, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i886 = getelementptr inbounds i8, ptr %ref.tmp.i884, i64 40
   store ptr %mBuffer.i885, ptr %mpPoolBegin.i.i.i886, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0401, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list0401, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i887 = getelementptr inbounds i8, ptr %list0401, i64 16
   %mpNext.i.i.i.i.i.i888 = getelementptr inbounds i8, ptr %ref.tmp.i884, i64 8
   %383 = load ptr, ptr %mpNext.i.i.i.i.i.i888, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i887, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i887, ptr noundef %383, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i887, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i887, ptr noundef %383, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i889 = getelementptr inbounds i8, ptr %list0401, i64 56
   store ptr %383, ptr %mpPoolBegin.i.i.i.i.i.i.i889, align 8
   %mSize.i.i.i890 = getelementptr inbounds i8, ptr %list0401, i64 64
@@ -4647,7 +4647,7 @@ _ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl20f
   store ptr %list0401, ptr %list0401, align 8
   %mpPrev.i.i.i.i891 = getelementptr inbounds i8, ptr %list0401, i64 8
   store ptr %list0401, ptr %mpPrev.i.i.i.i891, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0401, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list0401, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %while.body.i.i.i.i, %while.body.i.i.i.i1995, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2048, %while.body.i.i.i.i.i, %while.body.i.i.i.i5.i2066, %lpad69, %lpad147, %lpad219, %lpad235, %lpad238, %lpad247, %lpad251, %lpad331, %ehcleanup460, %ehcleanup551, %ehcleanup567, %ehcleanup642, %ehcleanup673, %_ZN10TestObjectD2Ev.exit2006, %ehcleanup733, %ehcleanup845, %lpad915, %lpad, %lpad262, %lpad852, %_ZN5eastl10fixed_listIN13FixedListTest4ItemELm10ELb0ENS_9allocatorEED2Ev.exit.i2061, %lpad.i1945, %lpad.i1915, %lpad.i1360, %lpad.i1299, %lpad.i1227, %lpad.i
@@ -4657,7 +4657,7 @@ common.resume:                                    ; preds = %while.body.i.i.i.i,
 lpad.i:                                           ; preds = %_ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit
   %384 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list0401) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list0401) #12
   br label %common.resume
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit: ; preds = %_ZN5eastl10fixed_listIiLm5ELb1ENS_9allocatorEED2Ev.exit
@@ -4665,19 +4665,19 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit: ; preds = %_Z
   %add.ptr411 = getelementptr inbounds i8, ptr %B, i64 20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i892)
   %mBuffer.i893 = getelementptr inbounds i8, ptr %list0402, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i892, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i892, ptr noundef nonnull %mBuffer.i893, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i892, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i892, ptr noundef nonnull %mBuffer.i893, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc901 unwind label %lpad412
 
 .noexc901:                                        ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit
   %mpPoolBegin.i.i.i894 = getelementptr inbounds i8, ptr %ref.tmp.i892, i64 40
   store ptr %mBuffer.i893, ptr %mpPoolBegin.i.i.i894, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0402, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list0402, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i895 = getelementptr inbounds i8, ptr %list0402, i64 16
   %mpNext.i.i.i.i.i.i896 = getelementptr inbounds i8, ptr %ref.tmp.i892, i64 8
   %385 = load ptr, ptr %mpNext.i.i.i.i.i.i896, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i895, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i895, ptr noundef %385, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i895, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i895, ptr noundef %385, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc902 unwind label %lpad412
 
 .noexc902:                                        ; preds = %.noexc901
@@ -4688,13 +4688,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit: ; preds = %_Z
   store ptr %list0402, ptr %list0402, align 8
   %mpPrev.i.i.i.i899 = getelementptr inbounds i8, ptr %list0402, i64 8
   store ptr %list0402, ptr %mpPrev.i.i.i.i899, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0402, ptr noundef nonnull %B, ptr noundef nonnull %add.ptr411)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list0402, ptr noundef nonnull %B, ptr noundef nonnull %add.ptr411)
           to label %invoke.cont413 unwind label %lpad.i900
 
 lpad.i900:                                        ; preds = %.noexc902
   %386 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list0402) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list0402) #12
   br label %ehcleanup460
 
 invoke.cont413:                                   ; preds = %.noexc902
@@ -4702,19 +4702,19 @@ invoke.cont413:                                   ; preds = %.noexc902
   %add.ptr416 = getelementptr inbounds i8, ptr %C, i64 20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i904)
   %mBuffer.i905 = getelementptr inbounds i8, ptr %list0403, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i904, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i904, ptr noundef nonnull %mBuffer.i905, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i904, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i904, ptr noundef nonnull %mBuffer.i905, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc913 unwind label %lpad417
 
 .noexc913:                                        ; preds = %invoke.cont413
   %mpPoolBegin.i.i.i906 = getelementptr inbounds i8, ptr %ref.tmp.i904, i64 40
   store ptr %mBuffer.i905, ptr %mpPoolBegin.i.i.i906, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0403, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list0403, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i907 = getelementptr inbounds i8, ptr %list0403, i64 16
   %mpNext.i.i.i.i.i.i908 = getelementptr inbounds i8, ptr %ref.tmp.i904, i64 8
   %387 = load ptr, ptr %mpNext.i.i.i.i.i.i908, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i907, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i907, ptr noundef %387, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i907, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i907, ptr noundef %387, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc914 unwind label %lpad417
 
 .noexc914:                                        ; preds = %.noexc913
@@ -4725,13 +4725,13 @@ invoke.cont413:                                   ; preds = %.noexc902
   store ptr %list0403, ptr %list0403, align 8
   %mpPrev.i.i.i.i911 = getelementptr inbounds i8, ptr %list0403, i64 8
   store ptr %list0403, ptr %mpPrev.i.i.i.i911, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0403, ptr noundef nonnull %C, ptr noundef nonnull %add.ptr416)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list0403, ptr noundef nonnull %C, ptr noundef nonnull %add.ptr416)
           to label %invoke.cont418 unwind label %lpad.i912
 
 lpad.i912:                                        ; preds = %.noexc914
   %388 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list0403) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list0403) #12
   br label %ehcleanup459
 
 invoke.cont418:                                   ; preds = %.noexc914
@@ -4739,19 +4739,19 @@ invoke.cont418:                                   ; preds = %.noexc914
   %add.ptr421 = getelementptr inbounds i8, ptr %D, i64 44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i917)
   %mBuffer.i918 = getelementptr inbounds i8, ptr %list0404, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i917, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i917, ptr noundef nonnull %mBuffer.i918, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i917, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i917, ptr noundef nonnull %mBuffer.i918, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc926 unwind label %lpad422
 
 .noexc926:                                        ; preds = %invoke.cont418
   %mpPoolBegin.i.i.i919 = getelementptr inbounds i8, ptr %ref.tmp.i917, i64 40
   store ptr %mBuffer.i918, ptr %mpPoolBegin.i.i.i919, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0404, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list0404, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i920 = getelementptr inbounds i8, ptr %list0404, i64 16
   %mpNext.i.i.i.i.i.i921 = getelementptr inbounds i8, ptr %ref.tmp.i917, i64 8
   %389 = load ptr, ptr %mpNext.i.i.i.i.i.i921, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i920, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i920, ptr noundef %389, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i920, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i920, ptr noundef %389, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc927 unwind label %lpad422
 
 .noexc927:                                        ; preds = %.noexc926
@@ -4762,32 +4762,32 @@ invoke.cont418:                                   ; preds = %.noexc914
   store ptr %list0404, ptr %list0404, align 8
   %mpPrev.i.i.i.i924 = getelementptr inbounds i8, ptr %list0404, i64 8
   store ptr %list0404, ptr %mpPrev.i.i.i.i924, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0404, ptr noundef nonnull %D, ptr noundef nonnull %add.ptr421)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list0404, ptr noundef nonnull %D, ptr noundef nonnull %add.ptr421)
           to label %invoke.cont423 unwind label %lpad.i925
 
 lpad.i925:                                        ; preds = %.noexc927
   %390 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list0404) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list0404) #12
   br label %ehcleanup458
 
 invoke.cont423:                                   ; preds = %.noexc927
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i917)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i930)
   %mBuffer.i931 = getelementptr inbounds i8, ptr %list0405, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i930, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i930, ptr noundef nonnull %mBuffer.i931, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i930, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i930, ptr noundef nonnull %mBuffer.i931, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc939 unwind label %lpad427
 
 .noexc939:                                        ; preds = %invoke.cont423
   %mpPoolBegin.i.i.i932 = getelementptr inbounds i8, ptr %ref.tmp.i930, i64 40
   store ptr %mBuffer.i931, ptr %mpPoolBegin.i.i.i932, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list0405, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list0405, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i933 = getelementptr inbounds i8, ptr %list0405, i64 16
   %mpNext.i.i.i.i.i.i934 = getelementptr inbounds i8, ptr %ref.tmp.i930, i64 8
   %391 = load ptr, ptr %mpNext.i.i.i.i.i.i934, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i933, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i933, ptr noundef %391, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i933, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i933, ptr noundef %391, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc940 unwind label %lpad427
 
 .noexc940:                                        ; preds = %.noexc939
@@ -4798,13 +4798,13 @@ invoke.cont423:                                   ; preds = %.noexc927
   store ptr %list0405, ptr %list0405, align 8
   %mpPrev.i.i.i.i937 = getelementptr inbounds i8, ptr %list0405, i64 8
   store ptr %list0405, ptr %mpPrev.i.i.i.i937, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list0405, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list0405, ptr noundef nonnull %A, ptr noundef nonnull %add.ptr)
           to label %invoke.cont428 unwind label %lpad.i938
 
 lpad.i938:                                        ; preds = %.noexc940
   %392 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list0405) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list0405) #12
   br label %ehcleanup
 
 invoke.cont428:                                   ; preds = %.noexc940
@@ -4898,7 +4898,7 @@ while.end.i951:                                   ; preds = %if.end.i, %invoke.c
   br i1 %cmp.i8.not.i, label %invoke.cont436, label %if.then14.i
 
 if.then14.i:                                      ; preds = %while.end.i951
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_S9_(ptr noundef nonnull align 8 dereferenceable(72) %list0401, ptr nonnull %list0401, ptr noundef nonnull align 8 dereferenceable(72) %list0402, ptr %firstX.sroa.0.0.lcssa.i, ptr nonnull %list0402)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_S9_(ptr noundef nonnull align 8 dereferenceable(72) %list0401, ptr nonnull align 8 dereferenceable(72) %list0401, ptr noundef nonnull align 8 dereferenceable(72) %list0402, ptr %firstX.sroa.0.0.lcssa.i, ptr nonnull align 8 dereferenceable(72) %list0402)
           to label %invoke.cont436 unwind label %lpad429.loopexit.split-lp
 
 invoke.cont436:                                   ; preds = %while.end.i951, %if.then14.i
@@ -5160,16 +5160,16 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1075: ; preds = %_ZN5eas
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %A461, ptr noundef nonnull align 16 dereferenceable(40) @__const._Z13TestFixedListv.A.29, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1076)
   %mBuffer.i1077 = getelementptr inbounds i8, ptr %listEmpty, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1076, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1076, ptr noundef nonnull %mBuffer.i1077, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1076, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1076, ptr noundef nonnull %mBuffer.i1077, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1078 = getelementptr inbounds i8, ptr %ref.tmp.i1076, i64 40
   store ptr %mBuffer.i1077, ptr %mpPoolBegin.i.i.i1078, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listEmpty, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listEmpty, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1079 = getelementptr inbounds i8, ptr %listEmpty, i64 16
   %mpNext.i.i.i.i.i.i1080 = getelementptr inbounds i8, ptr %ref.tmp.i1076, i64 8
   %437 = load ptr, ptr %mpNext.i.i.i.i.i.i1080, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1079, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1079, ptr noundef %437, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1079, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1079, ptr noundef %437, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1081 = getelementptr inbounds i8, ptr %listEmpty, i64 56
   store ptr %437, ptr %mpPoolBegin.i.i.i.i.i.i.i1081, align 8
   %mSize.i.i.i1082 = getelementptr inbounds i8, ptr %listEmpty, i64 64
@@ -5220,19 +5220,19 @@ invoke.cont474:                                   ; preds = %invoke.cont472
   %add.ptr478 = getelementptr inbounds i8, ptr %A461, i64 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1091)
   %mBuffer.i1092 = getelementptr inbounds i8, ptr %list1, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1091, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1091, ptr noundef nonnull %mBuffer.i1092, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1091, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1091, ptr noundef nonnull %mBuffer.i1092, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1100 unwind label %lpad464
 
 .noexc1100:                                       ; preds = %invoke.cont474
   %mpPoolBegin.i.i.i1093 = getelementptr inbounds i8, ptr %ref.tmp.i1091, i64 40
   store ptr %mBuffer.i1092, ptr %mpPoolBegin.i.i.i1093, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list1, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1094 = getelementptr inbounds i8, ptr %list1, i64 16
   %mpNext.i.i.i.i.i.i1095 = getelementptr inbounds i8, ptr %ref.tmp.i1091, i64 8
   %441 = load ptr, ptr %mpNext.i.i.i.i.i.i1095, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1094, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1094, ptr noundef %441, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1094, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1094, ptr noundef %441, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1101 unwind label %lpad464
 
 .noexc1101:                                       ; preds = %.noexc1100
@@ -5243,13 +5243,13 @@ invoke.cont474:                                   ; preds = %invoke.cont472
   store ptr %list1, ptr %list1, align 8
   %mpPrev.i.i.i.i1098 = getelementptr inbounds i8, ptr %list1, i64 8
   store ptr %list1, ptr %mpPrev.i.i.i.i1098, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list1, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr478)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list1, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr478)
           to label %invoke.cont479 unwind label %lpad.i1099
 
 lpad.i1099:                                       ; preds = %.noexc1101
   %442 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list1) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list1) #12
   br label %ehcleanup551
 
 invoke.cont479:                                   ; preds = %.noexc1101
@@ -5298,19 +5298,19 @@ invoke.cont492:                                   ; preds = %invoke.cont490
   %add.ptr496 = getelementptr inbounds i8, ptr %A461, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1111)
   %mBuffer.i1112 = getelementptr inbounds i8, ptr %list4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1111, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1111, ptr noundef nonnull %mBuffer.i1112, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1111, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1111, ptr noundef nonnull %mBuffer.i1112, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1120 unwind label %lpad482
 
 .noexc1120:                                       ; preds = %invoke.cont492
   %mpPoolBegin.i.i.i1113 = getelementptr inbounds i8, ptr %ref.tmp.i1111, i64 40
   store ptr %mBuffer.i1112, ptr %mpPoolBegin.i.i.i1113, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %list4, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1114 = getelementptr inbounds i8, ptr %list4, i64 16
   %mpNext.i.i.i.i.i.i1115 = getelementptr inbounds i8, ptr %ref.tmp.i1111, i64 8
   %447 = load ptr, ptr %mpNext.i.i.i.i.i.i1115, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1114, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1114, ptr noundef %447, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1114, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1114, ptr noundef %447, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1121 unwind label %lpad482
 
 .noexc1121:                                       ; preds = %.noexc1120
@@ -5321,13 +5321,13 @@ invoke.cont492:                                   ; preds = %invoke.cont490
   store ptr %list4, ptr %list4, align 8
   %mpPrev.i.i.i.i1118 = getelementptr inbounds i8, ptr %list4, i64 8
   store ptr %list4, ptr %mpPrev.i.i.i.i1118, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %list4, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr496)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %list4, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr496)
           to label %invoke.cont497 unwind label %lpad.i1119
 
 lpad.i1119:                                       ; preds = %.noexc1121
   %448 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list4) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %list4) #12
   br label %ehcleanup550
 
 invoke.cont497:                                   ; preds = %.noexc1121
@@ -5376,19 +5376,19 @@ invoke.cont510:                                   ; preds = %invoke.cont508
   %add.ptr514 = getelementptr inbounds i8, ptr %A461, i64 40
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1131)
   %mBuffer.i1132 = getelementptr inbounds i8, ptr %listA, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1131, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1131, ptr noundef nonnull %mBuffer.i1132, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1131, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1131, ptr noundef nonnull %mBuffer.i1132, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1140 unwind label %lpad500
 
 .noexc1140:                                       ; preds = %invoke.cont510
   %mpPoolBegin.i.i.i1133 = getelementptr inbounds i8, ptr %ref.tmp.i1131, i64 40
   store ptr %mBuffer.i1132, ptr %mpPoolBegin.i.i.i1133, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listA, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1134 = getelementptr inbounds i8, ptr %listA, i64 16
   %mpNext.i.i.i.i.i.i1135 = getelementptr inbounds i8, ptr %ref.tmp.i1131, i64 8
   %453 = load ptr, ptr %mpNext.i.i.i.i.i.i1135, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1134, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1134, ptr noundef %453, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1134, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1134, ptr noundef %453, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1141 unwind label %lpad500
 
 .noexc1141:                                       ; preds = %.noexc1140
@@ -5399,13 +5399,13 @@ invoke.cont510:                                   ; preds = %invoke.cont508
   store ptr %listA, ptr %listA, align 8
   %mpPrev.i.i.i.i1138 = getelementptr inbounds i8, ptr %listA, i64 8
   store ptr %listA, ptr %mpPrev.i.i.i.i1138, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr514)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listA, ptr noundef nonnull %A461, ptr noundef nonnull %add.ptr514)
           to label %invoke.cont515 unwind label %lpad.i1139
 
 lpad.i1139:                                       ; preds = %.noexc1141
   %454 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listA) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listA) #12
   br label %ehcleanup549
 
 invoke.cont515:                                   ; preds = %.noexc1141
@@ -5633,16 +5633,16 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1218: ; preds = %_ZN5eas
   %add.ptr558 = getelementptr inbounds i8, ptr %A553, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1219)
   %mBuffer.i1220 = getelementptr inbounds i8, ptr %listA555, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1219, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1219, ptr noundef nonnull %mBuffer.i1220, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1219, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1219, ptr noundef nonnull %mBuffer.i1220, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1221 = getelementptr inbounds i8, ptr %ref.tmp.i1219, i64 40
   store ptr %mBuffer.i1220, ptr %mpPoolBegin.i.i.i1221, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA555, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listA555, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1222 = getelementptr inbounds i8, ptr %listA555, i64 16
   %mpNext.i.i.i.i.i.i1223 = getelementptr inbounds i8, ptr %ref.tmp.i1219, i64 8
   %483 = load ptr, ptr %mpNext.i.i.i.i.i.i1223, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1222, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1222, ptr noundef %483, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1222, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1222, ptr noundef %483, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1224 = getelementptr inbounds i8, ptr %listA555, i64 56
   store ptr %483, ptr %mpPoolBegin.i.i.i.i.i.i.i1224, align 8
   %mSize.i.i.i1225 = getelementptr inbounds i8, ptr %listA555, i64 64
@@ -5650,13 +5650,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1218: ; preds = %_ZN5eas
   store ptr %listA555, ptr %listA555, align 8
   %mpPrev.i.i.i.i1226 = getelementptr inbounds i8, ptr %listA555, i64 8
   store ptr %listA555, ptr %mpPrev.i.i.i.i1226, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA555, ptr noundef nonnull %A553, ptr noundef nonnull %add.ptr558)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listA555, ptr noundef nonnull %A553, ptr noundef nonnull %add.ptr558)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1228 unwind label %lpad.i1227
 
 lpad.i1227:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1218
   %484 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listA555) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listA555) #12
   br label %common.resume
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1228: ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1218
@@ -5664,19 +5664,19 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1228: ; preds =
   %add.ptr561 = getelementptr inbounds i8, ptr %B554, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1229)
   %mBuffer.i1230 = getelementptr inbounds i8, ptr %listB, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1229, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1229, ptr noundef nonnull %mBuffer.i1230, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1229, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1229, ptr noundef nonnull %mBuffer.i1230, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1238 unwind label %lpad562
 
 .noexc1238:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1228
   %mpPoolBegin.i.i.i1231 = getelementptr inbounds i8, ptr %ref.tmp.i1229, i64 40
   store ptr %mBuffer.i1230, ptr %mpPoolBegin.i.i.i1231, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listB, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1232 = getelementptr inbounds i8, ptr %listB, i64 16
   %mpNext.i.i.i.i.i.i1233 = getelementptr inbounds i8, ptr %ref.tmp.i1229, i64 8
   %485 = load ptr, ptr %mpNext.i.i.i.i.i.i1233, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1232, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1232, ptr noundef %485, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1232, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1232, ptr noundef %485, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1239 unwind label %lpad562
 
 .noexc1239:                                       ; preds = %.noexc1238
@@ -5687,13 +5687,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1228: ; preds =
   store ptr %listB, ptr %listB, align 8
   %mpPrev.i.i.i.i1236 = getelementptr inbounds i8, ptr %listB, i64 8
   store ptr %listB, ptr %mpPrev.i.i.i.i1236, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB, ptr noundef nonnull %B554, ptr noundef nonnull %add.ptr561)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listB, ptr noundef nonnull %B554, ptr noundef nonnull %add.ptr561)
           to label %invoke.cont563 unwind label %lpad.i1237
 
 lpad.i1237:                                       ; preds = %.noexc1239
   %486 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listB) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listB) #12
   br label %ehcleanup567
 
 invoke.cont563:                                   ; preds = %.noexc1239
@@ -5738,7 +5738,7 @@ while.end.i1244:                                  ; preds = %if.end.i1252, %invo
   br i1 %cmp.i7.not.i, label %invoke.cont565, label %if.then14.i1246
 
 if.then14.i1246:                                  ; preds = %while.end.i1244
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_S9_(ptr noundef nonnull align 8 dereferenceable(72) %listA555, ptr nonnull %listA555, ptr noundef nonnull align 8 dereferenceable(72) %listB, ptr %firstX.sroa.0.0.lcssa.i1245, ptr nonnull %listB)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE6spliceENS_12ListIteratorIiPKiRS6_EERS4_S9_S9_(ptr noundef nonnull align 8 dereferenceable(72) %listA555, ptr nonnull align 8 dereferenceable(72) %listA555, ptr noundef nonnull align 8 dereferenceable(72) %listB, ptr %firstX.sroa.0.0.lcssa.i1245, ptr nonnull align 8 dereferenceable(72) %listB)
           to label %invoke.cont565 unwind label %lpad564.loopexit.split-lp
 
 invoke.cont565:                                   ; preds = %while.end.i1244, %if.then14.i1246
@@ -5813,16 +5813,16 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1290: ; preds = %_ZN5eas
   %add.ptr574 = getelementptr inbounds i8, ptr %A569, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1291)
   %mBuffer.i1292 = getelementptr inbounds i8, ptr %listA571, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1291, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1291, ptr noundef nonnull %mBuffer.i1292, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1291, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1291, ptr noundef nonnull %mBuffer.i1292, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1293 = getelementptr inbounds i8, ptr %ref.tmp.i1291, i64 40
   store ptr %mBuffer.i1292, ptr %mpPoolBegin.i.i.i1293, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA571, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listA571, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1294 = getelementptr inbounds i8, ptr %listA571, i64 16
   %mpNext.i.i.i.i.i.i1295 = getelementptr inbounds i8, ptr %ref.tmp.i1291, i64 8
   %503 = load ptr, ptr %mpNext.i.i.i.i.i.i1295, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1294, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1294, ptr noundef %503, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1294, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1294, ptr noundef %503, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1296 = getelementptr inbounds i8, ptr %listA571, i64 56
   store ptr %503, ptr %mpPoolBegin.i.i.i.i.i.i.i1296, align 8
   %mSize.i.i.i1297 = getelementptr inbounds i8, ptr %listA571, i64 64
@@ -5830,13 +5830,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1290: ; preds = %_ZN5eas
   store ptr %listA571, ptr %listA571, align 8
   %mpPrev.i.i.i.i1298 = getelementptr inbounds i8, ptr %listA571, i64 8
   store ptr %listA571, ptr %mpPrev.i.i.i.i1298, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA571, ptr noundef nonnull %A569, ptr noundef nonnull %add.ptr574)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listA571, ptr noundef nonnull %A569, ptr noundef nonnull %add.ptr574)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1300 unwind label %lpad.i1299
 
 lpad.i1299:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1290
   %504 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listA571) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listA571) #12
   br label %common.resume
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1300: ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1290
@@ -5844,19 +5844,19 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1300: ; preds =
   %add.ptr578 = getelementptr inbounds i8, ptr %B570, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1301)
   %mBuffer.i1302 = getelementptr inbounds i8, ptr %listB575, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1301, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1301, ptr noundef nonnull %mBuffer.i1302, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1301, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1301, ptr noundef nonnull %mBuffer.i1302, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1310 unwind label %lpad579
 
 .noexc1310:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1300
   %mpPoolBegin.i.i.i1303 = getelementptr inbounds i8, ptr %ref.tmp.i1301, i64 40
   store ptr %mBuffer.i1302, ptr %mpPoolBegin.i.i.i1303, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB575, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listB575, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1304 = getelementptr inbounds i8, ptr %listB575, i64 16
   %mpNext.i.i.i.i.i.i1305 = getelementptr inbounds i8, ptr %ref.tmp.i1301, i64 8
   %505 = load ptr, ptr %mpNext.i.i.i.i.i.i1305, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1304, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1304, ptr noundef %505, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1304, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1304, ptr noundef %505, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1311 unwind label %lpad579
 
 .noexc1311:                                       ; preds = %.noexc1310
@@ -5867,13 +5867,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1300: ; preds =
   store ptr %listB575, ptr %listB575, align 8
   %mpPrev.i.i.i.i1308 = getelementptr inbounds i8, ptr %listB575, i64 8
   store ptr %listB575, ptr %mpPrev.i.i.i.i1308, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB575, ptr noundef nonnull %B570, ptr noundef nonnull %add.ptr578)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listB575, ptr noundef nonnull %B570, ptr noundef nonnull %add.ptr578)
           to label %invoke.cont580 unwind label %lpad.i1309
 
 lpad.i1309:                                       ; preds = %.noexc1311
   %506 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listB575) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listB575) #12
   br label %ehcleanup642
 
 invoke.cont580:                                   ; preds = %.noexc1311
@@ -6059,16 +6059,16 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1351: ; preds = %_ZN5eas
   %add.ptr649 = getelementptr inbounds i8, ptr %A644, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1352)
   %mBuffer.i1353 = getelementptr inbounds i8, ptr %listA646, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1352, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1352, ptr noundef nonnull %mBuffer.i1353, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1352, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1352, ptr noundef nonnull %mBuffer.i1353, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1354 = getelementptr inbounds i8, ptr %ref.tmp.i1352, i64 40
   store ptr %mBuffer.i1353, ptr %mpPoolBegin.i.i.i1354, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listA646, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listA646, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1355 = getelementptr inbounds i8, ptr %listA646, i64 16
   %mpNext.i.i.i.i.i.i1356 = getelementptr inbounds i8, ptr %ref.tmp.i1352, i64 8
   %531 = load ptr, ptr %mpNext.i.i.i.i.i.i1356, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1355, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1355, ptr noundef %531, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1355, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1355, ptr noundef %531, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1357 = getelementptr inbounds i8, ptr %listA646, i64 56
   store ptr %531, ptr %mpPoolBegin.i.i.i.i.i.i.i1357, align 8
   %mSize.i.i.i1358 = getelementptr inbounds i8, ptr %listA646, i64 64
@@ -6076,13 +6076,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1351: ; preds = %_ZN5eas
   store ptr %listA646, ptr %listA646, align 8
   %mpPrev.i.i.i.i1359 = getelementptr inbounds i8, ptr %listA646, i64 8
   store ptr %listA646, ptr %mpPrev.i.i.i.i1359, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listA646, ptr noundef nonnull %A644, ptr noundef nonnull %add.ptr649)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listA646, ptr noundef nonnull %A644, ptr noundef nonnull %add.ptr649)
           to label %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1361 unwind label %lpad.i1360
 
 lpad.i1360:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1351
   %532 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listA646) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listA646) #12
   br label %common.resume
 
 _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1361: ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1351
@@ -6167,19 +6167,19 @@ invoke.cont656:                                   ; preds = %invoke.cont654
   %add.ptr661 = getelementptr inbounds i8, ptr %B645, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1381)
   %mBuffer.i1382 = getelementptr inbounds i8, ptr %listB658, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1381, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1381, ptr noundef nonnull %mBuffer.i1382, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1381, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1381, ptr noundef nonnull %mBuffer.i1382, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1390 unwind label %lpad650
 
 .noexc1390:                                       ; preds = %invoke.cont656
   %mpPoolBegin.i.i.i1383 = getelementptr inbounds i8, ptr %ref.tmp.i1381, i64 40
   store ptr %mBuffer.i1382, ptr %mpPoolBegin.i.i.i1383, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %listB658, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(863) %listB658, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1384 = getelementptr inbounds i8, ptr %listB658, i64 16
   %mpNext.i.i.i.i.i.i1385 = getelementptr inbounds i8, ptr %ref.tmp.i1381, i64 8
   %547 = load ptr, ptr %mpNext.i.i.i.i.i.i1385, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1384, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1384, ptr noundef %547, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1384, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1384, ptr noundef %547, i64 noundef 768, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %.noexc1391 unwind label %lpad650
 
 .noexc1391:                                       ; preds = %.noexc1390
@@ -6190,13 +6190,13 @@ invoke.cont656:                                   ; preds = %invoke.cont654
   store ptr %listB658, ptr %listB658, align 8
   %mpPrev.i.i.i.i1388 = getelementptr inbounds i8, ptr %listB658, i64 8
   store ptr %listB658, ptr %mpPrev.i.i.i.i1388, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %listB658, ptr noundef nonnull %B645, ptr noundef nonnull %add.ptr661)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignIPKiEEvT_S8_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(863) %listB658, ptr noundef nonnull %B645, ptr noundef nonnull %add.ptr661)
           to label %invoke.cont662 unwind label %lpad.i1389
 
 lpad.i1389:                                       ; preds = %.noexc1391
   %548 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %listB658) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm32ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(863) %listB658) #12
   br label %ehcleanup673
 
 invoke.cont662:                                   ; preds = %.noexc1391
@@ -6358,19 +6358,19 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1445: ; preds = %_ZN5eas
   store i64 %inc3.i, ptr %mId.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1447)
   %mBuffer.i1448 = getelementptr inbounds i8, ptr %list3TO33, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1447, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1447, ptr noundef nonnull %mBuffer.i1448, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1447, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1447, ptr noundef nonnull %mBuffer.i1448, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1456 unwind label %lpad675
 
 .noexc1456:                                       ; preds = %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1445
   %mpPoolBegin.i.i.i1449 = getelementptr inbounds i8, ptr %ref.tmp.i1447, i64 40
   store ptr %mBuffer.i1448, ptr %mpPoolBegin.i.i.i1449, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list3TO33, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(751) %list3TO33, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1450 = getelementptr inbounds i8, ptr %list3TO33, i64 16
   %mpNext.i.i.i.i.i.i1451 = getelementptr inbounds i8, ptr %ref.tmp.i1447, i64 8
   %576 = load ptr, ptr %mpNext.i.i.i.i.i.i1451, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1450, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1450, ptr noundef %576, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1450, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1450, ptr noundef %576, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1457 unwind label %lpad675
 
 .noexc1457:                                       ; preds = %.noexc1456
@@ -6381,13 +6381,13 @@ _ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEED2Ev.exit1445: ; preds = %_ZN5eas
   store ptr %list3TO33, ptr %list3TO33, align 8
   %mpPrev.i.i.i.i1454 = getelementptr inbounds i8, ptr %list3TO33, i64 8
   store ptr %list3TO33, ptr %mpPrev.i.i.i.i1454, align 8
-  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(72) %list3TO33, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp674)
+  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(751) %list3TO33, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp674)
           to label %invoke.cont676 unwind label %lpad.i1455
 
 lpad.i1455:                                       ; preds = %.noexc1457
   %577 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %list3TO33) #12
+  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(751) %list3TO33) #12
   br label %lpad675.body
 
 invoke.cont676:                                   ; preds = %.noexc1457
@@ -6412,19 +6412,19 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %invoke.cont676, %if
   store i64 %inc3.i1464, ptr @_ZN10TestObject12sTODtorCountE, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1465)
   %mBuffer.i1466 = getelementptr inbounds i8, ptr %toListA, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1465, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1465, ptr noundef nonnull %mBuffer.i1466, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1465, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1465, ptr noundef nonnull %mBuffer.i1466, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1474 unwind label %lpad679
 
 .noexc1474:                                       ; preds = %_ZN10TestObjectD2Ev.exit
   %mpPoolBegin.i.i.i1467 = getelementptr inbounds i8, ptr %ref.tmp.i1465, i64 40
   store ptr %mBuffer.i1466, ptr %mpPoolBegin.i.i.i1467, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListA, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(751) %toListA, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1468 = getelementptr inbounds i8, ptr %toListA, i64 16
   %mpNext.i.i.i.i.i.i1469 = getelementptr inbounds i8, ptr %ref.tmp.i1465, i64 8
   %582 = load ptr, ptr %mpNext.i.i.i.i.i.i1469, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1468, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1468, ptr noundef %582, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1468, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1468, ptr noundef %582, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1475 unwind label %lpad679
 
 .noexc1475:                                       ; preds = %.noexc1474
@@ -6440,13 +6440,13 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %invoke.cont676, %if
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
   store ptr %583, ptr %agg.tmp.i.i, align 8
   store ptr %list3TO33, ptr %agg.tmp2.i.i, align 8
-  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIS1_PS1_RS1_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %toListA, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
+  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIS1_PS1_RS1_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(751) %toListA, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
           to label %invoke.cont680 unwind label %lpad.i1473
 
 lpad.i1473:                                       ; preds = %.noexc1475
   %584 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %toListA) #12
+  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(751) %toListA) #12
   br label %ehcleanup733
 
 invoke.cont680:                                   ; preds = %.noexc1475
@@ -6488,20 +6488,20 @@ invoke.cont687:                                   ; preds = %land.end
   store i64 %inc3.i1482, ptr %mId.i1484, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1485)
   %mBuffer.i1486 = getelementptr inbounds i8, ptr %list4TO44, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1485, i8 0, i64 48, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1485, ptr noundef nonnull %mBuffer.i1486, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1485, i8 0, i64 48, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1485, ptr noundef nonnull %mBuffer.i1486, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1500 unwind label %lpad691
 
 .noexc1500:                                       ; preds = %invoke.cont687
   %mpPoolBegin.i.i.i1487 = getelementptr inbounds i8, ptr %ref.tmp.i1485, i64 48
   store ptr %mBuffer.i1486, ptr %mpPoolBegin.i.i.i1487, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list4TO44, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(759) %list4TO44, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1488 = getelementptr inbounds i8, ptr %list4TO44, i64 16
   %mpNext.i.i.i.i.i.i1489 = getelementptr inbounds i8, ptr %ref.tmp.i1485, i64 8
   %592 = load ptr, ptr %mpNext.i.i.i.i.i.i1489, align 8
   %mOverflowAllocator.i.i.i.i.i.i1490 = getelementptr inbounds i8, ptr %ref.tmp.i1485, i64 32
   %mOverflowAllocator.i.i.i.i.i.i.i1491 = getelementptr inbounds i8, ptr %list4TO44, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1488, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1488, i8 0, i64 32, i1 false)
   %593 = load i32, ptr %mOverflowAllocator.i.i.i.i.i.i1490, align 8
   store i32 %593, ptr %mOverflowAllocator.i.i.i.i.i.i.i1491, align 8
   %mFreeCount.i.i.i.i.i.i.i.i1492 = getelementptr inbounds i8, ptr %list4TO44, i64 52
@@ -6512,7 +6512,7 @@ invoke.cont687:                                   ; preds = %land.end
   %mAllocVolume4.i.i.i.i.i.i.i.i1495 = getelementptr inbounds i8, ptr %ref.tmp.i1485, i64 40
   %595 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i1495, align 8
   store i64 %595, ptr %mAllocVolume.i.i.i.i.i.i.i.i1494, align 8
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1488, ptr noundef %592, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1488, ptr noundef %592, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1501 unwind label %lpad691
 
 .noexc1501:                                       ; preds = %.noexc1500
@@ -6523,13 +6523,13 @@ invoke.cont687:                                   ; preds = %land.end
   store ptr %list4TO44, ptr %list4TO44, align 8
   %mpPrev.i.i.i.i1498 = getelementptr inbounds i8, ptr %list4TO44, i64 8
   store ptr %list4TO44, ptr %mpPrev.i.i.i.i1498, align 8
-  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(80) %list4TO44, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp689)
+  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(759) %list4TO44, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp689)
           to label %invoke.cont692 unwind label %lpad.i1499
 
 lpad.i1499:                                       ; preds = %.noexc1501
   %596 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %list4TO44) #12
+  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(759) %list4TO44) #12
   br label %lpad691.body
 
 invoke.cont692:                                   ; preds = %.noexc1501
@@ -6593,20 +6593,20 @@ invoke.cont708:                                   ; preds = %land.end707
   store i64 %inc3.i1516, ptr %mId.i1518, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1519)
   %mBuffer.i1520 = getelementptr inbounds i8, ptr %list5TO55, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1519, i8 0, i64 48, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1519, ptr noundef nonnull %mBuffer.i1520, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1519, i8 0, i64 48, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1519, ptr noundef nonnull %mBuffer.i1520, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1534 unwind label %lpad712
 
 .noexc1534:                                       ; preds = %invoke.cont708
   %mpPoolBegin.i.i.i1521 = getelementptr inbounds i8, ptr %ref.tmp.i1519, i64 48
   store ptr %mBuffer.i1520, ptr %mpPoolBegin.i.i.i1521, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list5TO55, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(759) %list5TO55, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1522 = getelementptr inbounds i8, ptr %list5TO55, i64 16
   %mpNext.i.i.i.i.i.i1523 = getelementptr inbounds i8, ptr %ref.tmp.i1519, i64 8
   %608 = load ptr, ptr %mpNext.i.i.i.i.i.i1523, align 8
   %mOverflowAllocator.i.i.i.i.i.i1524 = getelementptr inbounds i8, ptr %ref.tmp.i1519, i64 32
   %mOverflowAllocator.i.i.i.i.i.i.i1525 = getelementptr inbounds i8, ptr %list5TO55, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1522, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1522, i8 0, i64 32, i1 false)
   %609 = load i32, ptr %mOverflowAllocator.i.i.i.i.i.i1524, align 8
   store i32 %609, ptr %mOverflowAllocator.i.i.i.i.i.i.i1525, align 8
   %mFreeCount.i.i.i.i.i.i.i.i1526 = getelementptr inbounds i8, ptr %list5TO55, i64 52
@@ -6617,7 +6617,7 @@ invoke.cont708:                                   ; preds = %land.end707
   %mAllocVolume4.i.i.i.i.i.i.i.i1529 = getelementptr inbounds i8, ptr %ref.tmp.i1519, i64 40
   %611 = load i64, ptr %mAllocVolume4.i.i.i.i.i.i.i.i1529, align 8
   store i64 %611, ptr %mAllocVolume.i.i.i.i.i.i.i.i1528, align 8
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1522, ptr noundef %608, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1522, ptr noundef %608, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1535 unwind label %lpad712
 
 .noexc1535:                                       ; preds = %.noexc1534
@@ -6628,13 +6628,13 @@ invoke.cont708:                                   ; preds = %land.end707
   store ptr %list5TO55, ptr %list5TO55, align 8
   %mpPrev.i.i.i.i1532 = getelementptr inbounds i8, ptr %list5TO55, i64 8
   store ptr %list5TO55, ptr %mpPrev.i.i.i.i1532, align 8
-  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(80) %list5TO55, i64 noundef 5, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp710)
+  invoke void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(759) %list5TO55, i64 noundef 5, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp710)
           to label %invoke.cont713 unwind label %lpad.i1533
 
 lpad.i1533:                                       ; preds = %.noexc1535
   %612 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %list5TO55) #12
+  call void @_ZN5eastl4listI10TestObjectNS_20fixed_node_allocatorILm40ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(759) %list5TO55) #12
   br label %lpad712.body
 
 invoke.cont713:                                   ; preds = %.noexc1535
@@ -6980,16 +6980,16 @@ _ZN5eastl10fixed_listI10TestObjectLm16ELb1ENS_9allocatorEED2Ev.exit1654: ; preds
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1655)
   %mBuffer.i1656 = getelementptr inbounds i8, ptr %toListA734, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1655, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1655, ptr noundef nonnull %mBuffer.i1656, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1655, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1655, ptr noundef nonnull %mBuffer.i1656, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1657 = getelementptr inbounds i8, ptr %ref.tmp.i1655, i64 40
   store ptr %mBuffer.i1656, ptr %mpPoolBegin.i.i.i1657, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListA734, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(751) %toListA734, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1658 = getelementptr inbounds i8, ptr %toListA734, i64 16
   %mpNext.i.i.i.i.i.i1659 = getelementptr inbounds i8, ptr %ref.tmp.i1655, i64 8
   %675 = load ptr, ptr %mpNext.i.i.i.i.i.i1659, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1658, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1658, ptr noundef %675, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1658, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1658, ptr noundef %675, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1660 = getelementptr inbounds i8, ptr %toListA734, i64 56
   store ptr %675, ptr %mpPoolBegin.i.i.i.i.i.i.i1660, align 8
   %mSize.i.i.i1661 = getelementptr inbounds i8, ptr %toListA734, i64 64
@@ -7241,19 +7241,19 @@ invoke.cont784:                                   ; preds = %land.end783
   store i32 0, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i1735)
   %mBuffer.i1736 = getelementptr inbounds i8, ptr %toListC, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1735, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1735, ptr noundef nonnull %mBuffer.i1736, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1735, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i1735, ptr noundef nonnull %mBuffer.i1736, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %.noexc1743 unwind label %lpad738
 
 .noexc1743:                                       ; preds = %invoke.cont784
   %mpPoolBegin.i.i.i1737 = getelementptr inbounds i8, ptr %ref.tmp.i1735, i64 40
   store ptr %mBuffer.i1736, ptr %mpPoolBegin.i.i.i1737, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %toListC, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(751) %toListC, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1738 = getelementptr inbounds i8, ptr %toListC, i64 16
   %mpNext.i.i.i.i.i.i1739 = getelementptr inbounds i8, ptr %ref.tmp.i1735, i64 8
   %718 = load ptr, ptr %mpNext.i.i.i.i.i.i1739, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1738, i8 0, i64 32, i1 false)
-  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1738, ptr noundef %718, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1738, i8 0, i64 32, i1 false)
+  invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i1738, ptr noundef %718, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont787 unwind label %lpad738
 
 invoke.cont787:                                   ; preds = %.noexc1743
@@ -7961,7 +7961,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit:         ; preds = %_ZN5eastl9allocator
   %mBuffer.i.i = getelementptr inbounds i8, ptr %d, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i8 0, i64 32, i1 false)
   call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull %mBuffer.i.i, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %d, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i.i1942 = getelementptr inbounds i8, ptr %d, i64 16
   %mpNext.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %833 = load ptr, ptr %mpNext.i.i.i.i.i.i.i, align 8
@@ -7981,7 +7981,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit:         ; preds = %_ZN5eastl9allocator
           to label %.noexc.i unwind label %lpad.i1945
 
 .noexc.i:                                         ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mCollection2.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(319) %mCollection2.i, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %d, i64 336
   %mpNext.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %ref.tmp.i1.i, i64 8
   %834 = load ptr, ptr %mpNext.i.i.i.i.i.i4.i, align 8
@@ -8063,7 +8063,7 @@ _ZZ13TestFixedListvEN5DummyD2Ev.exit:             ; preds = %while.body.i.i.i.i5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i1958)
   %mBuffer.i1959 = getelementptr inbounds i8, ptr %c, i64 80
   %mOverflowAllocator.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1958, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1958, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1958, i8 0, i64 32, i1 false)
   %846 = load i32, ptr %overflowAllocator, align 8
   store i32 %846, ptr %mOverflowAllocator.i.i.i, align 8
   %mFreeCount.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1958, i64 36
@@ -8074,15 +8074,15 @@ _ZZ13TestFixedListvEN5DummyD2Ev.exit:             ; preds = %while.body.i.i.i.i5
   %mAllocVolume4.i.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %848 = load i64, ptr %mAllocVolume4.i.i.i.i, align 8
   store i64 %848, ptr %mAllocVolume.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i1958, ptr noundef nonnull %mBuffer.i1959, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i1958, ptr noundef nonnull %mBuffer.i1959, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i1960 = getelementptr inbounds i8, ptr %ref.tmp.i1958, i64 48
   store ptr %mBuffer.i1959, ptr %mpPoolBegin.i.i.i1960, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1639) %c, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i1961 = getelementptr inbounds i8, ptr %c, i64 16
   %mpNext.i.i.i.i.i.i1962 = getelementptr inbounds i8, ptr %ref.tmp.i1958, i64 8
   %849 = load ptr, ptr %mpNext.i.i.i.i.i.i1962, align 8
   %mOverflowAllocator.i.i.i.i.i.i.i1963 = getelementptr inbounds i8, ptr %c, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1961, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1961, i8 0, i64 32, i1 false)
   %850 = load i32, ptr %mOverflowAllocator.i.i.i, align 8
   store i32 %850, ptr %mOverflowAllocator.i.i.i.i.i.i.i1963, align 8
   %mFreeCount.i.i.i.i.i.i.i.i1964 = getelementptr inbounds i8, ptr %c, i64 52
@@ -8091,7 +8091,7 @@ _ZZ13TestFixedListvEN5DummyD2Ev.exit:             ; preds = %while.body.i.i.i.i5
   %mAllocVolume.i.i.i.i.i.i.i.i1965 = getelementptr inbounds i8, ptr %c, i64 56
   %852 = load i64, ptr %mAllocVolume.i.i.i.i, align 8
   store i64 %852, ptr %mAllocVolume.i.i.i.i.i.i.i.i1965, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i1961, ptr noundef %849, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i.i1961, ptr noundef %849, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i1966 = getelementptr inbounds i8, ptr %c, i64 64
   store ptr %849, ptr %mpPoolBegin.i.i.i.i.i.i.i1966, align 8
   %mSize.i.i.i1967 = getelementptr inbounds i8, ptr %c, i64 72
@@ -9761,7 +9761,7 @@ invoke.cont:
   %ref.tmp = alloca %"class.eastl::fixed_node_allocator.73", align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 80
   %mOverflowAllocator.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %overflowAllocator, align 8
   store i32 %0, ptr %mOverflowAllocator.i.i, align 8
   %mFreeCount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
@@ -9772,15 +9772,15 @@ invoke.cont:
   %mAllocVolume4.i.i.i = getelementptr inbounds i8, ptr %overflowAllocator, i64 8
   %2 = load i64, ptr %mAllocVolume4.i.i.i, align 8
   store i64 %2, ptr %mAllocVolume.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull %mBuffer, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   store ptr %mBuffer, ptr %mpPoolBegin.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %mpNext.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load ptr, ptr %mpNext.i.i.i.i.i, align 8
   %mOverflowAllocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i, i8 0, i64 32, i1 false)
   %4 = load i32, ptr %mOverflowAllocator.i.i, align 8
   store i32 %4, ptr %mOverflowAllocator.i.i.i.i.i.i, align 8
   %mFreeCount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 52
@@ -9789,7 +9789,7 @@ invoke.cont:
   %mAllocVolume.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i64, ptr %mAllocVolume.i.i.i, align 8
   store i64 %6, ptr %mAllocVolume.i.i.i.i.i.i.i, align 8
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i, ptr noundef %3, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(56) %mSecond.i.i.i.i, ptr noundef %3, i64 noundef 640, i64 noundef 40, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %3, ptr %mpPoolBegin.i.i.i.i.i.i, align 8
   %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -10644,7 +10644,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   %mSize.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
   store i64 0, ptr %mSize.i.i.i, align 8
   %5 = load ptr, ptr %b, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr %5, ptr nonnull %b)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(119) %a, ptr %5, ptr nonnull align 8 dereferenceable(119) %b)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i
@@ -10693,7 +10693,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE
   %mSize.i.i.i20 = getelementptr inbounds i8, ptr %b, i64 64
   store i64 0, ptr %mSize.i.i.i20, align 8
   %11 = load ptr, ptr %temp, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %b, ptr %11, ptr nonnull %temp)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(119) %b, ptr %11, ptr nonnull align 8 dereferenceable(119) %temp)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i18
@@ -10984,16 +10984,16 @@ entry:
   %temp = alloca %"class.eastl::fixed_list.15", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %mBuffer.i = getelementptr inbounds i8, ptr %temp, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull %mBuffer.i, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %mBuffer.i, ptr %mpPoolBegin.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1631) %temp, i8 0, i64 16, i1 false)
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
   %mpNext.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %0 = load ptr, ptr %mpNext.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, i8 0, i64 32, i1 false)
-  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %mSecond.i.i.i.i.i, ptr noundef %0, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(48) %mSecond.i.i.i.i.i, ptr noundef %0, i64 noundef 1536, i64 noundef 24, i64 noundef 8, i64 noundef 0)
   %mpPoolBegin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 56
   store ptr %0, ptr %mpPoolBegin.i.i.i.i.i.i.i, align 8
   %mSize.i.i.i = getelementptr inbounds i8, ptr %temp, i64 64
@@ -11006,7 +11006,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
   store ptr %1, ptr %agg.tmp.i.i, align 8
   store ptr %a, ptr %agg.tmp2.i.i, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPiRiEEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %temp, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPiRiEEEEvT_SA_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(1631) %temp, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
           to label %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEC2EOS2_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -11016,7 +11016,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %temp) #12
+  call void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1631) %temp) #12
   br label %common.resume
 
 _ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEC2EOS2_.exit: ; preds = %entry
@@ -11068,7 +11068,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   %mSize.i.i.i4 = getelementptr inbounds i8, ptr %a, i64 64
   store i64 0, ptr %mSize.i.i.i4, align 8
   %8 = load ptr, ptr %b, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %a, ptr %8, ptr nonnull %b)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(1631) %a, ptr %8, ptr nonnull align 8 dereferenceable(1631) %b)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5eastl10fixed_listIiLm64ELb1ENS_9allocatorEEC2EOS2_.exit, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i
@@ -11117,7 +11117,7 @@ _ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEE
   %mSize.i.i.i22 = getelementptr inbounds i8, ptr %b, i64 64
   store i64 0, ptr %mSize.i.i.i22, align 8
   %14 = load ptr, ptr %temp, align 8
-  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %b, ptr %14, ptr nonnull %temp)
+  invoke void @_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE8DoAssignINS_12ListIteratorIiPKiRS7_EEEEvT_SB_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(1631) %b, ptr %14, ptr nonnull align 8 dereferenceable(1631) %temp)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont, %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm64ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20

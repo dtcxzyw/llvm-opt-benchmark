@@ -559,7 +559,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %73 = icmp ne i32 %19, %72
   %74 = zext i16 %13 to i32
   %75 = zext i1 %73 to i32
-  %76 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %0, i32 noundef %.pre, ptr noundef nonnull %1, i32 noundef %74, ptr noundef null, i32 noundef %16, i32 noundef %64, i32 noundef %75) #3
+  %76 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @dcp_reassembly_table, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef nonnull %1, i32 noundef %74, ptr noundef null, i32 noundef %16, i32 noundef %64, i32 noundef %75) #3
   br i1 %.not, label %177, label %77
 
 77:                                               ; preds = %70
@@ -567,7 +567,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %77
-  %80 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.129, i32 noundef %19) #3
+  %80 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.129, i32 noundef range(i32 2, 0) %19) #3
   br label %dissect_pft_fec_detailed.exit.thread.i
 
 81:                                               ; preds = %77
@@ -582,7 +582,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i.i, label %88, label %131
 
 88:                                               ; preds = %81
-  %89 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef %19, i32 noundef 0, i32 noundef %87) #3
+  %89 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef range(i32 2, 0) %19, i32 noundef 0, i32 noundef %87) #3
   %90 = getelementptr inbounds i8, ptr %1, i64 408
   %91 = load ptr, ptr %90, align 8
   %92 = shl nuw nsw i32 %19, 2
@@ -632,7 +632,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %110 = zext nneg i32 %64 to i64
   %111 = tail call noalias ptr @wmem_alloc0(ptr noundef %109, i64 noundef %110) #3
   %112 = tail call ptr @tvb_new_real_data(ptr noundef %111, i32 noundef %64, i32 noundef %64) #3
-  %113 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef %19, i32 noundef %.0122.i.i, i32 noundef %87) #3
+  %113 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_edcp_reassembly_info, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.130, i32 noundef range(i32 2, 0) %19, i32 noundef %.0122.i.i, i32 noundef %87) #3
   %.not165.i.i = icmp eq i32 %.0122.i.i, 0
   br i1 %.not165.i.i, label %._crit_edge162.thread.i.i, label %.lr.ph161.i.preheader.i
 
@@ -694,7 +694,7 @@ define internal i32 @dissect_pft(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 131:                                              ; preds = %._crit_edge162.i.i, %81
   %.1129.lcssa.lcssa.sink.i.i = phi ptr [ %76, %81 ], [ %.1129.lcssa.i.i, %._crit_edge162.i.i ]
-  %132 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1129.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
+  %132 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %.1129.lcssa.lcssa.sink.i.i, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
   %.not139.i.i = icmp eq ptr %132, null
   br i1 %.not139.i.i, label %dissect_pft_fec_detailed.exit.thread.i, label %133
 
@@ -786,13 +786,13 @@ rs_deinterleave.exit.i.i:                         ; preds = %._crit_edge.us.i.i.
 rs_correct_data.exit.i.i:                         ; preds = %171, %160, %rs_deinterleave.exit.i.i
   %.0.i.i.i = phi i64 [ 1, %rs_deinterleave.exit.i.i ], [ 0, %160 ], [ 1, %171 ]
   %174 = load i32, ptr @hf_edcp_rs_ok, align 4
-  %175 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %174, ptr noundef %0, i32 noundef %.pre, i32 noundef 2, i64 noundef %.0.i.i.i) #3
+  %175 = tail call ptr @proto_tree_add_boolean(ptr noundef %10, i32 noundef %174, ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, i32 noundef 2, i64 noundef %.0.i.i.i) #3
   %176 = tail call ptr @tvb_new_child_real_data(ptr noundef %157, ptr noundef %144, i32 noundef %82, i32 noundef %82) #3
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %176, ptr noundef nonnull @.str.133) #3
   br label %dissect_pft_fec_detailed.exit.i
 
 177:                                              ; preds = %70
-  %178 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre, ptr noundef nonnull %1, ptr noundef nonnull @.str.123, ptr noundef %76, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
+  %178 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef range(i32 14, 21) %.pre, ptr noundef nonnull %1, ptr noundef nonnull @.str.123, ptr noundef %76, ptr noundef nonnull @dcp_frag_items, ptr noundef null, ptr noundef %10) #3
   br label %dissect_pft_fec_detailed.exit.i
 
 dissect_pft_fec_detailed.exit.i:                  ; preds = %177, %rs_correct_data.exit.i.i

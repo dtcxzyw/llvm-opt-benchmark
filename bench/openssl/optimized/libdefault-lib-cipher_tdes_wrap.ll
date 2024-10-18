@@ -61,8 +61,8 @@ if.then.i.i:                                      ; preds = %if.then2.i
 
 if.end.i.i:                                       ; preds = %if.then2.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %in, i64 %inl, i1 false)
-  %call.i.i = call ptr @ossl_sha1(ptr noundef %in, i64 noundef %inl, ptr noundef nonnull %sha1tmp.i.i) #4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %in, i64 range(i64 0, 1073741824) %inl, i1 false)
+  %call.i.i = call ptr @ossl_sha1(ptr noundef %in, i64 noundef range(i64 0, 1073741824) %inl, ptr noundef nonnull %sha1tmp.i.i) #4
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %des_ede3_wrap.exit.i, label %if.end3.i.i
 

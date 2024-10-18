@@ -82,7 +82,7 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreakerC2ERNS_15MachineFunctionERKN
   store ptr %2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 6) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %24, ptr noundef nonnull %25, i64 noundef 6) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -175,8 +175,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit13:          ; preds = %_ZNSt6vectorIjSaIjE
   %61 = lshr i32 %60, 6
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %0, i64 256
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull %63, i64 noundef 6) #11
-  tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %62, i64 noundef 0)
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %58, ptr noundef nonnull %63, i64 noundef 6) #11
+  tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(68) %58, i64 noundef %62, i64 noundef 0)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %59, ptr %64, align 8
   ret void
@@ -186,7 +186,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit13:          ; preds = %_ZNSt6vectorIjSaIjE
 define hidden void @_ZN4llvm22CriticalAntiDepBreakerD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm22CriticalAntiDepBreakerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #11
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = icmp eq ptr %4, %5
@@ -247,7 +247,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt6vectorIPKN4llvm19TargetRegisterClassESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit2, %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #11
+  %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %35) #11
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 64
   %39 = icmp eq ptr %37, %38
@@ -327,7 +327,7 @@ _ZNK4llvm17MachineBasicBlock4sizeEv.exit:         ; preds = %.lr.ph.i.i.i.i, %2
 ._crit_edge:                                      ; preds = %17, %_ZNK4llvm17MachineBasicBlock4sizeEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #11
+  %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %24) #11
   %.not5.i.i.i.i.i = icmp eq i64 %26, 0
   br i1 %.not5.i.i.i.i.i, label %_ZN4llvm9BitVector5resetEv.exit, label %.lr.ph.i.i.i.i.preheader.i
 
@@ -530,7 +530,7 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit: ; preds = %_ZN4llvm9BitVecto
   br i1 %.not40, label %._crit_edge91, label %99, !llvm.loop !10
 
 ._crit_edge91:                                    ; preds = %.loopexit, %._crit_edge82
-  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %3) #11
   %132 = load ptr, ptr %3, align 8
   %133 = getelementptr inbounds i8, ptr %3, i64 16
   %134 = icmp eq ptr %132, %133
@@ -564,7 +564,7 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker11FinishBlockEv(ptr noundef 
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %9) #11
   %.not5.i.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not5.i.i.i.i.i, label %_ZN4llvm9BitVector5resetEv.exit, label %.lr.ph.i.i.i.i.preheader.i
 
@@ -2279,7 +2279,7 @@ _ZL16CriticalPathStepPKN4llvm5SUnitE.exit.thread: ; preds = %115, %_ZL16Critical
   %.278 = phi ptr [ %206, %.loopexit ], [ %.076209, %113 ], [ null, %_ZL16CriticalPathStepPKN4llvm5SUnitE.exit ], [ null, %115 ]
   %.2 = phi ptr [ %142, %.loopexit ], [ %.074210, %113 ], [ null, %_ZL16CriticalPathStepPKN4llvm5SUnitE.exit ], [ null, %115 ]
   call void @_ZN4llvm22CriticalAntiDepBreaker18PrescanInstructionERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %90, i64 noundef 2) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %90, i64 noundef 2) #11
   %207 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 44
   %208 = load i32, ptr %207, align 4
   %209 = and i32 %208, 12
@@ -2732,7 +2732,7 @@ _ZN4llvm14AntiDepBreaker15UpdateDbgValuesERKSt6vectorISt4pairIPNS_12MachineInstr
 .thread167.thread:                                ; preds = %._crit_edge, %239, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, %238, %.thread170, %_ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE11equal_rangeERS6_.exit, %._crit_edge204
   %.281 = phi i32 [ %419, %._crit_edge204 ], [ %.079208, %_ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE11equal_rangeERS6_.exit ], [ %.079208, %.thread170 ], [ %.079208, %238 ], [ %.079208, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread ], [ %.079208, %239 ], [ %.079208, %._crit_edge ]
   call void @_ZN4llvm22CriticalAntiDepBreaker15ScanInstructionERNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i, i32 noundef %.082211)
-  %420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
+  %420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
   %421 = load ptr, ptr %10, align 8
   %422 = icmp eq ptr %421, %90
   br i1 %422, label %_ZN4llvm11SmallVectorIjLj2EED2Ev.exit, label %423

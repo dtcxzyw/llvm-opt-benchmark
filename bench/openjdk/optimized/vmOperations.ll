@@ -338,7 +338,7 @@ define hidden void @_ZN12VM_Operation8evaluateEv(ptr noundef nonnull align 8 der
   br i1 %.not, label %23, label %17
 
 17:                                               ; preds = %1
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #10
@@ -365,7 +365,7 @@ define hidden void @_ZN12VM_Operation8evaluateEv(ptr noundef nonnull align 8 der
   br i1 %.not5, label %33, label %27
 
 27:                                               ; preds = %23
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #10
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %28) #10
@@ -626,7 +626,7 @@ define hidden void @_ZN16VM_FindDeadlocksD2Ev(ptr noundef nonnull align 8 derefe
 
 9:                                                ; preds = %.loopexit
   %10 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %10) #10
+  tail call void @_ZN18SafeThreadsListPtr19release_stable_listEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #10
   br label %_ZN17ThreadsListSetterD2Ev.exit
 
 _ZN17ThreadsListSetterD2Ev.exit:                  ; preds = %.loopexit, %9
@@ -639,7 +639,7 @@ declare void @_ZN13DeadlockCycleD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16VM_FindDeadlocks4doitEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @_ZN18SafeThreadsListPtr19acquire_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %2) #10
+  tail call void @_ZN18SafeThreadsListPtr19acquire_stable_listEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -792,9 +792,9 @@ define hidden void @_ZN13VM_ThreadDump4doitEv(ptr nocapture noundef nonnull read
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 32
-  tail call void @_ZN18SafeThreadsListPtr19acquire_stable_listEv(ptr noundef nonnull align 8 dereferenceable(26) %18) #10
+  tail call void @_ZN18SafeThreadsListPtr19acquire_stable_listEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #10
   %19 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 16, i1 false)
   store i8 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 45
   %21 = load i8, ptr %20, align 1

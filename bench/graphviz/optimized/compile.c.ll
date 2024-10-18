@@ -388,7 +388,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %66
   br i1 %.not.i.i.i, label %77, label %76
 
 76:                                               ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %4, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %56, align 1
   br label %77
 
@@ -479,7 +479,7 @@ agxbsizeof.exit.i.i47.i:                          ; preds = %96
   br i1 %.not.i.i50.i, label %108, label %107
 
 107:                                              ; preds = %agxbsizeof.exit.i.i47.i
-  call fastcc void @agxbmore(ptr noundef %5, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
   %.val.i15.pre.i.i51.i = load i8, ptr %59, align 1
   br label %108
 
@@ -569,7 +569,7 @@ agxbsizeof.exit.i.i64.i:                          ; preds = %129
   br i1 %.not.i.i67.i, label %141, label %140
 
 140:                                              ; preds = %agxbsizeof.exit.i.i64.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i68.i = load i8, ptr %62, align 1
   br label %141
 
@@ -840,7 +840,7 @@ agxbsizeof.exit.i.i:                              ; preds = %16
   br i1 %.not.i7.i, label %.thread.i, label %30
 
 30:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %8, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %8, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %18, align 1
   %.not.i16.i.i = icmp eq i8 %.val.i15.pre.i.i, -1
   br i1 %.not.i16.i.i, label %..thread_crit_edge.i, label %31
@@ -3572,7 +3572,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %865
   br i1 %.not.i.i.i, label %875, label %874
 
 874:                                              ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %12, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %868, align 1
   br label %875
 
@@ -3754,7 +3754,7 @@ agxbsizeof.exit.i.i.i725:                         ; preds = %945
   br i1 %.not.i.i.i728, label %956, label %955
 
 955:                                              ; preds = %agxbsizeof.exit.i.i.i725
-  call fastcc void @agxbmore(ptr noundef %13, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %13, i64 noundef 1)
   %.val.i15.pre.i.i.i729 = load i8, ptr %949, align 1
   br label %956
 
@@ -3876,7 +3876,7 @@ agxbfree.exit721:                                 ; preds = %.agxbfree.exit721_c
 
 997:                                              ; preds = %974
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %998 = call fastcc ptr @nameOf(ptr noundef %0, ptr noundef %.0, ptr noundef %8)
+  %998 = call fastcc ptr @nameOf(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %8)
   store ptr %998, ptr %10, align 8
   %999 = getelementptr inbounds i8, ptr %8, i64 31
   %.val75.i = load i8, ptr %999, align 1
@@ -3946,7 +3946,7 @@ agxbfree.exit721:                                 ; preds = %.agxbfree.exit721_c
   br i1 %1032, label %1033, label %1037
 
 1033:                                             ; preds = %1029
-  %1034 = call fastcc i32 @posOf(ptr noundef %.0, i32 noundef 0, ptr noundef %10)
+  %1034 = call fastcc i32 @posOf(ptr noundef nonnull %.0, i32 noundef 0, ptr noundef nonnull %10)
   %.not69.i = icmp eq i32 %1034, 0
   br i1 %.not69.i, label %lookup.exit.thread, label %1035
 
@@ -3966,7 +3966,7 @@ agxbfree.exit721:                                 ; preds = %.agxbfree.exit721_c
   br i1 %1041, label %1042, label %1046
 
 1042:                                             ; preds = %1038
-  %1043 = call fastcc i32 @posOf(ptr noundef %.0, i32 noundef 1, ptr noundef %10)
+  %1043 = call fastcc i32 @posOf(ptr noundef nonnull %.0, i32 noundef 1, ptr noundef nonnull %10)
   %.not68.i = icmp eq i32 %1043, 0
   br i1 %.not68.i, label %lookup.exit.thread, label %1044
 
@@ -4089,7 +4089,7 @@ agxbfree.exit721:                                 ; preds = %.agxbfree.exit721_c
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr @.str.142, ptr @.str.143
   %switch.selectcmp1.i.i.i = icmp eq i32 %1102, 0
   %switch.select2.i.i.i = select i1 %switch.selectcmp1.i.i.i, ptr @.str.141, ptr %switch.select.i.i.i
-  %1103 = call fastcc ptr @nameOf(ptr noundef %0, ptr noundef %.0, ptr noundef %9)
+  %1103 = call fastcc ptr @nameOf(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %9)
   call void (i32, ptr, ...) @_err_msg(i32 noundef 1, ptr noundef nonnull @.str.171, ptr noundef nonnull %switch.select2.i.i.i, ptr noundef nonnull %1094, ptr noundef %1103) #24
   %1104 = getelementptr inbounds i8, ptr %9, i64 31
   %.val73.i = load i8, ptr %1104, align 1
@@ -4131,7 +4131,7 @@ agxbsizeof.exit.i.i.i744:                         ; preds = %1091, %1090, %1082,
   br i1 %.not.i.i.i747, label %1116, label %1115
 
 1115:                                             ; preds = %agxbsizeof.exit.i.i.i744
-  call fastcc void @agxbmore(ptr noundef %14, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %14, i64 noundef 1)
   %.val.i15.pre.i.i.i748 = load i8, ptr %1109, align 1
   br label %1116
 
@@ -4329,7 +4329,7 @@ typeChkExp.exit.thread:                           ; preds = %._crit_edge.i, %typ
   br i1 %.not.i.i.i, label %51, label %50
 
 50:                                               ; preds = %typeChkExp.exit.thread
-  call fastcc void @agxbmore(ptr noundef %5, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %44, align 1
   br label %51
 
@@ -4427,7 +4427,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %9
   br i1 %.not.i.i.i, label %22, label %21
 
 21:                                               ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %7, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %7, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %15, align 1
   br label %22
 
@@ -4596,7 +4596,7 @@ agxbsizeof.exit.i.i.i65:                          ; preds = %79
   br i1 %.not.i.i.i68, label %90, label %89
 
 89:                                               ; preds = %agxbsizeof.exit.i.i.i65
-  call fastcc void @agxbmore(ptr noundef %8, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %8, i64 noundef 1)
   %.val.i15.pre.i.i.i69 = load i8, ptr %83, align 1
   br label %90
 
@@ -4982,7 +4982,7 @@ agxblen.exit.i.i:                                 ; preds = %25, %agxbsizeof.exi
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %agxblen.exit.i.i
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef %20)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef %20)
   %.val.i25.pre.i.i = load i8, ptr %23, align 1
   br label %33
 
@@ -5043,7 +5043,7 @@ agxblen.exit.i.i32:                               ; preds = %52, %agxbsizeof.exi
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %agxblen.exit.i.i32
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef 2)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 2)
   %.val.i25.pre.i.i37 = load i8, ptr %49, align 1
   br label %60
 
@@ -5094,7 +5094,7 @@ agxblen.exit.i.i42:                               ; preds = %75, %agxbsizeof.exi
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %agxblen.exit.i.i42
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef 2)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 2)
   %.val.i25.pre.i.i47 = load i8, ptr %49, align 1
   br label %83
 
@@ -5160,7 +5160,7 @@ agxblen.exit.i.i52:                               ; preds = %108, %agxbsizeof.ex
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %agxblen.exit.i.i52
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef %103)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef %103)
   %.val.i25.pre.i.i57 = load i8, ptr %106, align 1
   br label %116
 
@@ -5223,7 +5223,7 @@ agxbsizeof.exit.i:                                ; preds = %135, %agxblen.exit.
   br i1 %.not.i, label %141, label %140
 
 140:                                              ; preds = %agxbsizeof.exit.i
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
   %.val.i15.pre.i = load i8, ptr %133, align 1
   br label %141
 
@@ -5282,7 +5282,7 @@ agxblen.exit.i.i62:                               ; preds = %158, %agxbsizeof.ex
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %agxblen.exit.i.i62
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef %154)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef %154)
   %.val.i25.pre.i.i67 = load i8, ptr %133, align 1
   br label %166
 
@@ -5336,7 +5336,7 @@ agxbsizeof.exit.i72:                              ; preds = %181, %agxblen.exit.
   br i1 %.not.i75, label %187, label %186
 
 186:                                              ; preds = %agxbsizeof.exit.i72
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
   %.val.i15.pre.i76 = load i8, ptr %133, align 1
   br label %187
 
@@ -5389,7 +5389,7 @@ agxbsizeof.exit.i.i83:                            ; preds = %202, %agxblen.exit.
   br i1 %.not.i.i84, label %208, label %207
 
 207:                                              ; preds = %agxbsizeof.exit.i.i83
-  tail call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
+  tail call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %200, align 1
   br label %208
 
@@ -6018,7 +6018,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %22
   br i1 %.not.i.i.i, label %37, label %36
 
 36:                                               ; preds = %agxbsizeof.exit.i.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i.i = load i8, ptr %30, align 1
   br label %37
 
@@ -6463,7 +6463,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -6566,7 +6566,7 @@ agxbsizeof.exit.i.i:                              ; preds = %11
   br i1 %.not.i.i, label %20, label %19
 
 19:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %8, align 1
   br label %20
 
@@ -6662,7 +6662,7 @@ agxbsizeof.exit.i.i45:                            ; preds = %checkGuard.exit
   br i1 %.not.i.i48, label %55, label %54
 
 54:                                               ; preds = %agxbsizeof.exit.i.i45
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i49 = load i8, ptr %8, align 1
   br label %55
 
@@ -6732,7 +6732,7 @@ agxbsizeof.exit.i.i61:                            ; preds = %73
   br i1 %.not.i.i64, label %79, label %78
 
 78:                                               ; preds = %agxbsizeof.exit.i.i61
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i65 = load i8, ptr %8, align 1
   br label %79
 

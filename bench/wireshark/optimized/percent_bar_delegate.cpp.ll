@@ -104,7 +104,7 @@ define void @_ZNK18PercentBarDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %49
 
 28:                                               ; preds = %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !4
   %29 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %29, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -133,7 +133,7 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %28, %24
           to label %_ZNK11QModelIndex4dataEi.exit52 unwind label %49
 
 40:                                               ; preds = %34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false), !alias.scope !7
   %41 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %41, align 8, !alias.scope !7
   br label %_ZNK11QModelIndex4dataEi.exit52
@@ -497,7 +497,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %173) #9
   %174 = getelementptr inbounds i8, ptr %8, i64 88
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %174) #9
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %8) #9
   ret void
 
 175:                                              ; preds = %145
@@ -566,7 +566,7 @@ define linkonce_odr void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull a
           to label %18 unwind label %43
 
 18:                                               ; preds = %11
-  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %18

@@ -65,13 +65,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %return
 
 if.then.i.i.i:                                    ; preds = %if.then
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
@@ -104,13 +104,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.i.i.i.i18, label %if.then.i.i.i19, label %return
 
 if.then.i.i.i19:                                  ; preds = %if.then2
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont6 unwind label %lpad.i.i20
 
 lpad.i.i20:                                       ; preds = %if.then.i.i.i19
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont6:                                     ; preds = %if.then.i.i.i19
@@ -146,13 +146,13 @@ if.then12:                                        ; preds = %if.end7
   br i1 %cmp.i.i.i.i.i31, label %if.then.i.i.i32, label %return
 
 if.then.i.i.i32:                                  ; preds = %if.then12
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont16 unwind label %lpad.i.i33
 
 lpad.i.i33:                                       ; preds = %if.then.i.i.i32
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont16:                                    ; preds = %if.then.i.i.i32
@@ -187,13 +187,13 @@ if.then21:                                        ; preds = %if.end17
   br i1 %cmp.i.i.i.i.i43, label %if.then.i.i.i44, label %return
 
 if.then.i.i.i44:                                  ; preds = %if.then21
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont25 unwind label %lpad.i.i45
 
 lpad.i.i45:                                       ; preds = %if.then.i.i.i44
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont25:                                    ; preds = %if.then.i.i.i44
@@ -228,13 +228,13 @@ if.then29:                                        ; preds = %if.end26
   br i1 %cmp.i.i.i.i.i55, label %if.then.i.i.i56, label %return
 
 if.then.i.i.i56:                                  ; preds = %if.then29
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont33 unwind label %lpad.i.i57
 
 lpad.i.i57:                                       ; preds = %if.then.i.i.i56
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont33:                                    ; preds = %if.then.i.i.i56
@@ -271,13 +271,13 @@ if.then41:                                        ; preds = %if.end34
   br i1 %cmp.i.i.i.i.i68, label %if.then.i.i.i69, label %return
 
 if.then.i.i.i69:                                  ; preds = %if.then41
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %agg.result)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %agg.result)
           to label %invoke.cont45 unwind label %lpad.i.i70
 
 lpad.i.i70:                                       ; preds = %if.then.i.i.i69
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #9
+  call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %agg.result) #9
   br label %eh.resume
 
 invoke.cont45:                                    ; preds = %if.then.i.i.i69
@@ -352,13 +352,13 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIbEC2INS0_6StatusETnNSt9enable_ifIXsr3std16is_constructibleIS5_OT_EE5valueEiE4typeELi0EEES8_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull %this)
+  invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %this)
           to label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIbEC2INS0_6StatusETnNSt9enable_ifIXsr3std16is_constructibleIS5_OT_EE5valueEiE4typeELi0EEES8_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
+  tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) #9
   resume { ptr, i32 } %2
 
 _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIbEC2INS0_6StatusETnNSt9enable_ifIXsr3std16is_constructibleIS5_OT_EE5valueEiE4typeELi0EEES8_.exit: ; preds = %entry, %if.then.i.i

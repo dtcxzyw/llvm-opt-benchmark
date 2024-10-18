@@ -3207,7 +3207,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %21 = add i64 %20, -1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %23 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %23 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %22, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %24 unwind label %.loopexit.split-lp
 
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -3648,7 +3648,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal
 
 _ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_12HdPrimGatherEFvRKSt6vectorINS3_7SdfPathESaIS9_EERKNS7_6_RangeEPFbRKS9_PKvEPvEPS7_St17reference_wrapperISC_ESE_SM_SN_EEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %2, %12
   %14 = inttoptr i64 %7 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 64 dereferenceable(152) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -3673,7 +3673,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d113function_taskIN32pxrInternal
 
 _ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFMNS3_12HdPrimGatherEFvRKSt6vectorINS3_7SdfPathESaIS9_EERKNS7_6_RangeEPFbRKS9_PKvEPvEPS7_St17reference_wrapperISC_ESE_SM_SN_EEEEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %2, %11
   %13 = inttoptr i64 %6 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 64 dereferenceable(152) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -4631,7 +4631,7 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   br i1 %.not.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread.i, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.016.124.i)
+  %16 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(9) %.sroa.016.124.i)
   %.0.copyload.i6.i.i.i.i933.pre.pre.i = load i64, ptr %0, align 4
   br i1 %16, label %._crit_edge.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread.i
 
@@ -4667,7 +4667,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserve
   br i1 %.not21.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit13.thread.i, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.134.i, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %24 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %.sroa.0.134.i, ptr noundef nonnull align 4 dereferenceable(9) %0)
   br i1 %24, label %._crit_edge47.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit13.thread.i
 
 ._crit_edge47.i:                                  ; preds = %23
@@ -4999,7 +4999,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %12)
+  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %14, ptr noundef nonnull align 4 dereferenceable(9) %12)
   br i1 %21, label %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit: ; preds = %16
@@ -5207,7 +5207,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32p
   br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %7)
+  %14 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %3, ptr noundef nonnull align 4 dereferenceable(9) %7)
   br i1 %14, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %13
@@ -5334,7 +5334,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   br i1 %.not, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread, label %10
 
 10:                                               ; preds = %9
-  %11 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %11 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %2, ptr noundef nonnull align 4 dereferenceable(9) %1)
   br i1 %11, label %._crit_edge, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread_crit_edge
 
 ._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread_crit_edge: ; preds = %10
@@ -5365,7 +5365,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserve
   br i1 %.not55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit31.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %3, ptr noundef nonnull align 4 dereferenceable(9) %2)
   br i1 %19, label %41, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit31.thread_crit_edge
 
 ._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit31.thread_crit_edge: ; preds = %18
@@ -5392,7 +5392,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserve
   br i1 %.not56, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit37.thread, label %25
 
 25:                                               ; preds = %24
-  %26 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %26 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %3, ptr noundef nonnull align 4 dereferenceable(9) %1)
   br i1 %26, label %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit37.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit37: ; preds = %21
@@ -5418,7 +5418,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserve
   br i1 %.not57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit43.thread, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %33 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %3, ptr noundef nonnull align 4 dereferenceable(9) %1)
   br i1 %33, label %41, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit43.thread_crit_edge
 
 ._ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit43.thread_crit_edge: ; preds = %32
@@ -5445,7 +5445,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserve
   br i1 %.not58, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit49.thread, label %39
 
 39:                                               ; preds = %38
-  %40 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %40 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %3, ptr noundef nonnull align 4 dereferenceable(9) %2)
   br i1 %40, label %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit49.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit49: ; preds = %35
@@ -5584,7 +5584,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   br i1 %.not18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.023)
+  %14 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(9) %.sroa.0.023)
   br i1 %14, label %._crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.thread
 
 ._crit_edge:                                      ; preds = %13
@@ -5759,7 +5759,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_
   br i1 %.not, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclIS5_NS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbRT_T0_.exit.thread, label %19
 
 17:                                               ; preds = %15
-  %18 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.016, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %18 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(9) %.sroa.0.016, ptr noundef nonnull align 4 dereferenceable(9) %2)
           to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclIS5_NS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbRT_T0_.exit unwind label %48
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather11_PathFilterEEEclIS5_NS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbRT_T0_.exit: ; preds = %17
@@ -6046,12 +6046,12 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   br i1 %5, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit: ; preds = %2
-  %6 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %6 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %7 = icmp eq i16 %4, %6
   br i1 %7, label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread, label %8
 
 8:                                                ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
-  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %9 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   br label %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
 
 _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds = %2, %8, %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit
@@ -6062,7 +6062,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
 
 12:                                               ; preds = %_ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread
   store i64 1, ptr %10, align 16
-  %13 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull %1)
+  %13 = tail call noundef zeroext i16 @_ZN3tbb6detail2r114execution_slotEPKNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i16, ptr %14, align 8
   %.not7.i = icmp eq i16 %13, %15
@@ -6134,7 +6134,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEESt5_BindIFMN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherEFvRKSt6vectorINS6_7SdfPathESaIS9_EERS4_PFbRKS9_PKvEPvEPS7_St17reference_wrapperISC_ESt12_PlaceholderILi1EESK_SL_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %40, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeImEESt5_BindIFMN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherEFvRKSt6vectorINSC_7SdfPathESaISF_EERSA_PFbRKSF_PKvEPvEPSD_St17reference_wrapperISI_ESt12_PlaceholderILi1EESQ_SR_EEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit, %48, %51
   %54 = inttoptr i64 %32 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 64 dereferenceable(168) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -6184,7 +6184,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEESt5_BindIFMN32pxrInternal_v0_24__pxrReserved__12HdPrimGatherEFvRKSt6vectorINS6_7SdfPathESaIS9_EERS4_PFbRKS9_PKvEPvEPS7_St17reference_wrapperISC_ESt12_PlaceholderILi1EESK_SL_EEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit: ; preds = %14, %2, %22, %25
   %28 = inttoptr i64 %6 to ptr
-  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
+  tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 64 dereferenceable(168) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
   ret ptr null
 }
 
@@ -6283,7 +6283,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 136
   store ptr %50, ptr %56, align 8
   %57 = load ptr, ptr %3, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(128) %57)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(168) %30, ptr noundef nonnull align 8 dereferenceable(128) %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %58 = load i64, ptr %6, align 8
   %59 = load i64, ptr %2, align 8
@@ -6538,7 +6538,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %121 = getelementptr inbounds nuw i8, ptr %101, i64 136
   store ptr %115, ptr %121, align 8
   %122 = load ptr, ptr %3, align 8
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %101, ptr noundef nonnull align 8 dereferenceable(128) %122)
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(168) %101, ptr noundef nonnull align 8 dereferenceable(128) %122)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %123 = load i8, ptr %39, align 2
   %124 = add i8 %123, -1
@@ -6638,7 +6638,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage
   %3 = alloca %"class.std::thread::id", align 8
   %4 = tail call i64 @pthread_self() #22
   store i64 %4, ptr %3, align 8
-  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 3339675911)
+  %5 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 8, i64 noundef 3339675911)
           to label %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit unwind label %6
 
 6:                                                ; preds = %2

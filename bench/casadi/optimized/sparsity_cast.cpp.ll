@@ -428,7 +428,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #15
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -1079,7 +1079,7 @@ define void @_ZNK6casadi12SparsityCast10ad_reverseERKSt6vectorIS1_INS_2MXESaIS2_
   br i1 %23, label %34, label %25
 
 25:                                               ; preds = %24
-  invoke void @_ZN6casadi2MXC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  invoke void @_ZN6casadi2MXC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %25
@@ -1088,7 +1088,7 @@ define void @_ZNK6casadi12SparsityCast10ad_reverseERKSt6vectorIS1_INS_2MXESaIS2_
           to label %_ZN6casadi8SparsityC2ERKS0_.exit.i.i unwind label %26
 
 _ZN6casadi8SparsityC2ERKS0_.exit.i.i:             ; preds = %.noexc
-  invoke void @_ZNK6casadi2MX3getERS0_bRKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  invoke void @_ZNK6casadi2MX3getERS0_bRKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %_ZN6casadi13GenericMatrixINS_2MXEEclINS_8SparsityEEENS_8SubIndexIS1_T_EERKS6_.exit unwind label %28
 
 26:                                               ; preds = %.noexc
@@ -1104,7 +1104,7 @@ _ZN6casadi8SparsityC2ERKS0_.exit.i.i:             ; preds = %.noexc
 
 30:                                               ; preds = %28, %26
   %.pn.i.i = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
-  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   br label %.body
 
 _ZN6casadi13GenericMatrixINS_2MXEEclINS_8SparsityEEENS_8SubIndexIS1_T_EERKS6_.exit: ; preds = %_ZN6casadi8SparsityC2ERKS0_.exit.i.i
@@ -1113,7 +1113,7 @@ _ZN6casadi13GenericMatrixINS_2MXEEclINS_8SparsityEEENS_8SubIndexIS1_T_EERKS6_.ex
 
 _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13GenericMatrixINS_2MXEEclINS_8SparsityEEENS_8SubIndexIS1_T_EERKS6_.exit
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
-  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   br label %34
 
 .loopexit:                                        ; preds = %17, %22, %34, %_ZNK6casadi6MXNode3depEx.exit, %41, %25
@@ -1130,7 +1130,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13Generic
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #15
-  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
+  call void @_ZN6casadi2MXD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   br label %.body
 
 34:                                               ; preds = %_ZN6casadi2MXaSERKS0_.exit, %24
@@ -1859,7 +1859,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef non
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }

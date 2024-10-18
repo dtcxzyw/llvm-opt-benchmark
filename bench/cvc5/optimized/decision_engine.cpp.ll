@@ -88,7 +88,7 @@ declare void @_ZN4cvc58internal15ResourceManager13spendResourceENS0_8ResourceE(p
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal8decision19DecisionEngineEmptyC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 %env) unnamed_addr #3 align 2 {
 entry:
-  tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
+  tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 %env)
   %d_satSolver.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_satSolver.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal8decision19DecisionEngineEmptyE, i64 16), ptr %this, align 8

@@ -4187,7 +4187,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor21initPrefixCodeDecoderEv(ptr n
   %180 = getelementptr inbounds i8, ptr %2, i64 64
   %181 = load <2 x ptr>, ptr %2, align 16, !tbaa !17
   %182 = load ptr, ptr %176, align 16, !tbaa !307
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 24, i1 false)
   %183 = load ptr, ptr %177, align 8, !tbaa !266
   %184 = shufflevector <2 x ptr> %181, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %185 = insertelement <4 x ptr> %184, ptr %182, i64 2

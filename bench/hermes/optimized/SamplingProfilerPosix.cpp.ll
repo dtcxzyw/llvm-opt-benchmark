@@ -252,7 +252,7 @@ declare noundef zeroext i1 @_ZN6hermes9Semaphore4waitEv(ptr noundef nonnull alig
 define hidden void @_ZN6hermes2vm16SamplingProfiler6createERNS0_7RuntimeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9832) %rt) local_unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #15, !noalias !8
-  tail call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(256) %call.i, ptr noundef nonnull align 8 dereferenceable(9832) %rt) #14, !noalias !8
+  tail call void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(264) %call.i, ptr noundef nonnull align 8 dereferenceable(9832) %rt) #14, !noalias !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixE, i64 16), ptr %call.i, align 8, !noalias !8
   %currentThread_.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %call.i.i = tail call i64 @pthread_self() #17
@@ -284,7 +284,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm17sampling_profiler12_GLOBAL__N_112SamplerPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #14
+  tail call void @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -405,8 +405,8 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 _ZN6hermes2vm17sampling_profiler12_GLOBAL__N_121SamplingProfilerPosixD2Ev.exit: ; preds = %entry, %init.check.i.i, %init.i.i
   %2 = load ptr, ptr @_ZZN6hermes2vm17sampling_profiler7Sampler3getEvE8instance, align 8
-  tail call void @_ZN6hermes2vm17sampling_profiler7Sampler17unregisterRuntimeEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull %this) #14
-  tail call void @_ZN6hermes2vm16SamplingProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #14
+  tail call void @_ZN6hermes2vm17sampling_profiler7Sampler17unregisterRuntimeEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(264) %this) #14
+  tail call void @_ZN6hermes2vm16SamplingProfilerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }

@@ -286,7 +286,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   br i1 %.not59, label %137, label %99
 
 99:                                               ; preds = %98
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 1)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1)
           to label %100 unwind label %.loopexit
 
 100:                                              ; preds = %99
@@ -321,7 +321,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
           to label %115 unwind label %.loopexit.split-lp103
 
 115:                                              ; preds = %113
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %114, i32 noundef 1)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %114, i32 noundef 1)
           to label %_ZN18ExpressionVariableC2ERK8Variable.exit unwind label %127
 
 _ZN18ExpressionVariableC2ERK8Variable.exit:       ; preds = %115
@@ -338,7 +338,7 @@ _ZN18ExpressionVariableC2ERK8Variable.exit:       ; preds = %115
           to label %121 unwind label %.loopexit.split-lp103
 
 121:                                              ; preds = %119
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef 1)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %120, i32 noundef 1)
           to label %_ZN18ExpressionVariableC2ERK8VariablePK4Type.exit70 unwind label %129
 
 _ZN18ExpressionVariableC2ERK8VariablePK4Type.exit70: ; preds = %121
@@ -390,12 +390,12 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %131, %133
           to label %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread unwind label %.loopexit102
 
 _ZN9CGContext16reset_effect_stmERK6Effect.exit.thread: ; preds = %_ZN9CGContext18reset_effect_accumERK6Effect.exit
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   br label %137
 
 136:                                              ; preds = %.loopexit102, %.loopexit.split-lp103, %129, %127
   %.pn = phi { ptr, i32 } [ %128, %127 ], [ %130, %129 ], [ %lpad.loopexit104, %.loopexit102 ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp103 ]
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   br label %187
 
 137:                                              ; preds = %_ZN9CGContext16reset_effect_stmERK6Effect.exit.thread, %98
@@ -475,7 +475,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit.backedge: ; preds = %_ZNSt
 166:                                              ; preds = %124
   %167 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %126, ptr %167, align 8
-  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
+  call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   %168 = getelementptr inbounds i8, ptr %125, i64 24
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 64
@@ -799,7 +799,7 @@ define dso_local void @_ZN18ExpressionVariableC2ERKS_(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK18ExpressionVariable5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 1)
           to label %3 unwind label %10
 
 3:                                                ; preds = %1
@@ -832,7 +832,7 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN18ExpressionVariableD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
 }

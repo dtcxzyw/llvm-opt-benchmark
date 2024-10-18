@@ -569,7 +569,7 @@ send_msg.exit.thread:                             ; preds = %101, %120
 .lr.ph.i:                                         ; preds = %161, %.lr.ph.i
   %167 = phi ptr [ %169, %.lr.ph.i ], [ %166, %161 ]
   %.07.i = phi ptr [ %168, %.lr.ph.i ], [ %165, %161 ]
-  call void %167(ptr noundef %7) #14
+  call void %167(ptr noundef nonnull %7) #14
   %168 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %169 = load ptr, ptr %168, align 8
   %.not.i166 = icmp eq ptr %169, null
@@ -742,7 +742,7 @@ pmix_obj_run_destructors.exit172:                 ; preds = %.lr.ph.i169, %226
 .lr.ph.i175:                                      ; preds = %254, %.lr.ph.i175
   %260 = phi ptr [ %262, %.lr.ph.i175 ], [ %259, %254 ]
   %.07.i176 = phi ptr [ %261, %.lr.ph.i175 ], [ %258, %254 ]
-  call void %260(ptr noundef %7) #14
+  call void %260(ptr noundef nonnull %7) #14
   %261 = getelementptr inbounds i8, ptr %.07.i176, i64 8
   %262 = load ptr, ptr %261, align 8
   %.not.i177 = icmp eq ptr %262, null
@@ -902,7 +902,7 @@ pmix_obj_run_destructors.exit184:                 ; preds = %.lr.ph.i181, %313
 .lr.ph.i187:                                      ; preds = %340, %.lr.ph.i187
   %346 = phi ptr [ %348, %.lr.ph.i187 ], [ %345, %340 ]
   %.07.i188 = phi ptr [ %347, %.lr.ph.i187 ], [ %344, %340 ]
-  call void %346(ptr noundef %7) #14
+  call void %346(ptr noundef nonnull %7) #14
   %347 = getelementptr inbounds i8, ptr %.07.i188, i64 8
   %348 = load ptr, ptr %347, align 8
   %.not.i189 = icmp eq ptr %348, null

@@ -367,7 +367,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit:    ; preds = %_ZNSt6vectorIPKcSaI
   %133 = getelementptr inbounds i8, ptr %.0149, i64 112
   %134 = getelementptr inbounds i8, ptr %.0149, i64 136
   %135 = load ptr, ptr %134, align 8
-  invoke void %135(ptr noundef nonnull align 8 dereferenceable(16) %133)
+  invoke void %135(ptr noundef nonnull align 8 dereferenceable(32) %133)
           to label %._ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit_crit_edge unwind label %.loopexit124
 
 ._ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit_crit_edge: ; preds = %132
@@ -458,7 +458,7 @@ _ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5Error
   %159 = getelementptr inbounds i8, ptr %.0149, i64 112
   %160 = getelementptr inbounds i8, ptr %.0149, i64 136
   %161 = load ptr, ptr %160, align 8
-  invoke void %161(ptr noundef nonnull align 8 dereferenceable(16) %159)
+  invoke void %161(ptr noundef nonnull align 8 dereferenceable(32) %159)
           to label %._ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit83_crit_edge unwind label %.loopexit
 
 ._ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit83_crit_edge: ; preds = %158
@@ -731,7 +731,7 @@ _ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5Error
   %249 = getelementptr inbounds i8, ptr %.5, i64 112
   %250 = getelementptr inbounds i8, ptr %.5, i64 136
   %251 = load ptr, ptr %250, align 8
-  invoke void %251(ptr noundef nonnull align 8 dereferenceable(16) %249)
+  invoke void %251(ptr noundef nonnull align 8 dereferenceable(32) %249)
           to label %_ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit97 unwind label %252
 
 252:                                              ; preds = %248, %247
@@ -1131,7 +1131,7 @@ define void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor21consume_shor
   %24 = getelementptr inbounds i8, ptr %.01229, i64 112
   %25 = getelementptr inbounds i8, ptr %.01229, i64 136
   %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit unwind label %.loopexit
 
 .loopexit:                                        ; preds = %23
@@ -1247,7 +1247,7 @@ define void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor16consume_argu
   %23 = getelementptr inbounds i8, ptr %2, i64 80
   %24 = getelementptr inbounds i8, ptr %2, i64 104
   %25 = load ptr, ptr %24, align 8, !noalias !25
-  invoke void %25(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.69") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void %25(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.69") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor8argumentENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %26
 
 26:                                               ; preds = %22, %21
@@ -2091,7 +2091,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %59 = getelementptr inbounds i8, ptr %50, i64 112
   %60 = getelementptr inbounds i8, ptr %50, i64 136
   %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %59)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %_ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit unwind label %62
 
 62:                                               ; preds = %58, %57
@@ -2252,7 +2252,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %59 = getelementptr inbounds i8, ptr %50, i64 112
   %60 = getelementptr inbounds i8, ptr %50, i64 136
   %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %59)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %_ZNK8WasmEdge2PO14ArgumentParser18ArgumentDescriptor13default_valueEv.exit unwind label %62
 
 62:                                               ; preds = %58, %57

@@ -198,7 +198,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIS_IdSa
 for.cond.cleanup:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit222, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %estimate) #21
   %sorted_.i.i.i.i = getelementptr inbounds nuw i8, ptr %estimate, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %estimate, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %estimate, i8 0, i64 24, i1 false)
   store i8 1, ptr %sorted_.i.i.i.i, align 8, !tbaa !17
   %6 = load ptr, ptr %simulationData, align 8, !tbaa !8
   %7 = load ptr, ptr %6, align 8, !tbaa !24
@@ -2331,7 +2331,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !72
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %add.ptr.i, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8QuantLib17GeneralStatistics5resetEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body

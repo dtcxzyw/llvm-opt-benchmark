@@ -229,7 +229,7 @@ define void @_ZNK21PathSelectionDelegate13setEditorDataEP7QWidgetRK11QModelIndex
   br label %_ZNK11QModelIndex4dataEi.exit
 
 23:                                               ; preds = %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !7
   %24 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 2, ptr %24, align 8, !alias.scope !7
   br label %_ZNK11QModelIndex4dataEi.exit

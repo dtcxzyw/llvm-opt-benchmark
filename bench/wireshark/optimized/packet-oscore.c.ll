@@ -793,7 +793,7 @@ define internal void @oscore_context_post_update_cb() #0 {
   %85 = getelementptr inbounds i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
-  %88 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %84, i64 noundef %87, ptr noundef %78, i64 noundef %81) #9
+  %88 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %84, i64 noundef range(i64 0, 4294967296) %87, ptr noundef %78, i64 noundef range(i64 0, 4294967296) %81) #9
   store i8 -123, ptr %2, align 16
   %89 = getelementptr inbounds i8, ptr %72, i64 72
   %90 = load ptr, ptr %89, align 8
@@ -910,7 +910,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
   %145 = getelementptr [85 x i8], ptr %2, i64 0, i64 %144
   store i8 99, ptr %145, align 1
   %146 = getelementptr i8, ptr %145, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %146, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %146, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   %147 = add nuw nsw i32 %143, 4
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr [85 x i8], ptr %2, i64 0, i64 %148
@@ -1051,7 +1051,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
   %221 = getelementptr [85 x i8], ptr %2, i64 0, i64 %220
   store i8 99, ptr %221, align 1
   %222 = getelementptr i8, ptr %221, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   %223 = add nuw nsw i32 %219, 4
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr [85 x i8], ptr %2, i64 0, i64 %224

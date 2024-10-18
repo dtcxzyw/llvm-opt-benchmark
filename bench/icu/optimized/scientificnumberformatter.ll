@@ -341,7 +341,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad2.i ], [ %0, %lpad.i ]
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
   br label %common.resume
 
@@ -460,7 +460,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad2.i ], [ %0, %lpad.i ]
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call1) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1) #6
   br label %common.resume
 
@@ -826,7 +826,7 @@ lpad4.i:                                          ; preds = %invoke.cont.i
 
 ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %1, %lpad4.i ], [ %0, %lpad.i ]
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
   resume { ptr, i32 } %.pn.i
 
@@ -1281,7 +1281,7 @@ entry:
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fEndMarkup.i) #6
   %fBeginMarkup.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fBeginMarkup.i) #6
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
   ret void
 }

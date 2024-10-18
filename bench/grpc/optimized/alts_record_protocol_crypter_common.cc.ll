@@ -22,7 +22,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 34)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %call2.i, ptr noundef nonnull readonly align 1 dereferenceable(34) @.str, i64 34, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %call2.i, ptr noundef nonnull align 1 dereferenceable(34) @.str, i64 34, i1 false)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -36,7 +36,7 @@ if.then2:                                         ; preds = %if.else
 if.then.i4:                                       ; preds = %if.then2
   %call2.i7 = tail call ptr @gpr_malloc(i64 noundef 17)
   store ptr %call2.i7, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call2.i7, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.1, i64 17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call2.i7, ptr noundef nonnull align 1 dereferenceable(17) @.str.1, i64 17, i1 false)
   br label %return
 
 if.else3:                                         ; preds = %if.else
@@ -50,7 +50,7 @@ if.then5:                                         ; preds = %if.else3
 if.then.i12:                                      ; preds = %if.then5
   %call2.i15 = tail call ptr @gpr_malloc(i64 noundef 24)
   store ptr %call2.i15, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call2.i15, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call2.i15, ptr noundef nonnull align 1 dereferenceable(24) @.str.2, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then.i12, %if.then5, %if.then.i4, %if.then2, %if.then.i, %if.then, %if.else3

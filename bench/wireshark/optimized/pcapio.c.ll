@@ -124,7 +124,7 @@ write_to_file.exit:                               ; preds = %15, %17
   %22 = add i64 %21, 16
   store i64 %22, ptr %6, align 8
   %23 = zext i32 %3 to i64
-  %24 = tail call i64 @fwrite(ptr noundef %5, i64 noundef %23, i64 noundef 1, ptr noundef %0)
+  %24 = tail call i64 @fwrite(ptr noundef %5, i64 noundef range(i64 -2147483648, 4294967296) %23, i64 noundef 1, ptr noundef %0)
   %.not.i12 = icmp eq i64 %24, 1
   br i1 %.not.i12, label %31, label %25
 
@@ -183,7 +183,7 @@ define hidden noundef zeroext i1 @pcapng_write_block(ptr nocapture noundef %0, p
   br label %write_to_file.exit
 
 18:                                               ; preds = %10
-  %19 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef %13, i64 noundef 1, ptr noundef %0)
+  %19 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 4294967296) %13, i64 noundef 1, ptr noundef %0)
   %.not.i = icmp eq i64 %19, 1
   br i1 %.not.i, label %26, label %20
 
@@ -499,7 +499,7 @@ write_to_file.exit:                               ; preds = %16, %18
   %22 = load i64, ptr %3, align 8
   %23 = add i64 %22, 4
   store i64 %23, ptr %3, align 8
-  %24 = tail call i64 @fwrite(ptr noundef nonnull %2, i64 noundef %10, i64 noundef 1, ptr noundef %0)
+  %24 = tail call i64 @fwrite(ptr noundef nonnull %2, i64 noundef range(i64 -2147483648, 4294967296) %10, i64 noundef 1, ptr noundef %0)
   %.not.i23 = icmp eq i64 %24, 1
   br i1 %.not.i23, label %30, label %25
 
@@ -528,7 +528,7 @@ write_to_file.exit26:                             ; preds = %25, %27
 
 34:                                               ; preds = %30
   %35 = sub nuw nsw i64 4, %33
-  %36 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef %35, i64 noundef 1, ptr noundef %0)
+  %36 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef range(i64 -2147483648, 4294967296) %35, i64 noundef 1, ptr noundef %0)
   %.not.i27 = icmp eq i64 %36, 1
   br i1 %.not.i27, label %write_to_file.exit30.thread, label %37
 
@@ -960,7 +960,7 @@ write_to_file.exit:                               ; preds = %47, %49
   %54 = add i64 %53, 28
   store i64 %54, ptr %10, align 8
   %55 = zext i32 %4 to i64
-  %56 = tail call i64 @fwrite(ptr noundef %8, i64 noundef %55, i64 noundef 1, ptr noundef %0)
+  %56 = tail call i64 @fwrite(ptr noundef %8, i64 noundef range(i64 -2147483648, 4294967296) %55, i64 noundef 1, ptr noundef %0)
   %.not.i72 = icmp eq i64 %56, 1
   br i1 %.not.i72, label %62, label %57
 
@@ -1006,7 +1006,7 @@ write_to_file.exit75:                             ; preds = %57, %59
   store i32 %32, ptr %70, align 1
   %71 = add nuw nsw i8 %.062.lcssa, 4
   %72 = zext nneg i8 %71 to i64
-  %73 = call i64 @fwrite(ptr noundef nonnull %18, i64 noundef %72, i64 noundef 1, ptr noundef %0)
+  %73 = call i64 @fwrite(ptr noundef nonnull %18, i64 noundef range(i64 -2147483648, 4294967296) %72, i64 noundef 1, ptr noundef %0)
   %.not.i76 = icmp eq i64 %73, 1
   br i1 %.not.i76, label %80, label %74
 
@@ -1036,7 +1036,7 @@ write_to_file.exit75:                             ; preds = %57, %59
 
 84:                                               ; preds = %83
   %85 = zext nneg i8 %67 to i64
-  %86 = call i64 @fwrite(ptr noundef nonnull %17, i64 noundef %85, i64 noundef 1, ptr noundef %0)
+  %86 = call i64 @fwrite(ptr noundef nonnull %17, i64 noundef range(i64 -2147483648, 4294967296) %85, i64 noundef 1, ptr noundef %0)
   %.not.i80 = icmp eq i64 %86, 1
   br i1 %.not.i80, label %write_to_file.exit83.thread, label %87
 

@@ -135,7 +135,7 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 -1, ptr %23, align 1
   %24 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 27, ptr %24, align 4
-  %25 = call i32 @pccard_get_first_tuple(ptr noundef %11, i32 noundef %14, ptr noundef nonnull %4) #8
+  %25 = call i32 @pccard_get_first_tuple(ptr noundef %11, i32 noundef range(i32 0, 256) %14, ptr noundef nonnull %4) #8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.split.i, label %.loopexit.i
 
@@ -155,7 +155,7 @@ define dso_local i32 @pcmcia_loop_config(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %34, label %.loopexit.i, label %35
 
 35:                                               ; preds = %32, %29, %.split.i
-  %36 = call i32 @pccard_get_next_tuple(ptr noundef %11, i32 noundef %14, ptr noundef nonnull %4) #8
+  %36 = call i32 @pccard_get_next_tuple(ptr noundef %11, i32 noundef range(i32 0, 256) %14, ptr noundef nonnull %4) #8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.split.i, label %.loopexit.i, !llvm.loop !6
 

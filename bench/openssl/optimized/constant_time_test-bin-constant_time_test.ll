@@ -194,9 +194,9 @@ entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [10 x i32], ptr @test_values, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -1) #3, !srcloc !5
+  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -1) #3, !srcloc !5
   %and.i.i = and i32 %1, %0
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !5
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) 0) #3, !srcloc !5
   %and.i5.i = and i32 %2, %0
   br label %for.body
 
@@ -440,9 +440,9 @@ entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
-  %1 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #3, !srcloc !9
+  %1 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !9
   %and.i.i = and i64 %1, %0
-  %2 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #3, !srcloc !9
+  %2 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !9
   %conv1.i = trunc i64 %0 to i32
   %and.i5.i = and i64 %2, %0
   br label %for.body
@@ -598,9 +598,9 @@ entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [13 x i32], ptr @signed_test_values, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -1) #3, !srcloc !5
+  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -1) #3, !srcloc !5
   %and.i.i.i = and i32 %1, %0
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !5
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) 0) #3, !srcloc !5
   %and.i.i5.i = and i32 %2, %0
   br label %for.body
 
@@ -666,9 +666,9 @@ entry:
   %arrayidx = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv1.i.i = zext i8 %0 to i32
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 255) #3, !srcloc !5
+  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 256) 255) #3, !srcloc !5
   %and.i.i.i = and i32 %1, %conv1.i.i
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -256) #3, !srcloc !5
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -256) #3, !srcloc !5
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
@@ -684,9 +684,9 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool.not.i, label %test_select_8.exit.thread, label %test_select_8.exit
 
 test_select_8.exit:                               ; preds = %for.body
-  %4 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !5
+  %4 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 256) 0) #3, !srcloc !5
   %and.i.i7.i = and i32 %4, %conv1.i.i
-  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -1) #3, !srcloc !5
+  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -256, 256) -1) #3, !srcloc !5
   %and2.i.i8.i = and i32 %5, %conv2.i.i
   %or.i.i9.i = or i32 %and2.i.i8.i, %and.i.i7.i
   %call6.i = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.12, i32 noundef 170, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.33, i32 noundef %or.i.i9.i, i32 noundef %conv2.i.i) #2
@@ -713,9 +713,9 @@ entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 -1) #3, !srcloc !13
+  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) -1) #3, !srcloc !13
   %and.i.i = and i32 %1, %0
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !13
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) 0) #3, !srcloc !13
   %and.i5.i = and i32 %2, %0
   br label %for.body
 
@@ -798,9 +798,9 @@ test_binary_op_64.exit.thread:                    ; preds = %if.then.i, %if.then
   br label %if.then
 
 lor.lhs.false:                                    ; preds = %if.else.i
-  %3 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #3, !srcloc !15
+  %3 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !15
   %and.i.i = and i64 %3, %0
-  %4 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #3, !srcloc !15
+  %4 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !15
   %and2.i.i = and i64 %4, %1
   %or.i.i10 = or i64 %and2.i.i, %and.i.i
   %cmp.not.i11 = icmp eq i64 %or.i.i10, %0

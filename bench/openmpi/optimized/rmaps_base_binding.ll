@@ -261,14 +261,14 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %114, %hwloc_get_obj
   %133 = getelementptr inbounds i8, ptr %132, i64 128
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
-  %136 = tail call i32 @hwloc_get_type_depth(ptr noundef %134, i32 noundef %..i) #6
+  %136 = tail call i32 @hwloc_get_type_depth(ptr noundef %134, i32 noundef range(i32 2, 4) %..i) #6
   switch i32 %136, label %137 [
     i32 -1, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
     i32 -2, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.threadthread-pre-split.i
   ]
 
 137:                                              ; preds = %hwloc_get_obj_by_type.exit.i
-  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %134, i32 noundef %136, i32 noundef 0) #7
+  %138 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %134, i32 noundef range(i32 0, -2) %136, i32 noundef 0) #7
   %.not.i.i.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i, label %.preheader.i.i.i
 
@@ -345,12 +345,12 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i: ; preds = %hwloc_get_nbobj
   %172 = getelementptr inbounds i8, ptr %171, i64 128
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
-  %175 = tail call i32 @hwloc_get_type_depth(ptr noundef %173, i32 noundef %..i) #6
+  %175 = tail call i32 @hwloc_get_type_depth(ptr noundef %173, i32 noundef range(i32 2, 4) %..i) #6
   %or.cond.i.i = icmp ugt i32 %175, -3
   br i1 %or.cond.i.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %176
 
 176:                                              ; preds = %170
-  %177 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %173, i32 noundef %175, i32 noundef 0) #7
+  %177 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %173, i32 noundef range(i32 0, -2) %175, i32 noundef 0) #7
   %.not.i.i60.i = icmp eq ptr %177, null
   br i1 %.not.i.i60.i, label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i, label %.preheader.i.i61.i
 
@@ -463,7 +463,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %187, %hwloc_get_ob
   br i1 %or.cond.i.i65, label %.thread.i, label %241
 
 241:                                              ; preds = %228
-  %242 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %236, i32 noundef %240, i32 noundef 0) #7
+  %242 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %236, i32 noundef range(i32 0, -2) %240, i32 noundef 0) #7
   %.not.i.i.i66 = icmp eq ptr %242, null
   br i1 %.not.i.i.i66, label %.thread.i, label %.preheader.i.i.i67
 
@@ -518,7 +518,7 @@ hwloc_get_next_obj_inside_cpuset_by_type.exit70.i: ; preds = %292, %.lr.ph.i72
   ]
 
 267:                                              ; preds = %261
-  %268 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %264, i32 noundef %266, i32 noundef 0) #7
+  %268 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %264, i32 noundef range(i32 0, -2) %266, i32 noundef 0) #7
   %.not.i.i57.i = icmp eq ptr %268, null
   br i1 %.not.i.i57.i, label %hwloc_get_nbobjs_inside_cpuset_by_type.exit.thread.i77, label %.preheader.i.i58.i
 
@@ -641,10 +641,10 @@ hwloc_get_next_obj_by_depth.exit.i.i.i:           ; preds = %284
   %329 = getelementptr inbounds i8, ptr %328, i64 128
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base, i64 304), align 8
-  %332 = tail call i32 @hwloc_get_type_depth(ptr noundef %330, i32 noundef %..i73) #6
+  %332 = tail call i32 @hwloc_get_type_depth(ptr noundef %330, i32 noundef range(i32 2, 4) %..i73) #6
   %or.cond.i71.i = icmp ult i32 %332, -2
   tail call void @llvm.assume(i1 %or.cond.i71.i)
-  %333 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %330, i32 noundef %332, i32 noundef 0) #7
+  %333 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %330, i32 noundef range(i32 0, -2) %332, i32 noundef 0) #7
   %.not.i.i72.i = icmp ne ptr %333, null
   tail call void @llvm.assume(i1 %.not.i.i72.i)
   br label %.preheader.i.i73.i
@@ -756,12 +756,12 @@ define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr
 40:                                               ; preds = %24
   %41 = getelementptr inbounds i8, ptr %36, i64 184
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @hwloc_get_type_depth(ptr noundef %35, i32 noundef %.) #6
+  %43 = tail call i32 @hwloc_get_type_depth(ptr noundef %35, i32 noundef range(i32 2, 4) %.) #6
   %or.cond.i = icmp ugt i32 %43, -3
   br i1 %or.cond.i, label %.loopexit, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %35, i32 noundef %43, i32 noundef 0) #7
+  %45 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %35, i32 noundef range(i32 0, -2) %43, i32 noundef 0) #7
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 
@@ -885,12 +885,12 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
   %98 = load ptr, ptr %32, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 128
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 @hwloc_get_type_depth(ptr noundef %100, i32 noundef %.) #6
+  %101 = tail call i32 @hwloc_get_type_depth(ptr noundef %100, i32 noundef range(i32 2, 4) %.) #6
   %or.cond.i59 = icmp ugt i32 %101, -3
   br i1 %or.cond.i59, label %hwloc_get_obj_inside_cpuset_by_type.exit69.thread, label %102
 
 102:                                              ; preds = %95
-  %103 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %100, i32 noundef %101, i32 noundef 0) #7
+  %103 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %100, i32 noundef range(i32 0, -2) %101, i32 noundef 0) #7
   %.not.i.i60 = icmp eq ptr %103, null
   br i1 %.not.i.i60, label %hwloc_get_obj_inside_cpuset_by_type.exit69.thread, label %.preheader.i.i61
 

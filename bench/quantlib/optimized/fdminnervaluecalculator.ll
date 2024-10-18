@@ -298,7 +298,7 @@ entry:
   %gridMapping_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %gridMapping, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gridMapping_, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !31
   store ptr %4, ptr %_M_invoker.i, align 8, !tbaa !31
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %gridMapping, i64 16
@@ -308,7 +308,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(16) %gridMapping, i64 16, i1 false), !tbaa.struct !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(32) %gridMapping, i64 16, i1 false), !tbaa.struct !33
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !32
   store ptr %6, ptr %_M_manager.i.i, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -369,7 +369,7 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %_ZNK5boost10shared_
   %gridMapping_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %8(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %vtable5 = load ptr, ptr %6, align 8, !tbaa !14
   %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
@@ -991,7 +991,7 @@ _ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit: ; preds = %_ZNK5boost10shar
 _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %_ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %25 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !31
-  %call2.i.i44 = invoke noundef double %25(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  %call2.i.i44 = invoke noundef double %25(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFddEEclEd.exit.i
@@ -1015,7 +1015,7 @@ lor.lhs.false34:                                  ; preds = %invoke.cont
 
 _ZNKSt8functionIFddEEclEd.exit.i49:               ; preds = %lor.lhs.false34
   %28 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !31
-  %call2.i.i56 = invoke noundef double %28(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i46)
+  %call2.i.i56 = invoke noundef double %28(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i46)
           to label %call2.i.i.noexc55 unwind label %lpad
 
 call2.i.i.noexc55:                                ; preds = %_ZNKSt8functionIFddEEclEd.exit.i49
@@ -1039,7 +1039,7 @@ cond.true:                                        ; preds = %invoke.cont35, %inv
 
 _ZNKSt8functionIFddEEclEd.exit.i62:               ; preds = %cond.true
   %31 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !31
-  %call2.i.i69 = invoke noundef double %31(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i59)
+  %call2.i.i69 = invoke noundef double %31(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i59)
           to label %call2.i.i.noexc68 unwind label %lpad
 
 call2.i.i.noexc68:                                ; preds = %_ZNKSt8functionIFddEEclEd.exit.i62
@@ -1066,7 +1066,7 @@ if.then.i.i79.cont:                               ; preds = %if.then.i.i79.invok
 
 _ZNKSt8functionIFddEEclEd.exit.i75:               ; preds = %invoke.cont38
   %34 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !31
-  %call2.i.i82 = invoke noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i72)
+  %call2.i.i82 = invoke noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i72)
           to label %call2.i.i.noexc81 unwind label %lpad
 
 call2.i.i.noexc81:                                ; preds = %_ZNKSt8functionIFddEEclEd.exit.i75
@@ -1109,7 +1109,7 @@ invoke.cont47:                                    ; preds = %invoke.cont44
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont47
-  %call.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -1145,7 +1145,7 @@ lpad46:                                           ; preds = %invoke.cont44
   br i1 %tobool.not.i87, label %_ZNSt14_Function_baseD2Ev.exit91, label %if.then.i88
 
 if.then.i88:                                      ; preds = %lpad46
-  %call.i89 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45, i32 noundef 3)
+  %call.i89 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit91 unwind label %terminate.lpad.i90
 
 terminate.lpad.i90:                               ; preds = %if.then.i88
@@ -1729,7 +1729,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %gridMapping_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %call.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(16) %gridMapping_, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, ptr noundef nonnull align 8 dereferenceable(32) %gridMapping_, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -1885,7 +1885,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %entry
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i = call noundef double %1(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i = call noundef double %1(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i20)
   store double %b, ptr %__args.addr.i20, align 8, !tbaa !35
@@ -1899,7 +1899,7 @@ if.then.i25:                                      ; preds = %_ZNKSt8functionIFdd
 
 _ZNKSt8functionIFddEEclEd.exit26:                 ; preds = %_ZNKSt8functionIFddEEclEd.exit
   %3 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i24 = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i20)
+  %call2.i24 = call noundef double %3(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i20)
   %add = fadd double %call2.i, %call2.i24
   %sub = fsub double %b, %a
@@ -1939,7 +1939,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %for.body.i
   %5 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !31
-  %call2.i.i = call noundef double %5(ptr noundef nonnull align 8 dereferenceable(16) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  %call2.i.i = call noundef double %5(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   %add2.i = fadd double %sum.010.i, %call2.i.i
   %add3.i = fadd double %div.i, %x.011.i
@@ -2417,7 +2417,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_113mapped_payoffEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val1, i64 24
   %2 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !tbaa !31
-  %call2.i.i.i.i = call noundef double %2(ptr noundef nonnull align 8 dereferenceable(16) %call.val1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
+  %call2.i.i.i.i = call noundef double %2(ptr noundef nonnull align 8 dereferenceable(32) %call.val1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %vtable.i.i.i = load ptr, ptr %call.val, align 8, !tbaa !14
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32

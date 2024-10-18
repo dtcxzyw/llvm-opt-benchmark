@@ -85,7 +85,7 @@ define dso_local void @_ZN18cmCursesPathWidgetC2Eiiii(ptr noundef nonnull align 
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #13
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #13
   resume { ptr, i32 } %18
 
 20:                                               ; preds = %12
@@ -158,7 +158,7 @@ define dso_local void @_ZN18cmCursesPathWidget5OnTabEP16cmCursesMainFormP7_win_s
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %12
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc19 unwind label %44
 
 .noexc19:                                         ; preds = %.noexc
@@ -175,7 +175,7 @@ define dso_local void @_ZN18cmCursesPathWidget5OnTabEP16cmCursesMainFormP7_win_s
 22:                                               ; preds = %24, %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %.body
 
 24:                                               ; preds = %.noexc19
@@ -521,7 +521,7 @@ define linkonce_odr dso_local void @_ZN18cmCursesPathWidgetD2Ev(ptr noundef nonn
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #13
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #13
   ret void
 }
 
@@ -535,7 +535,7 @@ define linkonce_odr dso_local void @_ZN18cmCursesPathWidgetD0Ev(ptr noundef nonn
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #13
+  tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }

@@ -117,7 +117,7 @@ define hidden void @_ZN9metaspace14MetaspaceArena13salvage_chunkEPNS_9MetachunkE
   %29 = tail call noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %7) #9
   %30 = getelementptr inbounds i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %31) #9, !srcloc !6
+  %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull align 8 dereferenceable(8) %31) #9, !srcloc !6
   %33 = getelementptr inbounds i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -323,7 +323,7 @@ _ZN9metaspace26AbstractMemoryRangeCounterIjmE3addEm.exit: ; preds = %_ZN9metaspa
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = sub i64 0, %.sroa.4.0.lcssa
-  %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull %32) #9, !srcloc !6
+  %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %33, ptr nonnull align 8 dereferenceable(8) %32) #9, !srcloc !6
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -725,7 +725,7 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   %.154 = phi ptr [ %125, %122 ], [ %74, %72 ]
   %133 = getelementptr inbounds i8, ptr %0, i64 40
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %134) #9, !srcloc !6
+  %135 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull align 8 dereferenceable(8) %134) #9, !srcloc !6
   %136 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not62 = icmp eq ptr %136, null
   br i1 %.not62, label %161, label %137

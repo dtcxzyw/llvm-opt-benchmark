@@ -2307,7 +2307,7 @@ if.then.i:                                        ; preds = %entry
   %idx.ext.i = zext i8 %0 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds i8, ptr %statePtr, i64 %idx.neg.i
-  tail call void @free(ptr noundef %add.ptr.i) #32
+  tail call void @free(ptr noundef nonnull %add.ptr.i) #32
   br label %_ZL15XXH_alignedFreePv.exit
 
 _ZL15XXH_alignedFreePv.exit:                      ; preds = %entry, %if.then.i

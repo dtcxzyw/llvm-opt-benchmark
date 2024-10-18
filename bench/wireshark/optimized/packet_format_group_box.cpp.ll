@@ -1266,7 +1266,7 @@ define void @_ZN20PacketFormatGroupBoxD0Ev(ptr noundef nonnull align 8 dereferen
 define void @_ZThn16_N20PacketFormatGroupBoxD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN20PacketFormatGroupBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #9
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #10
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(48) %2) #10
   ret void
 }
 

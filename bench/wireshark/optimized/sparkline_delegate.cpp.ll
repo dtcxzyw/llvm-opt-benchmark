@@ -312,7 +312,7 @@ define void @_ZNK17SparkLineDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK1
   br label %_ZNK11QModelIndex4dataEi.exit
 
 21:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false), !alias.scope !4
   %22 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %22, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -795,7 +795,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %193, %_ZN17QArrayDa
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %201) #19
   %202 = getelementptr inbounds i8, ptr %12, i64 88
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %202) #19
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #19
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %12) #19
   br label %203
 
 203:                                              ; preds = %41, %_ZN20QStyleOptionViewItemD2Ev.exit
@@ -1066,7 +1066,7 @@ define linkonce_odr void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull a
           to label %18 unwind label %43
 
 18:                                               ; preds = %11
-  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %18
@@ -3006,7 +3006,7 @@ _ZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8f
   br i1 %.not.i.i, label %_ZNSt8functionIFbPKvPvEED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPKvPvEES_S_.exit
-  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFbPKvPvEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %13
@@ -3027,7 +3027,7 @@ _ZNSt8functionIFbPKvPvEED2Ev.exit:                ; preds = %_ZN9QMetaType21regi
   br i1 %.not.i.i4, label %_ZNSt8functionIFbPKvPvEED2Ev.exit5, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFbPKvPvEED2Ev.exit5 unwind label %23
 
 23:                                               ; preds = %21
@@ -3967,7 +3967,7 @@ _ZN9QMetaType23registerMutableViewImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt
   br i1 %.not.i.i, label %_ZNSt8functionIFbPvS0_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZN9QMetaType23registerMutableViewImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPvS7_EES_S_.exit
-  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFbPvS0_EED2Ev.exit unwind label %15
 
 15:                                               ; preds = %13
@@ -3988,7 +3988,7 @@ _ZNSt8functionIFbPvS0_EED2Ev.exit:                ; preds = %_ZN9QMetaType23regi
   br i1 %.not.i.i4, label %_ZNSt8functionIFbPvS0_EED2Ev.exit5, label %21
 
 21:                                               ; preds = %18
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 3)
           to label %_ZNSt8functionIFbPvS0_EED2Ev.exit5 unwind label %23
 
 23:                                               ; preds = %21

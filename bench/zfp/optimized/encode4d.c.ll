@@ -924,7 +924,7 @@ fwd_xform_int64_4.exit.i.i:                       ; preds = %425, %fwd_xform_int
 fwd_order_int64.exit.i.i48:                       ; preds = %fwd_xform_int64_4.exit.i.i
   %435 = tail call i32 @llvm.usub.sat.i32(i32 %319, i32 12)
   %436 = add i32 %321, -12
-  %437 = call fastcc i32 @encode_ints_uint64(ptr noundef %318, i32 noundef %436, i32 noundef %281, ptr noundef %3)
+  %437 = call fastcc i32 @encode_ints_uint64(ptr noundef %318, i32 noundef %436, i32 noundef range(i32 0, -2147483648) %281, ptr noundef %3)
   %438 = icmp ult i32 %437, %435
   br i1 %438, label %439, label %encode_block_int64_4.exit.i
 

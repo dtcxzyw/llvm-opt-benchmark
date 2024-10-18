@@ -5395,7 +5395,7 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
 
 487:                                              ; preds = %112
   %488 = load i32, ptr @hf_btavdtp_data, align 4
-  %489 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %488, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %488, ptr noundef %0, i32 noundef %110, i32 noundef range(i32 -2, 254) %111, i32 noundef 0) #6
   br label %dissect_codec.exit
 
 490:                                              ; preds = %.thread, %109
@@ -5447,12 +5447,12 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
 
 523:                                              ; preds = %490
   %524 = load i32, ptr @hf_btavdtp_data, align 4
-  %525 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %524, ptr noundef %0, i32 noundef %492, i32 noundef %491, i32 noundef 0) #6
+  %525 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %524, ptr noundef %0, i32 noundef %492, i32 noundef range(i32 -2, 254) %491, i32 noundef 0) #6
   br label %dissect_codec.exit
 
 526:                                              ; preds = %109
   %527 = load i32, ptr @hf_btavdtp_data, align 4
-  %528 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %527, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef 0) #6
+  %528 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %527, ptr noundef %0, i32 noundef %110, i32 noundef range(i32 -2, 254) %111, i32 noundef 0) #6
   br label %dissect_codec.exit
 
 dissect_codec.exit:                               ; preds = %165, %209, %211, %250, %298, %386, %407, %409, %451, %473, %475, %479, %487, %493, %502, %513, %523, %526

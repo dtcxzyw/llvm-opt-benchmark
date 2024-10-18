@@ -45,7 +45,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -89,7 +89,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %1)
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -130,7 +130,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
 
 .noexc:                                           ; preds = %3
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload.i, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -188,7 +188,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
 
 .noexc:                                           ; preds = %3
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -233,7 +233,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_PostQuietlyErrorHelperERK
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -250,7 +250,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_PostQuietlyErrorHelperERK
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %12
 
 12:                                               ; preds = %10
-  invoke void %11(i32 noundef 3, ptr noundef nonnull %6, ptr noundef null)
+  invoke void %11(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef null)
           to label %13 unwind label %14
 
 13:                                               ; preds = %12
@@ -285,7 +285,7 @@ define linkonce_odr void @_ZNSt3anyD2Ev(ptr noundef nonnull align 8 dereferencea
   br i1 %.not.i, label %_ZNSt3any5resetEv.exit, label %3
 
 3:                                                ; preds = %1
-  invoke void %2(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+  invoke void %2(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
           to label %4 unwind label %5
 
 4:                                                ; preds = %3
@@ -314,7 +314,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_PostQuietlyErrorHelperERK
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sroa.01.0.copyload, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
@@ -334,7 +334,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_PostQuietlyErrorHelperERK
 
 15:                                               ; preds = %4
   store ptr %8, ptr %5, align 8
-  invoke void %13(i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  invoke void %13(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5)
           to label %16 unwind label %24
 
 16:                                               ; preds = %14, %15
@@ -348,7 +348,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_PostQuietlyErrorHelperERK
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  invoke void %18(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %18(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -436,7 +436,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sroa.01.0.copyload, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
@@ -456,7 +456,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
 
 15:                                               ; preds = %4
   store ptr %8, ptr %5, align 8
-  invoke void %13(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  invoke void %13(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5)
           to label %16 unwind label %24
 
 16:                                               ; preds = %14, %15
@@ -470,7 +470,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13Tf
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  invoke void %18(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %18(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -534,7 +534,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 6)
   %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -572,7 +572,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
 
 .noexc:                                           ; preds = %2
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -616,7 +616,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -645,7 +645,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %1)
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -686,7 +686,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
 
 .noexc:                                           ; preds = %3
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload.i, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -736,7 +736,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
 
 .noexc:                                           ; preds = %3
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -782,7 +782,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sroa.01.0.copyload, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
@@ -802,7 +802,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
 
 15:                                               ; preds = %4
   store ptr %8, ptr %5, align 8
-  invoke void %13(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  invoke void %13(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5)
           to label %16 unwind label %24
 
 16:                                               ; preds = %14, %15
@@ -816,7 +816,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  invoke void %18(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %18(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -880,7 +880,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 7)
   %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -918,7 +918,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
 
 .noexc:                                           ; preds = %2
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -962,7 +962,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1001,7 +1001,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
 
 .noexc:                                           ; preds = %3
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sroa.01.0.copyload.i, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1047,7 +1047,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sroa.01.0.copyload, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
@@ -1067,7 +1067,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
 
 15:                                               ; preds = %4
   store ptr %8, ptr %5, align 8
-  invoke void %13(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  invoke void %13(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %5)
           to label %16 unwind label %24
 
 16:                                               ; preds = %14, %15
@@ -1081,7 +1081,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_PostStatusHelperERKNS_13T
   br i1 %.not.i.i, label %_ZNSt3anyD2Ev.exit, label %19
 
 19:                                               ; preds = %17
-  invoke void %18(i32 noundef 3, ptr noundef nonnull %8, ptr noundef null)
+  invoke void %18(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null)
           to label %20 unwind label %21
 
 20:                                               ; preds = %19
@@ -1150,7 +1150,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper10IssueE
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1195,7 +1195,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueF
   call void @llvm.va_start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1236,7 +1236,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper12IssueW
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1284,7 +1284,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper11IssueS
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1329,7 +1329,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper10IssueE
   %6 = load i32, ptr %5, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %6)
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -1355,7 +1355,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueF
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TfDiagnosticMgr::FatalHelper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -1372,7 +1372,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper12IssueW
   %6 = load i32, ptr %5, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %6)
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -1401,7 +1401,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper11IssueS
   %6 = load i32, ptr %5, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %6)
   %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
@@ -1433,7 +1433,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper10Is
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1478,7 +1478,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15Is
   call void @llvm.va_start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1508,7 +1508,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper12Is
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -1556,7 +1556,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper11Is
   %8 = load i32, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, i32 %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48

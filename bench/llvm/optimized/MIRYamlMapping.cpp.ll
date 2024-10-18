@@ -127,7 +127,7 @@ define dso_local void @_ZNK4llvm4yaml10FrameIndex5getFIERKNS_16MachineFrameInfoE
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %7, align 8, !noalias !9
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %9, ptr %30, align 8, !noalias !9
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
   %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(33) %10) #9
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %33 = load ptr, ptr %32, align 8, !noalias !9
@@ -140,7 +140,7 @@ define dso_local void @_ZNK4llvm4yaml10FrameIndex5getFIERKNS_16MachineFrameInfoE
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #9
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   %36 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #9
   %37 = extractvalue { i32, ptr } %36, 0
@@ -211,7 +211,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8, !noalias !26
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %11, ptr %68, align 8, !noalias !26
-  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
+  call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
   %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(33) %12) #9
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %71 = load ptr, ptr %70, align 8, !noalias !26
@@ -224,7 +224,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
   br label %_ZN4llvm5ErrorD2Ev.exit13
 
 _ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %73, %58
-  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #9
+  call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %74 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #9
   %75 = extractvalue { i32, ptr } %74, 0

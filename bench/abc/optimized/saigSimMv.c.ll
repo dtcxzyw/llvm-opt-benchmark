@@ -889,8 +889,8 @@ define void @Saig_MvSimulateFrame(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %or.cond, label %Saig_MvAnd.exit, label %48
 
 48:                                               ; preds = %45
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.0.i39)
-  %spec.select55.i = tail call i32 @llvm.umin.i32(i32 %.0.i, i32 %.0.i39)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 536870912) %.0.i, i32 range(i32 0, 536870912) %.0.i39)
+  %spec.select55.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 536870912) %.0.i, i32 range(i32 0, 536870912) %.0.i39)
   %49 = load ptr, ptr %6, align 8
   %50 = load i32, ptr %7, align 8
   %51 = lshr i32 %spec.select55.i, 1

@@ -486,10 +486,10 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %97 = load i32, ptr @ett_iso7816_param, align 4
-  %98 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %97, ptr noundef null, ptr noundef nonnull @.str.154) #3
-  %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #3
+  %98 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 2, i32 noundef %97, ptr noundef null, ptr noundef nonnull @.str.154) #3
+  %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 0) 2) #3
   %100 = load i32, ptr @hf_iso7816_p1, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %100, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %100, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 1, i32 noundef 0) #3
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
   %103 = load i32, ptr @hf_iso7816_p2, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %103, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #3
@@ -523,7 +523,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
   %113 = load i32, ptr @ett_iso7816_p1, align 4
   %114 = tail call ptr @proto_item_add_subtree(ptr noundef %101, i32 noundef %113) #3
   %115 = load i32, ptr @hf_iso7816_sel_file_ctrl, align 4
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 1, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.158) #3
   %117 = load i32, ptr @ett_iso7816_p2, align 4
   %118 = tail call ptr @proto_item_add_subtree(ptr noundef %104, i32 noundef %117) #3
@@ -539,7 +539,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
 
 124:                                              ; preds = %123
   %125 = load i32, ptr @hf_iso7816_offset_first_byte, align 4
-  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %125, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %108) #3
+  %126 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %125, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 2, i32 noundef %108) #3
   %127 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %127, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.159, i32 noundef %108) #3
   br label %154
@@ -567,7 +567,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
 
 141:                                              ; preds = %96
   %142 = load i32, ptr @hf_iso7816_get_resp, align 4
-  %143 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %98, i32 noundef %142, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %108, ptr noundef nonnull @.str.164) #3
+  %143 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %98, i32 noundef %142, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 2, i32 noundef %108, ptr noundef nonnull @.str.164) #3
   br label %154
 
 144:                                              ; preds = %96
@@ -579,7 +579,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
 
 147:                                              ; preds = %144
   %148 = load i32, ptr @hf_iso7816_rfu, align 4
-  %149 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %148, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %108) #3
+  %149 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %148, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 2, i32 noundef %108) #3
   br label %154
 
 150:                                              ; preds = %144
@@ -588,7 +588,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
 
 151:                                              ; preds = %150
   %152 = load i32, ptr @hf_iso7816_application_data, align 4
-  %153 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %152, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %108) #3
+  %153 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %152, ptr noundef %0, i32 noundef range(i32 1, 0) 2, i32 noundef 2, i32 noundef %108) #3
   br label %154
 
 154:                                              ; preds = %151, %147, %141, %124

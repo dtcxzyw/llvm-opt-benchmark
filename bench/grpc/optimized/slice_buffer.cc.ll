@@ -92,7 +92,7 @@ if.then.i:                                        ; preds = %if.then32
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  tail call void %11(ptr noundef nonnull %3)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %return
 
 if.end59:                                         ; preds = %if.end
@@ -359,7 +359,7 @@ if.then.i.i:                                      ; preds = %for.body
 
 _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %for.body, %if.then.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !10
-  invoke void @grpc_slice_buffer_add(ptr noundef nonnull %this, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  invoke void @grpc_slice_buffer_add(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %lpad
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit
@@ -414,7 +414,7 @@ if.then.i:                                        ; preds = %entry
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %2(ptr noundef nonnull %0)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %if.then.i, %entry, %if.then.i.i
@@ -997,7 +997,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull %2)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.i: ; preds = %if.then.i.i.i, %if.then.i.i, %for.body.i
@@ -1055,7 +1055,7 @@ if.then.i:                                        ; preds = %for.body
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  tail call void %4(ptr noundef nonnull %2)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %for.body, %if.then.i, %if.then.i.i
@@ -1934,7 +1934,7 @@ if.then.i26:                                      ; preds = %if.then18
 if.then.i.i:                                      ; preds = %if.then.i26
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  tail call void %13(ptr noundef nonnull %11)
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %while.end
 
 if.else31:                                        ; preds = %if.else
@@ -1953,7 +1953,7 @@ if.then.i28:                                      ; preds = %if.else31
 if.then.i.i30:                                    ; preds = %if.then.i28
   %destroyer_fn_.i.i31 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %destroyer_fn_.i.i31, align 8
-  tail call void %16(ptr noundef nonnull %14)
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then.i.i30, %if.then.i28, %if.else31
@@ -2096,7 +2096,7 @@ if.then.i114.us:                                  ; preds = %if.else26.us
 if.then.i.i116.us:                                ; preds = %if.then.i114.us
   %destroyer_fn_.i.i117.us = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i117.us, align 8
-  tail call void %7(ptr noundef nonnull %5)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %if.end33.us
 
 if.end33.us:                                      ; preds = %if.then.i.i116.us, %if.then.i114.us, %if.else26.us
@@ -2227,7 +2227,7 @@ if.then.i:                                        ; preds = %if.else
 if.then.i.i26:                                    ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %23(ptr noundef nonnull %12)
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %return
 
 if.else15:                                        ; preds = %if.else15.lr.ph, %grpc_slice_buffer_add_indexed.exit112
@@ -2338,7 +2338,7 @@ if.then.i68:                                      ; preds = %if.else22
 if.then.i.i70:                                    ; preds = %if.then.i68
   %destroyer_fn_.i.i71 = getelementptr inbounds i8, ptr %.us-phi147183, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i71, align 8
-  tail call void %34(ptr noundef nonnull %.us-phi147183)
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi147183)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then.i.i70, %if.then.i68, %if.else22, %grpc_slice_buffer_add_indexed.exit66
@@ -2478,7 +2478,7 @@ if.then.i:                                        ; preds = %cond.end
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  tail call void %7(ptr noundef nonnull %5)
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %cond.end, %if.then.i, %if.then.i.i

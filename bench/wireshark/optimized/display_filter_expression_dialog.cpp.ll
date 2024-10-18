@@ -396,7 +396,7 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
   %55 = alloca %"class.QMetaObject::Connection", align 8
   %56 = alloca %"class.QMetaObject::Connection", align 8
   %57 = alloca %"class.QMetaObject::Connection", align 8
-  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, i32 0)
+  tail call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null, i32 0)
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
@@ -407,7 +407,7 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
           to label %62 unwind label %97
 
 62:                                               ; preds = %2
-  invoke void @_ZN18QFutureWatcherBaseC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef null)
+  invoke void @_ZN18QFutureWatcherBaseC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef null)
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %62
@@ -419,7 +419,7 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
 64:                                               ; preds = %.noexc
   %65 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %61) #22
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #22
   br label %.body
 
 66:                                               ; preds = %.noexc
@@ -1493,7 +1493,7 @@ _ZN7QStringD2Ev.exit209:                          ; preds = %414, %_ZN17QArrayDa
   br i1 %476, label %_ZN14QFutureWatcherIP15QTreeWidgetItemE9setFutureERK7QFutureIS1_E.exit, label %477
 
 477:                                              ; preds = %470
-  invoke void @_ZN18QFutureWatcherBase25disconnectOutputInterfaceEb(ptr noundef nonnull align 8 dereferenceable(16) %471, i1 noundef zeroext true)
+  invoke void @_ZN18QFutureWatcherBase25disconnectOutputInterfaceEb(ptr noundef nonnull align 8 dereferenceable(32) %471, i1 noundef zeroext true)
           to label %.noexc254 unwind label %499
 
 .noexc254:                                        ; preds = %477
@@ -1502,7 +1502,7 @@ _ZN7QStringD2Ev.exit209:                          ; preds = %414, %_ZN17QArrayDa
           to label %.noexc255 unwind label %499
 
 .noexc255:                                        ; preds = %.noexc254
-  invoke void @_ZN18QFutureWatcherBase22connectOutputInterfaceEv(ptr noundef nonnull align 8 dereferenceable(16) %471)
+  invoke void @_ZN18QFutureWatcherBase22connectOutputInterfaceEv(ptr noundef nonnull align 8 dereferenceable(32) %471)
           to label %_ZN14QFutureWatcherIP15QTreeWidgetItemE9setFutureERK7QFutureIS1_E.exit unwind label %499
 
 _ZN14QFutureWatcherIP15QTreeWidgetItemE9setFutureERK7QFutureIS1_E.exit: ; preds = %470, %.noexc255
@@ -4289,7 +4289,7 @@ _ZN7QStringD2Ev.exit80:                           ; preds = %_ZN7QStringD2Ev.exi
 96:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %14)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %_ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %134
 
 _ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %96
@@ -4789,7 +4789,7 @@ _ZN7QStringD2Ev.exit151:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %.039, ptr %2, align 8, !noalias !43
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %2)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %261 unwind label %360
 
 261:                                              ; preds = %260
@@ -5118,7 +5118,7 @@ _ZSt11stable_sortIN5QListIP15QTreeWidgetItemE8iteratorEPFbPKS1_S6_EEvT_S9_T0_.ex
           to label %386 unwind label %.loopexit.split-lp
 
 386:                                              ; preds = %_ZSt11stable_sortIN5QListIP15QTreeWidgetItemE8iteratorEPFbPKS1_S6_EEvT_S9_T0_.exit193
-  %387 = invoke noundef zeroext i1 @_ZN16QFutureInterfaceIP15QTreeWidgetItemE12reportResultEPKS1_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i32 noundef -1)
+  %387 = invoke noundef zeroext i1 @_ZN16QFutureInterfaceIP15QTreeWidgetItemE12reportResultEPKS1_i(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef -1)
           to label %_ZN8QPromiseIP15QTreeWidgetItemE9addResultIRS1_vEEbOT_i.exit unwind label %.loopexit.split-lp
 
 _ZN8QPromiseIP15QTreeWidgetItemE9addResultIRS1_vEEbOT_i.exit: ; preds = %386
@@ -6684,7 +6684,7 @@ define void @_ZN29DisplayFilterExpressionDialogD0Ev(ptr noundef nonnull align 8 
 define void @_ZThn16_N29DisplayFilterExpressionDialogD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN29DisplayFilterExpressionDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(120) %2) #23
   ret void
 }
 
@@ -8201,7 +8201,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %.not.i, label %_ZN15QListWidgetItem9setHiddenEb.exit, label %147
 
 147:                                              ; preds = %143
-  %148 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull %131)
+  %148 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 8 dereferenceable(36) %131)
   call void @_ZN9QListView12setRowHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %146, i32 noundef %148, i1 noundef zeroext %144)
   br label %_ZN15QListWidgetItem9setHiddenEb.exit
 
@@ -8228,7 +8228,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %.not.i69, label %_ZN15QListWidgetItem9setHiddenEb.exit, label %162
 
 162:                                              ; preds = %158
-  %163 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %161, ptr noundef nonnull %131)
+  %163 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %161, ptr noundef nonnull align 8 dereferenceable(36) %131)
   call void @_ZN9QListView12setRowHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %161, i32 noundef %163, i1 noundef zeroext %159)
   br label %_ZN15QListWidgetItem9setHiddenEb.exit
 
@@ -8255,7 +8255,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %.not.i71, label %_ZN15QListWidgetItem9setHiddenEb.exit, label %177
 
 177:                                              ; preds = %173
-  %178 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %176, ptr noundef nonnull %131)
+  %178 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %176, ptr noundef nonnull align 8 dereferenceable(36) %131)
   call void @_ZN9QListView12setRowHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %176, i32 noundef %178, i1 noundef zeroext %174)
   br label %_ZN15QListWidgetItem9setHiddenEb.exit
 
@@ -8282,7 +8282,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %.not.i73, label %_ZN15QListWidgetItem9setHiddenEb.exit, label %192
 
 192:                                              ; preds = %188
-  %193 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull %131)
+  %193 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %191, ptr noundef nonnull align 8 dereferenceable(36) %131)
   call void @_ZN9QListView12setRowHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %191, i32 noundef %193, i1 noundef zeroext %189)
   br label %_ZN15QListWidgetItem9setHiddenEb.exit
 
@@ -8293,7 +8293,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %.not.i75, label %_ZN15QListWidgetItem9setHiddenEb.exit, label %197
 
 197:                                              ; preds = %194
-  %198 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %196, ptr noundef nonnull %131)
+  %198 = call noundef i32 @_ZNK11QListWidget3rowEPK15QListWidgetItem(ptr noundef nonnull align 8 dereferenceable(40) %196, ptr noundef nonnull align 8 dereferenceable(36) %131)
   call void @_ZN9QListView12setRowHiddenEib(ptr noundef nonnull align 8 dereferenceable(40) %196, i32 noundef %198, i1 noundef zeroext %.not53)
   br label %_ZN15QListWidgetItem9setHiddenEb.exit
 
@@ -8710,7 +8710,7 @@ _ZN7QStringD2Ev.exit14:                           ; preds = %42, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not.i.i.i15 = icmp eq ptr %50, null
   %spec.select.i.i.i = select i1 %.not.i.i.i15, ptr @_ZN7QString6_emptyE, ptr %50
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %52)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %52)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %79
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %47
@@ -10851,7 +10851,7 @@ define linkonce_odr void @_ZN12QtConcurrent19PromiseTaskResolverIJPFvR8QPromiseI
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #22
+  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #22
   br label %.body
 
 _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i: ; preds = %3
@@ -10865,7 +10865,7 @@ _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i: ; pre
 11:                                               ; preds = %_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  tail call void @_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #22
   br label %.body
 
 13:                                               ; preds = %_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i
@@ -11127,7 +11127,7 @@ define linkonce_odr void @_ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8
 
 _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev.exit: ; preds = %1, %7
   tail call void @_ZN20QFutureInterfaceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
-  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #22
+  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   ret void
 }
 
@@ -11159,7 +11159,7 @@ define linkonce_odr void @_ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8
 
 _ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEED2Ev.exit: ; preds = %1, %7
   tail call void @_ZN20QFutureInterfaceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
-  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #22
+  tail call void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }

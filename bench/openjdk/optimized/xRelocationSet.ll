@@ -65,7 +65,7 @@ declare void @_ZN20XForwardingAllocatorC1Ev(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN14XRelocationSet7installEPK22XRelocationSetSelector(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.XRelocationSetInstallTask, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str) #8
+  call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull @.str) #8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25XRelocationSetInstallTask, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %4, ptr %5, align 8
@@ -293,7 +293,7 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader: ; preds = %10
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
-  %17 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr %.011.i.i, ptr nonnull %2) #8, !srcloc !9
+  %17 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %16, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %2) #8, !srcloc !9
   %18 = icmp eq ptr %17, %.011.i.i
   br i1 %18, label %19, label %10, !llvm.loop !10
 
@@ -324,7 +324,7 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit.preheader: ; preds = %10
 
 _ZN14XAttachedArrayI11XForwarding16XForwardingEntryE5allocI20XForwardingAllocatorEEPvPT_m.exit.i: ; preds = %.loopexit.loopexit.i.i, %19
   %36 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(134) %33, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = load i8, ptr %20, align 8
   switch i8 %37, label %_ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit [
     i8 0, label %38
@@ -375,7 +375,7 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit: ; preds = %_ZN18XArrayItera
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %.011.i.i3, i64 8
-  %56 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, ptr %.011.i.i3, ptr nonnull %12) #8, !srcloc !9
+  %56 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, ptr %.011.i.i3, ptr nonnull align 8 dereferenceable(16) %12) #8, !srcloc !9
   %57 = icmp eq ptr %56, %.011.i.i3
   br i1 %57, label %58, label %52, !llvm.loop !10
 
@@ -406,7 +406,7 @@ _ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit: ; preds = %_ZN18XArrayItera
 
 _ZN14XAttachedArrayI11XForwarding16XForwardingEntryE5allocI20XForwardingAllocatorEEPvPT_m.exit.i9: ; preds = %.loopexit.loopexit.i.i8, %58
   %75 = getelementptr inbounds i8, ptr %59, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(134) %72, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
   %76 = load i8, ptr %59, align 8
   switch i8 %76, label %_ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit13 [
     i8 0, label %77

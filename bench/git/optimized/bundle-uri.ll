@@ -727,7 +727,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %fetch_bundle_list_in_config_format.exit
 
 if.else.i:                                        ; preds = %if.end4.i
-  %call9.i = call fastcc i32 @download_bundle_list(ptr noundef %r, ptr noundef nonnull %list_from_bundle.i, ptr noundef %list, i32 noundef %depth)
+  %call9.i = call fastcc i32 @download_bundle_list(ptr noundef %r, ptr noundef nonnull %list_from_bundle.i, ptr noundef %list, i32 noundef range(i32 -2147483647, 4) %depth)
   br label %fetch_bundle_list_in_config_format.exit
 
 fetch_bundle_list_in_config_format.exit.thread:   ; preds = %if.then16, %_.exit50
@@ -984,7 +984,7 @@ if.end:                                           ; preds = %for_all_bundles_in_
   br i1 %cmp.i.not, label %sane_qsort.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @qsort(ptr noundef nonnull %call7, i64 noundef %inc.i, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #15
+  call void @qsort(ptr noundef nonnull %call7, i64 noundef range(i64 1, 0) %inc.i, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #15
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %if.end, %if.then.i

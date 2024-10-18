@@ -1034,11 +1034,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef %addr_index, i64 noundef %0) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef range(i32 0, 16) %addr_index, i64 noundef %0) #10
   br label %trace_pmpaddr_csr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %1, i32 noundef %addr_index, i64 noundef %0) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %1, i32 noundef range(i32 0, 16) %addr_index, i64 noundef %0) #10
   br label %trace_pmpaddr_csr_read.exit
 
 trace_pmpaddr_csr_read.exit:                      ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

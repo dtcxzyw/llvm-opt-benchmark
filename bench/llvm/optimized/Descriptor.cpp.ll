@@ -1475,7 +1475,7 @@ define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL6ctorTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %1, i8 0, i64 24, i1 false)
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1508,7 +1508,7 @@ define internal void @_ZL6dtorTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4byteP
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
 8:                                                ; preds = %3
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
 _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %7, %8
@@ -1557,7 +1557,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %3, %7, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL6dtorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytePKNS1_10DescriptorE(ptr nocapture readnone %0, ptr noundef nonnull %1, ptr nocapture readnone %2) #0 {
-  tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %1) #20
+  tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
   ret void
 }
 
@@ -1598,7 +1598,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 16:                                               ; preds = %10
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #20
   br label %_ZN4llvm7APFloatD2Ev.exit.i
 
 _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %16, %15
@@ -1642,7 +1642,7 @@ define internal void @_ZL6moveTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4byteS
   br label %_ZN5clang6interp8FloatingC2EOS1_.exit
 
 10:                                               ; preds = %4
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   br label %_ZN5clang6interp8FloatingC2EOS1_.exit
 
 _ZN5clang6interp8FloatingC2EOS1_.exit:            ; preds = %9, %10
@@ -1675,7 +1675,7 @@ define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL6moveTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4byteS6_PKNS1_10DescriptorE(ptr nocapture readnone %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture readnone %3) #0 {
-  tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %2, ptr noundef nonnull align 8 dereferenceable(52) %1) #20
+  tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
@@ -2069,7 +2069,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds %"class.clang::interp::Pointer", ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -3201,7 +3201,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
 56:                                               ; preds = %52
-  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %53) #20
+  tail call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #20
   br label %_ZN5clang6interp8FloatingD2Ev.exit
 
 _ZN5clang6interp8FloatingD2Ev.exit:               ; preds = %55, %56
@@ -3600,7 +3600,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %51 = getelementptr inbounds %"class.clang::interp::MemberPointer", ptr %44, i64 %indvars.iv
-  tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %51) #20
+  tail call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %51) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -4885,7 +4885,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   br label %_ZN5clang6interp8FloatingC2EOS1_.exit
 
 59:                                               ; preds = %54
-  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56) #20
+  tail call void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %56) #20
   br label %_ZN5clang6interp8FloatingC2EOS1_.exit
 
 _ZN5clang6interp8FloatingC2EOS1_.exit:            ; preds = %58, %59
@@ -5345,7 +5345,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNSt8optionalISt4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %53 = getelementptr inbounds %"class.clang::interp::MemberPointer", ptr %45, i64 %indvars.iv
   %54 = getelementptr inbounds %"class.clang::interp::MemberPointer", ptr %46, i64 %indvars.iv
-  tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %54, ptr noundef nonnull align 8 dereferenceable(52) %53) #20
+  tail call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(72) %54, ptr noundef nonnull align 8 dereferenceable(72) %53) #20
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %56, i64 12, i1 false)

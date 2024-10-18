@@ -720,13 +720,13 @@ define void @build_skeleton(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef %8, i64 noundef 8) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef range(i64 -2147483646, 2147483648) %8, i64 noundef 8) #10
   tail call fastcc void @graphviz_exit() #11
   unreachable
 
 12:                                               ; preds = %2
   %13 = icmp ne i32 %7, 0
-  %14 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #12
+  %14 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483646, 2147483648) %8, i64 noundef 8) #12
   %15 = icmp eq ptr %14, null
   %or.cond3.i = and i1 %13, %15
   br i1 %or.cond3.i, label %16, label %gv_calloc.exit

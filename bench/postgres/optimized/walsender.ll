@@ -4305,7 +4305,7 @@ LagTrackerRead.exit93.i.i:                        ; preds = %219, %196, %.thread
   br i1 %.not10.i.i.i, label %TransactionIdInRecentPast.exit.i.i, label %ProcessStandbyMessage.exit
 
 TransactionIdInRecentPast.exit.i.i:               ; preds = %299, %298
-  %301 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %265, i32 noundef %295) #16
+  %301 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef range(i32 3, 0) %265, i32 noundef %295) #16
   br i1 %301, label %302, label %ProcessStandbyMessage.exit
 
 302:                                              ; preds = %TransactionIdInRecentPast.exit.i.i, %292
@@ -4329,7 +4329,7 @@ TransactionIdInRecentPast.exit.i.i:               ; preds = %299, %298
   br i1 %.not10.i36.i.i, label %TransactionIdInRecentPast.exit37.i.i, label %ProcessStandbyMessage.exit
 
 TransactionIdInRecentPast.exit37.i.i:             ; preds = %309, %308
-  %311 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %267, i32 noundef %305) #16
+  %311 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef range(i32 3, 0) %267, i32 noundef %305) #16
   br i1 %311, label %312, label %ProcessStandbyMessage.exit
 
 312:                                              ; preds = %TransactionIdInRecentPast.exit37.i.i

@@ -563,7 +563,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %if.end, %if.end.i, 
 arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.i.i, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %arrayctor.cur.add.i.i.i.i, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %callStack.i.i, i64 %arrayctor.cur.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %arrayctor.cur.add.i.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i.i, 24
   %arrayctor.done.i.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i.i, 248
   br i1 %arrayctor.done.i.i.i.i, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %arrayctor.loop.i.i.i.i
@@ -909,7 +909,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %entry, %cond.false.i
   %cond.i = phi ptr [ %2, %cond.false.i ], [ null, %entry ]
-  tail call void %0(ptr noundef nonnull %funcs, ptr noundef %data, i32 noundef %glyph, ptr noundef %font, ptr noundef %cond.i) #8
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(144) %funcs, ptr noundef %data, i32 noundef %glyph, ptr noundef %font, ptr noundef %cond.i) #8
   %color2.i = getelementptr inbounds i8, ptr %funcs, i64 64
   %3 = load ptr, ptr %color2.i, align 8
   %4 = load ptr, ptr %user_data.i, align 8
@@ -923,7 +923,7 @@ cond.false.i7:                                    ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit, %cond.false.i7
   %cond.i8 = phi ptr [ %5, %cond.false.i7 ], [ null, %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit ]
-  tail call void %3(ptr noundef nonnull %funcs, ptr noundef %data, i32 noundef 1, i32 noundef %foreground, ptr noundef %cond.i8) #8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(144) %funcs, ptr noundef %data, i32 noundef 1, i32 noundef %foreground, ptr noundef %cond.i8) #8
   %pop_clip.i = getelementptr inbounds i8, ptr %funcs, i64 56
   %6 = load ptr, ptr %pop_clip.i, align 8
   %7 = load ptr, ptr %user_data.i, align 8
@@ -937,7 +937,7 @@ cond.false.i11:                                   ; preds = %_ZN16hb_paint_funcs
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %_ZN16hb_paint_funcs_t5colorEPvij.exit, %cond.false.i11
   %cond.i12 = phi ptr [ %8, %cond.false.i11 ], [ null, %_ZN16hb_paint_funcs_t5colorEPvij.exit ]
-  tail call void %6(ptr noundef nonnull %funcs, ptr noundef %data, ptr noundef %cond.i12) #8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(144) %funcs, ptr noundef %data, ptr noundef %cond.i12) #8
   ret i1 true
 }
 
@@ -1115,7 +1115,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %if.end, %if.end.i, 
 arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.i.i, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %arrayctor.cur.add.i.i.i.i, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %callStack.i.i, i64 %arrayctor.cur.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %arrayctor.cur.add.i.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i.i, 24
   %arrayctor.done.i.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i.i, 248
   br i1 %arrayctor.done.i.i.i.i, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %arrayctor.loop.i.i.i.i
@@ -1365,7 +1365,7 @@ cond.false.i.i17:                                 ; preds = %if.then3.i.i.i
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %cond.false.i.i17, %if.then3.i.i.i
   %cond.i.i = phi ptr [ %47, %cond.false.i.i17 ], [ null, %if.then3.i.i.i ]
-  call void %45(ptr noundef nonnull %39, ptr noundef %40, ptr noundef nonnull %st.i.i, float noundef %42, float noundef %.pre.i, ptr noundef %cond.i.i) #8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(48) %st.i.i, float noundef %42, float noundef %.pre.i, ptr noundef %cond.i.i) #8
   br label %if.end.i.i.i16
 
 if.end.i.i.i16:                                   ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i, %lor.lhs.false.i.i.i
@@ -1383,7 +1383,7 @@ cond.false.i17.i:                                 ; preds = %if.end.i.i.i16
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %cond.false.i17.i, %if.end.i.i.i16
   %cond.i18.i = phi ptr [ %50, %cond.false.i17.i ], [ null, %if.end.i.i.i16 ]
-  call void %48(ptr noundef nonnull %39, ptr noundef %40, ptr noundef nonnull %st.i.i, ptr noundef %cond.i18.i) #8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(48) %st.i.i, ptr noundef %cond.i18.i) #8
   br label %_ZN17cff1_path_param_t8end_pathEv.exit
 
 _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %if.end5, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i
@@ -1560,7 +1560,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %if.end, %if.end.i, 
 arrayctor.loop.i.i.i.i:                           ; preds = %arrayctor.loop.i.i.i.i, %_ZNK3CFF8FDSelect6get_fdEj.exit
   %arrayctor.cur.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %arrayctor.cur.add.i.i.i.i, %arrayctor.loop.i.i.i.i ]
   %arrayctor.cur.ptr.i.i.i.i = getelementptr inbounds i8, ptr %callStack.i.i, i64 %arrayctor.cur.idx.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayctor.cur.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %arrayctor.cur.add.i.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i.i, 24
   %arrayctor.done.i.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i.i, 248
   br i1 %arrayctor.done.i.i.i.i, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %arrayctor.loop.i.i.i.i
@@ -2486,7 +2486,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ @_hb_CrapPool, %if.else.i.i ]
   %context.i = getelementptr inbounds i8, ptr %env, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %context.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -2661,7 +2661,7 @@ if.then.i143:                                     ; preds = %lor.lhs.false.i, %_
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %lor.lhs.false.i
   %context.i147 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i148 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i = add nuw nsw i32 %25, 1
   store i32 %inc.i.i, ptr %count.i.i146, align 4
@@ -2700,7 +2700,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %type.i.i, align 8
   %subr_num.i.i = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i141, ptr %subr_num.i.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -2768,7 +2768,7 @@ if.then.i174:                                     ; preds = %lor.lhs.false.i178,
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i181: ; preds = %lor.lhs.false.i178
   %context.i182 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i183 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i184 = add nuw nsw i32 %41, 1
   store i32 %inc.i.i184, ptr %count.i.i179, align 4
@@ -2807,7 +2807,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195: ; pred
   store i32 1, ptr %type.i.i199, align 8
   %subr_num.i.i200 = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i162, ptr %subr_num.i.i200, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry, %entry
@@ -7434,7 +7434,7 @@ cond.false.i.i:                                   ; preds = %if.then3.i.i.i
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i: ; preds = %cond.false.i.i, %if.then3.i.i.i
   %cond.i.i = phi ptr [ %9, %cond.false.i.i ], [ null, %if.then3.i.i.i ]
-  tail call void %7(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %st.i.i, float noundef %4, float noundef %.pre.i, ptr noundef %cond.i.i) #8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %st.i.i, float noundef %4, float noundef %.pre.i, ptr noundef %cond.i.i) #8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit.i, %lor.lhs.false.i.i.i
@@ -7452,7 +7452,7 @@ cond.false.i17.i:                                 ; preds = %if.end.i.i.i
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i: ; preds = %cond.false.i17.i, %if.end.i.i.i
   %cond.i18.i = phi ptr [ %12, %cond.false.i17.i ], [ null, %if.end.i.i.i ]
-  tail call void %10(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %st.i.i, ptr noundef %cond.i18.i) #8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(48) %st.i.i, ptr noundef %cond.i18.i) #8
   br label %_ZN17cff1_path_param_t8end_pathEv.exit
 
 _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %entry, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit.i
@@ -7719,7 +7719,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ @_hb_CrapPool, %if.else.i.i ]
   %context.i = getelementptr inbounds i8, ptr %env, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %context.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -7894,7 +7894,7 @@ if.then.i143:                                     ; preds = %lor.lhs.false.i, %_
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %lor.lhs.false.i
   %context.i147 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i148 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i = add nuw nsw i32 %25, 1
   store i32 %inc.i.i, ptr %count.i.i146, align 4
@@ -7933,7 +7933,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %type.i.i, align 8
   %subr_num.i.i = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i141, ptr %subr_num.i.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -8001,7 +8001,7 @@ if.then.i174:                                     ; preds = %lor.lhs.false.i178,
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i181: ; preds = %lor.lhs.false.i178
   %context.i182 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i183 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i184 = add nuw nsw i32 %41, 1
   store i32 %inc.i.i184, ptr %count.i.i179, align 4
@@ -8040,7 +8040,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195: ; pred
   store i32 1, ptr %type.i.i199, align 8
   %subr_num.i.i200 = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i162, ptr %subr_num.i.i200, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry, %entry
@@ -11311,7 +11311,7 @@ cond.false.i:                                     ; preds = %if.then3.i51
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %if.then3.i51, %cond.false.i
   %cond.i = phi ptr [ %16, %cond.false.i ], [ null, %if.then3.i51 ]
-  tail call void %14(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %11, float noundef %.pre59, ptr noundef %cond.i) #8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %11, float noundef %.pre59, ptr noundef %cond.i) #8
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit, %lor.lhs.false.i46
@@ -11329,7 +11329,7 @@ cond.false.i41:                                   ; preds = %if.end.i50
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %if.end.i50, %cond.false.i41
   %cond.i42 = phi ptr [ %19, %cond.false.i41 ], [ null, %if.end.i50 ]
-  tail call void %17(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, ptr noundef %cond.i42) #8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, ptr noundef %cond.i42) #8
   br label %_ZN17hb_draw_session_t7move_toEff.exit.sink.split
 
 if.else.i:                                        ; preds = %if.end
@@ -11370,7 +11370,7 @@ cond.false.i46:                                   ; preds = %if.then3.i
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit49: ; preds = %if.then3.i, %cond.false.i46
   %cond.i48 = phi ptr [ %28, %cond.false.i46 ], [ null, %if.then3.i ]
-  tail call void %26(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %23, float noundef %.pre, ptr noundef %cond.i48) #8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %23, float noundef %.pre, ptr noundef %cond.i48) #8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit49, %lor.lhs.false.i
@@ -11388,7 +11388,7 @@ cond.false.i53:                                   ; preds = %if.end.i
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit56: ; preds = %if.end.i, %cond.false.i53
   %cond.i55 = phi ptr [ %31, %cond.false.i53 ], [ null, %if.end.i ]
-  tail call void %29(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, ptr noundef %cond.i55) #8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, ptr noundef %cond.i55) #8
   br label %_ZN17hb_draw_session_t7move_toEff.exit.sink.split
 
 _ZN17hb_draw_session_t7move_toEff.exit.sink.split: ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit56
@@ -11474,7 +11474,7 @@ cond.false.i.i:                                   ; preds = %if.then.i13
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %if.then.i13, %cond.false.i.i
   %cond.i.i = phi ptr [ %15, %cond.false.i.i ], [ null, %if.then.i13 ]
-  tail call void %13(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %11, float noundef %12, ptr noundef %cond.i.i) #8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %11, float noundef %12, ptr noundef %cond.i.i) #8
   store i32 1, ptr %st.i, align 4
   %16 = load float, ptr %current_x.i19, align 4
   %path_start_x.i = getelementptr inbounds i8, ptr %3, i64 28
@@ -11499,7 +11499,7 @@ cond.false.i:                                     ; preds = %_ZN15hb_draw_funcs_
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit, %cond.false.i
   %cond.i = phi ptr [ %20, %cond.false.i ], [ null, %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit ]
-  tail call void %18(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %mul.i.i, float noundef %mul.i.i18, ptr noundef %cond.i) #8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %mul.i.i, float noundef %mul.i.i18, ptr noundef %cond.i) #8
   br label %_ZN17hb_draw_session_t7line_toEff.exit
 
 if.else.i:                                        ; preds = %if.end
@@ -11527,7 +11527,7 @@ cond.false.i.i26:                                 ; preds = %if.then.i21
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit30: ; preds = %if.then.i21, %cond.false.i.i26
   %cond.i.i27 = phi ptr [ %28, %cond.false.i.i26 ], [ null, %if.then.i21 ]
-  tail call void %26(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %24, float noundef %25, ptr noundef %cond.i.i27) #8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %24, float noundef %25, ptr noundef %cond.i.i27) #8
   store i32 1, ptr %st.i, align 4
   %29 = load float, ptr %current_x.i21, align 4
   %path_start_x.i28 = getelementptr inbounds i8, ptr %3, i64 28
@@ -11552,7 +11552,7 @@ cond.false.i34:                                   ; preds = %_ZN15hb_draw_funcs_
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit37: ; preds = %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit24, %cond.false.i34
   %cond.i36 = phi ptr [ %33, %cond.false.i34 ], [ null, %_ZN15hb_draw_funcs_t7line_toEPvR15hb_draw_state_tff.exit24 ]
-  tail call void %31(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %22, float noundef %mul.i.i18, ptr noundef %cond.i36) #8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %22, float noundef %mul.i.i18, ptr noundef %cond.i36) #8
   br label %_ZN17hb_draw_session_t7line_toEff.exit
 
 _ZN17hb_draw_session_t7line_toEff.exit:           ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit37, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
@@ -11652,7 +11652,7 @@ cond.false.i.i:                                   ; preds = %if.then.i39
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %if.then.i39, %cond.false.i.i
   %cond.i.i = phi ptr [ %15, %cond.false.i.i ], [ null, %if.then.i39 ]
-  tail call void %13(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %11, float noundef %12, ptr noundef %cond.i.i) #8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %11, float noundef %12, ptr noundef %cond.i.i) #8
   store i32 1, ptr %st.i, align 4
   %16 = load float, ptr %current_x.i41, align 4
   %path_start_x.i = getelementptr inbounds i8, ptr %3, i64 28
@@ -11677,7 +11677,7 @@ cond.false.i:                                     ; preds = %_ZN15hb_draw_funcs_
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit, %cond.false.i
   %cond.i = phi ptr [ %20, %cond.false.i ], [ null, %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit ]
-  tail call void %18(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %mul.i.i, float noundef %mul.i.i32, float noundef %mul.i.i34, float noundef %mul.i.i36, float noundef %mul.i.i38, float noundef %mul.i.i40, ptr noundef %cond.i) #8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %mul.i.i, float noundef %mul.i.i32, float noundef %mul.i.i34, float noundef %mul.i.i36, float noundef %mul.i.i38, float noundef %mul.i.i40, ptr noundef %cond.i) #8
   br label %_ZN17hb_draw_session_t8cubic_toEffffff.exit
 
 if.else.i:                                        ; preds = %if.end
@@ -11707,7 +11707,7 @@ cond.false.i.i48:                                 ; preds = %if.then.i51
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit52: ; preds = %if.then.i51, %cond.false.i.i48
   %cond.i.i49 = phi ptr [ %30, %cond.false.i.i48 ], [ null, %if.then.i51 ]
-  tail call void %28(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %26, float noundef %27, ptr noundef %cond.i.i49) #8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %26, float noundef %27, ptr noundef %cond.i.i49) #8
   store i32 1, ptr %st.i, align 4
   %31 = load float, ptr %current_x.i43, align 4
   %path_start_x.i50 = getelementptr inbounds i8, ptr %3, i64 28
@@ -11732,7 +11732,7 @@ cond.false.i56:                                   ; preds = %_ZN15hb_draw_funcs_
 
 _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit59: ; preds = %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit54, %cond.false.i56
   %cond.i58 = phi ptr [ %35, %cond.false.i56 ], [ null, %_ZN15hb_draw_funcs_t8cubic_toEPvR15hb_draw_state_tffffff.exit54 ]
-  tail call void %33(ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %st.i, float noundef %22, float noundef %mul.i.i32, float noundef %23, float noundef %mul.i.i36, float noundef %24, float noundef %mul.i.i40, ptr noundef %cond.i58) #8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(48) %st.i, float noundef %22, float noundef %mul.i.i32, float noundef %23, float noundef %mul.i.i36, float noundef %24, float noundef %mul.i.i40, ptr noundef %cond.i58) #8
   br label %_ZN17hb_draw_session_t8cubic_toEffffff.exit
 
 _ZN17hb_draw_session_t8cubic_toEffffff.exit:      ; preds = %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit59, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
@@ -11931,7 +11931,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ @_hb_CrapPool, %if.else.i.i ]
   %context.i = getelementptr inbounds i8, ptr %env, i64 4128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %context.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i.i, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -12106,7 +12106,7 @@ if.then.i143:                                     ; preds = %lor.lhs.false.i, %_
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %lor.lhs.false.i
   %context.i147 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i147, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i148 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i = add nuw nsw i32 %25, 1
   store i32 %inc.i.i, ptr %count.i.i146, align 4
@@ -12145,7 +12145,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   store i32 2, ptr %type.i.i, align 8
   %subr_num.i.i = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i141, ptr %subr_num.i.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i147, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -12213,7 +12213,7 @@ if.then.i174:                                     ; preds = %lor.lhs.false.i178,
 
 _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i181: ; preds = %lor.lhs.false.i178
   %context.i182 = getelementptr inbounds i8, ptr %env, i64 4128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(16) %env, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context.i182, ptr noundef nonnull align 8 dereferenceable(4464) %env, i64 16, i1 false)
   %elements.i.i183 = getelementptr inbounds i8, ptr %env, i64 4176
   %inc.i.i184 = add nuw nsw i32 %41, 1
   store i32 %inc.i.i184, ptr %count.i.i179, align 4
@@ -12252,7 +12252,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195: ; pred
   store i32 1, ptr %type.i.i199, align 8
   %subr_num.i.i200 = getelementptr inbounds i8, ptr %env, i64 4148
   store i32 %add.i.i162, ptr %subr_num.i.i200, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4464) %env, ptr noundef nonnull align 8 dereferenceable(16) %context.i182, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry, %entry

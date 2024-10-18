@@ -52,7 +52,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b61ef629995c499E.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !4
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !4
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -240,7 +240,7 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %38
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h6672538a0f40b13cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %28)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h6672538a0f40b13cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %28)
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %43

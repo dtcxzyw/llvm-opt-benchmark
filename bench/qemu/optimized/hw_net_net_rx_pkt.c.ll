@@ -1232,11 +1232,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %ip_src, i64 noundef 4, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %ip_src, i64 noundef range(i64 2, 17) 4, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src, i64 noundef 4, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src, i64 noundef range(i64 2, 17) 4, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 _net_rx_rss_add_chunk.exit:                       ; preds = %entry, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -1274,11 +1274,11 @@ if.then8.i.i.i16:                                 ; preds = %if.then.i.i.i13
   %16 = load i64, ptr %_now.i.i.i4, align 8
   %tv_usec.i.i.i19 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %ip_dst, i64 noundef 4, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %ip_dst, i64 noundef range(i64 2, 17) 4, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 if.else.i.i.i15:                                  ; preds = %if.then.i.i.i13
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst, i64 noundef 4, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst, i64 noundef range(i64 2, 17) 4, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chunk.exit, %land.lhs.true5.i.i.i10, %if.then8.i.i.i16, %if.else.i.i.i15
@@ -1325,11 +1325,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %l4hdr_info, i64 noundef 2, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 17) 2, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info, i64 noundef 2, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 17) 2, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 _net_rx_rss_add_chunk.exit:                       ; preds = %entry, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -1367,11 +1367,11 @@ if.then8.i.i.i16:                                 ; preds = %if.then.i.i.i13
   %16 = load i64, ptr %_now.i.i.i4, align 8
   %tv_usec.i.i.i19 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %th_dport, i64 noundef 2, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %th_dport, i64 noundef range(i64 2, 17) 2, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 if.else.i.i.i15:                                  ; preds = %if.then.i.i.i13
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport, i64 noundef 2, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport, i64 noundef range(i64 2, 17) 2, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chunk.exit, %land.lhs.true5.i.i.i10, %if.then8.i.i.i16, %if.else.i.i.i15
@@ -1430,11 +1430,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %ip6_src, i64 noundef 16, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %ip6_src, i64 noundef range(i64 2, 17) 16, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src, i64 noundef 16, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src, i64 noundef range(i64 2, 17) 16, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 _net_rx_rss_add_chunk.exit:                       ; preds = %cond.end, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -1484,11 +1484,11 @@ if.then8.i.i.i21:                                 ; preds = %if.then.i.i.i18
   %16 = load i64, ptr %_now.i.i.i9, align 8
   %tv_usec.i.i.i24 = getelementptr inbounds i8, ptr %_now.i.i.i9, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i23, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %ip6_dst, i64 noundef 16, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i23, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %ip6_dst, i64 noundef range(i64 2, 17) 16, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit25
 
 if.else.i.i.i20:                                  ; preds = %if.then.i.i.i18
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst, i64 noundef 16, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst, i64 noundef range(i64 2, 17) 16, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit25
 
 _net_rx_rss_add_chunk.exit25:                     ; preds = %cond.end8, %land.lhs.true5.i.i.i15, %if.then8.i.i.i21, %if.else.i.i.i20
@@ -1535,11 +1535,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %l4hdr_info, i64 noundef 2, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 17) 2, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info, i64 noundef 2, i64 noundef %2) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 17) 2, i64 noundef %2) #11
   br label %_net_rx_rss_add_chunk.exit
 
 _net_rx_rss_add_chunk.exit:                       ; preds = %entry, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -1577,11 +1577,11 @@ if.then8.i.i.i16:                                 ; preds = %if.then.i.i.i13
   %16 = load i64, ptr %_now.i.i.i4, align 8
   %tv_usec.i.i.i19 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i19, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %uh_dport, i64 noundef 2, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i18, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %uh_dport, i64 noundef range(i64 2, 17) 2, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 if.else.i.i.i15:                                  ; preds = %if.then.i.i.i13
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport, i64 noundef 2, i64 noundef %11) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport, i64 noundef range(i64 2, 17) 2, i64 noundef %11) #11
   br label %_net_rx_rss_add_chunk.exit20
 
 _net_rx_rss_add_chunk.exit20:                     ; preds = %_net_rx_rss_add_chunk.exit, %land.lhs.true5.i.i.i10, %if.then8.i.i.i16, %if.else.i.i.i15

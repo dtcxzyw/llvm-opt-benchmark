@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %invoke.cont
 eh.resume:                                        ; preds = %lpad2.i, %lpad.i
   %call1.sink8 = phi ptr [ %call1, %lpad2.i ], [ %call, %lpad.i ]
   %.pn = phi { ptr, i32 } [ %2, %lpad2.i ], [ %0, %lpad.i ]
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call1.sink8) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call1.sink8) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call1.sink8) #17
   resume { ptr, i32 } %.pn
 }
@@ -591,7 +591,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %entry
   unreachable
 
 _ZN3net18SourceAddressTokenD2Ev.exit:             ; preds = %.noexc1.i, %if.then.i.i, %delete.notnull.i.i
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
 }
@@ -636,7 +636,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %0
 
@@ -1485,7 +1485,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -1495,7 +1495,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -1841,7 +1841,7 @@ lpad2.i:                                          ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tokens_.i) #15
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %0
 
@@ -2462,7 +2462,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -2472,7 +2472,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -2591,7 +2591,7 @@ if.then.i:                                        ; preds = %entry
 lpad.i3:                                          ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i2) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i2) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call.i2) #17
   br label %common.resume
 
@@ -2624,7 +2624,7 @@ if.else.i:                                        ; preds = %entry
 lpad.i6:                                          ; preds = %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #15
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %call.i) #15
   br label %common.resume
 
 _ZN3net18SourceAddressTokenC2Ev.exit12:           ; preds = %if.else.i

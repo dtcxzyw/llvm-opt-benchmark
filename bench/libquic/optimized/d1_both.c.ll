@@ -508,7 +508,7 @@ while.body.i:                                     ; preds = %if.then43.i, %while
   %frag_len.addr.07.i = phi i64 [ %sub.i, %while.cond.i ], [ %conv8.i, %if.then43.i ]
   %cond.i = call i64 @llvm.umin.i64(i64 %frag_len.addr.07.i, i64 256)
   %conv.i73 = trunc nuw nsw i64 %cond.i to i32
-  %call.i74 = call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 22, ptr noundef nonnull %discard.i, i32 noundef %conv.i73, i32 noundef 0) #13
+  %call.i74 = call i32 @dtls1_read_bytes(ptr noundef nonnull %ssl, i32 noundef 22, ptr noundef nonnull %discard.i, i32 noundef %conv.i73, i32 noundef 0) #13
   %cmp3.not.i = icmp eq i32 %call.i74, %conv.i73
   br i1 %cmp3.not.i, label %while.cond.i, label %33
 

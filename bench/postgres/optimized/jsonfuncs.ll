@@ -2118,7 +2118,7 @@ push_null_elements.exit69:                        ; preds = %.lr.ph.i67
   br label %.loopexit
 
 118:                                              ; preds = %107
-  %119 = call fastcc ptr @setPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %101, ptr noundef %6, i32 noundef %7)
+  %119 = call fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %101, ptr noundef %6, i32 noundef range(i32 1, 98) %7)
   br label %.loopexit
 
 120:                                              ; preds = %105
@@ -2217,7 +2217,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %147
   br label %153
 
 153:                                              ; preds = %push_null_elements.exit, %145
-  call fastcc void @push_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  call fastcc void @push_path(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
   br label %setPathArray.exit
 
 setPathArray.exit:                                ; preds = %.thread, %142, %153
@@ -2417,7 +2417,7 @@ setPathArray.exit:                                ; preds = %.thread, %142, %153
 
 263:                                              ; preds = %251
   %264 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef %216, ptr noundef nonnull %12) #15
-  %265 = call fastcc ptr @setPath(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %212, ptr noundef %6, i32 noundef %7)
+  %265 = call fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %212, ptr noundef %6, i32 noundef range(i32 1, 98) %7)
   br label %.loopexit84
 
 266:                                              ; preds = %246, %243
@@ -2559,7 +2559,7 @@ setPathArray.exit:                                ; preds = %.thread, %142, %153
   %339 = phi i32 [ %328, %321 ], [ %333, %331 ], [ %337, %334 ]
   store i32 %339, ptr %317, align 8
   %340 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %16) #15
-  call fastcc void @push_path(ptr noundef %4, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  call fastcc void @push_path(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
   br label %setPathObject.exit
 
 setPathObject.exit:                               ; preds = %._crit_edge, %338
@@ -8876,7 +8876,7 @@ populate_array.exit:                              ; preds = %175, %populate_arra
   %210 = load i32, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %0, i64 84
   %212 = load i32, ptr %211, align 4
-  %213 = tail call fastcc i64 @populate_record_field(ptr noundef %208, i32 noundef %210, i32 noundef %212, ptr noundef %3, ptr noundef %4, i64 noundef 0, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8)
+  %213 = tail call fastcc i64 @populate_record_field(ptr noundef %208, i32 noundef %210, i32 noundef %212, ptr noundef %3, ptr noundef %4, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8)
   %.pre = load i8, ptr %7, align 1
   %214 = trunc i8 %.pre to i1
   br label %.thread
@@ -9037,7 +9037,7 @@ populate_array_assign_ndims.exit:                 ; preds = %41, %16
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr %48, align 8
   %65 = load ptr, ptr %49, align 8
-  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef readonly %7, ptr noundef nonnull %4, ptr noundef %65)
+  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef nonnull readonly %7, ptr noundef nonnull %4, ptr noundef %65)
   %67 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %68
@@ -9309,7 +9309,7 @@ define internal range(i32 0, 20) i32 @populate_array_element_end(ptr nocapture n
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %6, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef readonly %4, ptr noundef nonnull %3, ptr noundef %44)
+  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull readonly %4, ptr noundef nonnull %3, ptr noundef %44)
   %46 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %47

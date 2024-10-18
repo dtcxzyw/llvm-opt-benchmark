@@ -377,7 +377,7 @@ _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %82, %.lr.ph.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   %105 = getelementptr inbounds i8, ptr %80, i64 56
   store i64 %100, ptr %105, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull %80) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(72) %80) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20VTransformScalarNode, i64 16), ptr %80, align 8
   %106 = getelementptr inbounds i8, ptr %80, i64 64
   store ptr %15, ptr %106, align 8
@@ -611,7 +611,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, %122
   store i32 %127, ptr %125, align 4
-  %128 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %15, i32 noundef 3)
+  %128 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 3)
   %129 = load ptr, ptr %94, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   store ptr %128, ptr %130, align 8
@@ -735,7 +735,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, %201
   store i32 %206, ptr %204, align 4
-  %207 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %15, i32 noundef 2)
+  %207 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 2)
   %208 = load ptr, ptr %173, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 16
   store ptr %207, ptr %209, align 8
@@ -825,7 +825,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %251
   br i1 %258, label %259, label %332
 
 259:                                              ; preds = %_ZNK4Node7get_intEv.exit
-  %260 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %15, i32 noundef 1)
+  %260 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 1)
   %261 = getelementptr inbounds i8, ptr %40, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 8
@@ -944,7 +944,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   br i1 %333, label %334, label %408
 
 334:                                              ; preds = %332
-  %335 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %15, i32 noundef 1)
+  %335 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 1)
   %336 = getelementptr inbounds i8, ptr %40, i64 24
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds i8, ptr %337, i64 8
@@ -1531,7 +1531,7 @@ define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %41, align 8
-  tail call void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr noundef nonnull align 8 dereferenceable(88) %44, ptr noundef nonnull align 8 dereferenceable(148) %47, i32 noundef 2, i32 noundef %4)
+  tail call void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(148) %47, i32 noundef 2, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV24VTransformBoolVectorNode, i64 16), ptr %44, align 8
   %48 = getelementptr inbounds i8, ptr %44, i64 88
   store i64 %40, ptr %48, align 8
@@ -1794,7 +1794,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_vectorsEPK
   br i1 %20, label %57, label %21
 
 21:                                               ; preds = %14
-  %22 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1, i32 noundef %.011)
+  %22 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %1, i32 noundef %.011)
   %23 = load ptr, ptr %12, align 8
   %24 = sext i32 %.011 to i64
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
@@ -2313,7 +2313,7 @@ _ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit: ; preds = %29, %.lr.p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   %52 = getelementptr inbounds i8, ptr %27, i64 56
   store i64 %47, ptr %52, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull %27) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(72) %27) #8
   %53 = getelementptr inbounds i8, ptr %27, i64 64
   store ptr %1, ptr %53, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25VTransformInputScalarNode, i64 16), ptr %27, align 8
@@ -2354,7 +2354,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef ptr @_ZNK7PackSet35strided_pack_input_at_index_or_nullEPK9Node_Listiii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #8
+  %9 = tail call noundef ptr @_ZNK7PackSet35strided_pack_input_at_index_or_nullEPK9Node_Listiii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %36, label %10
 
@@ -2575,7 +2575,7 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 32, i1 false)
   %157 = getelementptr inbounds i8, ptr %134, i64 56
   store i64 %152, ptr %157, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull %134) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull align 8 dereferenceable(69) %134) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV27VTransformPopulateIndexNode, i64 16), ptr %134, align 8
   %158 = getelementptr inbounds i8, ptr %134, i64 64
   store i32 %139, ptr %158, align 8
@@ -2695,7 +2695,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
   %240 = getelementptr inbounds i8, ptr %213, i64 56
   store i64 %235, ptr %240, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %233, ptr noundef nonnull %213) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %233, ptr noundef nonnull align 8 dereferenceable(80) %213) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV24VTransformShiftCountNode, i64 16), ptr %213, align 8
   %241 = getelementptr inbounds i8, ptr %213, i64 64
   store i32 %219, ptr %241, align 8
@@ -2812,7 +2812,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %311, i8 0, i64 32, i1 false)
   %314 = getelementptr inbounds i8, ptr %294, i64 56
   store i64 %309, ptr %314, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %307, ptr noundef nonnull %294) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %307, ptr noundef nonnull align 8 dereferenceable(64) %294) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21VTransformConvI2LNode, i64 16), ptr %294, align 8
   %315 = load ptr, ptr %306, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 8
@@ -2892,7 +2892,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 32, i1 false)
   %362 = getelementptr inbounds i8, ptr %340, i64 56
   store i64 %357, ptr %362, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %355, ptr noundef nonnull %340) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %355, ptr noundef nonnull align 8 dereferenceable(80) %340) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV23VTransformReplicateNode, i64 16), ptr %340, align 8
   %363 = getelementptr inbounds i8, ptr %340, i64 64
   store i32 %344, ptr %363, align 8
@@ -3043,7 +3043,7 @@ _ZN14VTransformNodeC2ER10VTransformj.exit:        ; preds = %4, %.lr.ph.preheade
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %19, ptr %24, align 8
-  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull %0) #8
+  tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(64) %0) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20VTransformVectorNode, i64 16), ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 64
   %26 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %3, i32 noundef 8, ptr noundef nonnull %11) #8

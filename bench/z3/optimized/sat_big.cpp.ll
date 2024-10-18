@@ -458,7 +458,7 @@ if.then58:                                        ; preds = %land.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store i64 %42, ptr %ref.tmp.i, align 8
   store i8 1, ptr %m_value.i.i, align 8
-  invoke void @_ZN14core_hashtableI17default_map_entryImbEN9table2mapIS1_11size_t_hash9size_t_eqE15entry_hash_procENS5_13entry_eq_procEE6insertEO9_key_dataImbE(ptr noundef nonnull align 8 dereferenceable(20) %seen_idx, ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp.i)
+  invoke void @_ZN14core_hashtableI17default_map_entryImbEN9table2mapIS1_11size_t_hash9size_t_eqE15entry_hash_procENS5_13entry_eq_procEE6insertEO9_key_dataImbE(ptr noundef nonnull align 8 dereferenceable(24) %seen_idx, ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp.i)
           to label %_ZN9table2mapI17default_map_entryImbE11size_t_hash9size_t_eqE6insertERKmOb.exit unwind label %lpad4.loopexit.split-lp.loopexit
 
 _ZN9table2mapI17default_map_entryImbE11size_t_hash9size_t_eqE6insertERKmOb.exit: ; preds = %if.then58
@@ -2529,7 +2529,7 @@ if.end.i.i.i:                                     ; preds = %if.end112
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %if.end.i.i.i, %if.end112
   %retval.0.i.i.i = phi i64 [ %49, %if.end.i.i.i ], [ 0, %if.end112 ]
   %add.ptr.i.i88 = getelementptr inbounds %"class.sat::watched", ptr %47, i64 %retval.0.i.i.i
-  %call.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %47, ptr noundef %add.ptr.i.i88, ptr nonnull %ref.tmp120)
+  %call.i.i.i = call noundef ptr @_ZSt9__find_ifIPN3sat7watchedEN9__gnu_cxx5__ops16_Iter_equals_valIKS1_EEET_S8_S8_T0_St26random_access_iterator_tag(ptr noundef %47, ptr noundef %add.ptr.i.i88, ptr nonnull align 8 dereferenceable(12) %ref.tmp120)
   %50 = load ptr, ptr %arrayidx.i.i82, align 8
   %cmp.i.i2.i = icmp eq ptr %50, null
   br i1 %cmp.i.i2.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.i, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit7.thread.i
@@ -3334,7 +3334,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

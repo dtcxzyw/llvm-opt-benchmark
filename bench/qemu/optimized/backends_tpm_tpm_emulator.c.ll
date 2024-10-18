@@ -437,11 +437,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv, i32 noundef %state) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 2) %conv, i32 noundef %state) #12
   br label %trace_tpm_emulator_vm_state_change.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %conv, i32 noundef %state) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef range(i32 0, 2) %conv, i32 noundef %state) #12
   br label %trace_tpm_emulator_vm_state_change.exit
 
 trace_tpm_emulator_vm_state_change.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

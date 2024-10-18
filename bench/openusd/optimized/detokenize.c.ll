@@ -79,7 +79,7 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %64 = add nsw i32 %57, %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i.i.i = icmp eq i8 %.fr, 0
-  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %23, i1 true)
+  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %23, i1 true)
   %66 = sub nuw nsw i32 32, %65
   %67 = select i1 %.not.i.i.i, i32 0, i32 %66
   %68 = shl nuw nsw i32 1, %67

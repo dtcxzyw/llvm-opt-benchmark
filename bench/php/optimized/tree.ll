@@ -2753,7 +2753,7 @@ lxb_html_tree_insert_node.exit:                   ; preds = %159, %160
 ._crit_edge218:                                   ; preds = %.lr.ph217, %165
   call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %103, ptr noundef nonnull %162) #9
   %.val161 = load ptr, ptr %15, align 8
-  call void @lexbor_array_delete(ptr noundef %.val161, i64 noundef %50, i64 noundef 1) #9
+  call void @lexbor_array_delete(ptr noundef %.val161, i64 noundef range(i64 0, -1) %50, i64 noundef 1) #9
   %170 = load ptr, ptr %15, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 16
   %172 = load i64, ptr %171, align 8

@@ -552,7 +552,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h2dd62a479812bd95E.exit.i.i: ; 
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %166
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3db9d535089e91b85ba091d93876ca95.21) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 65537) %180, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3db9d535089e91b85ba091d93876ca95.21) #23
           to label %.noexc9.i.i unwind label %164, !noalias !69
 
 .noexc9.i.i:                                      ; preds = %182

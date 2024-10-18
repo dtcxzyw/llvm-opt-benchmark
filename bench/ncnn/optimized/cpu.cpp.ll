@@ -681,7 +681,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i13.i:              ; preds = %.loopexit.split-lp.
 _ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i: ; preds = %.loopexit.thread.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 16)
   call fastcc void @_ZL13get_elf_hwcapj(i32 noundef 26)
-  %152 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !15
+  %152 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 0) #27, !srcloc !15
   %153 = extractvalue { i32, i32, i32, i32 } %152, 0
   %154 = icmp slt i32 %153, 1
   br i1 %154, label %_ZL23get_cpu_support_x86_avxv.exit.thread.i, label %_ZL9x86_cpuidiPj.exit6.i.i
@@ -691,7 +691,7 @@ _ZL23get_cpu_support_x86_avxv.exit.thread.i:      ; preds = %_ZL35initialize_cpu
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
 _ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu_thread_affinity_maskRN4ncnn6CpuSetES1_S1_.exit.i
-  %155 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27
+  %155 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27
   %156 = extractvalue { i32, i32, i32, i32 } %155, 2
   %157 = and i32 %156, 469762048
   %or.cond5.not.i.i = icmp eq i32 %157, 469762048
@@ -720,13 +720,13 @@ _ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   %163 = phi i1 [ true, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ false, %_ZL9x86_cpuidiPj.exit6.i20.i ], [ true, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ %161, %_ZL23get_cpu_support_x86_avxv.exit.thread95.i ]
   %.0.i22.i = phi i32 [ 0, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ %spec.select.i24.i, %_ZL9x86_cpuidiPj.exit6.i20.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread95.i ]
   store i32 %.0.i22.i, ptr @_ZL21g_cpu_support_x86_fma, align 4
-  %164 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #27, !srcloc !15
+  %164 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483648) #27, !srcloc !15
   %165 = extractvalue { i32, i32, i32, i32 } %164, 0
   %166 = icmp ult i32 %165, -2147483647
   br i1 %166, label %_ZL23get_cpu_support_x86_xopv.exit.i, label %_ZL9x86_cpuidiPj.exit1.i.i
 
 _ZL9x86_cpuidiPj.exit1.i.i:                       ; preds = %_ZL23get_cpu_support_x86_fmav.exit.i
-  %167 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #27, !srcloc !17
+  %167 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483647) #27, !srcloc !17
   %168 = extractvalue { i32, i32, i32, i32 } %167, 2
   %169 = and i32 %168, 2048
   br label %_ZL23get_cpu_support_x86_xopv.exit.i
@@ -737,7 +737,7 @@ _ZL23get_cpu_support_x86_xopv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %154, label %_ZL24get_cpu_support_x86_f16cv.exit.i, label %_ZL9x86_cpuidiPj.exit2.i.i
 
 _ZL9x86_cpuidiPj.exit2.i.i:                       ; preds = %_ZL23get_cpu_support_x86_xopv.exit.i
-  %170 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27, !srcloc !17
+  %170 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27, !srcloc !17
   %171 = extractvalue { i32, i32, i32, i32 } %170, 2
   %172 = and i32 %171, 536870912
   br label %_ZL24get_cpu_support_x86_f16cv.exit.i
@@ -748,7 +748,7 @@ _ZL24get_cpu_support_x86_f16cv.exit.i:            ; preds = %_ZL9x86_cpuidiPj.ex
   br i1 %163, label %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i, label %_ZL9x86_cpuidiPj.exit6.i27.i
 
 _ZL9x86_cpuidiPj.exit6.i27.i:                     ; preds = %_ZL24get_cpu_support_x86_f16cv.exit.i
-  %173 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #27
+  %173 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27
   %174 = extractvalue { i32, i32, i32, i32 } %173, 2
   %175 = and i32 %174, 469762048
   %or.cond5.not.i28.i = icmp eq i32 %175, 469762048
@@ -1392,7 +1392,7 @@ switch.lookup:                                    ; preds = %1
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
   %7 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
   %8 = trunc i64 %7 to i32
-  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %8, i64 noundef 128, ptr noundef nonnull %switch.load) #22
+  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %8, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(128) %switch.load) #22
   %10 = trunc i64 %9 to i32
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %14, label %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit
@@ -1421,7 +1421,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn23set_cpu_thread_affinityERK
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
   %2 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
   %3 = trunc i64 %2 to i32
-  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %3, i64 noundef 128, ptr noundef nonnull %0) #22
+  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %3, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(128) %0) #22
   %5 = trunc i64 %4 to i32
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %9, label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit

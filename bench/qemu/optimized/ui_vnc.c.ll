@@ -1190,7 +1190,7 @@ do.body:                                          ; preds = %entry, %qmp_query_v
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body
-  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -2383,7 +2383,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool1.not.i.i, label %vnc_init_basic_info_from_server_addr.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_server_addr.exit.i
 
@@ -3104,11 +3104,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %vs, ptr noundef %4, i64 noundef %3, i64 noundef %2) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %vs, ptr noundef %4, i64 noundef %3, i64 noundef range(i64 1, 3689348814741910323) %2) #25
   br label %trace_vnc_client_output_limit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, ptr noundef nonnull %vs, ptr noundef %4, i64 noundef %3, i64 noundef %2) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, ptr noundef nonnull %vs, ptr noundef %4, i64 noundef %3, i64 noundef range(i64 1, 3689348814741910323) %2) #25
   br label %trace_vnc_client_output_limit.exit
 
 trace_vnc_client_output_limit.exit:               ; preds = %if.then6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6172,11 +6172,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.870, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.870, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %display, i32 noundef range(i32 0, 2) %websock, i32 noundef %auth, i32 noundef %subauth) #25
   br label %_nocheck__trace_vnc_auth_init.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.871, ptr noundef nonnull %display, i32 noundef %websock, i32 noundef %auth, i32 noundef %subauth) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.871, ptr noundef nonnull %display, i32 noundef range(i32 0, 2) %websock, i32 noundef %auth, i32 noundef %subauth) #25
   br label %_nocheck__trace_vnc_auth_init.exit
 
 _nocheck__trace_vnc_auth_init.exit:               ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -6593,7 +6593,7 @@ if.end65:                                         ; preds = %if.then52, %if.else
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end65
-  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i95, ptr noundef %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef %call.i.i, ptr noundef %call.i95, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #25
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -7929,7 +7929,7 @@ if.else.i:                                        ; preds = %if.end58
   %vd.val25.val.i.i = load ptr, ptr %vd.val25.i.i, align 8
   %call.i.i26.i.i = tail call i32 @pixman_image_get_height(ptr noundef %vd.val25.val.i.i) #25
   %cond.i27.i.i = tail call range(i32 -2147483648, 2049) i32 @llvm.smin.i32(i32 %call.i.i26.i.i, i32 2048)
-  %cond8.i.i = tail call i32 @llvm.smin.i32(i32 %or.i188, i32 %cond.i27.i.i)
+  %cond8.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 0, 65536) %or.i188, i32 %cond.i27.i.i)
   %add17.i.i = add nsw i32 %cond8.i.i, %or.i200
   %cond23.i.i = tail call i32 @llvm.smin.i32(i32 %add17.i.i, i32 %cond.i27.i.i)
   %cmp2428.i.i = icmp slt i32 %or.i188, %cond23.i.i
@@ -8046,7 +8046,7 @@ if.end81:                                         ; preds = %sw.bb77
   br i1 %cmp.not.i239, label %if.end.i241, label %if.then.i240
 
 if.then.i240:                                     ; preds = %if.end81
-  tail call void @qemu_input_update_buttons(ptr noundef %129, ptr noundef nonnull @pointer_event.bmap, i32 noundef %133, i32 noundef %conv83) #25
+  tail call void @qemu_input_update_buttons(ptr noundef %129, ptr noundef nonnull @pointer_event.bmap, i32 noundef %133, i32 noundef range(i32 0, 256) %conv83) #25
   store i32 %conv83, ptr %last_bmask.i, align 4
   br label %if.end.i241
 
@@ -8057,8 +8057,8 @@ if.end.i241:                                      ; preds = %if.then.i240, %if.e
   br i1 %tobool.not.i243, label %if.else.i244, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i241
-  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 0, i32 noundef %or.i230, i32 noundef 0, i32 noundef %call.i238) #25
-  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 1, i32 noundef %or.i236, i32 noundef 0, i32 noundef %call5.i) #25
+  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 0, i32 noundef range(i32 0, 65536) %or.i230, i32 noundef 0, i32 noundef %call.i238) #25
+  tail call void @qemu_input_queue_abs(ptr noundef %129, i32 noundef 1, i32 noundef range(i32 0, 65536) %or.i236, i32 noundef 0, i32 noundef %call5.i) #25
   br label %pointer_event.exit
 
 if.else.i244:                                     ; preds = %if.end.i241
@@ -8516,11 +8516,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %186 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %187 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %186, i64 noundef %187, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %186, i64 noundef %187, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef range(i32 0, 65536) %or.i374, i32 noundef range(i32 0, 65536) %or.i380, i32 noundef range(i32 0, 256) %conv248) #25
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef %or.i374, i32 noundef %or.i380, i32 noundef %conv248) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull %vs, ptr noundef %181, i32 noundef range(i32 0, 65536) %or.i374, i32 noundef range(i32 0, 65536) %or.i380, i32 noundef range(i32 0, 256) %conv248) #25
   br label %trace_vnc_msg_client_set_desktop_size.exit
 
 trace_vnc_msg_client_set_desktop_size.exit:       ; preds = %if.end256, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8608,7 +8608,7 @@ if.end:                                           ; preds = %land.lhs.true2, %en
   %tobool = icmp ne i32 %down, 0
   %call4 = tail call i32 @keysym2scancode(ptr noundef %2, i32 noundef %and, ptr noundef %3, i1 noundef zeroext %tobool) #25
   %and5 = and i32 %call4, 255
-  %call.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %and5) #25
+  %call.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef range(i32 0, 65536) %and5) #25
   %call1.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %call.i) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8636,12 +8636,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %tobool to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv12.i.i, i32 noundef %sym, i32 noundef %and5, ptr noundef %call1.i) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv12.i.i, i32 noundef %sym, i32 noundef range(i32 0, 256) %and5, ptr noundef %call1.i) #25
   br label %trace_vnc_key_event_map.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i1 %tobool to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i32 noundef %conv14.i.i, i32 noundef %sym, i32 noundef %and5, ptr noundef %call1.i) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i32 noundef %conv14.i.i, i32 noundef %sym, i32 noundef range(i32 0, 256) %and5, ptr noundef %call1.i) #25
   br label %trace_vnc_key_event_map.exit
 
 trace_vnc_key_event_map.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8750,7 +8750,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %tobool1 = icmp ne i32 %down, 0
   %conv = zext i16 %keycode to i32
-  %call.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv) #25
+  %call.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef range(i32 0, 65536) %conv) #25
   %call1.i = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %call.i) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8778,12 +8778,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %tobool1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv12.i.i, i32 noundef %sym, i32 noundef %conv, ptr noundef %call1.i) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv12.i.i, i32 noundef %sym, i32 noundef range(i32 0, 65536) %conv, ptr noundef %call1.i) #25
   br label %trace_vnc_key_event_ext.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i1 %tobool1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %conv14.i.i, i32 noundef %sym, i32 noundef %conv, ptr noundef %call1.i) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %conv14.i.i, i32 noundef %sym, i32 noundef range(i32 0, 65536) %conv, ptr noundef %call1.i) #25
   br label %trace_vnc_key_event_ext.exit
 
 trace_vnc_key_event_ext.exit:                     ; preds = %if.else, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8943,11 +8943,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef %freq) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef range(i32 0, 48001) %freq) #25
   br label %_nocheck__trace_vnc_msg_client_audio_format.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef %freq) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef %state, ptr noundef %ioc, i32 noundef %fmt, i32 noundef %channels, i32 noundef range(i32 0, 48001) %freq) #25
   br label %_nocheck__trace_vnc_msg_client_audio_format.exit
 
 _nocheck__trace_vnc_msg_client_audio_format.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -9014,11 +9014,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %vs, ptr noundef %0, i32 noundef %conv, i32 noundef %conv1, i32 noundef %reject_reason) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %vs, ptr noundef %0, i32 noundef %conv, i32 noundef %conv1, i32 noundef range(i32 0, 5) %reject_reason) #25
   br label %trace_vnc_msg_server_ext_desktop_resize.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, ptr noundef nonnull %vs, ptr noundef %0, i32 noundef %conv, i32 noundef %conv1, i32 noundef %reject_reason) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, ptr noundef nonnull %vs, ptr noundef %0, i32 noundef %conv, i32 noundef %conv1, i32 noundef range(i32 0, 5) %reject_reason) #25
   br label %trace_vnc_msg_server_ext_desktop_resize.exit
 
 trace_vnc_msg_server_ext_desktop_resize.exit:     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9267,11 +9267,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %vs, ptr noundef %10, i64 noundef %9, i64 noundef %cond, i32 noundef %conv15, i32 noundef %conv17, i32 noundef %conv20, ptr noundef %3) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %vs, ptr noundef %10, i64 noundef %9, i64 noundef %cond, i32 noundef %conv15, i32 noundef %conv17, i32 noundef range(i32 0, 256) %conv20, ptr noundef %3) #25
   br label %trace_vnc_client_throttle_threshold.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, ptr noundef nonnull %vs, ptr noundef %10, i64 noundef %9, i64 noundef %cond, i32 noundef %conv15, i32 noundef %conv17, i32 noundef %conv20, ptr noundef %3) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, ptr noundef nonnull %vs, ptr noundef %10, i64 noundef %9, i64 noundef %cond, i32 noundef %conv15, i32 noundef %conv17, i32 noundef range(i32 0, 256) %conv20, ptr noundef %3) #25
   br label %trace_vnc_client_throttle_threshold.exit
 
 trace_vnc_client_throttle_threshold.exit:         ; preds = %if.then12, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -10778,11 +10778,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %buf, i64 noundef %conv) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv) #25
   br label %trace_vnc_msg_server_audio_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %buf, i64 noundef %conv) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef nonnull %opaque, ptr noundef %1, ptr noundef %buf, i64 noundef range(i64 -2147483648, 2147483648) %conv) #25
   br label %trace_vnc_msg_server_audio_data.exit
 
 trace_vnc_msg_server_audio_data.exit:             ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -10972,11 +10972,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %vs, i32 noundef %1, i32 noundef %conv) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %vs, i32 noundef %1, i32 noundef range(i32 0, 256) %conv) #25
   br label %trace_vnc_auth_reject.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, ptr noundef nonnull %vs, i32 noundef %1, i32 noundef %conv) #25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, ptr noundef nonnull %vs, i32 noundef %1, i32 noundef range(i32 0, 256) %conv) #25
   br label %trace_vnc_auth_reject.exit
 
 trace_vnc_auth_reject.exit:                       ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

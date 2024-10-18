@@ -597,7 +597,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
 if.then.i8:                                       ; preds = %try.cont
   %conv.i.i = zext nneg i16 %20 to i64
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.11", ptr %u12.i, i64 %conv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.028, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.028, i64 16, i1 false)
   %second.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %21 = load double, ptr %qvalue, align 8
   store double %21, ptr %second.i.i, align 8
@@ -622,7 +622,7 @@ if.then11.i:                                      ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %24 = load ptr, ptr %u12.i, align 8
   %add.ptr14.i = getelementptr inbounds %"struct.std::pair.11", ptr %24, i64 %conv2.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.028, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr14.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.028, i64 16, i1 false)
   %second.i11.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 16
   %25 = load double, ptr %qvalue, align 8
   store double %25, ptr %second.i11.i, align 8
@@ -745,7 +745,7 @@ for.cond.preheader:                               ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !34
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull @.str.2)
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.2)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.then
@@ -790,7 +790,7 @@ invoke.cont9:                                     ; preds = %for.body
 
 if.then11:                                        ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i8), !noalias !43
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i8, ptr noundef nonnull @.str.3)
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i8, ptr noundef nonnull align 1 dereferenceable(25) @.str.3)
           to label %invoke.cont13 unwind label %lpad8.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %if.then11
@@ -835,7 +835,7 @@ invoke.cont17:                                    ; preds = %call.i.noexc
 
 if.then21:                                        ; preds = %invoke.cont17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i17), !noalias !49
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i17, ptr noundef nonnull @.str.4)
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i17, ptr noundef nonnull align 1 dereferenceable(16) @.str.4)
           to label %invoke.cont23 unwind label %lpad8.loopexit.split-lp
 
 invoke.cont23:                                    ; preds = %if.then21
@@ -937,7 +937,7 @@ invoke.cont44:                                    ; preds = %call.i.noexc37
 
 if.then48:                                        ; preds = %invoke.cont44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i43), !noalias !55
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i43, ptr noundef nonnull @.str.5)
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i43, ptr noundef nonnull align 1 dereferenceable(29) @.str.5)
           to label %invoke.cont50 unwind label %lpad26.loopexit.split-lp.loopexit
 
 invoke.cont50:                                    ; preds = %if.then48
@@ -1081,7 +1081,7 @@ while.end:                                        ; preds = %_ZNSt6vectorISt4pai
   br i1 %cmp.not.i65, label %if.else.i70, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %while.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %encoding, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(16) %encoding, i64 16, i1 false)
   %second.i.i.i.i67 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %params, align 8
   store ptr %34, ptr %second.i.i.i.i67, align 8
@@ -1739,7 +1739,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %__result, %entry ]
   %__first.sroa.0.014 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__first.coerce, %entry ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.015, ptr noundef nonnull align 8 dereferenceable(40) %__first.sroa.0.014, i64 16, i1 false)
   %second.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 16
   %second3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 16
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 24
@@ -1943,7 +1943,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #29
+  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #29
   resume { ptr, i32 } %1
 }
 
@@ -1983,7 +1983,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15ConversionErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #29
+  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -2007,7 +2007,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #29
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #29
   resume { ptr, i32 } %0
 }
 
@@ -2034,7 +2034,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly17BadExpectedAccessINS_14ConversionCodeEED0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #29
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
   ret void
 }
@@ -2074,7 +2074,7 @@ invoke.cont:                                      ; preds = %_ZNR5folly8Expected
 lpad:                                             ; preds = %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #29
+  call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #29
   resume { ptr, i32 } %3
 }
 
@@ -2224,7 +2224,7 @@ invoke.cont20:                                    ; preds = %_ZN5folly13checkedM
   %12 = load ptr, ptr %emplaceFunc, align 8
   %13 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 16
   %15 = load double, ptr %14, align 8
   store double %15, ptr %second.i.i.i, align 8
@@ -2719,7 +2719,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt4pa
 invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE12_M_check_lenEmS4_.exit
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE12_M_check_lenEmS4_.exit ]
   %add.ptr = getelementptr inbounds %"struct.std::pair.9", ptr %cond.i17, i64 %sub.ptr.div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %3 = load ptr, ptr %__args1, align 8
   store ptr %3, ptr %second.i.i.i, align 8
@@ -2740,7 +2740,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !80
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
@@ -2770,7 +2770,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorISt4pai
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i28, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES_IS0_IS5_S5_ESaIS6_EEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.06.i.i.i21, i64 16, i1 false), !alias.scope !87
   %second.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %second3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
   %9 = load ptr, ptr %second3.i.i.i.i.i.i.i23, align 8, !alias.scope !85, !noalias !82

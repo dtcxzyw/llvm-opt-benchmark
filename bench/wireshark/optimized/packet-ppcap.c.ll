@@ -440,7 +440,7 @@ dissect_ppcap_payload_data.exit:                  ; preds = %87, %92, %96, %99, 
   br i1 %.not.i.i, label %set_address_tvb.exit.i, label %.split.i.i
 
 .split.i.i:                                       ; preds = %171
-  %175 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %135, i32 noundef %173) #4
+  %175 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %135, i32 noundef range(i32 0, 65536) %173) #4
   br label %set_address_tvb.exit.i
 
 set_address_tvb.exit.i:                           ; preds = %.split.i.i, %171
@@ -560,7 +560,7 @@ dissect_ppcap_source_address.exit:                ; preds = %dissect_ppcap_sourc
   br i1 %.not.i.i51, label %set_address_tvb.exit.i53, label %.split.i.i52
 
 .split.i.i52:                                     ; preds = %223
-  %228 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %187, i32 noundef %225) #4
+  %228 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %187, i32 noundef range(i32 0, 65536) %225) #4
   br label %set_address_tvb.exit.i53
 
 set_address_tvb.exit.i53:                         ; preds = %.split.i.i52, %223

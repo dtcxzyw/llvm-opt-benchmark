@@ -1645,7 +1645,7 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12emplace_backIJRNS1_INS0_6StringEE
   %result.sroa.57.6 = phi ptr [ %add.ptr19.i.i181, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRNS1_INS0_6StringEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180 ], [ %result.sroa.57.5, %if.then.i145 ]
   %result.sroa.22.6 = phi ptr [ %incdec.ptr.i.i177, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRNS1_INS0_6StringEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180 ], [ %incdec.ptr.i147, %if.then.i145 ]
   %result.sroa.0.6 = phi ptr [ %cond.i10.i.i165, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRNS1_INS0_6StringEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180 ], [ %result.sroa.0.5, %if.then.i145 ]
-  %call.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull %mac, i32 noundef 0, i32 noundef 17) #15
+  %call.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(18) %mac, i32 noundef 0, i32 noundef 17) #15
   %cmp.i.i.i.i184 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i.i184, label %if.then.i.i.i185, label %_ZN4node21FIXED_ONE_BYTE_STRINGILm18EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERKSt5arrayIcXT_EE.exit
 

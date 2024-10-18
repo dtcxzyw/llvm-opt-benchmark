@@ -1563,7 +1563,7 @@ _ZN2cv3Mat2atIiEERT_i.exit218:                    ; preds = %711, %705, %698
           to label %760 unwind label %768
 
 760:                                              ; preds = %.thread
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %46) #15
   br label %761
 
 761:                                              ; preds = %760, %._crit_edge
@@ -1594,7 +1594,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %761, %764
 768:                                              ; preds = %.thread
   %769 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #15
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %46) #15
   br label %770
 
 770:                                              ; preds = %768, %748, %728, %195, %184, %156, %154
@@ -2608,7 +2608,7 @@ declare noundef i32 @_ZN2cv3hal11normHammingEPKhS2_ii(ptr noundef, ptr noundef, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16BatchDistInvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
 }

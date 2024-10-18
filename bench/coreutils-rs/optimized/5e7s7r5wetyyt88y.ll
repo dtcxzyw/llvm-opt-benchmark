@@ -867,7 +867,7 @@ define hidden void @"_ZN5uu_wc16files0_iter_file28_$u7b$$u7b$closure$u7d$$u7d$17
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !119
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !131
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %.noexc4 unwind label %19
 
 .noexc4:                                          ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit
@@ -949,7 +949,7 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !141
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !153
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %.noexc8 unwind label %22
 
 .noexc8:                                          ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit
@@ -1031,7 +1031,7 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !162
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !174
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h853d82bb77ef3314E.llvm.15698352527914270608"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %.noexc8 unwind label %22
 
 .noexc8:                                          ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit

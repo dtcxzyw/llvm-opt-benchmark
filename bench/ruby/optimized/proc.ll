@@ -1987,9 +1987,9 @@ mnew_missing_by_name.exit.thread:                 ; preds = %27, %23, %respond_t
   store i64 4, ptr %4, align 8
   %36 = icmp ne i64 %0, 36
   call void @llvm.assume(i1 %36)
-  %37 = call ptr @rb_callable_method_entry_with_refinements(i64 noundef %.0.i, i64 noundef %6, ptr noundef nonnull %4) #20
+  %37 = call ptr @rb_callable_method_entry_with_refinements(i64 noundef %.0.i, i64 noundef range(i64 1, 0) %6, ptr noundef nonnull %4) #20
   %38 = load i64, ptr %4, align 8
-  %39 = call fastcc i64 @mnew_internal(ptr noundef %37, i64 noundef %.0.i, i64 noundef %38, i64 noundef %0, i64 noundef %6, i64 noundef %22, i32 noundef %2, i32 noundef 1)
+  %39 = call fastcc i64 @mnew_internal(ptr noundef %37, i64 noundef %.0.i, i64 noundef %38, i64 noundef %0, i64 noundef range(i64 1, 0) %6, i64 noundef %22, i32 noundef range(i32 0, 2) %2, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %40
 
@@ -2095,7 +2095,7 @@ mnew_missing_by_name.exit:                        ; preds = %respond_to_missing_
 
 46:                                               ; preds = %33, %42
   %47 = load i64, ptr @rb_cMethod, align 8
-  %48 = call fastcc i64 @mnew_internal(ptr noundef nonnull %28, i64 noundef %10, i64 noundef %10, i64 noundef %0, i64 noundef %5, i64 noundef %47, i32 noundef 0, i32 noundef 1)
+  %48 = call fastcc i64 @mnew_internal(ptr noundef nonnull %28, i64 noundef %10, i64 noundef %10, i64 noundef %0, i64 noundef range(i64 1, 0) %5, i64 noundef %47, i32 noundef 0, i32 noundef 1)
   br label %50
 
 mnew_missing_by_name.exit.thread:                 ; preds = %21, %16, %respond_to_missing_p.exit.i, %33, %mnew_missing_by_name.exit, %42, %39, %36, %27, %30, %2, %7, %12
@@ -2703,7 +2703,7 @@ method_cref.exit.thread:                          ; preds = %76, %method_cref.ex
   %110 = zext i32 %108 to i64
   %111 = shl nuw nsw i64 %110, 3
   %112 = load ptr, ptr %92, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr readonly align 1 %112, i64 %111, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr readonly align 1 %112, i64 range(i64 0, 34359738361) %111, i1 false)
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %109, %85
@@ -6114,9 +6114,9 @@ define internal i64 @rb_mod_instance_method(i64 noundef %0, i64 noundef %1) #0 {
   %9 = load i64, ptr @rb_cUnboundMethod, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 4, ptr %3, align 8
-  %10 = call ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef %5, ptr noundef nonnull %3) #20
+  %10 = call ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef range(i64 1, 0) %5, ptr noundef nonnull %3) #20
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i64 @mnew_internal(ptr noundef %10, i64 noundef %0, i64 noundef %11, i64 noundef 36, i64 noundef %5, i64 noundef %9, i32 noundef 0, i32 noundef 1)
+  %12 = call fastcc i64 @mnew_internal(ptr noundef %10, i64 noundef %0, i64 noundef %11, i64 noundef 36, i64 noundef range(i64 1, 0) %5, i64 noundef %9, i32 noundef range(i32 0, 2) 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i64 %12
 }
@@ -6139,9 +6139,9 @@ define internal i64 @rb_mod_public_instance_method(i64 noundef %0, i64 noundef %
   %9 = load i64, ptr @rb_cUnboundMethod, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 4, ptr %3, align 8
-  %10 = call ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef %5, ptr noundef nonnull %3) #20
+  %10 = call ptr @rb_method_entry_with_refinements(i64 noundef %0, i64 noundef range(i64 1, 0) %5, ptr noundef nonnull %3) #20
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i64 @mnew_internal(ptr noundef %10, i64 noundef %0, i64 noundef %11, i64 noundef 36, i64 noundef %5, i64 noundef %9, i32 noundef 1, i32 noundef 1)
+  %12 = call fastcc i64 @mnew_internal(ptr noundef %10, i64 noundef %0, i64 noundef %11, i64 noundef 36, i64 noundef range(i64 1, 0) %5, i64 noundef %9, i32 noundef range(i32 0, 2) 1, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i64 %12
 }

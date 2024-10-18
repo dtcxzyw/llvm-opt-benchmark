@@ -621,7 +621,7 @@ if.end66:                                         ; preds = %if.end40
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #12
+  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull align 8 dereferenceable(1208) %dalloc, i32 noundef 1200) #12
   %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8
   %call71 = call ptr @dtoa_fixedpoint(ptr noundef %call.i, double noundef %x.1, i32 noundef 3, i32 noundef %conv, ptr noundef nonnull %decPt, ptr noundef nonnull %sign, ptr noundef nonnull %sEnd) #12
@@ -639,7 +639,7 @@ if.end66:                                         ; preds = %if.end40
 
 if.then.i.i:                                      ; preds = %if.end66
   %add.i.i = add i64 %sub.ptr.sub.i.i.i.i, %conv.i5.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %n, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 1) #12
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %n, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i, i64 noundef 1) #12
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %if.end.i.i
 
@@ -737,7 +737,7 @@ if.else81:                                        ; preds = %while.end
 
 if.then.i.i65:                                    ; preds = %if.else81
   %add.i.i66 = add nuw nsw i64 %conv.i5.i.i54, %conv.i.i
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %m, ptr noundef nonnull %add.ptr.i.i.i.i.i.i45, i64 noundef %add.i.i66, i64 noundef 1) #12
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %m, ptr noundef nonnull %add.ptr.i.i.i.i.i.i45, i64 noundef %add.i.i66, i64 noundef 1) #12
   %.pre13.pre.i.i68 = load i32, ptr %Size.i.i.i.i.i.i46, align 8
   br label %if.end.i.i57
 
@@ -1223,7 +1223,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %for.body
   br i1 %exitcond.not, label %if.end95, label %for.body, !llvm.loop !17
 
 if.else70:                                        ; preds = %if.end61
-  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #12
+  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull align 8 dereferenceable(1208) %dalloc, i32 noundef 1200) #12
   %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8
   %27 = load i32, ptr %argCount_.i, align 8
@@ -1324,14 +1324,14 @@ if.else105:                                       ; preds = %if.end101
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %n, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp106, i64 8
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp106, align 8, !alias.scope !22
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp106, i64 16
   store i32 %e.098, ptr %Vals.i.i, align 8, !alias.scope !22
   %call107 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp106) #12
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #12
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #12
   br label %if.end108
 
 if.end108:                                        ; preds = %if.else105, %_ZN4llvh9StringRefC2EPKc.exit
@@ -1594,7 +1594,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %for.body
 if.else93:                                        ; preds = %if.end84
   %fneg87 = fneg double %x.0
   %x.1 = select i1 %cmp85, double %fneg87, double %x.0
-  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull %dalloc, i32 noundef 1200) #12
+  %call.i = call ptr @dtoa_alloc_init(ptr noundef nonnull align 8 dereferenceable(1208) %dalloc, i32 noundef 1200) #12
   %dalloc_.i = getelementptr inbounds i8, ptr %dalloc, i64 1200
   store ptr %call.i, ptr %dalloc_.i, align 8
   %call95 = call ptr @dtoa_fixedpoint(ptr noundef %call.i, double noundef %x.1, i32 noundef 2, i32 noundef %conv, ptr noundef nonnull %decPt, ptr noundef nonnull %sign, ptr noundef nonnull %sEnd) #12
@@ -1670,14 +1670,14 @@ if.else115:                                       ; preds = %if.end111
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %n, ptr %OS.i, align 8
-  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
+  call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %os, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp116, i64 8
   store ptr @.str.9, ptr %Fmt.i.i.i, align 8, !alias.scope !27
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh13format_objectIJiEEE, i64 16), ptr %ref.tmp116, align 8, !alias.scope !27
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp116, i64 16
   store i32 %sub, ptr %Vals.i.i, align 8, !alias.scope !27
   %call117 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp116) #12
-  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %os) #12
+  call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %os) #12
   br label %if.end118
 
 if.end118:                                        ; preds = %if.else115, %_ZN4llvh9StringRefC2EPKc.exit
@@ -2266,7 +2266,7 @@ if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12, !noalias !31
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)

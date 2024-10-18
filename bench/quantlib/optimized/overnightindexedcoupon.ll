@@ -1413,7 +1413,7 @@ if.then.i.i.i148:                                 ; preds = %lpad3.i
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i148, %lpad3.i, %lpad.i146
   %.pn.i = phi { ptr, i32 } [ %83, %lpad.i146 ], [ %84, %lpad3.i ], [ %84, %if.then.i.i.i148 ]
-  call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp74) #28
+  call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp74) #28
   br label %ehcleanup111
 
 invoke.cont76:                                    ; preds = %invoke.cont4.i
@@ -5477,7 +5477,7 @@ if.then.i.i.i152:                                 ; preds = %lpad3.i
 
 ehcleanup.i:                                      ; preds = %if.then.i.i.i152, %lpad3.i, %lpad.i150
   %.pn.i = phi { ptr, i32 } [ %79, %lpad.i150 ], [ %80, %lpad3.i ], [ %80, %if.then.i.i.i152 ]
-  call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp69) #28
+  call void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp69) #28
   br label %ehcleanup106
 
 invoke.cont71:                                    ; preds = %invoke.cont4.i
@@ -8095,7 +8095,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_18FloatingRateCouponEEE, i64 -2) #28
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %v, ptr nonnull @_ZTIN8QuantLib14AcyclicVisitorE, ptr nonnull @_ZTIN8QuantLib7VisitorINS_18FloatingRateCouponEEE, i64 -2) #28
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -8107,7 +8107,7 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
-  tail call void @_ZN8QuantLib6Coupon6acceptERNS_14AcyclicVisitorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %v)
+  tail call void @_ZN8QuantLib6Coupon6acceptERNS_14AcyclicVisitorE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %v)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
@@ -10457,7 +10457,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -10605,7 +10605,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib18FloatingRateCouponD0Ev(ptr noundef 
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib18FloatingRateCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef 288) #31
   ret void
 }
 
@@ -10631,7 +10631,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib18FloatingRateCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(176) %2, i64 noundef 288) #31
   ret void
 }
 
@@ -10678,7 +10678,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -10744,7 +10744,7 @@ define linkonce_odr void @_ZThn8_N8QuantLib22OvernightIndexedCouponD0Ev(ptr noun
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN8QuantLib22OvernightIndexedCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(313) %0) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 432) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(313) %0, i64 noundef 432) #31
   ret void
 }
 
@@ -10767,7 +10767,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 %1
   tail call void @_ZN8QuantLib22OvernightIndexedCouponD1Ev(ptr noundef nonnull align 8 dereferenceable(313) %2) #28
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 432) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(313) %2, i64 noundef 432) #31
   ret void
 }
 

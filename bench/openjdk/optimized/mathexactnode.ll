@@ -808,7 +808,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
   %25 = getelementptr inbounds i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(20) %23) #9
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i, i32 noundef 1) #9
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 1) #9
   %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44

@@ -3637,7 +3637,7 @@ define internal fastcc void @usb_enable_link_state(ptr noundef nonnull %0, ptr n
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %1, i64 168
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %41, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.38, i32 noundef %26) #17
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %41, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.38, i32 noundef range(i32 0, -2147483648) %26) #17
   br label %usb_set_lpm_timeout.exit
 
 42:                                               ; preds = %35
@@ -3662,7 +3662,7 @@ define internal fastcc void @usb_enable_link_state(ptr noundef nonnull %0, ptr n
   %59 = zext nneg i32 %2 to i64
   %60 = getelementptr [4 x ptr], ptr @usb3_lpm_names, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %58, ptr noundef nonnull @.str.30, ptr noundef %61, i32 noundef %26, i32 noundef %55) #17
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %58, ptr noundef nonnull @.str.30, ptr noundef %61, i32 noundef range(i32 0, -2147483648) %26, i32 noundef %55) #17
   br label %usb_set_lpm_timeout.exit
 
 62:                                               ; preds = %42

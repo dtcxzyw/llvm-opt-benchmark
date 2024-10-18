@@ -3618,7 +3618,7 @@ define void @_ZN2cv9videostab17OnePassStabilizer5resetEv(ptr noundef nonnull ali
 ; Function Attrs: uwtable
 define void @_ZThn688_N2cv9videostab17OnePassStabilizer5resetEv(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -688
-  tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) %2)
+  tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %2)
   ret void
 }
 
@@ -4645,7 +4645,7 @@ define void @_ZThn688_N2cv9videostab17TwoPassStabilizer5resetEv(ptr noundef %0) 
   %2 = alloca %"class.cv::Mat", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -688
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) %3)
+  tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(864) %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -5338,7 +5338,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
 define void @_ZThn688_N2cv9videostab17TwoPassStabilizer9nextFrameEv(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -688
   tail call void @_ZN2cv9videostab17TwoPassStabilizer21runPrePassIfNecessaryEv(ptr noundef nonnull align 8 dereferenceable(864) %3), !noalias !72
-  tail call void @_ZN2cv9videostab14StabilizerBase19nextStabilizedFrameEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(688) %3)
+  tail call void @_ZN2cv9videostab14StabilizerBase19nextStabilizedFrameEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(864) %3)
   ret void
 }
 
@@ -6389,7 +6389,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv9videostab17OnePassStabilizerD2Ev.exit
 
 _ZN2cv9videostab17OnePassStabilizerD2Ev.exit:     ; preds = %1, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) #21
+  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -6479,7 +6479,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv9videostab17OnePassStabilizerD2Ev.exit
 
 _ZN2cv9videostab17OnePassStabilizerD2Ev.exit:     ; preds = %1, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %2) #21
+  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %2) #21
   ret void
 }
 
@@ -6562,15 +6562,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv9videostab17OnePassStabilizerD0Ev.exit
 
 _ZN2cv9videostab17OnePassStabilizerD0Ev.exit:     ; preds = %1, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %2) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZN2cv9videostab14StabilizerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(712) %2) #23
   ret void
 }
 
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn688_N2cv9videostab17OnePassStabilizer9nextFrameEv(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -688
-  tail call void @_ZN2cv9videostab14StabilizerBase19nextStabilizedFrameEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(688) %3)
+  tail call void @_ZN2cv9videostab14StabilizerBase19nextStabilizedFrameEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(712) %3)
   ret void
 }
 
@@ -6779,7 +6779,7 @@ define linkonce_odr hidden void @_ZThn688_N2cv9videostab17TwoPassStabilizerD1Ev(
 define linkonce_odr hidden void @_ZThn688_N2cv9videostab17TwoPassStabilizerD0Ev(ptr noundef %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -688
   tail call void @_ZN2cv9videostab17TwoPassStabilizerD2Ev(ptr noundef nonnull align 8 dereferenceable(864) %2) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(864) %2) #23
   ret void
 }
 

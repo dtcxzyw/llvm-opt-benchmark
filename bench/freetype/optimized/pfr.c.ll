@@ -1650,7 +1650,7 @@ pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
   tail call void @FT_GlyphLoader_Rewind(ptr noundef %333) #12
   %334 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 0, ptr %334, align 8
-  %335 = tail call fastcc i32 @pfr_glyph_load_rec(ptr noundef nonnull %323, ptr noundef %325, i64 noundef %322, i64 noundef %328, i64 noundef %331)
+  %335 = tail call fastcc i32 @pfr_glyph_load_rec(ptr noundef nonnull %323, ptr noundef %325, i64 noundef range(i64 0, 4294967296) %322, i64 noundef range(i64 0, 4294967296) %328, i64 noundef range(i64 0, 4294967296) %331)
   %.not99 = icmp eq i32 %335, 0
   br i1 %.not99, label %336, label %438
 

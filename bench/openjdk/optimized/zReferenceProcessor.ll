@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @_ZNK19ZReferenceProcessor11is_inactiveE8zaddre
   %8 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull %7, i64 noundef %9) #11
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %9) #11
   %12 = icmp ne ptr %11, null
   br label %15
 
@@ -531,7 +531,7 @@ define hidden noundef zeroext i1 @_ZNK19ZReferenceProcessor15should_discoverE8za
   %13 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull %12, i64 noundef %14) #11
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %14) #11
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %18, label %_ZNK19ZReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread
 
@@ -626,7 +626,7 @@ define hidden noundef zeroext i1 @_ZNK19ZReferenceProcessor17try_make_inactiveE8
   %22 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %24(ptr noundef nonnull %21, i64 noundef %23, ptr noundef %21) #11
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %23, ptr noundef %21) #11
   br label %27
 
 25:                                               ; preds = %15
@@ -1108,7 +1108,7 @@ switch.lookup:                                    ; preds = %5
   %40 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %41 = sext i32 %40 to i64
   %42 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %42(ptr noundef nonnull %38, i64 noundef %41, ptr noundef %39) #11
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %41, ptr noundef %39) #11
   store i64 %1, ptr %36, align 8
   ret void
 }
@@ -1503,12 +1503,12 @@ _ZL14reference_type8zaddress.exit:                ; preds = %11, %21
   %26 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %27 = sext i32 %26 to i64
   %28 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %29 = tail call noundef ptr %28(ptr noundef nonnull %7, i64 noundef %27) #11
+  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %27) #11
   %30 = ptrtoint ptr %29 to i64
   %31 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %32 = sext i32 %31 to i64
   %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %33(ptr noundef nonnull %7, i64 noundef %32, ptr noundef null) #11
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %32, ptr noundef null) #11
   %34 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %.041, %35
@@ -1541,7 +1541,7 @@ _ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.threa
   %48 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %50(ptr noundef nonnull %7, i64 noundef %49, ptr noundef nonnull %7) #11
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %49, ptr noundef nonnull %7) #11
   br label %54
 
 51:                                               ; preds = %45
@@ -1587,7 +1587,7 @@ switch.lookup:                                    ; preds = %54
   %71 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %72 = sext i32 %71 to i64
   %73 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %73(ptr noundef nonnull %70, i64 noundef %72, ptr noundef nonnull %7) #11
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %72, ptr noundef nonnull %7) #11
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
 _ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %46, %_ZL14reference_type8zaddress.exit, %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
@@ -1642,7 +1642,7 @@ _ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZL11list_appendR8z
   %92 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %93 = sext i32 %92 to i64
   %94 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %94(ptr noundef nonnull %90, i64 noundef %93, ptr noundef %91) #11
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %90, i64 noundef %93, ptr noundef %91) #11
   %95 = icmp eq i64 %89, 0
   br i1 %95, label %96, label %._crit_edge.thread
 
@@ -1947,7 +1947,7 @@ define hidden void @_ZN19ZReferenceProcessor18process_referencesEv(ptr noundef n
   br label %11
 
 11:                                               ; preds = %10, %8, %1
-  call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull @.str.28) #11
+  call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.28) #11
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23ZReferenceProcessorTask, i64 16), ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %0, ptr %12, align 8
@@ -2041,7 +2041,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %9, %11
   %20 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %22(ptr noundef nonnull %19, i64 noundef %21, ptr noundef %16) #11
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %21, ptr noundef %16) #11
   call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #11
   call void @_ZN20SuspendibleThreadSet5leaveEv() #11
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #11

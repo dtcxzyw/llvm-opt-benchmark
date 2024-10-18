@@ -872,7 +872,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.assume(i1 %322)
   %323 = call i32 @errcode(i32 noundef 117833860) #8
   %324 = call ptr @NameListToString(ptr noundef nonnull %.0153) #8
-  %325 = call ptr @format_type_be(i32 noundef %.0177) #8
+  %325 = call ptr @format_type_be(i32 noundef range(i32 1, 0) %.0177) #8
   %326 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.102, ptr noundef %324, ptr noundef %325) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1984, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   unreachable
@@ -2471,7 +2471,7 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr nocapture noundef
 119:                                              ; preds = %118
   %120 = call i32 @get_opclass_oid(i32 noundef 403, ptr noundef nonnull %.0142246.lcssa, i1 noundef zeroext false) #8
   %121 = call i32 @get_opclass_input_type(i32 noundef %120) #8
-  %122 = call zeroext i1 @IsBinaryCoercible(i32 noundef %.0140247.lcssa, i32 noundef %121) #8
+  %122 = call zeroext i1 @IsBinaryCoercible(i32 noundef range(i32 1, 0) %.0140247.lcssa, i32 noundef %121) #8
   br i1 %122, label %findRangeSubOpclass.exit, label %123
 
 123:                                              ; preds = %119
@@ -2479,13 +2479,13 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr nocapture noundef
   call void @llvm.assume(i1 %124)
   %125 = call i32 @errcode(i32 noundef 67141764) #8
   %126 = call ptr @NameListToString(ptr noundef nonnull %.0142246.lcssa) #8
-  %127 = call ptr @format_type_be(i32 noundef %.0140247.lcssa) #8
+  %127 = call ptr @format_type_be(i32 noundef range(i32 1, 0) %.0140247.lcssa) #8
   %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, ptr noundef %126, ptr noundef %127) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2291, ptr noundef nonnull @__func__.findRangeSubOpclass) #8
   unreachable
 
 129:                                              ; preds = %118
-  %130 = call i32 @GetDefaultOpClass(i32 noundef %.0140247.lcssa, i32 noundef 403) #8
+  %130 = call i32 @GetDefaultOpClass(i32 noundef range(i32 1, 0) %.0140247.lcssa, i32 noundef 403) #8
   %.not12.i = icmp eq i32 %130, 0
   br i1 %.not12.i, label %131, label %findRangeSubOpclass.exit
 
@@ -2493,7 +2493,7 @@ define dso_local { i64, i32 } @DefineRange(ptr noundef %0, ptr nocapture noundef
   %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %132)
   %133 = call i32 @errcode(i32 noundef 67137668) #8
-  %134 = call ptr @format_type_be(i32 noundef %.0140247.lcssa) #8
+  %134 = call ptr @format_type_be(i32 noundef range(i32 1, 0) %.0140247.lcssa) #8
   %135 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.124, ptr noundef %134, ptr noundef nonnull @.str.125) #8
   %136 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.126) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2303, ptr noundef nonnull @__func__.findRangeSubOpclass) #8
@@ -3294,7 +3294,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   br i1 %84, label %slot_getsomeattrs.exit.i, label %slot_attisnull.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %45, i32 noundef %81) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %45, i32 noundef range(i32 -32767, -2147483648) %81) #8
   br label %slot_attisnull.exit
 
 slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getsomeattrs.exit.i
@@ -3936,7 +3936,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   br i1 %68, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %35, i32 noundef %65) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %35, i32 noundef range(i32 -32767, -2147483648) %65) #8
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getsomeattrs.exit.i
@@ -4585,7 +4585,7 @@ define dso_local void @AlterTypeOwnerInternal(i32 noundef %0, i32 noundef %1) lo
   %58 = sext i16 %44 to i32
   %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.140, i32 noundef %58) #8
+  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.140, i32 noundef range(i32 -32768, 32768) %58) #8
   tail call void @errfinish(ptr noundef nonnull @.str.141, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 

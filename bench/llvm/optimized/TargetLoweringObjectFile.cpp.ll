@@ -196,7 +196,7 @@ switch.lookup:
   %5 = alloca %"class.llvm::SmallString.188", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %7, i64 noundef 60) #16
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull %7, i64 noundef 60) #16
   %8 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
@@ -207,7 +207,7 @@ switch.lookup:
   %switch.gep5 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm24TargetLoweringObjectFile28getSymbolWithGlobalValueBaseEPKNS_11GlobalValueENS_9StringRefERKNS_13TargetMachineE.2, i64 0, i64 %12
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %13 = getelementptr inbounds i8, ptr %switch.load6, i64 %switch.load
-  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %switch.load6, ptr noundef nonnull %13)
+  call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(84) %5, ptr noundef nonnull %switch.load6, ptr noundef nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %15 = load ptr, ptr %14, align 8
   call void @_ZNK4llvm13TargetMachine17getNameWithPrefixERNS_15SmallVectorImplIcEEPKNS_11GlobalValueERNS_7ManglerEb(ptr noundef nonnull align 8 dereferenceable(1232) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %15, i1 noundef zeroext false) #16
@@ -225,7 +225,7 @@ switch.lookup:
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %22, ptr %23, align 8
   %24 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %18, ptr noundef nonnull align 8 dereferenceable(34) %6) #16
-  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
+  %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(84) %5) #16
   %26 = load ptr, ptr %5, align 8
   %27 = icmp eq ptr %26, %7
   br i1 %27, label %_ZN4llvm11SmallStringILj60EED2Ev.exit, label %28
@@ -305,7 +305,7 @@ define dso_local void @_ZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadat
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %7, i64 noundef 8) #16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull %7, i64 noundef 8) #16
   call void @_ZNK4llvm6Module22getModuleFlagsMetadataERNS_15SmallVectorImplINS0_15ModuleFlagEntryEEE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
@@ -506,7 +506,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit53:            ; preds = %89, %93
   br i1 %.not37, label %.thread, label %37
 
 .thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread61, %"_ZZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadataERNS_10MCStreamerERNS_6ModuleEENK3$_0clERKNS_9MDOperandE.exit50.thread", %3, %_ZNK4llvm6MDNode8operandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
+  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %4) #16
   %114 = load ptr, ptr %4, align 8
   %115 = icmp eq ptr %114, %7
   br i1 %115, label %_ZN4llvm11SmallVectorINS_6Module15ModuleFlagEntryELj8EED2Ev.exit, label %116

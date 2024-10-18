@@ -451,7 +451,7 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
 46:                                               ; preds = %40
   %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf759af297b15271E"(ptr nonnull align 4 %48, ptr nonnull align 4 %47)
+  %49 = tail call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbf759af297b15271E"(ptr nonnull align 8 %48, ptr nonnull align 8 %47)
   br i1 %49, label %50, label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 50:                                               ; preds = %46

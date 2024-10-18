@@ -5503,7 +5503,7 @@ sub_068:                                          ; preds = %getfields.exit, %.t
   br label %inrule.exit
 
 83:                                               ; preds = %80
-  %84 = call fastcc zeroext i1 @inzsub(ptr noundef readonly %29, i32 noundef %66, i1 noundef zeroext true)
+  %84 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef range(i32 1, 0) %66, i1 noundef zeroext true)
   %85 = zext i1 %84 to i8
   br label %inrule.exit
 
@@ -5783,7 +5783,7 @@ growalloc.exit.i:                                 ; preds = %size_product.exit.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %196, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %207, %.preheader.i57
-  %209 = call fastcc zeroext i1 @inzsub(ptr noundef readonly %29, i32 noundef %66, i1 noundef zeroext false)
+  %209 = call fastcc zeroext i1 @inzsub(ptr noundef nonnull readonly %29, i32 noundef range(i32 1, 0) %66, i1 noundef zeroext false)
   %210 = zext i1 %209 to i8
   br label %inrule.exit
 
@@ -5902,7 +5902,7 @@ growalloc.exit.i62:                               ; preds = %size_product.exit.i
   br label %inrule.exit
 
 261:                                              ; preds = %259
-  %262 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext false)
+  %262 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext false)
   %263 = icmp sgt i64 %262, -1
   br i1 %263, label %264, label %inrule.exit
 
@@ -6016,7 +6016,7 @@ leapadd.exit.i:                                   ; preds = %285, %._crit_edge.l
   br label %inrule.exit
 
 307:                                              ; preds = %303
-  %308 = call fastcc i64 @getleapdatetime(ptr noundef readonly %29, i1 noundef zeroext true)
+  %308 = call fastcc i64 @getleapdatetime(ptr noundef nonnull readonly %29, i1 noundef zeroext true)
   store i64 %308, ptr @leapexpires, align 8
   br label %inrule.exit
 

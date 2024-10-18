@@ -1461,7 +1461,7 @@ if.end4:                                          ; preds = %new.notnull
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %delete.notnull.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4
-  %call.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %call2, i32 noundef 0)
+  %call.i.i.i = tail call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(64) %call2, i32 noundef 0)
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.else.i, label %delete.notnull.i
 
@@ -1493,7 +1493,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %fSet = getelementptr inbounds i8, ptr %this, i64 8
-  %call2.i = tail call noundef signext i8 @_ZN6icu_757UVector13removeElementEPv(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull %exception)
+  %call2.i = tail call noundef signext i8 @_ZN6icu_757UVector13removeElementEPv(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull align 8 dereferenceable(64) %exception)
   br label %_ZN6icu_7510UStringSet6removeERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZN6icu_7510UStringSet6removeERKNS_13UnicodeStringER10UErrorCode.exit: ; preds = %entry, %if.end.i

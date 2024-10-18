@@ -29,7 +29,7 @@ entry:
   br i1 %cmp, label %if.end3, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 8, 0) %alignment)
   %tobool1.not.i = icmp samesign ult i64 %0, 2
   br i1 %tobool1.not.i, label %if.end3, label %if.else2
 
@@ -81,11 +81,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %alignment.addr.0, i64 noundef %spec.select, ptr noundef %1) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef range(i64 8, 0) %alignment.addr.0, i64 noundef range(i64 1, 0) %spec.select, ptr noundef %1) #11
   br label %trace_qemu_memalign.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i64 noundef %alignment.addr.0, i64 noundef %spec.select, ptr noundef %1) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i64 noundef range(i64 8, 0) %alignment.addr.0, i64 noundef range(i64 1, 0) %spec.select, ptr noundef %1) #11
   br label %trace_qemu_memalign.exit
 
 trace_qemu_memalign.exit:                         ; preds = %if.end11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

@@ -2326,7 +2326,7 @@ ompi_osc_rdma_btl_atomic_op.exit:                 ; preds = %44, %47
   %.0.i77 = load ptr, ptr %.0.in.i, align 8
   %52 = getelementptr inbounds i8, ptr %.0.i77, i64 232
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef %.0.i77, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef %19, ptr noundef null) #9
+  %54 = tail call i32 %53(ptr noundef %.0.i77, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 -9223372036854775808, 0) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef %19, ptr noundef null) #9
   %55 = add i32 %54, 1
   %56 = icmp ult i32 %55, -2
   br i1 %56, label %59, label %57
@@ -2559,7 +2559,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %43, %45
 65:                                               ; preds = %.thread
   %66 = getelementptr inbounds i8, ptr %64, i64 240
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 %67(ptr noundef %64, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #9
+  %68 = tail call i32 %67(ptr noundef %64, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 1, 0) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #9
   br label %ompi_osc_rdma_btl_atomic_fop.exit
 
 69:                                               ; preds = %.thread
@@ -2567,7 +2567,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %43, %45
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 80
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 %73(ptr noundef %71, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #9
+  %74 = tail call i32 %73(ptr noundef %71, ptr noundef %2, ptr noundef %59, i64 noundef %3, ptr noundef %61, ptr noundef %4, i32 noundef 1, i64 noundef range(i64 1, 0) %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef nonnull %21, ptr noundef null) #9
   br label %ompi_osc_rdma_btl_atomic_fop.exit
 
 ompi_osc_rdma_btl_atomic_fop.exit:                ; preds = %69, %65, %56

@@ -2381,7 +2381,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %33, label %x509_crt_check_san.exit.i, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.i:                        ; preds = %30
-  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef readonly %.02030.i, ptr noundef readonly %4, i64 noundef %24)
+  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull readonly %.02030.i, ptr noundef nonnull readonly %4, i64 noundef %24)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
@@ -2411,7 +2411,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
-  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef %47, ptr noundef readonly %4, i64 noundef %24)
+  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef %47, ptr noundef nonnull readonly %4, i64 noundef %24)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 

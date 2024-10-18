@@ -3956,7 +3956,7 @@ if.end16:                                         ; preds = %if.end12
 
 if.end18:                                         ; preds = %if.end16
   %7 = load ptr, ptr %cidobj, align 8
-  %call.i16 = tail call fastcc ptr @_get_current_channelend_type(i32 noundef %5)
+  %call.i16 = tail call fastcc ptr @_get_current_channelend_type(i32 noundef range(i32 1, 0) %5)
   %cmp.i17 = icmp eq ptr %call.i16, null
   br i1 %cmp.i17, label %if.then22, label %if.end.i18
 

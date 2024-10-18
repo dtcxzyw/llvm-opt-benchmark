@@ -2049,7 +2049,7 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %spec.select = trunc nuw nsw i64 %spec.select497 to i32
   %204 = getelementptr inbounds i8, ptr %200, i64 104
   %205 = load ptr, ptr %204, align 8
-  %206 = call ptr %205(ptr noundef %200, i64 noundef %193, i64 noundef %spec.select497, i32 noundef 0) #12
+  %206 = call ptr %205(ptr noundef %200, i64 noundef range(i64 0, 4294967296) %193, i64 noundef %spec.select497, i32 noundef 0) #12
   %.not319 = icmp eq ptr %206, null
   br i1 %.not319, label %._crit_edge, label %207
 

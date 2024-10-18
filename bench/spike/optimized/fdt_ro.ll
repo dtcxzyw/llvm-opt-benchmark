@@ -741,7 +741,7 @@ define i32 @fdt_subnode_offset_namelen(ptr noundef %0, i32 noundef %1, ptr nound
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %16 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.01124, ptr noundef nonnull %5)
+  %16 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %.01124, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %16, null
   %17 = load i32, ptr %5, align 4
   %18 = icmp slt i32 %17, %3

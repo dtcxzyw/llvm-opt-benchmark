@@ -287,12 +287,12 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer8emitInstEj(ptr nocaptu
   %16 = load ptr, ptr %.val, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(6601) %.val, ptr noundef %15, ptr null) #12
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(6637) %.val, ptr noundef %15, ptr null) #12
   store i32 1, ptr %9, align 8
   br label %_ZN12_GLOBAL__N_118AArch64ELFStreamer8emitInstEj.exit
 
 _ZN12_GLOBAL__N_118AArch64ELFStreamer8emitInstEj.exit: ; preds = %8, %12
-  call void @_ZN4llvm16MCObjectStreamer9emitBytesENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %.val, ptr nonnull %3, i64 4) #12
+  call void @_ZN4llvm16MCObjectStreamer9emitBytesENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(6637) %.val, ptr nonnull %3, i64 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret void
 }
@@ -374,7 +374,7 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
   %41 = load ptr, ptr %.val, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 200
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(6601) %.val, ptr noundef %40, ptr null) #12
+  call void %43(ptr noundef nonnull align 8 dereferenceable(6637) %.val, ptr noundef %40, ptr null) #12
   store ptr %28, ptr %4, align 8
   store i64 %19, ptr %25, align 8
   store ptr %40, ptr %.sroa.2161.0..sroa_idx, align 8
@@ -427,7 +427,7 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
 
 72:                                               ; preds = %61, %38
   %.sink.i.i.i.i = phi ptr [ %62, %61 ], [ null, %38 ]
-  %73 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E20InsertIntoBucketImplIS3_EEPSC_RKS3_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !4
+  %73 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E20InsertIntoBucketImplIS3_EEPSC_RKS3_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.sink.i.i.i.i), !noalias !4
   %74 = load ptr, ptr %4, align 8, !noalias !4
   store ptr %74, ptr %73, align 8, !noalias !4
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1064,7 +1064,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm30createAArch64AsmTargetStreamerERNS_10MCStreamerERNS_21formatted_raw_ostreamEPNS_13MCInstPrinterE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
-  tail call void @_ZN4llvm21AArch64TargetStreamerC2ERNS_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(288) %0) #12
+  tail call void @_ZN4llvm21AArch64TargetStreamerC2ERNS_10MCStreamerE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(288) %0) #12
   store ptr getelementptr inbounds inrange(-16, 408) (i8, ptr @_ZTVN12_GLOBAL__N_124AArch64TargetAsmStreamerE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
@@ -1092,7 +1092,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm24createAArch64ELFStreamerERNS_9MC
   store i64 %9, ptr %5, align 8
   store i64 %10, ptr %6, align 8
   store i64 %11, ptr %7, align 8
-  call void @_ZN4llvm13MCELFStreamerC2ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_14MCObjectWriterES5_IS8_EES3_INS_13MCCodeEmitterES5_ISB_EE(ptr noundef nonnull align 8 dereferenceable(6601) %8, ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
+  call void @_ZN4llvm13MCELFStreamerC2ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_14MCObjectWriterES5_IS8_EES3_INS_13MCCodeEmitterES5_ISB_EE(ptr noundef nonnull align 8 dereferenceable(6637) %8, ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %12 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13MCCodeEmitterEEclEPS1_.exit.i.i
@@ -1403,7 +1403,7 @@ define internal void @_ZN12_GLOBAL__N_124AArch64TargetAsmStreamerD2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_124AArch64TargetAsmStreamerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm21AArch64TargetStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZN4llvm21AArch64TargetStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #14
   ret void
 }
@@ -4091,7 +4091,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD0Ev(ptr noundef nonn
   %4 = zext i32 %.val1.i to i64
   %5 = shl nuw nsw i64 %4, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val.i, i64 noundef %5, i64 noundef 8) #12
-  tail call void @_ZN4llvm13MCELFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(6601) %0) #12
+  tail call void @_ZN4llvm13MCELFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(6637) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 6640) #14
   ret void
 }
@@ -4102,7 +4102,7 @@ declare void @_ZN4llvm16MCObjectStreamer15visitUsedSymbolERKNS_8MCSymbolE(ptr no
 define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6637) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6600
   store i8 0, ptr %2, align 8
-  tail call void @_ZN4llvm16MCObjectStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(424) %0) #12
+  tail call void @_ZN4llvm16MCObjectStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6601) %0) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %4 = getelementptr inbounds i8, ptr %0, i64 6616
   %.val11.i = load i32, ptr %4, align 8
@@ -4419,7 +4419,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer9emitBytesEN4llvm9Str
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(6601) %0, ptr noundef %10, ptr null) #12
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(6637) %0, ptr noundef %10, ptr null) #12
   store i32 2, ptr %4, align 8
   br label %_ZN12_GLOBAL__N_118AArch64ELFStreamer21emitDataMappingSymbolEv.exit
 
@@ -4444,7 +4444,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer13emitValueImplEPKN4l
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(6601) %0, ptr noundef %11, ptr null) #12
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(6637) %0, ptr noundef %11, ptr null) #12
   store i32 2, ptr %5, align 8
   br label %_ZN12_GLOBAL__N_118AArch64ELFStreamer21emitDataMappingSymbolEv.exit
 
@@ -4505,7 +4505,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer8emitFillERKN4llvm6MC
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(6601) %0, ptr noundef %11, ptr null) #12
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(6637) %0, ptr noundef %11, ptr null) #12
   store i32 2, ptr %5, align 8
   br label %_ZN12_GLOBAL__N_118AArch64ELFStreamer21emitDataMappingSymbolEv.exit
 
@@ -4677,7 +4677,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer15emitInstructionERKN
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(6601) %0, ptr noundef %10, ptr null) #12
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(6637) %0, ptr noundef %10, ptr null) #12
   store i32 1, ptr %4, align 8
   br label %_ZN12_GLOBAL__N_118AArch64ELFStreamer20emitA64MappingSymbolEv.exit
 
@@ -4882,7 +4882,7 @@ define linkonce_odr hidden void @_ZN4llvm13MCELFStreamerD2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN4llvm13MCELFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3512
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(3088) %2) #12
   %.not4.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE13destroy_rangeEPS2_S4_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -4911,7 +4911,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE13destr
 _ZN4llvm11SmallVectorINS_13MCELFStreamer13AttributeItemELj64EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE13destroy_rangeEPS2_S4_.exit.i, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(3088) %12) #12
   %.not4.i.i1 = icmp eq i64 %14, 0
   br i1 %.not4.i.i1, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE13destroy_rangeEPS2_S4_.exit.i6, label %.lr.ph.i.preheader.i2
 
@@ -4996,7 +4996,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13AttributeItemELb0EE28reser
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %12 ], [ %1, %11 ]
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %21 = getelementptr inbounds %"struct.llvm::MCELFStreamer::AttributeItem", ptr %19, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %.016.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i, i64 12, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23) #12
@@ -5032,7 +5032,7 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer13
 .lr.ph.i.i.i.i.i.i:                               ; preds = %2, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i.i ], [ %5, %2 ]
   %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i ], [ %6, %2 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.04.08.i.i.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.04.08.i.i.i.i.i.i, i64 12, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #12

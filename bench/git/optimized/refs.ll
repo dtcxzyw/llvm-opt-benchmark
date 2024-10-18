@@ -4536,7 +4536,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %or17.i = or disjoint i32 %flags, 8
-  %call18.i = tail call ptr @ref_transaction_add_update(ptr noundef %transaction, ptr noundef %refname, i32 noundef %or17.i, ptr noundef readonly null, ptr noundef nonnull readonly %old_oid, ptr noundef null)
+  %call18.i = tail call ptr @ref_transaction_add_update(ptr noundef %transaction, ptr noundef %refname, i32 noundef %or17.i, ptr noundef null, ptr noundef nonnull readonly %old_oid, ptr noundef null)
   br label %ref_transaction_update.exit
 
 ref_transaction_update.exit:                      ; preds = %_.exit.i, %if.end12.i
@@ -5993,7 +5993,7 @@ if.then.i.i:                                      ; preds = %entry
 find_longest_prefixes.exit:                       ; preds = %entry, %if.then.i.i
   %3 = phi i64 [ %1, %entry ], [ %.pre.i, %if.then.i.i ]
   %4 = load ptr, ptr %sorted.i, align 8
-  call fastcc void @find_longest_prefixes_1(ptr noundef %prefixes, ptr noundef %prefix.i, ptr noundef %4, i64 noundef %3)
+  call fastcc void @find_longest_prefixes_1(ptr noundef nonnull %prefixes, ptr noundef %prefix.i, ptr noundef %4, i64 noundef %3)
   call void @strvec_clear(ptr noundef nonnull %sorted.i) #23
   call void @strbuf_release(ptr noundef nonnull %prefix.i) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sorted.i)

@@ -1325,7 +1325,7 @@ define hidden void @_ZN20TypeStackSlotEntries15post_initializeEP6Symbolbb(ptr no
 _ZN22ArgumentOffsetComputerC2EP6Symboli.exit:     ; preds = %35, %.lr.ph.preheader.i.i.i
   %50 = getelementptr inbounds i8, ptr %5, i64 48
   store i64 0, ptr %50, align 8
-  call void @_ZN17SignatureIterator16do_parameters_onI22ArgumentOffsetComputerEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %5)
+  call void @_ZN17SignatureIterator16do_parameters_onI22ArgumentOffsetComputerEEvPT_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %51 = load i32, ptr %36, align 4
   %52 = icmp slt i32 %.013, %51
   br i1 %52, label %.lr.ph, label %._crit_edge
@@ -1944,7 +1944,7 @@ _ZN11TypeEntries11print_klassEP12outputStreaml.exit: ; preds = %24, %26
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK12CallTypeData13print_data_onEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  tail call void @_ZNK11ProfileData12print_sharedEP12outputStreamPKcS3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %2)
+  tail call void @_ZNK11ProfileData12print_sharedEP12outputStreamPKcS3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.12, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2034,7 +2034,7 @@ _ZNK15ReturnTypeEntry13print_data_onEP12outputStream.exit: ; preds = %43, %45
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK19VirtualCallTypeData13print_data_onEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  tail call void @_ZNK11ProfileData12print_sharedEP12outputStreamPKcS3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef %2)
+  tail call void @_ZNK11ProfileData12print_sharedEP12outputStreamPKcS3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef %2)
   tail call void @_ZNK16ReceiverTypeData22print_receiver_data_onEP12outputStream(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   %4 = load i64, ptr @TypeProfileWidth, align 8
   %5 = trunc i64 %4 to i32
@@ -3924,7 +3924,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZN10MethodData24c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -2147483632, -2147483648) i32 @_ZN10MethodData32compute_allocation_size_in_bytesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.BytecodeStream, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %3 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -5010,7 +5010,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %1, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   %46 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %47 = icmp sgt i32 %46, -1

@@ -1351,7 +1351,7 @@ define dso_local void @_ZN4Luau7Compile18predictTableShapesERNS_12DenseHashMapIP
 
 12:                                               ; preds = %10
   call void @_ZdlPv(ptr noundef nonnull %11) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %12, %10
@@ -1361,7 +1361,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2E
 
 14:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %13) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit.i: ; preds = %14, %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
@@ -1395,7 +1395,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitorD2Ev(ptr nound
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %1, %4
@@ -1406,7 +1406,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2E
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit
 
 _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit, %7
@@ -1417,7 +1417,7 @@ _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12Shap
 
 10:                                               ; preds = %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %9) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit: ; preds = %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit, %10
@@ -1434,7 +1434,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile12ShapeVisitorD0Ev(ptr nound
 
 4:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %3) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i: ; preds = %4, %1
@@ -1445,7 +1445,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2E
 
 7:                                                ; preds = %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %6) #9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 16, i1 false)
   br label %_ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit.i
 
 _ZN4Luau12DenseHashSetISt4pairIPNS_12AstExprTableENS_7AstNameEENS_7Compile12ShapeVisitor6HasherESt8equal_toIS5_EED2Ev.exit.i: ; preds = %7, %_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EED2Ev.exit.i

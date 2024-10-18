@@ -743,7 +743,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br label %289
 
 ._crit_edge.i:                                    ; preds = %192, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f0ffdebb931e974E.exit216.i"
-  tail call void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %22, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 dereferenceable(256) %9, i1 noundef zeroext %12, i8 noundef %14)
+  tail call void @_ZN6base646engine15general_purpose13decode_suffix13decode_suffix17h9de619b85a272a61E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %22, ptr noalias noundef nonnull align 1 %4, i64 noundef %5, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 dereferenceable(256) %9, i1 noundef zeroext %12, i8 noundef range(i8 0, 3) %14)
   br label %_ZN6base646engine15general_purpose6decode13decode_helper17hd7378cfdb209d740E.exit
 
 141:                                              ; preds = %192, %.lr.ph1147.preheader.i

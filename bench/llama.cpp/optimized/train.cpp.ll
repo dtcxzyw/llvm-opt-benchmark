@@ -477,7 +477,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load i64, ptr %nb, align 8
   %mul = mul i64 %3, %indvars.iv166
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %mul
-  %call.i.i = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(8) %rd.i)
+  %call.i.i = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(13) %rd.i)
   %4 = load float, ptr %min.i, align 8
   %5 = load float, ptr %max.i, align 4
   %cmp.i.i = fcmp olt float %call.i.i, %4
@@ -532,7 +532,7 @@ for.body30:                                       ; preds = %for.cond25.preheade
   %16 = load i64, ptr %arrayidx40, align 8
   %mul41 = mul i64 %16, %indvars.iv163
   %add.ptr42 = getelementptr inbounds i8, ptr %add.ptr37, i64 %mul41
-  %call.i.i64 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i63, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(8) %rd.i63)
+  %call.i.i64 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i63, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(13) %rd.i63)
   %17 = load float, ptr %min.i65, align 8
   %18 = load float, ptr %max.i66, align 4
   %cmp.i.i67 = fcmp olt float %call.i.i64, %17
@@ -616,7 +616,7 @@ for.body80:                                       ; preds = %for.cond75.preheade
   %37 = load i64, ptr %arrayidx95, align 8
   %mul96 = mul i64 %37, %indvars.iv154
   %add.ptr97 = getelementptr inbounds i8, ptr %add.ptr92, i64 %mul96
-  %call.i.i72 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i71, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(8) %rd.i71)
+  %call.i.i72 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i71, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(13) %rd.i71)
   %38 = load float, ptr %min.i73, align 8
   %39 = load float, ptr %max.i74, align 4
   %cmp.i.i75 = fcmp olt float %call.i.i72, %38
@@ -730,7 +730,7 @@ for.body145:                                      ; preds = %for.cond140.prehead
   %67 = load i64, ptr %arrayidx165, align 8
   %mul166 = mul i64 %67, %indvars.iv139
   %add.ptr167 = getelementptr inbounds i8, ptr %add.ptr162, i64 %mul166
-  %call.i.i80 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i79, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(8) %rd.i79)
+  %call.i.i80 = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd.i79, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(13) %rd.i79)
   %68 = load float, ptr %min.i81, align 8
   %69 = load float, ptr %max.i82, align 4
   %cmp.i.i83 = fcmp olt float %call.i.i80, %68
@@ -798,7 +798,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #12
 define noundef float @_Z12frand_normalP26random_normal_distribution(ptr noundef nonnull %rnd) local_unnamed_addr #3 {
 entry:
   %rd = getelementptr inbounds i8, ptr %rnd, i64 5000
-  %call.i = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(8) %rd)
+  %call.i = tail call noundef float @_ZNSt19normal_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(13) %rd, ptr noundef nonnull align 8 dereferenceable(5000) %rnd, ptr noundef nonnull align 4 dereferenceable(13) %rd)
   %min = getelementptr inbounds i8, ptr %rnd, i64 5016
   %0 = load float, ptr %min, align 8
   %max = getelementptr inbounds i8, ptr %rnd, i64 5020
@@ -5585,7 +5585,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit110:             ; preds = %_ZNSt6vectorImSaImE
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf) #36
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, i8 0, i64 24, i1 false)
   %9 = load i64, ptr %size, align 8
   %_M_finish.i.i111 = getelementptr inbounds i8, ptr %buf, i64 8
@@ -6453,7 +6453,7 @@ invoke.cont.i.i447:                               ; preds = %if.then7.i
   br label %invoke.cont97
 
 invoke.cont97:                                    ; preds = %invoke.cont.i.i447, %if.then7.i, %if.else.i444, %if.then.i448
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf_sample) #36
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf_sample) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_sample, i8 0, i64 24, i1 false)
   br i1 %include_sample_start, label %cond.end101, label %cond.false99
 
@@ -7096,7 +7096,7 @@ if.then.i.i.i617:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit615, %if.then.i.i.i617
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf_sample) #36
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf_sample) #36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_str) #36
   br label %if.end297
 
@@ -7172,7 +7172,7 @@ if.then.i.i.i645:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit646
 
 _ZNSt6vectorIcSaIcEED2Ev.exit646:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit643, %if.then.i.i.i645
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf) #36
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf) #36
   br label %cleanup
 
 ehcleanup315:                                     ; preds = %lpad10.loopexit, %lpad10.loopexit.split-lp, %ehcleanup, %lpad76
@@ -7205,7 +7205,7 @@ if.then.i.i.i654:                                 ; preds = %ehcleanup317
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit655
 
 _ZNSt6vectorIcSaIcEED2Ev.exit655:                 ; preds = %ehcleanup317, %if.then.i.i.i654
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %buf) #36
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %buf) #36
   %143 = load ptr, ptr %f, align 8
   %tobool.not.i = icmp eq ptr %143, null
   br i1 %tobool.not.i, label %_ZN10llama_fileD2Ev.exit, label %if.then.i656
@@ -7362,7 +7362,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #36
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #36
   ret void
 }
 

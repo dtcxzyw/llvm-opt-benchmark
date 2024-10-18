@@ -579,7 +579,7 @@ if.end3:                                          ; preds = %entry
   %2 = load i32, ptr %out_num, align 4
   %out_sg = getelementptr inbounds i8, ptr %cmd, i64 48
   %3 = load ptr, ptr %out_sg, align 8
-  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %3, i32 noundef %2, i64 noundef %conv7, ptr noundef %call5, i64 noundef %mul) #12
+  %call.i = tail call i64 @iov_to_buf_full(ptr noundef %3, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %conv7, ptr noundef %call5, i64 noundef range(i64 0, 4294967296) %mul) #12
   %cmp9.not = icmp eq i64 %call.i, %mul
   br i1 %cmp9.not, label %if.end23, label %do.body12
 
@@ -2179,7 +2179,7 @@ if.else.i45.i:                                    ; preds = %for.body.lr.ph.i211
   %conv108.i = zext i32 %conv99.i to i64
   %194 = load i32, ptr %iov_cnt.i212, align 8
   %195 = load ptr, ptr %iov.i.i, align 8
-  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %195, i32 noundef %194, i64 noundef %conv108.i, ptr noundef %add.ptr.i, i64 noundef %conv112.i) #12
+  %call.i46.i = call i64 @iov_to_buf_full(ptr noundef %195, i32 noundef %194, i64 noundef range(i64 0, 4294967296) %conv108.i, ptr noundef %add.ptr.i, i64 noundef range(i64 0, 4294967296) %conv112.i) #12
   %inc.i214 = add nuw i32 %h.074.i, 1
   %196 = load i32, ptr %height28.i, align 4
   %cmp95.i = icmp ult i32 %inc.i214, %196
@@ -2202,7 +2202,7 @@ if.else.i55.i:                                    ; preds = %lor.lhs.false85.i
   %iov_cnt124.i = getelementptr inbounds i8, ptr %res.06.i.i.i189, i64 32
   %201 = load i32, ptr %iov_cnt124.i, align 8
   %202 = load ptr, ptr %iov.i.i, align 8
-  %call.i56.i = call i64 @iov_to_buf_full(ptr noundef %202, i32 noundef %201, i64 noundef %conv125.i, ptr noundef %add.ptr127.i, i64 noundef %conv131.i) #12
+  %call.i56.i = call i64 @iov_to_buf_full(ptr noundef %202, i32 noundef %201, i64 noundef range(i64 0, 4294967296) %conv125.i, ptr noundef %add.ptr127.i, i64 noundef range(i64 0, 4294967296) %conv131.i) #12
   br label %virtio_gpu_transfer_to_host_2d.exit
 
 virtio_gpu_transfer_to_host_2d.exit:              ; preds = %if.else.i45.i, %do.body2.i231, %if.then5.i234, %land.lhs.true.i.i, %virtio_gpu_find_check_resource.exit.i, %lor.lhs.false.i199, %do.end71.i, %if.then92.i, %if.else.i55.i

@@ -3655,7 +3655,7 @@ update_ref_frame_id.exit:                         ; preds = %929
   %1026 = load i32, ptr %1023, align 4
   %.0..i.i = call i32 @llvm.smin.i32(i32 %.096.i.i, i32 %1026)
   %.not.i.i.i.i = icmp eq i32 %1026, 0
-  %1027 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0..i.i, i1 true)
+  %1027 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.0..i.i, i1 true)
   %1028 = sub nuw nsw i32 32, %1027
   %1029 = select i1 %.not.i.i.i.i, i32 0, i32 %1028
   %1030 = shl nuw i32 1, %1029
@@ -3748,7 +3748,7 @@ rb_read_uniform.exit.i.i:                         ; preds = %1035, %1025
   %1072 = load i32, ptr %1056, align 4
   %.079..i.i = call i32 @llvm.smin.i32(i32 %.079103.i.i, i32 %1072)
   %.not.i.i88.i.i = icmp eq i32 %1072, 0
-  %1073 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.079..i.i, i1 true)
+  %1073 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %.079..i.i, i1 true)
   %1074 = sub nuw nsw i32 32, %1073
   %1075 = select i1 %.not.i.i88.i.i, i32 0, i32 %1074
   %1076 = shl nuw i32 1, %1075
@@ -4169,7 +4169,7 @@ setup_quantization.exit:                          ; preds = %1172, %1177, %1179
   %1277 = call i32 @av1_seg_feature_data_max(i8 noundef zeroext %.pre102.i) #16
   %1278 = sub nsw i32 0, %1277
   %.not.i.i735 = icmp eq i32 %1277, 0
-  %1279 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1277, i1 true)
+  %1279 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %1277, i1 true)
   %1280 = sub nuw nsw i32 32, %1279
   %1281 = select i1 %.not.i.i735, i32 0, i32 %1280
   %1282 = call i32 @av1_is_segfeature_signed(i8 noundef zeroext %.pre102.i) #16
@@ -10096,7 +10096,7 @@ define internal void @predict_and_reconstruct_intra_block(ptr noundef %0, ptr no
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %25 to i32
-  tail call void @av1_inverse_transform_block(ptr noundef nonnull %1, ptr noundef %49, i32 noundef %3, i8 noundef zeroext %31, i8 noundef zeroext %6, ptr noundef %41, i32 noundef %36, i32 noundef %52, i32 noundef %30) #16
+  tail call void @av1_inverse_transform_block(ptr noundef nonnull %1, ptr noundef %49, i32 noundef %3, i8 noundef zeroext %31, i8 noundef zeroext %6, ptr noundef %41, i32 noundef %36, i32 noundef %52, i32 noundef range(i32 0, 2) %30) #16
   %53 = zext i16 %51 to i64
   %54 = shl nuw nsw i64 %53, 2
   %55 = add nuw nsw i64 %54, 4
@@ -10190,7 +10190,7 @@ define internal void @inverse_transform_inter_block(ptr nocapture noundef readon
   %43 = load i16, ptr %42, align 2
   %44 = load i16, ptr %41, align 2
   %45 = zext i16 %44 to i32
-  tail call void @av1_inverse_transform_block(ptr noundef %1, ptr noundef %33, i32 noundef %3, i8 noundef zeroext %15, i8 noundef zeroext %6, ptr noundef %25, i32 noundef %20, i32 noundef %45, i32 noundef %14) #16
+  tail call void @av1_inverse_transform_block(ptr noundef %1, ptr noundef %33, i32 noundef %3, i8 noundef zeroext %15, i8 noundef zeroext %6, ptr noundef %25, i32 noundef %20, i32 noundef %45, i32 noundef range(i32 0, 2) %14) #16
   %46 = zext i16 %43 to i64
   %47 = shl nuw nsw i64 %46, 2
   %48 = add nuw nsw i64 %47, 4
@@ -10311,7 +10311,7 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %31
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @av1_build_inter_predictors(ptr noundef %0, ptr noundef %1, i32 noundef %82, ptr noundef %74, i32 noundef 0, i32 noundef %78, i32 noundef %81, i32 noundef %53, i32 noundef %54, ptr noundef nonnull %56, ptr noundef nonnull @dec_calc_subpel_params_and_extend) #16
+  call void @av1_build_inter_predictors(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %82, ptr noundef %74, i32 noundef 0, i32 noundef %78, i32 noundef %81, i32 noundef %53, i32 noundef %54, ptr noundef nonnull %56, ptr noundef nonnull @dec_calc_subpel_params_and_extend) #16
   %83 = load ptr, ptr %17, align 8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -10510,7 +10510,7 @@ is_neighbor_overlappable.exit.thread.i.i.i:       ; preds = %is_neighbor_overlap
   %191 = load i32, ptr %23, align 4
   %192 = add nsw i32 %191, %189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull readonly align 8 dereferenceable(184) %183, i64 184, i1 false)
-  call void @av1_setup_build_prediction_by_above_pred(ptr noundef %1, i32 noundef %189, i8 noundef zeroext %..040.i.i.i, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %147) #16
+  call void @av1_setup_build_prediction_by_above_pred(ptr noundef nonnull %1, i32 noundef %189, i8 noundef zeroext %..040.i.i.i, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %147) #16
   %193 = shl i32 %192, 2
   %194 = load i32, ptr %1, align 16
   %195 = shl i32 %194, 2
@@ -12004,7 +12004,7 @@ get_partition_subsize.exit:                       ; preds = %7, %26
 84:                                               ; preds = %79
   %85 = load ptr, ptr %45, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 12724
-  %87 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %86, i32 noundef 3) #16
+  %87 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %86, i32 noundef range(i32 1, 257) 3) #16
   %88 = load i8, ptr %47, align 8
   %.not.i.i = icmp eq i8 %88, 0
   br i1 %.not.i.i, label %aom_read_symbol_.exit.i, label %89
@@ -12220,7 +12220,7 @@ read_sgrproj_filter.exit330:                      ; preds = %182, %201, %205
 213:                                              ; preds = %79
   %214 = load ptr, ptr %45, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 12732
-  %216 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %215, i32 noundef 2) #16
+  %216 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %215, i32 noundef range(i32 1, 257) 2) #16
   %217 = load i8, ptr %47, align 8
   %.not.i38.i = icmp eq i8 %217, 0
   br i1 %.not.i38.i, label %aom_read_symbol_.exit47.i, label %218
@@ -12360,7 +12360,7 @@ read_wiener_filter.exit:                          ; preds = %254, %274
 300:                                              ; preds = %79
   %301 = load ptr, ptr %45, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 12738
-  %303 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %302, i32 noundef 2) #16
+  %303 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %302, i32 noundef range(i32 1, 257) 2) #16
   %304 = load i8, ptr %47, align 8
   %.not.i48.i = icmp eq i8 %304, 0
   br i1 %.not.i48.i, label %aom_read_symbol_.exit57.i, label %305
@@ -12440,7 +12440,7 @@ aom_read_literal_.exit.i:                         ; preds = %335
   %347 = load i32, ptr %62, align 4
   %348 = trunc i32 %347 to i16
   %349 = add i16 %348, 32
-  %350 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %349) #16
+  %350 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %349) #16
   %351 = zext i16 %350 to i32
   %352 = add nsw i32 %351, -32
   br label %read_sgrproj_filter.exit
@@ -12452,7 +12452,7 @@ aom_read_literal_.exit.i:                         ; preds = %335
   %357 = load i32, ptr %61, align 4
   %358 = trunc i32 %357 to i16
   %359 = add i16 %358, 96
-  %360 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %359) #16
+  %360 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %359) #16
   %361 = zext i16 %360 to i32
   %362 = add nsw i32 %361, -96
   %363 = getelementptr inbounds nuw i8, ptr %82, i64 52
@@ -12469,7 +12469,7 @@ aom_read_literal_.exit.i:                         ; preds = %335
   %369 = load i32, ptr %62, align 4
   %370 = trunc i32 %369 to i16
   %371 = add i16 %370, 32
-  %372 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %371) #16
+  %372 = call zeroext i16 @aom_read_primitive_refsubexpfin_(ptr noundef nonnull %4, i16 noundef zeroext 128, i16 noundef zeroext 4, i16 noundef zeroext %371) #16
   %373 = zext i16 %372 to i32
   %374 = add nsw i32 %373, -32
   br label %read_sgrproj_filter.exit
@@ -12557,7 +12557,7 @@ loop_restoration_read_sb_coeffs.exit:             ; preds = %79, %aom_read_symbo
   %421 = icmp eq i8 %5, 15
   %..i.i = select i1 %421, i32 8, i32 10
   %.0.i.i = select i1 %420, i32 4, i32 %..i.i
-  %422 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %418, i32 noundef %.0.i.i) #16
+  %422 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %46, ptr noundef nonnull %418, i32 noundef range(i32 1, 257) %.0.i.i) #16
   %423 = load i8, ptr %47, align 8
   %.not.i.i306 = icmp eq i8 %423, 0
   br i1 %.not.i.i306, label %aom_read_symbol_.exit.i315, label %424
@@ -13534,7 +13534,7 @@ set_offsets.exit.i:                               ; preds = %.split.split.i.i.i,
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 7840
   %177 = load i32, ptr %18, align 4
   %178 = load i32, ptr %15, align 8
-  tail call fastcc void @set_mi_row_col(ptr noundef nonnull %1, ptr noundef nonnull %176, i32 noundef %2, i32 noundef %14, i32 noundef %3, i32 noundef %11, i32 noundef %177, i32 noundef %178)
+  tail call fastcc void @set_mi_row_col(ptr noundef nonnull %1, ptr noundef nonnull %176, i32 noundef %2, i32 noundef range(i32 0, 256) %14, i32 noundef %3, i32 noundef range(i32 0, 256) %11, i32 noundef %177, i32 noundef %178)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48600
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 1312
@@ -13757,7 +13757,7 @@ get_tx_size_context.exit.i.i:                     ; preds = %is_inter_block.exit
   %300 = getelementptr inbounds [4 x [3 x [4 x i16]]], ptr %299, i64 0, i64 %249, i64 %.030.i.i.i
   %301 = add nuw nsw i32 %252, 1
   %302 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %303 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %302, ptr noundef nonnull %300, i32 noundef %301) #16
+  %303 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %302, ptr noundef nonnull %300, i32 noundef range(i32 1, 257) %301) #16
   %304 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %305 = load i8, ptr %304, align 8
   %.not.i.i.i111 = icmp eq i8 %305, 0
@@ -14303,7 +14303,7 @@ txfm_partition_context.exit:                      ; preds = %102, %get_sqr_tx_si
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 11654
   %142 = getelementptr inbounds [21 x [3 x i16]], ptr %141, i64 0, i64 %.0.i115
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %144 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %143, ptr noundef nonnull %142, i32 noundef 2) #16
+  %144 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %143, ptr noundef nonnull %142, i32 noundef range(i32 1, 257) 2) #16
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %146 = load i8, ptr %145, align 8
   %.not.i = icmp eq i8 %146, 0

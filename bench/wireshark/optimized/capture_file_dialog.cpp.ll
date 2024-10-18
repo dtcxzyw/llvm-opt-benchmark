@@ -1448,7 +1448,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %34, %_ZN17QArrayDat
 61:                                               ; preds = %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  invoke void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  invoke void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(572) %0)
           to label %.noexc43 unwind label %138
 
 .noexc43:                                         ; preds = %61
@@ -1742,7 +1742,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListI7QStringEEENS_17QForeachContainerIN
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %.sroa.9.0247, i64 16
   %163 = load i64, ptr %162, align 8
-  %164 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %11, i64 %163, ptr %161, i32 noundef 1)
+  %164 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %163, ptr %161, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit unwind label %165
 
 165:                                              ; preds = %.lr.ph
@@ -1923,7 +1923,7 @@ _ZNK5QHashI7QString5QListIS0_EE5beginEv.exit.i:   ; preds = %220, %216, %209, %2
   %235 = phi ptr [ %231, %.lr.ph250 ], [ %246, %244 ]
   %236 = load ptr, ptr %232, align 8
   %237 = load i64, ptr %233, align 8
-  %238 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %235, i64 %237, ptr %236, i32 noundef 1)
+  %238 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %235, i64 %237, ptr %236, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit96 unwind label %239
 
 239:                                              ; preds = %234
@@ -1949,7 +1949,7 @@ _ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit96:
   br i1 %.not240, label %.loopexit242, label %234, !llvm.loop !23
 
 .loopexit242:                                     ; preds = %244, %226, %242
-  call void @_ZN17QArrayDataPointerI5QListI7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #19
+  call void @_ZN17QArrayDataPointerI5QListI7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %18) #19
   %247 = load i64, ptr %180, align 8
   %248 = icmp eq i64 %247, 0
   br i1 %248, label %249, label %._crit_edge
@@ -2271,7 +2271,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i221:   ; preds = %348
 _ZplRK7QStringS1_.exit:                           ; preds = %_ZN7QStringC2ERKS_.exit.i
   %354 = load ptr, ptr %341, align 8
   %355 = load i64, ptr %343, align 8
-  %356 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %11, i64 %355, ptr %354, i32 noundef 1)
+  %356 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %11, i64 %355, ptr %354, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit161 unwind label %357
 
 357:                                              ; preds = %_ZplRK7QStringS1_.exit
@@ -3064,7 +3064,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i104:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not.i.i.i117 = icmp eq ptr %169, null
   %spec.select.i.i.i = select i1 %.not.i.i.i117, ptr @_ZN7QString6_emptyE, ptr %169
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull %15, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %171)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %171)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %208
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %166
@@ -3085,7 +3085,7 @@ _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not.i.i.i124 = icmp eq ptr %176, null
   %spec.select.i.i.i125 = select i1 %.not.i.i.i124, ptr @_ZN7QString6_emptyE, ptr %176
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, ptr noundef nonnull %14, ptr noundef nonnull %spec.select.i.i.i125, i64 noundef %178)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %spec.select.i.i.i125, i64 noundef %178)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit127 unwind label %214
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit127: ; preds = %173
@@ -6673,7 +6673,7 @@ define void @_ZN17CaptureFileDialog21addFormatTypeSelectorER11QVBoxLayout(ptr no
   %14 = alloca %class.QVariant, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 392
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) @_ZN17CaptureFileDialog16staticMetaObjectE, ptr noundef nonnull @.str.27, ptr noundef null, i32 noundef -1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 2, ptr %16, align 8
   %17 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
@@ -6741,7 +6741,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %30, %.split.i.i
   %38 = load i64, ptr %28, align 8
   store i64 %38, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 24, i1 false)
   store i64 2, ptr %29, align 8
   %39 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
           to label %.noexc22 unwind label %53
@@ -6911,7 +6911,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49:    ; preds = %84
   br label %_ZN7QStringD2Ev.exit51
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit47, %59
-  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull %12, i32 noundef 0)
+  invoke void @_ZN9QtPrivate16QStringList_sortEP5QListI7QStringEN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %12, i32 noundef 0)
           to label %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit.preheader unwind label %.loopexit.split-lp
 
 _ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit.preheader: ; preds = %._crit_edge
@@ -6929,7 +6929,7 @@ _ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit.preheader: ;
   %96 = phi i64 [ 0, %.lr.ph ], [ %103, %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit ]
   %.264 = phi i32 [ 0, %.lr.ph ], [ %102, %_ZN19QListSpecialMethodsI7QStringE4sortEN2Qt15CaseSensitivityE.exit ]
   %97 = load ptr, ptr %93, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 24, i1 false)
   store i64 2, ptr %94, align 8
   %98 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %15)
           to label %.noexc53 unwind label %106
@@ -7201,7 +7201,7 @@ define noundef ptr @_ZN17CaptureFileDialog13addHelpButtonE14topic_action_e(ptr n
   %5 = alloca %class.QString, align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %7 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN16QDialogButtonBox16staticMetaObjectE, i32 1)
+  %7 = invoke noundef ptr @_Z20qt_qFindChild_helperPK7QObjectRK7QStringRK11QMetaObject6QFlagsIN2Qt15FindChildOptionEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(56) @_ZN16QDialogButtonBox16staticMetaObjectE, i32 1)
           to label %_ZNK7QObject9findChildIP16QDialogButtonBoxEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit unwind label %18
 
 _ZNK7QObject9findChildIP16QDialogButtonBoxEET_RK7QString6QFlagsIN2Qt15FindChildOptionEE.exit: ; preds = %2
@@ -8387,7 +8387,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i71: ; preds = %_
 _ZN5QListI7QStringED2Ev.exit72:                   ; preds = %127, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i60, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %144 = getelementptr inbounds i8, ptr %0, i64 432
-  call void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  call void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(572) %0)
   %145 = load ptr, ptr %144, align 8
   %.not.i.i73 = icmp eq ptr %145, null
   br i1 %.not.i.i73, label %_ZNK5QHashI7QStringiE5valueERKS0_RKi.exit.i, label %146
@@ -9363,7 +9363,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i98: ; preds = %_
 _ZN5QListI7QStringED2Ev.exit99:                   ; preds = %171, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i87, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i98
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %188 = getelementptr inbounds i8, ptr %0, i64 432
-  call void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  call void @_ZNK11QFileDialog18selectedNameFilterEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable(572) %0)
   %189 = load ptr, ptr %188, align 8
   %.not.i.i100 = icmp eq ptr %189, null
   br i1 %.not.i.i100, label %_ZNK5QHashI7QStringiE5valueERKS0_RKi.exit.i, label %190
@@ -13084,7 +13084,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEEC2Em.exit, label %27
@@ -13232,7 +13232,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -13513,7 +13513,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit29, label %30
@@ -13672,7 +13672,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString5QListIS2_EEEE6insertEm.exit: ; preds = 
   store i8 %116, ptr %88, align 1
   %117 = getelementptr [128 x i8], ptr %87, i64 0, i64 %.pre-phi35
   store i8 %113, ptr %117, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %115, i8 0, i64 24, i1 false)
   %118 = load ptr, ptr %49, align 8
   store ptr %118, ptr %115, align 8
   store ptr null, ptr %49, align 8
@@ -14044,7 +14044,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, 
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 137
   store i8 0, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %28, i8 -1, i64 128, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 144
   %33 = icmp eq ptr %32, %26
   br i1 %33, label %_ZN12QHashPrivate4DataINS_4NodeI7QStringiEEEC2Em.exit, label %27
@@ -14239,7 +14239,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 137
   store i8 0, ptr %42, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %39, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %39, i8 -1, i64 128, i1 false)
   %43 = getelementptr inbounds i8, ptr %39, i64 144
   %44 = icmp eq ptr %43, %37
   br i1 %44, label %.loopexit, label %38
@@ -14495,7 +14495,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 137
   store i8 0, ptr %34, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 -1, i64 128, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(138) %31, i8 -1, i64 128, i1 false)
   %35 = getelementptr inbounds i8, ptr %31, i64 144
   %36 = icmp eq ptr %35, %29
   br i1 %36, label %.loopexit32, label %30
@@ -14654,7 +14654,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringiEEE6insertEm.exit: ; preds = %._crit_ed
   store i8 %116, ptr %88, align 1
   %117 = getelementptr [128 x i8], ptr %87, i64 0, i64 %.pre-phi38
   store i8 %113, ptr %117, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %115, i8 0, i64 24, i1 false)
   %118 = load ptr, ptr %49, align 8
   store ptr %118, ptr %115, align 8
   store ptr null, ptr %49, align 8

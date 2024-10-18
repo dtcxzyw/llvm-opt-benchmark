@@ -360,7 +360,7 @@ Abc_SopStart.exit._crit_edge:                     ; preds = %Abc_SopStart.exit.p
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_SopCreateXor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 11) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #19
   ret ptr %3
 }
 
@@ -395,28 +395,28 @@ Abc_SopCreateAnd.exit:                            ; preds = %2, %.lr.ph.i
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_SopCreateNxor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 11) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.3, i64 11, i1 false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @.str.3, i64 11, i1 false) #19
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_SopCreateMux(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 13) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %2, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.4, i64 13, i1 false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.4, i64 13, i1 false) #19
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_SopCreateInv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 5) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.5, i64 5, i1 false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, i64 5, i1 false) #19
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_SopCreateBuf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 5) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.6, i64 5, i1 false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false) #19
   ret ptr %2
 }
 

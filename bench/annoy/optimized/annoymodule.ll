@@ -3820,7 +3820,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %14, label %24, label %32
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit28
-  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #24
+  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %.invoke
 
@@ -3829,7 +3829,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %27 = load i32, ptr %18, align 8
   %28 = shl i32 %27, 1
   %.not18 = icmp slt i32 %26, %28
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #24
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   br i1 %.not18, label %37, label %.loopexit54
 
 30:                                               ; preds = %.invoke, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
@@ -3864,7 +3864,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br label %48
 
 48:                                               ; preds = %48, %47
-  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #24
+  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   switch i32 %49, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader [
     i32 11, label %48
     i32 35, label %52
@@ -3995,7 +3995,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %97, label %.lr.ph, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge, !llvm.loop !15
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader
-  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #24
+  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   %99 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %100 unwind label %.loopexit.split-lp.loopexit
 
@@ -4082,7 +4082,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28.backedge:         ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit54:                                      ; preds = %32, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
   %128 = getelementptr inbounds i8, ptr %3, i64 96
-  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %128) #24
+  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i29 = icmp eq i32 %129, 0
   br i1 %.not.i.i29, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit, label %.invoke
 
@@ -4107,7 +4107,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit: ; preds = %.lo
           to label %139 unwind label %30
 
 139:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
-  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #24
+  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i.i32 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %141
 
@@ -4220,7 +4220,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %4, i64 56
-  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #24
+  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %28
 
@@ -4238,7 +4238,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
-  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i
 
@@ -4248,7 +4248,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i: ; preds = %35
   tail call void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %31)
-  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre = load i32, ptr %29, align 8
   %.pre186 = add i32 %.pre, 1
   br label %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
@@ -4257,11 +4257,11 @@ _ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %.pre-phi187 = phi i32 [ %31, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre186, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   %40 = phi i32 [ %30, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   store i32 %.pre-phi187, ptr %29, align 8
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #24
+  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   br label %42
 
 42:                                               ; preds = %42, %_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
-  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %43, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit [
     i32 11, label %42
     i32 35, label %44
@@ -4312,11 +4312,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   br label %72
 
 72:                                               ; preds = %67, %62
-  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %_ZNSt6vectorIPN5Annoy7Angular4NodeIifEESaIS4_EED2Ev.exit
 
 74:                                               ; preds = %.preheader212, %74
-  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %75, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit93 [
     i32 11, label %74
     i32 35, label %76
@@ -4717,7 +4717,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond194, label %266, label %143, !llvm.loop !19
 
 266:                                              ; preds = %._crit_edge165
-  %267 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %267 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %268 = getelementptr inbounds i8, ptr %0, i64 89
   br label %269
 
@@ -4957,7 +4957,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit119:       ; preds = %_ZNSt6vectorIiSaIiE
 
 400:                                              ; preds = %398
   %401 = getelementptr inbounds i8, ptr %4, i64 56
-  %402 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %401) #24
+  %402 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %401) #24
   %.not.i.i120 = icmp eq i32 %402, 0
   br i1 %.not.i.i120, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122, label %.invoke
 
@@ -4971,7 +4971,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   br i1 %408, label %409, label %413
 
 409:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
-  %410 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %410 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %411 = icmp eq i32 %410, 35
   br i1 %411, label %.invoke, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
 
@@ -4980,7 +4980,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
           to label %.noexc125 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc125:                                        ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
-  %412 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %412 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre182 = load i32, ptr %403, align 8
   %.pre185 = add i32 %.pre182, 1
   br label %413
@@ -4989,11 +4989,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %.pre-phi = phi i32 [ %405, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre185, %.noexc125 ]
   %414 = phi i32 [ %404, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre182, %.noexc125 ]
   store i32 %.pre-phi, ptr %403, align 8
-  %415 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %401) #24
+  %415 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %401) #24
   br label %416
 
 416:                                              ; preds = %416, %413
-  %417 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %417 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %417, label %419 [
     i32 11, label %416
     i32 35, label %.invoke
@@ -5014,7 +5014,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %423 = mul i64 %421, %422
   %424 = getelementptr i8, ptr %420, i64 %423
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %424, ptr nonnull align 16 %133, i64 %421, i1 false)
-  %425 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %425 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %426
 
 426:                                              ; preds = %419, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -5904,7 +5904,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
   ret void
 }
@@ -9595,7 +9595,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %14, label %24, label %32
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit28
-  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #24
+  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %.invoke
 
@@ -9604,7 +9604,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %27 = load i32, ptr %18, align 8
   %28 = shl i32 %27, 1
   %.not18 = icmp slt i32 %26, %28
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #24
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   br i1 %.not18, label %37, label %.loopexit54
 
 30:                                               ; preds = %.invoke, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
@@ -9639,7 +9639,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br label %48
 
 48:                                               ; preds = %48, %47
-  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #24
+  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   switch i32 %49, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader [
     i32 11, label %48
     i32 35, label %52
@@ -9770,7 +9770,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %97, label %.lr.ph, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge, !llvm.loop !76
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader
-  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #24
+  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   %99 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %100 unwind label %.loopexit.split-lp.loopexit
 
@@ -9857,7 +9857,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28.backedge:         ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit54:                                      ; preds = %32, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
   %128 = getelementptr inbounds i8, ptr %3, i64 96
-  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %128) #24
+  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i29 = icmp eq i32 %129, 0
   br i1 %.not.i.i29, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit, label %.invoke
 
@@ -9882,7 +9882,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit: ; preds = %.lo
           to label %139 unwind label %30
 
 139:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
-  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #24
+  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i.i32 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %141
 
@@ -9953,7 +9953,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %4, i64 56
-  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #24
+  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %28
 
@@ -9971,7 +9971,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
-  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i
 
@@ -9981,7 +9981,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i: ; preds = %35
   tail call void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %31)
-  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre = load i32, ptr %29, align 8
   %.pre185 = add i32 %.pre, 1
   br label %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
@@ -9990,11 +9990,11 @@ _ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
   %.pre-phi186 = phi i32 [ %31, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre185, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   %40 = phi i32 [ %30, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   store i32 %.pre-phi186, ptr %29, align 8
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #24
+  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   br label %42
 
 42:                                               ; preds = %42, %_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
-  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %43, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit [
     i32 11, label %42
     i32 35, label %44
@@ -10045,11 +10045,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   br label %72
 
 72:                                               ; preds = %67, %62
-  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %_ZNSt6vectorIPN5Annoy9Minkowski4NodeIifEESaIS4_EED2Ev.exit
 
 74:                                               ; preds = %.preheader211, %74
-  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %75, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit93 [
     i32 11, label %74
     i32 35, label %76
@@ -10454,7 +10454,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond193, label %270, label %144, !llvm.loop !80
 
 270:                                              ; preds = %._crit_edge164
-  %271 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %271 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %272 = getelementptr inbounds i8, ptr %0, i64 89
   br label %273
 
@@ -10694,7 +10694,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit119:       ; preds = %_ZNSt6vectorIiSaIiE
 
 404:                                              ; preds = %402
   %405 = getelementptr inbounds i8, ptr %4, i64 56
-  %406 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %405) #24
+  %406 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %405) #24
   %.not.i.i120 = icmp eq i32 %406, 0
   br i1 %.not.i.i120, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122, label %.invoke
 
@@ -10708,13 +10708,13 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   br i1 %412, label %413, label %417
 
 413:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
-  %414 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %414 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %415 = icmp eq i32 %414, 35
   br i1 %415, label %.invoke, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds = %413
   call void @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %409)
-  %416 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %416 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre181 = load i32, ptr %407, align 8
   %.pre184 = add i32 %.pre181, 1
   br label %417
@@ -10723,11 +10723,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %.pre-phi = phi i32 [ %409, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre184, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   %418 = phi i32 [ %408, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre181, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   store i32 %.pre-phi, ptr %407, align 8
-  %419 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %405) #24
+  %419 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %405) #24
   br label %420
 
 420:                                              ; preds = %420, %417
-  %421 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %421 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %421, label %423 [
     i32 11, label %420
     i32 35, label %.invoke
@@ -10748,7 +10748,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %427 = mul i64 %425, %426
   %428 = getelementptr i8, ptr %424, i64 %427
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %428, ptr nonnull align 16 %133, i64 %425, i1 false)
-  %429 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %429 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %430
 
 430:                                              ; preds = %423, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -11149,7 +11149,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
   ret void
 }
@@ -13652,7 +13652,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %14, label %24, label %32
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit28
-  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #24
+  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %.invoke
 
@@ -13661,7 +13661,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %27 = load i32, ptr %18, align 8
   %28 = shl i32 %27, 1
   %.not18 = icmp slt i32 %26, %28
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #24
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   br i1 %.not18, label %37, label %.loopexit54
 
 30:                                               ; preds = %.invoke, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
@@ -13696,7 +13696,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br label %48
 
 48:                                               ; preds = %48, %47
-  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #24
+  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   switch i32 %49, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader [
     i32 11, label %48
     i32 35, label %52
@@ -13827,7 +13827,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %97, label %.lr.ph, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge, !llvm.loop !118
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader
-  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #24
+  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   %99 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %100 unwind label %.loopexit.split-lp.loopexit
 
@@ -13914,7 +13914,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28.backedge:         ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit54:                                      ; preds = %32, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
   %128 = getelementptr inbounds i8, ptr %3, i64 96
-  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %128) #24
+  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i29 = icmp eq i32 %129, 0
   br i1 %.not.i.i29, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit, label %.invoke
 
@@ -13939,7 +13939,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit: ; preds = %.lo
           to label %139 unwind label %30
 
 139:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
-  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #24
+  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i.i32 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %141
 
@@ -14010,7 +14010,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %4, i64 56
-  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #24
+  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %28
 
@@ -14028,7 +14028,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
-  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i
 
@@ -14038,7 +14038,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i: ; preds = %35
   tail call void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %31)
-  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre = load i32, ptr %29, align 8
   %.pre185 = add i32 %.pre, 1
   br label %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
@@ -14047,11 +14047,11 @@ _ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThre
   %.pre-phi186 = phi i32 [ %31, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre185, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   %40 = phi i32 [ %30, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   store i32 %.pre-phi186, ptr %29, align 8
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #24
+  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   br label %42
 
 42:                                               ; preds = %42, %_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
-  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %43, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit [
     i32 11, label %42
     i32 35, label %44
@@ -14102,11 +14102,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   br label %72
 
 72:                                               ; preds = %67, %62
-  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %_ZNSt6vectorIPN5Annoy9Minkowski4NodeIifEESaIS4_EED2Ev.exit
 
 74:                                               ; preds = %.preheader211, %74
-  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %75, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit93 [
     i32 11, label %74
     i32 35, label %76
@@ -14511,7 +14511,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond193, label %270, label %144, !llvm.loop !122
 
 270:                                              ; preds = %._crit_edge164
-  %271 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %271 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %272 = getelementptr inbounds i8, ptr %0, i64 89
   br label %273
 
@@ -14751,7 +14751,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit119:       ; preds = %_ZNSt6vectorIiSaIiE
 
 404:                                              ; preds = %402
   %405 = getelementptr inbounds i8, ptr %4, i64 56
-  %406 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %405) #24
+  %406 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %405) #24
   %.not.i.i120 = icmp eq i32 %406, 0
   br i1 %.not.i.i120, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122, label %.invoke
 
@@ -14765,13 +14765,13 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   br i1 %412, label %413, label %417
 
 413:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
-  %414 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %414 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %415 = icmp eq i32 %414, 35
   br i1 %415, label %.invoke, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds = %413
   call void @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %409)
-  %416 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %416 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre181 = load i32, ptr %407, align 8
   %.pre184 = add i32 %.pre181, 1
   br label %417
@@ -14780,11 +14780,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %.pre-phi = phi i32 [ %409, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre184, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   %418 = phi i32 [ %408, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre181, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   store i32 %.pre-phi, ptr %407, align 8
-  %419 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %405) #24
+  %419 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %405) #24
   br label %420
 
 420:                                              ; preds = %420, %417
-  %421 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %421 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %421, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit127 [
     i32 11, label %420
     i32 35, label %.invoke
@@ -14805,7 +14805,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit127: ; pr
   %426 = mul i64 %424, %425
   %427 = getelementptr i8, ptr %423, i64 %426
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %427, ptr nonnull align 16 %133, i64 %424, i1 false)
-  %428 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %428 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %429
 
 429:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit127, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -15205,7 +15205,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
   ret void
 }
@@ -16942,7 +16942,7 @@ _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt
 35:                                               ; preds = %_ZNK14HammingWrapper5_packEPKfPm.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %36, ptr noundef %.sroa.031.045, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %7)
+  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %36, ptr noundef nonnull %.sroa.031.045, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %7)
           to label %_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17get_nns_by_vectorEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE.exit unwind label %49
 
 _ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17get_nns_by_vectorEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE.exit: ; preds = %35
@@ -16985,7 +16985,7 @@ _ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThrea
 
 58:                                               ; preds = %_ZNK14HammingWrapper5_packEPKfPm.exit
   %59 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %59, ptr noundef %.sroa.031.045, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null)
+  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %59, ptr noundef nonnull %.sroa.031.045, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null)
           to label %_ZNSt6vectorImSaImEED2Ev.exit unwind label %60
 
 60:                                               ; preds = %58
@@ -17089,7 +17089,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr nonnull align 8 %19, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0, ptr nonnull align 8 %19, i64 %23, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
@@ -18392,7 +18392,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %14, label %24, label %32
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit28
-  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #24
+  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %.invoke
 
@@ -18401,7 +18401,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %27 = load i32, ptr %18, align 8
   %28 = shl i32 %27, 1
   %.not18 = icmp slt i32 %26, %28
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #24
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   br i1 %.not18, label %37, label %.loopexit54
 
 30:                                               ; preds = %.invoke, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
@@ -18436,7 +18436,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br label %48
 
 48:                                               ; preds = %48, %47
-  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #24
+  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   switch i32 %49, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader [
     i32 11, label %48
     i32 35, label %52
@@ -18567,7 +18567,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %97, label %.lr.ph, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge, !llvm.loop !161
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader
-  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #24
+  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   %99 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %100 unwind label %.loopexit.split-lp.loopexit
 
@@ -18654,7 +18654,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28.backedge:         ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit54:                                      ; preds = %32, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
   %128 = getelementptr inbounds i8, ptr %3, i64 96
-  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %128) #24
+  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i29 = icmp eq i32 %129, 0
   br i1 %.not.i.i29, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit, label %.invoke
 
@@ -18679,7 +18679,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit: ; preds = %.lo
           to label %139 unwind label %30
 
 139:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
-  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #24
+  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i.i32 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %141
 
@@ -18750,7 +18750,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %4, i64 56
-  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #24
+  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %28
 
@@ -18768,7 +18768,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
-  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i
 
@@ -18778,7 +18778,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i: ; preds = %35
   tail call void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %31)
-  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre = load i32, ptr %29, align 8
   %.pre183 = add i32 %.pre, 1
   br label %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
@@ -18787,11 +18787,11 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %.pre-phi184 = phi i32 [ %31, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre183, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   %40 = phi i32 [ %30, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   store i32 %.pre-phi184, ptr %29, align 8
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #24
+  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   br label %42
 
 42:                                               ; preds = %42, %_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
-  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %43, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit [
     i32 11, label %42
     i32 35, label %44
@@ -18842,11 +18842,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   br label %72
 
 72:                                               ; preds = %67, %62
-  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %_ZNSt6vectorIPN5Annoy7Hamming4NodeIimEESaIS4_EED2Ev.exit
 
 74:                                               ; preds = %.preheader206, %74
-  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %75, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit93 [
     i32 11, label %74
     i32 35, label %76
@@ -19189,7 +19189,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond190, label %235, label %140, !llvm.loop !165
 
 235:                                              ; preds = %._crit_edge163
-  %236 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %236 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %237 = getelementptr inbounds i8, ptr %0, i64 89
   %238 = getelementptr inbounds i8, ptr %3, i64 16
   %239 = getelementptr inbounds i8, ptr %3, i64 8
@@ -19432,7 +19432,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit119:       ; preds = %_ZNSt6vectorIiSaIiE
 
 372:                                              ; preds = %370
   %373 = getelementptr inbounds i8, ptr %4, i64 56
-  %374 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %373) #24
+  %374 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %373) #24
   %.not.i.i120 = icmp eq i32 %374, 0
   br i1 %.not.i.i120, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122, label %.invoke
 
@@ -19446,13 +19446,13 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   br i1 %380, label %381, label %385
 
 381:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
-  %382 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %382 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %383 = icmp eq i32 %382, 35
   br i1 %383, label %.invoke, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds = %381
   call void @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %377)
-  %384 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %384 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre179 = load i32, ptr %375, align 8
   %.pre182 = add i32 %.pre179, 1
   br label %385
@@ -19461,11 +19461,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %.pre-phi = phi i32 [ %377, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre182, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   %386 = phi i32 [ %376, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre179, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   store i32 %.pre-phi, ptr %375, align 8
-  %387 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %373) #24
+  %387 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %373) #24
   br label %388
 
 388:                                              ; preds = %388, %385
-  %389 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %389 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %389, label %391 [
     i32 11, label %388
     i32 35, label %.invoke
@@ -19486,7 +19486,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %395 = mul i64 %393, %394
   %396 = getelementptr i8, ptr %392, i64 %395
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %396, ptr nonnull align 16 %133, i64 %393, i1 false)
-  %397 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %397 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %398
 
 398:                                              ; preds = %391, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -19720,7 +19720,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
   ret void
 }
@@ -19780,7 +19780,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 8 %1, i64 %19, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %7, i8 0, i64 24, i1 false)
   %20 = icmp eq i32 %3, -1
   br i1 %20, label %21, label %._crit_edge216
 
@@ -22601,7 +22601,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28:                  ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %14, label %24, label %32
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit28
-  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %16) #24
+  %25 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %.invoke
 
@@ -22610,7 +22610,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   %27 = load i32, ptr %18, align 8
   %28 = shl i32 %27, 1
   %.not18 = icmp slt i32 %26, %28
-  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #24
+  %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %16) #24
   br i1 %.not18, label %37, label %.loopexit54
 
 30:                                               ; preds = %.invoke, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
@@ -22645,7 +22645,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br label %48
 
 48:                                               ; preds = %48, %47
-  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #24
+  %49 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   switch i32 %49, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader [
     i32 11, label %48
     i32 35, label %52
@@ -22776,7 +22776,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %97, label %.lr.ph, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge, !llvm.loop !202
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit.preheader
-  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #24
+  %98 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %3) #24
   %99 = invoke noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE10_make_treeERKSt6vectorIiSaIiEEbRS2_RS3_(ptr noundef nonnull align 8 dereferenceable(98) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %100 unwind label %.loopexit.split-lp.loopexit
 
@@ -22863,7 +22863,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit28.backedge:         ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit54:                                      ; preds = %32, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
   %128 = getelementptr inbounds i8, ptr %3, i64 96
-  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %128) #24
+  %129 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i29 = icmp eq i32 %129, 0
   br i1 %.not.i.i29, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit, label %.invoke
 
@@ -22888,7 +22888,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit: ; preds = %.lo
           to label %139 unwind label %30
 
 139:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_rootsEv.exit
-  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %128) #24
+  %140 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %128) #24
   %.not.i.i.i32 = icmp eq ptr %.sroa.041.0, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %141
 
@@ -22959,7 +22959,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Ki
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %4, i64 56
-  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %26) #24
+  %27 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit, label %28
 
@@ -22977,7 +22977,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
   br i1 %34, label %35, label %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
 
 35:                                               ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit
-  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %36 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %37 = icmp eq i32 %36, 35
   br i1 %37, label %38, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i
 
@@ -22987,7 +22987,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit: ; preds = %2
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i: ; preds = %35
   tail call void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %31)
-  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %39 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre = load i32, ptr %29, align 8
   %.pre185 = add i32 %.pre, 1
   br label %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
@@ -22996,11 +22996,11 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
   %.pre-phi186 = phi i32 [ %31, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre185, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   %40 = phi i32 [ %30, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit ], [ %.pre, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i ]
   store i32 %.pre-phi186, ptr %29, align 8
-  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #24
+  %41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #24
   br label %42
 
 42:                                               ; preds = %42, %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEiRS3_.exit
-  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %43 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %43, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit [
     i32 11, label %42
     i32 35, label %44
@@ -23051,11 +23051,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   br label %72
 
 72:                                               ; preds = %67, %62
-  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %73 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %_ZNSt6vectorIPN5Annoy10DotProduct4NodeIifEESaIS4_EED2Ev.exit
 
 74:                                               ; preds = %.preheader211, %74
-  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %75 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %75, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit93 [
     i32 11, label %74
     i32 35, label %76
@@ -23463,7 +23463,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %or.cond193, label %273, label %144, !llvm.loop !206
 
 273:                                              ; preds = %._crit_edge164
-  %274 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %274 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %275 = getelementptr inbounds i8, ptr %0, i64 89
   br label %276
 
@@ -23703,7 +23703,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit119:       ; preds = %_ZNSt6vectorIiSaIiE
 
 407:                                              ; preds = %405
   %408 = getelementptr inbounds i8, ptr %4, i64 56
-  %409 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %408) #24
+  %409 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %408) #24
   %.not.i.i120 = icmp eq i32 %409, 0
   br i1 %.not.i.i120, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122, label %.invoke
 
@@ -23717,13 +23717,13 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122: ; preds =
   br i1 %415, label %416, label %420
 
 416:                                              ; preds = %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122
-  %417 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #24
+  %417 = call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %418 = icmp eq i32 %417, 35
   br i1 %418, label %.invoke, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123
 
 _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds = %416
   call void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17_reallocate_nodesEi(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %412)
-  %419 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %419 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   %.pre181 = load i32, ptr %410, align 8
   %.pre184 = add i32 %.pre181, 1
   br label %420
@@ -23732,11 +23732,11 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %.pre-phi = phi i32 [ %412, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre184, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   %421 = phi i32 [ %411, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy12lock_n_nodesEv.exit122 ], [ %.pre181, %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123 ]
   store i32 %.pre-phi, ptr %410, align 8
-  %422 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %408) #24
+  %422 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %408) #24
   br label %423
 
 423:                                              ; preds = %423, %420
-  %424 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #24
+  %424 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   switch i32 %424, label %426 [
     i32 11, label %423
     i32 35, label %.invoke
@@ -23757,7 +23757,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy10lock_nodesEv.exit.i123: ; preds =
   %430 = mul i64 %428, %429
   %431 = getelementptr i8, ptr %427, i64 %430
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %431, ptr nonnull align 16 %133, i64 %428, i1 false)
-  %432 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #24
+  %432 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #24
   br label %433
 
 433:                                              ; preds = %426, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -24584,7 +24584,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5An
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #27
   ret void
 }

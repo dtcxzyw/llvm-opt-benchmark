@@ -384,7 +384,7 @@ invoke.cont:                                      ; preds = %entry
           to label %call.i6.noexc unwind label %lpad2
 
 call.i6.noexc:                                    ; preds = %invoke.cont
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %display_protocol_, ptr noundef %call.i67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_, ptr noundef %call.i67, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %call.i6.noexc
@@ -394,7 +394,7 @@ call.i6.noexc:                                    ; preds = %invoke.cont
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %display_protocol_) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %display_protocol_) #24
   br label %lpad2.body
 
 if.end.i:                                         ; preds = %.noexc
@@ -1691,7 +1691,7 @@ if.then27.i:                                      ; preds = %if.then25.i
   %vtable.i.i = load ptr, ptr %28, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %29 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %this)
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit
 
 if.end28.i:                                       ; preds = %if.then25.i
@@ -1727,7 +1727,7 @@ if.then38.i:                                      ; preds = %if.end34.i96
   %vtable.i15.i = load ptr, ptr %37, align 8
   %vfn.i16.i = getelementptr inbounds i8, ptr %vtable.i15.i, i64 16
   %38 = load ptr, ptr %vfn.i16.i, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %this)
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %_ZN3net10SpdyFramer29ProcessDataFramePaddingLengthEPKcm.exit
 
 if.end49.i:                                       ; preds = %if.end34.i96
@@ -1972,7 +1972,7 @@ if.then39:                                        ; preds = %if.then33
   %vtable.i = load ptr, ptr %15, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %this)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end41:                                         ; preds = %if.then33
@@ -2170,7 +2170,7 @@ if.then214:                                       ; preds = %if.then203
   %vtable.i33 = load ptr, ptr %42, align 8
   %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 16
   %43 = load ptr, ptr %vfn.i34, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %this)
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %if.end282
 
 if.else216:                                       ; preds = %if.then203
@@ -2328,7 +2328,7 @@ if.then39:                                        ; preds = %if.end34
   %vtable.i = load ptr, ptr %12, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %this)
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end42:                                         ; preds = %if.end34
@@ -2409,7 +2409,7 @@ if.then95:                                        ; preds = %if.end92
   %vtable.i28 = load ptr, ptr %30, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 16
   %31 = load ptr, ptr %vfn.i29, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %this)
+  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end98:                                         ; preds = %if.end92
@@ -2554,7 +2554,7 @@ if.then224:                                       ; preds = %if.end221
   %vtable.i41 = load ptr, ptr %58, align 8
   %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 16
   %59 = load ptr, ptr %vfn.i42, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull %this)
+  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end227:                                        ; preds = %if.end221
@@ -2602,7 +2602,7 @@ if.then263:                                       ; preds = %if.end257
   %vtable.i52 = load ptr, ptr %66, align 8
   %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 16
   %67 = load ptr, ptr %vfn.i53, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %this)
+  call void %67(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end266:                                        ; preds = %if.end257
@@ -2676,7 +2676,7 @@ if.then300:                                       ; preds = %sw.bb296
   %vtable.i61 = load ptr, ptr %81, align 8
   %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 16
   %82 = load ptr, ptr %vfn.i62, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull %this)
+  call void %82(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end303:                                        ; preds = %sw.bb296
@@ -2738,7 +2738,7 @@ sw.default:                                       ; preds = %if.then12
   %vtable.i70 = load ptr, ptr %92, align 8
   %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 16
   %93 = load ptr, ptr %vfn.i71, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %this)
+  call void %93(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 sw.epilog:                                        ; preds = %if.end58, %if.then179, %if.else189, %if.end286, %if.end322
@@ -2794,7 +2794,7 @@ cleanup.done:                                     ; preds = %if.then347, %cleanu
   %vtable.i80 = load ptr, ptr %100, align 8
   %vfn.i81 = getelementptr inbounds i8, ptr %vtable.i80, i64 16
   %101 = load ptr, ptr %vfn.i81, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull %this)
+  call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 lpad354:                                          ; preds = %cond.false
@@ -3027,7 +3027,7 @@ if.then22:                                        ; preds = %if.then20
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else24:                                        ; preds = %while.body
@@ -3062,7 +3062,7 @@ if.then37:                                        ; preds = %if.then32
   %vtable.i25 = load ptr, ptr %10, align 8
   %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 16
   %11 = load ptr, ptr %vfn.i26, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end38:                                         ; preds = %if.then32
@@ -3166,7 +3166,7 @@ if.then30:                                        ; preds = %if.end28
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %this)
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end31:                                         ; preds = %if.end28
@@ -3310,7 +3310,7 @@ if.end56.thread:                                  ; preds = %if.then39, %if.end1
   %vtable.i23 = load ptr, ptr %.sink68, align 8
   %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 16
   %25 = load ptr, ptr %vfn.i24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %.sink68, ptr noundef nonnull %this)
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %.sink68, ptr noundef nonnull align 8 dereferenceable(259) %this)
   %26 = load i64, ptr %remaining_data_length_, align 8
   %sub5861 = sub i64 %26, %.sroa.speculated
   store i64 %sub5861, ptr %remaining_data_length_, align 8
@@ -3416,7 +3416,7 @@ if.end106.thread:                                 ; preds = %_ZN3net10SpdyFramer
   %vtable.i46 = load ptr, ptr %43, align 8
   %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 16
   %44 = load ptr, ptr %vfn.i47, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %this)
+  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else86:                                        ; preds = %if.then66
@@ -3598,7 +3598,7 @@ if.then58:                                        ; preds = %if.end54
   %vtable.i = load ptr, ptr %21, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %22 = load ptr, ptr %vfn.i, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %this)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else59:                                        ; preds = %if.end54.thread, %if.end54
@@ -3748,7 +3748,7 @@ if.then53:                                        ; preds = %if.end49
   %vtable.i = load ptr, ptr %20, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %21 = load ptr, ptr %vfn.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %this)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else54:                                        ; preds = %if.end49.thread, %if.end49
@@ -3880,7 +3880,7 @@ if.then26:                                        ; preds = %if.end15
   %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %this)
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end28:                                         ; preds = %if.end15
@@ -3920,7 +3920,7 @@ if.then48:                                        ; preds = %invoke.cont44
   %vtable.i15 = load ptr, ptr %23, align 8
   %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 16
   %24 = load ptr, ptr %vfn.i16, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %this)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(259) %this)
           to label %cleanup unwind label %lpad43
 
 lpad43:                                           ; preds = %if.then48, %if.end50, %if.end28
@@ -4208,7 +4208,7 @@ if.then27:                                        ; preds = %if.then25
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end28:                                         ; preds = %if.then25
@@ -4255,7 +4255,7 @@ if.then38:                                        ; preds = %if.end34
   %vtable.i15 = load ptr, ptr %13, align 8
   %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 16
   %14 = load ptr, ptr %vfn.i16, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %this)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end49:                                         ; preds = %if.end34
@@ -4587,7 +4587,7 @@ if.then4:                                         ; preds = %if.then3
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %this)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else5:                                         ; preds = %if.then
@@ -4619,7 +4619,7 @@ if.then9:                                         ; preds = %if.else5
   %vtable.i13 = load ptr, ptr %10, align 8
   %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 16
   %11 = load ptr, ptr %vfn.i14, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %this)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.else10:                                        ; preds = %if.else5
@@ -4640,7 +4640,7 @@ if.then12:                                        ; preds = %if.else10
   %vtable.i21 = load ptr, ptr %13, align 8
   %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 16
   %14 = load ptr, ptr %vfn.i22, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %this)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end19:                                         ; preds = %if.else10
@@ -4680,7 +4680,7 @@ if.then32:                                        ; preds = %if.then29
   %vtable.i29 = load ptr, ptr %19, align 8
   %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 16
   %20 = load ptr, ptr %vfn.i30, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %this)
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end33:                                         ; preds = %if.then29
@@ -4707,7 +4707,7 @@ if.end44:                                         ; preds = %if.end33
   %vtable.i37 = load ptr, ptr %24, align 8
   %vfn.i38 = getelementptr inbounds i8, ptr %vtable.i37, i64 16
   %25 = load ptr, ptr %vfn.i38, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %this)
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 if.end46:                                         ; preds = %if.end33
@@ -4736,7 +4736,7 @@ if.then50:                                        ; preds = %if.end46
   %vtable.i45 = load ptr, ptr %29, align 8
   %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 16
   %30 = load ptr, ptr %vfn.i46, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %this)
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 return:                                           ; preds = %if.end24, %if.end46, %if.then50, %if.then3, %if.then4, %if.then12, %if.end19, %if.then9, %if.end44, %if.then32
@@ -4865,7 +4865,7 @@ if.then15:                                        ; preds = %sw.bb
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %this)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else16:                                        ; preds = %sw.bb
@@ -4891,7 +4891,7 @@ if.then18:                                        ; preds = %if.else16
   %vtable.i19 = load ptr, ptr %8, align 8
   %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 16
   %9 = load ptr, ptr %vfn.i20, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %this)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end13
@@ -4925,7 +4925,7 @@ if.then26:                                        ; preds = %sw.bb21
   %vtable.i28 = load ptr, ptr %14, align 8
   %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 16
   %15 = load ptr, ptr %vfn.i29, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %this)
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else27:                                        ; preds = %sw.bb21
@@ -4951,7 +4951,7 @@ if.then32:                                        ; preds = %if.else27
   %vtable.i36 = load ptr, ptr %18, align 8
   %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 16
   %19 = load ptr, ptr %vfn.i37, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %this)
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end13
@@ -4984,7 +4984,7 @@ if.then40:                                        ; preds = %sw.bb35
   %vtable.i48 = load ptr, ptr %23, align 8
   %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 16
   %24 = load ptr, ptr %vfn.i49, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %this)
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else41:                                        ; preds = %sw.bb35
@@ -5081,7 +5081,7 @@ if.then81:                                        ; preds = %lor.lhs.false, %_ZN
   %vtable.i64 = load ptr, ptr %34, align 8
   %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 16
   %35 = load ptr, ptr %vfn.i65, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %this)
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else82:                                        ; preds = %lor.lhs.false
@@ -5110,7 +5110,7 @@ if.then89:                                        ; preds = %if.else82
   %vtable.i72 = load ptr, ptr %39, align 8
   %vfn.i73 = getelementptr inbounds i8, ptr %vtable.i72, i64 16
   %40 = load ptr, ptr %vfn.i73, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %this)
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else90:                                        ; preds = %if.else82
@@ -5149,7 +5149,7 @@ if.then103:                                       ; preds = %land.lhs.true98
   %vtable.i80 = load ptr, ptr %44, align 8
   %vfn.i81 = getelementptr inbounds i8, ptr %vtable.i80, i64 16
   %45 = load ptr, ptr %vfn.i81, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %this)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else104:                                       ; preds = %land.lhs.true98.if.else104_crit_edge, %if.else90
@@ -5226,7 +5226,7 @@ if.then152:                                       ; preds = %sw.bb147
   %vtable.i95 = load ptr, ptr %55, align 8
   %vfn.i96 = getelementptr inbounds i8, ptr %vtable.i95, i64 16
   %56 = load ptr, ptr %vfn.i96, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull %this)
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else153:                                       ; preds = %sw.bb147
@@ -5368,7 +5368,7 @@ if.then246:                                       ; preds = %land.lhs.true241, %
   %vtable.i113 = load ptr, ptr %71, align 8
   %vfn.i114 = getelementptr inbounds i8, ptr %vtable.i113, i64 16
   %72 = load ptr, ptr %vfn.i114, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %this)
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else247:                                       ; preds = %land.lhs.true241, %lor.lhs.false238
@@ -5456,7 +5456,7 @@ if.then295:                                       ; preds = %if.end291
   %vtable.i128 = load ptr, ptr %84, align 8
   %vfn.i129 = getelementptr inbounds i8, ptr %vtable.i128, i64 16
   %85 = load ptr, ptr %vfn.i129, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull %this)
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else296:                                       ; preds = %if.end291
@@ -5580,7 +5580,7 @@ if.then382:                                       ; preds = %sw.bb377
   %vtable.i145 = load ptr, ptr %100, align 8
   %vfn.i146 = getelementptr inbounds i8, ptr %vtable.i145, i64 16
   %101 = load ptr, ptr %vfn.i146, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull %this)
+  tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else383:                                       ; preds = %sw.bb377
@@ -5654,7 +5654,7 @@ if.then425:                                       ; preds = %lor.lhs.false420, %
   %vtable.i157 = load ptr, ptr %108, align 8
   %vfn.i158 = getelementptr inbounds i8, ptr %vtable.i157, i64 16
   %109 = load ptr, ptr %vfn.i158, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull %this)
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(8) %108, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else426:                                       ; preds = %lor.lhs.false420
@@ -5725,7 +5725,7 @@ if.then465:                                       ; preds = %sw.bb460
   %vtable.i170 = load ptr, ptr %116, align 8
   %vfn.i171 = getelementptr inbounds i8, ptr %vtable.i170, i64 16
   %117 = load ptr, ptr %vfn.i171, align 8
-  tail call void %117(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %this)
+  tail call void %117(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else466:                                       ; preds = %sw.bb460
@@ -5849,7 +5849,7 @@ if.then551:                                       ; preds = %lor.lhs.false546, %
   %vtable.i184 = load ptr, ptr %131, align 8
   %vfn.i185 = getelementptr inbounds i8, ptr %vtable.i184, i64 16
   %132 = load ptr, ptr %vfn.i185, align 8
-  tail call void %132(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull %this)
+  tail call void %132(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else552:                                       ; preds = %lor.lhs.false546
@@ -5923,7 +5923,7 @@ if.then595:                                       ; preds = %sw.bb590
   %vtable.i197 = load ptr, ptr %142, align 8
   %vfn.i198 = getelementptr inbounds i8, ptr %vtable.i197, i64 16
   %143 = load ptr, ptr %vfn.i198, align 8
-  tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %this)
+  tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else596:                                       ; preds = %sw.bb590
@@ -5998,7 +5998,7 @@ if.then638:                                       ; preds = %lor.lhs.false633, %
   %vtable.i209 = load ptr, ptr %150, align 8
   %vfn.i210 = getelementptr inbounds i8, ptr %vtable.i209, i64 16
   %151 = load ptr, ptr %vfn.i210, align 8
-  tail call void %151(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull %this)
+  tail call void %151(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 if.else639:                                       ; preds = %lor.lhs.false633
@@ -6086,7 +6086,7 @@ cleanup.done695:                                  ; preds = %sw.default, %cleanu
   %vtable.i220 = load ptr, ptr %157, align 8
   %vfn.i221 = getelementptr inbounds i8, ptr %vtable.i220, i64 16
   %158 = load ptr, ptr %vfn.i221, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %this)
+  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %sw.epilog
 
 lpad679:                                          ; preds = %invoke.cont686, %invoke.cont684, %invoke.cont682, %cond.false675
@@ -6131,7 +6131,7 @@ if.then711:                                       ; preds = %land.lhs.true704
   %vtable.i228 = load ptr, ptr %164, align 8
   %vfn.i229 = getelementptr inbounds i8, ptr %vtable.i228, i64 16
   %165 = load ptr, ptr %vfn.i229, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull %this)
+  call void %165(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %do.end931
 
 if.end712:                                        ; preds = %land.lhs.true704, %if.end701
@@ -6314,7 +6314,7 @@ cleanup.done860:                                  ; preds = %if.then841, %cleanu
   %vtable.i274 = load ptr, ptr %191, align 8
   %vfn.i275 = getelementptr inbounds i8, ptr %vtable.i274, i64 16
   %192 = load ptr, ptr %vfn.i275, align 8
-  call void %192(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull %this)
+  call void %192(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %do.end931
 
 lpad848:                                          ; preds = %invoke.cont852, %cond.false844
@@ -7625,7 +7625,7 @@ if.then65:                                        ; preds = %if.end63
   %vtable.i27 = load ptr, ptr %17, align 8
   %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 16
   %18 = load ptr, ptr %vfn.i28, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %this)
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %if.end68
 
 if.end68.thread:                                  ; preds = %land.end38
@@ -7650,7 +7650,7 @@ return.sink.split:                                ; preds = %cleanup.done, %if.e
   %vtable.i35 = load ptr, ptr %.sink49, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
   %22 = load ptr, ptr %vfn.i36, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %.sink49, ptr noundef nonnull %this)
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %.sink49, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 return:                                           ; preds = %if.end68, %return.sink.split, %if.end18
@@ -7712,7 +7712,7 @@ if.end15.thread:                                  ; preds = %if.end12, %if.else
   %vtable.i = load ptr, ptr %7, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %this)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %while.end
 
 if.end15:                                         ; preds = %if.else, %if.end12
@@ -8232,7 +8232,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %6, ptr %key.i, align 8
   store i64 %7, ptr %2, align 8
-  %call.i.i.i9 = invoke ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %block, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
+  %call.i.i.i9 = invoke ptr @_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(88) %block, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
           to label %call.i.i.i.noexc unwind label %lpad14
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont15
@@ -8528,7 +8528,7 @@ if.then83:                                        ; preds = %invoke.cont78
           to label %call.i64.noexc unwind label %lpad88
 
 call.i64.noexc:                                   ; preds = %if.then83
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %padding, ptr noundef %call.i6465, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %padding, ptr noundef %call.i6465, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp87)
           to label %.noexc unwind label %lpad88
 
 .noexc:                                           ; preds = %call.i64.noexc
@@ -8538,7 +8538,7 @@ call.i64.noexc:                                   ; preds = %if.then83
 lpad.i:                                           ; preds = %.noexc
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %padding) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %padding) #24
   br label %lpad88.body
 
 invoke.cont89:                                    ; preds = %.noexc
@@ -10329,7 +10329,7 @@ if.then18:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %padding, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %padding, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -10339,7 +10339,7 @@ call.i.noexc:                                     ; preds = %if.then18
 lpad.i:                                           ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %padding) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %padding) #24
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
@@ -11740,7 +11740,7 @@ for.cond:                                         ; preds = %for.body, %if.then
 
 for.body:                                         ; preds = %for.cond
   %add.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0, i64 8
-  %call.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
+  %call.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr)
   br i1 %call.i.i, label %return, label %for.cond, !llvm.loop !33
 
 if.end15:                                         ; preds = %entry
@@ -11787,7 +11787,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, 
 
 _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i: ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__p.0.i.i, i64 8
-  %call.i.i.i.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i)
+  %call.i.i.i.i.i = tail call noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i)
   br i1 %call.i.i.i.i.i, label %if.then.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stESt8equal_toIS9_ENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERSB_mRKNS_16_Hash_node_valueISF_Lb1EEE.exit.i.i, %for.cond.i.i

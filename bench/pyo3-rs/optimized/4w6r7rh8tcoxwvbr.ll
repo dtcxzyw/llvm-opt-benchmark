@@ -452,7 +452,7 @@ define void @"_ZN104_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   br i1 %.not.i, label %"_ZN112_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemArgument$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h739a93ffbabde680E.exit", label %11
 
 11:                                               ; preds = %5
-  tail call void @"_ZN61_$LT$syn..token..Eq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h79f302309c3d368fE"(ptr nonnull align 4 %7, ptr align 8 %1)
+  tail call void @"_ZN61_$LT$syn..token..Eq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h79f302309c3d368fE"(ptr nonnull align 8 %7, ptr align 8 %1)
   tail call void @"_ZN62_$LT$syn..expr..Expr$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd00b867117966f66E"(ptr nonnull align 8 %9, ptr align 8 %1)
   br label %"_ZN112_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemArgument$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h739a93ffbabde680E.exit"
 
@@ -475,7 +475,7 @@ define void @"_ZN104_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN63_$LT$syn..token..Star$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc780e54964f9eae9E"(ptr nonnull align 4 %20, ptr align 8 %1)
+  tail call void @"_ZN63_$LT$syn..token..Star$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc780e54964f9eae9E"(ptr nonnull align 8 %20, ptr align 8 %1)
   %21 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @"_ZN63_$LT$syn..token..Star$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc780e54964f9eae9E"(ptr nonnull align 4 %21, ptr align 8 %1)
   %22 = getelementptr inbounds i8, ptr %0, i64 16

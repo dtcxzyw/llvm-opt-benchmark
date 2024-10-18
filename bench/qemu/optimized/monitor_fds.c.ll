@@ -62,7 +62,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %while.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call3.i = tail call i32 @close(i32 noundef %call1) #9
+  %call3.i = tail call i32 @close(i32 noundef range(i32 0, -1) %call1) #9
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @__func__.monitor_add_fd, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #9
   br label %return
 

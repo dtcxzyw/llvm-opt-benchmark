@@ -80,7 +80,7 @@ define dso_local void @_ZN4llvm3pdb17NativeTypeVTShapeD2Ev(ptr noundef nonnull a
   br label %_ZN4llvm8codeview18VFTableShapeRecordD2Ev.exit
 
 _ZN4llvm8codeview18VFTableShapeRecordD2Ev.exit:   ; preds = %1, %4
-  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #8
   ret void
 }
 

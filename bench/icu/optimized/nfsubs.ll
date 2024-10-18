@@ -172,7 +172,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -227,7 +227,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -257,7 +257,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -287,7 +287,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -317,7 +317,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -347,7 +347,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 
@@ -377,7 +377,7 @@ delete.notnull.i:                                 ; preds = %entry
 
 _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notnull.i
   store ptr null, ptr %numberFormat.i, align 8
-  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void
 }
 

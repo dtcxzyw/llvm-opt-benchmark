@@ -306,7 +306,7 @@ define dso_local noundef i32 @_ZN4llvm26get_max_thread_name_lengthEv() local_unn
 define dso_local void @_ZN4llvm15set_thread_nameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallString", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3, i64 noundef 64) #18
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %3, i64 noundef 64) #18
   %4 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %2) #18
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
@@ -314,7 +314,7 @@ define dso_local void @_ZN4llvm15set_thread_nameERKNS_5TwineE(ptr noundef nonnul
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx.i
   %7 = tail call i64 @pthread_self() #21
   %8 = call i32 @pthread_setname_np(i64 noundef %7, ptr noundef %.sroa.0.0.i) #18
-  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18
+  %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   %10 = load ptr, ptr %2, align 8
   %11 = icmp eq ptr %10, %3
   br i1 %11, label %_ZN4llvm11SmallStringILj64EED2Ev.exit, label %12
@@ -565,7 +565,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %63, %65
 
 _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread: ; preds = %18, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit
   %68 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %68, i64 noundef 8) #18
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull %68, i64 noundef 8) #18
   %69 = load ptr, ptr %10, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
@@ -610,7 +610,7 @@ _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8get
 
 88:                                               ; preds = %85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false), !alias.scope !14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 89:                                               ; preds = %85
@@ -780,7 +780,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit66.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 ._crit_edge:                                      ; preds = %.critedge, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread
   %159 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %9) #18
-  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
+  %160 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %13) #18
   %161 = load ptr, ptr %13, align 8
   %162 = icmp eq ptr %161, %68
   br i1 %162, label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit, label %163

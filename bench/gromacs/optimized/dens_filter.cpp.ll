@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef %5, i64 noundef 4)
+  %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 52, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 4)
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %3, null
   %or.cond = and i1 %7, %8
@@ -149,7 +149,7 @@ define noundef zeroext i1 @_Z20periodic_convolutioniPfiPKf(i32 noundef %0, ptr n
 
 .split.us:                                        ; preds = %7
   %11 = zext nneg i32 %0 to i64
-  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 105, i64 noundef %11, i64 noundef 4)
+  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 105, i64 noundef range(i64 -2147483648, 2147483648) %11, i64 noundef 4)
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader40.us
 

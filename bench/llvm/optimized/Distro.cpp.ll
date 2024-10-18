@@ -183,7 +183,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i: ; preds = %17, %1
 
 38:                                               ; preds = %36, %34, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i
   %.1.i = phi i32 [ %35, %34 ], [ %37, %36 ], [ 53, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #11
   br label %_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.exit
 
 _ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.exit: ; preds = %3, %38
@@ -317,7 +317,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 
 55:                                               ; preds = %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i
   %56 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %56, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %14, ptr noundef nonnull %56, i64 noundef 16) #11
   %57 = load ptr, ptr %10, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -410,7 +410,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread100.i: ; preds = %_ZN4llvmeqENS_
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread100.i, %55
   %.010.lcssa.i = phi i32 [ 53, %55 ], [ %.1.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread100.i ]
-  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #11
+  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %14) #11
   %83 = load ptr, ptr %14, align 8
   %84 = icmp eq ptr %83, %56
   br i1 %84, label %_ZN4llvm11SmallVectorINS_9StringRefELj16EED2Ev.exit.i, label %85
@@ -465,7 +465,7 @@ _ZL15DetectOsReleaseRN4llvm3vfs10FileSystemE.exit: ; preds = %_ZN4llvm11SmallVec
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %100, i64 noundef 16) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %8, ptr noundef nonnull %100, i64 noundef 16) #11
   %101 = load ptr, ptr %6, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
@@ -695,7 +695,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread419.i: ; preds = %_ZN4llvmeqENS_
 
 ._crit_edge.i31:                                  ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread419.i, %99
   %.09.lcssa.i = phi i32 [ 53, %99 ], [ %.1.i29, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread419.i ]
-  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
+  %153 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %8) #11
   %154 = load ptr, ptr %8, align 8
   %155 = icmp eq ptr %154, %100
   br i1 %155, label %_ZN4llvm11SmallVectorINS_9StringRefELj16EED2Ev.exit.i32, label %156
@@ -1040,7 +1040,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %266 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %265, ptr %266, align 8
   %267 = getelementptr inbounds i8, ptr %25, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %267, i64 noundef 8) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull %267, i64 noundef 8) #11
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr nonnull @.str.9, i64 1, i32 noundef -1, i1 noundef zeroext true) #11
   %268 = load ptr, ptr %25, align 8
   %269 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #11
@@ -1120,7 +1120,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit137.thread266: ; preds = %272, %_ZNK4ll
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit137.thread266, %257, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit143
   %.2 = phi i32 [ %.0.i142, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit143 ], [ 53, %257 ], [ 53, %_ZNK4llvm9StringRef11starts_withES0_.exit137.thread266 ]
-  %299 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #11
+  %299 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %25) #11
   %300 = load ptr, ptr %25, align 8
   %301 = icmp eq ptr %300, %267
   br i1 %301, label %_ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit, label %302
@@ -1182,7 +1182,7 @@ define linkonce_odr hidden void @_ZNK4llvm9StringRef5splitEc(ptr dead_on_unwind 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !alias.scope !14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNK4llvm9StringRef5splitES0_.exit
 
 9:                                                ; preds = %3

@@ -301,7 +301,7 @@ define hidden void @_ZN13RetTableEntry9add_deltaEii(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8RetTable17compute_ret_tableERK12methodHandle(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.BytecodeStream, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #18
   %4 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -962,7 +962,7 @@ _ZN14GenerateOopMap11bb_mark_fctEPS_iPi.exit:     ; preds = %.lr.ph, %32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN14GenerateOopMap11bb_mark_fctEPS_iPi.exit, %1, %_ZN14ExceptionTableC2EPK6Method.exit
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   %35 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %.lr.ph23, label %._crit_edge24
@@ -1591,7 +1591,7 @@ _ZNK14GenerateOopMap18get_basic_block_atEi.exit:  ; preds = %.lr.ph.i.i, %34
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %1, %_ZN14ExceptionTableC2EPK6Method.exit
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   %48 = load i32, ptr %2, align 4
   %.not32 = icmp eq i32 %48, 0
   br i1 %.not32, label %._crit_edge35, label %.lr.ph34
@@ -2075,7 +2075,7 @@ define hidden noundef i32 @_ZN14GenerateOopMap19methodsig_to_effectEP6SymbolbP13
   br label %_ZN17ComputeEntryStack22compute_for_parametersEbP13CellTypeState.exit
 
 _ZN17ComputeEntryStack22compute_for_parametersEbP13CellTypeState.exit: ; preds = %4, %10
-  call void @_ZN17SignatureIterator16do_parameters_onI17ComputeEntryStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %5)
+  call void @_ZN17SignatureIterator16do_parameters_onI17ComputeEntryStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(36) %5)
   %11 = load i32, ptr %8, align 8
   ret i32 %11
 }
@@ -2570,7 +2570,7 @@ define hidden void @_ZN14GenerateOopMap23report_monitor_mismatchEPKc(ptr nocaptu
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #18
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #18
@@ -2992,7 +2992,7 @@ define hidden void @_ZN14GenerateOopMap17init_basic_blocksEv(ptr noundef nonnull
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   %13 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -3249,7 +3249,7 @@ _ZN14GenerateOopMap26make_context_uninitializedEv.exit: ; preds = %_ZN14Generate
   br label %_ZN14GenerateOopMap19methodsig_to_effectEP6SymbolbP13CellTypeState.exit
 
 _ZN14GenerateOopMap19methodsig_to_effectEP6SymbolbP13CellTypeState.exit: ; preds = %_ZN14GenerateOopMap26make_context_uninitializedEv.exit, %33
-  call void @_ZN17SignatureIterator16do_parameters_onI17ComputeEntryStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %2)
+  call void @_ZN17SignatureIterator16do_parameters_onI17ComputeEntryStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(36) %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %34 = getelementptr inbounds i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8
@@ -3609,7 +3609,7 @@ define hidden void @_ZN14GenerateOopMap9interp_bbEP10BasicBlock(ptr noundef nonn
   %17 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %18) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %18) #18
   %19 = getelementptr inbounds i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %1 to i64
@@ -7246,7 +7246,7 @@ define hidden void @_ZN14GenerateOopMap9do_methodEiiiiN9Bytecodes4CodeE(ptr noun
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %7, ptr %26, align 8
-  %27 = call noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
+  %27 = call noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr noundef nonnull align 8 dereferenceable(36) %9) #18
   %28 = icmp eq i8 %27, 14
   br i1 %28, label %29, label %35
 
@@ -7330,7 +7330,7 @@ _ZN16ComputeCallStack22compute_for_returntypeEP13CellTypeState.exit: ; preds = %
   br label %_ZN16ComputeCallStack22compute_for_parametersEbP13CellTypeState.exit
 
 _ZN16ComputeCallStack22compute_for_parametersEbP13CellTypeState.exit: ; preds = %61, %62
-  call void @_ZN17SignatureIterator16do_parameters_onI16ComputeCallStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %9)
+  call void @_ZN17SignatureIterator16do_parameters_onI16ComputeCallStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(36) %9)
   %63 = load i32, ptr %25, align 8
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
@@ -8662,7 +8662,7 @@ define hidden void @_ZN14GenerateOopMap22compute_ret_adr_at_TOSEv(ptr noundef no
   br i1 %29, label %30, label %154
 
 30:                                               ; preds = %23
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %2, ptr noundef nonnull align 8 dereferenceable(16) %9) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %31 = getelementptr inbounds i8, ptr %26, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %8, align 8
@@ -8925,7 +8925,7 @@ define hidden void @_ZN14GenerateOopMap23rewrite_refval_conflictEii(ptr noundef 
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.loopexit, %3
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   %24 = load i8, ptr %7, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %.critedge, label %.lr.ph

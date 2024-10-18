@@ -13657,7 +13657,7 @@ define linkonce_odr hidden void @_ZN4ncnn28ConvolutionDepthWise_x86_fmaD0Ev(ptr 
   unreachable
 
 _ZN4ncnn28ConvolutionDepthWise_x86_fmaD2Ev.exit:  ; preds = %18, %23
-  tail call void @_ZN4ncnn20ConvolutionDepthWiseD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) #22
+  tail call void @_ZN4ncnn20ConvolutionDepthWiseD2Ev(ptr noundef nonnull align 8 dereferenceable(824) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 824) #24
   ret void
 }

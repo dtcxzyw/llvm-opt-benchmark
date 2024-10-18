@@ -3403,7 +3403,7 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %124 = sext i16 %110 to i32
   %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %125)
-  %126 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef %124) #10
+  %126 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef range(i32 -32768, 32768) %124) #10
   tail call void @errfinish(ptr noundef nonnull @.str.76, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 

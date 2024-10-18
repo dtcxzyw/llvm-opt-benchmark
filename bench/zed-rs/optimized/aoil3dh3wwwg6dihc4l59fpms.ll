@@ -188,7 +188,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   %60 = load i64, ptr %59, align 8, !noundef !14
   %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 0, 7) i64 @llvm.umin.i64(i64 %60, i64 6)
   %61 = tail call i64 @llvm.usub.sat.i64(i64 %60, i64 6)
-  %.sroa.0.0.sroa.speculated.i38 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %61)
+  %.sroa.0.0.sroa.speculated.i38 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 range(i64 0, -6) %61)
   %62 = icmp ugt i64 %61, 6
   br i1 %62, label %63, label %100
 
@@ -256,7 +256,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   %83 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %82, i64 %79
   %84 = sub i64 %72, %80
   %85 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %82, i64 %80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %28, i64 96, i1 false), !alias.scope !35, !noalias !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, ptr noundef nonnull align 8 dereferenceable(96) %28, i64 96, i1 false), !alias.scope !35, !noalias !24
   %86 = getelementptr inbounds i8, ptr %29, i64 96
   store ptr %83, ptr %86, align 8, !alias.scope !21, !noalias !36
   %.sroa.4.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %29, i64 104
@@ -288,7 +288,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   br i1 %91, label %.body46, label %92
 
 92:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$workspace..item..BreadcrumbText$GT$$GT$17ha93a2341e0ca65aeE.exit.i"
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h976926ea8549d544E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %29)
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h976926ea8549d544E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %29)
           to label %.body46 unwind label %98
 
 93:                                               ; preds = %89
@@ -302,7 +302,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   br i1 %96, label %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..splice..Splice$LT$core..option..IntoIter$LT$workspace..item..BreadcrumbText$GT$$GT$$GT$17h29854aae08b13b5bE.exit", label %97
 
 97:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$workspace..item..BreadcrumbText$GT$$GT$17ha93a2341e0ca65aeE.exit2.i"
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h976926ea8549d544E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %29)
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$workspace..item..BreadcrumbText$GT$17h976926ea8549d544E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %29)
           to label %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..splice..Splice$LT$core..option..IntoIter$LT$workspace..item..BreadcrumbText$GT$$GT$$GT$17h29854aae08b13b5bE.exit" unwind label %56
 
 98:                                               ; preds = %92, %87
@@ -736,7 +736,7 @@ define noundef range(i8 0, 4) i8 @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20
   br i1 %24, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17ha5604cdb8fad8494E.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val16, i64 noundef %20, i64 noundef %22) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val16, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #18
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17ha5604cdb8fad8494E.exit"
 
 26:                                               ; preds = %17
@@ -752,7 +752,7 @@ define noundef range(i8 0, 4) i8 @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20
   br i1 %33, label %.body, label %34
 
 34:                                               ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val16, i64 noundef %29, i64 noundef %31) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val16, i64 noundef range(i64 1, -9223372036854775808) %29, i64 noundef range(i64 1, -9223372036854775807) %31) #18
   br label %.body
 
 .body:                                            ; preds = %26, %34
@@ -913,7 +913,7 @@ common.resume:                                    ; preds = %.body, %.body19, %.
   br i1 %91, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17ha5604cdb8fad8494E.exit26", label %92
 
 92:                                               ; preds = %85
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %87, i64 noundef %89) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %87, i64 noundef range(i64 1, -9223372036854775807) %89) #18
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17ha5604cdb8fad8494E.exit26"
 
 93:                                               ; preds = %84
@@ -929,7 +929,7 @@ common.resume:                                    ; preds = %.body, %.body19, %.
   br i1 %100, label %.body24, label %101
 
 101:                                              ; preds = %93
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %96, i64 noundef %98) #18
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %96, i64 noundef range(i64 1, -9223372036854775807) %98) #18
   br label %.body24
 
 .body24:                                          ; preds = %93, %101

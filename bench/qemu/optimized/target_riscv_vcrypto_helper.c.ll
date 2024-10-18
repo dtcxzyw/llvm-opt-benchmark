@@ -3038,7 +3038,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3125,7 +3125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3213,7 +3213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3300,7 +3300,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3388,7 +3388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3475,7 +3475,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3563,7 +3563,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3650,7 +3650,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body

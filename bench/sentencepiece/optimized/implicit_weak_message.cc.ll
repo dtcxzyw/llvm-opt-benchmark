@@ -151,7 +151,7 @@ define noundef nonnull ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage16d
   store ptr %1, ptr %2, align 8
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv, ptr %3, align 8
-  %4 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZN6google8protobuf8internal32implicit_weak_message_once_init_E, ptr noundef nonnull @__once_proxy)
+  %4 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZN6google8protobuf8internal32implicit_weak_message_once_init_E, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i unwind label %7
 
 _ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %0
@@ -204,7 +204,7 @@ define linkonce_odr void @_ZNK6google8protobuf8internal19ImplicitWeakMessage11Ge
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -214,7 +214,7 @@ define linkonce_odr void @_ZNK6google8protobuf8internal19ImplicitWeakMessage11Ge
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1

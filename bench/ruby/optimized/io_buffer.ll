@@ -574,7 +574,7 @@ define internal fastcc void @io_buffer_initialize(i64 noundef %0, ptr nocapture 
   %15 = and i32 %4, 8
   %.not.i = icmp eq i32 %15, 0
   %..i = select i1 %.not.i, i32 34, i32 33
-  %16 = tail call ptr @mmap(ptr noundef null, i64 noundef %3, i32 noundef 3, i32 noundef %..i, i32 noundef -1, i64 noundef 0) #20
+  %16 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %3, i32 noundef 3, i32 noundef %..i, i32 noundef -1, i64 noundef 0) #20
   %17 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
   br i1 %17, label %18, label %io_buffer_map_memory.exit
 
@@ -1654,7 +1654,7 @@ io_buffer_resize_clear.exit46:                    ; preds = %50, %53
   br label %io_buffer_map_memory.exit.i.i
 
 62:                                               ; preds = %58
-  %63 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #20
+  %63 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %1, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #20
   %64 = icmp eq ptr %63, inttoptr (i64 -1 to ptr)
   br i1 %64, label %65, label %io_buffer_map_memory.exit.i.i
 
@@ -6308,7 +6308,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
   br i1 %.not7.i, label %17, label %21
 
 17:                                               ; preds = %12
-  %18 = tail call noundef i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 3)
+  %18 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 3)
   %19 = and i64 %18, -4
   %20 = or disjoint i64 %19, 2
   br label %rb_float_new_inline.exit
@@ -6358,7 +6358,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
   br i1 %.not7.i, label %19, label %23
 
 19:                                               ; preds = %14
-  %20 = tail call noundef i64 @llvm.fshl.i64(i64 %13, i64 %13, i64 3)
+  %20 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %13, i64 range(i64 3458764513820540929, 3458764513820540928) %13, i64 3)
   %21 = and i64 %20, -4
   %22 = or disjoint i64 %21, 2
   br label %rb_float_new_inline.exit
@@ -6405,7 +6405,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
   br i1 %.not7.i, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = tail call noundef i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 3)
+  %17 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %10, i64 range(i64 3458764513820540929, 3458764513820540928) %10, i64 3)
   %18 = and i64 %17, -4
   %19 = or disjoint i64 %18, 2
   br label %rb_float_new_inline.exit
@@ -6453,7 +6453,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
   br i1 %.not7.i, label %17, label %21
 
 17:                                               ; preds = %12
-  %18 = tail call noundef i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 3)
+  %18 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %10, i64 range(i64 3458764513820540929, 3458764513820540928) %10, i64 3)
   %19 = and i64 %18, -4
   %20 = or disjoint i64 %19, 2
   br label %rb_float_new_inline.exit

@@ -632,7 +632,7 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %2 = load ptr, ptr %this, align 8
   %rep = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep.i, ptr noundef nonnull align 8 dereferenceable(12) %rep, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rep.i, ptr noundef nonnull align 8 dereferenceable(96) %rep, i64 12, i1 false)
   %prefix_crc3.i = getelementptr inbounds i8, ptr %2, i64 24
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc.i.i, ptr noundef nonnull align 8 dereferenceable(80) %prefix_crc3.i)
   %3 = load ptr, ptr %this, align 8

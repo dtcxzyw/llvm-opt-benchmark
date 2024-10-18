@@ -838,7 +838,7 @@ Abc_Clock.exit.i:                                 ; preds = %286, %280
   br i1 %or.cond43.i, label %.critedge.i, label %362
 
 362:                                              ; preds = %.lr.ph1151.i
-  %363 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %363 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   br i1 %.not770.i, label %368, label %364
 
 364:                                              ; preds = %362
@@ -992,7 +992,7 @@ Super_AddGateToTable.exit.i94:                    ; preds = %409, %387
   br i1 %.not767.i, label %440, label %.thread.i
 
 440:                                              ; preds = %439
-  %441 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %441 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %442 = getelementptr inbounds i8, ptr %437, i64 72
   %443 = load float, ptr %442, align 8
   %444 = fadd float %426, %443
@@ -1183,7 +1183,7 @@ Super_AddGateToTable.exit851.i:                   ; preds = %482, %460
   br i1 %.not761.us.i, label %529, label %.thread.i
 
 529:                                              ; preds = %528
-  %530 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %530 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %531 = getelementptr inbounds i8, ptr %526, i64 72
   %532 = load float, ptr %531, align 8
   %533 = fadd float %515, %532
@@ -1428,7 +1428,7 @@ Super_AddGateToTable.exit853.us.i:                ; preds = %571, %549
   br i1 %.not752.us.us.i, label %634, label %.thread.i
 
 634:                                              ; preds = %633
-  %635 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %635 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %636 = getelementptr inbounds i8, ptr %631, i64 72
   %637 = load float, ptr %636, align 8
   %638 = fadd float %620, %637
@@ -1722,7 +1722,7 @@ Super_AddGateToTable.exit855.us.us.i:             ; preds = %676, %654
   br i1 %.not739.us.us.us.i, label %755, label %.thread.i
 
 755:                                              ; preds = %754
-  %756 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %756 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %757 = getelementptr inbounds i8, ptr %752, i64 72
   %758 = load float, ptr %757, align 8
   %759 = fadd float %741, %758
@@ -2025,7 +2025,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %797, %775
   br i1 %.not788.us.us.us.us.i, label %876, label %.critedge38.us.us.us.i
 
 876:                                              ; preds = %875
-  %877 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %877 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %878 = getelementptr inbounds i8, ptr %873, i64 72
   %879 = load float, ptr %878, align 8
   %880 = fadd float %862, %879
@@ -2072,7 +2072,7 @@ Super_AddGateToTable.exit857.us.us.us.i:          ; preds = %797, %775
   br i1 %.not795.us.us.us.us.i, label %894, label %.thread.i
 
 894:                                              ; preds = %893
-  %895 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef %55)
+  %895 = call fastcc i32 @Super_CheckTimeout(ptr noundef %283, ptr noundef nonnull %55)
   %896 = getelementptr inbounds i8, ptr %891, i64 72
   %897 = load float, ptr %896, align 8
   %898 = fadd float %880, %897
@@ -3898,7 +3898,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %23, label %Extra_ProgressBarUpdate.exit, label %24
 
 24:                                               ; preds = %21, %17
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %0, i32 noundef %20, ptr noundef null) #19
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %20, ptr noundef null) #19
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %21, %24

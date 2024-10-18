@@ -1591,8 +1591,8 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %
 
 193:                                              ; preds = %178
   %194 = load i32, ptr @ett_cops_decision, align 4
-  %195 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef %107, i32 noundef %194, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef %107) #9
-  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %195, i32 noundef %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %195 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef range(i32 0, 65532) %107, i32 noundef %194, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef range(i32 0, 65532) %107) #9
+  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %195, i32 noundef range(i32 0, 65532) %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %dissect_cops_object.exit
 
 196:                                              ; preds = %178
@@ -1667,8 +1667,8 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %
 
 229:                                              ; preds = %228
   %230 = load i32, ptr @ett_cops_clientsi, align 4
-  %231 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef %230, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef %107) #9
-  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %231, i32 noundef %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %231 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef %230, ptr noundef null, ptr noundef nonnull @.str.675, i32 noundef range(i32 0, 65532) %107) #9
+  call fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef %1, i32 noundef %106, ptr noundef %231, i32 noundef range(i32 0, 65532) %107, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %dissect_cops_object.exit
 
 232:                                              ; preds = %cops_c_type_to_str.exit75.i
@@ -1695,18 +1695,18 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %
   br i1 %.not302.i.i, label %243, label %dissect_cops_object.exit
 
 243:                                              ; preds = %242
-  %244 = call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %106, i32 noundef %107) #9
+  %244 = call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %106, i32 noundef range(i32 0, 65532) %107) #9
   %245 = icmp eq i32 %244, -1
   %246 = load i32, ptr @hf_cops_pepid, align 4
   br i1 %245, label %247, label %250
 
 247:                                              ; preds = %243
-  %248 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %246, ptr noundef %0, i32 noundef %106, i32 noundef %107, i32 noundef 0) #9
+  %248 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %246, ptr noundef %0, i32 noundef %106, i32 noundef range(i32 0, 65532) %107, i32 noundef 0) #9
   %249 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %248, ptr noundef nonnull @ei_cops_pepid_not_null) #9
   br label %dissect_cops_object.exit
 
 250:                                              ; preds = %243
-  %251 = call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %106, i32 noundef %107) #9
+  %251 = call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %106, i32 noundef range(i32 0, 65532) %107) #9
   %252 = add i32 %251, 1
   %253 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %246, ptr noundef %0, i32 noundef %106, i32 noundef %252, i32 noundef 0) #9
   br label %dissect_cops_object.exit
@@ -1803,7 +1803,7 @@ cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup312, %
   br label %dissect_cops_object.exit
 
 312:                                              ; preds = %cops_c_type_to_str.exit75.i
-  %313 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %81, ptr noundef %1, ptr noundef nonnull @ei_cops_unknown_c_num, ptr noundef %0, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @.str.681, i32 noundef %62, i32 noundef %107) #9
+  %313 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %81, ptr noundef %1, ptr noundef nonnull @ei_cops_unknown_c_num, ptr noundef %0, i32 noundef %106, i32 noundef range(i32 0, 65532) %107, ptr noundef nonnull @.str.681, i32 noundef %62, i32 noundef range(i32 0, 65532) %107) #9
   br label %dissect_cops_object.exit
 
 dissect_cops_object.exit:                         ; preds = %108, %110, %115, %128, %153, %169, %176, %179, %193, %198, %.thread.i.i, %199, %200, %214, %221, %225, %227, %228, %229, %232, %238, %240, %242, %247, %250, %254, %255, %258, %287, %291, %297, %299, %301, %302, %312
@@ -2357,7 +2357,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
 
 61:                                               ; preds = %60
   %62 = load i32, ptr @ett_cops_asn1, align 4
-  %63 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.685) #9
+  %63 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef range(i32 0, 65532) %59, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.685) #9
   %64 = load i32, ptr @hf_cops_pprid_oid, align 4
   %65 = call i32 @dissect_ber_object_identifier(i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef %63, ptr noundef %0, i32 noundef %58, i32 noundef %64, ptr noundef nonnull %10) #9
   %66 = load ptr, ptr %10, align 8
@@ -2385,7 +2385,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
 
 78:                                               ; preds = %77
   %79 = load i32, ptr @ett_cops_asn1, align 4
-  %80 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.685) #9
+  %80 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef range(i32 0, 65532) %59, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.685) #9
   %81 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #9
   %82 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %81, ptr noundef nonnull %17, ptr noundef null) #9
   %83 = load ptr, ptr %28, align 8
@@ -2531,7 +2531,7 @@ redecode_oid.exit.i:                              ; preds = %redecode_oid.exit.l
 
 140:                                              ; preds = %138
   %141 = load i32, ptr @ett_cops_asn1, align 4
-  %142 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.685) #9
+  %142 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef range(i32 0, 65532) %59, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.685) #9
   %143 = load ptr, ptr %5, align 8
   %.not157.i = icmp eq ptr %143, null
   br i1 %.not157.i, label %152, label %144
@@ -2628,7 +2628,7 @@ cops_tag_cls2syntax.exit.i:                       ; preds = %179, %176
 
 191:                                              ; preds = %190
   %192 = load i32, ptr @ett_cops_asn1, align 4
-  %193 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.685) #9
+  %193 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef %0, i32 noundef %58, i32 noundef range(i32 0, 65532) %59, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.685) #9
   %194 = load i32, ptr @hf_cops_errprid_oid, align 4
   %195 = call i32 @dissect_ber_object_identifier(i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef %193, ptr noundef %0, i32 noundef %58, i32 noundef %194, ptr noundef null) #9
   br label %dissect_cops_pr_object_data.exit
@@ -2699,7 +2699,7 @@ cops_tag_cls2syntax.exit.i:                       ; preds = %179, %176
 
 242:                                              ; preds = %37
   %243 = load i32, ptr @hf_cops_integrity_contents, align 4
-  %244 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %45, i32 noundef %243, ptr noundef %0, i32 noundef %58, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.687, i32 noundef %59) #9
+  %244 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %45, i32 noundef %243, ptr noundef %0, i32 noundef %58, i32 noundef range(i32 0, 65532) %59, ptr noundef null, ptr noundef nonnull @.str.687, i32 noundef range(i32 0, 65532) %59) #9
   br label %dissect_cops_pr_object_data.exit
 
 dissect_cops_pr_object_data.exit:                 ; preds = %60, %61, %67, %70, %77, %136, %137, %138, %._crit_edge.i, %190, %191, %196, %210, %217, %219, %233, %240, %242
@@ -2786,7 +2786,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 28:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6)
   %29 = load i32, ptr @hf_cops_subtree, align 4
-  %30 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.702) #9
+  %30 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.702) #9
   %31 = load i32, ptr @ett_cops_subtree, align 4
   %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #9
   %33 = add i32 %.070, 4
@@ -2810,7 +2810,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 48:                                               ; preds = %20
   %49 = load i32, ptr @hf_cops_subtree, align 4
-  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.731) #9
+  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.731) #9
   %51 = load i32, ptr @ett_cops_subtree, align 4
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #9
   %53 = add i32 %.070, 4
@@ -2821,7 +2821,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 57:                                               ; preds = %20
   %58 = load i32, ptr @hf_cops_subtree, align 4
-  %59 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.732) #9
+  %59 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.732) #9
   %60 = load i32, ptr @ett_cops_subtree, align 4
   %61 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #9
   %62 = add i32 %.070, 4
@@ -2831,7 +2831,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 65:                                               ; preds = %20
   %66 = load i32, ptr @hf_cops_subtree, align 4
-  %67 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.733) #9
+  %67 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.733) #9
   %68 = load i32, ptr @ett_cops_subtree, align 4
   %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #9
   %70 = add i32 %.070, 4
@@ -2842,7 +2842,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 74:                                               ; preds = %20
   %75 = load i32, ptr @hf_cops_subtree, align 4
-  %76 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.734) #9
+  %76 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.734) #9
   %77 = load i32, ptr @ett_cops_subtree, align 4
   %78 = call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77) #9
   %79 = add i32 %.070, 4
@@ -2853,7 +2853,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 83:                                               ; preds = %20
   %84 = load i32, ptr @hf_cops_subtree, align 4
-  %85 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.735) #9
+  %85 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.735) #9
   %86 = load i32, ptr @ett_cops_subtree, align 4
   %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #9
   %88 = add i32 %.070, 4
@@ -2957,7 +2957,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 185:                                              ; preds = %20
   %186 = load i32, ptr @hf_cops_subtree, align 4
-  %187 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %186, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.740) #9
+  %187 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %186, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.740) #9
   %188 = load i32, ptr @ett_cops_subtree, align 4
   %189 = call ptr @proto_item_add_subtree(ptr noundef %187, i32 noundef %188) #9
   %190 = add i32 %.070, 4
@@ -3007,7 +3007,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 233:                                              ; preds = %20
   %234 = load i32, ptr @hf_cops_subtree, align 4
-  %235 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %234, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.742) #9
+  %235 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %234, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.742) #9
   %236 = load i32, ptr @ett_cops_subtree, align 4
   %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #9
   %238 = add i32 %.070, 4
@@ -3066,7 +3066,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 290:                                              ; preds = %20
   %291 = load i32, ptr @hf_cops_subtree, align 4
-  %292 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %291, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.745) #9
+  %292 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %291, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.745) #9
   %293 = load i32, ptr @ett_cops_subtree, align 4
   %294 = call ptr @proto_item_add_subtree(ptr noundef %292, i32 noundef %293) #9
   %295 = add i32 %.070, 4
@@ -3084,7 +3084,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 306:                                              ; preds = %20
   %307 = load i32, ptr @hf_cops_subtree, align 4
-  %308 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %307, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.754) #9
+  %308 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %307, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.754) #9
   %309 = load i32, ptr @ett_cops_subtree, align 4
   %310 = call ptr @proto_item_add_subtree(ptr noundef %308, i32 noundef %309) #9
   %311 = add i32 %.070, 4
@@ -3137,7 +3137,7 @@ define internal fastcc void @cops_analyze_packetcable_dqos_obj(ptr noundef %0, p
 
 357:                                              ; preds = %20
   %358 = load i32, ptr @hf_cops_subtree, align 4
-  %359 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %358, ptr noundef %0, i32 noundef %.070, i32 noundef %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.760) #9
+  %359 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %358, ptr noundef %0, i32 noundef %.070, i32 noundef range(i32 4, 65536) %16, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.760) #9
   %360 = load i32, ptr @ett_cops_subtree, align 4
   %361 = call ptr @proto_item_add_subtree(ptr noundef %359, i32 noundef %360) #9
   %362 = add i32 %.070, 4
@@ -3243,7 +3243,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6)
   %28 = load i32, ptr @hf_cops_subtree, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.777) #9
+  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.777) #9
   %30 = load i32, ptr @ett_cops_subtree, align 4
   %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #9
   %32 = add i32 %.0313, 4
@@ -3267,7 +3267,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 47:                                               ; preds = %19
   %48 = load i32, ptr @hf_cops_subtree, align 4
-  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.788) #9
+  %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.788) #9
   %50 = load i32, ptr @ett_cops_subtree, align 4
   %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #9
   %52 = add i32 %.0313, 4
@@ -3284,7 +3284,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 62:                                               ; preds = %19
   %63 = load i32, ptr @hf_cops_subtree, align 4
-  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.731) #9
+  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.731) #9
   %65 = load i32, ptr @ett_cops_subtree, align 4
   %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #9
   %67 = add i32 %.0313, 4
@@ -3295,7 +3295,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 71:                                               ; preds = %19
   %72 = load i32, ptr @hf_cops_subtree, align 4
-  %73 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.732) #9
+  %73 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.732) #9
   %74 = load i32, ptr @ett_cops_subtree, align 4
   %75 = call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74) #9
   %76 = add i32 %.0313, 4
@@ -3305,7 +3305,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 79:                                               ; preds = %19
   %80 = load i32, ptr @hf_cops_subtree, align 4
-  %81 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.733) #9
+  %81 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.733) #9
   %82 = load i32, ptr @ett_cops_subtree, align 4
   %83 = call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82) #9
   %84 = add i32 %.0313, 4
@@ -3316,7 +3316,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 88:                                               ; preds = %19
   %89 = load i32, ptr @hf_cops_subtree, align 4
-  %90 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.791) #9
+  %90 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.791) #9
   %91 = load i32, ptr @ett_cops_subtree, align 4
   %92 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #9
   %93 = add i32 %.0313, 4
@@ -3386,7 +3386,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 150:                                              ; preds = %19
   %151 = load i32, ptr @hf_cops_subtree, align 4
-  %152 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %151, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.801) #9
+  %152 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %151, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.801) #9
   %153 = load i32, ptr @ett_cops_subtree, align 4
   %154 = call ptr @proto_item_add_subtree(ptr noundef %152, i32 noundef %153) #9
   %155 = add i32 %.0313, 4
@@ -3478,7 +3478,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 240:                                              ; preds = %19
   %241 = load i32, ptr @hf_cops_subtree, align 4
-  %242 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %241, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.804) #9
+  %242 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %241, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.804) #9
   %243 = load i32, ptr @ett_cops_subtree, align 4
   %244 = call ptr @proto_item_add_subtree(ptr noundef %242, i32 noundef %243) #9
   %245 = add i32 %.0313, 4
@@ -3610,7 +3610,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 366:                                              ; preds = %19
   %367 = load i32, ptr @hf_cops_subtree, align 4
-  %368 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %367, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.808) #9
+  %368 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %367, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.808) #9
   %369 = load i32, ptr @ett_cops_subtree, align 4
   %370 = call ptr @proto_item_add_subtree(ptr noundef %368, i32 noundef %369) #9
   %371 = add i32 %.0313, 4
@@ -3632,7 +3632,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
   br label %cops_flow_spec.exit
 
 385:                                              ; preds = %366
-  %386 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %370, ptr noundef %1, ptr noundef nonnull @ei_cops_bad_cops_object_length, ptr noundef %0, i32 noundef %.0313, i32 noundef 2, ptr noundef nonnull @.str.809, i32 noundef %15) #9
+  %386 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %370, ptr noundef %1, ptr noundef nonnull @ei_cops_bad_cops_object_length, ptr noundef %0, i32 noundef %.0313, i32 noundef 2, ptr noundef nonnull @.str.809, i32 noundef range(i32 4, 65536) %15) #9
   br label %cops_flow_spec.exit
 
 387:                                              ; preds = %19
@@ -3655,7 +3655,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 390:                                              ; preds = %387
   %391 = load i32, ptr @hf_cops_subtree, align 4
-  %392 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %391, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
+  %392 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %391, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
   %393 = load i32, ptr @ett_cops_subtree, align 4
   %394 = call ptr @proto_item_add_subtree(ptr noundef %392, i32 noundef %393) #9
   %395 = add i32 %.0313, 4
@@ -3804,7 +3804,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 518:                                              ; preds = %515
   %519 = load i32, ptr @hf_cops_subtree, align 4
-  %520 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %519, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
+  %520 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %519, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
   %521 = load i32, ptr @ett_cops_subtree, align 4
   %522 = call ptr @proto_item_add_subtree(ptr noundef %520, i32 noundef %521) #9
   %523 = add i32 %.0313, 4
@@ -3965,7 +3965,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 658:                                              ; preds = %655
   %659 = load i32, ptr @hf_cops_subtree, align 4
-  %660 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %659, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
+  %660 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %659, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
   %661 = load i32, ptr @ett_cops_subtree, align 4
   %662 = call ptr @proto_item_add_subtree(ptr noundef %660, i32 noundef %661) #9
   %663 = add i32 %.0313, 4
@@ -4114,7 +4114,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 786:                                              ; preds = %783
   %787 = load i32, ptr @hf_cops_subtree, align 4
-  %788 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %787, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
+  %788 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %787, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
   %789 = load i32, ptr @ett_cops_subtree, align 4
   %790 = call ptr @proto_item_add_subtree(ptr noundef %788, i32 noundef %789) #9
   %791 = add i32 %.0313, 4
@@ -4236,7 +4236,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 887:                                              ; preds = %884
   %888 = load i32, ptr @hf_cops_subtree, align 4
-  %889 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %888, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
+  %889 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %888, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
   %890 = load i32, ptr @ett_cops_subtree, align 4
   %891 = call ptr @proto_item_add_subtree(ptr noundef %889, i32 noundef %890) #9
   %892 = add i32 %.0313, 4
@@ -4384,7 +4384,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1014:                                             ; preds = %1009
   %1015 = load i32, ptr @hf_cops_subtree, align 4
-  %1016 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1015, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
+  %1016 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1015, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
   %1017 = load i32, ptr @ett_cops_subtree, align 4
   %1018 = call ptr @proto_item_add_subtree(ptr noundef %1016, i32 noundef %1017) #9
   %1019 = add i32 %.0313, 4
@@ -4515,7 +4515,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1139:                                             ; preds = %19
   %1140 = load i32, ptr @hf_cops_subtree, align 4
-  %1141 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1140, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.816) #9
+  %1141 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1140, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.816) #9
   %1142 = load i32, ptr @ett_cops_subtree, align 4
   %1143 = call ptr @proto_item_add_subtree(ptr noundef %1141, i32 noundef %1142) #9
   %1144 = add i32 %.0313, 4
@@ -4530,7 +4530,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1152:                                             ; preds = %19
   %1153 = load i32, ptr @hf_cops_subtree, align 4
-  %1154 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1153, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.742) #9
+  %1154 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1153, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.742) #9
   %1155 = load i32, ptr @ett_cops_subtree, align 4
   %1156 = call ptr @proto_item_add_subtree(ptr noundef %1154, i32 noundef %1155) #9
   %1157 = add i32 %.0313, 4
@@ -4579,7 +4579,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1199:                                             ; preds = %19
   %1200 = load i32, ptr @hf_cops_subtree, align 4
-  %1201 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1200, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.817) #9
+  %1201 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1200, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.817) #9
   %1202 = load i32, ptr @ett_cops_subtree, align 4
   %1203 = call ptr @proto_item_add_subtree(ptr noundef %1201, i32 noundef %1202) #9
   %1204 = add i32 %.0313, 4
@@ -4589,7 +4589,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1207:                                             ; preds = %19
   %1208 = load i32, ptr @hf_cops_subtree, align 4
-  %1209 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1208, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.818) #9
+  %1209 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1208, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.818) #9
   %1210 = load i32, ptr @ett_cops_subtree, align 4
   %1211 = call ptr @proto_item_add_subtree(ptr noundef %1209, i32 noundef %1210) #9
   %1212 = add i32 %.0313, 4
@@ -4600,7 +4600,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1216:                                             ; preds = %19
   %1217 = load i32, ptr @hf_cops_subtree, align 4
-  %1218 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1217, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.114) #9
+  %1218 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1217, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.114) #9
   %1219 = load i32, ptr @ett_cops_subtree, align 4
   %1220 = call ptr @proto_item_add_subtree(ptr noundef %1218, i32 noundef %1219) #9
   %1221 = add i32 %.0313, 4
@@ -4610,7 +4610,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1224:                                             ; preds = %19
   %1225 = load i32, ptr @hf_cops_subtree, align 4
-  %1226 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1225, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.451) #9
+  %1226 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1225, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.451) #9
   %1227 = load i32, ptr @ett_cops_subtree, align 4
   %1228 = call ptr @proto_item_add_subtree(ptr noundef %1226, i32 noundef %1227) #9
   %1229 = add i32 %.0313, 4
@@ -4621,7 +4621,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1233:                                             ; preds = %19
   %1234 = load i32, ptr @hf_cops_subtree, align 4
-  %1235 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1234, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.454) #9
+  %1235 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1234, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.454) #9
   %1236 = load i32, ptr @ett_cops_subtree, align 4
   %1237 = call ptr @proto_item_add_subtree(ptr noundef %1235, i32 noundef %1236) #9
   %1238 = add i32 %.0313, 4
@@ -4632,7 +4632,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1242:                                             ; preds = %19
   %1243 = load i32, ptr @hf_cops_subtree, align 4
-  %1244 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1243, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.745) #9
+  %1244 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1243, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.745) #9
   %1245 = load i32, ptr @ett_cops_subtree, align 4
   %1246 = call ptr @proto_item_add_subtree(ptr noundef %1244, i32 noundef %1245) #9
   %1247 = add i32 %.0313, 4
@@ -4661,7 +4661,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1264:                                             ; preds = %19
   %1265 = load i32, ptr @hf_cops_subtree, align 4
-  %1266 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1265, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.844) #9
+  %1266 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1265, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.844) #9
   %1267 = load i32, ptr @ett_cops_subtree, align 4
   %1268 = call ptr @proto_item_add_subtree(ptr noundef %1266, i32 noundef %1267) #9
   %1269 = add i32 %.0313, 4
@@ -4680,7 +4680,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1281:                                             ; preds = %19
   %1282 = load i32, ptr @hf_cops_subtree, align 4
-  %1283 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1282, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.863) #9
+  %1283 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1282, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.863) #9
   %1284 = load i32, ptr @ett_cops_subtree, align 4
   %1285 = call ptr @proto_item_add_subtree(ptr noundef %1283, i32 noundef %1284) #9
   %1286 = add i32 %.0313, 4
@@ -4697,7 +4697,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1296:                                             ; preds = %19
   %1297 = load i32, ptr @hf_cops_subtree, align 4
-  %1298 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1297, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.474) #9
+  %1298 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1297, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.474) #9
   %1299 = load i32, ptr @ett_cops_subtree, align 4
   %1300 = call ptr @proto_item_add_subtree(ptr noundef %1298, i32 noundef %1299) #9
   %1301 = add i32 %.0313, 4
@@ -4708,7 +4708,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1305:                                             ; preds = %19
   %1306 = load i32, ptr @hf_cops_subtree, align 4
-  %1307 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1306, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.864) #9
+  %1307 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1306, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.864) #9
   %1308 = load i32, ptr @ett_cops_subtree, align 4
   %1309 = call ptr @proto_item_add_subtree(ptr noundef %1307, i32 noundef %1308) #9
   %1310 = add i32 %.0313, 4
@@ -4730,7 +4730,7 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1325:                                             ; preds = %19
   %1326 = load i32, ptr @hf_cops_subtree, align 4
-  %1327 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1326, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.483) #9
+  %1327 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1326, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.483) #9
   %1328 = load i32, ptr @ett_cops_subtree, align 4
   %1329 = call ptr @proto_item_add_subtree(ptr noundef %1327, i32 noundef %1328) #9
   %1330 = add i32 %.0313, 4
@@ -4741,20 +4741,20 @@ define internal fastcc void @cops_analyze_packetcable_mm_obj(ptr noundef %0, ptr
 
 1334:                                             ; preds = %19
   %1335 = load i32, ptr @hf_cops_subtree, align 4
-  %1336 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1335, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.486) #9
+  %1336 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1335, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.486) #9
   %1337 = load i32, ptr @ett_cops_subtree, align 4
   %1338 = call ptr @proto_item_add_subtree(ptr noundef %1336, i32 noundef %1337) #9
   %1339 = add i32 %.0313, 4
   %1340 = add nsw i32 %15, -4
   %1341 = call ptr @wmem_packet_scope() #9
-  %1342 = call ptr @tvb_get_string_enc(ptr noundef %1341, ptr noundef %0, i32 noundef %1339, i32 noundef %1340, i32 noundef 0) #9
+  %1342 = call ptr @tvb_get_string_enc(ptr noundef %1341, ptr noundef %0, i32 noundef %1339, i32 noundef range(i32 0, 65532) %1340, i32 noundef 0) #9
   %1343 = load i32, ptr @hf_cops_pcmm_userid, align 4
-  %1344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1338, i32 noundef %1343, ptr noundef %0, i32 noundef %1339, i32 noundef %1340, ptr noundef %1342, ptr noundef nonnull @.str.707, ptr noundef nonnull @.str.486, ptr noundef %1342) #9
+  %1344 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %1338, i32 noundef %1343, ptr noundef %0, i32 noundef %1339, i32 noundef range(i32 0, 65532) %1340, ptr noundef %1342, ptr noundef nonnull @.str.707, ptr noundef nonnull @.str.486, ptr noundef %1342) #9
   br label %cops_flow_spec.exit
 
 1345:                                             ; preds = %19
   %1346 = load i32, ptr @hf_cops_subtree, align 4
-  %1347 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1346, ptr noundef %0, i32 noundef %.0313, i32 noundef %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.489) #9
+  %1347 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %1346, ptr noundef %0, i32 noundef %.0313, i32 noundef range(i32 4, 65536) %15, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.489) #9
   %1348 = load i32, ptr @ett_cops_subtree, align 4
   %1349 = call ptr @proto_item_add_subtree(ptr noundef %1347, i32 noundef %1348) #9
   %1350 = add i32 %.0313, 4
@@ -4839,7 +4839,7 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
   %.not = icmp eq i32 %4, 0
   %6 = select i1 %.not, ptr @.str.797, ptr @.str.796
   %7 = load i32, ptr @hf_cops_subtree, align 4
-  %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull %6) #9
+  %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull %6) #9
   %9 = load i32, ptr @ett_cops_subtree, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #9
   %11 = add i32 %3, 4
@@ -4953,7 +4953,7 @@ define internal fastcc void @cops_classifier(ptr noundef %0, ptr noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.810) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4
@@ -5144,7 +5144,7 @@ define internal fastcc void @cops_best_effort_service_i04_i05(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.811) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4
@@ -5347,7 +5347,7 @@ define internal fastcc void @cops_non_real_time_polling_service_i04_i05(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.812) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4
@@ -5538,7 +5538,7 @@ define internal fastcc void @cops_real_time_polling_service_i04_i05(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.813) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4
@@ -5702,7 +5702,7 @@ define internal fastcc void @cops_unsolicited_grant_service_i04_i05(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.814) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4
@@ -5890,7 +5890,7 @@ define internal fastcc void @cops_ugs_with_activity_detection_i04_i05(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cops_downstream_service_i04_i05(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 65536) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_cops_subtree, align 4
-  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
+  %7 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 4, 65536) %2, ptr noundef nonnull @.str.683, ptr noundef nonnull @.str.815) #9
   %8 = load i32, ptr @ett_cops_subtree, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #9
   %10 = add i32 %3, 4

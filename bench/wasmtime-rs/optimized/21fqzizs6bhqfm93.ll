@@ -264,12 +264,12 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h575e
 
 47:                                               ; preds = %41
   %48 = shl nuw nsw i64 %5, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 8 %0, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 8 dereferenceable(72) %0, i64 %48, i1 false)
   br label %46
 
 49:                                               ; preds = %29
   %50 = shl i64 %.val, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 4 %7, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(72) %0, ptr nonnull align 4 %7, i64 %50, i1 false)
   store i64 %.val, ptr %4, align 8, !alias.scope !23
   %51 = shl i64 %.sink.i, 2
   %52 = icmp ugt i64 %5, 4611686018427387903

@@ -366,11 +366,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 256) %conv) #15
   br label %trace_usb_mtp_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef range(i32 0, 256) %conv) #15
   br label %trace_usb_mtp_reset.exit
 
 trace_usb_mtp_reset.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -596,11 +596,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %conv14, ptr noundef nonnull @.str.28) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef range(i32 0, 256) %conv14, ptr noundef nonnull @.str.28) #15
   br label %trace_usb_mtp_stall.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv14, ptr noundef nonnull @.str.28) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv14, ptr noundef nonnull @.str.28) #15
   br label %trace_usb_mtp_stall.exit
 
 trace_usb_mtp_stall.exit:                         ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -671,11 +671,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv3, ptr noundef nonnull @.str.31) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 0, 256) %conv3, ptr noundef nonnull @.str.31) #15
   br label %trace_usb_mtp_stall.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv3, ptr noundef nonnull @.str.31) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv3, ptr noundef nonnull @.str.31) #15
   br label %trace_usb_mtp_stall.exit
 
 trace_usb_mtp_stall.exit:                         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -719,11 +719,11 @@ if.then8.i.i155:                                  ; preds = %if.then.i.i152
   %16 = load i64, ptr %_now.i.i145, align 8
   %tv_usec.i.i158 = getelementptr inbounds i8, ptr %_now.i.i145, i64 8
   %17 = load i64, ptr %tv_usec.i.i158, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i157, i64 noundef %16, i64 noundef %17, i32 noundef %conv9, ptr noundef nonnull @.str.32) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i157, i64 noundef %16, i64 noundef %17, i32 noundef range(i32 0, 256) %conv9, ptr noundef nonnull @.str.32) #15
   br label %trace_usb_mtp_stall.exit159
 
 if.else.i.i154:                                   ; preds = %if.then.i.i152
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv9, ptr noundef nonnull @.str.32) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv9, ptr noundef nonnull @.str.32) #15
   br label %trace_usb_mtp_stall.exit159
 
 trace_usb_mtp_stall.exit159:                      ; preds = %if.then6, %land.lhs.true5.i.i149, %if.then8.i.i155, %if.else.i.i154
@@ -991,11 +991,11 @@ if.then8.i.i170:                                  ; preds = %if.then.i.i167
   %64 = load i64, ptr %_now.i.i160, align 8
   %tv_usec.i.i173 = getelementptr inbounds i8, ptr %_now.i.i160, i64 8
   %65 = load i64, ptr %tv_usec.i.i173, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i172, i64 noundef %64, i64 noundef %65, i32 noundef %conv190, ptr noundef nonnull @.str.32) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i172, i64 noundef %64, i64 noundef %65, i32 noundef range(i32 0, 256) %conv190, ptr noundef nonnull @.str.32) #15
   br label %trace_usb_mtp_stall.exit174
 
 if.else.i.i169:                                   ; preds = %if.then.i.i167
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv190, ptr noundef nonnull @.str.32) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv190, ptr noundef nonnull @.str.32) #15
   br label %trace_usb_mtp_stall.exit174
 
 trace_usb_mtp_stall.exit174:                      ; preds = %if.then187, %land.lhs.true5.i.i164, %if.then8.i.i170, %if.else.i.i169
@@ -1071,11 +1071,11 @@ if.then8.i.i185:                                  ; preds = %if.then.i.i182
   %77 = load i64, ptr %_now.i.i175, align 8
   %tv_usec.i.i188 = getelementptr inbounds i8, ptr %_now.i.i175, i64 8
   %78 = load i64, ptr %tv_usec.i.i188, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i187, i64 noundef %77, i64 noundef %78, i32 noundef %conv216, ptr noundef nonnull @.str.33) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i187, i64 noundef %77, i64 noundef %78, i32 noundef range(i32 0, 256) %conv216, ptr noundef nonnull @.str.33) #15
   br label %trace_usb_mtp_stall.exit189
 
 if.else.i.i184:                                   ; preds = %if.then.i.i182
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv216, ptr noundef nonnull @.str.33) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv216, ptr noundef nonnull @.str.33) #15
   br label %trace_usb_mtp_stall.exit189
 
 trace_usb_mtp_stall.exit189:                      ; preds = %if.then213, %land.lhs.true5.i.i179, %if.then8.i.i185, %if.else.i.i184
@@ -1228,11 +1228,11 @@ if.then8.i.i200:                                  ; preds = %if.then.i.i197
   %104 = load i64, ptr %_now.i.i190, align 8
   %tv_usec.i.i203 = getelementptr inbounds i8, ptr %_now.i.i190, i64 8
   %105 = load i64, ptr %tv_usec.i.i203, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i202, i64 noundef %104, i64 noundef %105, i32 noundef %conv340, ptr noundef nonnull @.str.34) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i202, i64 noundef %104, i64 noundef %105, i32 noundef range(i32 0, 256) %conv340, ptr noundef nonnull @.str.34) #15
   br label %trace_usb_mtp_stall.exit204
 
 if.else.i.i199:                                   ; preds = %if.then.i.i197
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv340, ptr noundef nonnull @.str.34) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv340, ptr noundef nonnull @.str.34) #15
   br label %trace_usb_mtp_stall.exit204
 
 trace_usb_mtp_stall.exit204:                      ; preds = %if.then337, %land.lhs.true5.i.i194, %if.then8.i.i200, %if.else.i.i199
@@ -1313,11 +1313,11 @@ if.then8.i.i215:                                  ; preds = %if.then.i.i212
   %116 = load i64, ptr %_now.i.i205, align 8
   %tv_usec.i.i218 = getelementptr inbounds i8, ptr %_now.i.i205, i64 8
   %117 = load i64, ptr %tv_usec.i.i218, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i217, i64 noundef %116, i64 noundef %117, i32 noundef %conv382, ptr noundef nonnull @.str.35) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i217, i64 noundef %116, i64 noundef %117, i32 noundef range(i32 0, 256) %conv382, ptr noundef nonnull @.str.35) #15
   br label %trace_usb_mtp_stall.exit219
 
 if.else.i.i214:                                   ; preds = %if.then.i.i212
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %conv382, ptr noundef nonnull @.str.35) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %conv382, ptr noundef nonnull @.str.35) #15
   br label %trace_usb_mtp_stall.exit219
 
 trace_usb_mtp_stall.exit219:                      ; preds = %sw.default379, %land.lhs.true5.i.i209, %if.then8.i.i215, %if.else.i.i214
@@ -1364,11 +1364,11 @@ if.then8.i.i230:                                  ; preds = %if.then.i.i227
   %126 = load i64, ptr %_now.i.i220, align 8
   %tv_usec.i.i233 = getelementptr inbounds i8, ptr %_now.i.i220, i64 8
   %127 = load i64, ptr %tv_usec.i.i233, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i232, i64 noundef %126, i64 noundef %127, i32 noundef %conv390, i32 noundef %conv393) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i232, i64 noundef %126, i64 noundef %127, i32 noundef range(i32 0, 256) %conv390, i32 noundef range(i32 0, 256) %conv393) #15
   br label %trace_usb_mtp_nak.exit
 
 if.else.i.i229:                                   ; preds = %if.then.i.i227
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %conv390, i32 noundef %conv393) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef range(i32 0, 256) %conv390, i32 noundef range(i32 0, 256) %conv393) #15
   br label %trace_usb_mtp_nak.exit
 
 trace_usb_mtp_nak.exit:                           ; preds = %if.then387, %land.lhs.true5.i.i224, %if.then8.i.i230, %if.else.i.i229
@@ -1406,11 +1406,11 @@ if.then8.i.i244:                                  ; preds = %if.then.i.i241
   %133 = load i64, ptr %_now.i.i234, align 8
   %tv_usec.i.i247 = getelementptr inbounds i8, ptr %_now.i.i234, i64 8
   %134 = load i64, ptr %tv_usec.i.i247, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i246, i64 noundef %133, i64 noundef %134, i32 noundef %conv390, i32 noundef %conv393, i32 noundef %118, i32 noundef %conv405) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i246, i64 noundef %133, i64 noundef %134, i32 noundef range(i32 0, 256) %conv390, i32 noundef range(i32 0, 256) %conv393, i32 noundef range(i32 1, 0) %118, i32 noundef %conv405) #15
   br label %trace_usb_mtp_xfer.exit
 
 if.else.i.i243:                                   ; preds = %if.then.i.i241
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %conv390, i32 noundef %conv393, i32 noundef %118, i32 noundef %conv405) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef range(i32 0, 256) %conv390, i32 noundef range(i32 0, 256) %conv393, i32 noundef range(i32 1, 0) %118, i32 noundef %conv405) #15
   br label %trace_usb_mtp_xfer.exit
 
 trace_usb_mtp_xfer.exit:                          ; preds = %if.else395, %land.lhs.true5.i.i238, %if.then8.i.i244, %if.else.i.i243
@@ -1482,11 +1482,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv, i32 noundef %1, ptr noundef %2) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 256) %conv, i32 noundef %1, ptr noundef %2) #15
   br label %trace_usb_mtp_object_free.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %conv, i32 noundef %1, ptr noundef %2) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef range(i32 0, 256) %conv, i32 noundef %1, ptr noundef %2) #15
   br label %trace_usb_mtp_object_free.exit
 
 trace_usb_mtp_object_free.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1658,11 +1658,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, ptr noundef %reason) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, ptr noundef %reason) #15
   br label %_nocheck__trace_usb_mtp_stall.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %dev, ptr noundef %reason) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef range(i32 0, 256) %dev, ptr noundef %reason) #15
   br label %_nocheck__trace_usb_mtp_stall.exit
 
 _nocheck__trace_usb_mtp_stall.exit:               ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1699,11 +1699,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, i32 noundef %trans, i32 noundef %len) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %len) #15
   br label %_nocheck__trace_usb_mtp_data_in.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %dev, i32 noundef %trans, i32 noundef %len) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %len) #15
   br label %_nocheck__trace_usb_mtp_data_in.exit
 
 _nocheck__trace_usb_mtp_data_in.exit:             ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1750,11 +1750,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
   br label %_nocheck__trace_usb_mtp_success.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef range(i32 0, 256) %dev, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
   br label %_nocheck__trace_usb_mtp_success.exit
 
 _nocheck__trace_usb_mtp_success.exit:             ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1792,12 +1792,12 @@ if.then8.i:                                       ; preds = %if.then.i
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %code to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, i32 noundef %conv11.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, i32 noundef %conv11.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
   br label %_nocheck__trace_usb_mtp_error.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext i16 %code to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %dev, i32 noundef %conv12.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef range(i32 0, 256) %dev, i32 noundef %conv12.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1) #15
   br label %_nocheck__trace_usb_mtp_error.exit
 
 _nocheck__trace_usb_mtp_error.exit:               ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1835,12 +1835,12 @@ if.then8.i:                                       ; preds = %if.then.i
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %code to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, i32 noundef %conv11.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, i32 noundef %conv11.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) #15
   br label %_nocheck__trace_usb_mtp_command.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext i16 %code to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %dev, i32 noundef %conv12.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef range(i32 0, 256) %dev, i32 noundef %conv12.i, i32 noundef %trans, i32 noundef %arg0, i32 noundef %arg1, i32 noundef %arg2, i32 noundef %arg3, i32 noundef %arg4) #15
   br label %_nocheck__trace_usb_mtp_command.exit
 
 _nocheck__trace_usb_mtp_command.exit:             ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1952,11 +1952,11 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %11 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv.i) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, i32 noundef range(i32 0, 256) %conv.i) #15
   br label %trace_usb_mtp_op_get_device_info.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %conv.i) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef range(i32 0, 256) %conv.i) #15
   br label %trace_usb_mtp_op_get_device_info.exit.i
 
 trace_usb_mtp_op_get_device_info.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.bb
@@ -2357,11 +2357,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %93 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %94 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %93, i64 noundef %94, i32 noundef %conv31) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %93, i64 noundef %94, i32 noundef range(i32 0, 256) %conv31) #15
   br label %trace_usb_mtp_op_close_session.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %conv31) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef range(i32 0, 256) %conv31) #15
   br label %trace_usb_mtp_op_close_session.exit
 
 trace_usb_mtp_op_close_session.exit:              ; preds = %sw.bb28, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2460,11 +2460,11 @@ if.then8.i.i.i212:                                ; preds = %if.then.i.i.i209
   %109 = load i64, ptr %_now.i.i.i195, align 8
   %tv_usec.i.i.i215 = getelementptr inbounds i8, ptr %_now.i.i.i195, i64 8
   %110 = load i64, ptr %tv_usec.i.i.i215, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i214, i64 noundef %109, i64 noundef %110, i32 noundef %conv.i202) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i214, i64 noundef %109, i64 noundef %110, i32 noundef range(i32 0, 256) %conv.i202) #15
   br label %usb_mtp_get_storage_ids.exit
 
 if.else.i.i.i211:                                 ; preds = %if.then.i.i.i209
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %conv.i202) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef range(i32 0, 256) %conv.i202) #15
   br label %usb_mtp_get_storage_ids.exit
 
 usb_mtp_get_storage_ids.exit:                     ; preds = %sw.bb40, %land.lhs.true5.i.i.i206, %if.then8.i.i.i212, %if.else.i.i.i211
@@ -2527,11 +2527,11 @@ if.then8.i.i.i259:                                ; preds = %if.then.i.i.i256
   %120 = load i64, ptr %_now.i.i.i216, align 8
   %tv_usec.i.i.i262 = getelementptr inbounds i8, ptr %_now.i.i.i216, i64 8
   %121 = load i64, ptr %tv_usec.i.i.i262, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i.i261, i64 noundef %120, i64 noundef %121, i32 noundef %conv.i223) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i.i261, i64 noundef %120, i64 noundef %121, i32 noundef range(i32 0, 256) %conv.i223) #15
   br label %trace_usb_mtp_op_get_storage_info.exit.i
 
 if.else.i.i.i258:                                 ; preds = %if.then.i.i.i256
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %conv.i223) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef range(i32 0, 256) %conv.i223) #15
   br label %trace_usb_mtp_op_get_storage_info.exit.i
 
 trace_usb_mtp_op_get_storage_info.exit.i:         ; preds = %if.else.i.i.i258, %if.then8.i.i.i259, %land.lhs.true5.i.i.i253, %if.end54
@@ -3083,11 +3083,11 @@ if.then8.i.i.i351:                                ; preds = %if.then.i.i.i348
   %214 = load i64, ptr %_now.i.i.i292, align 8
   %tv_usec.i.i.i354 = getelementptr inbounds i8, ptr %_now.i.i.i292, i64 8
   %215 = load i64, ptr %tv_usec.i.i.i354, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i.i353, i64 noundef %214, i64 noundef %215, i32 noundef %conv.i299, i32 noundef %208, ptr noundef %209) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i.i353, i64 noundef %214, i64 noundef %215, i32 noundef range(i32 0, 256) %conv.i299, i32 noundef %208, ptr noundef %209) #15
   br label %trace_usb_mtp_op_get_object_info.exit.i
 
 if.else.i.i.i350:                                 ; preds = %if.then.i.i.i348
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %conv.i299, i32 noundef %208, ptr noundef %209) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef range(i32 0, 256) %conv.i299, i32 noundef %208, ptr noundef %209) #15
   br label %trace_usb_mtp_op_get_object_info.exit.i
 
 trace_usb_mtp_op_get_object_info.exit.i:          ; preds = %if.else.i.i.i350, %if.then8.i.i.i351, %land.lhs.true5.i.i.i345, %if.end121
@@ -6088,11 +6088,11 @@ if.then8.i.i574:                                  ; preds = %if.then.i.i571
   %791 = load i64, ptr %_now.i.i564, align 8
   %tv_usec.i.i577 = getelementptr inbounds i8, ptr %_now.i.i564, i64 8
   %792 = load i64, ptr %tv_usec.i.i577, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i576, i64 noundef %791, i64 noundef %792, i32 noundef %conv297, i32 noundef %conv5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i576, i64 noundef %791, i64 noundef %792, i32 noundef range(i32 0, 256) %conv297, i32 noundef range(i32 0, 65536) %conv5) #15
   br label %trace_usb_mtp_op_unknown.exit
 
 if.else.i.i573:                                   ; preds = %if.then.i.i571
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %conv297, i32 noundef %conv5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef range(i32 0, 256) %conv297, i32 noundef range(i32 0, 65536) %conv5) #15
   br label %trace_usb_mtp_op_unknown.exit
 
 trace_usb_mtp_op_unknown.exit:                    ; preds = %sw.default, %land.lhs.true5.i.i568, %if.then8.i.i574, %if.else.i.i573
@@ -6729,11 +6729,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev) #15
   br label %_nocheck__trace_usb_mtp_op_open_session.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %dev) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef range(i32 0, 256) %dev) #15
   br label %_nocheck__trace_usb_mtp_op_open_session.exit
 
 _nocheck__trace_usb_mtp_op_open_session.exit:     ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -6834,11 +6834,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv41, i32 noundef %7, ptr noundef %8) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef range(i32 0, 256) %conv41, i32 noundef %7, ptr noundef %8) #15
   br label %trace_usb_mtp_object_alloc.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %conv41, i32 noundef %7, ptr noundef %8) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef range(i32 0, 256) %conv41, i32 noundef %7, ptr noundef %8) #15
   br label %trace_usb_mtp_object_alloc.exit
 
 trace_usb_mtp_object_alloc.exit:                  ; preds = %if.end40, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6951,11 +6951,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv, ptr noundef %7, ptr noundef nonnull @.str.69) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef range(i32 0, 256) %conv, ptr noundef %7, ptr noundef nonnull @.str.69) #15
   br label %trace_usb_mtp_file_monitor_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv, ptr noundef %7, ptr noundef nonnull @.str.69) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 256) %conv, ptr noundef %7, ptr noundef nonnull @.str.69) #15
   br label %trace_usb_mtp_file_monitor_event.exit
 
 trace_usb_mtp_file_monitor_event.exit:            ; preds = %if.else, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7014,11 +7014,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %dev, i32 noundef %handle, ptr noundef %path) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %dev, i32 noundef %handle, ptr noundef %path) #15
   br label %_nocheck__trace_usb_mtp_op_get_num_objects.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %dev, i32 noundef %handle, ptr noundef %path) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef range(i32 0, 256) %dev, i32 noundef %handle, ptr noundef %path) #15
   br label %_nocheck__trace_usb_mtp_op_get_num_objects.exit
 
 _nocheck__trace_usb_mtp_op_get_num_objects.exit:  ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -7076,11 +7076,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv2, i32 noundef %4, ptr noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef range(i32 0, 256) %conv2, i32 noundef %4, ptr noundef %5) #15
   br label %trace_usb_mtp_op_get_object_handles.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %conv2, i32 noundef %4, ptr noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef range(i32 0, 256) %conv2, i32 noundef %4, ptr noundef %5) #15
   br label %trace_usb_mtp_op_get_object_handles.exit
 
 trace_usb_mtp_op_get_object_handles.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7164,11 +7164,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %conv, i32 noundef %3, ptr noundef %4) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef range(i32 0, 256) %conv, i32 noundef %3, ptr noundef %4) #15
   br label %trace_usb_mtp_op_get_object.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %conv, i32 noundef %3, ptr noundef %4) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef range(i32 0, 256) %conv, i32 noundef %3, ptr noundef %4) #15
   br label %trace_usb_mtp_op_get_object.exit
 
 trace_usb_mtp_op_get_object.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7248,11 +7248,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef range(i32 0, 256) %conv, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
   br label %trace_usb_mtp_op_get_partial_object.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef %conv, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, i32 noundef range(i32 0, 256) %conv, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
   br label %trace_usb_mtp_op_get_partial_object.exit
 
 trace_usb_mtp_op_get_partial_object.exit:         ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7886,11 +7886,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv, ptr noundef %name, ptr noundef nonnull @.str.70) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 0, 256) %conv, ptr noundef %name, ptr noundef nonnull @.str.70) #15
   br label %trace_usb_mtp_file_monitor_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv, ptr noundef %name, ptr noundef nonnull @.str.70) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 256) %conv, ptr noundef %name, ptr noundef nonnull @.str.70) #15
   br label %trace_usb_mtp_file_monitor_event.exit
 
 trace_usb_mtp_file_monitor_event.exit:            ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7959,11 +7959,11 @@ if.then8.i.i75:                                   ; preds = %if.then.i.i72
   %18 = load i64, ptr %_now.i.i65, align 8
   %tv_usec.i.i78 = getelementptr inbounds i8, ptr %_now.i.i65, i64 8
   %19 = load i64, ptr %tv_usec.i.i78, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i77, i64 noundef %18, i64 noundef %19, i32 noundef %conv22, ptr noundef %13, ptr noundef nonnull @.str.71) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i77, i64 noundef %18, i64 noundef %19, i32 noundef range(i32 0, 256) %conv22, ptr noundef %13, ptr noundef nonnull @.str.71) #15
   br label %trace_usb_mtp_file_monitor_event.exit79
 
 if.else.i.i74:                                    ; preds = %if.then.i.i72
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv22, ptr noundef %13, ptr noundef nonnull @.str.71) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 256) %conv22, ptr noundef %13, ptr noundef nonnull @.str.71) #15
   br label %trace_usb_mtp_file_monitor_event.exit79
 
 trace_usb_mtp_file_monitor_event.exit79:          ; preds = %if.end15, %land.lhs.true5.i.i69, %if.then8.i.i75, %if.else.i.i74
@@ -8033,11 +8033,11 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i105
   %28 = load i64, ptr %_now.i.i98, align 8
   %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i98, i64 8
   %29 = load i64, ptr %tv_usec.i.i111, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i110, i64 noundef %28, i64 noundef %29, i32 noundef %conv34, ptr noundef %23, ptr noundef nonnull @.str.72) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i110, i64 noundef %28, i64 noundef %29, i32 noundef range(i32 0, 256) %conv34, ptr noundef %23, ptr noundef nonnull @.str.72) #15
   br label %trace_usb_mtp_file_monitor_event.exit112
 
 if.else.i.i107:                                   ; preds = %if.then.i.i105
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv34, ptr noundef %23, ptr noundef nonnull @.str.72) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 256) %conv34, ptr noundef %23, ptr noundef nonnull @.str.72) #15
   br label %trace_usb_mtp_file_monitor_event.exit112
 
 trace_usb_mtp_file_monitor_event.exit112:         ; preds = %if.end27, %land.lhs.true5.i.i102, %if.then8.i.i108, %if.else.i.i107
@@ -8075,11 +8075,11 @@ if.then8.i.i123:                                  ; preds = %if.then.i.i120
   %36 = load i64, ptr %_now.i.i113, align 8
   %tv_usec.i.i126 = getelementptr inbounds i8, ptr %_now.i.i113, i64 8
   %37 = load i64, ptr %tv_usec.i.i126, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i125, i64 noundef %36, i64 noundef %37, i32 noundef %conv39, ptr noundef %31, ptr noundef nonnull @.str.73) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i125, i64 noundef %36, i64 noundef %37, i32 noundef range(i32 0, 256) %conv39, ptr noundef %31, ptr noundef nonnull @.str.73) #15
   br label %trace_usb_mtp_file_monitor_event.exit127
 
 if.else.i.i122:                                   ; preds = %if.then.i.i120
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %conv39, ptr noundef %31, ptr noundef nonnull @.str.73) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 256) %conv39, ptr noundef %31, ptr noundef nonnull @.str.73) #15
   br label %trace_usb_mtp_file_monitor_event.exit127
 
 trace_usb_mtp_file_monitor_event.exit127:         ; preds = %sw.bb36, %land.lhs.true5.i.i117, %if.then8.i.i123, %if.else.i.i122
@@ -8165,11 +8165,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv, i32 noundef %2, ptr noundef %3) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 0, 256) %conv, i32 noundef %2, ptr noundef %3) #15
   br label %trace_usb_mtp_add_child.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %conv, i32 noundef %2, ptr noundef %3) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef range(i32 0, 256) %conv, i32 noundef %2, ptr noundef %3) #15
   br label %trace_usb_mtp_add_child.exit
 
 trace_usb_mtp_add_child.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

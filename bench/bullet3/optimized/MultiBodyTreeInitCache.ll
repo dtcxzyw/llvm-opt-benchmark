@@ -311,10 +311,10 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %index to i64
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %1, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %inertia, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx.i, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %inertia, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx.i, i64 20, i1 false)
   %m_body_I_body.i = getelementptr inbounds i8, ptr %inertia, i64 20
   %m_body_I_body3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body.i, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body3.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body.i, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3.i, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %inertia, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -406,10 +406,10 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %index to i64
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %1, i64 %idxprom.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %joint, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx.i, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %joint, ptr noundef nonnull align 4 dereferenceable(92) %arrayidx.i, i64 28, i1 false)
   %m_child_T_parent_ref.i = getelementptr inbounds i8, ptr %joint, i64 28
   %m_child_T_parent_ref3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref.i, ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref3.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref.i, ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref3.i, i64 16, i1 false)
   %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %joint, i64 44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i.i, i64 16, i1 false)
@@ -524,10 +524,10 @@ for.inc.i:                                        ; preds = %for.inc.i, %for.inc
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::InertiaData", ptr %2, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(20) %arrayidx3.i, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(68) %arrayidx3.i, i64 20, i1 false)
   %m_body_I_body.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %m_body_I_body3.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_body_I_body3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body.i.i, ptr noundef nonnull align 4 dereferenceable(48) %m_body_I_body3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 36
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)
@@ -611,10 +611,10 @@ for.inc.i:                                        ; preds = %for.inc.i, %for.inc
   %arrayidx.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %call.i.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx3.i = getelementptr inbounds %"struct.btInverseDynamicsBullet3::JointData", ptr %2, i64 %indvars.iv.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx3.i, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(92) %arrayidx3.i, i64 28, i1 false)
   %m_child_T_parent_ref.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
   %m_child_T_parent_ref3.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_child_T_parent_ref3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref.i.i, ptr noundef nonnull align 4 dereferenceable(48) %m_child_T_parent_ref3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i, i64 44
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)

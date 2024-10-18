@@ -715,11 +715,11 @@ if.then8.i.i45.i.i:                               ; preds = %if.then.i.i42.i.i
   %call10.i.i47.i.i = call i32 @qemu_get_thread_id() #11
   %63 = load i64, ptr %_now.i.i35.i.i, align 8
   %64 = load i64, ptr %tv_usec.i.i48.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i47.i.i, i64 noundef %63, i64 noundef %64, ptr noundef nonnull %vs.i, ptr noundef nonnull %.lcssa101.i, i32 noundef %54, i32 noundef %.pre63.i.i, i32 noundef %conv10.i.i, i32 noundef %conv36.i.i) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i47.i.i, i64 noundef %63, i64 noundef %64, ptr noundef nonnull %vs.i, ptr noundef nonnull %.lcssa101.i, i32 noundef %54, i32 noundef %.pre63.i.i, i32 noundef %conv10.i.i, i32 noundef range(i32 1, 0) %conv36.i.i) #11
   br label %if.then49.i
 
 if.else.i.i44.i.i:                                ; preds = %if.then.i.i42.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull %vs.i, ptr noundef nonnull %.lcssa101.i, i32 noundef %54, i32 noundef %.pre63.i.i, i32 noundef %conv10.i.i, i32 noundef %conv36.i.i) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull %vs.i, ptr noundef nonnull %.lcssa101.i, i32 noundef %54, i32 noundef %.pre63.i.i, i32 noundef %conv10.i.i, i32 noundef range(i32 1, 0) %conv36.i.i) #11
   br label %if.then49.i
 
 discard.i.i:                                      ; preds = %if.end22.i.i, %if.end16.i.i, %if.end.i.i, %trace_vnc_job_clamp_rect.exit.discard_crit_edge.i.i

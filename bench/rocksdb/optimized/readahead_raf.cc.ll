@@ -214,7 +214,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %lock_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -268,7 +268,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %lan
 lpad:                                             ; preds = %if.end11
   %9 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i46 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i46 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   resume { ptr, i32 } %9
 
 if.end11:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %lor.lhs.false.i, %lor.lhs.false
@@ -334,7 +334,7 @@ invoke.cont22:                                    ; preds = %if.end.i29, %lor.lh
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %invoke.cont22, %if.then8, %invoke.cont19
-  %call1.i.i.i.i39 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i39 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   br label %return
 
 return:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %if.then
@@ -362,7 +362,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %lock_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -393,7 +393,7 @@ if.then3:                                         ; preds = %_ZNSt11unique_lockI
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.end4
   %3 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i9 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   resume { ptr, i32 } %3
 
 if.end4:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -438,7 +438,7 @@ _ZNK7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFile14ReadIntoBufferEmmRKNS_9IO
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit16:          ; preds = %if.then3, %_ZNK7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFile14ReadIntoBufferEmmRKNS_9IOOptionsEPNS_14IODebugContextE.exit
-  %call1.i.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   br label %return
 
 return:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit16, %if.then
@@ -582,7 +582,7 @@ entry:
 define internal void @_ZN7rocksdb12_GLOBAL__N_125ReadaheadRandomAccessFile15InvalidateCacheEmm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock_ = getelementptr inbounds i8, ptr %this, i64 32
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
@@ -602,13 +602,13 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit9
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   ret void
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  %call1.i.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %lock_) #12
+  %call1.i.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %lock_) #12
   resume { ptr, i32 } %2
 }
 
@@ -694,7 +694,7 @@ if.then.i6:                                       ; preds = %_ZN7rocksdb8IOStatu
 _ZNKSt8functionIFvRKN7rocksdb13FSReadRequestEPvEEclES3_S4_.exit: ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit
   %_M_invoker.i = getelementptr inbounds i8, ptr %cb, i64 24
   %15 = load ptr, ptr %_M_invoker.i, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
+  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %cb, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
   store i8 0, ptr %agg.result, align 8, !alias.scope !24
   %subcode_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1

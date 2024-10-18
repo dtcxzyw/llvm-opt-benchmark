@@ -86,7 +86,7 @@ define void @_ZN3gmx18ObservablesReducerD2Ev(ptr noundef nonnull align 8 derefer
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %2)
+  tail call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %3
@@ -125,7 +125,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %7, %4
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i.i.i, label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i.i, i32 noundef 3)
+  %15 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i.i.i unwind label %16
 
 16:                                               ; preds = %14
@@ -203,7 +203,7 @@ define linkonce_odr void @_ZNSt6vectorISt8functionIFvlEESaIS2_EED2Ev(ptr noundef
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i, i32 noundef 3)
+  %8 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i unwind label %9
 
 9:                                                ; preds = %7
@@ -245,7 +245,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx18ObservablesReduc
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EEaSEOS5_.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4)
+  tail call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %2, %5
@@ -332,7 +332,7 @@ define void @_ZN3gmx18ObservablesReducer17reductionCompleteEl(ptr nocapture noun
 _ZNKSt8functionIFvlEEclEl.exit:                   ; preds = %.lr.ph
   %20 = getelementptr inbounds i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %22 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 4
   %.not = icmp eq ptr %22, %10
@@ -447,7 +447,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uni
 
 11:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 40
-  %13 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %13 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %14
 
 14:                                               ; preds = %11
@@ -465,7 +465,7 @@ _ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %11, %.lr.ph.i.i.i.i
 
 19:                                               ; preds = %_ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 8
-  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
+  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
           to label %_ZSt8_DestroyIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEvPT_.exit.i.i.i.i.i.i.i unwind label %22
 
 22:                                               ; preds = %19
@@ -510,7 +510,7 @@ define linkonce_odr void @_ZN3gmx25ObservablesReducerBuilder4Impl12SubscriptionD
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -528,7 +528,7 @@ _ZNSt8functionIFvlEED2Ev.exit:                    ; preds = %1, %4
 
 12:                                               ; preds = %_ZNSt8functionIFvlEED2Ev.exit
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %14 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit unwind label %15
 
 15:                                               ; preds = %12
@@ -570,7 +570,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx25ObservablesReducerBuilder4Imp
 
 9:                                                ; preds = %.lr.ph.i.i.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 40
-  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
+  %11 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i unwind label %12
 
 12:                                               ; preds = %9
@@ -588,7 +588,7 @@ _ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i:    ; preds = %9, %.lr.ph.i.i.i.i.
 
 17:                                               ; preds = %_ZNSt8functionIFvlEED2Ev.exit.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 8
-  %19 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 3)
+  %19 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3)
           to label %_ZSt8_DestroyIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEvPT_.exit.i.i.i.i.i.i unwind label %20
 
 20:                                               ; preds = %17
@@ -643,7 +643,7 @@ define void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvO
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = getelementptr inbounds i8, ptr %5, i64 32
   %14 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 24, i1 false)
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 16
@@ -653,7 +653,7 @@ define void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvO
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false)
   store ptr %17, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit
@@ -662,7 +662,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   %20 = getelementptr inbounds i8, ptr %5, i64 40
   %21 = getelementptr inbounds i8, ptr %5, i64 64
   %22 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 24, i1 false)
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 16
@@ -672,7 +672,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
 
 26:                                               ; preds = %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit
   %27 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   store ptr %25, ptr %27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvlEEC2EOS1_.exit
@@ -689,7 +689,7 @@ _ZNSt8functionIFvlEEC2EOS1_.exit:                 ; preds = %_ZNSt8functionIFvOS
   store i32 %1, ptr %29, align 8
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = getelementptr inbounds i8, ptr %29, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 24, i1 false)
   store ptr %15, ptr %34, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i, label %35
@@ -697,7 +697,7 @@ _ZNSt8functionIFvlEEC2EOS1_.exit:                 ; preds = %_ZNSt8functionIFvOS
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   %37 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 16, i1 false)
   store ptr %17, ptr %37, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i
@@ -705,7 +705,7 @@ _ZNSt8functionIFvlEEC2EOS1_.exit:                 ; preds = %_ZNSt8functionIFvOS
 _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i: ; preds = %35, %32
   %38 = getelementptr inbounds i8, ptr %29, i64 40
   %39 = getelementptr inbounds i8, ptr %29, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 24, i1 false)
   store ptr %23, ptr %39, align 8
   %.not.i.i.not.i4.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.not.i4.i.i.i.i, label %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.thread, label %40
@@ -713,7 +713,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
 40:                                               ; preds = %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %5, i64 56
   %42 = getelementptr inbounds i8, ptr %29, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 16, i1 false)
   store ptr %25, ptr %42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   br label %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.thread
@@ -735,7 +735,7 @@ _ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE12empla
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvlEED2Ev.exit.i, label %46
 
 46:                                               ; preds = %_ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
-  %47 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
           to label %_ZNSt8functionIFvlEED2Ev.exit.i unwind label %48
 
 48:                                               ; preds = %46
@@ -752,7 +752,7 @@ _ZNSt8functionIFvlEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIN3gmx2
   br i1 %.not.i.i1.i, label %_ZN3gmx25ObservablesReducerBuilder4Impl12SubscriptionD2Ev.exit, label %53
 
 53:                                               ; preds = %_ZNSt8functionIFvlEED2Ev.exit.i
-  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3)
+  %54 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZN3gmx25ObservablesReducerBuilder4Impl12SubscriptionD2Ev.exit unwind label %55
 
 55:                                               ; preds = %53
@@ -816,7 +816,7 @@ _ZNSt12_Vector_baseIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = getelementptr inbounds i8, ptr %24, i64 32
   %28 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 24
@@ -827,7 +827,7 @@ _ZNSt12_Vector_baseIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE
 32:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_M_allocateEm.exit
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = getelementptr inbounds i8, ptr %24, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
   store ptr %31, ptr %34, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i
@@ -836,7 +836,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   %35 = getelementptr inbounds i8, ptr %24, i64 40
   %36 = getelementptr inbounds i8, ptr %24, i64 64
   %37 = getelementptr inbounds i8, ptr %2, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 24, i1 false)
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %2, i64 56
@@ -847,7 +847,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
 41:                                               ; preds = %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i
   %42 = getelementptr inbounds i8, ptr %2, i64 40
   %43 = getelementptr inbounds i8, ptr %24, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 16, i1 false)
   store ptr %40, ptr %43, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
@@ -866,7 +866,7 @@ _ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEE
   %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
   %46 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
   %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !14
   %48 = load ptr, ptr %47, align 8, !alias.scope !14, !noalias !11
   store ptr %48, ptr %46, align 8, !alias.scope !11, !noalias !14
   %49 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
@@ -877,7 +877,7 @@ _ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEE
 51:                                               ; preds = %.lr.ph.i.i.i
   %52 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
   %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !alias.scope !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 16, i1 false), !alias.scope !16
   store ptr %50, ptr %53, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !alias.scope !14, !noalias !11
   br label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i.i.i.i
@@ -886,7 +886,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
   %55 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
   %56 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !14
   %57 = load ptr, ptr %56, align 8, !alias.scope !14, !noalias !11
   store ptr %57, ptr %55, align 8, !alias.scope !11, !noalias !14
   %58 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
@@ -897,7 +897,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
 _ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i: ; preds = %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i.i.i.i
   %60 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
   %61 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !alias.scope !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 16, i1 false), !alias.scope !16
   store ptr %59, ptr %61, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false), !alias.scope !14, !noalias !11
   br label %_ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
@@ -924,7 +924,7 @@ _ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_re
   %66 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 8
   %67 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
   %68 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !21
   %69 = load ptr, ptr %68, align 8, !alias.scope !21, !noalias !18
   store ptr %69, ptr %67, align 8, !alias.scope !18, !noalias !21
   %70 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
@@ -935,7 +935,7 @@ _ZNSt6vectorIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionESaIS3_EE11_S_re
 72:                                               ; preds = %.lr.ph.i.i.i17
   %73 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
   %74 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !alias.scope !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %73, i64 16, i1 false), !alias.scope !23
   store ptr %71, ptr %74, align 8, !alias.scope !18, !noalias !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !alias.scope !21, !noalias !18
   br label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i.i.i.i21
@@ -944,7 +944,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
   %75 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
   %76 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 64
   %77 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 24, i1 false), !alias.scope !18, !noalias !21
   %78 = load ptr, ptr %77, align 8, !alias.scope !21, !noalias !18
   store ptr %78, ptr %76, align 8, !alias.scope !18, !noalias !21
   %79 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
@@ -955,7 +955,7 @@ _ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirement
 _ZNSt16allocator_traitsISaIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i23: ; preds = %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEEC2EOS9_.exit.i.i.i.i.i.i.i21
   %81 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !alias.scope !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 16, i1 false), !alias.scope !23
   store ptr %80, ptr %82, align 8, !alias.scope !18, !noalias !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false), !alias.scope !21, !noalias !18
   br label %_ZSt19__relocate_object_aIN3gmx25ObservablesReducerBuilder4Impl12SubscriptionES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i24
@@ -1111,7 +1111,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, label %51
 
 51:                                               ; preds = %46
-  %52 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 2)
+  %52 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 2)
           to label %53 unwind label %57
 
 53:                                               ; preds = %51
@@ -1131,7 +1131,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
   br i1 %.not.i.i.i.i.i, label %.body, label %60
 
 60:                                               ; preds = %57
-  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %44, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 3)
           to label %.body unwind label %62
 
 62:                                               ; preds = %60
@@ -1203,7 +1203,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit: ; 
   br i1 %.not.i36, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit, label %84
 
 84:                                               ; preds = %82
-  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %83)
+  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %83)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %82, %84
@@ -1255,7 +1255,7 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   %102 = getelementptr inbounds i8, ptr %.sroa.054.094, i64 8
   %103 = getelementptr inbounds i8, ptr %.sroa.054.094, i64 32
   %104 = load ptr, ptr %103, align 8
-  invoke void %104(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void %104(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %105 unwind label %.loopexit
 
 105:                                              ; preds = %101
@@ -1269,7 +1269,7 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   br i1 %.not.i.i39, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2Ev.exit, label %111
 
 111:                                              ; preds = %105
-  %112 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %112 = invoke noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2Ev.exit unwind label %113
 
 113:                                              ; preds = %111
@@ -1292,7 +1292,7 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2E
   br i1 %.not.i40, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit41, label %120
 
 120:                                              ; preds = %117
-  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %119)
+  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %119)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit41: ; preds = %117, %120
@@ -1316,7 +1316,7 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   br i1 %.not.i.i42, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2Ev.exit43, label %123
 
 123:                                              ; preds = %121
-  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %124 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2Ev.exit43 unwind label %125
 
 125:                                              ; preds = %123
@@ -1343,7 +1343,7 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEED2E
   br i1 %.not.i44, label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit45, label %131
 
 131:                                              ; preds = %._crit_edge98
-  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %130)
+  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %130)
   br label %_ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.exit45: ; preds = %._crit_edge98, %131
@@ -1361,7 +1361,7 @@ _ZNSt10unique_ptrIN3gmx18ObservablesReducer4ImplESt14default_deleteIS2_EED2Ev.ex
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i.i, label %136
 
 136:                                              ; preds = %.lr.ph.i.i.i.i46
-  %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i.i, i32 noundef 3)
+  %137 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyISt8functionIFvlEEEvPT_.exit.i.i.i.i unwind label %138
 
 138:                                              ; preds = %136
@@ -1399,7 +1399,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %143, %_ZSt8_Destroy
   br i1 %.not.i49, label %.body.thread, label %146
 
 146:                                              ; preds = %144
-  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %145)
+  call void @_ZNKSt14default_deleteIN3gmx18ObservablesReducer4ImplEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %145)
   br label %.body.thread
 
 .body.thread:                                     ; preds = %146, %144
@@ -1467,7 +1467,7 @@ _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %29
 
 29:                                               ; preds = %_ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit
-  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %31 unwind label %35
 
 31:                                               ; preds = %29
@@ -1486,7 +1486,7 @@ _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit: ; preds = %_Z
   br i1 %.not.i.i.i.i, label %65, label %38
 
 38:                                               ; preds = %35
-  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %24, i32 noundef 3)
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef 3)
           to label %65 unwind label %40
 
 40:                                               ; preds = %38
@@ -1507,7 +1507,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !31
   %45 = load ptr, ptr %44, align 8, !alias.scope !31, !noalias !28
   store ptr %45, ptr %43, align 8, !alias.scope !28, !noalias !31
   %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
@@ -1517,7 +1517,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpO
 
 _ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i, i64 16, i1 false), !alias.scope !33
   store ptr %47, ptr %48, align 8, !alias.scope !28, !noalias !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !alias.scope !31, !noalias !28
   br label %_ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
@@ -1541,7 +1541,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %52 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 24
   %53 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
   %54 = load ptr, ptr %53, align 8, !alias.scope !38, !noalias !35
   store ptr %54, ptr %52, align 8, !alias.scope !35, !noalias !38
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 16
@@ -1551,7 +1551,7 @@ _ZNSt6vectorISt8functionIFvlEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds
 
 _ZNSt16allocator_traitsISaISt8functionIFvlEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i31: ; preds = %.lr.ph.i.i.i27
   %57 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i29, i64 16, i1 false), !alias.scope !40
   store ptr %56, ptr %57, align 8, !alias.scope !35, !noalias !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !alias.scope !38, !noalias !35
   br label %_ZSt19__relocate_object_aISt8functionIFvlEES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i32

@@ -560,7 +560,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.not, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %call.i = tail call ptr @BN_lebin2bn(ptr noundef nonnull %incdec.ptr7.i, i32 noundef %shr, ptr noundef null) #6
+  %call.i = tail call ptr @BN_lebin2bn(ptr noundef nonnull %incdec.ptr7.i, i32 noundef range(i32 0, 536870912) %shr, ptr noundef null) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %err, label %if.end14
 
@@ -571,38 +571,38 @@ if.end14:                                         ; preds = %if.end10
   br i1 %tobool15.not, label %if.then16, label %if.end49
 
 if.then16:                                        ; preds = %if.end14
-  %call.i16 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i, i32 noundef %shr2, ptr noundef null) #6
+  %call.i16 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i, i32 noundef range(i32 0, 536870912) %shr2, ptr noundef null) #6
   %cmp.i17 = icmp eq ptr %call.i16, null
   br i1 %cmp.i17, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.then16
   %idx.ext.i19 = zext nneg i32 %shr2 to i64
   %add.ptr.i20 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i19
-  %call.i23 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i20, i32 noundef %shr2, ptr noundef null) #6
+  %call.i23 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i20, i32 noundef range(i32 0, 536870912) %shr2, ptr noundef null) #6
   %cmp.i24 = icmp eq ptr %call.i23, null
   br i1 %cmp.i24, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
   %add.ptr.i27 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 %idx.ext.i19
-  %call.i30 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i27, i32 noundef %shr2, ptr noundef null) #6
+  %call.i30 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i27, i32 noundef range(i32 0, 536870912) %shr2, ptr noundef null) #6
   %cmp.i31 = icmp eq ptr %call.i30, null
   br i1 %cmp.i31, label %err, label %if.end28
 
 if.end28:                                         ; preds = %if.end24
   %add.ptr.i34 = getelementptr inbounds i8, ptr %add.ptr.i27, i64 %idx.ext.i19
-  %call.i37 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i34, i32 noundef %shr2, ptr noundef null) #6
+  %call.i37 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i34, i32 noundef range(i32 0, 536870912) %shr2, ptr noundef null) #6
   %cmp.i38 = icmp eq ptr %call.i37, null
   br i1 %cmp.i38, label %err, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
   %add.ptr.i41 = getelementptr inbounds i8, ptr %add.ptr.i34, i64 %idx.ext.i19
-  %call.i44 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i41, i32 noundef %shr2, ptr noundef null) #6
+  %call.i44 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i41, i32 noundef range(i32 0, 536870912) %shr2, ptr noundef null) #6
   %cmp.i45 = icmp eq ptr %call.i44, null
   br i1 %cmp.i45, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.end32
   %add.ptr.i48 = getelementptr inbounds i8, ptr %add.ptr.i41, i64 %idx.ext.i19
-  %call.i51 = tail call ptr @BN_lebin2bn(ptr noundef %add.ptr.i48, i32 noundef %shr, ptr noundef null) #6
+  %call.i51 = tail call ptr @BN_lebin2bn(ptr noundef %add.ptr.i48, i32 noundef range(i32 0, 536870912) %shr, ptr noundef null) #6
   %cmp.i52 = icmp eq ptr %call.i51, null
   br i1 %cmp.i52, label %err, label %if.end40
 
@@ -669,7 +669,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @BN_lebin2bn(ptr noundef %0, i32 noundef %shr, ptr noundef null) #6
+  %call.i = tail call ptr @BN_lebin2bn(ptr noundef %0, i32 noundef range(i32 0, 536870912) %shr, ptr noundef null) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %err, label %if.end3
 
@@ -682,7 +682,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end3
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
-  %call.i16 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i13, i32 noundef %shr, ptr noundef null) #6
+  %call.i16 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i13, i32 noundef range(i32 0, 536870912) %shr, ptr noundef null) #6
   %cmp.i17 = icmp eq ptr %call.i16, null
   br i1 %cmp.i17, label %err, label %if.end11
 
@@ -692,7 +692,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %call.i23 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i20, i32 noundef %shr, ptr noundef null) #6
+  %call.i23 = tail call ptr @BN_lebin2bn(ptr noundef nonnull %add.ptr.i20, i32 noundef range(i32 0, 536870912) %shr, ptr noundef null) #6
   %cmp.i24 = icmp eq ptr %call.i23, null
   br i1 %cmp.i24, label %err, label %read_lebn.exit29
 
@@ -1187,7 +1187,7 @@ if.end85.i:                                       ; preds = %if.end73.i, %if.end
   %p.0.i = phi ptr [ %call5, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
   %rc4.1.i = phi ptr [ null, %if.end.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end47.i ], [ %call28.i, %if.end47.i ]
   %enctmp.1.i = phi ptr [ null, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
-  %call86.i = call fastcc ptr @do_b2i_key(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef %isdss, ptr noundef nonnull %ispub)
+  %call86.i = call fastcc ptr @do_b2i_key(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef nonnull %isdss, ptr noundef nonnull %ispub)
   br label %err.i
 
 err.i:                                            ; preds = %if.end85.i, %if.then82.i, %if.end67.i, %if.end63.i, %if.then55.i, %if.end41.i, %if.end37.i, %if.end32.i, %if.end26.i, %if.then25.i, %if.end15.i, %if.end10.i, %if.then9.i, %if.then.i

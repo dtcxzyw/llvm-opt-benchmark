@@ -2080,7 +2080,7 @@ entry:
   %2 = load ptr, ptr %m_dispatcher1.i.i, align 8
   %m_solverMultiBodyIslandCallback.i = getelementptr inbounds i8, ptr %this, i64 616
   %3 = load ptr, ptr %m_solverMultiBodyIslandCallback.i, align 8
-  tail call void @_ZN25btSimulationIslandManager22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2, ptr noundef nonnull %this, ptr noundef %3)
+  tail call void @_ZN25btSimulationIslandManager22buildAndProcessIslandsEP12btDispatcherP16btCollisionWorldPNS_14IslandCallbackE(ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(848) %this, ptr noundef %3)
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 504
   %4 = load ptr, ptr %vfn3, align 8
@@ -2394,7 +2394,7 @@ for.body.i.i.i108:                                ; preds = %for.body.i.i.i108, 
   %arrayidx.i.i.i110 = getelementptr inbounds %class.btMatrix3x3, ptr %retval.0.i.i.i95, i64 %indvars.iv.i.i.i109
   %35 = load ptr, ptr %m_data.i.i.i106, align 8
   %arrayidx3.i.i.i111 = getelementptr inbounds %class.btMatrix3x3, ptr %35, i64 %indvars.iv.i.i.i109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i110, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i111, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i.i110, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx3.i.i.i111, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i111, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i110, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)
@@ -3193,7 +3193,7 @@ for.body.i.i.i397:                                ; preds = %for.body.i.i.i397, 
   %arrayidx.i.i.i399 = getelementptr inbounds %class.btMatrix3x3, ptr %retval.0.i.i.i384, i64 %indvars.iv.i.i.i398
   %82 = load ptr, ptr %m_data.i.i.i395, align 8
   %arrayidx3.i.i.i400 = getelementptr inbounds %class.btMatrix3x3, ptr %82, i64 %indvars.iv.i.i.i398
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i.i399, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i400, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i.i399, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx3.i.i.i400, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i400, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i399, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)

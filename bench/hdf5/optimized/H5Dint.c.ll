@@ -2908,7 +2908,7 @@ define ptr @H5D_open(ptr nocapture noundef readonly %0, i64 noundef %1) local_un
   br label %308
 
 135:                                              ; preds = %128
-  %136 = call fastcc i32 @H5D__append_flush_setup(ptr noundef %7, i64 noundef %1)
+  %136 = call fastcc i32 @H5D__append_flush_setup(ptr noundef nonnull %7, i64 noundef %1)
   %.not.i = icmp eq i32 %136, 0
   br i1 %.not.i, label %141, label %137
 

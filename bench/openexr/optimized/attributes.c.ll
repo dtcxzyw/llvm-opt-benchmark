@@ -1423,7 +1423,7 @@ for.inc47.i:                                      ; preds = %if.end41.i, %for.bo
   br i1 %exitcond61.not.i, label %for.end49.i, label %for.body36.i, !llvm.loop !16
 
 for.end49.i:                                      ; preds = %for.inc47.i
-  %call50.i = tail call fastcc i32 @attr_destroy(ptr noundef %ctxt, ptr noundef nonnull %nattr)
+  %call50.i = tail call fastcc i32 @attr_destroy(ptr noundef nonnull %ctxt, ptr noundef nonnull %nattr)
   br label %return
 
 return:                                           ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb12.i, %sw.bb13.i, %sw.bb15.i, %sw.bb17.i, %sw.bb19.i, %sw.bb21.i, %sw.bb23.i, %sw.bb25.i, %sw.bb27.i, %sw.bb29.i, %sw.bb31.i, %sw.bb33.i, %sw.bb35.i, %sw.bb37.i, %sw.bb39.i, %sw.bb41.i, %sw.bb43.i, %sw.bb45.i, %sw.bb47.i, %for.end49.i, %if.then13.i, %if.then10

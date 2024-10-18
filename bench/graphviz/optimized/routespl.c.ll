@@ -1640,7 +1640,7 @@ cycles_append.exit.i.i:                           ; preds = %73, %gv_alloc.exit.
   %82 = getelementptr inbounds ptr, ptr %.sroa.0.1.i.i, i64 %.sroa.7.028.i.i
   store ptr %60, ptr %82, align 8, !noalias !4
   %83 = add i64 %.sroa.7.028.i.i, 1
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.030.i.i, ptr noundef nonnull %60, ptr noundef %.030.i.i, ptr noundef %6)
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.030.i.i, ptr noundef nonnull %60, ptr noundef %.030.i.i, ptr noundef nonnull align 8 %6)
   %84 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #21, !noalias !4
   %.not.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i

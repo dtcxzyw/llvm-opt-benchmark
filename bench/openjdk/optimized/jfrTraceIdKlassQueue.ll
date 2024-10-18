@@ -617,7 +617,7 @@ define linkonce_odr hidden void @_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrB
 
 8:                                                ; preds = %.preheader7
   %9 = load ptr, ptr %6, align 8
-  %10 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9, ptr nonnull %6, ptr nonnull %2) #11, !srcloc !10
+  %10 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9, ptr nonnull %6, ptr nonnull align 8 dereferenceable(8) %2) #11, !srcloc !10
   %.not.i = icmp eq ptr %10, %6
   br i1 %.not.i, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6removeEv.exit, label %.preheader7.backedge
 
@@ -658,7 +658,7 @@ _ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6removeEv.exit: ; preds = %.preheader
 
 25:                                               ; preds = %.preheader5
   %26 = load ptr, ptr %23, align 8
-  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26, ptr nonnull %23, ptr nonnull %4) #11, !srcloc !10
+  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26, ptr nonnull %23, ptr nonnull align 8 dereferenceable(8) %4) #11, !srcloc !10
   %.not.i1 = icmp eq ptr %27, %23
   br i1 %.not.i1, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6removeEv.exit2, label %.preheader5.backedge
 
@@ -1136,7 +1136,7 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
   %35 = load volatile ptr, ptr %33, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store ptr %35, ptr %29, align 8
-  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, ptr %35, ptr nonnull %33) #11, !srcloc !10
+  %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, ptr %35, ptr nonnull align 8 dereferenceable(8) %33) #11, !srcloc !10
   %.not.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit, label %34, !llvm.loop !37
 
@@ -1392,7 +1392,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15EpochDispatchOpIN13JfrEpochQ
 _ZL12read_elementPKhPPK5Klassb.exit.i.i.i:        ; preds = %49, %33
   %.0.i.i.i = phi ptr [ %45, %33 ], [ %51, %49 ]
   %54 = phi i64 [ %48, %33 ], [ %53, %49 ]
-  %55 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef %54, i1 noundef zeroext %23) #11
+  %55 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef range(i64 0, 4611686018427387904) %54, i1 noundef zeroext %23) #11
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %_ZL12read_elementPKhPPK5Klassb.exit.i.i.i
@@ -1440,7 +1440,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN31ReinitializeAllReleaseRetire
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7, ptr nonnull %1, ptr nonnull %11) #11, !srcloc !10
+  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7, ptr nonnull %1, ptr nonnull align 8 dereferenceable(8) %11) #11, !srcloc !10
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE6exciseEPS0_S3_.exit, label %.preheader
 
@@ -1575,7 +1575,7 @@ define linkonce_odr hidden noundef ptr @_ZN19JfrEpochStorageHostI9JfrBuffer24Jfr
   %24 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store ptr %24, ptr %13, align 8
-  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %24, ptr nonnull %22) #11, !srcloc !10
+  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %24, ptr nonnull align 8 dereferenceable(8) %22) #11, !srcloc !10
   %.not.i.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i.i, label %_Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit.thread, label %23, !llvm.loop !37
 
@@ -1655,7 +1655,7 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   %18 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store ptr %18, ptr %12, align 8
-  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %18, ptr nonnull %16) #11, !srcloc !10
+  %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %18, ptr nonnull align 8 dereferenceable(8) %16) #11, !srcloc !10
   %.not.i.i = icmp eq ptr %19, %18
   br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit, label %17, !llvm.loop !37
 

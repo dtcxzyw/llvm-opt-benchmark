@@ -3085,7 +3085,7 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
 29:                                               ; preds = %25
   %30 = add nuw nsw i64 %21, 7
   %31 = lshr i64 %30, 3
-  %32 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %21, i64 noundef %31) #15
+  %32 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef range(i64 1024, 2147483648) %21, i64 noundef %31) #15
   br label %33
 
 33:                                               ; preds = %29, %27

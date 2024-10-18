@@ -54,12 +54,12 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %5, i32 noundef 1)
+  %13 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %9, ptr noundef %5, i32 noundef 1)
   br label %17
 
 14:                                               ; preds = %8
   %15 = add nsw i32 %spec.store.select, 1
-  %16 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef %15, ptr noundef %9, ptr noundef %5, i32 noundef 0)
+  %16 = call fastcc noundef ptr @__cvt(double noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %15, ptr noundef nonnull %9, ptr noundef %5, i32 noundef 0)
   br label %17
 
 17:                                               ; preds = %14, %12

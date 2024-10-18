@@ -780,7 +780,7 @@ thread-pre-split:                                 ; preds = %52, %58, %53
 146:                                              ; preds = %144
   %147 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
   br label %.body
 
 148:                                              ; preds = %136
@@ -870,7 +870,7 @@ thread-pre-split:                                 ; preds = %52, %58, %53
 176:                                              ; preds = %174
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
   br label %.body
 
 "_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread": ; preds = %.noexc37, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread", %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39"
@@ -1219,7 +1219,7 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.noexc39.i ], [ %38, %.noexc.i ]
   %40 = lshr i64 %.01116.i.i.i.i, 1
   %41 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i.i.i, i64 %40
-  %42 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %41)
+  %42 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %41)
           to label %.noexc39.i unwind label %.loopexit.split-lp12.loopexit.i
 
 .noexc39.i:                                       ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i.i.i
@@ -1455,7 +1455,7 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01116.i.i.i57.i = phi i64 [ %.112.i.i.i60.i, %.noexc63.i ], [ %130, %.noexc62.i ]
   %132 = lshr i64 %.01116.i.i.i57.i, 1
   %133 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i.i56.i, i64 %132
-  %134 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %133)
+  %134 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %133)
           to label %.noexc63.i unwind label %.loopexit.split-lp26.loopexit.i
 
 .noexc63.i:                                       ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i.i55.i
@@ -2307,7 +2307,7 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__16Pcp_MakeIdent
 .body:                                            ; preds = %0
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 56) #26
   resume { ptr, i32 } %5
 
@@ -2967,7 +2967,7 @@ _ZSt7advanceIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i.i ], [ %10, %19 ]
   %22 = lshr i64 %.01116.i.i.i, 1
   %23 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i.i, i64 %22
-  %24 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %23)
+  %24 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %23)
   %25 = icmp ult i64 %20, %24
   %26 = getelementptr inbounds i8, ptr %23, i64 16
   %27 = xor i64 %22, -1
@@ -3295,7 +3295,7 @@ _ZSt7advanceIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.noexc25 ], [ %10, %.noexc24 ]
   %174 = lshr i64 %.01116.i.i.i.i, 1
   %175 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i.i.i, i64 %174
-  %176 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %175)
+  %176 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %175)
           to label %.noexc25 unwind label %.loopexit.split-lp.loopexit
 
 .noexc25:                                         ; preds = %_ZSt7advanceIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i.i.i
@@ -4502,7 +4502,7 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i ], [ %385, %381 ]
   %387 = lshr i64 %.01116.i.i, 1
   %388 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i, i64 %387
-  %389 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %388)
+  %389 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %388)
           to label %.noexc92 unwind label %.loopexit138
 
 .noexc92:                                         ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i
@@ -4514,7 +4514,7 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   br i1 %.not.i.i.i.i.i91, label %395, label %391
 
 391:                                              ; preds = %.noexc93
-  %392 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %388)
+  %392 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %388)
           to label %.noexc94 unwind label %.loopexit138
 
 .noexc94:                                         ; preds = %391
@@ -4551,7 +4551,7 @@ _ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_
           to label %.noexc96 unwind label %.loopexit.split-lp139
 
 .noexc96:                                         ; preds = %401
-  %403 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.lcssa.i.i)
+  %403 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.0.lcssa.i.i)
           to label %.noexc97 unwind label %.loopexit.split-lp139
 
 .noexc97:                                         ; preds = %.noexc96
@@ -4563,7 +4563,7 @@ _ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_
           to label %.noexc98 unwind label %.loopexit.split-lp139
 
 .noexc98:                                         ; preds = %404
-  %406 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.lcssa.i.i)
+  %406 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.0.lcssa.i.i)
           to label %.noexc99 unwind label %.loopexit.split-lp139
 
 .noexc99:                                         ; preds = %.noexc98
@@ -5290,7 +5290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit: ; preds = %_
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit
   %69 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
   resume { ptr, i32 } %69
 }
 
@@ -5576,7 +5576,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction20GetSourceTo
   %10 = getelementptr inbounds %"struct.std::pair", ptr %spec.select.i, i64 %9
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %11, ptr %13, align 8
@@ -6085,7 +6085,7 @@ thread-pre-split:                                 ; preds = %_ZNSt8_Rb_treeIN32p
   br i1 %.not67.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i, label %19
 
 19:                                               ; preds = %18
-  %20 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %20 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(16) %10)
           to label %.noexc7 unwind label %26
 
 .noexc7:                                          ; preds = %19
@@ -6099,7 +6099,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i: ; p
   br i1 %.not67.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i, label %.noexc.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.i, %.noexc7, %18, %11, %.lr.ph.i
-  %21 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %21 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %10)
           to label %.noexc8 unwind label %26
 
 .noexc8:                                          ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread.i
@@ -7088,7 +7088,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvNS
   %32 = getelementptr inbounds i8, ptr %25, i64 -88
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %26, i8 0, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = getelementptr inbounds i8, ptr %25, i64 -80
   %36 = load ptr, ptr %35, align 8
@@ -7683,7 +7683,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_E
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %27, %.lr.ph.i.i.i.i2 ], [ %24, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EED2Ev.exit ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(37) %.05.i.i.i.i3) #22
   %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 40
   %.not.i.i.i.i4 = icmp eq ptr %27, %26
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !51
@@ -7751,7 +7751,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfP
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(37) %.05.i.i.i) #22
   %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !51
@@ -7845,7 +7845,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfP
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i.i.i.i.i.i.i.i.i unwind label %20
 
 20:                                               ; preds = %14
@@ -7857,7 +7857,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfP
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %14, %.lr.ph.i.i.i.i.i.i.i.i.i
   store ptr null, ptr %9, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.05.i.i.i.i.i.i.i.i.i) #22
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, %8
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !52
@@ -7940,7 +7940,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22Sd
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i.i.i.i.i.i.i unwind label %18
 
 18:                                               ; preds = %12
@@ -7952,7 +7952,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22Sd
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %12, %.lr.ph.i.i.i.i.i.i.i
   store ptr null, ptr %7, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.05.i.i.i.i.i.i.i) #22
   %21 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i = icmp eq ptr %21, %6
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !52
@@ -8008,7 +8008,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22Sd
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i unwind label %14
 
 14:                                               ; preds = %8
@@ -8020,7 +8020,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22Sd
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEvPT_.exit.i: ; preds = %8, %.lr.ph.i
   store ptr null, ptr %3, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.05.i) #22
   %17 = getelementptr inbounds i8, ptr %.05.i, i64 48
   %.not.i = icmp eq ptr %17, %1
   br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEEEvT_S6_.exit, label %.lr.ph.i, !llvm.loop !52
@@ -8067,7 +8067,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -8132,7 +8132,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1_EE9pus
   %56 = load i8, ptr %55, align 4, !noalias !54
   %57 = trunc i8 %56 to i1
   %58 = trunc i8 %.val16.val.i to i1
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7SdfPathEPKSt4pairIS0_S0_Eibb(ptr dead_on_unwind noalias nonnull writable align 4 %4, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %spec.select.i.i.i, i32 noundef %52, i1 noundef zeroext %57, i1 noundef zeroext %58)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7SdfPathEPKSt4pairIS0_S0_Eibb(ptr dead_on_unwind noalias nonnull writable align 4 %4, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %spec.select.i.i.i, i32 noundef %52, i1 noundef zeroext %57, i1 noundef zeroext %58)
   %59 = load i32, ptr %4, align 4
   %.not.i17.i = icmp eq i32 %59, 0
   br i1 %.not.i17.i, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
@@ -8184,7 +8184,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i: ; preds = 
 87:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i
   %88 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %66) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #22
   br label %.body.i
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i
@@ -8274,7 +8274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %47
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %134 = load ptr, ptr %133, align 8
   store ptr %134, ptr %132, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 24, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %137 = load ptr, ptr %136, align 8
@@ -8454,7 +8454,7 @@ common.resume:                                    ; preds = %42, %21
 21:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #22
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #22
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceC2ERKS1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
@@ -8555,7 +8555,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load ptr, ptr %33, align 8
@@ -8603,7 +8603,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1
   %57 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %58 = load ptr, ptr %57, align 8, !alias.scope !60, !noalias !57
   store ptr %58, ptr %56, align 8, !alias.scope !57, !noalias !60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
   %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %61 = load ptr, ptr %60, align 8, !alias.scope !60, !noalias !57
@@ -8660,7 +8660,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1_EE11_S
   %87 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %88 = load ptr, ptr %87, align 8, !alias.scope !66, !noalias !63
   store ptr %88, ptr %86, align 8, !alias.scope !63, !noalias !66
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !66, !noalias !63
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !66, !noalias !63
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %91 = load ptr, ptr %90, align 8, !alias.scope !66, !noalias !63
@@ -8929,7 +8929,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19Expr
 103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
   %104 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %24) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #22
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = tail call ptr @__cxa_begin_catch(ptr %105) #22
   %107 = mul nuw nsw i64 %16, 40
@@ -9009,7 +9009,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressio
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !84, !noalias !81
   store ptr %31, ptr %29, align 8, !alias.scope !81, !noalias !84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !84, !noalias !81
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !84, !noalias !81
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !alias.scope !84, !noalias !81
@@ -9066,7 +9066,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1_EE11_S
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 16
   %61 = load ptr, ptr %60, align 8, !alias.scope !89, !noalias !86
   store ptr %61, ptr %59, align 8, !alias.scope !86, !noalias !89
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !89, !noalias !86
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i29, i8 0, i64 24, i1 false), !alias.scope !89, !noalias !86
   %62 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 24
   %64 = load ptr, ptr %63, align 8, !alias.scope !89, !noalias !86
@@ -9198,7 +9198,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 24, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load ptr, ptr %24, align 8
@@ -9263,7 +9263,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionESaIS1_EE9pus
   %57 = load i8, ptr %56, align 4, !noalias !91
   %58 = trunc i8 %57 to i1
   %59 = trunc i8 %.val16.val.i to i1
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7SdfPathEPKSt4pairIS0_S0_Eibb(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %spec.select.i.i.i, i32 noundef %53, i1 noundef zeroext %58, i1 noundef zeroext %59)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7SdfPathEPKSt4pairIS0_S0_Eibb(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef %spec.select.i.i.i, i32 noundef %53, i1 noundef zeroext %58, i1 noundef zeroext %59)
   %60 = load i32, ptr %5, align 4
   %.not.i.i = icmp eq i32 %60, 0
   br i1 %.not.i.i, label %61, label %80
@@ -9359,7 +9359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %82, %
 
 105:                                              ; preds = %103, %101
   %.pn.i.i = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6) #22
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #22
   br label %.body.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i21.i: ; preds = %98
@@ -9449,7 +9449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i21.i: ; preds = %98
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %159 = load ptr, ptr %158, align 8
   store ptr %159, ptr %157, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 24, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %162 = load ptr, ptr %161, align 8
@@ -9610,7 +9610,7 @@ common.resume:                                    ; preds = %34, %28
 
 28:                                               ; preds = %26, %24
   %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %3) #22
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #22
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ERKS0_.exit: ; preds = %21
@@ -9690,7 +9690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %9, 
 
 32:                                               ; preds = %30, %28
   %.pn.i.i.i = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #22
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %25
@@ -9938,7 +9938,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EE
 
 119:                                              ; preds = %45, %47
   %.pn.i.i.i = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %24) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %24) #22
   %120 = extractvalue { ptr, i32 } %.pn.i.i.i, 0
   %121 = tail call ptr @__cxa_begin_catch(ptr %120) #22
   %122 = shl nuw nsw i64 %16, 6
@@ -10001,7 +10001,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9C
 .lr.ph.i.i.i.i:                                   ; preds = %13, %20
   %.014.i.i.i.i = phi ptr [ %24, %20 ], [ %14, %13 ]
   %.sroa.08.013.i.i.i.i = phi ptr [ %23, %20 ], [ %18, %13 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.013.i.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(37) %.014.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(37) %.sroa.08.013.i.i.i.i)
           to label %20 unwind label %25
 
 20:                                               ; preds = %.lr.ph.i.i.i.i
@@ -10023,7 +10023,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9C
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %25, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %14, %25 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(37) %.05.i.i.i.i.i.i) #22
   %29 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %.014.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentEEvT_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !51
@@ -10450,7 +10450,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEJRKS2_EEvPT_DpOT0_.exit
   %.016 = phi ptr [ %10, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEJRKS2_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.015 = phi ptr [ %9, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEJRKS2_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.016, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.015)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %.016, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.08.015)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %.lr.ph
@@ -10464,7 +10464,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.016) #22
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %.016) #22
   br label %.body
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression5FnArgEJRKS2_EEvPT_DpOT0_.exit: ; preds = %.noexc
@@ -10537,7 +10537,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERK
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
@@ -10571,7 +10571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue6_ClearEv.exit: ; preds = %8, %14
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge unwind label %34
 
 ._ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit_crit_edge: ; preds = %31
@@ -10617,7 +10617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideC2EPS0_.exit: ; preds =
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %54 = load ptr, ptr %53, align 8
-  invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %54(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit unwind label %55
 
 55:                                               ; preds = %52
@@ -10638,7 +10638,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned
 59:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo8CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERS4_.exit
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit15 unwind label %62
 
 62:                                               ; preds = %59
@@ -10696,7 +10696,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %5, %.
 .body:                                            ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.014) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.014) #22
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #22
   invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression19ExpressionReferenceEEvT_S4_(ptr noundef %2, ptr noundef nonnull %.014)
@@ -10791,7 +10791,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %5, %.
 
 .body:                                            ; preds = %26, %24
   %.pn.i.i = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %.017) #22
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %.017) #22
   %28 = extractvalue { ptr, i32 } %.pn.i.i, 0
   %29 = tail call ptr @__cxa_begin_catch(ptr %28) #22
   %.not4.i.i = icmp eq ptr %2, %.017
@@ -11556,14 +11556,14 @@ _ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gn
   %211 = lshr i64 %18, 5
   %212 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %211
   %213 = getelementptr inbounds i8, ptr %.025, i64 -16
-  %214 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %215 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
+  %214 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %215 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
   %.not.i.i.i.i = icmp eq i64 %214, %215
   br i1 %.not.i.i.i.i, label %220, label %216
 
 216:                                              ; preds = %209
-  %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
+  %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
   %219 = icmp ult i64 %217, %218
   br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
 
@@ -11585,14 +11585,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i, %220, %216
-  %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i22.i.i = icmp eq i64 %226, %227
   br i1 %.not.i.i22.i.i, label %232, label %228
 
 228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i
-  %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %231 = icmp ult i64 %229, %230
   br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
 
@@ -11616,8 +11616,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %239, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i, %235, %228
-  %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i29.i.i = icmp eq i64 %240, %241
   br i1 %.not.i.i29.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i
 
@@ -11643,14 +11643,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i, %222, %216
-  %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i36.i.i = icmp eq i64 %250, %251
   br i1 %.not.i.i36.i.i, label %256, label %252
 
 252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
-  %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %12)
+  %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %255 = icmp ult i64 %253, %254
   br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
 
@@ -11673,8 +11673,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %262, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i, %259, %252
-  %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i43.i.i = icmp eq i64 %263, %264
   br i1 %.not.i.i43.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i
 
@@ -11702,8 +11702,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
   %.sink100.i.i = phi ptr [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i ]
-  %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink100.i.i)
-  %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sink100.i.i)
+  %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %276 = icmp ult i64 %274, %275
   %.95.i.i = select i1 %276, ptr %213, ptr %.sink100.i.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i
@@ -11743,14 +11743,14 @@ _ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPat
 
 288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, %287
   %.1.i.i = phi ptr [ %.0.i.i, %287 ], [ %302, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i ]
-  %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i)
-  %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.1.i.i)
+  %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %.not.i.i.i13.i = icmp eq i64 %289, %290
   br i1 %.not.i.i.i13.i, label %295, label %291
 
 291:                                              ; preds = %288
-  %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i)
-  %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.1.i.i)
+  %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %294 = icmp ult i64 %292, %293
   br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
 
@@ -11781,14 +11781,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
   %.013.pn.i.i = phi ptr [ %.013.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader ], [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
-  %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %304 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
+  %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %304 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.114.i.i)
   %.not.i.i15.i.i = icmp eq i64 %303, %304
   br i1 %.not.i.i15.i.i, label %309, label %305
 
 305:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i
-  %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %307 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
+  %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %307 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.114.i.i)
   %308 = icmp ult i64 %306, %307
   br i1 %308, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
 
@@ -11868,14 +11868,14 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
   %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %12
-  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %15 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
+  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %15 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
   %.not.i.i = icmp eq i64 %14, %15
   br i1 %.not.i.i, label %20, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
+  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
 
@@ -11957,11 +11957,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %.07.in.i = add nsw i64 %.0136.i, -1
   %.07.i = sdiv i64 %.07.in.i, 2
   %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.07.i
-  %57 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %56)
+  %57 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %58 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %58 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %.noexc30 unwind label %110
 
 .noexc30:                                         ; preds = %.noexc
@@ -11969,11 +11969,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %.not.i.i.i, label %63, label %59
 
 59:                                               ; preds = %.noexc30
-  %60 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %56)
+  %60 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
           to label %.noexc31 unwind label %110
 
 .noexc31:                                         ; preds = %59
-  %61 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %61 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %.noexc32 unwind label %110
 
 .noexc32:                                         ; preds = %.noexc31
@@ -12188,14 +12188,14 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN32pxrInternal_v0_2
 10:                                               ; preds = %.lr.ph, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit
   %.023 = phi ptr [ %.020, %.lr.ph ], [ %.0, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit ]
   %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.023, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit ]
-  %11 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.023)
-  %12 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %11 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.023)
+  %12 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %.not.i.i = icmp eq i64 %11, %12
   br i1 %.not.i.i, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.023)
-  %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.023)
+  %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18
 
@@ -12439,11 +12439,11 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIN32pxrInte
 13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread, %1
   %.0 = phi ptr [ %0, %1 ], [ %.010, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread ]
   %.010 = getelementptr inbounds i8, ptr %.0, i64 -16
-  %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %13
-  %15 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.010)
+  %15 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.010)
           to label %.noexc11 unwind label %27
 
 .noexc11:                                         ; preds = %.noexc
@@ -12451,11 +12451,11 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIN32pxrInte
   br i1 %.not.i.i, label %20, label %16
 
 16:                                               ; preds = %.noexc11
-  %17 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %17 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %.noexc12 unwind label %27
 
 .noexc12:                                         ; preds = %16
-  %18 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.010)
+  %18 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.010)
           to label %.noexc13 unwind label %27
 
 .noexc13:                                         ; preds = %.noexc12
@@ -12975,14 +12975,14 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPSt4pairIN32pxrInterna
   br i1 %11, label %12, label %42
 
 12:                                               ; preds = %9
-  %13 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr7382)
-  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr81)
+  %13 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr7382)
+  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr81)
   %.not.i.i = icmp eq i64 %13, %14
   br i1 %.not.i.i, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr7382)
-  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr81)
+  %16 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr7382)
+  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.tr81)
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69
 
@@ -13058,14 +13058,14 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01133.i = phi i64 [ %48, %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.lr.ph.i ], [ %75, %.thread.i ]
   %51 = lshr i64 %.01133.i, 1
   %52 = getelementptr inbounds %"struct.std::pair", ptr %.034.i, i64 %51
-  %53 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %52)
-  %54 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %53 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %52)
+  %54 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %46)
   %.not.i.i.i = icmp eq i64 %53, %54
   br i1 %.not.i.i.i, label %62, label %55
 
 55:                                               ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i
-  %56 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %52)
-  %57 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %56 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %52)
+  %57 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %46)
   %58 = icmp ult i64 %56, %57
   %59 = getelementptr inbounds i8, ptr %52, i64 16
   %60 = xor i64 %51, -1
@@ -13139,14 +13139,14 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01133.i47 = phi i64 [ %84, %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.lr.ph.i44 ], [ %111, %.thread.i51 ]
   %87 = lshr i64 %.01133.i47, 1
   %88 = getelementptr inbounds %"struct.std::pair", ptr %.034.i46, i64 %87
-  %89 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %81)
-  %90 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  %89 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %81)
+  %90 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %88)
   %.not.i.i.i50 = icmp eq i64 %89, %90
   br i1 %.not.i.i.i50, label %98, label %91
 
 91:                                               ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i45
-  %92 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %81)
-  %93 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %88)
+  %92 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %81)
+  %93 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %88)
   %94 = icmp ult i64 %92, %93
   %95 = getelementptr inbounds i8, ptr %88, i64 16
   %96 = xor i64 %87, -1
@@ -13261,14 +13261,14 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %.027.i = phi ptr [ %37, %36 ], [ %.tr.lcssa, %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit ]
   %.01826.i = phi ptr [ %.1.i, %36 ], [ %5, %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit ]
   %.01925.i = phi ptr [ %.120.i, %36 ], [ %.tr133.lcssa, %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit ]
-  %19 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01925.i)
-  %20 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01826.i)
+  %19 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.01925.i)
+  %20 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.01826.i)
   %.not.i.i.i = icmp eq i64 %19, %20
   br i1 %.not.i.i.i, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01925.i)
-  %23 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01826.i)
+  %22 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.01925.i)
+  %23 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.01826.i)
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i
 
@@ -13403,14 +13403,14 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
 79:                                               ; preds = %.outer, %110
   %.024.i = phi ptr [ %111, %110 ], [ %.024.i.ph, %.outer ]
   %.0.i = phi ptr [ %107, %110 ], [ %.0.i.ph, %.outer ]
-  %80 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.024.i)
-  %81 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.026.i.ph)
+  %80 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.024.i)
+  %81 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph)
   %.not.i.i.i78 = icmp eq i64 %80, %81
   br i1 %.not.i.i.i78, label %86, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.024.i)
-  %84 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.026.i.ph)
+  %83 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.024.i)
+  %84 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph)
   %85 = icmp ult i64 %83, %84
   br i1 %85, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i
 
@@ -13487,14 +13487,14 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01133.i = phi i64 [ %116, %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.lr.ph.i ], [ %143, %.thread.i ]
   %119 = lshr i64 %.01133.i, 1
   %120 = getelementptr inbounds %"struct.std::pair", ptr %.034.i, i64 %119
-  %121 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %120)
-  %122 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %114)
+  %121 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %120)
+  %122 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %114)
   %.not.i.i.i89 = icmp eq i64 %121, %122
   br i1 %.not.i.i.i89, label %130, label %123
 
 123:                                              ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i
-  %124 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %120)
-  %125 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %114)
+  %124 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %120)
+  %125 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %114)
   %126 = icmp ult i64 %124, %125
   %127 = getelementptr inbounds i8, ptr %120, i64 16
   %128 = xor i64 %119, -1
@@ -13568,14 +13568,14 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.01133.i103 = phi i64 [ %152, %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.lr.ph.i100 ], [ %179, %.thread.i107 ]
   %155 = lshr i64 %.01133.i103, 1
   %156 = getelementptr inbounds %"struct.std::pair", ptr %.034.i102, i64 %155
-  %157 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %149)
-  %158 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %156)
+  %157 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %149)
+  %158 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %156)
   %.not.i.i.i106 = icmp eq i64 %157, %158
   br i1 %.not.i.i.i106, label %166, label %159
 
 159:                                              ; preds = %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i101
-  %160 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %149)
-  %161 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %156)
+  %160 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %149)
+  %161 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %156)
   %162 = icmp ult i64 %160, %161
   %163 = getelementptr inbounds i8, ptr %156, i64 16
   %164 = xor i64 %155, -1
@@ -14557,14 +14557,14 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__p
   %211 = lshr i64 %209, 1
   %212 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %211
   %213 = getelementptr inbounds i8, ptr %storemerge2544, i64 -16
-  %214 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %215 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
+  %214 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %215 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
   %.not.i.i.i.i = icmp eq i64 %214, %215
   br i1 %.not.i.i.i.i, label %220, label %216
 
 216:                                              ; preds = %.lr.ph47
-  %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
+  %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
   %219 = icmp ult i64 %217, %218
   br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
 
@@ -14586,14 +14586,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i, %220, %216
-  %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i26.i.i = icmp eq i64 %226, %227
   br i1 %.not.i.i26.i.i, label %232, label %228
 
 228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i
-  %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %231 = icmp ult i64 %229, %230
   br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
 
@@ -14617,8 +14617,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %239, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i, %235, %228
-  %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i33.i.i = icmp eq i64 %240, %241
   br i1 %.not.i.i33.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i
 
@@ -14644,14 +14644,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i, %222, %216
-  %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i40.i.i = icmp eq i64 %250, %251
   br i1 %.not.i.i40.i.i, label %256, label %252
 
 252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
-  %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
+  %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %255 = icmp ult i64 %253, %254
   br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
 
@@ -14674,8 +14674,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %262, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i, %259, %252
-  %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
-  %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %212)
+  %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %.not.i.i47.i.i = icmp eq i64 %263, %264
   br i1 %.not.i.i47.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i
 
@@ -14703,8 +14703,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
   %.sink104.i.i = phi ptr [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i ]
-  %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink104.i.i)
-  %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
+  %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sink104.i.i)
+  %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %213)
   %276 = icmp ult i64 %274, %275
   %.99.i.i = select i1 %276, ptr %213, ptr %.sink104.i.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i
@@ -14744,14 +14744,14 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInter
 
 288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, %287
   %.sroa.017.1.i.i = phi ptr [ %.sroa.017.0.i.i, %287 ], [ %301, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i ]
-  %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.017.1.i.i)
-  %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.017.1.i.i)
+  %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %.not.i.i.i13.i = icmp eq i64 %289, %290
   br i1 %.not.i.i.i13.i, label %295, label %291
 
 291:                                              ; preds = %288
-  %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.017.1.i.i)
-  %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.017.1.i.i)
+  %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %294 = icmp ult i64 %292, %293
   br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
 
@@ -14782,14 +14782,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %302 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.1.i.i)
+  %302 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.1.i.i)
   %.not.i.i8.i.i = icmp eq i64 %302, %303
   br i1 %.not.i.i8.i.i, label %308, label %304
 
 304:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i
-  %305 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.1.i.i)
+  %305 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
+  %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.1.i.i)
   %307 = icmp ult i64 %305, %306
   br i1 %307, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
 
@@ -14870,14 +14870,14 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
   %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %12
-  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %15 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
+  %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %15 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
   %.not.i.i = icmp eq i64 %14, %15
   br i1 %.not.i.i, label %20, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
-  %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
+  %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %11)
+  %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %13)
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
 
@@ -14959,11 +14959,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
   %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0913.i
-  %57 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %56)
+  %57 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
           to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %58 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %58 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %.noexc25 unwind label %110
 
 .noexc25:                                         ; preds = %.noexc
@@ -14971,11 +14971,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %.not.i.i.i, label %63, label %59
 
 59:                                               ; preds = %.noexc25
-  %60 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %56)
+  %60 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %56)
           to label %.noexc26 unwind label %110
 
 .noexc26:                                         ; preds = %59
-  %61 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %5)
+  %61 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %.noexc27 unwind label %110
 
 .noexc27:                                         ; preds = %.noexc26
@@ -15102,14 +15102,14 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
 10:                                               ; preds = %.lr.ph, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit
   %.sroa.0.023 = phi ptr [ %.sroa.0.020, %.lr.ph ], [ %.sroa.0.0, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit ]
   %.pn22 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.023, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit ]
-  %11 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.023)
-  %12 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %11 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.023)
+  %12 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %.not.i.i = icmp eq i64 %11, %12
   br i1 %.not.i.i, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.023)
-  %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.023)
+  %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %0)
   %16 = icmp ult i64 %14, %15
   br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17
 
@@ -15353,11 +15353,11 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
 13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread, %1
   %.sroa.06.0 = phi ptr [ %0, %1 ], [ %.sroa.0.0, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread ]
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 -16
-  %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %13
-  %15 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0)
+  %15 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.0)
           to label %.noexc1 unwind label %27
 
 .noexc1:                                          ; preds = %.noexc
@@ -15365,11 +15365,11 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
   br i1 %.not.i.i, label %20, label %16
 
 16:                                               ; preds = %.noexc1
-  %17 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %17 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %2)
           to label %.noexc2 unwind label %27
 
 .noexc2:                                          ; preds = %16
-  %18 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.0)
+  %18 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.0)
           to label %.noexc3 unwind label %27
 
 .noexc3:                                          ; preds = %.noexc2

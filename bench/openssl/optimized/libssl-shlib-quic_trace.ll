@@ -470,25 +470,25 @@ frame_ack.exit.i:                                 ; preds = %for.body.i.i70, %if
 
 sw.bb19.i:                                        ; preds = %if.end.i66
   %call20.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.30) #3
-  %call21.i = call fastcc i32 @frame_reset_stream(ptr noundef %arg, ptr noundef %pkt)
+  %call21.i = call fastcc i32 @frame_reset_stream(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb25.i:                                        ; preds = %if.end.i66
   %call26.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.31) #3
-  %call27.i = call fastcc i32 @frame_stop_sending(ptr noundef %arg, ptr noundef %pkt)
+  %call27.i = call fastcc i32 @frame_stop_sending(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb31.i:                                        ; preds = %if.end.i66
   %call32.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.32) #3
-  %call33.i = call fastcc i32 @frame_crypto(ptr noundef %arg, ptr noundef %pkt)
+  %call33.i = call fastcc i32 @frame_crypto(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb37.i:                                        ; preds = %if.end.i66
   %call38.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.33) #3
-  %call39.i = call fastcc i32 @frame_new_token(ptr noundef %arg, ptr noundef %pkt)
+  %call39.i = call fastcc i32 @frame_new_token(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool40.not.i = icmp eq i32 %call39.i, 0
   br i1 %tobool40.not.i, label %if.then70, label %sw.epilog.i
 
@@ -535,13 +535,13 @@ frame_stream.exit.i:                              ; preds = %if.else.i.i, %if.th
 
 sw.bb48.i:                                        ; preds = %if.end.i66
   %call49.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.34) #3
-  %call50.i = call fastcc i32 @frame_max_data(ptr noundef %arg, ptr noundef %pkt)
+  %call50.i = call fastcc i32 @frame_max_data(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb54.i:                                        ; preds = %if.end.i66
   %call55.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.35) #3
-  %call56.i = call fastcc i32 @frame_max_stream_data(ptr noundef %arg, ptr noundef %pkt)
+  %call56.i = call fastcc i32 @frame_max_stream_data(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool57.not.i = icmp eq i32 %call56.i, 0
   br i1 %tobool57.not.i, label %if.then70, label %sw.epilog.i
 
@@ -569,13 +569,13 @@ frame_max_streams.exit.i:                         ; preds = %sw.bb60.i
 
 sw.bb72.i:                                        ; preds = %if.end.i66
   %call73.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.39) #3
-  %call74.i = call fastcc i32 @frame_data_blocked(ptr noundef %arg, ptr noundef %pkt)
+  %call74.i = call fastcc i32 @frame_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool75.not.i = icmp eq i32 %call74.i, 0
   br i1 %tobool75.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb78.i:                                        ; preds = %if.end.i66
   %call79.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.40) #3
-  %call80.i = call fastcc i32 @frame_stream_data_blocked(ptr noundef %arg, ptr noundef %pkt)
+  %call80.i = call fastcc i32 @frame_stream_data_blocked(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool81.not.i = icmp eq i32 %call80.i, 0
   br i1 %tobool81.not.i, label %if.then70, label %sw.epilog.i
 
@@ -603,25 +603,25 @@ frame_streams_blocked.exit.i:                     ; preds = %sw.bb84.i
 
 sw.bb96.i:                                        ; preds = %if.end.i66
   %call97.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.42) #3
-  %call98.i = call fastcc i32 @frame_new_conn_id(ptr noundef %arg, ptr noundef %pkt)
+  %call98.i = call fastcc i32 @frame_new_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool99.not.i = icmp eq i32 %call98.i, 0
   br i1 %tobool99.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb102.i:                                       ; preds = %if.end.i66
   %call103.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.43) #3
-  %call104.i = call fastcc i32 @frame_retire_conn_id(ptr noundef %arg, ptr noundef %pkt)
+  %call104.i = call fastcc i32 @frame_retire_conn_id(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool105.not.i = icmp eq i32 %call104.i, 0
   br i1 %tobool105.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb108.i:                                       ; preds = %if.end.i66
   %call109.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.44) #3
-  %call110.i = call fastcc i32 @frame_path_challenge(ptr noundef %arg, ptr noundef %pkt)
+  %call110.i = call fastcc i32 @frame_path_challenge(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool111.not.i = icmp eq i32 %call110.i, 0
   br i1 %tobool111.not.i, label %if.then70, label %sw.epilog.i
 
 sw.bb114.i:                                       ; preds = %if.end.i66
   %call115.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.45) #3
-  %call116.i = call fastcc i32 @frame_path_response(ptr noundef %arg, ptr noundef %pkt)
+  %call116.i = call fastcc i32 @frame_path_response(ptr noundef %arg, ptr noundef nonnull %pkt)
   %tobool117.not.i = icmp eq i32 %call116.i, 0
   br i1 %tobool117.not.i, label %if.then70, label %sw.epilog.i
 

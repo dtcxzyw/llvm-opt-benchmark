@@ -830,7 +830,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit:
   br i1 %25, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.059, i32 noundef %15)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef %.059, i32 noundef %15)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -2103,7 +2103,7 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -2113,7 +2113,7 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -2534,7 +2534,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit:
   br i1 %25, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
-  %26 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.061, i32 noundef %15)
+  %26 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef %.061, i32 noundef %15)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -3596,7 +3596,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -3606,7 +3606,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -6279,7 +6279,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit:
   br i1 %58, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %51
-  %59 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.0396, i32 noundef %48)
+  %59 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef %.0396, i32 noundef %48)
   %60 = extractvalue { ptr, i8 } %59, 0
   %61 = extractvalue { ptr, i8 } %59, 1
   %62 = trunc i8 %61 to i1
@@ -6424,7 +6424,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN4i18n12phonenum
   br i1 %118, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %119
 
 119:                                              ; preds = %105
-  %120 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull %2)
+  %120 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %121 = icmp eq ptr %120, null
   br i1 %121, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %122
 
@@ -6520,7 +6520,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i89: ; preds = %_ZN4i18n12phonen
   br i1 %170, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %171
 
 171:                                              ; preds = %157
-  %172 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull %storemerge.i12.i92, ptr noundef nonnull %2)
+  %172 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull %storemerge.i12.i92, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %173 = icmp eq ptr %172, null
   br i1 %173, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %174
 
@@ -6616,7 +6616,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i101: ; preds = %_ZN4i18n12phone
   br i1 %222, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %223
 
 223:                                              ; preds = %209
-  %224 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %201, ptr noundef nonnull %storemerge.i12.i104, ptr noundef nonnull %2)
+  %224 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %201, ptr noundef nonnull %storemerge.i12.i104, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %225 = icmp eq ptr %224, null
   br i1 %225, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %226
 
@@ -6712,7 +6712,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i113: ; preds = %_ZN4i18n12phone
   br i1 %274, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %275
 
 275:                                              ; preds = %261
-  %276 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull %storemerge.i12.i116, ptr noundef nonnull %2)
+  %276 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull %storemerge.i12.i116, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %277 = icmp eq ptr %276, null
   br i1 %277, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %278
 
@@ -6808,7 +6808,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i125: ; preds = %_ZN4i18n12phone
   br i1 %326, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %327
 
 327:                                              ; preds = %313
-  %328 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %305, ptr noundef nonnull %storemerge.i12.i128, ptr noundef nonnull %2)
+  %328 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %305, ptr noundef nonnull %storemerge.i12.i128, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %329 = icmp eq ptr %328, null
   br i1 %329, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %330
 
@@ -6904,7 +6904,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i137: ; preds = %_ZN4i18n12phone
   br i1 %378, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %379
 
 379:                                              ; preds = %365
-  %380 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %357, ptr noundef nonnull %storemerge.i12.i140, ptr noundef nonnull %2)
+  %380 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %357, ptr noundef nonnull %storemerge.i12.i140, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %381 = icmp eq ptr %380, null
   br i1 %381, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %382
 
@@ -7000,7 +7000,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i149: ; preds = %_ZN4i18n12phone
   br i1 %430, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %431
 
 431:                                              ; preds = %417
-  %432 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %409, ptr noundef nonnull %storemerge.i12.i152, ptr noundef nonnull %2)
+  %432 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %409, ptr noundef nonnull %storemerge.i12.i152, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %433 = icmp eq ptr %432, null
   br i1 %433, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %434
 
@@ -7096,7 +7096,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i161: ; preds = %_ZN4i18n12phone
   br i1 %482, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %483
 
 483:                                              ; preds = %469
-  %484 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %461, ptr noundef nonnull %storemerge.i12.i164, ptr noundef nonnull %2)
+  %484 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %461, ptr noundef nonnull %storemerge.i12.i164, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %485 = icmp eq ptr %484, null
   br i1 %485, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %486
 
@@ -7511,7 +7511,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i199: ; preds = %_ZN4i18n12phone
   br i1 %702, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %703
 
 703:                                              ; preds = %689
-  %704 = tail call noundef ptr @_ZN4i18n12phonenumbers12NumberFormat14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i202, ptr noundef nonnull %2)
+  %704 = tail call noundef ptr @_ZN4i18n12phonenumbers12NumberFormat14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i, ptr noundef nonnull %storemerge.i12.i202, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %705 = icmp eq ptr %704, null
   br i1 %705, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %706
 
@@ -7651,7 +7651,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i215: ; preds = %_ZN4i18n12phone
   br i1 %775, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %776
 
 776:                                              ; preds = %762
-  %777 = tail call noundef ptr @_ZN4i18n12phonenumbers12NumberFormat14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i208, ptr noundef nonnull %storemerge.i12.i218, ptr noundef nonnull %2)
+  %777 = tail call noundef ptr @_ZN4i18n12phonenumbers12NumberFormat14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i.i208, ptr noundef nonnull %storemerge.i12.i218, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %778 = icmp eq ptr %777, null
   br i1 %778, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %779
 
@@ -7753,7 +7753,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i228: ; preds = %_ZN4i18n12phone
   br i1 %831, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %832
 
 832:                                              ; preds = %818
-  %833 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %810, ptr noundef nonnull %storemerge.i12.i231, ptr noundef nonnull %2)
+  %833 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %810, ptr noundef nonnull %storemerge.i12.i231, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %834 = icmp eq ptr %833, null
   br i1 %834, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %835
 
@@ -7926,7 +7926,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i248: ; preds = %_ZN4i18n12phone
   br i1 %924, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %925
 
 925:                                              ; preds = %911
-  %926 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %903, ptr noundef nonnull %storemerge.i12.i251, ptr noundef nonnull %2)
+  %926 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %903, ptr noundef nonnull %storemerge.i12.i251, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %927 = icmp eq ptr %926, null
   br i1 %927, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %928
 
@@ -8022,7 +8022,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i260: ; preds = %_ZN4i18n12phone
   br i1 %976, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %977
 
 977:                                              ; preds = %963
-  %978 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %955, ptr noundef nonnull %storemerge.i12.i263, ptr noundef nonnull %2)
+  %978 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %955, ptr noundef nonnull %storemerge.i12.i263, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %979 = icmp eq ptr %978, null
   br i1 %979, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %980
 
@@ -8118,7 +8118,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i272: ; preds = %_ZN4i18n12phone
   br i1 %1028, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1029
 
 1029:                                             ; preds = %1015
-  %1030 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1007, ptr noundef nonnull %storemerge.i12.i275, ptr noundef nonnull %2)
+  %1030 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1007, ptr noundef nonnull %storemerge.i12.i275, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1031 = icmp eq ptr %1030, null
   br i1 %1031, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1032
 
@@ -8214,7 +8214,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i284: ; preds = %_ZN4i18n12phone
   br i1 %1080, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1081
 
 1081:                                             ; preds = %1067
-  %1082 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1059, ptr noundef nonnull %storemerge.i12.i287, ptr noundef nonnull %2)
+  %1082 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1059, ptr noundef nonnull %storemerge.i12.i287, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1083 = icmp eq ptr %1082, null
   br i1 %1083, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1084
 
@@ -8310,7 +8310,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i296: ; preds = %_ZN4i18n12phone
   br i1 %1132, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1133
 
 1133:                                             ; preds = %1119
-  %1134 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1111, ptr noundef nonnull %storemerge.i12.i299, ptr noundef nonnull %2)
+  %1134 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1111, ptr noundef nonnull %storemerge.i12.i299, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1135 = icmp eq ptr %1134, null
   br i1 %1135, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1136
 
@@ -8406,7 +8406,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i308: ; preds = %_ZN4i18n12phone
   br i1 %1184, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1185
 
 1185:                                             ; preds = %1171
-  %1186 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1163, ptr noundef nonnull %storemerge.i12.i311, ptr noundef nonnull %2)
+  %1186 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1163, ptr noundef nonnull %storemerge.i12.i311, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1187 = icmp eq ptr %1186, null
   br i1 %1187, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1188
 
@@ -8502,7 +8502,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i320: ; preds = %_ZN4i18n12phone
   br i1 %1236, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1237
 
 1237:                                             ; preds = %1223
-  %1238 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1215, ptr noundef nonnull %storemerge.i12.i323, ptr noundef nonnull %2)
+  %1238 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1215, ptr noundef nonnull %storemerge.i12.i323, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1239 = icmp eq ptr %1238, null
   br i1 %1239, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1240
 
@@ -8647,7 +8647,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i337: ; preds = %_ZN4i18n12phone
   br i1 %1314, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1315
 
 1315:                                             ; preds = %1301
-  %1316 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1293, ptr noundef nonnull %storemerge.i12.i340, ptr noundef nonnull %2)
+  %1316 = tail call noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberDesc14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %1293, ptr noundef nonnull %storemerge.i12.i340, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %1317 = icmp eq ptr %1316, null
   br i1 %1317, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %1318
 
@@ -12869,7 +12869,7 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -12879,7 +12879,7 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
@@ -13273,7 +13273,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit:
   br i1 %21, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %14
-  %22 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %.028, i32 noundef %11)
+  %22 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef %.028, i32 noundef %11)
   %23 = extractvalue { ptr, i8 } %22, 0
   %24 = extractvalue { ptr, i8 } %22, 1
   %25 = trunc i8 %24 to i1
@@ -13360,7 +13360,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %45
   br i1 %68, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %69
 
 69:                                               ; preds = %55
-  %70 = tail call noundef ptr @_ZN4i18n12phonenumbers13PhoneMetadata14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(280) %47, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull %2)
+  %70 = tail call noundef ptr @_ZN4i18n12phonenumbers13PhoneMetadata14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(280) %47, ptr noundef nonnull %storemerge.i12.i, ptr noundef nonnull align 8 dereferenceable(112) %2)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %72
 
@@ -14038,7 +14038,7 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc1 unwind label %7
 
 .noexc1:                                          ; preds = %.noexc
@@ -14048,7 +14048,7 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #22
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1

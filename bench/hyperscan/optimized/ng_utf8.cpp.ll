@@ -128,17 +128,17 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc17
   %__begin1.sroa.0.034 = phi ptr [ %__begin1.sroa.0.032, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %for.inc17 ]
   %props.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 16
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i, ptr noundef nonnull dereferenceable(32) %e0, i64 32)
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i, ptr noundef nonnull align 8 dereferenceable(32) %e0, i64 32)
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %for.body.i.i.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %bcmp.i.i.i.i.i.i.i13 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i, ptr noundef nonnull dereferenceable(32) %f0, i64 32)
+  %bcmp.i.i.i.i.i.i.i13 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i, ptr noundef nonnull align 8 dereferenceable(32) %f0, i64 32)
   %tobool1.not.i.i.i.i.i.i.i14 = icmp eq i32 %bcmp.i.i.i.i.i.i.i13, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i14, label %for.body.i.i.preheader, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %bcmp.i.i.i.i.i.i.i15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i, ptr noundef nonnull dereferenceable(32) %f4, i64 32)
+  %bcmp.i.i.i.i.i.i.i15 = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i, ptr noundef nonnull align 8 dereferenceable(32) %f4, i64 32)
   %tobool1.not.i.i.i.i.i.i.i16 = icmp eq i32 %bcmp.i.i.i.i.i.i.i15, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i16, label %for.body.i.i.preheader, label %for.inc17
 
@@ -194,21 +194,21 @@ if.end.i:                                         ; preds = %for.body12
 if.then4.i:                                       ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   store i64 -4294967296, ptr %arrayidx.i.i26.i.i.i.i, align 8
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.then11.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i8 0, i64 32, i1 false)
   store i64 -65536, ptr %arrayidx.i.i26.i.i.i12.i, align 8
-  %bcmp.i.i.i.i.i.i.i14.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp12.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i14.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i15.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i14.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i15.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.then20.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, i8 0, i64 32, i1 false)
   store i64 65535, ptr %arrayidx.i.i26.i.i.i28.i, align 8
-  %bcmp.i.i.i.i.i.i.i30.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp21.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i30.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i31.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i30.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i31.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
@@ -2324,7 +2324,7 @@ land.end.i:                                       ; preds = %for.inc.i.i.i.i150.
   %props.i155.i = getelementptr inbounds i8, ptr %.fr.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54.i, i8 0, i64 32, i1 false)
   store i64 -1, ptr %arrayidx.i.i26.i.i.i.i, align 8
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i155.i, ptr noundef nonnull dereferenceable(32) %ref.tmp54.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i155.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %do.end61.i, label %if.end65.i
 
@@ -2591,7 +2591,7 @@ invoke.cont132.i:                                 ; preds = %invoke.cont116.i
   %props.i190.i = getelementptr inbounds i8, ptr %169, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130.i, i8 0, i64 32, i1 false)
   store i64 -1, ptr %arrayidx.i.i26.i.i.i191.i, align 8
-  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i190.i, ptr noundef nonnull dereferenceable(32) %ref.tmp130.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i190.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i, label %invoke.cont135.i, label %for.inc242.i
 
@@ -2677,7 +2677,7 @@ invoke.cont179.i:                                 ; preds = %invoke.cont163.i
   %props.i257.i = getelementptr inbounds i8, ptr %178, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177.i, i8 0, i64 32, i1 false)
   store i64 -1, ptr %arrayidx.i.i26.i.i.i258.i, align 8
-  %bcmp.i.i.i.i.i.i.i.i260.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i257.i, ptr noundef nonnull dereferenceable(32) %ref.tmp177.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i260.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i257.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i261.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i260.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i261.not.i, label %invoke.cont183.i, label %for.inc242.i
 
@@ -2695,7 +2695,7 @@ invoke.cont202.i:                                 ; preds = %invoke.cont183.i
   %props.i269.i = getelementptr inbounds i8, ptr %181, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200.i, i8 0, i64 32, i1 false)
   store i64 -1, ptr %arrayidx.i.i26.i.i.i270.i, align 8
-  %bcmp.i.i.i.i.i.i.i.i272.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i269.i, ptr noundef nonnull dereferenceable(32) %ref.tmp200.i, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i272.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %props.i269.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i273.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i272.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i273.not.i, label %invoke.cont206.i, label %for.inc242.i
 
@@ -3473,7 +3473,7 @@ if.else.i.i.i.i.i:
   store i64 0, ptr %m_size.i.i.i.i.i.i.i, align 8
   %m_capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i, align 8
-  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
+  invoke void @_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE6assignINS_13move_iteratorIPSA_EEEEvT_SJ_PNS_11move_detail13disable_if_orIvNSK_7is_sameINSK_17integral_constantIjLj1EEENSN_IjLj0EEEEENSK_14is_convertibleISJ_mEENS0_3dtl17is_input_iteratorISJ_Xsr21has_iterator_categoryISJ_EE5valueEEENSK_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %m_storage_start.i.i.i, ptr nonnull %m_storage_start.i.i.i, ptr noundef null)
           to label %invoke.cont4 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.else.i.i.i.i.i

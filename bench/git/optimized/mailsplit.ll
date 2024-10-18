@@ -391,7 +391,7 @@ if.end9.i:                                        ; preds = %for.body.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   %inc.i = add nsw i32 %skip.addr.034.i, 1
-  %call16.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %dir.2, i32 noundef %nr_prec.093158, i32 noundef %inc.i) #16
+  %call16.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %dir.2, i32 noundef range(i32 -2147483648, 10) %nr_prec.093158, i32 noundef %inc.i) #16
   %call17.i = call fastcc i32 @split_one(ptr noundef nonnull %call5.i, ptr noundef %call16.i, i32 noundef 1)
   call void @free(ptr noundef %call16.i) #16
   %call18.i = call i32 @fclose(ptr noundef nonnull %call5.i)

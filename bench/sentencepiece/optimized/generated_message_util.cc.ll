@@ -292,7 +292,7 @@ define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11Messa
 
 16:                                               ; preds = %2
   store ptr %15, ptr %10, align 8
-  %17 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(59) %4, ptr noundef %15)
+  %17 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %15)
           to label %18 unwind label %25
 
 18:                                               ; preds = %16
@@ -486,7 +486,7 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i, label %43
 
 43:                                               ; preds = %38
-  %44 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %41)
+  %44 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %41)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i: ; preds = %43, %38
@@ -544,7 +544,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %70
 
 70:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i
-  %71 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i)
+  %71 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i, %70
@@ -568,7 +568,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i393, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394, label %81
 
 81:                                               ; preds = %76
-  %82 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %79)
+  %82 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %79)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394: ; preds = %81, %76
@@ -626,7 +626,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i400, label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit402, label %108
 
 108:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398
-  %109 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i399)
+  %109 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i399)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit402
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit402: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398, %108
@@ -663,7 +663,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i, label %126
 
 126:                                              ; preds = %123
-  %127 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %124)
+  %127 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %124)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i: ; preds = %126, %123
@@ -721,7 +721,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i403, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %153
 
 153:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i
-  %154 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i)
+  %154 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i, %153
@@ -753,7 +753,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i405, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406, label %171
 
 171:                                              ; preds = %166
-  %172 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %169)
+  %172 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %169)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406: ; preds = %171, %166
@@ -811,7 +811,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i412, label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %198
 
 198:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410
-  %199 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i411)
+  %199 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i411)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410, %198
@@ -835,7 +835,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i414, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415, label %209
 
 209:                                              ; preds = %204
-  %210 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %207)
+  %210 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %207)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415: ; preds = %209, %204
@@ -893,7 +893,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i421, label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit423, label %236
 
 236:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419
-  %237 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i420)
+  %237 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i420)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit423
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit423: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419, %236
@@ -930,7 +930,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i424, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425, label %254
 
 254:                                              ; preds = %251
-  %255 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %252)
+  %255 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %252)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425: ; preds = %254, %251
@@ -988,7 +988,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i431, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %281
 
 281:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429
-  %282 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i430)
+  %282 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i430)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429, %281
@@ -1020,7 +1020,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i433, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434, label %299
 
 299:                                              ; preds = %294
-  %300 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %297)
+  %300 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %297)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434: ; preds = %299, %294
@@ -1078,7 +1078,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i440, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %326
 
 326:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
-  %327 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i439)
+  %327 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i439)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %326, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
@@ -1146,7 +1146,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i442, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443, label %359
 
 359:                                              ; preds = %354
-  %360 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %357)
+  %360 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %357)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443: ; preds = %359, %354
@@ -1204,7 +1204,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i449, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450, label %386
 
 386:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
-  %387 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i448)
+  %387 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i448)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450: ; preds = %386, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
@@ -1285,7 +1285,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i456, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457, label %426
 
 426:                                              ; preds = %423
-  %427 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %424)
+  %427 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %424)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457: ; preds = %426, %423
@@ -1343,7 +1343,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i463, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464, label %453
 
 453:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
-  %454 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i462)
+  %454 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i462)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464: ; preds = %453, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
@@ -1419,7 +1419,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i469, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470, label %493
 
 493:                                              ; preds = %488
-  %494 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %491)
+  %494 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %491)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470: ; preds = %493, %488
@@ -1477,7 +1477,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i476, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477, label %520
 
 520:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
-  %521 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i475)
+  %521 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i475)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477: ; preds = %520, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
@@ -1545,7 +1545,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i482, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483, label %553
 
 553:                                              ; preds = %548
-  %554 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %551)
+  %554 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %551)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483: ; preds = %553, %548
@@ -1603,7 +1603,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i489, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490, label %580
 
 580:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
-  %581 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i488)
+  %581 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i488)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490: ; preds = %580, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
@@ -1684,7 +1684,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i496, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497, label %620
 
 620:                                              ; preds = %617
-  %621 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %618)
+  %621 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %618)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497: ; preds = %620, %617
@@ -1742,7 +1742,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i503, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504, label %647
 
 647:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
-  %648 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i502)
+  %648 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i502)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504: ; preds = %647, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
@@ -1818,7 +1818,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i509, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510, label %687
 
 687:                                              ; preds = %682
-  %688 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %685)
+  %688 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %685)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510: ; preds = %687, %682
@@ -1877,7 +1877,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i, label %715
 
 715:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
-  %716 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i515)
+  %716 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i515)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i: ; preds = %715, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
@@ -1945,7 +1945,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i516, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517, label %748
 
 748:                                              ; preds = %743
-  %749 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %746)
+  %749 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %746)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517: ; preds = %748, %743
@@ -2004,7 +2004,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i523, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524, label %776
 
 776:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
-  %777 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i522)
+  %777 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i522)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524: ; preds = %776, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
@@ -2085,7 +2085,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i530, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531, label %816
 
 816:                                              ; preds = %813
-  %817 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %814)
+  %817 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %814)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531: ; preds = %816, %813
@@ -2144,7 +2144,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i, label %844
 
 844:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
-  %845 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i536)
+  %845 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i536)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i: ; preds = %844, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
@@ -2220,7 +2220,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i537, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538, label %884
 
 884:                                              ; preds = %879
-  %885 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %882)
+  %885 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %882)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538: ; preds = %884, %879
@@ -2278,7 +2278,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i544, label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %911
 
 911:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542
-  %912 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i543)
+  %912 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i543)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542, %911
@@ -2302,7 +2302,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i546, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547, label %922
 
 922:                                              ; preds = %917
-  %923 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %920)
+  %923 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %920)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547: ; preds = %922, %917
@@ -2360,7 +2360,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i553, label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit555, label %949
 
 949:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551
-  %950 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i552)
+  %950 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i552)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit555
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit555: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551, %949
@@ -2397,7 +2397,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i556, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557, label %967
 
 967:                                              ; preds = %964
-  %968 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %965)
+  %968 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %965)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557: ; preds = %967, %964
@@ -2455,7 +2455,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i563, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %994
 
 994:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561
-  %995 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i562)
+  %995 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i562)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561, %994
@@ -2487,7 +2487,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i565, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566, label %1012
 
 1012:                                             ; preds = %1007
-  %1013 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1010)
+  %1013 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1010)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566: ; preds = %1012, %1007
@@ -2545,7 +2545,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i572, label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1039
 
 1039:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570
-  %1040 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i571)
+  %1040 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i571)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570, %1039
@@ -2569,7 +2569,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i574, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575, label %1050
 
 1050:                                             ; preds = %1045
-  %1051 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1048)
+  %1051 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1048)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575: ; preds = %1050, %1045
@@ -2627,7 +2627,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i581, label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit583, label %1077
 
 1077:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579
-  %1078 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i580)
+  %1078 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i580)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit583
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit583: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579, %1077
@@ -2664,7 +2664,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i584, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585, label %1095
 
 1095:                                             ; preds = %1092
-  %1096 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1093)
+  %1096 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1093)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585: ; preds = %1095, %1092
@@ -2722,7 +2722,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i591, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1122
 
 1122:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589
-  %1123 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i590)
+  %1123 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i590)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589, %1122
@@ -2754,7 +2754,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i593, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594, label %1140
 
 1140:                                             ; preds = %1135
-  %1141 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1138)
+  %1141 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1138)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594: ; preds = %1140, %1135
@@ -2812,7 +2812,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i600, label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1167
 
 1167:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598
-  %1168 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i599)
+  %1168 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i599)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598, %1167
@@ -2838,7 +2838,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i602, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603, label %1180
 
 1180:                                             ; preds = %1175
-  %1181 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1178)
+  %1181 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1178)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603: ; preds = %1180, %1175
@@ -2896,7 +2896,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i609, label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit611, label %1207
 
 1207:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607
-  %1208 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i608)
+  %1208 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i608)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit611
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit611: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607, %1207
@@ -2934,7 +2934,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i.i612, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613, label %1226
 
 1226:                                             ; preds = %1223
-  %1227 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1224)
+  %1227 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1224)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613: ; preds = %1226, %1223
@@ -2992,7 +2992,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i619, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1253
 
 1253:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617
-  %1254 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i618)
+  %1254 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i618)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617, %1253
@@ -3025,7 +3025,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i.i621, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622, label %1272
 
 1272:                                             ; preds = %1267
-  %1273 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1270)
+  %1273 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1270)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622: ; preds = %1272, %1267
@@ -3081,7 +3081,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1298 = ptrtoint ptr %1297 to i64
   %1299 = and i64 %1298, -2
   %1300 = inttoptr i64 %1299 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1300, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1300, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1301:                                             ; preds = %9
@@ -3102,7 +3102,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i628, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629, label %1313
 
 1313:                                             ; preds = %1308
-  %1314 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1311)
+  %1314 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1311)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629: ; preds = %1313, %1308
@@ -3158,7 +3158,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1339 = ptrtoint ptr %1338 to i64
   %1340 = and i64 %1339, -2
   %1341 = inttoptr i64 %1340 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1341, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1341, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1342:                                             ; preds = %9
@@ -3181,7 +3181,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i636, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637, label %1352
 
 1352:                                             ; preds = %1348
-  %1353 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1350)
+  %1353 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1350)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637: ; preds = %1352, %1348
@@ -3269,7 +3269,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i.i643, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644, label %1398
 
 1398:                                             ; preds = %1395
-  %1399 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1396)
+  %1399 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1396)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644: ; preds = %1398, %1395
@@ -3325,7 +3325,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   %1424 = ptrtoint ptr %1423 to i64
   %1425 = and i64 %1424, -2
   %1426 = inttoptr i64 %1425 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1426, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1426, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1427:                                             ; preds = %9
@@ -3350,7 +3350,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   br i1 %.not.i.i.i.i.i.i827, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828, label %1442
 
 1442:                                             ; preds = %1437
-  %1443 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1440)
+  %1443 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1440)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828: ; preds = %1442, %1437
@@ -3422,7 +3422,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1478 = load i32, ptr %1469, align 8
   %1479 = add nsw i32 %1478, -1
   %1480 = getelementptr inbounds i8, ptr %1477, i64 24
-  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1467, ptr noundef nonnull %1480, i32 noundef %1479, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1467, ptr noundef nonnull %1480, i32 noundef %1479, ptr noundef nonnull %3)
   %.pre1197 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
@@ -3435,7 +3435,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   br i1 %.not.i.i.i.i.i.i821, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822, label %1485
 
 1485:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
-  %1486 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1481)
+  %1486 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1481)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822: ; preds = %1485, %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -3503,7 +3503,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i843, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844, label %1518
 
 1518:                                             ; preds = %1513
-  %1519 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1516)
+  %1519 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1516)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844: ; preds = %1518, %1513
@@ -3575,7 +3575,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1554 = load i32, ptr %1545, align 8
   %1555 = add nsw i32 %1554, -1
   %1556 = getelementptr inbounds i8, ptr %1553, i64 24
-  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1543, ptr noundef nonnull %1556, i32 noundef %1555, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1543, ptr noundef nonnull %1556, i32 noundef %1555, ptr noundef nonnull %3)
   %.pre1196 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
 
@@ -3588,7 +3588,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   br i1 %.not.i.i.i.i.i.i834, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835, label %1561
 
 1561:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
-  %1562 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1557)
+  %1562 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1557)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835: ; preds = %1561, %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
@@ -3651,7 +3651,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i859, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860, label %1590
 
 1590:                                             ; preds = %1586
-  %1591 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1587)
+  %1591 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1587)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860: ; preds = %1590, %1586
@@ -3727,7 +3727,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %1628 = load i32, ptr %1619, align 8
   %1629 = add nsw i32 %1628, -1
   %1630 = getelementptr inbounds i8, ptr %1627, i64 24
-  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1618, ptr noundef nonnull %1630, i32 noundef %1629, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1618, ptr noundef nonnull %1630, i32 noundef %1629, ptr noundef nonnull %3)
   %.pre1195 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
 
@@ -3740,7 +3740,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   br i1 %.not.i.i.i.i.i.i850, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851, label %1635
 
 1635:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
-  %1636 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1631)
+  %1636 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1631)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851: ; preds = %1635, %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
@@ -3840,7 +3840,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i866, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867, label %1690
 
 1690:                                             ; preds = %1685
-  %1691 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1688)
+  %1691 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1688)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867: ; preds = %1690, %1685
@@ -3912,7 +3912,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i873, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874, label %1726
 
 1726:                                             ; preds = %1721
-  %1727 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1724)
+  %1727 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1724)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874: ; preds = %1726, %1721
@@ -3979,7 +3979,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i882, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883, label %1758
 
 1758:                                             ; preds = %1754
-  %1759 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1756)
+  %1759 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1756)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883: ; preds = %1758, %1754
@@ -4087,7 +4087,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i650, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651, label %1818
 
 1818:                                             ; preds = %1813
-  %1819 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1816)
+  %1819 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1816)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651: ; preds = %1818, %1813
@@ -4143,7 +4143,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1844 = ptrtoint ptr %1843 to i64
   %1845 = and i64 %1844, -2
   %1846 = inttoptr i64 %1845 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1846, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1846, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1847:                                             ; preds = %9
@@ -4164,7 +4164,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i658, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659, label %1859
 
 1859:                                             ; preds = %1854
-  %1860 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1857)
+  %1860 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1857)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659: ; preds = %1859, %1854
@@ -4220,7 +4220,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1885 = ptrtoint ptr %1884 to i64
   %1886 = and i64 %1885, -2
   %1887 = inttoptr i64 %1886 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1887, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1887, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1888:                                             ; preds = %9
@@ -4243,7 +4243,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %.not.i.i.i.i.i.i.i668, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669, label %1898
 
 1898:                                             ; preds = %1894
-  %1899 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1896)
+  %1899 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1896)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669: ; preds = %1898, %1894
@@ -4331,7 +4331,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i.i679, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680, label %1944
 
 1944:                                             ; preds = %1941
-  %1945 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1942)
+  %1945 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1942)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680: ; preds = %1944, %1941
@@ -4387,7 +4387,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   %1970 = ptrtoint ptr %1969 to i64
   %1971 = and i64 %1970, -2
   %1972 = inttoptr i64 %1971 to ptr
-  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1972, ptr noundef nonnull %3)
+  call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %1972, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1973:                                             ; preds = %9
@@ -4412,7 +4412,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   br i1 %.not.i.i.i.i.i.i.i685, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686, label %1988
 
 1988:                                             ; preds = %1983
-  %1989 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %1986)
+  %1989 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1986)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686: ; preds = %1988, %1983
@@ -4470,7 +4470,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i692, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693, label %2015
 
 2015:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
-  %2016 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i691)
+  %2016 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i691)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693: ; preds = %2015, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
@@ -4538,7 +4538,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i698, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699, label %2048
 
 2048:                                             ; preds = %2043
-  %2049 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2046)
+  %2049 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2046)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699: ; preds = %2048, %2043
@@ -4596,7 +4596,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i705, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706, label %2075
 
 2075:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
-  %2076 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i704)
+  %2076 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i704)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706: ; preds = %2075, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
@@ -4677,7 +4677,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i.i712, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713, label %2115
 
 2115:                                             ; preds = %2112
-  %2116 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2113)
+  %2116 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2113)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713: ; preds = %2115, %2112
@@ -4735,7 +4735,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i719, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720, label %2142
 
 2142:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
-  %2143 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i718)
+  %2143 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i718)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720: ; preds = %2142, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
@@ -4811,7 +4811,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOu
   br i1 %.not.i.i.i.i.i.i.i725, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726, label %2182
 
 2182:                                             ; preds = %2177
-  %2183 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2180)
+  %2183 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2180)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726: ; preds = %2182, %2177
@@ -4870,7 +4870,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i732, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733, label %2210
 
 2210:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
-  %2211 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i731)
+  %2211 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i731)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733: ; preds = %2210, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
@@ -4938,7 +4938,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i738, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739, label %2243
 
 2243:                                             ; preds = %2238
-  %2244 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2241)
+  %2244 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2241)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739: ; preds = %2243, %2238
@@ -4997,7 +4997,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i745, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746, label %2271
 
 2271:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
-  %2272 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i744)
+  %2272 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i744)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746: ; preds = %2271, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
@@ -5078,7 +5078,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i.i752, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753, label %2311
 
 2311:                                             ; preds = %2308
-  %2312 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2309)
+  %2312 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2309)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753: ; preds = %2311, %2308
@@ -5137,7 +5137,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i4.i.i759, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760, label %2339
 
 2339:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
-  %2340 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i758)
+  %2340 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i758)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760: ; preds = %2339, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
@@ -5213,7 +5213,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOu
   br i1 %.not.i.i.i.i.i.i.i765, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766, label %2379
 
 2379:                                             ; preds = %2374
-  %2380 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2377)
+  %2380 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2377)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766: ; preds = %2379, %2374
@@ -5271,7 +5271,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i772, label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2406
 
 2406:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770
-  %2407 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i771)
+  %2407 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i771)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770, %2406
@@ -5295,7 +5295,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i774, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775, label %2417
 
 2417:                                             ; preds = %2412
-  %2418 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2415)
+  %2418 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2415)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775: ; preds = %2417, %2412
@@ -5353,7 +5353,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i781, label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit783, label %2444
 
 2444:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779
-  %2445 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i780)
+  %2445 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i780)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit783
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit783: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779, %2444
@@ -5390,7 +5390,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i.i784, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785, label %2462
 
 2462:                                             ; preds = %2459
-  %2463 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2460)
+  %2463 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2460)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785: ; preds = %2462, %2459
@@ -5448,7 +5448,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i791, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2489
 
 2489:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789
-  %2490 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i790)
+  %2490 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i790)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789, %2489
@@ -5480,7 +5480,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOu
   br i1 %.not.i.i.i.i.i.i.i793, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794, label %2507
 
 2507:                                             ; preds = %2502
-  %2508 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2505)
+  %2508 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2505)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794: ; preds = %2507, %2502
@@ -5538,7 +5538,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i800, label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2534
 
 2534:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798
-  %2535 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i799)
+  %2535 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i799)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798, %2534
@@ -5562,7 +5562,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i802, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803, label %2545
 
 2545:                                             ; preds = %2540
-  %2546 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2543)
+  %2546 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2543)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803: ; preds = %2545, %2540
@@ -5620,7 +5620,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i809, label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit811, label %2572
 
 2572:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807
-  %2573 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i808)
+  %2573 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i808)
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit811
 
 _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit811: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807, %2572
@@ -5657,7 +5657,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
   br i1 %.not.i.i.i.i.i.i.i.i812, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813, label %2590
 
 2590:                                             ; preds = %2587
-  %2591 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef %2588)
+  %2591 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %2588)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813: ; preds = %2590, %2587
@@ -5715,7 +5715,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i.i819, label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2617
 
 2617:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817
-  %2618 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i818)
+  %2618 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %.0.i1.i.i.i.i.i.i.i818)
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817, %2617
@@ -8773,7 +8773,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707: ; pr
   %1510 = getelementptr inbounds i8, ptr %1507, i64 24
   %1511 = load i8, ptr %12, align 8
   %1512 = trunc i8 %1511 to i1
-  %1513 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %1501, ptr noundef nonnull %1510, i32 noundef %1509, i1 noundef zeroext %1512, ptr noundef nonnull %.0.i.i.i.i.i706)
+  %1513 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1501, ptr noundef nonnull %1510, i32 noundef %1509, i1 noundef zeroext %1512, ptr noundef nonnull %.0.i.i.i.i.i706)
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit: ; preds = %1504, %1505
@@ -8904,7 +8904,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717: ; pr
   %1579 = getelementptr inbounds i8, ptr %1576, i64 24
   %1580 = load i8, ptr %12, align 8
   %1581 = trunc i8 %1580 to i1
-  %1582 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %1570, ptr noundef nonnull %1579, i32 noundef %1578, i1 noundef zeroext %1581, ptr noundef nonnull %.0.i.i.i.i.i716)
+  %1582 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1570, ptr noundef nonnull %1579, i32 noundef %1578, i1 noundef zeroext %1581, ptr noundef nonnull %.0.i.i.i.i.i716)
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit713
 
 _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit713: ; preds = %1573, %1574
@@ -9034,7 +9034,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727: ; pr
   %1646 = getelementptr inbounds i8, ptr %1643, i64 24
   %1647 = load i8, ptr %12, align 8
   %1648 = trunc i8 %1647 to i1
-  %1649 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %1638, ptr noundef nonnull %1646, i32 noundef %1645, i1 noundef zeroext %1648, ptr noundef nonnull %.0.i.i.i.i.i726)
+  %1649 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1638, ptr noundef nonnull %1646, i32 noundef %1645, i1 noundef zeroext %1648, ptr noundef nonnull %.0.i.i.i.i.i726)
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit723
 
 _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit723: ; preds = %1640, %1641
@@ -11545,7 +11545,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutpu
 
 2998:                                             ; preds = %2989
   %2999 = load ptr, ptr %15, align 8
-  %3000 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(59) %10, ptr noundef %2999)
+  %3000 = invoke noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef %2999)
           to label %3001 unwind label %3007
 
 3001:                                             ; preds = %2998
@@ -11711,7 +11711,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi1E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -11771,7 +11771,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -11803,7 +11803,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -11862,7 +11862,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -11928,7 +11928,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -11965,7 +11965,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi2E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -12025,7 +12025,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -12057,7 +12057,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -12116,7 +12116,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12182,7 +12182,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -12219,7 +12219,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -12279,7 +12279,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %41, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12355,7 +12355,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -12414,7 +12414,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12480,7 +12480,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %70, %.lr.ph
@@ -12561,7 +12561,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -12621,7 +12621,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %41, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12697,7 +12697,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -12756,7 +12756,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -12822,7 +12822,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %70, %.lr.ph
@@ -12903,7 +12903,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -12964,7 +12964,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %43 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %40)
+  %43 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %40)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; preds = %42, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13040,7 +13040,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -13099,7 +13099,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13166,7 +13166,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i.i18, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19, label %71
 
 71:                                               ; preds = %.lr.ph
-  %72 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %69)
+  %72 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %69)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; preds = %71, %.lr.ph
@@ -13247,7 +13247,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi6E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -13307,7 +13307,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -13339,7 +13339,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -13398,7 +13398,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13464,7 +13464,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -13501,7 +13501,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi7E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -13561,7 +13561,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -13593,7 +13593,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -13652,7 +13652,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13718,7 +13718,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -13755,7 +13755,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi8E
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -13815,7 +13815,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -13848,7 +13848,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -13907,7 +13907,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -13973,7 +13973,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -14041,7 +14041,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %7)
+  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %7)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %9, %3
@@ -14113,7 +14113,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %45 = load i32, ptr %36, align 8
   %46 = add nsw i32 %45, -1
   %47 = getelementptr inbounds i8, ptr %44, i64 24
-  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %34, ptr noundef nonnull %47, i32 noundef %46, ptr noundef nonnull %2)
+  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %47, i32 noundef %46, ptr noundef nonnull %2)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
@@ -14126,7 +14126,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKN
   br i1 %.not.i.i.i.i.i.i7, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8, label %52
 
 52:                                               ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
-  %53 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %48)
+  %53 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %48)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8: ; preds = %52, %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -14192,7 +14192,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %7)
+  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %7)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %9, %3
@@ -14261,7 +14261,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i11, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12, label %44
 
 44:                                               ; preds = %37
-  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %42)
+  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %42)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12: ; preds = %44, %37
@@ -14332,7 +14332,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i.i5, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6, label %81
 
 81:                                               ; preds = %73
-  %82 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %82 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6: ; preds = %81, %73
@@ -14387,7 +14387,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %106 = load i32, ptr %36, align 8
   %107 = add nsw i32 %106, -1
   %108 = getelementptr inbounds i8, ptr %75, i64 24
-  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %34, ptr noundef nonnull %108, i32 noundef %107, ptr noundef nonnull %2)
+  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %108, i32 noundef %107, ptr noundef nonnull %2)
   br label %_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 _ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit: ; preds = %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit17, %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14414,7 +14414,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -14474,7 +14474,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %41, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14550,7 +14550,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -14609,7 +14609,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14675,7 +14675,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %70, %.lr.ph
@@ -14756,7 +14756,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -14817,7 +14817,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i8, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %43 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %40)
+  %43 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %40)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; preds = %42, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -14893,7 +14893,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -14952,7 +14952,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15019,7 +15019,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i.i18, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19, label %71
 
 71:                                               ; preds = %.lr.ph
-  %72 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %69)
+  %72 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %69)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; preds = %71, %.lr.ph
@@ -15100,7 +15100,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi15
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -15160,7 +15160,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -15192,7 +15192,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -15251,7 +15251,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15317,7 +15317,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -15354,7 +15354,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi16
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -15414,7 +15414,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %39)
+  %42 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %39)
   br label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
@@ -15446,7 +15446,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -15505,7 +15505,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15571,7 +15571,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit, label %70
 
 70:                                               ; preds = %.lr.ph
-  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %68)
+  %71 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %68)
   br label %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 _ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
@@ -15599,7 +15599,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi17
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %7)
+  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %7)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %9, %3
@@ -15660,7 +15660,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15735,7 +15735,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -15798,7 +15798,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %42)
+  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %42)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %44, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -15874,7 +15874,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -15933,7 +15933,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16002,7 +16002,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph
-  %74 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %71)
+  %74 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %71)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %73, %.lr.ph
@@ -16074,7 +16074,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi18
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %7)
+  %10 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %7)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %9, %3
@@ -16135,7 +16135,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16210,7 +16210,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %8
@@ -16273,7 +16273,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %42)
+  %45 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %42)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %44, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16349,7 +16349,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %9)
+  %12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %11, %5
@@ -16408,7 +16408,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not.i.i.i.i.i.i12, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
+  %40 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %.0.i1.i.i.i.i.i)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; preds = %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -16477,7 +16477,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i, label %73
 
 73:                                               ; preds = %.lr.ph
-  %74 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %71)
+  %74 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %71)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; preds = %73, %.lr.ph
@@ -18152,7 +18152,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %40 = getelementptr inbounds i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
-  %43 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %30, ptr noundef nonnull %39, i32 noundef %38, i1 noundef zeroext %42, ptr noundef nonnull %.0.i.i.i.i.i)
+  %43 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %39, i32 noundef %38, i1 noundef zeroext %42, ptr noundef nonnull %.0.i.i.i.i.i)
   store ptr %43, ptr %2, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
@@ -18384,7 +18384,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %95 = getelementptr inbounds i8, ptr %2, i64 8
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
-  %98 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %30, ptr noundef nonnull %94, i32 noundef %93, i1 noundef zeroext %97, ptr noundef nonnull %.0.i.i.i.i.i7)
+  %98 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %94, i32 noundef %93, i1 noundef zeroext %97, ptr noundef nonnull %.0.i.i.i.i.i7)
   store ptr %98, ptr %2, align 8
   br label %_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
@@ -19891,7 +19891,7 @@ _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %24, %21, 
 
 37:                                               ; preds = %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
   %38 = trunc i64 %28 to i32
-  %39 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %4, ptr noundef %27, i32 noundef %38, ptr noundef %30)
+  %39 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %27, i32 noundef %38, ptr noundef %30)
   br label %_ZN6google8protobuf2io17CodedOutputStream11WriteStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
@@ -20096,7 +20096,7 @@ common.resume:                                    ; preds = %31, %19
   br label %common.resume
 
 _ZN6google8protobuf8internal20InitProtobufDefaultsEv.exit: ; preds = %21, %24, %27, %30
-  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE2mu) #12
+  %33 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE2mu) #12
   %.not.i.i15 = icmp eq i32 %33, 0
   br i1 %.not.i.i15, label %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit, label %34
 
@@ -20108,7 +20108,7 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %_ZN6google8pr
   store atomic i64 %10, ptr @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE6runner.0 monotonic, align 8
   tail call fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC_DFSEPNS1_11SCCInfoBaseE(ptr noundef %0)
   store atomic i64 0, ptr @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE6runner.0 monotonic, align 8
-  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE2mu) #12
+  %35 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE2mu) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %18, %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit
@@ -20276,7 +20276,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9E
   br i1 %.not.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %6)
+  %9 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %6)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %8, %2
@@ -20338,7 +20338,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %12, 
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
-  %41 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %33, i32 noundef %35, ptr noundef %36)
+  %41 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream15WriteAliasedRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %33, i32 noundef %35, ptr noundef %36)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 42:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
@@ -20352,7 +20352,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %12, 
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %42
-  %50 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %1, ptr noundef %33, i32 noundef %35, ptr noundef %36)
+  %50 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %33, i32 noundef %35, ptr noundef %36)
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteRawMaybeAliasedEPKvi.exit
 
 51:                                               ; preds = %42
@@ -20387,7 +20387,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i, label %12
 
 12:                                               ; preds = %4
-  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %10)
+  %13 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; preds = %12, %4
@@ -20460,7 +20460,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   br i1 %.not.i.i.i.i.i.i17, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18, label %51
 
 51:                                               ; preds = %41
-  %52 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %2, ptr noundef %49)
+  %52 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %49)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18: ; preds = %51, %41
@@ -20515,7 +20515,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %76 = load i32, ptr %1, align 8
   %77 = add nsw i32 %76, -1
   %78 = getelementptr inbounds i8, ptr %43, i64 24
-  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull %0, ptr noundef nonnull %78, i32 noundef %77, ptr noundef nonnull %2)
+  tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %78, i32 noundef %77, ptr noundef nonnull %2)
   br label %79
 
 79:                                               ; preds = %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit23, %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
@@ -20646,7 +20646,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit20: ; 
   %67 = getelementptr inbounds i8, ptr %2, i64 8
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
-  %70 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull %0, ptr noundef nonnull %66, i32 noundef %65, i1 noundef zeroext %69, ptr noundef nonnull %.0.i.i.i.i.i19)
+  %70 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %66, i32 noundef %65, i1 noundef zeroext %69, ptr noundef nonnull %.0.i.i.i.i.i19)
   store ptr %70, ptr %2, align 8
   br label %71
 

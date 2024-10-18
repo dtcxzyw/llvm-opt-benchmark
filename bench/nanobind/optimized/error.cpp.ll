@@ -141,7 +141,7 @@ define void @_ZN8nanobind12python_errorD2Ev(ptr noundef nonnull align 8 derefere
 _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %5
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = getelementptr inbounds i8, ptr %2, i64 16
-  invoke void @PyErr_Fetch(ptr noundef nonnull %2, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke void @PyErr_Fetch(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %10, ptr noundef nonnull %11)
           to label %_ZN8nanobind11error_scopeC2Ev.exit unwind label %40
 
 _ZN8nanobind11error_scopeC2Ev.exit:               ; preds = %_ZN8nanobind18gil_scoped_acquireC2Ev.exit

@@ -463,7 +463,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
 
 invoke.cont61:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i76
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %branching) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %branching, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %branching, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1.i80 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
           to label %_ZN8QuantLib13TrinomialTree9BranchingC2Ev.exit unwind label %lpad63
 
@@ -1678,7 +1678,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !62, !alias.scope !73, !noalias !70
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !62, !alias.scope !70, !noalias !73
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !73, !noalias !70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !73, !noalias !70
   %probs_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %probs_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %6 = load ptr, ptr %probs_3.i.i.i.i.i.i.i, align 8, !tbaa !39, !alias.scope !73, !noalias !70
@@ -1721,7 +1721,7 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8Quan
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 16
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !tbaa !62, !alias.scope !80, !noalias !77
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !tbaa !62, !alias.scope !77, !noalias !80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !80, !noalias !77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !80, !noalias !77
   %probs_.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i20, i64 24
   %probs_3.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i21, i64 24
   %12 = load ptr, ptr %probs_3.i.i.i.i.i.i.i27, align 8, !tbaa !39, !alias.scope !80, !noalias !77

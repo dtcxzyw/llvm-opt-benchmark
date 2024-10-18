@@ -229,7 +229,7 @@ if.then53:                                        ; preds = %if.end48.thread, %i
   br label %return
 
 for.body.preheader.i:                             ; preds = %if.end48
-  %call.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef %0, i64 noundef %namelen.0) #7
+  %call.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef %0, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %namelen.0) #7
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %land.lhs.true.i
 
@@ -243,7 +243,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %f
   br i1 %tobool5.not.i, label %for.body18.i.preheader, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false.i
-  %call8.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef nonnull %1, i64 noundef %namelen.0) #7
+  %call8.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef nonnull %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %namelen.0) #7
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %for.body18.i.preheader, label %land.lhs.true10.i
 
@@ -260,7 +260,7 @@ for.body18.i:                                     ; preds = %for.body18.i.prehea
   %11 = phi ptr [ %18, %for.inc40.i ], [ @identity_encoding, %for.body18.i.preheader ]
   %cep.132.i = phi ptr [ %incdec.ptr41.i, %for.inc40.i ], [ @general_unencoders, %for.body18.i.preheader ]
   %12 = load ptr, ptr %11, align 8
-  %call21.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef %12, i64 noundef %namelen.0) #7
+  %call21.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef %12, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %namelen.0) #7
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %lor.lhs.false27.i, label %land.lhs.true23.i
 
@@ -278,7 +278,7 @@ lor.lhs.false27.i:                                ; preds = %land.lhs.true23.i, 
   br i1 %tobool29.not.i, label %for.inc40.i, label %land.lhs.true30.i
 
 land.lhs.true30.i:                                ; preds = %lor.lhs.false27.i
-  %call32.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef nonnull %15, i64 noundef %namelen.0) #7
+  %call32.i = call i32 @curl_strnequal(ptr noundef nonnull %enclist.addr.1, ptr noundef nonnull %15, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %namelen.0) #7
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %for.inc40.i, label %land.lhs.true34.i
 

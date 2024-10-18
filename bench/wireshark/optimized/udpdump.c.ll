@@ -586,7 +586,7 @@ setup_listener.exit.thread:                       ; preds = %32, %62
   %126 = add nuw nsw i32 %100, 40
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr i8, ptr %88, i64 %127
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %65, i64 %70, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %65, i64 range(i64 0, -9223372036854775808) %70, i1 false)
   %129 = trunc i64 %70 to i32
   %130 = add i32 %126, %129
   %131 = sdiv i64 %82, 1000000

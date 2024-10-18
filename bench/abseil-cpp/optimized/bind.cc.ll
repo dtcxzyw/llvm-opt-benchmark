@@ -576,7 +576,7 @@ if.then:                                          ; preds = %_ZNK4absl19str_form
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %if.then
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc14 unwind label %lpad8
 
 .noexc14:                                         ; preds = %call.i.noexc
@@ -586,7 +586,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc14
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #11
   br label %lpad8.body
 
 invoke.cont9:                                     ; preds = %.noexc14
@@ -1560,7 +1560,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %if.end
   store ptr %spec.i, ptr %ref.tmp.i, align 8
   %args_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 2, ptr %args_.i.i, align 8
-  %call.i.i1011.i = invoke noundef zeroext i1 @_ZN4absl19str_format_internal13FormatUntypedENS0_17FormatRawSinkImplENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull %call.i, ptr nonnull @_ZN4absl19str_format_internal17FormatRawSinkImpl5FlushISoEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.1, i64 2, ptr nonnull %data_.i4.i.i.i.i, i64 1)
+  %call.i.i1011.i = invoke noundef zeroext i1 @_ZN4absl19str_format_internal13FormatUntypedENS0_17FormatRawSinkImplENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull align 8 dereferenceable(8) %call.i, ptr nonnull @_ZN4absl19str_format_internal17FormatRawSinkImpl5FlushISoEEvPvSt17basic_string_viewIcSt11char_traitsIcEE, ptr nonnull @.str.1, i64 2, ptr nonnull %data_.i4.i.i.i.i, i64 1)
           to label %call.i.i10.noexc.i unwind label %lpad8.i
 
 call.i.i10.noexc.i:                               ; preds = %for.body.preheader.i.i.i.i.i

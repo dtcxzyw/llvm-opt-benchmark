@@ -9215,7 +9215,7 @@ cond.false.i.i:                                   ; preds = %for.body.i
 
 invoke.cont.i:                                    ; preds = %.noexc.i, %for.body.i
   %6 = phi ptr [ %5, %for.body.i ], [ %.pre.i.i, %.noexc.i ]
-  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0)
+  %call8.i = invoke noundef i64 @_ZN8QuantLib10Observable18unregisterObserverEPNS_8ObserverE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %invoke.cont7.i unwind label %terminate.lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -9266,7 +9266,7 @@ entry:
 define linkonce_odr void @_ZThn56_N8QuantLib5Index6updateEv(ptr noundef %this) unnamed_addr #14 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   ret void
 }
 
@@ -9520,7 +9520,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib18ZeroInflationIndexD2Ev.exit:        ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #27
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 248) #30
   ret void
 }
@@ -9570,7 +9570,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib18ZeroInflationIndexD2Ev.exit:        ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #27
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #27
   ret void
 }
 
@@ -9619,8 +9619,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN8QuantLib18ZeroInflationIndexD0Ev.exit:        ; preds = %entry, %if.then.i.i.i.i.i, %.noexc.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #30
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef 248) #30
   ret void
 }
 
@@ -9796,7 +9796,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i3.i,
   unreachable
 
 _ZN8QuantLib17YoYInflationIndexD2Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_25YoYInflationTermStructureEED2Ev.exit.i, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i3.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #27
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 272) #30
   ret void
 }
@@ -9885,7 +9885,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i3.i,
   unreachable
 
 _ZN8QuantLib17YoYInflationIndexD2Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_25YoYInflationTermStructureEED2Ev.exit.i, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i3.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #27
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #27
   ret void
 }
 
@@ -9973,8 +9973,8 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i3.i.
   unreachable
 
 _ZN8QuantLib17YoYInflationIndexD0Ev.exit:         ; preds = %_ZN8QuantLib6HandleINS_25YoYInflationTermStructureEED2Ev.exit.i.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i3.i.i
-  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 272) #30
+  tail call void @_ZN8QuantLib14InflationIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, i64 noundef 272) #30
   ret void
 }
 
@@ -10682,7 +10682,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
   %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 80
   %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !13
-  invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i, ptr noundef %7)
           to label %_ZN8QuantLib15ObservableValueINS_10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS3_ESaISt4pairIKS3_dEEEEEED2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib10ObservableEED2Ev.exit.i.i.i.i.i

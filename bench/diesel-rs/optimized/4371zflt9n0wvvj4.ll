@@ -285,7 +285,7 @@ define hidden void @"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$L
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
 8:                                                ; preds = %2
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %5)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %5)
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !32
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
@@ -311,7 +311,7 @@ define hidden void @"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$L
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
 8:                                                ; preds = %2
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %5)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %5)
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !35
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
@@ -337,7 +337,7 @@ define hidden void @"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$L
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
 8:                                                ; preds = %2
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %5)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %5)
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !38
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha096142ed2477746E.llvm.5878922438994436146.exit"
 
@@ -370,7 +370,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples101_$LT$impl$u20$diesel..expre
   br i1 %7, label %8, label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17h379944508f158d48E.llvm.5878922438994436146.exit"
 
 8:                                                ; preds = %2
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %5)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %5)
   %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !44, !noalias !47
   br label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17h379944508f158d48E.llvm.5878922438994436146.exit"
 
@@ -390,7 +390,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples101_$LT$impl$u20$diesel..expre
   br i1 %17, label %18, label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit"
 
 18:                                               ; preds = %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17h379944508f158d48E.llvm.5878922438994436146.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %14)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14)
   %.pre.i.i1 = load i64, ptr %4, align 8, !alias.scope !52, !noalias !55
   br label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit"
 
@@ -409,7 +409,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples101_$LT$impl$u20$diesel..expre
   br i1 %26, label %27, label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit3"
 
 27:                                               ; preds = %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %23)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %23)
   %.pre.i.i2 = load i64, ptr %4, align 8, !alias.scope !60, !noalias !63
   br label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit3"
 
@@ -428,7 +428,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples101_$LT$impl$u20$diesel..expre
   br i1 %35, label %36, label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hd0d21f3f158d57cdE.llvm.5878922438994436146.exit"
 
 36:                                               ; preds = %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hf69f8ae6138e9d57E.llvm.5878922438994436146.exit3"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %32)
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h0668b32014ea858aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %32)
   %.pre.i.i4 = load i64, ptr %4, align 8, !alias.scope !68, !noalias !71
   br label %"_ZN65_$LT$DB$u20$as$u20$diesel..expression..QueryMetadata$LT$T$GT$$GT$12row_metadata17hd0d21f3f158d57cdE.llvm.5878922438994436146.exit"
 
@@ -479,7 +479,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 range(i64 9, 8) %11)
   %12 = icmp ugt i64 %.0.sroa.speculated.i, 3
   br i1 %12, label %16, label %13
 

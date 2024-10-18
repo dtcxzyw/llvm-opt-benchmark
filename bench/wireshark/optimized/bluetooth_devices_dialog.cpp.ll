@@ -1171,7 +1171,7 @@ _ZN7QStringD2Ev.exit105:                          ; preds = %135, %_ZN17QArrayDa
   %144 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %142, ptr %144, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   %145 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 2, ptr %145, align 8
   %146 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %142)
@@ -1935,7 +1935,7 @@ _ZN7QStringD2Ev.exit.i137:                        ; preds = %.split.i.i136, %118
   %130 = load i64, ptr %129, align 8
   store i64 %130, ptr %128, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 24, i1 false)
   %131 = getelementptr inbounds i8, ptr %41, i64 24
   store i64 2, ptr %131, align 8
   %132 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %121)
@@ -2646,7 +2646,7 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %359, %_ZN17QArrayDa
   store i32 %378, ptr %379, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   store ptr %371, ptr %24, align 8, !noalias !19
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %24)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %380 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 380:                                              ; preds = %372
@@ -3848,7 +3848,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %17
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #17
   ret void
 }
 
@@ -3873,7 +3873,7 @@ define void @_ZN22BluetoothDevicesDialogD0Ev(ptr noundef nonnull align 8 derefer
 define void @_ZThn16_N22BluetoothDevicesDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22BluetoothDevicesDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %2) #18
   ret void
 }
 
@@ -5093,7 +5093,7 @@ define void @_ZN22BluetoothDevicesDialog34on_actionMark_Unmark_Row_triggeredEv(p
           to label %.noexc21 unwind label %.loopexit
 
 93:                                               ; preds = %88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i64 2, ptr %74, align 8
   br label %.noexc21
 
@@ -5132,7 +5132,7 @@ define void @_ZN22BluetoothDevicesDialog34on_actionMark_Unmark_Row_triggeredEv(p
           to label %.noexc25 unwind label %.loopexit
 
 109:                                              ; preds = %104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   store i64 2, ptr %75, align 8
   br label %.noexc25
 
@@ -5604,7 +5604,7 @@ define void @_ZN22BluetoothDevicesDialog35on_actionMark_Unmark_Cell_triggeredEv(
           to label %.noexc9 unwind label %48
 
 86:                                               ; preds = %81
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %87 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 2, ptr %87, align 8
   br label %.noexc9
@@ -5651,7 +5651,7 @@ define void @_ZN22BluetoothDevicesDialog35on_actionMark_Unmark_Cell_triggeredEv(
           to label %.noexc13 unwind label %48
 
 108:                                              ; preds = %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
   %109 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 2, ptr %109, align 8
   br label %.noexc13
@@ -9180,7 +9180,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31:    ; preds = %55
 
 69:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %2) #17
+  call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %2, align 8
   %70 = getelementptr inbounds i8, ptr %2, i64 16
   %71 = getelementptr inbounds i8, ptr %9, i64 16

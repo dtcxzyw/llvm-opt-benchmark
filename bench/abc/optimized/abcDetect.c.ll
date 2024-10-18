@@ -7348,7 +7348,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 54:                                               ; preds = %Vec_IntPush.exit
   %55 = add nsw i32 %21, 1
   %56 = shl nsw i32 %53, 1
-  %57 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %56, i32 %55)
+  %57 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %56, i32 range(i32 -2147483647, -2147483648) %55)
   %58 = load i32, ptr %49, align 8
   %.not.i.i18 = icmp slt i32 %58, %57
   br i1 %.not.i.i18, label %59, label %Vec_WecGrow.exit.i

@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noalias noundef ptr @newitem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #20
+  %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 72) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 
@@ -319,7 +319,7 @@ define noalias noundef ptr @makeObstacle(ptr noundef %0, ptr nocapture noundef r
   ]
 
 7:                                                ; preds = %3, %3
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #20
+  %8 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #20
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %gv_alloc.exit
 
@@ -637,7 +637,7 @@ default.unreachable:                              ; preds = %.split.us.split.us.
   %.sroa.13.0.copyload138 = load double, ptr %.sroa.13.0..sroa_idx137, align 8
   %.sroa.19.0..sroa_idx143 = getelementptr inbounds i8, ptr %189, i64 40
   %.sroa.19.0.copyload144 = load double, ptr %.sroa.19.0..sroa_idx143, align 8
-  %191 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #20
+  %191 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #20
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %gv_alloc.exit282
 
@@ -725,7 +725,7 @@ gv_calloc.exit:                                   ; preds = %gv_alloc.exit282
   br label %.loopexit.sink.split
 
 234:                                              ; preds = %3
-  %235 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #20
+  %235 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #20
   %236 = icmp eq ptr %235, null
   br i1 %236, label %237, label %gv_alloc.exit297
 

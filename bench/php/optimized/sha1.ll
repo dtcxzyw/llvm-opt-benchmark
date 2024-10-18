@@ -315,7 +315,7 @@ define void @PHP_SHA1Final(ptr nocapture noundef writeonly %0, ptr noundef %1) l
   %44 = getelementptr inbounds i8, ptr %1, i64 28
   %45 = zext nneg i32 %30 to i64
   %46 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @SHA1Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
   %48 = icmp samesign ult i64 %47, %33

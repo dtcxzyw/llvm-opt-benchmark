@@ -118,7 +118,7 @@ define dso_local void @_ZN4llvm13TargetMachineC2ERKNS_6TargetENS_9StringRefERKNS
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm10DataLayoutC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %14, ptr %2, i64 %3) #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -171,7 +171,7 @@ define dso_local void @_ZN4llvm13TargetMachineC2ERKNS_6TargetENS_9StringRefERKNS
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store i8 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %47, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %47, ptr noundef nonnull align 8 dereferenceable(360) %7, i64 28, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %50 = load ptr, ptr %49, align 8
@@ -243,7 +243,7 @@ define dso_local void @_ZN4llvm13TargetMachineD2Ev(ptr noundef nonnull align 8 d
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i8 0, ptr %3, align 8
-  tail call void @_ZN4llvm10PGOOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #15
+  tail call void @_ZN4llvm10PGOOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #15
   br label %_ZNSt8optionalIN4llvm10PGOOptionsEED2Ev.exit
 
 _ZNSt8optionalIN4llvm10PGOOptionsEED2Ev.exit:     ; preds = %1, %6
@@ -278,7 +278,7 @@ _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; pred
   br i1 %.not.i2, label %_ZNSt10unique_ptrIKN4llvm14MCRegisterInfoESt14default_deleteIS2_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit
-  tail call void @_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %16)
+  tail call void @_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %16)
   br label %_ZNSt10unique_ptrIKN4llvm14MCRegisterInfoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN4llvm14MCRegisterInfoESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit, %17
@@ -302,7 +302,7 @@ _ZNSt10unique_ptrIKN4llvm9MCAsmInfoESt14default_deleteIS2_EED2Ev.exit: ; preds =
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 584
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm10DataLayoutD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %26) #15
   ret void
@@ -1082,7 +1082,7 @@ define dso_local noundef ptr @_ZNK4llvm13TargetMachine9getSymbolEPKNS_11GlobalVa
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %14, i64 noundef 128) #15
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull %14, i64 noundef 128) #15
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 15
@@ -1119,7 +1119,7 @@ _ZNK4llvm13TargetMachine17getNameWithPrefixERNS_15SmallVectorImplIcEEPKNS_11Glob
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %35, ptr %36, align 8
   %37 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %31, ptr noundef nonnull align 8 dereferenceable(34) %4) #15
-  %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  %38 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #15
   %39 = load ptr, ptr %3, align 8
   %40 = icmp eq ptr %39, %14
   br i1 %40, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %41
@@ -1152,7 +1152,7 @@ define dso_local void @_ZNK4llvm13TargetMachine19getTargetIRAnalysisEv(ptr dead_
   br i1 %.not.i.i, label %_ZNSt8functionIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEED2Ev.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #15
+  %10 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #15
   br label %_ZNSt8functionIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEED2Ev.exit
 
 _ZNSt8functionIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEED2Ev.exit: ; preds = %2, %9

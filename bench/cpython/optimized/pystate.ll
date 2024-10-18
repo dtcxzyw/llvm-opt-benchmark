@@ -1623,7 +1623,7 @@ if.then4.i:                                       ; preds = %if.end.i37
   br label %if.end385.i
 
 if.end385.i:                                      ; preds = %if.then4.i, %if.end.i37
-  call void @_PyObject_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %status.i31, ptr noundef %call.i) #14, !noalias !13
+  call void @_PyObject_InitState(ptr nonnull sret(%struct.PyStatus) align 8 %status.i31, ptr noundef nonnull %call.i) #14, !noalias !13
   %7 = load i32, ptr %status.i31, align 8
   %cmp387.not.i38 = icmp eq i32 %7, 0
   br i1 %cmp387.not.i38, label %if.end389.i40, label %if.then388.i39
@@ -1642,12 +1642,12 @@ if.then388.i39:                                   ; preds = %if.end385.i
   br label %init_interpreter.exit41
 
 if.end389.i40:                                    ; preds = %if.end385.i
-  call void @_PyEval_InitState(ptr noundef %call.i) #14, !noalias !13
+  call void @_PyEval_InitState(ptr noundef nonnull %call.i) #14, !noalias !13
   %gc.i = getelementptr inbounds i8, ptr %call.i, i64 1000
   call void @_PyGC_InitState(ptr noundef nonnull %gc.i) #14, !noalias !13
   %config.i = getelementptr inbounds i8, ptr %call.i, i64 1592
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #14, !noalias !13
-  call void @_PyType_InitCache(ptr noundef %call.i) #14, !noalias !13
+  call void @_PyType_InitCache(ptr noundef nonnull %call.i) #14, !noalias !13
   %monitors.i = getelementptr inbounds i8, ptr %call.i, i64 414944
   %scevgep6.i = getelementptr i8, ptr %call.i, i64 414984
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep6.i, i8 0, i64 1088, i1 false), !noalias !13

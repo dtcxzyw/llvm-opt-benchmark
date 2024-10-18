@@ -119,7 +119,7 @@ declare noundef i32 @_Z13gmx_node_rankv() local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.gmx::TextLineWrapper", align 4
-  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %4)
+  call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
   %5 = sub nsw i32 78, %2
   store i32 %5, ptr %4, align 4
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10

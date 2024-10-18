@@ -322,7 +322,7 @@ define dso_local void @apply_alternatives(ptr noundef %0, ptr noundef %1) local_
   %79 = zext i8 %78 to i32
   %80 = add i32 %73, %79
   store i32 %80, ptr %9, align 4
-  %81 = call fastcc zeroext i1 @__optimize_nops(ptr noundef %41, i64 noundef %67, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %81 = call fastcc zeroext i1 @__optimize_nops(ptr noundef %41, i64 noundef range(i64 0, 256) %67, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #20
   %82 = load i32, ptr %9, align 4
   %83 = sext i32 %82 to i64
@@ -501,7 +501,7 @@ optimize_nops.exit.i:                             ; preds = %77, %85, %65
   %182 = zext i8 %181 to i32
   %183 = add i32 %176, %182
   store i32 %183, ptr %5, align 4
-  %184 = call fastcc zeroext i1 @__optimize_nops(ptr noundef nonnull %13, i64 noundef %.pre-phi29, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %184 = call fastcc zeroext i1 @__optimize_nops(ptr noundef nonnull %13, i64 noundef range(i64 0, 256) %.pre-phi29, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br i1 %184, label %._crit_edge.i, label %185
 
 ._crit_edge.i:                                    ; preds = %180
@@ -1354,7 +1354,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
   %188 = zext i8 %187 to i32
   %189 = add i32 %182, %188
   store i32 %189, ptr %5, align 4
-  %190 = call fastcc zeroext i1 @__optimize_nops(ptr noundef nonnull %9, i64 noundef %179, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %190 = call fastcc zeroext i1 @__optimize_nops(ptr noundef nonnull %9, i64 noundef range(i64 0, 256) %179, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #20
   %191 = load i32, ptr %5, align 4
   %192 = sext i32 %191 to i64

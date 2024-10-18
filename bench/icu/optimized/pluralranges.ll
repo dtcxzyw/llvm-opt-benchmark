@@ -534,7 +534,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %setLen.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %internalStatus.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sink.i)
-  %call.i1 = invoke ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %status)
+  %call.i1 = invoke ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
@@ -544,7 +544,7 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i.i, label %if.end.i, label %cleanup40.i
 
 if.end.i:                                         ; preds = %call.i.noexc
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dataPath.i)
+  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dataPath.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i
@@ -612,11 +612,11 @@ invoke.cont33.i:                                  ; preds = %invoke.cont27.i
           to label %invoke.cont39.i unwind label %lpad34.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont33.i
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink.i) #12
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink.i) #12
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %invoke.cont39.i, %invoke.cont27.i, %invoke.cont17.i, %invoke.cont7.i
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dataPath.i) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dataPath.i) #12
   br label %cleanup40.i
 
 cleanup40.i:                                      ; preds = %cleanup.i, %call.i.noexc
@@ -637,12 +637,12 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 lpad34.i:                                         ; preds = %invoke.cont33.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink.i) #12
+  call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink.i) #12
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad34.i, %lpad2.i
   %.pn.i = phi { ptr, i32 } [ %13, %lpad34.i ], [ %4, %lpad2.i ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %dataPath.i) #12
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %dataPath.i) #12
   br label %ehcleanup41.i
 
 ehcleanup41.i:                                    ; preds = %ehcleanup.i, %lpad.i
@@ -974,7 +974,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_120PluralRangesDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #12
+  tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
   ret void
 }

@@ -1230,13 +1230,13 @@ define void @_ZN19FilterMeasurePluginC2Ev(ptr noundef nonnull align 8 dereferenc
   %51 = add i64 %50, -1
   store i64 %51, ptr %26, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.07.i.i.i.i) #30
-  tail call void @_ZdlPv(ptr noundef %.sroa.05.07.i.i.i.i) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.05.07.i.i.i.i) #29
   %.not.i.i.i.i = icmp eq ptr %49, %24
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i.thread:                         ; preds = %2, %._crit_edge.i.i.i
   %.0.lcssa.i.i.i27 = phi ptr [ %.ptr, %._crit_edge.i.i.i ], [ %3, %2 ]
-  %52 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr nonnull %24, ptr noundef nonnull %.0.lcssa.i.i.i27, ptr noundef nonnull %41)
+  %52 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull %.0.lcssa.i.i.i27, ptr noundef nonnull %41)
           to label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit unwind label %58
 
 _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %.lr.ph.i.i.i.i, %48, %._crit_edge.i.i.i.thread
@@ -1263,7 +1263,7 @@ _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %.lr.ph.i.i
 .lr.ph.i.i.i15:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i15
   %.09.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i15 ], [ %56, %._crit_edge ]
   %57 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #29
   %.not.i.i.i = icmp eq ptr %57, %4
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i15, !llvm.loop !12
 
@@ -1306,7 +1306,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i15, %._
 71:                                               ; preds = %69
   %72 = getelementptr inbounds i8, ptr %70, i64 16
   store ptr %62, ptr %72, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %21) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(24) %21) #30
   %73 = load i64, ptr %23, align 8
   %74 = add i64 %73, 1
   store i64 %74, ptr %23, align 8
@@ -1366,7 +1366,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %71, %_ZN9QtPrivate8
 .lr.ph.i.i.i18:                                   ; preds = %85, %.lr.ph.i.i.i18
   %.09.i.i.i19 = phi ptr [ %87, %.lr.ph.i.i.i18 ], [ %86, %85 ]
   %87 = load ptr, ptr %.09.i.i.i19, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i19) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i19) #29
   %.not.i.i.i20 = icmp eq ptr %87, %4
   br i1 %.not.i.i.i20, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit21, label %.lr.ph.i.i.i18, !llvm.loop !12
 
@@ -1433,7 +1433,7 @@ define linkonce_odr void @_ZN12FilterPluginD2Ev(ptr noundef nonnull align 8 dere
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %2 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #29
   %.not.i.i.i = icmp eq ptr %17, %15
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -1446,7 +1446,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i, %2
 .lr.ph.i.i.i3:                                    ; preds = %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, %.lr.ph.i.i.i3
   %.09.i.i.i4 = phi ptr [ %20, %.lr.ph.i.i.i3 ], [ %19, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit ]
   %20 = load ptr, ptr %.09.i.i.i4, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i4) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i4) #29
   %.not.i.i.i5 = icmp eq ptr %20, %18
   br i1 %.not.i.i.i5, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i3, !llvm.loop !13
 
@@ -1477,7 +1477,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_itera
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %.06.i.i, align 4
   store i32 %10, ptr %9, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %5) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #30
   %11 = load i64, ptr %7, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %7, align 8
@@ -1495,7 +1495,7 @@ define linkonce_odr ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_itera
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %16, %14 ]
   %17 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #29
   %.not.i.i.i = icmp eq ptr %17, %5
   br i1 %.not.i.i.i, label %.body, label %.lr.ph.i.i.i, !llvm.loop !12
 
@@ -1505,7 +1505,7 @@ _ZNSt7__cxx114listIiSaIiEEC2IPKivEET_S6_RKS1_.exit: ; preds = %.noexc.i
   br i1 %18, label %23, label %_ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit
 
 _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds = %_ZNSt7__cxx114listIiSaIiEEC2IPKivEET_S6_RKS1_.exit
-  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull %5) #30
+  call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.pre, ptr noundef nonnull align 8 dereferenceable(24) %5) #30
   %19 = load i64, ptr %7, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
@@ -1527,7 +1527,7 @@ _ZNSt7__cxx114listIiSaIiEE6spliceESt20_List_const_iteratorIiERS2_.exit: ; preds 
 .lr.ph.i.i.i6:                                    ; preds = %23, %.lr.ph.i.i.i6
   %.09.i.i.i7 = phi ptr [ %25, %.lr.ph.i.i.i6 ], [ %24, %23 ]
   %25 = load ptr, ptr %.09.i.i.i7, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i7) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i7) #29
   %.not.i.i.i8 = icmp eq ptr %25, %5
   br i1 %.not.i.i.i8, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i6, !llvm.loop !12
 
@@ -1602,7 +1602,7 @@ define void @_ZN19FilterMeasurePluginC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr getelementptr inbounds (i8, ptr @_ZTV19FilterMeasurePlugin, i64 544), ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) @constinit.7, i64 32, i1 false)
   %28 = getelementptr inbounds i8, ptr %2, i64 32
-  %29 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %28)
+  %29 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull %2, ptr noundef nonnull %28)
           to label %_ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit unwind label %38
 
 _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %._crit_edge.i.i.i.thread
@@ -1629,7 +1629,7 @@ _ZNSt7__cxx114listIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %._crit_edg
 .lr.ph.i.i.i18:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i18
   %.09.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i18 ], [ %32, %._crit_edge ]
   %33 = load ptr, ptr %.09.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #29
   %.not.i.i.i = icmp eq ptr %33, %3
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i18, !llvm.loop !12
 
@@ -1682,7 +1682,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit:              ; preds = %.lr.ph.i.i.i18, %._
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %42, ptr %52, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %22) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(24) %22) #30
   %53 = load i64, ptr %24, align 8
   %54 = add i64 %53, 1
   store i64 %54, ptr %24, align 8
@@ -1742,7 +1742,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %51, %_ZN9QtPrivate8
 .lr.ph.i.i.i21:                                   ; preds = %65, %.lr.ph.i.i.i21
   %.09.i.i.i22 = phi ptr [ %67, %.lr.ph.i.i.i21 ], [ %66, %65 ]
   %67 = load ptr, ptr %.09.i.i.i22, align 8
-  call void @_ZdlPv(ptr noundef %.09.i.i.i22) #29
+  call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i22) #29
   %.not.i.i.i23 = icmp eq ptr %67, %3
   br i1 %.not.i.i.i23, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24, label %.lr.ph.i.i.i21, !llvm.loop !12
 
@@ -4629,7 +4629,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_S1_EEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogS
   %217 = load i64, ptr %215, align 8
   %218 = getelementptr inbounds i8, ptr %215, i64 8
   %219 = load i32, ptr %218, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %215, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 12, i1 false)
   store i64 %217, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %219, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -4653,7 +4653,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_S1_EEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogS
   %225 = load i64, ptr %223, align 8
   %226 = getelementptr inbounds i8, ptr %223, i64 8
   %227 = load i32, ptr %226, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %223, ptr noundef nonnull align 8 dereferenceable(12) %21, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 12, i1 false)
   store i64 %225, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i.i.i112 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %227, ptr %.sroa.2.0..sroa_idx.i.i.i112, align 8
@@ -4677,7 +4677,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_S1_EEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogS
   %233 = load i64, ptr %231, align 8
   %234 = getelementptr inbounds i8, ptr %231, i64 8
   %235 = load i32, ptr %234, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %231, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %231, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 12, i1 false)
   store i64 %233, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i113 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 %235, ptr %.sroa.2.0..sroa_idx.i.i.i113, align 8
@@ -4758,7 +4758,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit122: ; preds = %_ZN3vcg3tri5Cl
   %256 = load i64, ptr %254, align 8
   %257 = getelementptr inbounds i8, ptr %254, i64 8
   %258 = load i32, ptr %257, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %254, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 12, i1 false)
   store i64 %256, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i123 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %258, ptr %.sroa.2.0..sroa_idx.i.i.i123, align 8
@@ -4782,7 +4782,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit122: ; preds = %_ZN3vcg3tri5Cl
   %264 = load i64, ptr %262, align 8
   %265 = getelementptr inbounds i8, ptr %262, i64 8
   %266 = load i32, ptr %265, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %262, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %262, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 12, i1 false)
   store i64 %264, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %266, ptr %.sroa.2.0..sroa_idx.i.i.i124, align 8
@@ -4860,7 +4860,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit131: ; preds = %_ZN11GLLogStre
   %290 = load i64, ptr %288, align 8
   %291 = getelementptr inbounds i8, ptr %288, i64 8
   %292 = load i32, ptr %291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %288, ptr noundef nonnull align 8 dereferenceable(12) %33, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 12, i1 false)
   store i64 %290, ptr %33, align 8
   %.sroa.2.0..sroa_idx.i.i.i132 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %292, ptr %.sroa.2.0..sroa_idx.i.i.i132, align 8
@@ -5005,7 +5005,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit131: ; preds = %_ZN11GLLogStre
   %339 = load i64, ptr %337, align 8
   %340 = getelementptr inbounds i8, ptr %337, i64 8
   %341 = load i32, ptr %340, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %337, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %337, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 12, i1 false)
   store i64 %339, ptr %36, align 8
   %.sroa.2.0..sroa_idx.i.i.i133 = getelementptr inbounds i8, ptr %36, i64 8
   store i32 %341, ptr %.sroa.2.0..sroa_idx.i.i.i133, align 8
@@ -5107,7 +5107,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit141: ; preds = %_ZN11GLLogS
   %373 = load i64, ptr %371, align 8
   %374 = getelementptr inbounds i8, ptr %371, i64 8
   %375 = load i32, ptr %374, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %371, ptr noundef nonnull align 8 dereferenceable(12) %39, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %371, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 12, i1 false)
   store i64 %373, ptr %39, align 8
   %.sroa.2.0..sroa_idx.i.i.i142 = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %375, ptr %.sroa.2.0..sroa_idx.i.i.i142, align 8
@@ -5130,7 +5130,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit141: ; preds = %_ZN11GLLogS
   %380 = load i64, ptr %378, align 8
   %381 = getelementptr inbounds i8, ptr %378, i64 8
   %382 = load i32, ptr %381, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %378, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %378, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 12, i1 false)
   store i64 %380, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i143 = getelementptr inbounds i8, ptr %42, i64 8
   store i32 %382, ptr %.sroa.2.0..sroa_idx.i.i.i143, align 8
@@ -5153,7 +5153,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit141: ; preds = %_ZN11GLLogS
   %387 = load i64, ptr %385, align 8
   %388 = getelementptr inbounds i8, ptr %385, i64 8
   %389 = load i32, ptr %388, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %385, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %385, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 12, i1 false)
   store i64 %387, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i144 = getelementptr inbounds i8, ptr %45, i64 8
   store i32 %389, ptr %.sroa.2.0..sroa_idx.i.i.i144, align 8
@@ -5176,7 +5176,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit141: ; preds = %_ZN11GLLogS
   %394 = load i64, ptr %392, align 8
   %395 = getelementptr inbounds i8, ptr %392, i64 8
   %396 = load i32, ptr %395, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %392, ptr noundef nonnull align 8 dereferenceable(12) %48, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %392, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 12, i1 false)
   store i64 %394, ptr %48, align 8
   %.sroa.2.0..sroa_idx.i.i.i145 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 %396, ptr %.sroa.2.0..sroa_idx.i.i.i145, align 8
@@ -5234,7 +5234,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit150: ; preds = %_ZN11GLLogStre
   %414 = load i64, ptr %412, align 8
   %415 = getelementptr inbounds i8, ptr %412, i64 8
   %416 = load i32, ptr %415, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %412, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %412, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 12, i1 false)
   store i64 %414, ptr %51, align 8
   %.sroa.2.0..sroa_idx.i.i.i151 = getelementptr inbounds i8, ptr %51, i64 8
   store i32 %416, ptr %.sroa.2.0..sroa_idx.i.i.i151, align 8
@@ -5295,7 +5295,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit156: ; preds = %_ZN11GLLogStre
   %437 = load i64, ptr %435, align 8
   %438 = getelementptr inbounds i8, ptr %435, i64 8
   %439 = load i32, ptr %438, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %435, ptr noundef nonnull align 8 dereferenceable(12) %54, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %435, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 12, i1 false)
   store i64 %437, ptr %54, align 8
   br label %505
 
@@ -5434,7 +5434,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit156: ; preds = %_ZN11GLLogStre
   %485 = load i64, ptr %483, align 8
   %486 = getelementptr inbounds i8, ptr %483, i64 8
   %487 = load i32, ptr %486, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %483, ptr noundef nonnull align 8 dereferenceable(12) %57, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %483, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 12, i1 false)
   store i64 %485, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i.i.i158 = getelementptr inbounds i8, ptr %57, i64 8
   store i32 %487, ptr %.sroa.2.0..sroa_idx.i.i.i158, align 8
@@ -5457,7 +5457,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit156: ; preds = %_ZN11GLLogStre
   %492 = load i64, ptr %490, align 8
   %493 = getelementptr inbounds i8, ptr %490, i64 8
   %494 = load i32, ptr %493, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %490, ptr noundef nonnull align 8 dereferenceable(12) %60, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %490, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 12, i1 false)
   store i64 %492, ptr %60, align 8
   br label %505
 
@@ -5876,7 +5876,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
   %176 = load i64, ptr %174, align 8
   %177 = getelementptr inbounds i8, ptr %174, i64 8
   %178 = load i32, ptr %177, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %174, ptr noundef nonnull align 8 dereferenceable(12) %12, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 12, i1 false)
   store i64 %176, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %178, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -5927,7 +5927,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit139: ; preds = %_ZN11GLLogStre
   %193 = load i64, ptr %191, align 8
   %194 = getelementptr inbounds i8, ptr %191, i64 8
   %195 = load i32, ptr %194, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 12, i1 false)
   store i64 %193, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i140 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %195, ptr %.sroa.2.0..sroa_idx.i.i.i140, align 8
@@ -5978,7 +5978,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit145: ; preds = %_ZN11GLLogStre
   %210 = load i64, ptr %208, align 8
   %211 = getelementptr inbounds i8, ptr %208, i64 8
   %212 = load i32, ptr %211, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %208, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 12, i1 false)
   store i64 %210, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i.i.i146 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %212, ptr %.sroa.2.0..sroa_idx.i.i.i146, align 8
@@ -6029,7 +6029,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit151: ; preds = %_ZN11GLLogStre
   %227 = load i64, ptr %225, align 8
   %228 = getelementptr inbounds i8, ptr %225, i64 8
   %229 = load i32, ptr %228, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %225, ptr noundef nonnull align 8 dereferenceable(12) %21, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 12, i1 false)
   store i64 %227, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i.i.i152 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %229, ptr %.sroa.2.0..sroa_idx.i.i.i152, align 8
@@ -6824,7 +6824,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %549 = load i64, ptr %547, align 8
   %550 = getelementptr inbounds i8, ptr %547, i64 8
   %551 = load i32, ptr %550, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %547, ptr noundef nonnull align 8 dereferenceable(12) %28, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %547, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 12, i1 false)
   store i64 %549, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i.i226 = getelementptr inbounds i8, ptr %28, i64 8
   store i32 %551, ptr %.sroa.2.0..sroa_idx.i.i.i226, align 8
@@ -6847,7 +6847,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %556 = load i64, ptr %554, align 8
   %557 = getelementptr inbounds i8, ptr %554, i64 8
   %558 = load i32, ptr %557, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %554, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %554, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 12, i1 false)
   store i64 %556, ptr %31, align 8
   %.sroa.2.0..sroa_idx.i.i.i227 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %558, ptr %.sroa.2.0..sroa_idx.i.i.i227, align 8
@@ -6870,7 +6870,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %563 = load i64, ptr %561, align 8
   %564 = getelementptr inbounds i8, ptr %561, i64 8
   %565 = load i32, ptr %564, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %561, ptr noundef nonnull align 8 dereferenceable(12) %34, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %561, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 12, i1 false)
   store i64 %563, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i.i228 = getelementptr inbounds i8, ptr %34, i64 8
   store i32 %565, ptr %.sroa.2.0..sroa_idx.i.i.i228, align 8
@@ -6894,7 +6894,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %571 = load i64, ptr %569, align 8
   %572 = getelementptr inbounds i8, ptr %569, i64 8
   %573 = load i32, ptr %572, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %569, ptr noundef nonnull align 8 dereferenceable(12) %37, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %569, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 12, i1 false)
   store i64 %571, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i.i.i246 = getelementptr inbounds i8, ptr %37, i64 8
   store i32 %573, ptr %.sroa.2.0..sroa_idx.i.i.i246, align 8
@@ -6918,7 +6918,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %579 = load i64, ptr %577, align 8
   %580 = getelementptr inbounds i8, ptr %577, i64 8
   %581 = load i32, ptr %580, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %577, ptr noundef nonnull align 8 dereferenceable(12) %40, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %577, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 12, i1 false)
   store i64 %579, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i.i.i256 = getelementptr inbounds i8, ptr %40, i64 8
   store i32 %581, ptr %.sroa.2.0..sroa_idx.i.i.i256, align 8
@@ -6942,7 +6942,7 @@ _ZNK19MeshLabPluginLogger3logIJffffffEEEvPKcDpOT_.exit: ; preds = %cdce.end._ZNK
   %587 = load i64, ptr %585, align 8
   %588 = getelementptr inbounds i8, ptr %585, i64 8
   %589 = load i32, ptr %588, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %585, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 12, i1 false)
   store i64 %587, ptr %43, align 8
   %.sroa.2.0..sroa_idx.i.i.i266 = getelementptr inbounds i8, ptr %43, i64 8
   store i32 %589, ptr %.sroa.2.0..sroa_idx.i.i.i266, align 8
@@ -7034,7 +7034,7 @@ _ZNK19MeshLabPluginLogger3logIJfffEEEvPKcDpOT_.exit: ; preds = %cdce.end501, %_Z
   %624 = load i64, ptr %622, align 8
   %625 = getelementptr inbounds i8, ptr %622, i64 8
   %626 = load i32, ptr %625, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %622, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %622, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 12, i1 false)
   store i64 %624, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i.i.i286 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 %626, ptr %.sroa.2.0..sroa_idx.i.i.i286, align 8
@@ -7057,7 +7057,7 @@ _ZNK19MeshLabPluginLogger3logIJfffEEEvPKcDpOT_.exit: ; preds = %cdce.end501, %_Z
   %631 = load i64, ptr %629, align 8
   %632 = getelementptr inbounds i8, ptr %629, i64 8
   %633 = load i32, ptr %632, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %629, ptr noundef nonnull align 8 dereferenceable(12) %49, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %629, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 12, i1 false)
   store i64 %631, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i.i287 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 %633, ptr %.sroa.2.0..sroa_idx.i.i.i287, align 8
@@ -7080,7 +7080,7 @@ _ZNK19MeshLabPluginLogger3logIJfffEEEvPKcDpOT_.exit: ; preds = %cdce.end501, %_Z
   %638 = load i64, ptr %636, align 8
   %639 = getelementptr inbounds i8, ptr %636, i64 8
   %640 = load i32, ptr %639, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %636, ptr noundef nonnull align 8 dereferenceable(12) %52, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %636, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 12, i1 false)
   store i64 %638, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i.i.i288 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 %640, ptr %.sroa.2.0..sroa_idx.i.i.i288, align 8
@@ -7625,7 +7625,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit137: ; preds = %.loopexi
   %199 = load i64, ptr %197, align 8
   %200 = getelementptr inbounds i8, ptr %197, i64 8
   %201 = load i32, ptr %200, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 12, i1 false)
   store i64 %199, ptr %30, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %201, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -7769,7 +7769,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit143: ; preds = %_ZN11GLL
   %261 = load i64, ptr %259, align 8
   %262 = getelementptr inbounds i8, ptr %259, i64 8
   %263 = load i32, ptr %262, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %259, ptr noundef nonnull align 8 dereferenceable(12) %34, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %259, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 12, i1 false)
   store i64 %261, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i.i144 = getelementptr inbounds i8, ptr %34, i64 8
   store i32 %263, ptr %.sroa.2.0..sroa_idx.i.i.i144, align 8
@@ -7931,7 +7931,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit160: ; preds = %_ZN11GLL
   %332 = load i64, ptr %320, align 8
   %333 = getelementptr inbounds i8, ptr %320, i64 8
   %334 = load i32, ptr %333, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %320, ptr noundef nonnull align 8 dereferenceable(12) %37, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %320, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 12, i1 false)
   store i64 %332, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i.i.i161 = getelementptr inbounds i8, ptr %37, i64 8
   store i32 %334, ptr %.sroa.2.0..sroa_idx.i.i.i161, align 8
@@ -8071,7 +8071,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit179: ; preds = %339, %_Z
   %388 = load i64, ptr %386, align 8
   %389 = getelementptr inbounds i8, ptr %386, i64 8
   %390 = load i32, ptr %389, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %386, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 12, i1 false)
   store i64 %388, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i.i.i180 = getelementptr inbounds i8, ptr %42, i64 8
   store i32 %390, ptr %.sroa.2.0..sroa_idx.i.i.i180, align 8
@@ -8218,14 +8218,14 @@ _ZNK19MeshLabPluginLogger3logIJRfEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
   %465 = load i64, ptr %463, align 8
   %466 = getelementptr inbounds i8, ptr %463, i64 8
   %467 = load i32, ptr %466, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %463, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %463, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 12, i1 false)
   store i64 %465, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i.i188 = getelementptr inbounds i8, ptr %45, i64 8
   store i32 %467, ptr %.sroa.2.0..sroa_idx.i.i.i188, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #30
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %48, i8 0, i64 24, i1 false)
   %468 = getelementptr inbounds i8, ptr %48, i64 24
   store i8 1, ptr %468, align 8
   %469 = getelementptr inbounds i8, ptr %48, i64 72
@@ -8467,7 +8467,7 @@ _ZNK19MeshLabPluginLogger3logIJiffEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream
   %599 = load i64, ptr %597, align 8
   %600 = getelementptr inbounds i8, ptr %597, i64 8
   %601 = load i32, ptr %600, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %597, ptr noundef nonnull align 8 dereferenceable(12) %49, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %597, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 12, i1 false)
   store i64 %599, ptr %49, align 8
   %.sroa.2.0..sroa_idx.i.i.i206 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 %601, ptr %.sroa.2.0..sroa_idx.i.i.i206, align 8
@@ -8546,7 +8546,7 @@ _ZNK19MeshLabPluginLogger3logIJiffEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream
   %638 = load i64, ptr %636, align 8
   %639 = getelementptr inbounds i8, ptr %636, i64 8
   %640 = load i32, ptr %639, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %636, ptr noundef nonnull align 8 dereferenceable(12) %52, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %636, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 12, i1 false)
   store i64 %638, ptr %52, align 8
   %.sroa.2.0..sroa_idx.i.i.i214 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 %640, ptr %.sroa.2.0..sroa_idx.i.i.i214, align 8
@@ -8780,7 +8780,7 @@ _ZNK19MeshLabPluginLogger3logIJiffEEEvPKcDpOT_.exit233: ; preds = %_ZN11GLLogStr
   %761 = load i64, ptr %759, align 8
   %762 = getelementptr inbounds i8, ptr %759, i64 8
   %763 = load i32, ptr %762, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %759, ptr noundef nonnull align 8 dereferenceable(12) %55, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %759, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 12, i1 false)
   store i64 %761, ptr %55, align 8
   %.sroa.2.0..sroa_idx.i.i.i241 = getelementptr inbounds i8, ptr %55, i64 8
   store i32 %763, ptr %.sroa.2.0..sroa_idx.i.i.i241, align 8
@@ -8859,7 +8859,7 @@ _ZNK19MeshLabPluginLogger3logIJiffEEEvPKcDpOT_.exit233: ; preds = %_ZN11GLLogStr
   %800 = load i64, ptr %798, align 8
   %801 = getelementptr inbounds i8, ptr %798, i64 8
   %802 = load i32, ptr %801, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %798, ptr noundef nonnull align 8 dereferenceable(12) %58, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %798, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 12, i1 false)
   store i64 %800, ptr %58, align 8
   %.sroa.2.0..sroa_idx.i.i.i249 = getelementptr inbounds i8, ptr %58, i64 8
   store i32 %802, ptr %.sroa.2.0..sroa_idx.i.i.i249, align 8
@@ -8924,7 +8924,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit254: ; preds = %_ZN11GLL
   %824 = load i64, ptr %822, align 8
   %825 = getelementptr inbounds i8, ptr %822, i64 8
   %826 = load i32, ptr %825, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %822, ptr noundef nonnull align 8 dereferenceable(12) %62, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %822, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 12, i1 false)
   store i64 %824, ptr %62, align 8
   %.sroa.2.0..sroa_idx.i.i.i255 = getelementptr inbounds i8, ptr %62, i64 8
   store i32 %826, ptr %.sroa.2.0..sroa_idx.i.i.i255, align 8
@@ -9037,7 +9037,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit283: ; preds = %_ZN11GLL
   %873 = load i64, ptr %871, align 8
   %874 = getelementptr inbounds i8, ptr %871, i64 8
   %875 = load i32, ptr %874, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %871, ptr noundef nonnull align 8 dereferenceable(12) %65, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %871, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 12, i1 false)
   store i64 %873, ptr %65, align 8
   %.sroa.2.0..sroa_idx.i.i.i284 = getelementptr inbounds i8, ptr %65, i64 8
   store i32 %875, ptr %.sroa.2.0..sroa_idx.i.i.i284, align 8
@@ -9111,7 +9111,7 @@ _ZNK19MeshLabPluginLogger3logIJRfEEEvPKcDpOT_.exit290: ; preds = %_ZN11GLLogStre
   %901 = load i64, ptr %899, align 8
   %902 = getelementptr inbounds i8, ptr %899, i64 8
   %903 = load i32, ptr %902, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %899, ptr noundef nonnull align 8 dereferenceable(12) %72, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %899, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 12, i1 false)
   store i64 %901, ptr %72, align 8
   %.sroa.2.0..sroa_idx.i.i.i291 = getelementptr inbounds i8, ptr %72, i64 8
   store i32 %903, ptr %.sroa.2.0..sroa_idx.i.i.i291, align 8
@@ -9193,7 +9193,7 @@ _ZN11GLLogStream4logfIJRfS1_S1_EEEviPKcDpOT_.exit.i303: ; preds = %929, %.noexc3
   %945 = load i64, ptr %943, align 8
   %946 = getelementptr inbounds i8, ptr %943, i64 8
   %947 = load i32, ptr %946, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %943, ptr noundef nonnull align 8 dereferenceable(12) %75, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %943, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 12, i1 false)
   store i64 %945, ptr %75, align 8
   %.sroa.2.0..sroa_idx.i.i.i311 = getelementptr inbounds i8, ptr %75, i64 8
   store i32 %947, ptr %.sroa.2.0..sroa_idx.i.i.i311, align 8
@@ -9405,7 +9405,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit326: ; preds = %1028, %_
   %1069 = load i64, ptr %1067, align 8
   %1070 = getelementptr inbounds i8, ptr %1067, i64 8
   %1071 = load i32, ptr %1070, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1067, ptr noundef nonnull align 8 dereferenceable(12) %80, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1067, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 12, i1 false)
   store i64 %1069, ptr %80, align 8
   %.sroa.2.0..sroa_idx.i.i.i327 = getelementptr inbounds i8, ptr %80, i64 8
   store i32 %1071, ptr %.sroa.2.0..sroa_idx.i.i.i327, align 8
@@ -9544,7 +9544,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit342: ; preds = %1077, %_
   %1126 = load i64, ptr %1124, align 8
   %1127 = getelementptr inbounds i8, ptr %1124, i64 8
   %1128 = load i32, ptr %1127, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1124, ptr noundef nonnull align 8 dereferenceable(12) %85, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1124, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 12, i1 false)
   store i64 %1126, ptr %85, align 8
   %.sroa.2.0..sroa_idx.i.i.i343 = getelementptr inbounds i8, ptr %85, i64 8
   store i32 %1128, ptr %.sroa.2.0..sroa_idx.i.i.i343, align 8
@@ -9611,7 +9611,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit348: ; preds = %_ZN11GLL
   %1156 = load i64, ptr %1154, align 8
   %1157 = getelementptr inbounds i8, ptr %1154, i64 8
   %1158 = load i32, ptr %1157, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1154, ptr noundef nonnull align 8 dereferenceable(12) %88, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1154, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 12, i1 false)
   store i64 %1156, ptr %88, align 8
   br label %1288
 
@@ -9966,7 +9966,7 @@ _ZNK19MeshLabPluginLogger3logIJRfS1_S1_EEEvPKcDpOT_.exit368: ; preds = %1231, %_
   %1280 = load i64, ptr %1278, align 8
   %1281 = getelementptr inbounds i8, ptr %1278, i64 8
   %1282 = load i32, ptr %1281, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1278, ptr noundef nonnull align 8 dereferenceable(12) %93, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1278, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 12, i1 false)
   store i64 %1280, ptr %93, align 8
   br label %1288
 
@@ -10214,7 +10214,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
   %60 = load i64, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %58, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 12, i1 false)
   store i64 %60, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %62, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -10558,7 +10558,7 @@ _ZNK19MeshLabPluginLogger3logIJRdEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
   %266 = load i64, ptr %264, align 8
   %267 = getelementptr inbounds i8, ptr %264, i64 8
   %268 = load i32, ptr %267, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %264, ptr noundef nonnull align 8 dereferenceable(12) %12, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 12, i1 false)
   store i64 %266, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i.i128 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %268, ptr %.sroa.2.0..sroa_idx.i.i.i128, align 8
@@ -10857,7 +10857,7 @@ _ZNK19MeshLabPluginLogger3logIJRdEEEvPKcDpOT_.exit161: ; preds = %._crit_edge235
   %427 = load i64, ptr %425, align 8
   %428 = getelementptr inbounds i8, ptr %425, i64 8
   %429 = load i32, ptr %428, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %425, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %425, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 12, i1 false)
   store i64 %427, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i162 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %429, ptr %.sroa.2.0..sroa_idx.i.i.i162, align 8
@@ -10880,7 +10880,7 @@ _ZNK19MeshLabPluginLogger3logIJRdEEEvPKcDpOT_.exit161: ; preds = %._crit_edge235
   %434 = load i64, ptr %432, align 8
   %435 = getelementptr inbounds i8, ptr %432, i64 8
   %436 = load i32, ptr %435, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %432, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %432, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 12, i1 false)
   store i64 %434, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i.i.i163 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %436, ptr %.sroa.2.0..sroa_idx.i.i.i163, align 8
@@ -11277,7 +11277,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit60: ; preds = %_ZN11GLLogStream
   %150 = load i64, ptr %148, align 8
   %151 = getelementptr inbounds i8, ptr %148, i64 8
   %152 = load i32, ptr %151, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %148, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 12, i1 false)
   store i64 %150, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %152, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -11300,7 +11300,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit60: ; preds = %_ZN11GLLogStream
   %157 = load i64, ptr %155, align 8
   %158 = getelementptr inbounds i8, ptr %155, i64 8
   %159 = load i32, ptr %158, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %155, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 12, i1 false)
   store i64 %157, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i.i61 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %159, ptr %.sroa.2.0..sroa_idx.i.i.i61, align 8
@@ -11324,7 +11324,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit60: ; preds = %_ZN11GLLogStream
   %165 = load i64, ptr %163, align 8
   %166 = getelementptr inbounds i8, ptr %163, i64 8
   %167 = load i32, ptr %166, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %163, ptr noundef nonnull align 8 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 12, i1 false)
   store i64 %165, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i.i70 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %167, ptr %.sroa.2.0..sroa_idx.i.i.i70, align 8
@@ -11348,7 +11348,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit60: ; preds = %_ZN11GLLogStream
   %173 = load i64, ptr %171, align 8
   %174 = getelementptr inbounds i8, ptr %171, i64 8
   %175 = load i32, ptr %174, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %171, ptr noundef nonnull align 8 dereferenceable(12) %17, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 12, i1 false)
   store i64 %173, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i80 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %175, ptr %.sroa.2.0..sroa_idx.i.i.i80, align 8
@@ -11372,7 +11372,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit60: ; preds = %_ZN11GLLogStream
   %181 = load i64, ptr %179, align 8
   %182 = getelementptr inbounds i8, ptr %179, i64 8
   %183 = load i32, ptr %182, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %179, ptr noundef nonnull align 8 dereferenceable(12) %20, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 12, i1 false)
   store i64 %181, ptr %20, align 8
   %.sroa.2.0..sroa_idx.i.i.i98 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 %183, ptr %.sroa.2.0..sroa_idx.i.i.i98, align 8
@@ -11395,7 +11395,7 @@ _ZN3vcg12DistributionIfED2Ev.exit:                ; preds = %185
   %187 = load i64, ptr %186, align 8
   %188 = getelementptr inbounds i8, ptr %186, i64 8
   %189 = load i32, ptr %188, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %186, ptr noundef nonnull align 8 dereferenceable(12) %23, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 12, i1 false)
   store i64 %187, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i.i107 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 %189, ptr %.sroa.2.0..sroa_idx.i.i.i107, align 8
@@ -11888,7 +11888,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit61: ; preds = %_ZN11GLLogStream
   %159 = load i64, ptr %157, align 8
   %160 = getelementptr inbounds i8, ptr %157, i64 8
   %161 = load i32, ptr %160, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %157, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 12, i1 false)
   store i64 %159, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %161, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -11911,7 +11911,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit61: ; preds = %_ZN11GLLogStream
   %166 = load i64, ptr %164, align 8
   %167 = getelementptr inbounds i8, ptr %164, i64 8
   %168 = load i32, ptr %167, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 12, i1 false)
   store i64 %166, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i.i62 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %168, ptr %.sroa.2.0..sroa_idx.i.i.i62, align 8
@@ -11935,7 +11935,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit61: ; preds = %_ZN11GLLogStream
   %174 = load i64, ptr %172, align 8
   %175 = getelementptr inbounds i8, ptr %172, i64 8
   %176 = load i32, ptr %175, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %172, ptr noundef nonnull align 8 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 12, i1 false)
   store i64 %174, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i.i71 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %176, ptr %.sroa.2.0..sroa_idx.i.i.i71, align 8
@@ -11959,7 +11959,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit61: ; preds = %_ZN11GLLogStream
   %182 = load i64, ptr %180, align 8
   %183 = getelementptr inbounds i8, ptr %180, i64 8
   %184 = load i32, ptr %183, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %180, ptr noundef nonnull align 8 dereferenceable(12) %17, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 12, i1 false)
   store i64 %182, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i81 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %184, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8
@@ -11983,7 +11983,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit61: ; preds = %_ZN11GLLogStream
   %190 = load i64, ptr %188, align 8
   %191 = getelementptr inbounds i8, ptr %188, i64 8
   %192 = load i32, ptr %191, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %188, ptr noundef nonnull align 8 dereferenceable(12) %20, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 12, i1 false)
   store i64 %190, ptr %20, align 8
   %.sroa.2.0..sroa_idx.i.i.i99 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 %192, ptr %.sroa.2.0..sroa_idx.i.i.i99, align 8
@@ -12006,7 +12006,7 @@ _ZN3vcg12DistributionIfED2Ev.exit:                ; preds = %194
   %196 = load i64, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %195, i64 8
   %198 = load i32, ptr %197, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %195, ptr noundef nonnull align 8 dereferenceable(12) %23, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 12, i1 false)
   store i64 %196, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i.i108 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 %198, ptr %.sroa.2.0..sroa_idx.i.i.i108, align 8
@@ -12184,7 +12184,7 @@ define void @_ZN19FilterMeasurePlugin25perVertexQualityHistogramB5cxx11ER12MeshD
           to label %37 unwind label %54
 
 37:                                               ; preds = %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 48, i1 false)
   invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(80) %11, float noundef %3, float noundef %4, i32 noundef %5, float noundef 1.000000e+00)
           to label %38 unwind label %56
 
@@ -12715,7 +12715,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %252, %.noexc77
   %267 = load i64, ptr %265, align 8
   %268 = getelementptr inbounds i8, ptr %265, i64 8
   %269 = load i32, ptr %268, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %265, ptr noundef nonnull align 8 dereferenceable(12) %21, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 12, i1 false)
   store i64 %267, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %269, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -12738,7 +12738,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %252, %.noexc77
   %274 = load i64, ptr %272, align 8
   %275 = getelementptr inbounds i8, ptr %272, i64 8
   %276 = load i32, ptr %275, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %272, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 12, i1 false)
   store i64 %274, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i80 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 %276, ptr %.sroa.2.0..sroa_idx.i.i.i80, align 8
@@ -12761,7 +12761,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %252, %.noexc77
   %281 = load i64, ptr %279, align 8
   %282 = getelementptr inbounds i8, ptr %279, i64 8
   %283 = load i32, ptr %282, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %279, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 12, i1 false)
   store i64 %281, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i81 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %283, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8
@@ -12951,7 +12951,7 @@ define void @_ZN19FilterMeasurePlugin23perFaceQualityHostogramB5cxx11ER12MeshDoc
           to label %37 unwind label %54
 
 37:                                               ; preds = %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, i8 0, i64 48, i1 false)
   invoke void @_ZN3vcg9HistogramIfE8SetRangeEffif(ptr noundef nonnull align 8 dereferenceable(80) %11, float noundef %3, float noundef %4, i32 noundef %5, float noundef 1.000000e+00)
           to label %38 unwind label %56
 
@@ -13491,7 +13491,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %261, %.noexc77
   %276 = load i64, ptr %274, align 8
   %277 = getelementptr inbounds i8, ptr %274, i64 8
   %278 = load i32, ptr %277, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %274, ptr noundef nonnull align 8 dereferenceable(12) %21, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 12, i1 false)
   store i64 %276, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store i32 %278, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -13514,7 +13514,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %261, %.noexc77
   %283 = load i64, ptr %281, align 8
   %284 = getelementptr inbounds i8, ptr %281, i64 8
   %285 = load i32, ptr %284, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %281, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %281, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 12, i1 false)
   store i64 %283, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i80 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 %285, ptr %.sroa.2.0..sroa_idx.i.i.i80, align 8
@@ -13537,7 +13537,7 @@ _ZN11GLLogStream4logfIJRffEEEviPKcDpOT_.exit.i76: ; preds = %261, %.noexc77
   %290 = load i64, ptr %288, align 8
   %291 = getelementptr inbounds i8, ptr %288, i64 8
   %292 = load i32, ptr %291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %288, ptr noundef nonnull align 8 dereferenceable(12) %27, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 12, i1 false)
   store i64 %290, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i81 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 %292, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8
@@ -17030,7 +17030,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypeP
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %1, %3 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i, i8 0, i64 24, i1 false)
   %19 = add i64 %.01012.i.i.i, -1
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -17060,7 +17060,7 @@ _ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_le
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %30, %.lr.ph.i.i.i30 ], [ %28, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %29, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN3vcg4face10vector_ocfI6CFaceOE11AdjTypePackESaIS5_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.013.i.i.i31, i8 0, i64 24, i1 false)
   %29 = add i64 %.01012.i.i.i32, -1
   %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %29, 0
@@ -20564,7 +20564,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #30
   %12 = getelementptr inbounds i8, ptr %8, i64 64
   %13 = getelementptr inbounds i8, ptr %8, i64 72
   store i32 -2147483648, ptr %13, align 8
@@ -20619,7 +20619,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %15
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #30
   tail call void @_ZdlPv(ptr noundef nonnull %8) #29
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8QVariantESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_Auto_nodeD2Ev.exit
 
@@ -20958,7 +20958,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #30
   tail call void @_ZdlPv(ptr noundef nonnull %3) #29
   br label %7
 
@@ -22145,7 +22145,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = getelementptr inbounds i8, ptr %.07, i64 32
   %8 = getelementptr inbounds i8, ptr %.07, i64 64
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #29
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !208
@@ -23142,7 +23142,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN11MLExceptionD2Ev.exit
 
 _ZN11MLExceptionD2Ev.exit:                        ; preds = %_ZN10QByteArrayD2Ev.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #30
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
 }

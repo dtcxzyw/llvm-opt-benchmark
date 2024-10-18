@@ -1078,7 +1078,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
   br i1 %.not.i.i, label %103, label %101
 
 101:                                              ; preds = %SerialPagePrecedesLogically.exit.i.i
-  %102 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %56, i32 noundef %100) #12
+  %102 = tail call zeroext i1 @TransactionIdFollows(i32 noundef range(i32 1, 0) %56, i32 noundef %100) #12
   br i1 %102, label %._crit_edge30.i.i, label %106
 
 ._crit_edge30.i.i:                                ; preds = %101
@@ -1117,7 +1117,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
 
 .critedge.i.i:                                    ; preds = %106
   %116 = tail call zeroext i1 @LWLockAcquire(ptr noundef %76, i32 noundef 0) #12
-  %117 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %69, i1 noundef zeroext true, i32 noundef %56) #12
+  %117 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %69, i1 noundef zeroext true, i32 noundef range(i32 1, 0) %56) #12
   br label %SerialAdd.exit.i
 
 SerialAdd.exit.i:                                 ; preds = %.critedge.i.i, %._crit_edge.i.i

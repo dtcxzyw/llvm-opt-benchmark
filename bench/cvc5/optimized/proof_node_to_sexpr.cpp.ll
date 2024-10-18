@@ -413,7 +413,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %call.i.noexc unwind label %lpad8
 
 call.i.noexc:                                     ; preds = %invoke.cont5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %call.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i58, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -423,7 +423,7 @@ call.i.noexc:                                     ; preds = %invoke.cont5
 lpad.i:                                           ; preds = %.noexc
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #18
   br label %ehcleanup20
 
 invoke.cont9:                                     ; preds = %.noexc
@@ -549,7 +549,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal12
           to label %call.i.noexc84 unwind label %lpad24
 
 call.i.noexc84:                                   ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef %call.i85, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef %call.i85, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
           to label %.noexc86 unwind label %lpad24
 
 .noexc86:                                         ; preds = %call.i.noexc84
@@ -559,7 +559,7 @@ call.i.noexc84:                                   ; preds = %_ZN4cvc58internal8T
 lpad.i83:                                         ; preds = %.noexc86
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #18
   br label %ehcleanup38
 
 invoke.cont25:                                    ; preds = %.noexc86
@@ -2341,7 +2341,7 @@ lpad120:                                          ; preds = %if.else.i343, %if.t
 
 for.end123:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit357, %invoke.cont108
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 10)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 10)
           to label %.noexc360 unwind label %lpad112.loopexit.split-lp
 
 .noexc360:                                        ; preds = %for.end123
@@ -2521,7 +2521,7 @@ ehcleanup:                                        ; preds = %lpad112.loopexit, %
 
 if.end127:                                        ; preds = %if.then.i.i.i402, %invoke.cont.i400, %invoke.cont104
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i404)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i404, ptr noundef nonnull %call, i32 noundef 10)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i404, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 10)
           to label %.noexc420 unwind label %lpad65.loopexit.split-lp
 
 .noexc420:                                        ; preds = %if.end127

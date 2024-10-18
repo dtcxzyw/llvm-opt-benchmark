@@ -129,7 +129,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN6google8protobuf8compiler4java7ContextC2EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef readonly %file, ptr noundef nonnull align 8 dereferenceable(73) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %call, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %call, ptr noundef nonnull align 8 dereferenceable(73) %options, i64 6, i1 false)
   %annotation_list_file.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %annotation_list_file3.i.i = getelementptr inbounds i8, ptr %options, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
@@ -167,7 +167,7 @@ invoke.cont5:                                     ; preds = %.noexc
   %slots_.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i6, i8 0, i64 24, i1 false)
   %options_ = getelementptr inbounds i8, ptr %this, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %options_, ptr noundef nonnull align 8 dereferenceable(6) %options, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %options_, ptr noundef nonnull align 8 dereferenceable(73) %options, i64 6, i1 false)
   %annotation_list_file.i = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i, ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file3.i.i)
           to label %.noexc7 unwind label %lpad6
@@ -309,7 +309,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %capitalized_name.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for.body.i.i.i
@@ -355,7 +355,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i.i.i.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for.body.i.i.i
@@ -460,7 +460,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   %capitalized_name.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i
@@ -501,7 +501,7 @@ if.then.i.i.i.i13:                                ; preds = %for.body.i.i.i.i5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i.i.i.i.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i14, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i.i.i16) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i15) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i.i.i15) #23
   br label %for.inc.i.i.i.i9
 
 for.inc.i.i.i.i9:                                 ; preds = %if.then.i.i.i.i13, %for.body.i.i.i.i5
@@ -761,7 +761,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   %14 = load ptr, ptr %oneof_decls_.i, align 8
   %add.ptr.i25 = getelementptr inbounds %"class.google::protobuf::OneofDescriptor", ptr %14, i64 %indvars.iv68
   store ptr %add.ptr.i25, ptr %oneof, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i) #23
   %15 = load ptr, ptr %oneof, align 8
   %all_names_.i = getelementptr inbounds i8, ptr %15, i64 8
@@ -795,7 +795,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   %23 = load ptr, ptr %13, align 8
   %second.i.i = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %call.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %info)
+  %call.i29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i, ptr noundef nonnull align 8 dereferenceable(64) %info)
           to label %call.i.noexc unwind label %lpad27
 
 call.i.noexc:                                     ; preds = %invoke.cont40
@@ -805,7 +805,7 @@ call.i.noexc:                                     ; preds = %invoke.cont40
 
 invoke.cont42:                                    ; preds = %call.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info) #23
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %24 = load i32, ptr %oneof_decl_count_.i, align 8
   %25 = sext i32 %24 to i64
@@ -816,7 +816,7 @@ lpad27:                                           ; preds = %call.i.noexc, %invo
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %info) #23
   %.pre73 = load ptr, ptr %fields, align 8
   br label %ehcleanup
 
@@ -1424,7 +1424,7 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
   %add.ptr.i139 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv293
   %88 = load ptr, ptr %add.ptr.i139, align 8
   store ptr %88, ptr %field123, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %info) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i) #23
   %89 = load ptr, ptr %field123, align 8
@@ -1501,7 +1501,7 @@ invoke.cont157:                                   ; preds = %if.end156
   %97 = load ptr, ptr %29, align 8
   %second.i.i = getelementptr inbounds i8, ptr %97, i64 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i167)
-  %call.i169173 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %info)
+  %call.i169173 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i, ptr noundef nonnull align 8 dereferenceable(96) %info)
           to label %call.i169.noexc unwind label %lpad127
 
 call.i169.noexc:                                  ; preds = %invoke.cont157
@@ -1517,7 +1517,7 @@ call4.i171.noexc:                                 ; preds = %call.i169.noexc
 invoke.cont159:                                   ; preds = %call4.i171.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %info) #23
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %98 = load ptr, ptr %_M_finish.i, align 8
   %99 = load ptr, ptr %fields, align 8
@@ -2037,7 +2037,7 @@ if.then:                                          ; preds = %for.end.i
   store ptr %14, ptr %add.ptr.i3, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i.i, i8 0, i64 64, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i) #23
   %.pre = load ptr, ptr %this, align 8
@@ -2245,12 +2245,12 @@ if.then:                                          ; preds = %for.body
   store ptr %15, ptr %add.ptr16, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %second3.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 40
   %capitalized_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second3.i.i.i.i.i.i.i) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -2304,12 +2304,12 @@ entry:
   store ptr %0, ptr %dst, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %second3.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 40
   %capitalized_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %second3.i.i.i.i.i.i.i) #23
   ret void
 }
 
@@ -2420,7 +2420,7 @@ if.then:                                          ; preds = %for.end.i
   store ptr %14, ptr %add.ptr.i3, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i, i8 0, i64 96, i1 false)
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i.i) #23
   %disambiguated_reason.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3, i64 72
@@ -2624,7 +2624,7 @@ if.then:                                          ; preds = %for.body
   store ptr %15, ptr %add.ptr16, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr16, i64 40
   %capitalized_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
@@ -2633,7 +2633,7 @@ if.then:                                          ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason4.i.i.i.i.i.i.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason4.i.i.i.i.i.i.i.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -2677,7 +2677,7 @@ entry:
   store ptr %0, ptr %dst, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i) #23
   %capitalized_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %dst, i64 40
   %capitalized_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
@@ -2686,7 +2686,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason4.i.i.i.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %disambiguated_reason4.i.i.i.i.i.i.i.i) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capitalized_name3.i.i.i.i.i.i.i.i) #23
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %second3.i.i.i.i.i.i.i) #23
   ret void
 }
 

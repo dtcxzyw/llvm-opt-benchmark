@@ -373,7 +373,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %151 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %150, double %.sroa.0104.0.copyload107)
   %152 = call double @sin(double noundef %.sroa.16141.0.copyload143) #14
   %153 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload130, double %152, double %.sroa.0104.0.copyload107)
-  call fastcc void @addto(ptr noundef %5, double noundef %151, double noundef %153)
+  call fastcc void @addto(ptr noundef nonnull %5, double noundef %151, double noundef %153)
   br label %154
 
 154:                                              ; preds = %.lr.ph224, %149
@@ -430,7 +430,7 @@ mymod.exit202:                                    ; preds = %135, %mymod.exit199
   %172 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %171, double %.sroa.0104.0.copyload108)
   %173 = call double @sin(double noundef %170) #14
   %174 = call double @llvm.fmuladd.f64(double %.sroa.12.0.copyload132, double %173, double %.sroa.0104.0.copyload108)
-  call fastcc void @addto(ptr noundef %5, double noundef %172, double noundef %174)
+  call fastcc void @addto(ptr noundef nonnull %5, double noundef %172, double noundef %174)
   br label %175
 
 175:                                              ; preds = %.lr.ph233, %169
@@ -483,13 +483,13 @@ define internal fastcc void @addto(ptr nocapture noundef nonnull %0, double noun
   br label %gv_recalloc.exit
 
 17:                                               ; preds = %12
-  %18 = tail call ptr @realloc(ptr noundef %5, i64 noundef %14) #17
+  %18 = tail call ptr @realloc(ptr noundef %5, i64 noundef range(i64 0, -15) %14) #17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, i64 noundef %14) #15
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, i64 noundef range(i64 0, -15) %14) #15
   tail call fastcc void @graphviz_exit() #16
   unreachable
 

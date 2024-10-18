@@ -913,7 +913,7 @@ _ZNK19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE8get_nodeIN
   br i1 %.not.i48, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE8get_nodeIN22G1CodeRootSetHashTable15HashTableLookUpEEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
-  %77 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, ptr %62, ptr nonnull %.0.i) #13, !srcloc !11
+  %77 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, ptr %62, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !11
   %78 = icmp eq ptr %77, %62
   br i1 %78, label %79, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
@@ -1067,7 +1067,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %41 = inttoptr i64 %40 to ptr
   %42 = or disjoint i64 %40, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull %.0.i) #13, !srcloc !11
+  %44 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %43, ptr %41, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !11
   %45 = icmp eq ptr %44, %41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   store volatile i64 %9, ptr %4, align 8
@@ -1271,7 +1271,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %19 = inttoptr i64 %18 to ptr
   %20 = or disjoint i64 %18, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr %19, ptr nonnull %11) #13, !srcloc !11
+  %22 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr %19, ptr nonnull align 8 dereferenceable(8) %11) #13, !srcloc !11
   %23 = icmp eq ptr %22, %19
   br i1 %23, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i
 
@@ -1945,7 +1945,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %61 = inttoptr i64 %60 to ptr
   %62 = or disjoint i64 %60, 1
   %63 = inttoptr i64 %62 to ptr
-  %64 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %63, ptr %61, ptr nonnull %23) #13, !srcloc !11
+  %64 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %63, ptr %61, ptr nonnull align 8 dereferenceable(8) %23) #13, !srcloc !11
   %65 = icmp eq ptr %64, %61
   br i1 %65, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i
 
@@ -2383,7 +2383,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %23 = inttoptr i64 %22 to ptr
   %24 = or disjoint i64 %22, 1
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, ptr %23, ptr nonnull %15) #13, !srcloc !11
+  %26 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, ptr %23, ptr nonnull align 8 dereferenceable(8) %15) #13, !srcloc !11
   %27 = icmp eq ptr %26, %23
   br i1 %27, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit.preheader, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i
 
@@ -2425,7 +2425,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %40 = inttoptr i64 %39 to ptr
   %41 = or disjoint i64 %39, 1
   %42 = inttoptr i64 %41 to ptr
-  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %42, ptr %40, ptr nonnull %28) #13, !srcloc !11
+  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %42, ptr %40, ptr nonnull align 8 dereferenceable(8) %28) #13, !srcloc !11
   %44 = icmp eq ptr %43, %40
   br i1 %44, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit23, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i20
 
@@ -2745,7 +2745,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %55 = inttoptr i64 %54 to ptr
   %56 = or disjoint i64 %54, 1
   %57 = inttoptr i64 %56 to ptr
-  %58 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %57, ptr %55, ptr nonnull %23) #13, !srcloc !11
+  %58 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %57, ptr %55, ptr nonnull align 8 dereferenceable(8) %23) #13, !srcloc !11
   %59 = icmp eq ptr %58, %55
   br i1 %59, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i
 
@@ -3004,7 +3004,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTab
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %6, align 8
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull %4) #13, !srcloc !6
+  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull align 8 dereferenceable(24) %4) #13, !srcloc !6
   %16 = load i64, ptr %5, align 8
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %25
@@ -3036,7 +3036,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTab
 
 34:                                               ; preds = %27
   %35 = load i64, ptr %3, align 8
-  %36 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull %7) #13, !srcloc !6
+  %36 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %35, ptr nonnull align 8 dereferenceable(24) %7) #13, !srcloc !6
   %37 = load i64, ptr %8, align 8
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %39, label %62
@@ -3286,7 +3286,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7tryl
   %64 = inttoptr i64 %63 to ptr
   %65 = or disjoint i64 %63, 1
   %66 = inttoptr i64 %65 to ptr
-  %67 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %66, ptr %64, ptr nonnull %25) #13, !srcloc !11
+  %67 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %66, ptr %64, ptr nonnull align 8 dereferenceable(8) %25) #13, !srcloc !11
   %68 = icmp eq ptr %67, %64
   br i1 %68, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket4lockEv.exit, label %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket7trylockEv.exit.thread.i
 

@@ -663,7 +663,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 234:                                              ; preds = %237, %233
   %.345.i.i = phi i8 [ 0, %233 ], [ %.042.i.i, %237 ]
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %12, ptr align 8 %215, ptr align 8 %88, i64 %89, ptr align 8 %77, i64 %79)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %12, ptr align 8 %215, ptr nonnull align 8 %88, i64 %89, ptr nonnull align 8 %77, i64 %79)
           to label %241 unwind label %227
 
 235:                                              ; preds = %312, %311, %285, %268, %258, %248, %229
@@ -790,7 +790,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 278:                                              ; preds = %288, %277
   %.039.i.i = phi i8 [ 0, %288 ], [ 1, %277 ]
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %4, ptr align 8 %271, ptr align 8 %88, i64 %89, ptr align 8 %77, i64 %79)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %4, ptr align 8 %271, ptr nonnull align 8 %88, i64 %89, ptr nonnull align 8 %77, i64 %79)
           to label %295 unwind label %283
 
 279:                                              ; preds = %277

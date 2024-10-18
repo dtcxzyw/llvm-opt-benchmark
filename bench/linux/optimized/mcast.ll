@@ -6590,7 +6590,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 230:                                              ; preds = %229, %213
   %231 = load ptr, ptr %7, align 8
-  %232 = tail call fastcc ptr @mld_newpack(ptr noundef %231, i32 noundef %16)
+  %232 = tail call fastcc ptr @mld_newpack(ptr noundef %231, i32 noundef range(i32 1280, 0) %16)
   %233 = icmp eq ptr %232, null
   br i1 %233, label %add_grhead.exit, label %234
 

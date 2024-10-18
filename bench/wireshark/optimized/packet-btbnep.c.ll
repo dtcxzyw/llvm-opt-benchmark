@@ -292,7 +292,7 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 49:                                               ; preds = %48, %48, %48, %48
   %50 = getelementptr inbounds i8, ptr %1, i64 112
-  %51 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0, i32 noundef 6) #2
+  %51 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef range(i32 1, 8) %.0, i32 noundef 6) #2
   store i32 1, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 116
   store i32 6, ptr %52, align 4

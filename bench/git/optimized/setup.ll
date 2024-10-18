@@ -1603,7 +1603,7 @@ if.then.i:                                        ; preds = %if.then4
   br label %Q_.exit
 
 if.end.i:                                         ; preds = %if.then4
-  %call.i22 = tail call ptr @ngettext(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i64 noundef %3) #21
+  %call.i22 = tail call ptr @ngettext(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i64 noundef range(i64 1, 0) %3) #21
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %if.then.i, %if.end.i
@@ -1643,7 +1643,7 @@ if.then.i29:                                      ; preds = %if.then20
   br label %Q_.exit32
 
 if.end.i26:                                       ; preds = %if.then20
-  %call.i27 = tail call ptr @ngettext(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i64 noundef %9) #21
+  %call.i27 = tail call ptr @ngettext(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i64 noundef range(i64 1, 0) %9) #21
   br label %Q_.exit32
 
 Q_.exit32:                                        ; preds = %if.then.i29, %if.end.i26
@@ -2471,7 +2471,7 @@ lor.lhs.false7.i:                                 ; preds = %land.lhs.true5.i
   br i1 %tobool9.not.i, label %ensure_valid_ownership.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %land.lhs.true5.i, %lor.lhs.false7.i
-  %call13.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %cond67)
+  %call13.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %cond67)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %ensure_valid_ownership.exit, label %ensure_valid_ownership.exit.thread
 
@@ -2604,7 +2604,7 @@ land.lhs.true117:                                 ; preds = %strbuf_setlen.exit1
 
 if.then.i112:                                     ; preds = %land.lhs.true117
   %call1.i113 = call fastcc ptr @_(ptr noundef nonnull @.str.101)
-  call void (ptr, ...) @die_errno(ptr noundef %call1.i113, i32 noundef %40, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %42) #22
+  call void (ptr, ...) @die_errno(ptr noundef %call1.i113, i32 noundef range(i32 -1, 2147483647) %40, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %42) #22
   unreachable
 
 get_device_or_die.exit115:                        ; preds = %land.lhs.true117
@@ -2760,7 +2760,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   unreachable
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call16.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdir.addr.0.i, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call16.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdir.addr.0.i, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
   call void @free(ptr noundef %to_free.0.i) #21
   br label %sw.epilog
 
@@ -2911,7 +2911,7 @@ if.then12.i:                                      ; preds = %cond.end.i
 
 if.end14.i:                                       ; preds = %cond.end.i
   %35 = load ptr, ptr @setup_bare_git_dir.gitdir, align 8
-  %call15.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %35, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call15.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %35, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
   br label %sw.epilog
 
 if.end16.i:                                       ; preds = %if.end.i23

@@ -313,15 +313,15 @@ lpad4.i:                                          ; preds = %invoke.cont97.i, %i
   br label %eh.resume.i
 
 sw.bb.i:                                          ; preds = %if.end3.i
-  invoke void @uchar_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @uchar_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb10.i:                                        ; preds = %if.end3.i
-  invoke void @uchar_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @uchar_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont11.invoke.i unwind label %lpad4.i
 
 invoke.cont11.invoke.i:                           ; preds = %sw.bb10.i, %if.end3.i
-  invoke void @upropsvec_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @upropsvec_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb13.i:                                        ; preds = %if.end3.i
@@ -383,11 +383,11 @@ if.then60.i:                                      ; preds = %invoke.cont55.i
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb63.invoke.i:                                 ; preds = %if.then19.i, %invoke.cont14.i, %if.end3.i
-  invoke void @ucase_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @ucase_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb65.i:                                        ; preds = %if.end3.i
-  invoke void @ubidi_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @ubidi_addPropertyStarts_75(ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb69.i:                                        ; preds = %if.end3.i
@@ -414,7 +414,7 @@ invoke.cont81.i:                                  ; preds = %sw.bb78.i
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.bb85.invoke.i:                                 ; preds = %if.end3.i, %if.end3.i, %if.end3.i, %if.end3.i
-  invoke void @uprops_addPropertyStarts_75(i32 noundef %src, ptr noundef nonnull %sa.i, ptr noundef nonnull %errorCode)
+  invoke void @uprops_addPropertyStarts_75(i32 noundef %src, ptr noundef nonnull %sa.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %sw.epilog.i unwind label %lpad4.i
 
 sw.epilog.i:                                      ; preds = %sw.bb85.invoke.i, %invoke.cont81.i, %if.then75.i, %sw.bb65.i, %sw.bb63.invoke.i, %if.then60.i, %if.then50.invoke.i, %invoke.cont11.invoke.i, %sw.bb.i
@@ -577,7 +577,7 @@ if.end14.i:                                       ; preds = %invoke.cont9.i
   store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %addString.i, align 8
   %remove.i = getelementptr inbounds i8, ptr %sa.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remove.i, i8 0, i64 16, i1 false)
-  invoke void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %call10.i, ptr noundef nonnull %sa.i, i32 noundef %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZNK6icu_7510EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %call10.i, ptr noundef nonnull %sa.i, i32 noundef range(i32 0, 75) %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont17.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont17.i:                                  ; preds = %if.end14.i
@@ -587,7 +587,7 @@ invoke.cont17.i:                                  ; preds = %if.end14.i
   ]
 
 if.end27.i:                                       ; preds = %invoke.cont17.i, %invoke.cont17.i, %if.end5.i
-  %call29.i = invoke noundef ptr @_ZN6icu_7519CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call29.i = invoke noundef ptr @_ZN6icu_7519CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef range(i32 0, 75) %property, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont28.i unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont28.i:                                  ; preds = %if.end27.i
@@ -620,7 +620,7 @@ for.cond41.preheader.i:                           ; preds = %invoke.cont37.i
 for.body43.i:                                     ; preds = %for.cond41.preheader.i, %for.inc.i
   %c.048.i = phi i32 [ %inc.i, %for.inc.i ], [ %call40.i, %for.cond41.preheader.i ]
   %startHasProperty.147.i = phi i32 [ %startHasProperty.2.i, %for.inc.i ], [ %startHasProperty.050.i, %for.cond41.preheader.i ]
-  %call45.i = invoke signext i8 @u_hasBinaryProperty_75(i32 noundef %c.048.i, i32 noundef %property)
+  %call45.i = invoke signext i8 @u_hasBinaryProperty_75(i32 noundef %c.048.i, i32 noundef range(i32 0, 75) %property)
           to label %invoke.cont44.i unwind label %lpad8.loopexit.i
 
 invoke.cont44.i:                                  ; preds = %for.body43.i
@@ -756,12 +756,12 @@ if.then5:                                         ; preds = %if.end3
 if.end.i:                                         ; preds = %if.then5
   %cmp.i8 = icmp eq i32 %property, 4106
   %cond.i = select i1 %cmp.i8, i32 103, i32 0
-  %call1.i9 = invoke ptr @umutablecptrie_open_75(i32 noundef %cond.i, i32 noundef %cond.i, ptr noundef nonnull %pErrorCode)
+  %call1.i9 = invoke ptr @umutablecptrie_open_75(i32 noundef %cond.i, i32 noundef %cond.i, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %if.end.i
   store ptr %call1.i9, ptr %mutableTrie.i, align 8
-  %call2.i = invoke noundef ptr @_ZN6icu_7519CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef %property, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
+  %call2.i = invoke noundef ptr @_ZN6icu_7519CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef range(i32 4096, 4121) %property, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %invoke.cont.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont.i:                                    ; preds = %call1.i.noexc
@@ -816,7 +816,7 @@ for.body16.i:                                     ; preds = %for.cond14.preheade
   %c.047.i = phi i32 [ %inc.i, %for.inc.i ], [ %call13.i, %for.cond14.preheader.i ]
   %start.146.i = phi i32 [ %start.2.i, %for.inc.i ], [ %start.052.i, %for.cond14.preheader.i ]
   %value.145.i = phi i32 [ %value.2.i, %for.inc.i ], [ %value.050.i, %for.cond14.preheader.i ]
-  %call18.i = invoke i32 @u_getIntPropertyValue_75(i32 noundef %c.047.i, i32 noundef %property)
+  %call18.i = invoke i32 @u_getIntPropertyValue_75(i32 noundef %c.047.i, i32 noundef range(i32 4096, 4121) %property)
           to label %invoke.cont17.i unwind label %lpad.loopexit.i
 
 invoke.cont17.i:                                  ; preds = %for.body16.i
@@ -829,7 +829,7 @@ if.then20.i:                                      ; preds = %invoke.cont17.i
 
 if.then22.i:                                      ; preds = %if.then20.i
   %sub.i = add nsw i32 %c.047.i, -1
-  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.146.i, i32 noundef %sub.i, i32 noundef %value.145.i, ptr noundef nonnull %pErrorCode)
+  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.146.i, i32 noundef %sub.i, i32 noundef %value.145.i, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %for.inc.i unwind label %lpad.loopexit.i
 
 for.inc.i:                                        ; preds = %if.then22.i, %if.then20.i, %invoke.cont17.i
@@ -853,11 +853,11 @@ for.end30.i:                                      ; preds = %for.inc28.i, %for.c
   br i1 %cmp31.not.i, label %if.end36.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %for.end30.i
-  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.0.lcssa.i, i32 noundef 1114111, i32 noundef %value.0.lcssa.i, ptr noundef nonnull %pErrorCode)
+  invoke void @umutablecptrie_setRange_75(ptr noundef %call1.i9, i32 noundef %start.0.lcssa.i, i32 noundef 1114111, i32 noundef %value.0.lcssa.i, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %if.end36.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 if.end36.i:                                       ; preds = %if.then32.i, %for.end30.i
-  %call42.i = invoke i32 @u_getIntPropertyMaxValue_75(i32 noundef %property)
+  %call42.i = invoke i32 @u_getIntPropertyMaxValue_75(i32 noundef range(i32 4096, 4121) %property)
           to label %invoke.cont41.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont41.i:                                  ; preds = %if.end36.i
@@ -869,7 +869,7 @@ invoke.cont41.i:                                  ; preds = %if.end36.i
   %cmp46.i = icmp sgt i32 %call42.i, 65535
   %..i = zext i1 %cmp46.i to i32
   %valueWidth.0.i = select i1 %cmp43.i, i32 2, i32 %..i
-  %call54.i = invoke ptr @umutablecptrie_buildImmutable_75(ptr noundef %call1.i9, i32 noundef %5, i32 noundef %valueWidth.0.i, ptr noundef nonnull %pErrorCode)
+  %call54.i = invoke ptr @umutablecptrie_buildImmutable_75(ptr noundef %call1.i9, i32 noundef %5, i32 noundef %valueWidth.0.i, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %cleanup.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup.i:                                        ; preds = %invoke.cont41.i, %invoke.cont.i

@@ -871,7 +871,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef 4) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %4, i64 noundef 4) #13
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %5, align 1
@@ -881,7 +881,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS
   %8 = load ptr, ptr %3, align 8
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call fastcc void @_ZL26resolveTypeIndexReferencesN4llvm8ArrayRefIhEENS0_INS_8codeview11TiReferenceEEERNS_15SmallVectorImplINS2_9TypeIndexEEE(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr %8, i64 %9, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #13
   %11 = load ptr, ptr %3, align 8
   %12 = icmp eq ptr %11, %4
   br i1 %12, label %_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_9TypeIndexEEE.exit, label %13
@@ -899,7 +899,7 @@ _ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0
 define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_9TypeIndexEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 4) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5, i64 noundef 4) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %6, align 1
@@ -909,7 +909,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERN
   %9 = load ptr, ptr %4, align 8
   %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call fastcc void @_ZL26resolveTypeIndexReferencesN4llvm8ArrayRefIhEENS0_INS_8codeview11TiReferenceEEERNS_15SmallVectorImplINS2_9TypeIndexEEE(ptr %0, i64 %1, ptr %9, i64 %10, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   %12 = load ptr, ptr %4, align 8
   %13 = icmp eq ptr %12, %5
   br i1 %13, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit, label %14
@@ -975,7 +975,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.
   %31 = zext i32 %30 to i64
   store i64 %31, ptr %17, align 8
   store i8 0, ptr %18, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 32, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %33 = load i32, ptr %32, align 4
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview9TypeIndexEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef %33)
@@ -1587,7 +1587,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
 define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSymbolENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_9TypeIndexEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.5", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 2) #13
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5, i64 noundef 2) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %6, align 1
@@ -1602,7 +1602,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
   br label %12
 
 12:                                               ; preds = %3, %9
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #13
   %14 = load ptr, ptr %4, align 8
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj2EED2Ev.exit, label %16
@@ -1748,7 +1748,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %7, %_ZNSt16_Sp_coun
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 0, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 32, i1 false)
   %51 = shl nuw i32 %3, 2
   call void @_ZN4llvm18BinaryStreamReader13readStreamRefERNS_15BinaryStreamRefEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %51) #13
   %52 = load ptr, ptr %0, align 8
@@ -3779,7 +3779,7 @@ _ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_8codeview9TypeI
   %38 = shl i32 %20, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %39 = zext i32 %38 to i64
-  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %39, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
+  call void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %8, ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %39, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   %40 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZN4llvm24FixedStreamArrayIteratorINS_8codeview9TypeIndexEEdeEv.exit, label %41

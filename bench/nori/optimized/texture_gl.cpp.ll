@@ -655,7 +655,7 @@ define hidden void @_ZN7nanogui7TextureD0Ev(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZN7nanogui7TextureD2Ev.exit:                     ; preds = %3
-  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #10
+  tail call void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }

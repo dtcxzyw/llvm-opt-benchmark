@@ -518,7 +518,7 @@ _ZN5Ipopt8SmartPtrIKNS_9SchurDataEED2Ev.exit.i:   ; preds = %32, %24, %_ZN5Ipopt
   br label %_ZN5Ipopt11PCalculatorD2Ev.exit
 
 _ZN5Ipopt11PCalculatorD2Ev.exit:                  ; preds = %_ZN5Ipopt8SmartPtrIKNS_9SchurDataEED2Ev.exit.i, %38, %46
-  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #20
+  tail call void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #20
   ret void
 }
 
@@ -634,7 +634,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZNK5Ipopt14Compoun
           to label %.noexc unwind label %92
 
 .noexc:                                           ; preds = %58
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %61, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %61, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc19 unwind label %92
 
 .noexc19:                                         ; preds = %.noexc
@@ -644,7 +644,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZNK5Ipopt14Compoun
 62:                                               ; preds = %.noexc19
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc19
@@ -653,7 +653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc20 unwind label %94
 
 .noexc20:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc21 unwind label %94
 
 .noexc21:                                         ; preds = %.noexc20
@@ -663,7 +663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 65:                                               ; preds = %.noexc21
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   br label %.body22
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24: ; preds = %.noexc21
@@ -1627,7 +1627,7 @@ _ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEEC2EPS1_.exit: ; preds = %30
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %34)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(97) %34)
           to label %40 unwind label %76
 
 40:                                               ; preds = %36
@@ -1770,7 +1770,7 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEEC2EPS1_.exit: ; preds = %105
   store i32 %114, ptr %112, align 8
   %115 = getelementptr inbounds i8, ptr %109, i64 88
   store i8 1, ptr %115, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %109)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %109)
           to label %116 unwind label %151
 
 116:                                              ; preds = %111
@@ -1889,7 +1889,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit63: ; preds = %147, %149, %151,
   br label %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEEC2EPS1_.exit73
 
 _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEEC2EPS1_.exit73: ; preds = %169, %171
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %170)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(97) %170)
           to label %175 unwind label %183
 
 175:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEEC2EPS1_.exit73
@@ -1931,7 +1931,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEEC2EPS1_.exit73: ; preds = %169, %171
   store i32 %197, ptr %195, align 8
   %198 = getelementptr inbounds i8, ptr %168, i64 88
   store i8 1, ptr %198, align 8
-  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %168)
+  invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %168)
           to label %199 unwind label %205
 
 199:                                              ; preds = %194

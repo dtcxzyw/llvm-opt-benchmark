@@ -91,7 +91,7 @@ _ZN5faiss16ProductQuantizerD2Ev.exit:             ; preds = %_ZNSt6vectorIfSaIfE
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #16
-  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #16
+  tail call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #16
   ret void
 }
 

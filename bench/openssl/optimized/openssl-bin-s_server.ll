@@ -6365,7 +6365,7 @@ do.body:                                          ; preds = %entry, %land.rhs52
 
 land.rhs:                                         ; preds = %do.body, %while.body
   %call44.sink = phi i32 [ %call44, %while.body ], [ %call32, %do.body ]
-  %call.i39 = tail call i32 @SSL_get_error(ptr noundef nonnull %con, i32 noundef %call44.sink) #14
+  %call.i39 = tail call i32 @SSL_get_error(ptr noundef nonnull %con, i32 noundef range(i32 -2147483648, 1) %call44.sink) #14
   %call40 = tail call i32 @SSL_get_error(ptr noundef nonnull %con, i32 noundef %call44.sink) #14
   %cmp41 = icmp eq i32 %call40, 4
   br i1 %cmp41, label %while.body, label %do.cond

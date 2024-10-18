@@ -914,7 +914,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i27, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -931,7 +931,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.end.i, %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %.noexc
@@ -961,13 +961,13 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %call.i.noexc37 unwind label %lpad8
 
 call.i.noexc37:                                   ; preds = %invoke.cont5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef %call.i38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i38, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %if.end.i31 unwind label %lpad8
 
 lpad.i34:                                         ; preds = %if.end.i31
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #15
   br label %ehcleanup13
 
 if.end.i31:                                       ; preds = %call.i.noexc37
@@ -996,13 +996,13 @@ invoke.cont17:                                    ; preds = %invoke.cont11
           to label %call.i.noexc52 unwind label %lpad20
 
 call.i.noexc52:                                   ; preds = %invoke.cont17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef %call.i53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef %call.i53, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19)
           to label %if.end.i46 unwind label %lpad20
 
 lpad.i49:                                         ; preds = %if.end.i46
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #15
   br label %ehcleanup25
 
 if.end.i46:                                       ; preds = %call.i.noexc52
@@ -1034,13 +1034,13 @@ invoke.cont29:                                    ; preds = %invoke.cont23
           to label %call.i.noexc67 unwind label %lpad32
 
 call.i.noexc67:                                   ; preds = %invoke.cont29
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef %call.i68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31)
           to label %if.end.i61 unwind label %lpad32
 
 lpad.i64:                                         ; preds = %if.end.i61
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #15
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #15
   br label %ehcleanup37
 
 if.end.i61:                                       ; preds = %call.i.noexc67
@@ -1512,7 +1512,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds %"struct.btSoftBody::TetraScratch", ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %"struct.btSoftBody::TetraScratch", ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %arrayidx.i.i, ptr noundef nonnull align 4 dereferenceable(152) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i.i, i64 16, i1 false)
@@ -1525,7 +1525,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i64 %4, ptr %m_trace.i.i.i, align 4
   %m_cofF.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 56
   %m_cofF4.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cofF.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_cofF4.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_cofF.i.i.i, ptr noundef nonnull align 4 dereferenceable(48) %m_cofF4.i.i.i, i64 16, i1 false)
   %arrayidx6.i4.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 72
   %arrayidx8.i5.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i5.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i4.i.i.i, i64 16, i1 false)
@@ -1534,7 +1534,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i7.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i6.i.i.i, i64 16, i1 false)
   %m_corotation.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
   %m_corotation5.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_corotation.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_corotation5.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_corotation.i.i.i, ptr noundef nonnull align 4 dereferenceable(48) %m_corotation5.i.i.i, i64 16, i1 false)
   %arrayidx6.i8.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 120
   %arrayidx8.i9.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i9.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i8.i.i.i, i64 16, i1 false)
@@ -1587,7 +1587,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %indvars.iv = phi i64 [ %7, %for.body8.lr.ph ], [ %indvars.iv.next, %for.body8 ]
   %8 = load ptr, ptr %m_data9, align 8
   %arrayidx11 = getelementptr inbounds %"struct.btSoftBody::TetraScratch", ptr %8, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 4 dereferenceable(16) %fillData, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %arrayidx11, ptr noundef nonnull align 4 dereferenceable(152) %fillData, i64 16, i1 false)
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %arrayidx11, i64 32
@@ -1596,13 +1596,13 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %9 = load i64, ptr %m_trace3.i, align 4
   store i64 %9, ptr %m_trace.i, align 4
   %m_cofF.i = getelementptr inbounds i8, ptr %arrayidx11, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_cofF.i, ptr noundef nonnull align 4 dereferenceable(16) %m_cofF4.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_cofF.i, ptr noundef nonnull align 4 dereferenceable(48) %m_cofF4.i, i64 16, i1 false)
   %arrayidx8.i5.i = getelementptr inbounds i8, ptr %arrayidx11, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i5.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i4.i, i64 16, i1 false)
   %arrayidx12.i7.i = getelementptr inbounds i8, ptr %arrayidx11, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i6.i, i64 16, i1 false)
   %m_corotation.i = getelementptr inbounds i8, ptr %arrayidx11, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_corotation.i, ptr noundef nonnull align 4 dereferenceable(16) %m_corotation5.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %m_corotation.i, ptr noundef nonnull align 4 dereferenceable(48) %m_corotation5.i, i64 16, i1 false)
   %arrayidx8.i9.i = getelementptr inbounds i8, ptr %arrayidx11, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx8.i9.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i8.i, i64 16, i1 false)
   %arrayidx12.i11.i = getelementptr inbounds i8, ptr %arrayidx11, i64 136

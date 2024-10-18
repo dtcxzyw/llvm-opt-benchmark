@@ -71,7 +71,7 @@ define hidden void @dbgsysBuildLibName(ptr nocapture noundef %0, i32 noundef %1,
 
 .lr.ph.i:                                         ; preds = %27, %37
   %.018.i = phi ptr [ %38, %37 ], [ %29, %27 ]
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull %.018.i, ptr noundef %3) #10
+  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %0, i64 noundef range(i64 -2147483648, 2147483648) %21, ptr noundef nonnull @.str.7, ptr noundef nonnull %.018.i, ptr noundef %3) #10
   %.not16.i = icmp ugt i32 %1, %30
   br i1 %.not16.i, label %34, label %31
 

@@ -454,7 +454,7 @@ for.body.i.i.i6:                                  ; preds = %if.then8.i.i.i, %fo
   %ci.018.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i6 ], [ 0, %if.then8.i.i.i ]
   %21 = load ptr, ptr %allocationsFromPool_, align 8
   %arrayidx16.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %ci.018.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx16.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %arrayidx16.i.i.i, i8 0, i64 16, i1 false)
   %inc.i.i.i = add i64 %ci.018.i.i.i, 1
   %22 = load i64, ptr %chunkMask_.i.i.i, align 8
   %cmp14.not.i.i.i = icmp ugt i64 %inc.i.i.i, %22
@@ -1951,7 +1951,7 @@ if.then43:                                        ; preds = %if.then34
 
 if.end49:                                         ; preds = %if.then34, %if.then43, %_ZN8facebook5velox19HashStringAllocator15freeRestOfBlockEPNS1_6HeaderEi.exit
   %add.ptr.i7 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.ptr.sub
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %startPosition_, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %startPosition_, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %1, ptr %second.i, align 8
   %currentPosition.sroa.2.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -4781,7 +4781,7 @@ _ZN5folly3f146detail10BasePolicyIPvmvvvSt4pairIKS3_mEE12beforeRehashEmmmmRPh.exi
 for.body.i:                                       ; preds = %_ZN5folly3f146detail10BasePolicyIPvmvvvSt4pairIKS3_mEE12beforeRehashEmmmmRPh.exit, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN5folly3f146detail10BasePolicyIPvmvvvSt4pairIKS3_mEE12beforeRehashEmmmmRPh.exit ]
   %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 %i.06.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !46

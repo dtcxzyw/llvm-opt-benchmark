@@ -470,7 +470,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1654
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1097a76a858e03e8E.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.16547901512627249430.exit, %9
   %.0.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.16547901512627249430.exit ]
   %13 = getelementptr inbounds i8, ptr %1, i64 36
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h4d2da2c6e1ce6500E.llvm.6180704580393161520(ptr noundef nonnull %13, i8 noundef 0), !noalias !76
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h4d2da2c6e1ce6500E.llvm.6180704580393161520(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !76
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load atomic i64, ptr %15 seq_cst, align 8
   %.0.i = inttoptr i64 %16 to ptr
@@ -510,7 +510,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1654
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1097a76a858e03e8E.exit": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.16547901512627249430.exit, %9
   %.0.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.16547901512627249430.exit ]
   %13 = getelementptr inbounds i8, ptr %1, i64 36
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h4d2da2c6e1ce6500E.llvm.6180704580393161520(ptr noundef nonnull %13, i8 noundef 0), !noalias !79
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h4d2da2c6e1ce6500E.llvm.6180704580393161520(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !79
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load atomic i64, ptr %15 seq_cst, align 8
   %.0.i = inttoptr i64 %16 to ptr
@@ -660,12 +660,12 @@ common.resume:                                    ; preds = %8, %58
   br i1 %55, label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$signal_hook_registry..SignalData$GT$$GT$17h8843a93b5fb45591E.llvm.16547901512627249430.exit", label %56
 
 56:                                               ; preds = %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13write_barrier17h2f4c38a963baacc3E.llvm.16547901512627249430.exit"
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha73063b019fc3213E.llvm.12888761211156725259(ptr noalias noundef nonnull align 8 dereferenceable(32) %51)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha73063b019fc3213E.llvm.12888761211156725259(ptr noalias noundef nonnull align 16 dereferenceable(64) %51)
           to label %.noexc.i unwind label %58, !noalias !115
 
 .noexc.i:                                         ; preds = %56
   %57 = getelementptr inbounds i8, ptr %51, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h7cd93c3ee4f33a60E.llvm.12888761211156725259(ptr noalias noundef nonnull align 8 dereferenceable(32) %51, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 192, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h7cd93c3ee4f33a60E.llvm.12888761211156725259(ptr noalias noundef nonnull align 16 dereferenceable(64) %51, ptr noalias noundef nonnull readonly align 1 %57, i64 noundef 192, i64 noundef 16)
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$signal_hook_registry..SignalData$GT$$GT$17h8843a93b5fb45591E.llvm.16547901512627249430.exit" unwind label %58, !noalias !115
 
 58:                                               ; preds = %.noexc.i, %56
@@ -831,7 +831,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 14:                                               ; preds = %19, %.loopexit.split-lp8.i, %.loopexit7.i
   %.pn.i = phi { ptr, i32 } [ %lpad.phi.i, %19 ], [ %lpad.loopexit9.i, %.loopexit7.i ], [ %lpad.loopexit.split-lp10.i, %.loopexit.split-lp8.i ]
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef align 8 dereferenceable(72) %0) #38
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #38
           to label %39 unwind label %37
 
 .loopexit7.i:                                     ; preds = %6
@@ -895,7 +895,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
           to label %.noexc4.i unwind label %.loopexit.split-lp8.i
 
 .noexc4.i:                                        ; preds = %26
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6558a6b5bd1c8925E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.0.sroa.4.0..sroa_idx.i)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6558a6b5bd1c8925E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.4.0..sroa_idx.i)
           to label %"_ZN5uu_dd8progress13SignalHandler22install_signal_handler28_$u7b$$u7b$closure$u7d$$u7d$17h738fc1d55a30c5f3E.exit" unwind label %.loopexit.split-lp8.i
 
 27:                                               ; preds = %20
@@ -929,7 +929,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 "_ZN5uu_dd8progress13SignalHandler22install_signal_handler28_$u7b$$u7b$closure$u7d$$u7d$17h738fc1d55a30c5f3E.exit": ; preds = %22, %.noexc4.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !142
-  call fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef align 8 dereferenceable(72) %0)
+  call fastcc void @"_ZN4core3ptr104drop_in_place$LT$uu_dd..progress..SignalHandler..install_signal_handler..$u7b$$u7b$closure$u7d$$u7d$$GT$17h200049f98b6e55ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
   call void asm sideeffect "", "~{memory}"() #26, !srcloc !181
   ret void
 }
@@ -1198,7 +1198,7 @@ _ZN5uu_dd8progress10ProgUpdate20print_transfer_stats17h8cc168035ea80af2E.exit.i.
 
 .body.i:                                          ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %56, %47
   %eh.lpad-body.i = phi { ptr, i32 } [ %48, %47 ], [ %57, %56 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit11.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp12.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef align 8 dereferenceable(24) %0) #38
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$uu_dd..progress..gen_prog_updater..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6063130b035ea524E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #38
           to label %68 unwind label %66
 
 62:                                               ; preds = %.noexc9.i, %.split21.us.i.i
@@ -1260,7 +1260,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicU8$GT$$GT$17h6b01c0dce465ab39E.exit.i": ; preds = %22, %17, %12
   %.pn.i = phi { ptr, i32 } [ %13, %12 ], [ %18, %22 ], [ %18, %17 ]
-  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30627805405a0d57E.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30627805405a0d57E.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr77drop_in_place$LT$uu_dd..Alarm..with_interval..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0880bec37dd3b62cE.exit.i" unwind label %31
 
 12:                                               ; preds = %28, %7
@@ -1320,7 +1320,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   resume { ptr, i32 } %.pn.i
 
 "_ZN5uu_dd5Alarm13with_interval28_$u7b$$u7b$closure$u7d$$u7d$17h2e0c3d1846c2fb38E.exit": ; preds = %.noexc.i, %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$core..sync..atomic..AtomicU8$GT$$GT$17h6b01c0dce465ab39E.exit6.i", %1
-  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30627805405a0d57E.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30627805405a0d57E.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   call void asm sideeffect "", "~{memory}"() #26, !srcloc !181
   ret void
 }
@@ -1888,12 +1888,12 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$signal_
   br i1 %5, label %"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h20a5cdba3981dfb6E.exit", label %6
 
 6:                                                ; preds = %1
-  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha73063b019fc3213E.llvm.12888761211156725259(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17ha73063b019fc3213E.llvm.12888761211156725259(ptr noalias noundef nonnull align 16 dereferenceable(64) %2)
           to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %6
   %7 = getelementptr inbounds i8, ptr %2, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h7cd93c3ee4f33a60E.llvm.12888761211156725259(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 192, i64 noundef 16)
+  invoke void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h7cd93c3ee4f33a60E.llvm.12888761211156725259(ptr noalias noundef nonnull align 16 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 192, i64 noundef 16)
           to label %"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h20a5cdba3981dfb6E.exit" unwind label %8
 
 "_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h20a5cdba3981dfb6E.exit": ; preds = %1, %.noexc

@@ -1303,7 +1303,7 @@ define void @_ZThn40_N5faiss33IndexIVFAdditiveQuantizerFastScanD1Ev(ptr noundef 
 define void @_ZThn40_N5faiss33IndexIVFAdditiveQuantizerFastScanD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
   tail call void @_ZN5faiss33IndexIVFAdditiveQuantizerFastScanD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(352) %2) #25
   ret void
 }
 
@@ -2831,7 +2831,7 @@ define internal void @_ZNK5faiss33IndexIVFAdditiveQuantizerFastScan11compute_LUT
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %12, align 8
@@ -2910,7 +2910,7 @@ define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmNS
 
 40:                                               ; preds = %39, %28
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %39 ], [ %29, %28 ]
-  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %.pn20.pn
 
 41:                                               ; preds = %27
@@ -2929,7 +2929,7 @@ define linkonce_odr void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanD2Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   ret void
 }
 
@@ -2940,7 +2940,7 @@ define linkonce_odr void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanD0Ev(pt
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -2952,7 +2952,7 @@ define linkonce_odr void @_ZThn40_N5faiss36IndexIVFLocalSearchQuantizerFastScanD
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %2) #19
   ret void
 }
 
@@ -2963,14 +2963,14 @@ define linkonce_odr void @_ZThn40_N5faiss36IndexIVFLocalSearchQuantizerFastScanD
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss36IndexIVFLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(752) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %3, align 8
@@ -2997,7 +2997,7 @@ define void @_ZN5faiss36IndexIVFLocalSearchQuantizerFastScanC2Ev(ptr noundef non
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %12
 }
 
@@ -3006,7 +3006,7 @@ declare void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %6)
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %12, align 8
@@ -3085,7 +3085,7 @@ define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2EPNS_5IndexEmmmmNS_10
 
 40:                                               ; preds = %39, %28
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %39 ], [ %29, %28 ]
-  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %.pn20.pn
 
 41:                                               ; preds = %27
@@ -3148,8 +3148,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %6, %1
   br label %_ZN5faiss17ResidualQuantizerD2Ev.exit
 
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   ret void
 }
 
@@ -3180,8 +3180,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -3213,8 +3213,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %2) #19
   ret void
 }
 
@@ -3245,9 +3245,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %6, %1
   br label %_ZN5faiss33IndexIVFResidualQuantizerFastScanD0Ev.exit
 
 _ZN5faiss33IndexIVFResidualQuantizerFastScanD0Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i, %9
-  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %3) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(784) %2) #25
   ret void
 }
 
@@ -3256,7 +3256,7 @@ declare void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(784) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %3, align 8
@@ -3283,7 +3283,7 @@ define void @_ZN5faiss33IndexIVFResidualQuantizerFastScanC2Ev(ptr noundef nonnul
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %12
 }
 
@@ -3292,7 +3292,7 @@ declare void @_ZN5faiss17ResidualQuantizerC1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %13, align 8
@@ -3371,7 +3371,7 @@ define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2EPNS_5Index
 
 41:                                               ; preds = %40, %29
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %40 ], [ %30, %29 ]
-  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %.pn21.pn
 
 42:                                               ; preds = %28
@@ -3387,7 +3387,7 @@ define linkonce_odr void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScan
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   ret void
 }
 
@@ -3398,7 +3398,7 @@ define linkonce_odr void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScan
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -3410,7 +3410,7 @@ define linkonce_odr void @_ZThn40_N5faiss43IndexIVFProductLocalSearchQuantizerFa
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #19
   ret void
 }
 
@@ -3421,8 +3421,8 @@ define linkonce_odr void @_ZThn40_N5faiss43IndexIVFProductLocalSearchQuantizerFa
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss43IndexIVFProductLocalSearchQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(696) %2) #25
   ret void
 }
 
@@ -3431,7 +3431,7 @@ declare void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %3, align 8
@@ -3458,7 +3458,7 @@ define void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC2Ev(ptr noun
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %12
 }
 
@@ -3467,7 +3467,7 @@ declare void @_ZN5faiss27ProductLocalSearchQuantizerC1Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmmmmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tEi(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %7)
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %13, align 8
@@ -3546,7 +3546,7 @@ define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2EPNS_5IndexEmm
 
 41:                                               ; preds = %40, %29
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %40 ], [ %30, %29 ]
-  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %.pn21.pn
 
 42:                                               ; preds = %28
@@ -3562,7 +3562,7 @@ define linkonce_odr void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanD2E
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   ret void
 }
 
@@ -3573,7 +3573,7 @@ define linkonce_odr void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanD0E
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -3585,7 +3585,7 @@ define linkonce_odr void @_ZThn40_N5faiss40IndexIVFProductResidualQuantizerFastS
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #19
   ret void
 }
 
@@ -3596,14 +3596,14 @@ define linkonce_odr void @_ZThn40_N5faiss40IndexIVFProductResidualQuantizerFastS
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss40IndexIVFProductResidualQuantizerFastScanE, i64 312), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %3) #19
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %2) #19
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #25
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %2) #19
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(696) %2) #25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0)
+  tail call void @_ZN5faiss16IndexIVFFastScanC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %3, align 8
@@ -3630,7 +3630,7 @@ define void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC2Ev(ptr noundef
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
+  tail call void @_ZN5faiss16IndexIVFFastScanD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #19
   resume { ptr, i32 } %12
 }
 

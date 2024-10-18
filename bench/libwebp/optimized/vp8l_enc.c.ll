@@ -1338,7 +1338,7 @@ EncodePalette.exit:                               ; preds = %.lr.ph.i, %VP8LPutB
   %186 = load i32, ptr %75, align 4
   store i32 %186, ptr %10, align 16
   %187 = load ptr, ptr %72, align 8
-  %188 = call fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %142, i32 noundef 1, i32 noundef 20, i32 noundef %34, ptr noundef %187, i32 noundef %.sext, ptr noundef %11)
+  %188 = call fastcc range(i32 0, 2) i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %142, i32 noundef 1, i32 noundef 20, i32 noundef range(i32 0, 2) %34, ptr noundef %187, i32 noundef range(i32 -24, 25) %.sext, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   %.not173 = icmp eq i32 %188, 0
   br i1 %.not173, label %MakeInputImageCopy.exit, label %189
@@ -1475,7 +1475,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
   %.1192.lcssa.i.i = phi i8 [ %.0191282.i.i, %.preheader.i.i ], [ %.2193.i.i, %SearchColorGreedy.exit.i.i ]
   %.1189.lcssa.i.i = phi i32 [ %.0188283.i.i, %.preheader.i.i ], [ %.2190.i.i, %SearchColorGreedy.exit.i.i ]
   %248 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %248(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.0158285.i.i) #8
+  call void %248(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.0158285.i.i) #8
   %249 = getelementptr inbounds i32, ptr %.0149286.i.i, i64 %234
   %250 = getelementptr inbounds i32, ptr %.0158285.i.i, i64 %235
   %251 = add nuw nsw i32 %.0180284.i.i, 1
@@ -1542,7 +1542,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
 
 ._crit_edge.us264.i.i:                            ; preds = %269
   %271 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %271(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.1159261.us.i.i) #8
+  call void %271(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.1159261.us.i.i) #8
   %272 = getelementptr inbounds i32, ptr %.1150262.us.i.i, i64 %256
   %273 = getelementptr inbounds i32, ptr %.1159261.us.i.i, i64 %257
   %274 = add nuw nsw i32 %.1181258.us.i.i, 1
@@ -1553,7 +1553,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
   %.1159261.i.i = phi ptr [ %276, %.preheader215.i.i ], [ %211, %.preheader215.lr.ph.i.i ]
   %.1181258.i.i = phi i32 [ %277, %.preheader215.i.i ], [ 0, %.preheader215.lr.ph.i.i ]
   %275 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %275(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.1159261.i.i) #8
+  call void %275(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.1159261.i.i) #8
   %276 = getelementptr inbounds i32, ptr %.1159261.i.i, i64 %257
   %277 = add nuw nsw i32 %.1181258.i.i, 1
   %exitcond314.not.i.i = icmp eq i32 %277, %194
@@ -1612,7 +1612,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
 
 ._crit_edge.us252.i.i:                            ; preds = %295
   %297 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %297(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.2160249.us.i.i) #8
+  call void %297(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.2160249.us.i.i) #8
   %298 = getelementptr inbounds i32, ptr %.2151250.us.i.i, i64 %281
   %299 = getelementptr inbounds i32, ptr %.2160249.us.i.i, i64 %282
   %300 = add nuw nsw i32 %.2182246.us.i.i, 1
@@ -1623,7 +1623,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
   %.2160249.i.i = phi ptr [ %302, %.preheader217.i.i ], [ %211, %.preheader217.lr.ph.i.i ]
   %.2182246.i.i = phi i32 [ %303, %.preheader217.i.i ], [ 0, %.preheader217.lr.ph.i.i ]
   %301 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %301(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.2160249.i.i) #8
+  call void %301(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.2160249.i.i) #8
   %302 = getelementptr inbounds i32, ptr %.2160249.i.i, i64 %282
   %303 = add nuw nsw i32 %.2182246.i.i, 1
   %exitcond308.not.i.i = icmp eq i32 %303, %194
@@ -1682,7 +1682,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
 
 ._crit_edge.us.i.i:                               ; preds = %321
   %323 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %323(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.3161236.us.i.i) #8
+  call void %323(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.3161236.us.i.i) #8
   %324 = getelementptr inbounds i32, ptr %.3239.us.i.i, i64 %307
   %325 = getelementptr inbounds i32, ptr %.3161236.us.i.i, i64 %308
   %326 = add nuw nsw i32 %.3183235.us.i.i, 1
@@ -1693,7 +1693,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
   %.3161236.i.i = phi ptr [ %328, %.preheader219.i.i ], [ %211, %.preheader219.lr.ph.i.i ]
   %.3183235.i.i = phi i32 [ %329, %.preheader219.i.i ], [ 0, %.preheader219.lr.ph.i.i ]
   %327 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %327(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.3161236.i.i) #8
+  call void %327(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.3161236.i.i) #8
   %328 = getelementptr inbounds i32, ptr %.3161236.i.i, i64 %308
   %329 = add nuw nsw i32 %.3183235.i.i, 1
   %exitcond302.not.i.i = icmp eq i32 %329, %194
@@ -1751,7 +1751,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
 
 ._crit_edge.us276.i.i:                            ; preds = %343
   %346 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %346(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.4162271.us.i.i) #8
+  call void %346(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.4162271.us.i.i) #8
   %347 = getelementptr inbounds i32, ptr %.4272.us.i.i, i64 %332
   %348 = getelementptr inbounds i32, ptr %.4162271.us.i.i, i64 %333
   %349 = add nuw nsw i32 %.4184270.us.i.i, 1
@@ -1762,7 +1762,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
   %.4162271.i.i = phi ptr [ %351, %.preheader213.i.i ], [ %211, %.preheader213.lr.ph.i.i ]
   %.4184270.i.i = phi i32 [ %352, %.preheader213.i.i ], [ 0, %.preheader213.lr.ph.i.i ]
   %350 = load ptr, ptr @VP8LBundleColorMap, align 8
-  call void %350(ptr noundef nonnull %214, i32 noundef %192, i32 noundef %.0.i, ptr noundef %.4162271.i.i) #8
+  call void %350(ptr noundef nonnull %214, i32 noundef %192, i32 noundef range(i32 0, 4) %.0.i, ptr noundef %.4162271.i.i) #8
   %351 = getelementptr inbounds i32, ptr %.4162271.i.i, i64 %333
   %352 = add nuw nsw i32 %.4184270.i.i, 1
   %exitcond320.not.i.i = icmp eq i32 %352, %194
@@ -1790,7 +1790,7 @@ ApplyPalette.exit.i:                              ; preds = %206
   br i1 %356, label %357, label %MakeInputImageCopy.exit.thread
 
 357:                                              ; preds = %354
-  %358 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %355, i1 true)
+  %358 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -2147483648, 2147483647) %355, i1 true)
   %359 = sub nuw nsw i32 32, %358
   store i32 %359, ptr %66, align 8
   br label %MakeInputImageCopy.exit.thread
@@ -1930,7 +1930,7 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   %.lhs.trunc.i = trunc nsw i32 %411 to i8
   %432 = sdiv i8 %.lhs.trunc.i, 2
   %.sext.i = sext i8 %432 to i32
-  %433 = call i32 @VP8LResidualImage(i32 noundef %412, i32 noundef %38, i32 noundef %414, i32 noundef %34, ptr noundef %426, ptr noundef %427, ptr noundef %428, i32 noundef %425, i32 noundef %430, i32 noundef %413, ptr noundef %431, i32 noundef %.sext.i, ptr noundef nonnull %11) #8
+  %433 = call i32 @VP8LResidualImage(i32 noundef %412, i32 noundef %38, i32 noundef %414, i32 noundef range(i32 0, 2) %34, ptr noundef %426, ptr noundef %427, ptr noundef %428, i32 noundef %425, i32 noundef %430, i32 noundef %413, ptr noundef %431, i32 noundef %.sext.i, ptr noundef nonnull %11) #8
   %.not36.i = icmp eq i32 %433, 0
   br i1 %.not36.i, label %MakeInputImageCopy.exit, label %434
 
@@ -1987,7 +1987,7 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit38.
   %458 = load ptr, ptr %83, align 8
   %459 = load ptr, ptr %72, align 8
   %460 = sub nsw i32 %411, %.sext.i
-  %461 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %458, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %417, i32 noundef %419, i32 noundef %30, i32 noundef %34, ptr noundef %459, i32 noundef %460, ptr noundef %11)
+  %461 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %458, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %417, i32 noundef %419, i32 noundef %30, i32 noundef range(i32 0, 2) %34, ptr noundef %459, i32 noundef %460, ptr noundef nonnull %11)
   %.not180 = icmp eq i32 %461, 0
   br i1 %.not180, label %MakeInputImageCopy.exit, label %462
 
@@ -2079,7 +2079,7 @@ ApplyCrossColorFilter.exit:                       ; preds = %VP8LPutBits.exit31.
   %508 = load ptr, ptr %83, align 8
   %509 = load ptr, ptr %72, align 8
   %510 = sub nsw i32 %467, %478
-  %511 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %508, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %472, i32 noundef %474, i32 noundef %30, i32 noundef %34, ptr noundef %509, i32 noundef %510, ptr noundef %11)
+  %511 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef %508, ptr noundef nonnull %76, ptr noundef nonnull %67, i32 noundef %472, i32 noundef %474, i32 noundef %30, i32 noundef range(i32 0, 2) %34, ptr noundef %509, i32 noundef %510, ptr noundef nonnull %11)
   %.not182 = icmp eq i32 %511, 0
   br i1 %.not182, label %MakeInputImageCopy.exit, label %512
 
@@ -2147,7 +2147,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
 
 543:                                              ; preds = %539
   %544 = sdiv i32 %.2, 5
-  %545 = call i32 @VP8LHashChainFill(ptr noundef nonnull %76, i32 noundef %30, ptr noundef %520, i32 noundef %521, i32 noundef %38, i32 noundef %34, ptr noundef %16, i32 noundef %544, ptr noundef nonnull %11) #8
+  %545 = call i32 @VP8LHashChainFill(ptr noundef nonnull %76, i32 noundef %30, ptr noundef %520, i32 noundef %521, i32 noundef %38, i32 noundef range(i32 0, 2) %34, ptr noundef %16, i32 noundef %544, ptr noundef nonnull %11) #8
   %.not242.i = icmp eq i32 %545, 0
   br i1 %.not242.i, label %.loopexit.i, label %546
 
@@ -2204,7 +2204,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   %571 = load i32, ptr %568, align 4
   %572 = getelementptr inbounds i8, ptr %568, i64 4
   %573 = load i32, ptr %572, align 4
-  %574 = call i32 @VP8LGetBackwardReferences(i32 noundef %521, i32 noundef %38, ptr noundef %520, i32 noundef %30, i32 noundef %34, i32 noundef %571, i32 noundef %spec.select.i, i32 noundef %573, ptr noundef nonnull %76, ptr noundef nonnull %67, ptr noundef nonnull %6, ptr noundef %16, i32 noundef %570, ptr noundef nonnull %11) #8
+  %574 = call i32 @VP8LGetBackwardReferences(i32 noundef %521, i32 noundef %38, ptr noundef %520, i32 noundef %30, i32 noundef range(i32 0, 2) %34, i32 noundef %571, i32 noundef %spec.select.i, i32 noundef %573, ptr noundef nonnull %76, ptr noundef nonnull %67, ptr noundef nonnull %6, ptr noundef %16, i32 noundef %570, ptr noundef nonnull %11) #8
   %.not245.i = icmp eq i32 %574, 0
   br i1 %.not245.i, label %.loopexit.i, label %575
 
@@ -2243,7 +2243,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   %591 = sdiv i32 %.0212311.i, 3
   %592 = sub nsw i32 %.0212311.i, %591
   %593 = getelementptr inbounds %struct.VP8LBackwardRefs, ptr %67, i64 %indvars.iv349.i
-  %594 = call i32 @VP8LGetHistoImageSymbols(i32 noundef %521, i32 noundef %38, ptr noundef nonnull %593, i32 noundef %30, i32 noundef %34, i32 noundef %522, i32 noundef %581, ptr noundef nonnull %584, ptr noundef nonnull %585, ptr noundef %532, ptr noundef %16, i32 noundef %591, ptr noundef nonnull %11) #8
+  %594 = call i32 @VP8LGetHistoImageSymbols(i32 noundef %521, i32 noundef %38, ptr noundef nonnull %593, i32 noundef %30, i32 noundef range(i32 0, 2) %34, i32 noundef %522, i32 noundef %581, ptr noundef nonnull %584, ptr noundef nonnull %585, ptr noundef %532, ptr noundef %16, i32 noundef %591, ptr noundef nonnull %11) #8
   %.not247.i = icmp eq i32 %594, 0
   br i1 %.not247.i, label %.loopexit.i, label %595
 
@@ -2395,7 +2395,7 @@ VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i
   %661 = add nsw i32 %656, 3
   store i32 %661, ptr %46, align 8
   %662 = sdiv i32 %592, 2
-  %663 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %643, ptr noundef nonnull %5, ptr noundef nonnull %86, i32 noundef %525, i32 noundef %527, i32 noundef %30, i32 noundef %34, ptr noundef %16, i32 noundef %662, ptr noundef %11)
+  %663 = call fastcc i32 @EncodeImageNoHuffman(ptr noundef nonnull %18, ptr noundef nonnull %643, ptr noundef nonnull %5, ptr noundef nonnull %86, i32 noundef %525, i32 noundef %527, i32 noundef %30, i32 noundef range(i32 0, 2) %34, ptr noundef %16, i32 noundef %662, ptr noundef nonnull %11)
   %.not249.i = icmp eq i32 %663, 0
   br i1 %.not249.i, label %664, label %665
 
@@ -4065,7 +4065,7 @@ VP8LPutBits.exit63.i:                             ; preds = %217, %215
 
 220:                                              ; preds = %213
   %221 = add nsw i32 %.050.lcssa.i, -2
-  %222 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %221, i1 true)
+  %222 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -2147483648, 2147483647) %221, i1 true)
   %223 = xor i32 %222, 31
   %224 = lshr i32 %223, 1
   %225 = icmp sgt i32 %206, 30
@@ -4426,7 +4426,7 @@ WriteHuffmanCode.exit:                            ; preds = %.preheader, %54
 96:                                               ; preds = %84
   %97 = zext i16 %86 to i32
   %98 = add nsw i32 %97, -1
-  %99 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
+  %99 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -2147483648, 2147483647) %98, i1 true)
   %100 = sub nuw nsw i32 30, %99
   %101 = lshr i32 %98, %100
   %102 = and i32 %101, 1
@@ -4501,7 +4501,7 @@ WriteHuffmanCodeWithExtraBits.exit:               ; preds = %VP8LPrefixEncode.ex
 
 143:                                              ; preds = %WriteHuffmanCodeWithExtraBits.exit
   %144 = add nsw i32 %.val92, -1
-  %145 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
+  %145 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -2147483648, 2147483647) %144, i1 true)
   %146 = sub nuw nsw i32 30, %145
   %147 = lshr i32 %144, %146
   %148 = and i32 %147, 1

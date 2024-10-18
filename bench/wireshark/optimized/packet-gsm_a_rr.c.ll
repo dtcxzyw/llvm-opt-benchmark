@@ -6050,7 +6050,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 200), align 8
   %66 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %64, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %16, ptr noundef nonnull @.str.1801) #10
   %67 = load i32, ptr @hf_gsm_a_rr_extended_ra, align 4
-  %68 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef %57, i32 noundef 5, i32 noundef 0) #10
+  %68 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef range(i32 4, -3) %57, i32 noundef 5, i32 noundef 0) #10
   br label %69
 
 69:                                               ; preds = %79, %63
@@ -6493,7 +6493,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %392 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 204), align 4
   %393 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %51, i32 noundef -1, i32 noundef %392, ptr noundef nonnull %15, ptr noundef nonnull @.str.1802) #10
-  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %393, i32 noundef %57)
+  call fastcc void @de_tbf_starting_time(ptr noundef %0, ptr noundef %393, i32 noundef range(i32 4, -3) %57)
   %394 = add i32 %22, 20
   %395 = load i32, ptr @hf_gsm_a_rr_num_of_radio_block_allocated, align 4
   %396 = call ptr @proto_tree_add_bits_item(ptr noundef %393, i32 noundef %395, ptr noundef %0, i32 noundef %394, i32 noundef 4, i32 noundef 0) #10
@@ -6526,7 +6526,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
   %414 = add i32 %22, 27
   %415 = load i32, ptr @hf_gsm_a_rr_mcc_mnc_parameters, align 4
   %416 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %411) #10
-  %417 = call ptr @proto_tree_add_bits_item(ptr noundef %413, i32 noundef %415, ptr noundef %0, i32 noundef %404, i32 noundef 1, i32 noundef 0) #10
+  %417 = call ptr @proto_tree_add_bits_item(ptr noundef %413, i32 noundef %415, ptr noundef %0, i32 noundef range(i32 26, 19) %404, i32 noundef 1, i32 noundef 0) #10
   %418 = and i8 %416, 32
   %.not.i.i = icmp eq i8 %418, 0
   %419 = load i32, ptr @hf_gsm_a_rr_mbms_service_id, align 4
@@ -6827,7 +6827,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   %623 = or disjoint i32 %22, 5
   %624 = load i32, ptr @hf_gsm_a_rr_packet_uplink_assignment, align 4
   %625 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %606) #10
-  %626 = call ptr @proto_tree_add_bits_item(ptr noundef %622, i32 noundef %624, ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0) #10
+  %626 = call ptr @proto_tree_add_bits_item(ptr noundef %622, i32 noundef %624, ptr noundef %0, i32 noundef range(i32 4, -3) %612, i32 noundef 1, i32 noundef 0) #10
   %627 = and i8 %625, 8
   %.not176.i = icmp eq i8 %627, 0
   br i1 %.not176.i, label %741, label %628
@@ -7102,7 +7102,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
   %820 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 220), align 4
   %821 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %619, i32 noundef -1, i32 noundef %820, ptr noundef nonnull %9, ptr noundef nonnull @.str.1229) #10
   %822 = load i32, ptr @hf_gsm_a_rr_tlli, align 4
-  %823 = call ptr @proto_tree_add_bits_item(ptr noundef %821, i32 noundef %822, ptr noundef %0, i32 noundef %612, i32 noundef 32, i32 noundef 0) #10
+  %823 = call ptr @proto_tree_add_bits_item(ptr noundef %821, i32 noundef %822, ptr noundef %0, i32 noundef range(i32 4, -3) %612, i32 noundef 32, i32 noundef 0) #10
   %824 = add i32 %22, 36
   %825 = add i32 %22, 37
   %826 = load i32, ptr @hf_gsm_a_rr_tfi_assignment_present, align 4
@@ -7384,7 +7384,7 @@ de_rr_ia_rest_oct_packet_downlink_assignment.exit: ; preds = %950, %952, %1001
 1015:                                             ; preds = %1009
   %1016 = or disjoint i32 %22, 4
   %1017 = load i32, ptr @hf_gsm_a_rr_additions_in_r99, align 4
-  %1018 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1013, i32 noundef 0, i32 noundef %604, i32 noundef %1017)
+  %1018 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1013, i32 noundef 0, i32 noundef range(i32 3, -4) %604, i32 noundef %1017)
   %.not.i205 = icmp eq i32 %1018, 0
   br i1 %.not.i205, label %de_rr_ia_rest_oct_second_part_packet_assignment.exit, label %1019
 
@@ -9892,7 +9892,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @ett_gsm_rr_rest_octets_elem, i64 140), align 4
   %36 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %34, i32 noundef -1, i32 noundef %35, ptr noundef nonnull %8, ptr noundef nonnull @.str.1794) #10
   %37 = load i32, ptr @hf_gsm_a_rr_hsn, align 4
-  %38 = call ptr @proto_tree_add_bits_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %33, i32 noundef 6, i32 noundef 0) #10
+  %38 = call ptr @proto_tree_add_bits_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef range(i32 11, 4) %33, i32 noundef 6, i32 noundef 0) #10
   %39 = add i32 %14, 17
   br label %40
 

@@ -293,7 +293,7 @@ define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef
   br i1 %.not.i, label %28, label %29
 
 28:                                               ; preds = %26
-  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1) #13
+  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1) #13
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -310,7 +310,7 @@ define void @cvProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.021.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1, ptr noundef %35, ptr noundef %27) #13
+  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1, ptr noundef %35, ptr noundef %27) #13
   %.0.i = load ptr, ptr %.021.i, align 8
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i
@@ -4812,7 +4812,7 @@ define range(i32 -9999, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nou
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 616
   %137 = load ptr, ptr %136, align 8
-  %138 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef %0, ptr noundef %135, ptr noundef %137)
+  %138 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %135, ptr noundef %137)
   %.not108.i = icmp eq i32 %138, 0
   br i1 %.not108.i, label %140, label %139
 
@@ -4867,7 +4867,7 @@ define range(i32 -9999, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nou
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %0, i64 752
   %162 = load ptr, ptr %161, align 8
-  %163 = tail call fastcc i32 @cvSensEwtSet(ptr noundef %0, ptr noundef %160, ptr noundef %162)
+  %163 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %160, ptr noundef %162)
   %.not112.i = icmp eq i32 %163, 0
   br i1 %.not112.i, label %165, label %164
 
@@ -4939,7 +4939,7 @@ define range(i32 -9999, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nou
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 904
   %195 = load ptr, ptr %194, align 8
-  %196 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef %0, ptr noundef %193, ptr noundef %195)
+  %196 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %193, ptr noundef %195)
   %.not117.i = icmp eq i32 %196, 0
   br i1 %.not117.i, label %200, label %197
 
@@ -6216,7 +6216,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i579, %851
 
 915:                                              ; preds = %912
   %916 = sub nsw i32 %913, %914
-  call fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %916)
+  call fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %916)
   %917 = load i32, ptr %604, align 4
   store i32 %917, ptr %575, align 8
   %918 = add nsw i32 %917, 1
@@ -7148,7 +7148,7 @@ cvNls.exit.i:                                     ; preds = %1339, %1333, %1331,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   store i32 %.0.i.i, ptr %35, align 4
-  %1353 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
+  %1353 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
   switch i32 %1353, label %cvStep.exit [
     i32 3, label %.backedge.i
     i32 2, label %1354
@@ -7167,7 +7167,7 @@ cvNls.exit.i:                                     ; preds = %1339, %1333, %1331,
 
 1357:                                             ; preds = %1355, %1354
   %1358 = load double, ptr %645, align 8
-  %1359 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %35, double noundef %934, double noundef %1358, ptr noundef %31, ptr noundef %655, ptr noundef %24)
+  %1359 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, double noundef %1358, ptr noundef %31, ptr noundef %655, ptr noundef %24)
   switch i32 %1359, label %cvStep.exit [
     i32 5, label %.backedge.i
     i32 0, label %1360
@@ -7225,7 +7225,7 @@ cvNls.exit.i:                                     ; preds = %1339, %1333, %1331,
 cvQuadNls.exit.i:                                 ; preds = %1378, %1372, %1362
   %.0.i237.i = phi i32 [ 0, %1378 ], [ -31, %1362 ], [ 14, %1372 ]
   store i32 %.0.i237.i, ptr %35, align 4
-  %1387 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
+  %1387 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
   switch i32 %1387, label %cvStep.exit [
     i32 3, label %.backedge.i
     i32 2, label %1388
@@ -7241,7 +7241,7 @@ cvQuadNls.exit.i:                                 ; preds = %1378, %1372, %1362
   %1392 = load ptr, ptr %584, align 8
   %1393 = call double @N_VWrmsNorm(ptr noundef %1391, ptr noundef %1392) #13
   store double %1393, ptr %663, align 8
-  %1394 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %35, double noundef %934, double noundef %1393, ptr noundef %32, ptr noundef %664, ptr noundef %25)
+  %1394 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, double noundef %1393, ptr noundef %32, ptr noundef %664, ptr noundef %25)
   switch i32 %1394, label %cvStep.exit [
     i32 5, label %.backedge.i
     i32 0, label %1395
@@ -7356,7 +7356,7 @@ cvStgrNls.exit.i:                                 ; preds = %1441, %1423
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   store i32 %1430, ptr %35, align 4
-  %1447 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %29, ptr noundef nonnull %679)
+  %1447 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %29, ptr noundef nonnull %679)
   br label %.loopexit.i
 
 1448:                                             ; preds = %cvStgr1Nls.exit.i
@@ -7442,7 +7442,7 @@ cvStgr1Nls.exit.i:                                ; preds = %1486, %1456
   %1497 = getelementptr inbounds i32, ptr %1496, i64 %indvars.iv396.i
   %1498 = load ptr, ptr %672, align 8
   %1499 = getelementptr inbounds i64, ptr %1498, i64 %indvars.iv396.i
-  %1500 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %35, double noundef %934, ptr noundef %1497, ptr noundef %1499)
+  %1500 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, ptr noundef %1497, ptr noundef %1499)
   %.not214.i = icmp eq i32 %1500, 2
   br i1 %.not214.i, label %1448, label %.loopexit.i
 
@@ -7501,7 +7501,7 @@ cvSensNorm.exit.i:                                ; preds = %.lr.ph.i.i595, %150
 
 1517:                                             ; preds = %cvSensNorm.exit.i, %._crit_edge409.i
   %1518 = phi double [ %.pre.i591, %._crit_edge409.i ], [ %.0.lcssa.i.i592, %cvSensNorm.exit.i ]
-  %1519 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %35, double noundef %934, double noundef %1518, ptr noundef %33, ptr noundef %682, ptr noundef %26)
+  %1519 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, double noundef %1518, ptr noundef %33, ptr noundef %682, ptr noundef %26)
   switch i32 %1519, label %cvStep.exit [
     i32 5, label %.backedge.i
     i32 0, label %1520
@@ -7626,7 +7626,7 @@ cvSensNorm.exit.i:                                ; preds = %.lr.ph.i.i595, %150
 cvQuadSensNls.exit.i:                             ; preds = %.lr.ph.i247.i, %.preheader.i246.i, %1555, %1540
   %.0.i245.i = phi i32 [ -51, %1540 ], [ 16, %1555 ], [ 0, %.preheader.i246.i ], [ 0, %.lr.ph.i247.i ]
   store i32 %.0.i245.i, ptr %35, align 4
-  %1581 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
+  %1581 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, ptr noundef nonnull %28, ptr noundef nonnull %653)
   switch i32 %1581, label %cvStep.exit [
     i32 3, label %.backedge.i
     i32 2, label %1582
@@ -7667,7 +7667,7 @@ cvQuadSensNls.exit.i:                             ; preds = %.lr.ph.i247.i, %.pr
 cvQuadSensNorm.exit.i:                            ; preds = %.lr.ph.i254.i, %1584
   %.0.lcssa.i251.i = phi double [ %1591, %1584 ], [ %.1.i257.i, %.lr.ph.i254.i ]
   store double %.0.lcssa.i251.i, ptr %689, align 8
-  %1597 = call fastcc i32 @cvDoErrorTest(ptr noundef %0, ptr noundef %35, double noundef %934, double noundef %.0.lcssa.i251.i, ptr noundef %34, ptr noundef %690, ptr noundef %27)
+  %1597 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef %35, double noundef %934, double noundef %.0.lcssa.i251.i, ptr noundef %34, ptr noundef %690, ptr noundef %27)
   switch i32 %1597, label %cvStep.exit [
     i32 5, label %.backedge.i
     i32 0, label %1598
@@ -9693,7 +9693,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, doub
   %46 = load ptr, ptr %45, align 8
   tail call void @N_VAbs(ptr noundef %46, ptr noundef %44) #13
   %47 = load ptr, ptr %45, align 8
-  %48 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef readonly %0, ptr noundef %47, ptr noundef %42)
+  %48 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %47, ptr noundef %42)
   tail call void @N_VInv(ptr noundef %42, ptr noundef %42) #13
   tail call void @N_VLinearSum(double noundef 1.000000e-01, ptr noundef %44, double noundef 1.000000e+00, ptr noundef %42, ptr noundef %42) #13
   %49 = getelementptr inbounds i8, ptr %0, i64 520
@@ -9725,7 +9725,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, doub
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 648
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call fastcc i32 @cvSensEwtSet(ptr noundef readonly %0, ptr noundef %64, ptr noundef %62)
+  %65 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %64, ptr noundef %62)
   %66 = getelementptr inbounds i8, ptr %0, i64 144
   %67 = load i32, ptr %66, align 8
   %68 = icmp sgt i32 %67, 0
@@ -9782,7 +9782,7 @@ define internal fastcc range(i32 -51, 1) i32 @cvHin(ptr noundef nonnull %0, doub
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 800
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef readonly %0, ptr noundef %97, ptr noundef %95)
+  %98 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %97, ptr noundef %95)
   %99 = getelementptr inbounds i8, ptr %0, i64 144
   %100 = load i32, ptr %99, align 8
   %101 = icmp sgt i32 %100, 0
@@ -10173,7 +10173,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i99, %298
 321:                                              ; preds = %316
   %322 = load ptr, ptr %151, align 8
   %323 = load ptr, ptr %160, align 8
-  %324 = tail call fastcc double @cvQuadSensUpdateNorm(ptr noundef %0, double noundef %.4, ptr noundef %322, ptr noundef %323)
+  %324 = tail call fastcc double @cvQuadSensUpdateNorm(ptr noundef nonnull %0, double noundef %.4, ptr noundef %322, ptr noundef %323)
   br label %cvYddNorm.exit
 
 325:                                              ; preds = %193, %209, %250, %270
@@ -11996,7 +11996,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noun
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef readonly %0, ptr noundef %9, ptr noundef %20)
+  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %cvQuadSensEwtSetEE.exit
 

@@ -125,7 +125,7 @@ define hidden void @_Z22_hb_ot_shape_normalizePK18hb_ot_shape_plan_tP11hb_buffer
 
 _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %57, %69
   %72 = phi ptr [ %71, %69 ], [ null, %57 ]
-  %73 = call noundef i32 %65(ptr noundef nonnull %2, ptr noundef %66, i32 noundef %58, ptr noundef %61, i32 noundef 20, ptr noundef nonnull %62, i32 noundef 20, ptr noundef %72)
+  %73 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %66, i32 noundef %58, ptr noundef nonnull %61, i32 noundef 20, ptr noundef nonnull %62, i32 noundef 20, ptr noundef %72)
   %74 = load i8, ptr %39, align 2
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZN11hb_buffer_t11next_glyphsEj.exit.thread
@@ -324,7 +324,7 @@ _ZN11hb_buffer_t11next_glyphsEj.exit.thread:      ; preds = %_ZN9hb_font_t18get_
 
 _ZN9hb_font_t19get_variation_glyphEjjPjj.exit.i.i: ; preds = %176, %173
   %179 = phi ptr [ %178, %176 ], [ null, %173 ]
-  %180 = call noundef i32 %175(ptr noundef nonnull %.val18.i, ptr noundef %170, i32 noundef %167, i32 noundef %160, ptr noundef nonnull %168, ptr noundef %179)
+  %180 = call noundef i32 %175(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %170, i32 noundef %167, i32 noundef %160, ptr noundef nonnull %168, ptr noundef %179)
   %.not34.i.i = icmp eq i32 %180, 0
   %181 = load ptr, ptr %132, align 8
   %182 = load i32, ptr %126, align 4
@@ -397,7 +397,7 @@ _ZN9hb_font_t19get_variation_glyphEjjPjj.exit.i.i: ; preds = %176, %173
 
 _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit.i.i: ; preds = %218, %210
   %221 = phi ptr [ %220, %218 ], [ null, %210 ]
-  %222 = call noundef i32 %214(ptr noundef nonnull %.val18.i, ptr noundef %215, i32 noundef %185, ptr noundef nonnull %211, ptr noundef %221)
+  %222 = call noundef i32 %214(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %215, i32 noundef %185, ptr noundef nonnull %211, ptr noundef %221)
   %223 = load i8, ptr %150, align 2
   %224 = trunc i8 %223 to i1
   %.pre.pre20.i.i = load ptr, ptr %132, align 8
@@ -470,7 +470,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit.i.i:          ; preds = %242, %230
 
 _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit39.i.i: ; preds = %257, %_ZN11hb_buffer_t10next_glyphEv.exit.i.i
   %260 = phi ptr [ %259, %257 ], [ null, %_ZN11hb_buffer_t10next_glyphEv.exit.i.i ]
-  %261 = call noundef i32 %253(ptr noundef nonnull %.val18.i, ptr noundef %254, i32 noundef %249, ptr noundef nonnull %250, ptr noundef %260)
+  %261 = call noundef i32 %253(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %254, i32 noundef %249, ptr noundef nonnull %250, ptr noundef %260)
   %262 = load i8, ptr %150, align 2
   %263 = trunc i8 %262 to i1
   br i1 %263, label %264, label %283
@@ -558,7 +558,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit.i.i: ; preds = %283, %270, %.lr
 
 _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit46.i.i: ; preds = %308, %300
   %311 = phi ptr [ %310, %308 ], [ null, %300 ]
-  %312 = call noundef i32 %304(ptr noundef nonnull %.val18.i, ptr noundef %305, i32 noundef %295, ptr noundef nonnull %301, ptr noundef %311)
+  %312 = call noundef i32 %304(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %305, i32 noundef %295, ptr noundef nonnull %301, ptr noundef %311)
   %313 = load i8, ptr %150, align 2
   %314 = trunc i8 %313 to i1
   br i1 %314, label %315, label %334
@@ -621,7 +621,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit51.i.i:        ; preds = %334, %321
 
 _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit53.i.i: ; preds = %342, %339
   %345 = phi ptr [ %344, %342 ], [ null, %339 ]
-  %346 = call noundef i32 %341(ptr noundef nonnull %.val18.i, ptr noundef %170, i32 noundef %167, ptr noundef nonnull %168, ptr noundef %345)
+  %346 = call noundef i32 %341(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %170, i32 noundef %167, ptr noundef nonnull %168, ptr noundef %345)
   %347 = load i8, ptr %150, align 2
   %348 = trunc i8 %347 to i1
   br i1 %348, label %349, label %368
@@ -702,7 +702,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit53.i.i: ; preds = %342, %339
 
 _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit60.i.i: ; preds = %388, %374
   %391 = phi ptr [ %390, %388 ], [ null, %374 ]
-  %392 = call noundef i32 %383(ptr noundef nonnull %.val18.i, ptr noundef %385, i32 noundef %378, ptr noundef nonnull %379, ptr noundef %391)
+  %392 = call noundef i32 %383(ptr noundef nonnull align 8 dereferenceable(192) %.val18.i, ptr noundef %385, i32 noundef %378, ptr noundef nonnull %379, ptr noundef %391)
   %393 = getelementptr inbounds i8, ptr %125, i64 82
   %394 = load i8, ptr %393, align 2
   %395 = trunc i8 %394 to i1
@@ -759,7 +759,7 @@ _ZL9set_glyphR15hb_glyph_info_tP9hb_font_t.exit60.i.i: ; preds = %388, %374
   br i1 %424, label %425, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit
 
 425:                                              ; preds = %.lr.ph25.i
-  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef %4, i1 noundef zeroext %31)
+  call fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_normalize_context_tb(ptr noundef nonnull %4, i1 noundef zeroext %31)
   %426 = load i32, ptr %126, align 4
   %427 = icmp ult i32 %426, %.2.lcssa
   br i1 %427, label %.lr.ph25.i, label %_ZL28decompose_multi_char_clusterPK31hb_ot_shape_normalize_context_tjb.exit, !llvm.loop !13
@@ -1061,7 +1061,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %520, %533
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %573, %581
   %584 = phi ptr [ %583, %581 ], [ null, %573 ]
-  %585 = call noundef i32 %577(ptr noundef nonnull %2, ptr noundef %578, i32 noundef %574, ptr noundef nonnull %6, ptr noundef %584)
+  %585 = call noundef i32 %577(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %578, i32 noundef %574, ptr noundef nonnull %6, ptr noundef %584)
   %.not162 = icmp eq i32 %585, 0
   br i1 %.not162, label %625, label %586
 
@@ -1219,7 +1219,7 @@ define internal noundef zeroext i1 @_ZL17decompose_unicodePK31hb_ot_shape_normal
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 136
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i32 %8(ptr noundef nonnull %6, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %10)
+  %11 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %10)
   %12 = icmp ne i32 %11, 0
   ret i1 %12
 }
@@ -1239,7 +1239,7 @@ define internal noundef zeroext i1 @_ZL15compose_unicodePK31hb_ot_shape_normaliz
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 128
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 %11(ptr noundef nonnull %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %13)
+  %14 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %13)
   %15 = icmp ne i32 %14, 0
   br label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
 
@@ -1290,7 +1290,7 @@ define internal fastcc void @_ZL27decompose_current_characterPK31hb_ot_shape_nor
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %15, %28
   %31 = phi ptr [ %30, %28 ], [ null, %15 ]
-  %32 = call noundef i32 %23(ptr noundef nonnull %17, ptr noundef %25, i32 noundef %14, ptr noundef nonnull %3, ptr noundef %31)
+  %32 = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(192) %17, ptr noundef %25, i32 noundef %14, ptr noundef nonnull %3, ptr noundef %31)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %69, label %33
 
@@ -1391,7 +1391,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %15, %28
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit35:     ; preds = %.thread57, %87
   %90 = phi ptr [ %89, %87 ], [ null, %.thread57 ]
-  %91 = call noundef i32 %82(ptr noundef nonnull %76, ptr noundef %84, i32 noundef %14, ptr noundef nonnull %3, ptr noundef %90)
+  %91 = call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(192) %76, ptr noundef %84, i32 noundef %14, ptr noundef nonnull %3, ptr noundef %90)
   %.not29 = icmp eq i32 %91, 0
   br i1 %.not29, label %128, label %92
 
@@ -1548,7 +1548,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit35:     ; preds = %.thread57, %87
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit41:     ; preds = %150, %161
   %164 = phi ptr [ %163, %161 ], [ null, %150 ]
-  %165 = call noundef i32 %156(ptr noundef nonnull %152, ptr noundef %158, i32 noundef 32, ptr noundef nonnull %4, ptr noundef %164)
+  %165 = call noundef i32 %156(ptr noundef nonnull align 8 dereferenceable(192) %152, ptr noundef %158, i32 noundef 32, ptr noundef nonnull %4, ptr noundef %164)
   %.not31 = icmp eq i32 %165, 0
   br i1 %.not31, label %166, label %169
 
@@ -1672,7 +1672,7 @@ _ZN18hb_unicode_funcs_t19space_fallback_typeEj.exit._crit_edge: ; preds = %_ZN18
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit47:     ; preds = %216, %227
   %230 = phi ptr [ %229, %227 ], [ null, %216 ]
-  %231 = call noundef i32 %222(ptr noundef nonnull %218, ptr noundef %224, i32 noundef 8208, ptr noundef nonnull %5, ptr noundef %230)
+  %231 = call noundef i32 %222(ptr noundef nonnull align 8 dereferenceable(192) %218, ptr noundef %224, i32 noundef 8208, ptr noundef nonnull %5, ptr noundef %230)
   %.not33 = icmp eq i32 %231, 0
   %.pre63 = load ptr, ptr %8, align 8
   %.pre65 = load i32, ptr %10, align 4
@@ -1854,7 +1854,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %7(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %9)
+  %10 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(216) %4, i32 noundef %5, ptr noundef %9)
   %11 = icmp ugt i32 %5, 127
   br i1 %11, label %12, label %56
 
@@ -1936,7 +1936,7 @@ define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_in
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 88
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i32 %45(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %47)
+  %48 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(216) %4, i32 noundef %5, ptr noundef %47)
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds [256 x i8], ptr @_hb_modified_combining_class, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
@@ -2007,7 +2007,7 @@ define internal fastcc noundef i32 @_ZL9decomposePK31hb_ot_shape_normalize_conte
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %17, %26
   %29 = phi ptr [ %28, %26 ], [ null, %17 ]
-  %30 = call noundef i32 %21(ptr noundef nonnull %11, ptr noundef %23, i32 noundef %16, ptr noundef nonnull %7, ptr noundef %29)
+  %30 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %23, i32 noundef %16, ptr noundef nonnull %7, ptr noundef %29)
   %.not25 = icmp eq i32 %30, 0
   br i1 %.not25, label %238, label %31
 
@@ -2032,7 +2032,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %17, %26
 
 _ZN9hb_font_t17get_nominal_glyphEjPjj.exit33:     ; preds = %31, %41
   %44 = phi ptr [ %43, %41 ], [ null, %31 ]
-  %45 = call noundef i32 %36(ptr noundef nonnull %11, ptr noundef %38, i32 noundef %32, ptr noundef nonnull %6, ptr noundef %44)
+  %45 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %38, i32 noundef %32, ptr noundef nonnull %6, ptr noundef %44)
   %.not26 = icmp ne i32 %45, 0
   %brmerge.not = and i1 %1, %.not26
   %46 = load i32, ptr %4, align 4

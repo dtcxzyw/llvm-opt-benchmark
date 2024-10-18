@@ -453,7 +453,7 @@ define dso_local void @_ZN15StatementFilterD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15StatementFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -471,7 +471,7 @@ define dso_local void @_ZN9Statement20InitProbabilityTableEv() local_unnamed_add
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr %3, ptr @_ZN9Statement10stmtTable_E, align 8
   %5 = tail call noundef ptr @_ZN13Probabilities11GetInstanceEv()
-  tail call void @_ZN13Probabilities14set_prob_tableEP16ProbabilityTableIj8ProbNameES1_(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull %3, i32 noundef 25)
+  tail call void @_ZN13Probabilities14set_prob_tableEP16ProbabilityTableIj8ProbNameES1_(ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 25)
   br label %6
 
 6:                                                ; preds = %0, %2
@@ -739,7 +739,7 @@ define dso_local noundef ptr @_ZN9Statement11make_randomER9CGContext14eStatement
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %11, ptr @_ZN9Statement10stmtTable_E, align 8
   %13 = tail call noundef ptr @_ZN13Probabilities11GetInstanceEv()
-  tail call void @_ZN13Probabilities14set_prob_tableEP16ProbabilityTableIj8ProbNameES1_(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull %11, i32 noundef 25)
+  tail call void @_ZN13Probabilities14set_prob_tableEP16ProbabilityTableIj8ProbNameES1_(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 25)
   br label %_ZN9Statement20InitProbabilityTableEv.exit
 
 _ZN9Statement20InitProbabilityTableEv.exit:       ; preds = %8, %10
@@ -758,7 +758,7 @@ select.unfold:                                    ; preds = %16, %_ZN9Statement2
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %select.unfold
-  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
   store ptr getelementptr inbounds (i8, ptr @_ZTV15StatementFilter, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %21, align 8
@@ -781,7 +781,7 @@ common.resume:                                    ; preds = %33, %.body, %113, %
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   br label %common.resume
 
 _ZN15StatementFilterC2ERK9CGContext.exit:         ; preds = %20, %25
@@ -794,7 +794,7 @@ _ZN15StatementFilterC2ERK9CGContext.exit:         ; preds = %20, %25
   br i1 %.not.i48, label %30, label %_ZL20StatementProbabilityPK15StatementFilter.exit.thread
 
 _ZL20StatementProbabilityPK15StatementFilter.exit.thread: ; preds = %.noexc
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 30:                                               ; preds = %.noexc
@@ -804,13 +804,13 @@ _ZL20StatementProbabilityPK15StatementFilter.exit.thread: ; preds = %.noexc
 _ZL20StatementProbabilityPK15StatementFilter.exit: ; preds = %30
   %.pre = load i32, ptr @_ZN5Error8r_error_E, align 4
   %32 = icmp eq i32 %.pre, 0
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   br i1 %32, label %.thread, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 33:                                               ; preds = %30, %_ZN15StatementFilterC2ERK9CGContext.exit
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   br label %common.resume
 
 .thread:                                          ; preds = %16, %_ZL20StatementProbabilityPK15StatementFilter.exit, %select.unfold

@@ -768,7 +768,7 @@ invoke.cont:                                      ; preds = %.noexc, %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont
-  invoke void @_ZN8QuantLib6OptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %agg.result, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8SwaptionE, i64 8), ptr noundef nonnull align 8 dereferenceable(136) %1)
+  invoke void @_ZN8QuantLib6OptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %agg.result, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib8SwaptionE, i64 8), ptr noundef nonnull align 8 dereferenceable(176) %1)
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
@@ -5954,7 +5954,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
+  %call2.i4.i.i.i.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(40) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i.i.i, i64 noundef 0)
           to label %call2.i4.i.i.i.i.noexc unwind label %lpad
 
 call2.i4.i.i.i.i.noexc:                           ; preds = %if.then.i.i.i.i.i

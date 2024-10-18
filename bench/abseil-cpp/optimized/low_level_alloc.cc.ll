@@ -251,7 +251,7 @@ if.then4:                                         ; preds = %if.else
 if.end6:                                          ; preds = %if.then5.i.i.i, %if.then.i.i.i, %lor.lhs.false.i.i.i, %if.then, %if.else, %if.then4
   %meta_data_arena.0 = phi ptr [ @_ZN4absl13base_internal12_GLOBAL__N_122unhooked_arena_storageE, %if.then4 ], [ @_ZN4absl13base_internal12_GLOBAL__N_121default_arena_storageE, %if.else ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %lor.lhs.false.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then.i.i.i ], [ @_ZN4absl13base_internal12_GLOBAL__N_137unhooked_async_sig_safe_arena_storageE, %if.then5.i.i.i ]
   %call.i = tail call fastcc noundef ptr @_ZN4absl13base_internalL16DoAllocWithArenaEmPNS0_13LowLevelAlloc5ArenaE(i64 noundef 328, ptr noundef nonnull %meta_data_arena.0)
-  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %call.i, i32 noundef 0)
+  tail call void @_ZN4absl13base_internal8SpinLockC1ENS0_14SchedulingModeE(ptr noundef nonnull align 8 dereferenceable(324) %call.i, i32 noundef 0)
   %allocation_count.i = getelementptr inbounds i8, ptr %call.i, i64 288
   store i32 0, ptr %allocation_count.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 292

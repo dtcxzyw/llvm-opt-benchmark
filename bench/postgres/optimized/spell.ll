@@ -1153,19 +1153,19 @@ sub_1.i:                                          ; preds = %sub_0.i
   ]
 
 335:                                              ; preds = %.lr.ph.i.i
-  %336 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef %9)
+  %336 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef nonnull %9)
   br i1 %336, label %349, label %parse_ooaffentry.exit.i
 
 337:                                              ; preds = %.lr.ph.i.i
-  %338 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef %11)
+  %338 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef nonnull %11)
   br i1 %338, label %349, label %parse_ooaffentry.exit.i
 
 339:                                              ; preds = %.lr.ph.i.i
-  %340 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef %12)
+  %340 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef nonnull %12)
   br i1 %340, label %349, label %parse_ooaffentry.exit.i
 
 341:                                              ; preds = %.lr.ph.i.i
-  %342 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef %10)
+  %342 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef nonnull %10)
   %343 = zext i1 %342 to i32
   %spec.select.i.i = add i32 %.01526.i.i, %343
   br label %parse_ooaffentry.exit.i
@@ -1178,7 +1178,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 347:                                              ; preds = %.lr.ph.i.i
-  %348 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef %8)
+  %348 = call fastcc zeroext i1 @get_nextfield(ptr noundef %7, ptr noundef nonnull %8)
   br i1 %348, label %349, label %parse_ooaffentry.exit.i
 
 349:                                              ; preds = %347, %339, %337, %335

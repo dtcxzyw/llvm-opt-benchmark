@@ -171,7 +171,7 @@ define dso_local void @addHyperLogLog(ptr nocapture noundef readonly %0, i32 nou
   br label %rho.exit
 
 12:                                               ; preds = %2
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %7, i1 true)
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %7, i1 true)
   %14 = trunc nuw nsw i32 %13 to i8
   %15 = xor i8 %14, 31
   %16 = sub nuw nsw i8 32, %15

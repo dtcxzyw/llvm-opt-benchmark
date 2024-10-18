@@ -238,7 +238,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %20
 
 57:                                               ; preds = %.critedge.i.i
   %58 = sub nuw nsw i64 %49, %55
-  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %58)
+  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %22, i64 noundef %58)
   br label %_ZN3gmx9HashedMapIiE6resizeEi.exit.i
 
 59:                                               ; preds = %.critedge.i.i
@@ -2570,7 +2570,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit104:        ; preds = %249, %_ZNSt6vectorI
   br i1 %.not.i.i106, label %306, label %305
 
 305:                                              ; preds = %.critedge.thread.i.i
-  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %275, i64 noundef 1)
+  tail call void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %275, i64 noundef 1)
   %.pre.i.i = load ptr, ptr %275, align 8
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
@@ -3219,7 +3219,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIiSaIiE
 .critedge.i.i.i:                                  ; preds = %140, %137
   %.0.lcssa.i.i.i = phi i32 [ %141, %140 ], [ %.07.i.i.i, %137 ]
   %143 = zext nneg i32 %.0.lcssa.i.i.i to i64
-  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %134, i64 noundef %143)
+  invoke void @_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(36) %134, i64 noundef %143)
           to label %_ZSt11make_uniqueIN3gmx9HashedMapIiEEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %144, !noalias !34
 
 144:                                              ; preds = %.critedge.i.i.i
@@ -3319,7 +3319,7 @@ _ZNSt6vectorI15InteractionListSaIS0_EE6resizeEm.exit: ; preds = %168, %170, %172
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %_ZNSt6vectorI15InteractionListSaIS0_EE6resizeEm.exit
   %.idx15.i.i = phi i64 [ %.add16.i.i, %.preheader.i.i ], [ 48, %_ZNSt6vectorI15InteractionListSaIS0_EE6resizeEm.exit ]
   %.ptr17.i.i = getelementptr inbounds i8, ptr %177, i64 %.idx15.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr17.i.i, i8 0, i64 24, i1 false), !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.ptr17.i.i, i8 0, i64 24, i1 false), !noalias !38
   %.add16.i.i = add nuw nsw i64 %.idx15.i.i, 32
   %178 = icmp eq i64 %.add16.i.i, 240
   br i1 %178, label %_ZSt11make_uniqueI24gmx_domdec_specat_comm_tJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %.preheader.i.i

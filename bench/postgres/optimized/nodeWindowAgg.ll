@@ -4318,7 +4318,7 @@ are_peers.exit:                                   ; preds = %76
   br i1 %179, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %176
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %169, i32 noundef %127) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %169, i32 noundef range(i32 -32767, 32768) %127) #8
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %176, %slot_getsomeattrs.exit.i
@@ -4337,7 +4337,7 @@ slot_getattr.exit:                                ; preds = %176, %slot_getsomea
   br i1 %191, label %slot_getsomeattrs.exit.i146, label %slot_getattr.exit147
 
 slot_getsomeattrs.exit.i146:                      ; preds = %slot_getattr.exit
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %188, i32 noundef %127) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %188, i32 noundef range(i32 -32767, 32768) %127) #8
   br label %slot_getattr.exit147
 
 slot_getattr.exit147:                             ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i146
@@ -4995,7 +4995,7 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   br i1 %187, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %184
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %177, i32 noundef %136) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %177, i32 noundef range(i32 -32767, 32768) %136) #8
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %184, %slot_getsomeattrs.exit.i
@@ -5014,7 +5014,7 @@ slot_getattr.exit:                                ; preds = %184, %slot_getsomea
   br i1 %199, label %slot_getsomeattrs.exit.i151, label %slot_getattr.exit152
 
 slot_getsomeattrs.exit.i151:                      ; preds = %slot_getattr.exit
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %196, i32 noundef %136) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %196, i32 noundef range(i32 -32767, 32768) %136) #8
   br label %slot_getattr.exit152
 
 slot_getattr.exit152:                             ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i151

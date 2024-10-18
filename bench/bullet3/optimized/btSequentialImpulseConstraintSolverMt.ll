@@ -1779,7 +1779,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i, %for.i
   %arrayidx.i.i = getelementptr inbounds %struct.btSolverBody, ptr %retval.0.i.i, i64 %indvars.iv.i.i
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds %struct.btSolverBody, ptr %3, i64 %indvars.iv.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx3.i.i, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 16
   %arrayidx8.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i, i64 16, i1 false)
@@ -1828,7 +1828,7 @@ invoke.cont:                                      ; preds = %entry, %if.then, %_
   %7 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds %struct.btSolverBody, ptr %7, i64 %idxprom
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %fillValue, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx, ptr noundef nonnull align 8 dereferenceable(248) %fillValue, i64 16, i1 false)
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %fillValue, i64 16
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
@@ -3710,7 +3710,7 @@ for.inc.i.i.i:                                    ; preds = %for.inc.i.i.i, %for
   %arrayidx.i.i.i26 = getelementptr inbounds %struct.btSolverBody, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i25
   %9 = load ptr, ptr %m_data.i.i.i23, align 8
   %arrayidx3.i.i.i27 = getelementptr inbounds %struct.btSolverBody, ptr %9, i64 %indvars.iv.i.i.i25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i.i.i27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i.i.i26, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx3.i.i.i27, i64 16, i1 false)
   %arrayidx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i.i27, i64 16
   %arrayidx8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i26, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx6.i.i.i.i.i.i, i64 16, i1 false)
@@ -4756,7 +4756,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %call2.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %2)
+  %call2.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(920) %this, i32 noundef %2)
   %3 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
@@ -4793,7 +4793,7 @@ for.body12.i:                                     ; preds = %for.body12.i, %for.
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, 1
   %15 = trunc nsw i64 %indvars.iv.next34.i to i32
   %add16.i = sub i32 %15, %14
-  %call17.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add16.i)
+  %call17.i = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(920) %this, i32 noundef %add16.i)
   %add18.i = add nsw i32 %call17.i, %14
   %16 = load ptr, ptr %m_data.i20.i, align 8
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %16, i64 %indvars.iv33.i
@@ -4850,7 +4850,7 @@ for.body.i33:                                     ; preds = %for.body.i33, %for.
   %indvars.iv.i34 = phi i64 [ 1, %for.body.lr.ph.i31 ], [ %indvars.iv.next.i35, %for.body.i33 ]
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %26 = trunc nuw nsw i64 %indvars.iv.next.i35 to i32
-  %call2.i36 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %26)
+  %call2.i36 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(920) %this, i32 noundef %26)
   %27 = load ptr, ptr %m_data.i.i32, align 8
   %arrayidx.i.i37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i34
   %28 = load i32, ptr %arrayidx.i.i37, align 4
@@ -4887,7 +4887,7 @@ for.body12.i18:                                   ; preds = %for.body12.i18, %fo
   %indvars.iv.next34.i20 = add nsw i64 %indvars.iv33.i19, 1
   %39 = trunc nsw i64 %indvars.iv.next34.i20 to i32
   %add16.i21 = sub i32 %39, %38
-  %call17.i22 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add16.i21)
+  %call17.i22 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei(ptr noundef nonnull align 8 dereferenceable(920) %this, i32 noundef %add16.i21)
   %add18.i23 = add nsw i32 %call17.i22, %38
   %40 = load ptr, ptr %m_data.i20.i8, align 8
   %arrayidx.i22.i24 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv33.i19
@@ -5958,7 +5958,7 @@ if.then.i:                                        ; preds = %for.body.i
   %10 = load i32, ptr %m_solverBodyA.i, align 4
   %m_solverBodyB.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %11 = load i32, ptr %m_solverBodyB.i, align 4
-  invoke void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP18btSolverConstraintP17btTypedConstraintRKNS2_17btConstraintInfo1EiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %arrayidx.i13.i, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i10.i, i32 noundef %10, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(128) %3)
+  invoke void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP18btSolverConstraintP17btTypedConstraintRKNS2_17btConstraintInfo1EiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %arrayidx.i13.i, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i10.i, i32 noundef %10, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(128) %3)
           to label %for.inc.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i
@@ -6159,7 +6159,7 @@ if.then.i:                                        ; preds = %for.body.i
   %14 = load i32, ptr %m_solverBodyIdB.i, align 4
   %idxprom.i15.i = sext i32 %14 to i64
   %arrayidx.i16.i = getelementptr inbounds %struct.btSolverBody, ptr %13, i64 %idxprom.i15.i
-  %call7.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i13.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i10.i)
+  %call7.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(920) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i13.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i16.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i10.i)
           to label %call7.i.noexc unwind label %lpad
 
 call7.i.noexc:                                    ; preds = %if.then.i
@@ -6253,7 +6253,7 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
   %12 = load i32, ptr %m_solverBodyIdB.i, align 4
   %idxprom.i14.i = sext i32 %12 to i64
   %arrayidx.i15.i = getelementptr inbounds %struct.btSolverBody, ptr %11, i64 %idxprom.i14.i
-  %call6.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i12.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i15.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i9.i)
+  %call6.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(920) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i12.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i15.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i9.i)
           to label %call6.i.noexc unwind label %lpad
 
 call6.i.noexc:                                    ; preds = %for.body.i
@@ -6375,7 +6375,7 @@ for.body7.i:                                      ; preds = %call15.i.noexc, %fo
   %19 = load i32, ptr %m_solverBodyIdB.i, align 4
   %idxprom.i27.i = sext i32 %19 to i64
   %arrayidx.i28.i = getelementptr inbounds %struct.btSolverBody, ptr %18, i64 %idxprom.i27.i
-  %call15.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i25.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i28.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i22.i)
+  %call15.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(920) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i25.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i28.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i22.i)
           to label %call15.i.noexc unwind label %lpad
 
 call15.i.noexc:                                   ; preds = %for.body7.i
@@ -6564,7 +6564,7 @@ if.end.i:                                         ; preds = %for.body9.i
   %20 = load i32, ptr %m_solverBodyIdB.i, align 4
   %idxprom.i37.i = sext i32 %20 to i64
   %arrayidx.i38.i = getelementptr inbounds %struct.btSolverBody, ptr %19, i64 %idxprom.i37.i
-  %call21.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i35.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i38.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i32.i)
+  %call21.i5 = invoke noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(920) %3, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i35.i, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i38.i, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i32.i)
           to label %call21.i.noexc unwind label %lpad
 
 call21.i.noexc:                                   ; preds = %if.end.i
@@ -6618,7 +6618,7 @@ entry:
   %1 = load ptr, ptr %m_infoGlobal, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__profile.i)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i, ptr noundef nonnull @.str.20)
-  invoke void @_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
+  invoke void @_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
           to label %_ZN37btSequentialImpulseConstraintSolverMt25internalWriteBackContactsEiiRK19btContactSolverInfo.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -6650,7 +6650,7 @@ entry:
   %1 = load ptr, ptr %m_infoGlobal, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__profile.i)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i, ptr noundef nonnull @.str.21)
-  invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackJointsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
+  invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackJointsEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
           to label %_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackJointsEiiRK19btContactSolverInfo.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
@@ -6682,7 +6682,7 @@ entry:
   %1 = load ptr, ptr %m_infoGlobal, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__profile.i)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i, ptr noundef nonnull @.str.22)
-  invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
+  invoke void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %0, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %1)
           to label %_ZN37btSequentialImpulseConstraintSolverMt23internalWriteBackBodiesEiiRK19btContactSolverInfo.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry

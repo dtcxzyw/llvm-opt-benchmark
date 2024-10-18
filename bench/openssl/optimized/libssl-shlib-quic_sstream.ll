@@ -104,7 +104,7 @@ if.then15:                                        ; preds = %for.cond, %if.end8
 
 if.end20:                                         ; preds = %if.end.i
   %sub.i27.i = sub i64 %sub.i.neg.i26.i, %rnew.sroa.9.047
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %sub.i27.i)
+  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %spec.select.i, i64 %sub.i27.i)
   %sub29.i = sub i64 4611686018427387904, %rnew.sroa.9.047
   %buf_len.addr.230.i = tail call i64 @llvm.umin.i64(i64 %spec.select28.i, i64 %sub29.i)
   %cmp731.i = icmp eq i64 %buf_len.addr.230.i, 0
@@ -650,7 +650,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = load ptr, ptr %qss, align 8
   %sub.i.neg.i26.i = sub i64 %0, %r.val.i23.i
   %sub.i27.i = add i64 %sub.i.neg.i26.i, %r.val2.i24.i
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.021, i64 %sub.i27.i)
+  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %buf_len.addr.021, i64 %sub.i27.i)
   %sub29.i = sub i64 4611686018427387904, %r.val.i23.i
   %buf_len.addr.230.i = tail call i64 @llvm.umin.i64(i64 %spec.select28.i, i64 %sub29.i)
   %cmp731.i = icmp eq i64 %buf_len.addr.230.i, 0

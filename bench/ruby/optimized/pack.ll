@@ -2031,7 +2031,7 @@ RSTRING_PTR.exit527:                              ; preds = %._crit_edge, %750
 
 755:                                              ; preds = %._crit_edge798
   %756 = load i64, ptr @id_associated, align 8
-  %757 = call i64 @rb_ivar_set(i64 noundef %.0312, i64 noundef %756, i64 noundef %.0313.be) #14
+  %757 = call i64 @rb_ivar_set(i64 noundef %.0312, i64 noundef %756, i64 noundef range(i64 1, 0) %.0313.be) #14
   br label %758
 
 758:                                              ; preds = %755, %._crit_edge798
@@ -3923,7 +3923,7 @@ RSTRING_PTR.exit1002:                             ; preds = %577, %587
   %652 = or i64 %.0804, %651
   %653 = trunc i64 %652 to i8
   store i8 %653, ptr %.2..2..2..sroa_idx, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.18111349, ptr noundef nonnull readonly align 1 dereferenceable(1) %8, i64 %603, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.18111349, ptr noundef nonnull readonly align 1 dereferenceable(1) %8, i64 range(i64 1, -9223372036854775808) %603, i1 false)
   %654 = getelementptr i8, ptr %.18111349, i64 %603
   %655 = sub nsw i64 %.267541350, %603
   %656 = icmp sgt i64 %655, 0
@@ -4627,7 +4627,7 @@ RSTRING_PTR.exit1029:                             ; preds = %965, %971
 1005:                                             ; preds = %999
   %1006 = call i64 @rb_str_new(ptr noundef nonnull %.0.copyload1038, i64 noundef %.0728) #14
   %1007 = load i64, ptr @id_associated, align 8
-  %1008 = call i64 @rb_ivar_set(i64 noundef %1006, i64 noundef %1007, i64 noundef %.2722) #14
+  %1008 = call i64 @rb_ivar_set(i64 noundef %1006, i64 noundef %1007, i64 noundef range(i64 1, 0) %.2722) #14
   br label %1009
 
 1009:                                             ; preds = %993, %1005, %999

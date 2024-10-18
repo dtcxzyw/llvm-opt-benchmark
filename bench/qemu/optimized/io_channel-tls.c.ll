@@ -527,11 +527,11 @@ if.then8.i.i73:                                   ; preds = %if.then.i.i70
   %33 = load i64, ptr %_now.i.i63, align 8
   %tv_usec.i.i76 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
   %34 = load i64, ptr %tv_usec.i.i76, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i75, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %ioc, i32 noundef 1) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i75, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) 1) #8
   br label %trace_qio_channel_tls_handshake_pending.exit
 
 if.else.i.i72:                                    ; preds = %if.then.i.i70
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef 1) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) 1) #8
   br label %trace_qio_channel_tls_handshake_pending.exit
 
 trace_qio_channel_tls_handshake_pending.exit:     ; preds = %if.then18.split, %land.lhs.true5.i.i67, %if.then8.i.i73, %if.else.i.i72
@@ -564,11 +564,11 @@ if.then8.i.i87:                                   ; preds = %if.then.i.i84
   %39 = load i64, ptr %_now.i.i77, align 8
   %tv_usec.i.i90 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
   %40 = load i64, ptr %tv_usec.i.i90, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i89, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %ioc, i32 noundef %call2) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i89, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) %call2) #8
   br label %trace_qio_channel_tls_handshake_pending.exit91
 
 if.else.i.i86:                                    ; preds = %if.then.i.i84
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef %call2) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) %call2) #8
   br label %trace_qio_channel_tls_handshake_pending.exit91
 
 trace_qio_channel_tls_handshake_pending.exit91:   ; preds = %if.else19.split, %land.lhs.true5.i.i81, %if.then8.i.i87, %if.else.i.i86

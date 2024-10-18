@@ -183,7 +183,7 @@ if.then.i:                                        ; preds = %for.body
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %6(ptr noundef nonnull %4)
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %for.body, %if.then.i, %if.then.i.i
@@ -264,7 +264,7 @@ if.then.i:                                        ; preds = %for.body
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %8(ptr noundef nonnull %6)
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %for.body, %if.then.i, %if.then.i.i
@@ -499,7 +499,7 @@ if.then.i:                                        ; preds = %error
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %26(ptr noundef nonnull %24)
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %24)
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then.i, %error, %do.end158

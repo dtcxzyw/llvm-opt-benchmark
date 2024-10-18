@@ -1749,7 +1749,7 @@ dissect_DIGITAL.exit.i:                           ; preds = %.lr.ph.i111.i, %666
 727:                                              ; preds = %.lr.ph.i98
   %728 = shl nuw nsw i32 %717, 4
   %729 = load i32, ptr @ett_conf_phnam, align 4
-  %730 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %725, i32 noundef %728, i32 noundef %729, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.292, i32 noundef %717) #6
+  %730 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %725, i32 noundef %728, i32 noundef %729, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.292, i32 noundef range(i32 0, 1048561) %717) #6
   br label %731
 
 731:                                              ; preds = %731, %727
@@ -1772,7 +1772,7 @@ dissect_CHNAM.exit.i:                             ; preds = %731, %.lr.ph.i98
 739:                                              ; preds = %dissect_CHNAM.exit.i
   %740 = shl nuw nsw i32 %720, 4
   %741 = load i32, ptr @ett_conf_phnam, align 4
-  %742 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i.i101, i32 noundef %740, i32 noundef %741, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.136, i32 noundef %720) #6
+  %742 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i.i101, i32 noundef %740, i32 noundef %741, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.136, i32 noundef range(i32 0, 1048561) %720) #6
   br label %743
 
 743:                                              ; preds = %743, %739
@@ -1796,7 +1796,7 @@ dissect_CHNAM.exit121.i:                          ; preds = %743, %dissect_CHNAM
 752:                                              ; preds = %dissect_CHNAM.exit121.i
   %753 = shl nuw nsw i32 %723, 8
   %754 = load i32, ptr @ett_conf_phnam, align 4
-  %755 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i120.i, i32 noundef %753, i32 noundef %754, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.293, i32 noundef %750) #6
+  %755 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i120.i, i32 noundef %753, i32 noundef %754, ptr noundef null, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.293, i32 noundef range(i32 0, 1048561) %750) #6
   br label %756
 
 756:                                              ; preds = %756, %752
@@ -1818,7 +1818,7 @@ dissect_CHNAM.exit126.i:                          ; preds = %756, %dissect_CHNAM
 763:                                              ; preds = %dissect_CHNAM.exit126.i
   %764 = shl nuw nsw i32 %717, 2
   %765 = load i32, ptr @ett_conf_phconv, align 4
-  %766 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i125.i, i32 noundef %764, i32 noundef %765, ptr noundef null, ptr noundef nonnull @.str.298, i32 noundef %717) #6
+  %766 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i125.i, i32 noundef %764, i32 noundef %765, ptr noundef null, ptr noundef nonnull @.str.298, i32 noundef range(i32 0, 65536) %717) #6
   br label %767
 
 767:                                              ; preds = %767, %763
@@ -1842,7 +1842,7 @@ dissect_PHUNIT.exit.i:                            ; preds = %767, %dissect_CHNAM
 775:                                              ; preds = %dissect_PHUNIT.exit.i
   %776 = shl nuw nsw i32 %720, 2
   %777 = load i32, ptr @ett_conf_anconv, align 4
-  %778 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i128.i, i32 noundef %776, i32 noundef %777, ptr noundef null, ptr noundef nonnull @.str.302, i32 noundef %720) #6
+  %778 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %695, ptr noundef %340, i32 noundef %.0.i128.i, i32 noundef %776, i32 noundef %777, ptr noundef null, ptr noundef nonnull @.str.302, i32 noundef range(i32 0, 65536) %720) #6
   br label %779
 
 779:                                              ; preds = %779, %775
@@ -2152,7 +2152,7 @@ define internal fastcc void @dissect_config_3_frame(ptr noundef %0, ptr noundef 
 120:                                              ; preds = %53
   %121 = mul nuw nsw i32 %106, 12
   %122 = load i32, ptr @ett_conf_phconv, align 4
-  %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %39, ptr noundef %0, i32 noundef %118, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.328, i32 noundef %106) #6
+  %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %39, ptr noundef %0, i32 noundef %118, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.328, i32 noundef range(i32 0, 65536) %106) #6
   br label %124
 
 124:                                              ; preds = %124, %120
@@ -2222,7 +2222,7 @@ dissect_PHSCALE.exit:                             ; preds = %124, %53
 179:                                              ; preds = %dissect_PHSCALE.exit
   %180 = shl nuw nsw i32 %109, 3
   %181 = load i32, ptr @ett_conf_anconv, align 4
-  %182 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %39, ptr noundef %0, i32 noundef %.0.i, i32 noundef %180, i32 noundef %181, ptr noundef null, ptr noundef nonnull @.str.302, i32 noundef %109) #6
+  %182 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %39, ptr noundef %0, i32 noundef %.0.i, i32 noundef %180, i32 noundef %181, ptr noundef null, ptr noundef nonnull @.str.302, i32 noundef range(i32 0, 65536) %109) #6
   br label %183
 
 183:                                              ; preds = %183, %179

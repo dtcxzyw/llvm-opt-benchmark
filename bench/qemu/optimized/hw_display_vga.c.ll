@@ -312,11 +312,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %29 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %addr, i32 noundef %val.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %addr, i32 noundef range(i32 0, 256) %val.0) #17
   br label %trace_vga_std_read_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef %val.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %addr, i32 noundef range(i32 0, 256) %val.0) #17
   br label %trace_vga_std_read_io.exit
 
 trace_vga_std_read_io.exit:                       ; preds = %if.end62, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1106,11 +1106,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv29, i32 noundef %val.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef range(i32 0, 65536) %conv29, i32 noundef range(i32 0, 65536) %val.0) #17
   br label %trace_vga_vbe_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %conv29, i32 noundef %val.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef range(i32 0, 65536) %conv29, i32 noundef range(i32 0, 65536) %val.0) #17
   br label %trace_vga_vbe_read.exit
 
 trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1163,11 +1163,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv, i32 noundef %val) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 11) %conv, i32 noundef %val) #17
   br label %trace_vga_vbe_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %conv, i32 noundef %val) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef range(i32 0, 11) %conv, i32 noundef %val) #17
   br label %trace_vga_vbe_write.exit
 
 trace_vga_vbe_write.exit:                         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2271,7 +2271,7 @@ for.end45:                                        ; preds = %for.end39
   %retval.0.i = select i1 %cmp.i, i32 1, i32 %.val.i
   %conv48 = zext nneg i32 %retval.0.i to i64
   %sub.i = add nsw i64 %conv48, -1
-  %4 = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
+  %4 = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, 512) %sub.i, i1 false)
   %sub2.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i

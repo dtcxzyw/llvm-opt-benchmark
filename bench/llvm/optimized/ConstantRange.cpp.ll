@@ -192,7 +192,7 @@ define dso_local void @_ZN4llvm13ConstantRange13fromKnownBitsERKNS_9KnownBitsEb(
   br i1 %.not, label %24, label %23
 
 _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %3
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt18intersectsSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt18intersectsSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %22, label %23, label %_ZNK4llvm5APInt6isZeroEv.exit.i
 
 23:                                               ; preds = %18, %_ZNK4llvm9KnownBits11hasConflictEv.exit
@@ -204,7 +204,7 @@ _ZNK4llvm9KnownBits11hasConflictEv.exit:          ; preds = %3
   br i1 %25, label %28, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZNK4llvm9KnownBits11hasConflictEv.exit
-  %26 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %26 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %27 = icmp eq i32 %26, %16
   br i1 %27, label %28, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
@@ -292,7 +292,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit:          ; preds = %66, %68
   br i1 %71, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i, label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %_ZNK4llvm9KnownBits11getMinValueEv.exit
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %1) #13, !noalias !18
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %1) #13, !noalias !18
   %.pr.i = load i32, ptr %70, align 8, !noalias !21
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %72 = icmp ult i32 %.pr.i, 65
@@ -400,7 +400,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit14:        ; preds = %110, %111
   br i1 %114, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i19, label %_ZN4llvm5APIntC2ERKS0_.exit.i15
 
 _ZN4llvm5APIntC2ERKS0_.exit.i15:                  ; preds = %_ZNK4llvm9KnownBits11getMinValueEv.exit14
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %1) #13, !noalias !31
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #13, !noalias !31
   %.pr.i16 = load i32, ptr %113, align 8, !noalias !34
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %115 = icmp ult i32 %.pr.i16, 65
@@ -606,11 +606,11 @@ define dso_local void @_ZNK4llvm13ConstantRange11toKnownBitsEv(ptr dead_on_unwin
   br i1 %8, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
+  %9 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
   br i1 %9, label %10, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 10:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %11 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %11 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %12 = icmp eq i32 %11, %7
   br i1 %12, label %20, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -636,7 +636,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %2
   store i32 %7, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i1 noundef zeroext false) #13
   store i32 %7, ptr %23, align 8
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %22, i64 noundef 0, i1 noundef zeroext false) #13
   br label %_ZN4llvm9KnownBitsC2Ej.exit
@@ -736,7 +736,7 @@ define dso_local void @_ZNK4llvm13ConstantRange14getUnsignedMinEv(ptr dead_on_un
   br i1 %10, label %12, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 12:                                               ; preds = %7
@@ -751,7 +751,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %18, label %.thread, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %5
   br i1 %20, label %.thread2, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -761,7 +761,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqER
   br label %37
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %7, %_ZNK4llvm5APInteqERKS0_.exit.i, %14, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -833,7 +833,7 @@ define dso_local void @_ZNK4llvm13ConstantRange14getUnsignedMaxEv(ptr dead_on_un
   br i1 %11, label %13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
   br i1 %12, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread.thread
 
 13:                                               ; preds = %8
@@ -848,27 +848,27 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %19, label %.thread6, label %.thread5
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %6
   br i1 %21, label %.thread2, label %.thread3
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %8
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.thread6, label %38
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.thread2, label %38
 
 .thread5:                                         ; preds = %15
-  %26 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %26 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.thread6, label %38
 
 .thread3:                                         ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %28 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %28 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.thread2, label %38
 
@@ -1129,11 +1129,11 @@ define dso_local void @_ZN4llvm13ConstantRange21makeAllowedICmpRegionENS_7CmpIns
   br i1 %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %34 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %30) #14
+  %34 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %30) #14
   br i1 %34, label %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 35:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %36 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %36 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %37 = icmp eq i32 %36, %32
   br i1 %37, label %43, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -1153,7 +1153,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %3
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %32, ptr %44, align 8
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %43, %41
@@ -1202,7 +1202,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i28
 
 58:                                               ; preds = %54
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i28
 
 _ZN4llvm5APIntC2ERKS0_.exit.i28:                  ; preds = %58, %56
@@ -2117,7 +2117,7 @@ define dso_local void @_ZNK4llvm13ConstantRange12getSignedMaxEv(ptr dead_on_unwi
   br i1 %11, label %13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
   br i1 %12, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread.thread
 
 13:                                               ; preds = %8
@@ -2132,27 +2132,27 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %19, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %.thread5
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %6
   br i1 %21, label %_ZN4llvm5APInt10getAllOnesEj.exit.i, label %.thread3
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %8
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %58
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %_ZN4llvm5APInt10getAllOnesEj.exit.i, label %58
 
 .thread5:                                         ; preds = %15
-  %26 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %26 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %58
 
 .thread3:                                         ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %28 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
+  %28 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %4) #14
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %_ZN4llvm5APInt10getAllOnesEj.exit.i, label %58
 
@@ -2362,7 +2362,7 @@ define dso_local void @_ZNK4llvm13ConstantRange12getSignedMinEv(ptr dead_on_unwi
   br i1 %10, label %12, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 12:                                               ; preds = %7
@@ -2377,7 +2377,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %18, label %.thread, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %5
   br i1 %20, label %.thread4, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -2387,7 +2387,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqER
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %7, %_ZNK4llvm5APInteqERKS0_.exit.i, %14, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -2550,7 +2550,7 @@ define dso_local void @_ZNK4llvm13ConstantRange7inverseEv(ptr dead_on_unwind noa
   br i1 %12, label %14, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
+  %13 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
   br i1 %13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 14:                                               ; preds = %9
@@ -2565,7 +2565,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %20, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread4, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %21 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %21 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %22 = icmp eq i32 %21, %7
   br i1 %22, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread4, label %23
 
@@ -2574,7 +2574,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread4: ; preds = %14, %16, %_ZNK4llv
   br label %_ZN4llvm5APIntD2Ev.exit3
 
 23:                                               ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %25 = icmp eq i32 %24, %7
   br i1 %25, label %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -2770,11 +2770,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm13ConstantRange41areInsensitiveToSi
   br i1 %6, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %7, label %8, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 8:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %99, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -2793,11 +2793,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9, label %_ZNK4llvm5APInteqERKS0_.exit.i7
 
 _ZNK4llvm5APInteqERKS0_.exit.i7:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i7
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %99, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
@@ -2809,7 +2809,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit9:     ; preds = %_ZNK4llvm13Constant
   br i1 %spec.select.i8, label %99, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
 _ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i7, %19, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9
-  %25 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %25 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit
 
@@ -2862,7 +2862,7 @@ _ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit: ; preds = %_ZNK4llvm13Constan
   br i1 %.not.i.i, label %60, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit.thread
 
 60:                                               ; preds = %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit
-  %61 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %61 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit15
 
@@ -2930,7 +2930,7 @@ _ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit.thread: ; preds = %67, %73, %_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange16isAllNonNegativeEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
+  %3 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -2999,11 +2999,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange13isAllNegativeEv(p
   br i1 %5, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %1
-  %6 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %6 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #14
   br i1 %6, label %7, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 7:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %9 = icmp eq i32 %8, %4
   br i1 %9, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread3, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
@@ -3030,12 +3030,12 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %1
   br i1 %21, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread3, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %7
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %23 = icmp eq i32 %22, %4
   br i1 %23, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread3, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %13, %17, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread3, label %26
 
@@ -3083,11 +3083,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm13ConstantRange49areInsensitiveToSi
   br i1 %6, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %7, label %8, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 8:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -3106,11 +3106,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9, label %_ZNK4llvm5APInteqERKS0_.exit.i7
 
 _ZNK4llvm5APInteqERKS0_.exit.i7:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i7
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
@@ -3122,7 +3122,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit9:     ; preds = %_ZNK4llvm13Constant
   br i1 %spec.select.i8, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread
 
 _ZNK4llvm13ConstantRange10isEmptySetEv.exit9.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i7, %19, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit9
-  %25 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %25 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit
 
@@ -3183,7 +3183,7 @@ _ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit.thread: ; preds = %31, %37, %_
   br i1 %62, label %63, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit15
 
 63:                                               ; preds = %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit.thread
-  %64 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %64 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread.i10
 
@@ -3317,7 +3317,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %22, %19, %_ZN4llvm5
   br i1 %31, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %32 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %32 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %32, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 33:                                               ; preds = %28
@@ -3335,12 +3335,12 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %or.cond67, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %41 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %41 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %42 = icmp eq i32 %41, %.fr
   br i1 %42, label %_ZNK4llvm5APInteqERKS0_.exit.i22, label %43
 
 43:                                               ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %44 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %44 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %45 = icmp eq i32 %44, %.fr
   br i1 %45, label %_ZNK4llvm5APInteqERKS0_.exit.i22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -3350,7 +3350,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %28
   br i1 %spec.select.i.old, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i22:                 ; preds = %43, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %46 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %46 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %47 = icmp eq i32 %46, %.fr
   br i1 %47, label %49, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24.thread
 
@@ -4020,11 +4020,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange4icmpENS_7CmpInst9P
   br i1 %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %25, label %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 26:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %28 = icmp eq i32 %27, %23
   br i1 %28, label %_ZNK4llvm5APInteqERKS0_.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -4043,11 +4043,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit22, label %_ZNK4llvm5APInteqERKS0_.exit.i20
 
 _ZNK4llvm5APInteqERKS0_.exit.i20:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %32) #14
+  %36 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %32) #14
   br i1 %36, label %37, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit22.thread
 
 37:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i20
-  %38 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %38 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %39 = icmp eq i32 %38, %34
   br i1 %39, label %_ZNK4llvm5APInteqERKS0_.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit22.thread
 
@@ -4426,7 +4426,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange8containsERKS0_(ptr
   br i1 %10, label %12, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 12:                                               ; preds = %7
@@ -4441,7 +4441,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %20 = icmp eq i32 %19, %5
   br i1 %20, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -4453,11 +4453,11 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %7, %_ZNK4llvm5APInt
   br i1 %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i12
 
 _ZNK4llvm5APInteqERKS0_.exit.i12:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %25, label %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 26:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i12
-  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %28 = icmp eq i32 %27, %23
   br i1 %28, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -4472,11 +4472,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %6, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit15, label %_ZNK4llvm5APInteqERKS0_.exit.i13
 
 _ZNK4llvm5APInteqERKS0_.exit.i13:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %32, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit15.thread
 
 33:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i13
-  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %35 = icmp eq i32 %34, %5
   br i1 %35, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit15.thread
 
@@ -4497,7 +4497,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit15.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %42, label %44, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit17.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i16:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit15.thread
-  %43 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %43 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %43, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit17, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit17.thread
 
 44:                                               ; preds = %39
@@ -4512,14 +4512,14 @@ _ZNK4llvm5APInteqERKS0_.exit.i16:                 ; preds = %_ZNK4llvm13Constant
   br i1 %50, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit17.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit17:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i16
-  %51 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %51 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %52 = icmp eq i32 %51, %23
   br i1 %52, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit17.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit17.thread: ; preds = %39, %_ZNK4llvm5APInteqERKS0_.exit.i16, %46, %_ZNK4llvm13ConstantRange9isFullSetEv.exit17
-  %53 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %53 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
   %54 = icmp sgt i32 %53, 0
-  %55 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %21) #14
+  %55 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %21) #14
   %56 = icmp sgt i32 %55, 0
   br i1 %54, label %64, label %57
 
@@ -5722,11 +5722,11 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %542, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.exit120
-  %543 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %34, ptr noundef nonnull align 8 dereferenceable(12) %539) #14
+  %543 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(12) %539) #14
   br i1 %543, label %544, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 544:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %545 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %34) #14
+  %545 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #14
   %546 = icmp eq i32 %545, %541
   br i1 %546, label %550, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -6572,11 +6572,11 @@ tailrecurse:                                      ; preds = %95, %4
   br i1 %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %tailrecurse
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr79, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
+  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr79, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
   br i1 %20, label %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 21:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr79) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr79) #14
   %23 = icmp eq i32 %22, %17
   br i1 %23, label %.thread70, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -6611,7 +6611,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %36, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit42
 
 _ZNK4llvm5APInteqERKS0_.exit.i39:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %37 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr80, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr80, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
   br i1 %37, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit42.thread
 
 38:                                               ; preds = %33
@@ -6626,7 +6626,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i39:                 ; preds = %_ZNK4llvm13Constant
   br i1 %44, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread69, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit42
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i39
-  %45 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr80) #14
+  %45 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr80) #14
   %46 = icmp eq i32 %45, %31
   br i1 %46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread69, label %59
 
@@ -6641,7 +6641,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread69: ; preds = %38, %40, %_ZNK4ll
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 50:                                               ; preds = %.thread70, %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread69
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %.tr79) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.tr79) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %50, %48
@@ -6663,7 +6663,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %50, %48
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 59:                                               ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %60 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr80) #14
+  %60 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr80) #14
   %61 = icmp eq i32 %60, %31
   br i1 %61, label %.thread76, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit42.thread
 
@@ -6692,7 +6692,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit42.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %68, label %70, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i43:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit42.thread
-  %69 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr79, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
+  %69 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr79, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
   br i1 %69, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread
 
 70:                                               ; preds = %65
@@ -6707,7 +6707,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i43:                 ; preds = %_ZNK4llvm13Constant
   br i1 %76, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread74, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit44:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i43
-  %77 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr79) #14
+  %77 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr79) #14
   %78 = icmp eq i32 %77, %17
   br i1 %78, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread74, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread
 
@@ -6722,7 +6722,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread74: ; preds = %70, %72, %_ZNK4
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i45
 
 82:                                               ; preds = %.thread76, %_ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread74
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %.tr80) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.tr80) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i45
 
 _ZN4llvm5APIntC2ERKS0_.exit.i45:                  ; preds = %82, %80
@@ -6744,9 +6744,9 @@ _ZN4llvm5APIntC2ERKS0_.exit.i45:                  ; preds = %82, %80
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit44.thread: ; preds = %65, %_ZNK4llvm5APInteqERKS0_.exit.i43, %72, %_ZNK4llvm13ConstantRange9isFullSetEv.exit44
-  %91 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %.tr79, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
+  %91 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr79, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
   %92 = icmp sgt i32 %91, 0
-  %93 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %.tr80, ptr noundef nonnull readonly align 8 dereferenceable(12) %29) #14
+  %93 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr80, ptr noundef nonnull readonly align 8 dereferenceable(12) %29) #14
   %94 = icmp sgt i32 %93, 0
   br i1 %92, label %163, label %95
 
@@ -7661,7 +7661,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange25isSizeStrictlySma
   br i1 %14, label %16, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %7) #14
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %7) #14
   br i1 %15, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 16:                                               ; preds = %11
@@ -7676,7 +7676,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %22, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %24 = icmp eq i32 %23, %9
   br i1 %24, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -7694,7 +7694,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %11, %_ZNK4llvm5APIn
   br i1 %32, label %34, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit6.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i5:                  ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %33, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit6, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit6.thread
 
 34:                                               ; preds = %29
@@ -7709,7 +7709,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i5:                  ; preds = %_ZNK4llvm13Constant
   br i1 %40, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit6.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit6:       ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i5
-  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %42 = icmp eq i32 %41, %27
   br i1 %42, label %_ZN4llvm5APIntD2Ev.exit10, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit6.thread
 
@@ -7838,7 +7838,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange16isSizeLargerThanE
   br i1 %13, label %15, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %6) #14
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %6) #14
   br i1 %14, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 15:                                               ; preds = %10
@@ -7853,7 +7853,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %21, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %23 = icmp eq i32 %22, %8
   br i1 %23, label %.thread, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -7993,11 +7993,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange13isAllPositiveEv(p
   br i1 %5, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %1
-  %6 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %6 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #14
   br i1 %6, label %7, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 7:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %9 = icmp eq i32 %8, %4
   br i1 %9, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
@@ -8024,12 +8024,12 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %1
   br i1 %21, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %7
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %23 = icmp eq i32 %22, %4
   br i1 %23, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %13, %17, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %2) #14
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -8115,53 +8115,57 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13ConstantRange8containsERKNS_5API
   %8 = load i64, ptr %0, align 8
   %9 = load i64, ptr %3, align 8
   %10 = icmp eq i64 %8, %9
-  br i1 %10, label %12, label %21
+  br i1 %10, label %13, label %23
 
 _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %2
   %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
-  br i1 %11, label %_ZNK4llvm5APInteqERKS0_.exit.i, label %21
-
-12:                                               ; preds = %7
-  %13 = icmp eq i32 %5, 0
-  br i1 %13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %14
-
-14:                                               ; preds = %12
-  %15 = sub nuw nsw i32 64, %5
-  %16 = zext nneg i32 %15 to i64
-  %17 = lshr i64 -1, %16
-  %18 = icmp eq i64 %8, %17
-  br label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
+  br i1 %11, label %_ZNK4llvm5APInteqERKS0_.exit.i, label %23
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZNK4llvm5APInteqERKS0_.exit
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
-  %20 = icmp eq i32 %19, %5
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  br i1 %12, label %20, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
+
+13:                                               ; preds = %7
+  %14 = icmp eq i32 %5, 0
+  br i1 %14, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %15
+
+15:                                               ; preds = %13
+  %16 = sub nuw nsw i32 64, %5
+  %17 = zext nneg i32 %16 to i64
+  %18 = lshr i64 -1, %17
+  %19 = icmp eq i64 %8, %18
   br label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
-21:                                               ; preds = %7, %_ZNK4llvm5APInteqERKS0_.exit
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
-  %23 = icmp sgt i32 %22, 0
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #14
-  %25 = icmp slt i32 %24, 1
-  br i1 %23, label %30, label %26
-
-26:                                               ; preds = %21
-  br i1 %25, label %27, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-
-27:                                               ; preds = %26
-  %28 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
-  %29 = icmp slt i32 %28, 0
+20:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
+  %21 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  %22 = icmp eq i32 %21, %5
   br label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
-30:                                               ; preds = %21
-  br i1 %25, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %31
+23:                                               ; preds = %7, %_ZNK4llvm5APInteqERKS0_.exit
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %3) #14
+  %25 = icmp sgt i32 %24, 0
+  %26 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %27 = icmp slt i32 %26, 1
+  br i1 %25, label %32, label %28
 
-31:                                               ; preds = %30
-  %32 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
-  %33 = icmp slt i32 %32, 0
+28:                                               ; preds = %23
+  br i1 %27, label %29, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
+
+29:                                               ; preds = %28
+  %30 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %31 = icmp slt i32 %30, 0
   br label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
-_ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %14, %12, %30, %31, %26, %27
-  %.0 = phi i1 [ false, %26 ], [ %29, %27 ], [ true, %30 ], [ %33, %31 ], [ %18, %14 ], [ %20, %_ZNK4llvm5APInteqERKS0_.exit.i ], [ true, %12 ]
+32:                                               ; preds = %23
+  br i1 %27, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %33
+
+33:                                               ; preds = %32
+  %34 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %35 = icmp slt i32 %34, 0
+  br label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
+
+_ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %20, %15, %13, %_ZNK4llvm5APInteqERKS0_.exit.i, %32, %33, %28, %29
+  %.0 = phi i1 [ false, %28 ], [ %31, %29 ], [ true, %32 ], [ %35, %33 ], [ false, %_ZNK4llvm5APInteqERKS0_.exit.i ], [ %19, %15 ], [ %22, %20 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -8175,11 +8179,11 @@ define dso_local noundef i32 @_ZNK4llvm13ConstantRange13getActiveBitsEv(ptr noun
   br i1 %6, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %1
-  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %7, label %8, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 8:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %9 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %_ZN4llvm5APIntD2Ev.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -8231,11 +8235,11 @@ define dso_local noundef i32 @_ZNK4llvm13ConstantRange16getMinSignedBitsEv(ptr n
   br i1 %7, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %1
-  %8 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
+  %8 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #14
   br i1 %8, label %9, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 9:                                                ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %10 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %10 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %11 = icmp eq i32 %10, %6
   br i1 %11, label %_ZN4llvm5APIntD2Ev.exit5, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -8427,7 +8431,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %3
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %10, ptr %20, align 8
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %19, %17
@@ -8603,7 +8607,7 @@ define internal fastcc void @_ZL17getPreferredRangeRKN4llvm13ConstantRangeES2_NS
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %6) #14
+  %7 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %6) #14
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -8625,7 +8629,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit:    ; preds = %9
 
 _ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread: ; preds = %13, %5, %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit19.thread
 
@@ -8659,7 +8663,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit19:  ; preds = %21
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 37:                                               ; preds = %30
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %37, %35
@@ -8702,7 +8706,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit22:  ; preds = %_ZNK4llvm13Constant
 
 .thread.thread.thread:                            ; preds = %13, %.thread.thread, %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit22
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
+  %52 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit25.thread
 
@@ -8736,7 +8740,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit25.thread: ; preds = %58, %.thread.
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i26
 
 69:                                               ; preds = %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit25.thread
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i26
 
 _ZN4llvm5APIntC2ERKS0_.exit.i26:                  ; preds = %69, %67
@@ -8759,7 +8763,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i26:                  ; preds = %69, %67
 
 78:                                               ; preds = %4
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %80 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %79) #14
+  %80 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %79) #14
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -8798,7 +8802,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit: ; preds = %92
 
 _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread: ; preds = %86, %78, %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %106 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %105) #14
+  %106 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %105) #14
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %108, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit32.thread
 
@@ -8849,7 +8853,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit32.thread51: ; preds = %112, %1
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i33
 
 137:                                              ; preds = %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit32.thread51
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i33
 
 _ZN4llvm5APIntC2ERKS0_.exit.i33:                  ; preds = %137, %135
@@ -8910,7 +8914,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit38: ; preds = %.thread53.thread
 
 _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit38.thread54: ; preds = %.thread53.thread61, %.thread53.thread, %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit38
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %167 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %166) #14
+  %167 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %166) #14
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %169, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit42.thread
 
@@ -8961,7 +8965,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit42.thread: ; preds = %173, %_ZN
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i43
 
 198:                                              ; preds = %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit42.thread
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i43
 
 _ZN4llvm5APIntC2ERKS0_.exit.i43:                  ; preds = %198, %196
@@ -9000,7 +9004,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit22.thread: ; preds = %173, %.thread
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i45
 
 215:                                              ; preds = %209
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i45
 
 _ZN4llvm5APIntC2ERKS0_.exit.i45:                  ; preds = %215, %213
@@ -9035,7 +9039,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i45:                  ; preds = %215, %213
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i47
 
 231:                                              ; preds = %225
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i47
 
 _ZN4llvm5APIntC2ERKS0_.exit.i47:                  ; preds = %231, %229
@@ -9110,7 +9114,7 @@ tailrecurse:                                      ; preds = %111, %4
   br i1 %39, label %41, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %tailrecurse
-  %40 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr96, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
+  %40 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr96, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
   br i1 %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 41:                                               ; preds = %36
@@ -9125,7 +9129,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %tailrecurse
   br i1 %47, label %.thread, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %48 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr96) #14
+  %48 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr96) #14
   %49 = icmp eq i32 %48, %33
   br i1 %49, label %.thread87, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -9142,11 +9146,11 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %36, %_ZNK4llvm5APIn
   br i1 %54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i36
 
 _ZNK4llvm5APInteqERKS0_.exit.i36:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
-  %55 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr97, ptr noundef nonnull align 8 dereferenceable(12) %51) #14
+  %55 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr97, ptr noundef nonnull align 8 dereferenceable(12) %51) #14
   br i1 %55, label %56, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit38.thread
 
 56:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i36
-  %57 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr97) #14
+  %57 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr97) #14
   %58 = icmp eq i32 %57, %53
   br i1 %58, label %63, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit38
 
@@ -9173,7 +9177,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %_ZNK4llvm13Constant
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 67:                                               ; preds = %.thread87, %63
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %.tr96) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.tr96) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %67, %65
@@ -9210,7 +9214,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %67, %65
   br i1 %84, label %.thread92, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit38.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit38:      ; preds = %56
-  %85 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr97) #14
+  %85 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr97) #14
   %86 = icmp eq i32 %85, %53
   br i1 %86, label %.thread93, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit38.thread
 
@@ -9223,11 +9227,11 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit38.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41, label %_ZNK4llvm5APInteqERKS0_.exit.i39
 
 _ZNK4llvm5APInteqERKS0_.exit.i39:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit38.thread
-  %88 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.tr96, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
+  %88 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %.tr96, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
   br i1 %88, label %89, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41.thread
 
 89:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i39
-  %90 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %.tr96) #14
+  %90 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr96) #14
   %91 = icmp eq i32 %90, %33
   br i1 %91, label %96, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41.thread
 
@@ -9254,7 +9258,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit41:    ; preds = %_ZNK4llvm13Constant
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i42
 
 100:                                              ; preds = %.thread93, %96
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %.tr97) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.tr97) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i42
 
 _ZN4llvm5APIntC2ERKS0_.exit.i42:                  ; preds = %100, %98
@@ -9276,12 +9280,12 @@ _ZN4llvm5APIntC2ERKS0_.exit.i42:                  ; preds = %100, %98
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 _ZNK4llvm13ConstantRange10isEmptySetEv.exit41.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i39, %89, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41
-  %109 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %.tr96, ptr noundef nonnull readonly align 8 dereferenceable(12) %34) #14
+  %109 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr96, ptr noundef nonnull readonly align 8 dereferenceable(12) %34) #14
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %.thread94, label %111
 
 111:                                              ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41.thread
-  %112 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %.tr97, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
+  %112 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr97, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %tailrecurse, label %114
 
@@ -9674,7 +9678,7 @@ _ZN4llvm5APIntD2Ev.exit62:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 .thread94:                                        ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit41.thread
   %285 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
-  %286 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %.tr97, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
+  %286 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr97, ptr noundef nonnull readonly align 8 dereferenceable(12) %51) #14
   %287 = icmp sgt i32 %286, 0
   br i1 %287, label %408, label %288
 
@@ -10119,7 +10123,7 @@ define dso_local void @_ZNK4llvm13ConstantRange18exactIntersectWithERKS0_(ptr de
   br i1 %15, label %17, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
+  %16 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %12
@@ -10348,7 +10352,7 @@ define dso_local void @_ZNK4llvm13ConstantRange14exactUnionWithERKS0_(ptr dead_o
   br i1 %15, label %17, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5) #14
+  %16 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %12
@@ -10614,7 +10618,7 @@ define dso_local void @_ZNK4llvm13ConstantRange6castOpENS_11Instruction7CastOpsE
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 30:                                               ; preds = %23
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %30, %28
@@ -10654,7 +10658,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %30, %28
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i19
 
 49:                                               ; preds = %44
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i19
 
 _ZN4llvm5APIntC2ERKS0_.exit.i19:                  ; preds = %49, %47
@@ -11105,11 +11109,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8truncateEj(ptr dead_on_unwind no
   br i1 %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
+  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
   br i1 %22, label %23, label %.thread47
 
 23:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %29, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
@@ -11140,7 +11144,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %3
   br i1 %38, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45, label %.thread48
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %23
-  %39 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %39 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %40 = icmp eq i32 %39, %20
   br i1 %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45, label %.thread47
 
@@ -11180,7 +11184,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %.thread48, %.thread
 
 _ZN4llvm5APIntC2ERKS0_.exit22:                    ; preds = %48, %50
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %2, i1 noundef zeroext false) #13
-  %51 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
+  %51 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %18) #14
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %174
 
@@ -11777,11 +11781,11 @@ define dso_local void @_ZNK4llvm13ConstantRange10signExtendEj(ptr dead_on_unwind
   br i1 %14, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
   br i1 %15, label %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 16:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %18 = icmp eq i32 %17, %13
   br i1 %18, label %22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -11875,7 +11879,7 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread:  ; preds = %33, %26, %_ZNK4llvm
   br i1 %66, label %68, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread
-  %67 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
+  %67 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
   br i1 %67, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 68:                                               ; preds = %64
@@ -11890,12 +11894,12 @@ _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm5APInt16is
   br i1 %74, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i11
-  %75 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %75 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %76 = icmp eq i32 %75, %13
   br i1 %76, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %64, %_ZNK4llvm5APInteqERKS0_.exit.i11, %70, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %77 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %11) #14
+  %77 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %11) #14
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -12120,11 +12124,11 @@ define dso_local void @_ZNK4llvm13ConstantRange10zeroExtendEj(ptr dead_on_unwind
   br i1 %13, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %14, label %15, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %21, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit
 
@@ -12155,12 +12159,12 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %3
   br i1 %30, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %15
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %32 = icmp eq i32 %31, %12
   br i1 %32, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread13, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %22, %26, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %33 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #14
+  %33 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #14
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread13, label %98
 
@@ -12433,7 +12437,7 @@ define dso_local void @_ZNK4llvm13ConstantRange11zextOrTruncEj(ptr dead_on_unwin
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 16:                                               ; preds = %11
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %16, %14
@@ -12490,7 +12494,7 @@ define dso_local void @_ZNK4llvm13ConstantRange11sextOrTruncEj(ptr dead_on_unwin
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 16:                                               ; preds = %11
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %16, %14
@@ -12628,11 +12632,11 @@ define dso_local void @_ZNK4llvm13ConstantRange3addERKS0_(ptr dead_on_unwind noa
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -12651,11 +12655,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -12680,7 +12684,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread: ; preds = %_ZNK4llvm5APInte
   br i1 %38, label %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i9:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
-  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %39, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 40:                                               ; preds = %35
@@ -12695,7 +12699,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i9:                  ; preds = %_ZNK4llvm13Constant
   br i1 %46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i9
-  %47 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %47 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %48 = icmp eq i32 %47, %14
   br i1 %48, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -12709,7 +12713,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %35, %_ZNK4llvm5APIn
   br i1 %52, label %54, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i10:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
-  %53 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %53 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %53, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 54:                                               ; preds = %49
@@ -12724,7 +12728,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i10:                 ; preds = %_ZNK4llvm13Constant
   br i1 %60, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit11:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i10
-  %61 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %61 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %62 = icmp eq i32 %61, %25
   br i1 %62, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
@@ -12964,11 +12968,11 @@ define dso_local void @_ZNK4llvm13ConstantRange3subERKS0_(ptr dead_on_unwind noa
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -12987,11 +12991,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -13016,7 +13020,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread: ; preds = %_ZNK4llvm5APInte
   br i1 %38, label %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i9:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
-  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %39, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 40:                                               ; preds = %35
@@ -13031,7 +13035,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i9:                  ; preds = %_ZNK4llvm13Constant
   br i1 %46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i9
-  %47 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %47 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %48 = icmp eq i32 %47, %14
   br i1 %48, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -13045,7 +13049,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %35, %_ZNK4llvm5APIn
   br i1 %52, label %54, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i10:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
-  %53 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %53 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %53, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 54:                                               ; preds = %49
@@ -13060,7 +13064,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i10:                 ; preds = %_ZNK4llvm13Constant
   br i1 %60, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit11:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i10
-  %61 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %61 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %62 = icmp eq i32 %61, %25
   br i1 %62, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread19, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit11.thread
 
@@ -13323,11 +13327,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8multiplyERKS0_(ptr dead_on_unwin
   br i1 %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %35) #14
+  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %35) #14
   br i1 %39, label %40, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 40:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %42 = icmp eq i32 %41, %37
   br i1 %42, label %57, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -13346,11 +13350,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %49, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit23, label %_ZNK4llvm5APInteqERKS0_.exit.i21
 
 _ZNK4llvm5APInteqERKS0_.exit.i21:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %50 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %46) #14
+  %50 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %46) #14
   br i1 %50, label %51, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit23.thread
 
 51:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i21
-  %52 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %52 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %53 = icmp eq i32 %52, %48
   br i1 %53, label %57, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit23.thread
 
@@ -13400,7 +13404,7 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %59
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 75:                                               ; preds = %69
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %2) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %75, %73
@@ -13534,7 +13538,7 @@ _ZNK4llvm5APInt5isOneEv.exit26:                   ; preds = %121
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i27
 
 137:                                              ; preds = %131
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i27
 
 _ZN4llvm5APIntC2ERKS0_.exit.i27:                  ; preds = %137, %135
@@ -13768,7 +13772,7 @@ _ZN4llvm5APIntD2Ev.exit41:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %242 = load i32, ptr %36, align 8
   call void @_ZNK4llvm13ConstantRange8truncateEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %242)
   %243 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %244 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 8 dereferenceable(12) %243) #14
+  %244 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(12) %243) #14
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %271, label %246
 
@@ -14123,7 +14127,7 @@ _ZN4llvm5APIntD2Ev.exit64:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i65
 
 396:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit64
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %.) #13
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i65
 
 _ZN4llvm5APIntC2ERKS0_.exit.i65:                  ; preds = %396, %394
@@ -14376,11 +14380,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4udivERKS0_(ptr dead_on_unwind no
   br i1 %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %17, label %18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 18:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -14399,11 +14403,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10, label %_ZNK4llvm5APInteqERKS0_.exit.i8
 
 _ZNK4llvm5APInteqERKS0_.exit.i8:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
   br i1 %28, label %29, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
 29:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i8
-  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %31 = icmp eq i32 %30, %26
   br i1 %31, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
@@ -14932,11 +14936,11 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %163, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.exit13
-  %164 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %160) #14
+  %164 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(12) %160) #14
   br i1 %164, label %165, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 165:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %166 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %166 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
   %167 = icmp eq i32 %166, %162
   br i1 %167, label %_ZN4llvm5APIntD2Ev.exit25, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -14955,11 +14959,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %174, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit16, label %_ZNK4llvm5APInteqERKS0_.exit.i14
 
 _ZNK4llvm5APInteqERKS0_.exit.i14:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %175 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %171) #14
+  %175 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(12) %171) #14
   br i1 %175, label %176, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit16.thread
 
 176:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i14
-  %177 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %177 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   %178 = icmp eq i32 %177, %173
   br i1 %178, label %_ZN4llvm5APIntD2Ev.exit25, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit16.thread
 
@@ -15204,11 +15208,11 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %281, %278, %_ZN4llv
   br i1 %285, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28, label %_ZNK4llvm5APInteqERKS0_.exit.i26
 
 _ZNK4llvm5APInteqERKS0_.exit.i26:                 ; preds = %_ZN4llvm5APIntD2Ev.exit25
-  %286 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %282) #14
+  %286 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(12) %282) #14
   br i1 %286, label %287, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
 287:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i26
-  %288 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %288 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   %289 = icmp eq i32 %288, %284
   br i1 %289, label %_ZN4llvm5APIntD2Ev.exit93, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
@@ -15227,11 +15231,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %296, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit31, label %_ZNK4llvm5APInteqERKS0_.exit.i29
 
 _ZNK4llvm5APInteqERKS0_.exit.i29:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
-  %297 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %293) #14
+  %297 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(12) %293) #14
   br i1 %297, label %298, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit31.thread
 
 298:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i29
-  %299 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %15) #14
+  %299 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %300 = icmp eq i32 %299, %295
   br i1 %300, label %_ZN4llvm5APIntD2Ev.exit93, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit31.thread
 
@@ -16328,11 +16332,11 @@ _ZN4llvm5APIntD2Ev.exit93:                        ; preds = %781, %778, %_ZN4llv
   br i1 %784, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit96, label %_ZNK4llvm5APInteqERKS0_.exit.i94
 
 _ZNK4llvm5APInteqERKS0_.exit.i94:                 ; preds = %_ZN4llvm5APIntD2Ev.exit93
-  %785 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %160) #14
+  %785 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(12) %160) #14
   br i1 %785, label %786, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit96.thread
 
 786:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i94
-  %787 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %787 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
   %788 = icmp eq i32 %787, %783
   br i1 %788, label %_ZN4llvm5APIntD2Ev.exit112, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit96.thread
 
@@ -16351,11 +16355,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit96.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %795, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit99, label %_ZNK4llvm5APInteqERKS0_.exit.i97
 
 _ZNK4llvm5APInteqERKS0_.exit.i97:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit96.thread
-  %796 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %792) #14
+  %796 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(12) %792) #14
   br i1 %796, label %797, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit99.thread
 
 797:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i97
-  %798 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %15) #14
+  %798 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %799 = icmp eq i32 %798, %794
   br i1 %799, label %_ZN4llvm5APIntD2Ev.exit112, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit99.thread
 
@@ -16598,11 +16602,11 @@ _ZN4llvm5APIntD2Ev.exit112:                       ; preds = %902, %899, %_ZN4llv
   br i1 %904, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit115, label %_ZNK4llvm5APInteqERKS0_.exit.i113
 
 _ZNK4llvm5APInteqERKS0_.exit.i113:                ; preds = %_ZN4llvm5APIntD2Ev.exit112
-  %905 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %282) #14
+  %905 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(12) %282) #14
   br i1 %905, label %906, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit115.thread
 
 906:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i113
-  %907 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %907 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   %908 = icmp eq i32 %907, %903
   br i1 %908, label %_ZN4llvm5APIntD2Ev.exit133, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit115.thread
 
@@ -16621,11 +16625,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit115.thread: ; preds = %_ZNK4llvm5APIn
   br i1 %915, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit118, label %_ZNK4llvm5APInteqERKS0_.exit.i116
 
 _ZNK4llvm5APInteqERKS0_.exit.i116:                ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit115.thread
-  %916 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %912) #14
+  %916 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(12) %912) #14
   br i1 %916, label %917, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit118.thread
 
 917:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i116
-  %918 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %918 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   %919 = icmp eq i32 %918, %914
   br i1 %919, label %_ZN4llvm5APIntD2Ev.exit133, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit118.thread
 
@@ -16907,11 +16911,11 @@ _ZN4llvm5APIntD2Ev.exit133:                       ; preds = %1037, %1034, %_ZN4l
   br i1 %1043, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit136, label %_ZNK4llvm5APInteqERKS0_.exit.i134
 
 _ZNK4llvm5APInteqERKS0_.exit.i134:                ; preds = %1039
-  %1044 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %1040) #14
+  %1044 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(12) %1040) #14
   br i1 %1044, label %1045, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit136.thread
 
 1045:                                             ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i134
-  %1046 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %1046 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   %1047 = icmp eq i32 %1046, %1042
   br i1 %1047, label %1051, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit136.thread
 
@@ -16930,11 +16934,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit136:   ; preds = %1039
   br i1 %1055, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit139, label %_ZNK4llvm5APInteqERKS0_.exit.i137
 
 _ZNK4llvm5APInteqERKS0_.exit.i137:                ; preds = %1051
-  %1056 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %1052) #14
+  %1056 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(12) %1052) #14
   br i1 %1056, label %1057, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit136.thread
 
 1057:                                             ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i137
-  %1058 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %15) #14
+  %1058 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %1059 = icmp eq i32 %1058, %1054
   br i1 %1059, label %_ZN4llvm5APIntD2Ev.exit147, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit136.thread
 
@@ -17368,11 +17372,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4uremERKS0_(ptr dead_on_unwind no
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -17391,11 +17395,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17, label %_ZNK4llvm5APInteqERKS0_.exit.i15
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %_ZN4llvm5APIntD2Ev.exit.thread, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
@@ -17535,7 +17539,7 @@ _ZN4llvm5APIntD2Ev.exit22:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 94:                                               ; preds = %88
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) #13
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %94, %92
@@ -17722,11 +17726,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4sremERKS0_(ptr dead_on_unwind no
   br i1 %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %32) #14
+  %36 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %32) #14
   br i1 %36, label %37, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 37:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %38 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %38 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %39 = icmp eq i32 %38, %34
   br i1 %39, label %54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -17745,11 +17749,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %46, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13, label %_ZNK4llvm5APInteqERKS0_.exit.i11
 
 _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %47 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %43) #14
+  %47 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %43) #14
   br i1 %47, label %48, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
 48:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i11
-  %49 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %49 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %50 = icmp eq i32 %49, %45
   br i1 %50, label %54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
@@ -18561,11 +18565,11 @@ define dso_local void @_ZNK4llvm13ConstantRange3shlERKS0_(ptr dead_on_unwind noa
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %45, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -18584,11 +18588,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %37, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17, label %_ZNK4llvm5APInteqERKS0_.exit.i15
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %38 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
+  %38 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %34) #14
   br i1 %38, label %39, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
 39:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %40 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %40 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %41 = icmp eq i32 %40, %36
   br i1 %41, label %45, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
@@ -19248,11 +19252,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4lshrERKS0_(ptr dead_on_unwind no
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -19271,11 +19275,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -19479,11 +19483,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4ashrERKS0_(ptr dead_on_unwind no
   br i1 %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
   br i1 %28, label %29, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 29:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %31 = icmp eq i32 %30, %26
   br i1 %31, label %46, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -19502,11 +19506,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %35) #14
+  %39 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %35) #14
   br i1 %39, label %40, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 40:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %41 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %42 = icmp eq i32 %41, %37
   br i1 %42, label %46, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -20061,11 +20065,11 @@ define dso_local void @_ZNK4llvm13ConstantRange9binaryAndERKS0_(ptr dead_on_unwi
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -20084,11 +20088,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -20415,11 +20419,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8binaryOrERKS0_(ptr dead_on_unwin
   br i1 %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %17, label %18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 18:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -20438,11 +20442,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
   br i1 %28, label %29, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 29:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %31 = icmp eq i32 %30, %26
   br i1 %31, label %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -20752,11 +20756,11 @@ define dso_local void @_ZNK4llvm13ConstantRange9binaryXorERKS0_(ptr dead_on_unwi
   br i1 %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
+  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
   br i1 %22, label %23, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 23:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %40, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -20775,11 +20779,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13, label %_ZNK4llvm5APInteqERKS0_.exit.i11
 
 _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
+  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
   br i1 %33, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
 34:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i11
-  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %36 = icmp eq i32 %35, %31
   br i1 %36, label %40, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
@@ -20959,7 +20963,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit16.thread:        ; preds = %95, %102, %_ZNK4llv
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 117:                                              ; preds = %110
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %6) #13
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %117, %115
@@ -21411,11 +21415,11 @@ define dso_local void @_ZNK4llvm13ConstantRange13addWithNoWrapERKS0_jNS0_18Prefe
   br i1 %13, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %5
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %14, label %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -21434,11 +21438,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13, label %_ZNK4llvm5APInteqERKS0_.exit.i11
 
 _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %25, label %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
 26:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i11
-  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %28 = icmp eq i32 %27, %23
   br i1 %28, label %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
@@ -21463,7 +21467,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %36, label %38, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i14:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
-  %37 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %37, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 38:                                               ; preds = %33
@@ -21478,7 +21482,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i14:                 ; preds = %_ZNK4llvm13Constant
   br i1 %44, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread25, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i14
-  %45 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %45 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %46 = icmp eq i32 %45, %12
   br i1 %46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread25, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -21492,7 +21496,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread25: ; preds = %38, %40, %_ZNK4ll
   br i1 %50, label %52, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread25
-  %51 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %51 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %51, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 52:                                               ; preds = %47
@@ -21507,7 +21511,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13Constant
   br i1 %58, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16.thread26, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit16:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %59 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %59 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %60 = icmp eq i32 %59, %23
   br i1 %60, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16.thread26, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -21742,11 +21746,11 @@ define dso_local void @_ZNK4llvm13ConstantRange13subWithNoWrapERKS0_jNS0_18Prefe
   br i1 %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %5
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %17, label %18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 18:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -21765,11 +21769,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13, label %_ZNK4llvm5APInteqERKS0_.exit.i11
 
 _ZNK4llvm5APInteqERKS0_.exit.i11:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
   br i1 %28, label %29, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
 29:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i11
-  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %30 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %31 = icmp eq i32 %30, %26
   br i1 %31, label %35, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
 
@@ -21794,7 +21798,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %39, label %41, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i14:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit13.thread
-  %40 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %40 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 41:                                               ; preds = %36
@@ -21809,7 +21813,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i14:                 ; preds = %_ZNK4llvm13Constant
   br i1 %47, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread28, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i14
-  %48 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %48 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %49 = icmp eq i32 %48, %15
   br i1 %49, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread28, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -21823,7 +21827,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread28: ; preds = %41, %43, %_ZNK4ll
   br i1 %53, label %55, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread28
-  %54 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
+  %54 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %24) #14
   br i1 %54, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 55:                                               ; preds = %50
@@ -21838,7 +21842,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13Constant
   br i1 %61, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16.thread29, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit16:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %62 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %62 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %63 = icmp eq i32 %62, %26
   br i1 %63, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit16.thread29, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -22165,11 +22169,11 @@ define dso_local void @_ZNK4llvm13ConstantRange18multiplyWithNoWrapERKS0_jNS0_18
   br i1 %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %5
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
+  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
   br i1 %20, label %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 21:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %23 = icmp eq i32 %22, %18
   br i1 %23, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -22188,11 +22192,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17, label %_ZNK4llvm5APInteqERKS0_.exit.i15
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
   br i1 %31, label %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
 32:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %33 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %33 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %34 = icmp eq i32 %33, %29
   br i1 %34, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
 
@@ -22217,7 +22221,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread: ; preds = %_ZNK4llvm5APInt
   br i1 %42, label %44, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i18:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit17.thread
-  %43 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
+  %43 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
   br i1 %43, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 44:                                               ; preds = %39
@@ -22232,7 +22236,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i18:                 ; preds = %_ZNK4llvm13Constant
   br i1 %50, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i18
-  %51 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %51 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %52 = icmp eq i32 %51, %18
   br i1 %52, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -22246,7 +22250,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45: ; preds = %44, %46, %_ZNK4ll
   br i1 %56, label %58, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i19:                 ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread45
-  %57 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
+  %57 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
   br i1 %57, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit20, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 58:                                               ; preds = %53
@@ -22261,7 +22265,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i19:                 ; preds = %_ZNK4llvm13Constant
   br i1 %64, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit20.thread46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit20:      ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i19
-  %65 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %65 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %66 = icmp eq i32 %65, %29
   br i1 %66, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit20.thread46, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -22482,7 +22486,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit28:               ; preds = %160, %157, %_ZN4llv
 
 162:                                              ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit28
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %164 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %163) #14
+  %164 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(12) %163) #14
   %165 = icmp sgt i32 %164, 0
   br i1 %165, label %166, label %_ZNK4llvm13ConstantRange16isAllNonNegativeEv.exit
 
@@ -22867,11 +22871,11 @@ define dso_local void @_ZNK4llvm13ConstantRange13shlWithNoWrapERKS0_jNS0_18Prefe
   br i1 %11, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %5
-  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %8) #14
+  %12 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %8) #14
   br i1 %12, label %13, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 13:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %14 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %14 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %15 = icmp eq i32 %14, %10
   br i1 %15, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -22890,11 +22894,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10, label %_ZNK4llvm5APInteqERKS0_.exit.i8
 
 _ZNK4llvm5APInteqERKS0_.exit.i8:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %23 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %19) #14
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %19) #14
   br i1 %23, label %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
 24:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i8
-  %25 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %25 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %26 = icmp eq i32 %25, %21
   br i1 %26, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
@@ -23183,11 +23187,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8uadd_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -23206,11 +23210,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -23370,11 +23374,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8usub_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -23393,11 +23397,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -23557,11 +23561,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8sadd_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -23580,11 +23584,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -23744,11 +23748,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8ssub_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -23767,11 +23771,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -23933,11 +23937,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4uminERKS0_(ptr dead_on_unwind no
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -23956,11 +23960,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -24125,7 +24129,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %_ZN4llvm5APIntD2Ev.exit14, %94, %97
-  %98 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %98 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -24146,7 +24150,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit:    ; preds = %100
   br i1 %108, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread, label %120
 
 _ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread: ; preds = %104, %_ZN4llvm5APIntD2Ev.exit15, %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit
-  %109 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
+  %109 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %111, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit18.thread
 
@@ -24286,11 +24290,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4umaxERKS0_(ptr dead_on_unwind no
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -24309,11 +24313,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -24478,7 +24482,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %_ZN4llvm5APIntD2Ev.exit14, %94, %97
-  %98 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %98 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -24499,7 +24503,7 @@ _ZNK4llvm13ConstantRange12isWrappedSetEv.exit:    ; preds = %100
   br i1 %108, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread, label %120
 
 _ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread: ; preds = %104, %_ZN4llvm5APIntD2Ev.exit15, %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit
-  %109 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
+  %109 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %111, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit18.thread
 
@@ -24639,11 +24643,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4sminERKS0_(ptr dead_on_unwind no
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -24662,11 +24666,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -24831,7 +24835,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %_ZN4llvm5APIntD2Ev.exit14, %94, %97
-  %98 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %98 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -24869,7 +24873,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit: ; preds = %110
   br i1 %122, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread29
 
 _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread: ; preds = %104, %_ZN4llvm5APIntD2Ev.exit15, %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit
-  %123 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
+  %123 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %125, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit19.thread
 
@@ -25026,11 +25030,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4smaxERKS0_(ptr dead_on_unwind no
   br i1 %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %14) #14
   br i1 %18, label %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 19:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %21 = icmp eq i32 %20, %16
   br i1 %21, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -25049,11 +25053,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8, label %_ZNK4llvm5APInteqERKS0_.exit.i6
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %25) #14
   br i1 %29, label %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
 30:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %31 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %32 = icmp eq i32 %31, %27
   br i1 %32, label %36, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit8.thread
 
@@ -25218,7 +25222,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %_ZN4llvm5APIntD2Ev.exit14, %94, %97
-  %98 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
+  %98 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %14) #14
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -25256,7 +25260,7 @@ _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit: ; preds = %110
   br i1 %122, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread29
 
 _ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread: ; preds = %104, %_ZN4llvm5APIntD2Ev.exit15, %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit
-  %123 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
+  %123 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %25) #14
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %125, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit19.thread
 
@@ -25428,11 +25432,11 @@ define dso_local void @_ZNK4llvm13ConstantRange3absEb(ptr dead_on_unwind noalias
   br i1 %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
+  %33 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %29) #14
   br i1 %33, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 34:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %36 = icmp eq i32 %35, %31
   br i1 %36, label %40, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -25448,7 +25452,7 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %3
   br label %_ZN4llvm5APIntD2Ev.exit23
 
 _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %34, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
-  %41 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %29) #14
+  %41 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %29) #14
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %_ZNK4llvm13ConstantRange16isSignWrappedSetEv.exit.thread
 
@@ -26515,11 +26519,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4ctlzEb(ptr dead_on_unwind noalia
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -27237,11 +27241,11 @@ define dso_local void @_ZNK4llvm13ConstantRange4cttzEb(ptr dead_on_unwind noalia
   br i1 %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %17, label %18, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 18:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -27477,7 +27481,7 @@ _ZN4llvm5APIntD2Ev.exit.i13:                      ; preds = %100, %96, %_ZN4llvm
   br i1 %114, label %116, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %108
-  %115 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
+  %115 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %13) #14
   br i1 %115, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 116:                                              ; preds = %111
@@ -27492,7 +27496,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i15:                 ; preds = %108
   br i1 %122, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread26, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i15
-  %123 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %123 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %124 = icmp eq i32 %123, %109
   br i1 %124, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread26, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -27565,7 +27569,7 @@ _ZN4llvm5APIntD2Ev.exit18:                        ; preds = %_ZN4llvm5APIntC2Ejm
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %111, %_ZNK4llvm5APInteqERKS0_.exit.i15, %118, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %155 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %13) #14
+  %155 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %13) #14
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %157, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -27688,11 +27692,11 @@ define dso_local void @_ZNK4llvm13ConstantRange5ctpopEv(ptr dead_on_unwind noali
   br i1 %13, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %14, label %15, label %_ZN4llvm5APInt7getZeroEj.exit
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %21, label %_ZN4llvm5APInt7getZeroEj.exit
 
@@ -27730,7 +27734,7 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %15, %_ZNK4llvm5APIn
   br i1 %30, label %32, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZN4llvm5APInt7getZeroEj.exit
-  %31 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %31 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %31, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 32:                                               ; preds = %25
@@ -27745,7 +27749,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i6:                  ; preds = %_ZN4llvm5APInt7getZ
   br i1 %38, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread17, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i6
-  %39 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %39 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %40 = icmp eq i32 %39, %.pre
   br i1 %40, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread17, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread
 
@@ -27822,7 +27826,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread: ; preds = %25, %_ZNK4llvm5APIn
   %72 = phi i1 [ true, %25 ], [ false, %_ZNK4llvm5APInteqERKS0_.exit.i6 ], [ true, %34 ], [ false, %_ZNK4llvm13ConstantRange9isFullSetEv.exit ]
   %73 = phi ptr [ %26, %25 ], [ %23, %_ZNK4llvm5APInteqERKS0_.exit.i6 ], [ %26, %34 ], [ %23, %_ZNK4llvm13ConstantRange9isFullSetEv.exit ]
   %74 = phi i32 [ %27, %25 ], [ %.pre, %_ZNK4llvm5APInteqERKS0_.exit.i6 ], [ %27, %34 ], [ %.pre, %_ZNK4llvm13ConstantRange9isFullSetEv.exit ]
-  %75 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #14
+  %75 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(12) %10) #14
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %_ZNK4llvm13ConstantRange12isWrappedSetEv.exit.thread
 
@@ -28036,11 +28040,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8smul_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -28059,11 +28063,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10, label %_ZNK4llvm5APInteqERKS0_.exit.i8
 
 _ZNK4llvm5APInteqERKS0_.exit.i8:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i8
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
@@ -28313,11 +28317,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8umul_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -28336,11 +28340,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -28504,11 +28508,11 @@ define dso_local void @_ZNK4llvm13ConstantRange9smul_fastERKS0_(ptr dead_on_unwi
   br i1 %19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
+  %20 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %16) #14
   br i1 %20, label %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 21:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %22 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %23 = icmp eq i32 %22, %18
   br i1 %23, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -28527,11 +28531,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %30, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10, label %_ZNK4llvm5APInteqERKS0_.exit.i8
 
 _ZNK4llvm5APInteqERKS0_.exit.i8:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %27) #14
   br i1 %31, label %32, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
 32:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i8
-  %33 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %33 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %34 = icmp eq i32 %33, %29
   br i1 %34, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit10.thread
 
@@ -29660,11 +29664,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8ushl_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -29683,11 +29687,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -29849,11 +29853,11 @@ define dso_local void @_ZNK4llvm13ConstantRange8sshl_satERKS0_(ptr dead_on_unwin
   br i1 %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %3
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
+  %16 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %12) #14
   br i1 %16, label %17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 17:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %19 = icmp eq i32 %18, %14
   br i1 %19, label %34, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -29872,11 +29876,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
+  %27 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(12) %23) #14
   br i1 %27, label %28, label %_ZN4llvm5APIntD2Ev.exit
 
 28:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
+  %29 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %30 = icmp eq i32 %29, %25
   br i1 %30, label %34, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -30794,11 +30798,11 @@ define dso_local noundef range(i32 1, 4) i32 @_ZNK4llvm13ConstantRange22unsigned
   br i1 %14, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %11) #14
   br i1 %15, label %16, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 16:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %18 = icmp eq i32 %17, %13
   br i1 %18, label %_ZN4llvm5APIntD2Ev.exit19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -30817,11 +30821,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %25, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %26 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %22) #14
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %22) #14
   br i1 %26, label %27, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 27:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %28 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %28 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %29 = icmp eq i32 %28, %24
   br i1 %29, label %_ZN4llvm5APIntD2Ev.exit19, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -31065,11 +31069,11 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm13ConstantRange20signedAd
   br i1 %20, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %17) #14
+  %21 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %17) #14
   br i1 %21, label %22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 22:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %24 = icmp eq i32 %23, %19
   br i1 %24, label %_ZN4llvm5APIntD2Ev.exit54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -31088,11 +31092,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %31, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28, label %_ZNK4llvm5APInteqERKS0_.exit.i26
 
 _ZNK4llvm5APInteqERKS0_.exit.i26:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %28) #14
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %28) #14
   br i1 %32, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
 33:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i26
-  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %35 = icmp eq i32 %34, %30
   br i1 %35, label %_ZN4llvm5APIntD2Ev.exit54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
@@ -31659,11 +31663,11 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm13ConstantRange22unsigned
   br i1 %10, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %7) #14
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %7) #14
   br i1 %11, label %12, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 12:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %13 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %13 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %14 = icmp eq i32 %13, %9
   br i1 %14, label %_ZN4llvm5APIntD2Ev.exit9, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -31682,11 +31686,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %21, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
+  %22 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %18) #14
   br i1 %22, label %23, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 23:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %_ZN4llvm5APIntD2Ev.exit9, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -31801,11 +31805,11 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm13ConstantRange20signedSu
   br i1 %20, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %17) #14
+  %21 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %17) #14
   br i1 %21, label %22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 22:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %24 = icmp eq i32 %23, %19
   br i1 %24, label %_ZN4llvm5APIntD2Ev.exit54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -31824,11 +31828,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %31, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28, label %_ZNK4llvm5APInteqERKS0_.exit.i26
 
 _ZNK4llvm5APInteqERKS0_.exit.i26:                 ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %28) #14
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %28) #14
   br i1 %32, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
 33:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i26
-  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %34 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %35 = icmp eq i32 %34, %30
   br i1 %35, label %_ZN4llvm5APIntD2Ev.exit54, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit28.thread
 
@@ -32398,11 +32402,11 @@ define dso_local noundef range(i32 1, 4) i32 @_ZNK4llvm13ConstantRange22unsigned
   br i1 %13, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, label %_ZNK4llvm5APInteqERKS0_.exit.i
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %10) #14
   br i1 %14, label %15, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %16 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %_ZN4llvm5APIntD2Ev.exit11, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
@@ -32421,11 +32425,11 @@ _ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %_ZNK4llvm5APInteq
   br i1 %24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6, label %_ZNK4llvm5APInteqERKS0_.exit.i4
 
 _ZNK4llvm5APInteqERKS0_.exit.i4:                  ; preds = %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
+  %25 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(12) %21) #14
   br i1 %25, label %26, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
 26:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i4
-  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #14
+  %27 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %28 = icmp eq i32 %27, %23
   br i1 %28, label %_ZN4llvm5APIntD2Ev.exit11, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit6.thread
 
@@ -32566,7 +32570,7 @@ define dso_local void @_ZNK4llvm13ConstantRange5printERNS_11raw_ostreamE(ptr nou
   br i1 %10, label %12, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %3) #14
   br i1 %11, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 12:                                               ; preds = %7
@@ -32581,7 +32585,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %2
   br i1 %18, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread17, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
 
 _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i
-  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %19 = tail call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %20 = icmp eq i32 %19, %5
   br i1 %20, label %_ZNK4llvm13ConstantRange9isFullSetEv.exit.thread17, label %34
 
@@ -32608,7 +32612,7 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit.thread17: ; preds = %12, %14, %_ZNK4ll
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 34:                                               ; preds = %_ZNK4llvm13ConstantRange9isFullSetEv.exit
-  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  %35 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   %36 = icmp eq i32 %35, %5
   br i1 %36, label %38, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 

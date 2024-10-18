@@ -230,7 +230,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr nocap
   %96 = add i16 %95, 1
   store i16 %96, ptr %94, align 2
   %97 = zext i16 %95 to i32
-  %98 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %97, i1 true)
+  %98 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %97, i1 true)
   %99 = xor i32 %98, 31
   %100 = sub nsw i32 %3, %99
   %101 = trunc nsw i32 %100 to i8
@@ -1035,7 +1035,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 18:                                               ; preds = %11
   %19 = zext i8 %16 to i32
-  %20 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
+  %20 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 8, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1130,7 +1130,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 
 74:                                               ; preds = %69
   %75 = zext i8 %72 to i32
-  %76 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 %75, i1 true)
+  %76 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %75, i1 true)
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = trunc nuw i64 %2 to i32
   %79 = shl nuw nsw i32 %78, 3

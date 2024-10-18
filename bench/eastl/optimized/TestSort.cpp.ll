@@ -4611,7 +4611,7 @@ _ZN10TestObjectaSEOS_.exit.i4630:                 ; preds = %if.then.i.i4625, %f
   %sub.ptr.sub.i4633 = sub i64 %sub.ptr.lhs.cast.i4631, %sub.ptr.rhs.cast.i4641
   %sub.ptr.div.i4634 = sdiv exact i64 %sub.ptr.sub.i4633, 24
   %sub.i4635 = add nsw i64 %sub.ptr.div.i4634, -1
-  invoke void @_ZN5eastl16adjust_heap_implIP10TestObjectlOS1_NS_4lessIS1_EES1_EEvT_T0_S7_S7_T1_T2_(ptr noundef %363, i64 noundef 0, i64 noundef %sub.i4635, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(20) %tempBottom.i)
+  invoke void @_ZN5eastl16adjust_heap_implIP10TestObjectlOS1_NS_4lessIS1_EES1_EEvT_T0_S7_S7_T1_T2_(ptr noundef nonnull %363, i64 noundef 0, i64 noundef %sub.i4635, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(20) %tempBottom.i)
           to label %invoke.cont.i4636 unwind label %lpad.i
 
 invoke.cont.i4636:                                ; preds = %_ZN10TestObjectaSEOS_.exit.i4630
@@ -5797,7 +5797,7 @@ invoke.cont628:                                   ; preds = %for.inc625, %for.co
   br i1 %cmp.i1892.not, label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit, label %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
 
 _ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904: ; preds = %invoke.cont628
-  %cond.i12.i.i1908 = call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i1886, i64 1)
+  %cond.i12.i.i1908 = call noundef i64 @llvm.umax.i64(i64 %sub.ptr.div.i1886, i64 range(i64 -576460752303423488, 576460752303423488) 1)
   %mul.i13.i.i1909 = shl i64 %cond.i12.i.i1908, 4
   %call.i.i.i.i.i1922 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i13.i.i1909, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit unwind label %lpad630.thread
@@ -6433,7 +6433,7 @@ _ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTest
   br label %for.cond.i2232.preheader
 
 if.then.i.i5363:                                  ; preds = %if.else.i2208
-  %531 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i2206, i1 true)
+  %531 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 64, -9223372036854775808) %sub.ptr.div.i2206, i1 true)
   %sub2.i.i = sub nuw nsw i64 58, %531
   %notmask.i.i = shl nsw i64 -1, %sub2.i.i
   %sub3.i.i = xor i64 %notmask.i.i, -1
@@ -6499,7 +6499,7 @@ while.body.i.i.i5391:                             ; preds = %while.body.i.i.i539
 
 _ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i5317: ; preds = %if.end.i.i5376, %for.inc.i.i5383, %while.body.i.i.i5391
   %curr.1.i.i5374 = phi i64 [ %curr.2.lcssa.i.i53887213, %while.body.i.i.i5391 ], [ %curr.028.i.i5377, %if.end.i.i5376 ], [ %sub14.i.i5370, %for.inc.i.i5383 ]
-  %spec.store.select.i5320 = call i64 @llvm.smin.i64(i64 %spec.select.i.i2212, i64 %sub.ptr.div.i2206)
+  %spec.store.select.i5320 = call i64 @llvm.smin.i64(i64 range(i64 0, 4611686018427387905) %spec.select.i.i2212, i64 %sub.ptr.div.i2206)
   %cmp5.i5321 = icmp sgt i64 %spec.store.select.i5320, %curr.1.i.i5374
   br i1 %cmp5.i5321, label %if.then6.i5337, label %if.end12.i5322
 
@@ -6630,7 +6630,7 @@ if.end28.i.i5276:                                 ; preds = %for.inc.i.i5286, %i
 
 _ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i5220: ; preds = %if.end28.i.i5276, %if.end.i
   %retval.0.i.i5221 = phi i64 [ %sub29.i.i5278, %if.end28.i.i5276 ], [ 1, %if.end.i ]
-  %spec.store.select.i5223 = call i64 @llvm.smin.i64(i64 %spec.select.i.i2212, i64 %sub.i.i5218)
+  %spec.store.select.i5223 = call i64 @llvm.smin.i64(i64 range(i64 0, 4611686018427387905) %spec.select.i.i2212, i64 %sub.i.i5218)
   %cmp5.i5224 = icmp sgt i64 %spec.store.select.i5223, %retval.0.i.i5221
   br i1 %cmp5.i5224, label %if.then6.i5240, label %if.end12.i5225
 
@@ -6916,7 +6916,7 @@ if.end28.i.i5179:                                 ; preds = %for.inc.i.i5189, %i
 
 _ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i5123: ; preds = %if.end28.i.i5179, %if.end12.i
   %retval.0.i.i5124 = phi i64 [ %sub29.i.i5181, %if.end28.i.i5179 ], [ 1, %if.end12.i ]
-  %spec.store.select.i5126 = call i64 @llvm.smin.i64(i64 %spec.select.i.i2212, i64 %sub.i.i5121)
+  %spec.store.select.i5126 = call i64 @llvm.smin.i64(i64 range(i64 0, 4611686018427387905) %spec.select.i.i2212, i64 %sub.i.i5121)
   %cmp5.i5127 = icmp sgt i64 %spec.store.select.i5126, %retval.0.i.i5124
   br i1 %cmp5.i5127, label %if.then6.i5143, label %if.end12.i5128
 
@@ -7885,7 +7885,7 @@ if.end28.i.i:                                     ; preds = %for.inc.i.i4820, %i
 
 _ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i: ; preds = %if.end28.i.i, %if.else24.i
   %retval.0.i.i4782 = phi i64 [ %sub29.i.i, %if.end28.i.i ], [ 1, %if.else24.i ]
-  %spec.store.select.i4784 = call i64 @llvm.smin.i64(i64 %spec.select.i.i2212, i64 %sub.i.i4780)
+  %spec.store.select.i4784 = call i64 @llvm.smin.i64(i64 range(i64 0, 4611686018427387905) %spec.select.i.i2212, i64 %sub.i.i4780)
   %cmp5.i4785 = icmp sgt i64 %spec.store.select.i4784, %retval.0.i.i4782
   br i1 %cmp5.i4785, label %if.then6.i4793, label %if.end12.i4786
 
@@ -14443,7 +14443,7 @@ invoke.cont:                                      ; preds = %_ZN5eastl13DequeIte
 if.else6:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %22 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %add11.i, i1 true)
+  %22 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 64, -9223372036854775808) %add11.i, i1 true)
   %sub2.i = sub nuw nsw i64 58, %22
   %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1
@@ -16367,7 +16367,7 @@ for.end.i:                                        ; preds = %for.body5.i, %land.
 if.else4:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 64, -9223372036854775808) %sub.ptr.div, i1 true)
   %sub2.i = sub nuw nsw i64 58, %2
   %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1
@@ -18587,7 +18587,7 @@ _ZN10TestObjectaSEOS_.exit:                       ; preds = %entry, %if.then.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
   %sub = add nsw i64 %sub.ptr.div, -1
-  invoke void @_ZN5eastl16adjust_heap_implIP10TestObjectlOS1_S1_EEvT_T0_S5_S5_T1_(ptr noundef %first, i64 noundef 0, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(20) %tempBottom)
+  invoke void @_ZN5eastl16adjust_heap_implIP10TestObjectlOS1_S1_EEvT_T0_S5_S5_T1_(ptr noundef nonnull %first, i64 noundef 0, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(20) %tempBottom)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN10TestObjectaSEOS_.exit
@@ -18738,7 +18738,7 @@ _ZN10TestObjectD2Ev.exit36.i:                     ; preds = %if.then.i32.i, %for
 if.else4:                                         ; preds = %if.else
   store i64 0, ptr %stack_curr, align 8
   store i64 0, ptr %curr, align 8
-  %15 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 range(i64 64, -9223372036854775808) %sub.ptr.div, i1 true)
   %sub2.i = sub nuw nsw i64 58, %15
   %notmask.i = shl nsw i64 -1, %sub2.i
   %sub3.i = xor i64 %notmask.i, -1

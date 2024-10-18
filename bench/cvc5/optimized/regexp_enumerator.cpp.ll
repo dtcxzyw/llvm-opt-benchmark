@@ -465,7 +465,7 @@ entry:
   %0 = load ptr, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 334)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull align 8 dereferenceable(3360) %call, i32 noundef 334)
           to label %.noexc unwind label %lpad2
 
 .noexc:                                           ; preds = %entry
@@ -598,7 +598,7 @@ entry:
   %d_senum = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16StringEnumeratorE, i64 16), ptr %d_senum, align 8
   %d_wenum.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @_ZN4cvc58internal6theory7strings8SEnumLenD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_wenum.i) #14
+  tail call void @_ZN4cvc58internal6theory7strings8SEnumLenD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %d_wenum.i) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %d_senum, align 8
   %d_type.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_type.i.i.i, align 8

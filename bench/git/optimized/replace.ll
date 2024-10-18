@@ -633,7 +633,7 @@ if.end.i.i38:                                     ; preds = %if.end14.i
   br i1 %tobool.not.i.i39, label %if.end13.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i38
-  %call9.i.i = call ptr @type_name(i32 noundef %call4.i34) #15
+  %call9.i.i = call ptr @type_name(i32 noundef range(i32 0, -2147483648) %call4.i34) #15
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then7.i.i, %if.end.i.i38
@@ -846,7 +846,7 @@ if.end49.i.i:                                     ; preds = %if.else.i.i
   %50 = load ptr, ptr @the_repository, align 8
   %index.i.i = getelementptr inbounds i8, ptr %50, i64 240
   %51 = load ptr, ptr %index.i.i, align 8
-  %call50.i.i = call i32 @index_fd(ptr noundef %51, ptr noundef nonnull %new_oid.i, i32 noundef %call.i27.i, ptr noundef nonnull %st.i.i, i32 noundef %call4.i34, ptr noundef null, i32 noundef 3) #15
+  %call50.i.i = call i32 @index_fd(ptr noundef %51, ptr noundef nonnull %new_oid.i, i32 noundef %call.i27.i, ptr noundef nonnull %st.i.i, i32 noundef range(i32 0, -2147483648) %call4.i34, ptr noundef null, i32 noundef 3) #15
   %cmp51.i.i = icmp slt i32 %call50.i.i, 0
   br i1 %cmp51.i.i, label %if.then52.i.i, label %if.end30.i
 

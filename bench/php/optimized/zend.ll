@@ -2714,7 +2714,7 @@ define void @zend_error_zstr_at(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %63, label %64, label %zend_observer_error_notify.exit
 
 64:                                               ; preds = %61
-  tail call void @_zend_observer_error_notify(i32 noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3) #33
+  tail call void @_zend_observer_error_notify(i32 noundef range(i32 0, 32768) %8, ptr noundef %1, i32 noundef %2, ptr noundef %3) #33
   br label %zend_observer_error_notify.exit
 
 zend_observer_error_notify.exit:                  ; preds = %61, %64

@@ -41,7 +41,7 @@ define hidden void @_ZN7JfrBlobD2Ev(ptr nocapture noundef nonnull align 8 derefe
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %8) #6, !srcloc !6
+  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %8) #6, !srcloc !6
   %10 = icmp eq i64 %9, 1
   br i1 %10, label %11, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit
 
@@ -57,7 +57,7 @@ define hidden void @_ZN7JfrBlobD2Ev(ptr nocapture noundef nonnull align 8 derefe
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i: ; preds = %14, %11
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %6, i64 noundef 16) #6
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 16) #6
   br label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit
 
 _ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit: ; preds = %7, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i
@@ -133,7 +133,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit: ; preds = %.lr.ph._crit_edge
   %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %13) #6, !srcloc !6
+  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %13) #6, !srcloc !6
   %.pre = load ptr, ptr %12, align 8
   store ptr %3, ptr %12, align 8
   %.not.i4 = icmp eq ptr %.pre, null
@@ -141,7 +141,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
 
 15:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit
   %16 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %16) #6, !srcloc !6
+  %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %16) #6, !srcloc !6
   %18 = icmp eq i64 %17, 1
   br i1 %18, label %19, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
@@ -157,7 +157,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i: ; preds = %22, %19
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.pre, i64 noundef 16) #6
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull align 8 dereferenceable(16) %.pre, i64 noundef 16) #6
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit: ; preds = %tailrecurse, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.thread, %2, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i, %15
@@ -199,7 +199,7 @@ _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE4makeEPKS0_.exit: ; preds
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr %12, ptr %0, align 8, !alias.scope !14
   %16 = getelementptr inbounds i8, ptr %12, i64 8
-  %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %16) #6, !noalias !14, !srcloc !6
+  %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %16) #6, !noalias !14, !srcloc !6
   ret void
 }
 

@@ -508,7 +508,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define void @_ZThn16_N15StatsTreeDialogD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15StatsTreeDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(248) %2) #18
   ret void
 }
 
@@ -657,7 +657,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %50
 _ZN7QStringD2Ev.exit:                             ; preds = %50, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !noalias !6
-  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull %2)
+  call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %55 = load ptr, ptr %19, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32

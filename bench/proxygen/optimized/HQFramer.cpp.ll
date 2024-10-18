@@ -1015,7 +1015,7 @@ entry:
   %agg.tmp = alloca %class.anon, align 8
   %lengthRes = alloca %"class.folly::Expected.14", align 8
   %agg.tmp4 = alloca %class.anon, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -1043,11 +1043,11 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   %4 = phi i8 [ %frombool.i.i.i.i.i, %if.then.i.i.i.i ], [ 0, %entry ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 16, ptr %growth_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appenderOp, ptr noundef nonnull align 8 dereferenceable(16) %appender, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appenderOp, ptr noundef nonnull align 8 dereferenceable(40) %appender, i64 16, i1 false)
   %attached.i.i.i = getelementptr inbounds i8, ptr %appenderOp, i64 16
   %attached3.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   store i8 %4, ptr %attached.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i4 = getelementptr inbounds i8, ptr %appenderOp, i64 24
   store ptr %queue, ptr %queue_.i.i4, align 8
   %tobool.i.i = trunc nuw i8 %4 to i1
@@ -1060,7 +1060,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %invoke.cont, %if.then.i.i
   %growth_.i5 = getelementptr inbounds i8, ptr %appenderOp, i64 32
   store i64 16, ptr %growth_.i5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false)
   %queue_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %queue, ptr %queue_.i.i.i, align 8
   %growth_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
@@ -1137,7 +1137,7 @@ if.then:                                          ; preds = %"_ZZN8proxygen2hq16
   br label %cleanup
 
 invoke.cont5:                                     ; preds = %"_ZZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEmEN3$_0D2Ev.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp4, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4, i8 0, i64 17, i1 false)
   %queue_.i.i.i13 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %19 = load ptr, ptr %queue_.i.i4, align 8
   store ptr %19, ptr %queue_.i.i.i13, align 8
@@ -1379,13 +1379,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %attached3.i.i.i.i = getelementptr inbounds i8, ptr %bufop, i64 16
   %0 = load i8, ptr %attached3.i.i.i.i, align 8
   %frombool.i.i.i.i = and i8 %0, 1
   store i8 %frombool.i.i.i.i, ptr %attached.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %queue_3.i.i.i = getelementptr inbounds i8, ptr %bufop, i64 24
   %1 = load ptr, ptr %queue_3.i.i.i, align 8
@@ -1544,13 +1544,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else8
 
 if.then2:                                         ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i27 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %attached3.i.i.i.i28 = getelementptr inbounds i8, ptr %bufop, i64 16
   %27 = load i8, ptr %attached3.i.i.i.i28, align 8
   %frombool.i.i.i.i29 = and i8 %27, 1
   store i8 %frombool.i.i.i.i29, ptr %attached.i.i.i.i27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %queue_3.i.i.i31 = getelementptr inbounds i8, ptr %bufop, i64 24
   %28 = load ptr, ptr %queue_3.i.i.i31, align 8
@@ -1637,7 +1637,7 @@ invoke.cont6:                                     ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i55 = phi ptr [ %40, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %31, %if.then.i.i.i.i63 ]
   %conv.i56 = trunc nuw nsw i64 %value to i16
   %or.i = or disjoint i16 %conv.i56, 16384
-  %41 = call noundef i16 @llvm.bswap.i16(i16 %or.i)
+  %41 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i)
   store i16 %41, ptr %.sink.i.i.i.i55, align 1
   %.pn.i.i.i.i57 = load ptr, ptr %agg.tmp4, align 8
   %storemerge.i.i.i.i58 = getelementptr inbounds i8, ptr %.pn.i.i.i.i57, i64 2
@@ -1717,13 +1717,13 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp9, label %if.then10, label %if.else16
 
 if.then10:                                        ; preds = %if.else8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i96 = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %attached3.i.i.i.i97 = getelementptr inbounds i8, ptr %bufop, i64 16
   %55 = load i8, ptr %attached3.i.i.i.i97, align 8
   %frombool.i.i.i.i98 = and i8 %55, 1
   store i8 %frombool.i.i.i.i98, ptr %attached.i.i.i.i96, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i99 = getelementptr inbounds i8, ptr %agg.tmp12, i64 24
   %queue_3.i.i.i100 = getelementptr inbounds i8, ptr %bufop, i64 24
   %56 = load ptr, ptr %queue_3.i.i.i100, align 8
@@ -1810,7 +1810,7 @@ invoke.cont14:                                    ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i131 = phi ptr [ %68, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %59, %if.then.i.i.i.i140 ]
   %conv.i132 = trunc nuw nsw i64 %value to i32
   %or.i133 = or disjoint i32 %conv.i132, -2147483648
-  %69 = call noundef i32 @llvm.bswap.i32(i32 %or.i133)
+  %69 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i133)
   store i32 %69, ptr %.sink.i.i.i.i131, align 1
   %.pn.i.i.i.i134 = load ptr, ptr %agg.tmp12, align 8
   %storemerge.i.i.i.i135 = getelementptr inbounds i8, ptr %.pn.i.i.i.i134, i64 4
@@ -1890,13 +1890,13 @@ if.else16:                                        ; preds = %if.else8
   br i1 %cmp17, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.else16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i173 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   %attached3.i.i.i.i174 = getelementptr inbounds i8, ptr %bufop, i64 16
   %83 = load i8, ptr %attached3.i.i.i.i174, align 8
   %frombool.i.i.i.i175 = and i8 %83, 1
   store i8 %frombool.i.i.i.i175, ptr %attached.i.i.i.i173, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i176 = getelementptr inbounds i8, ptr %agg.tmp20, i64 24
   %queue_3.i.i.i177 = getelementptr inbounds i8, ptr %bufop, i64 24
   %84 = load ptr, ptr %queue_3.i.i.i177, align 8
@@ -1982,7 +1982,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 invoke.cont22:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i, %if.then.i.i.i.i216
   %.sink.i.i.i.i208 = phi ptr [ %96, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %87, %if.then.i.i.i.i216 ]
   %or.i209 = or disjoint i64 %value, -4611686018427387904
-  %97 = call noundef i64 @llvm.bswap.i64(i64 %or.i209)
+  %97 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i209)
   store i64 %97, ptr %.sink.i.i.i.i208, align 1
   %.pn.i.i.i.i210 = load ptr, ptr %agg.tmp20, align 8
   %storemerge.i.i.i.i211 = getelementptr inbounds i8, ptr %.pn.i.i.i.i210, i64 8
@@ -2468,7 +2468,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 invoke.cont4:                                     ; preds = %invoke.cont3
   %value_.i.i.i = getelementptr inbounds i8, ptr %pushIdSize, i64 16
   %3 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -2499,12 +2499,12 @@ invoke.cont6:                                     ; preds = %if.then.i.i.i.i, %i
   %9 = phi i8 [ %.pre, %if.then.i.i.i.i ], [ 0, %invoke.cont4 ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %3, ptr %growth_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %appender, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %appender, i64 16, i1 false)
   %attached.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %attached3.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   %frombool.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i, ptr %attached.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i4 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %8, ptr %queue_.i.i4, align 8
   %tobool.i.i = trunc i8 %9 to i1
@@ -2528,10 +2528,10 @@ invoke.cont7:                                     ; preds = %if.then.i.i, %invok
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !34
   %attached.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i.i7, align 8, !noalias !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
   %queue_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr %8, ptr %queue_.i.i.i.i, align 8, !noalias !34
   br i1 %tobool.i.i, label %if.then.i.i.i.i12, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit.i"
@@ -2682,10 +2682,10 @@ if.else.i:                                        ; preds = %invoke.cont7
   br i1 %cmp1.i, label %if.then2.i, label %if.else8.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !34
   %attached.i.i.i.i27.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i27.i, align 8, !noalias !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
   %queue_.i.i.i30.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 24
   store ptr %8, ptr %queue_.i.i.i30.i, align 8, !noalias !34
   br i1 %tobool.i.i, label %if.then.i.i.i35.i, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit37.i"
@@ -2769,7 +2769,7 @@ invoke.cont6.i:                                   ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
   %conv.i56.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
-  %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %48 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !34
   %.pn.i.i.i.i57.i = load ptr, ptr %agg.tmp4.i, align 8, !noalias !34
   %storemerge.i.i.i.i58.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i57.i, i64 2
@@ -2844,10 +2844,10 @@ if.else8.i:                                       ; preds = %if.else.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else16.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !34
   %attached.i.i.i.i96.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i96.i, align 8, !noalias !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
   %queue_.i.i.i99.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 24
   store ptr %8, ptr %queue_.i.i.i99.i, align 8, !noalias !34
   br i1 %tobool.i.i, label %if.then.i.i.i104.i, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit106.i"
@@ -2931,7 +2931,7 @@ invoke.cont14.i:                                  ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i131.i = phi ptr [ %73, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %64, %if.then.i.i.i.i140.i ]
   %conv.i132.i = trunc nuw nsw i64 %pushId to i32
   %or.i133.i = or disjoint i32 %conv.i132.i, -2147483648
-  %74 = call noundef i32 @llvm.bswap.i32(i32 %or.i133.i)
+  %74 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i133.i)
   store i32 %74, ptr %.sink.i.i.i.i131.i, align 1, !noalias !34
   %.pn.i.i.i.i134.i = load ptr, ptr %agg.tmp12.i, align 8, !noalias !34
   %storemerge.i.i.i.i135.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i134.i, i64 4
@@ -3006,10 +3006,10 @@ if.else16.i:                                      ; preds = %if.else8.i
   br i1 %cmp17.i, label %if.then18.i, label %invoke.cont8
 
 if.then18.i:                                      ; preds = %if.else16.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !34
   %attached.i.i.i.i173.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i173.i, align 8, !noalias !34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !34
   %queue_.i.i.i176.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 24
   store ptr %8, ptr %queue_.i.i.i176.i, align 8, !noalias !34
   br i1 %tobool.i.i, label %if.then.i.i.i181.i, label %"_ZZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit183.i"
@@ -3092,7 +3092,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 invoke.cont22.i:                                  ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i216.i
   %.sink.i.i.i.i208.i = phi ptr [ %99, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %90, %if.then.i.i.i.i216.i ]
   %or.i209.i = or disjoint i64 %pushId, -4611686018427387904
-  %100 = call noundef i64 @llvm.bswap.i64(i64 %or.i209.i)
+  %100 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i209.i)
   store i64 %100, ptr %.sink.i.i.i.i208.i, align 1, !noalias !34
   %.pn.i.i.i.i210.i = load ptr, ptr %agg.tmp20.i, align 8, !noalias !34
   %storemerge.i.i.i.i211.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i210.i, i64 8
@@ -3574,7 +3574,7 @@ if.then11:                                        ; preds = %for.end
   br label %return
 
 if.end12:                                         ; preds = %for.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -3605,12 +3605,12 @@ _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %if.end12, %if.
   %19 = phi i8 [ 0, %if.end12 ], [ %.pre, %if.then.i.i.i.i ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %settingsSize.0.lcssa, ptr %growth_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %appenderOp, ptr noundef nonnull align 8 dereferenceable(16) %appender, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appenderOp, ptr noundef nonnull align 8 dereferenceable(40) %appender, i64 16, i1 false)
   %attached.i.i.i = getelementptr inbounds i8, ptr %appenderOp, i64 16
   %attached3.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   %frombool.i.i.i = and i8 %19, 1
   store i8 %frombool.i.i.i, ptr %attached.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i36 = getelementptr inbounds i8, ptr %appenderOp, i64 24
   store ptr %18, ptr %queue_.i.i36, align 8
   %tobool.i.i = trunc i8 %19 to i1
@@ -3647,7 +3647,7 @@ invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph
   %__begin214.sroa.0.0156 = phi ptr [ %21, %invoke.cont23.lr.ph ], [ %__begin214.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
   %__begin214.sroa.8.0155 = phi ptr [ %24, %invoke.cont23.lr.ph ], [ %__begin214.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIN8proxygen2hq9SettingIdEmERKS4_PS5_EppEv.exit98 ]
   %27 = load i64, ptr %__begin214.sroa.0.0156, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false)
   %28 = load ptr, ptr %queue_.i.i36, align 8
   store ptr %28, ptr %queue_.i.i.i, align 8
   %29 = load i64, ptr %growth_.i37, align 8
@@ -3716,7 +3716,7 @@ if.then.i.i.i.i54:                                ; preds = %_ZNK5folly10IOBufQu
 invoke.cont28:                                    ; preds = %if.then.i.i.i.i54, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %invoke.cont25
   %second26 = getelementptr inbounds i8, ptr %__begin214.sroa.0.0156, i64 8
   %42 = load i64, ptr %second26, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp27, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp27, i8 0, i64 17, i1 false)
   %43 = load ptr, ptr %queue_.i.i36, align 8
   store ptr %43, ptr %queue_.i.i.i60, align 8
   %44 = load i64, ptr %growth_.i37, align 8
@@ -3990,13 +3990,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %attached3.i.i.i.i = getelementptr inbounds i8, ptr %bufop, i64 16
   %0 = load i8, ptr %attached3.i.i.i.i, align 8
   %frombool.i.i.i.i = and i8 %0, 1
   store i8 %frombool.i.i.i.i, ptr %attached.i.i.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %queue_3.i.i.i = getelementptr inbounds i8, ptr %bufop, i64 24
   %1 = load ptr, ptr %queue_3.i.i.i, align 8
@@ -4155,13 +4155,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else8
 
 if.then2:                                         ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i27 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %attached3.i.i.i.i28 = getelementptr inbounds i8, ptr %bufop, i64 16
   %27 = load i8, ptr %attached3.i.i.i.i28, align 8
   %frombool.i.i.i.i29 = and i8 %27, 1
   store i8 %frombool.i.i.i.i29, ptr %attached.i.i.i.i27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i30 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %queue_3.i.i.i31 = getelementptr inbounds i8, ptr %bufop, i64 24
   %28 = load ptr, ptr %queue_3.i.i.i31, align 8
@@ -4248,7 +4248,7 @@ invoke.cont6:                                     ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i55 = phi ptr [ %40, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %31, %if.then.i.i.i.i63 ]
   %conv.i56 = trunc nuw nsw i64 %value to i16
   %or.i = or disjoint i16 %conv.i56, 16384
-  %41 = call noundef i16 @llvm.bswap.i16(i16 %or.i)
+  %41 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i)
   store i16 %41, ptr %.sink.i.i.i.i55, align 1
   %.pn.i.i.i.i57 = load ptr, ptr %agg.tmp4, align 8
   %storemerge.i.i.i.i58 = getelementptr inbounds i8, ptr %.pn.i.i.i.i57, i64 2
@@ -4328,13 +4328,13 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp9, label %if.then10, label %if.else16
 
 if.then10:                                        ; preds = %if.else8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i96 = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %attached3.i.i.i.i97 = getelementptr inbounds i8, ptr %bufop, i64 16
   %55 = load i8, ptr %attached3.i.i.i.i97, align 8
   %frombool.i.i.i.i98 = and i8 %55, 1
   store i8 %frombool.i.i.i.i98, ptr %attached.i.i.i.i96, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i99 = getelementptr inbounds i8, ptr %agg.tmp12, i64 24
   %queue_3.i.i.i100 = getelementptr inbounds i8, ptr %bufop, i64 24
   %56 = load ptr, ptr %queue_3.i.i.i100, align 8
@@ -4421,7 +4421,7 @@ invoke.cont14:                                    ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i131 = phi ptr [ %68, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %59, %if.then.i.i.i.i140 ]
   %conv.i132 = trunc nuw nsw i64 %value to i32
   %or.i133 = or disjoint i32 %conv.i132, -2147483648
-  %69 = call noundef i32 @llvm.bswap.i32(i32 %or.i133)
+  %69 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i133)
   store i32 %69, ptr %.sink.i.i.i.i131, align 1
   %.pn.i.i.i.i134 = load ptr, ptr %agg.tmp12, align 8
   %storemerge.i.i.i.i135 = getelementptr inbounds i8, ptr %.pn.i.i.i.i134, i64 4
@@ -4501,13 +4501,13 @@ if.else16:                                        ; preds = %if.else8
   br i1 %cmp17, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.else16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %bufop, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %bufop, i64 16, i1 false)
   %attached.i.i.i.i173 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   %attached3.i.i.i.i174 = getelementptr inbounds i8, ptr %bufop, i64 16
   %83 = load i8, ptr %attached3.i.i.i.i174, align 8
   %frombool.i.i.i.i175 = and i8 %83, 1
   store i8 %frombool.i.i.i.i175, ptr %attached.i.i.i.i173, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %bufop, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %bufop, i8 0, i64 17, i1 false)
   %queue_.i.i.i176 = getelementptr inbounds i8, ptr %agg.tmp20, i64 24
   %queue_3.i.i.i177 = getelementptr inbounds i8, ptr %bufop, i64 24
   %84 = load ptr, ptr %queue_3.i.i.i177, align 8
@@ -4593,7 +4593,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 invoke.cont22:                                    ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i, %if.then.i.i.i.i216
   %.sink.i.i.i.i208 = phi ptr [ %96, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i ], [ %87, %if.then.i.i.i.i216 ]
   %or.i209 = or disjoint i64 %value, -4611686018427387904
-  %97 = call noundef i64 @llvm.bswap.i64(i64 %or.i209)
+  %97 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i209)
   store i64 %97, ptr %.sink.i.i.i.i208, align 1
   %.pn.i.i.i.i210 = load ptr, ptr %agg.tmp20, align 8
   %storemerge.i.i.i.i211 = getelementptr inbounds i8, ptr %.pn.i.i.i.i210, i64 8
@@ -4786,7 +4786,7 @@ if.then16:                                        ; preds = %invoke.cont13
   br label %return
 
 if.end17:                                         ; preds = %invoke.cont13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -4960,7 +4960,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
   %conv.i26.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
-  %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %32 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !58
   br label %return.sink.split.i
 
@@ -5040,7 +5040,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i = phi ptr [ %44, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %34, %if.then.i.i.i.i73.i ]
   %conv.i64.i = trunc nuw nsw i64 %pushId to i32
   %or.i65.i = or disjoint i32 %conv.i64.i, -2147483648
-  %45 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i)
+  %45 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i)
   store i32 %45, ptr %.sink.i.i.i.i63.i, align 1, !noalias !58
   br label %return.sink.split.i
 
@@ -5119,7 +5119,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq16writePushPromiseERN5folly10IOBufQueueEmSt10unique_ptrINS4_5IOBufESt14default_deleteIS8_EEE3$_0EEmT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i111.i
   %.sink.i.i.i.i102.i = phi ptr [ %57, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %47, %if.then.i.i.i.i111.i ]
   %or.i103.i = or disjoint i64 %pushId, -4611686018427387904
-  %58 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i)
+  %58 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i)
   store i64 %58, ptr %.sink.i.i.i.i102.i, align 1, !noalias !58
   br label %return.sink.split.i
 
@@ -5304,7 +5304,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 invoke.cont4:                                     ; preds = %invoke.cont3
   %value_.i.i.i = getelementptr inbounds i8, ptr %lastStreamIdSize, i64 16
   %3 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -5335,12 +5335,12 @@ invoke.cont6:                                     ; preds = %if.then.i.i.i.i, %i
   %9 = phi i8 [ %.pre, %if.then.i.i.i.i ], [ 0, %invoke.cont4 ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %3, ptr %growth_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %appender, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %appender, i64 16, i1 false)
   %attached.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %attached3.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   %frombool.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i, ptr %attached.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i4 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %8, ptr %queue_.i.i4, align 8
   %tobool.i.i = trunc i8 %9 to i1
@@ -5364,10 +5364,10 @@ invoke.cont7:                                     ; preds = %if.then.i.i, %invok
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !61
   %attached.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i.i7, align 8, !noalias !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
   %queue_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr %8, ptr %queue_.i.i.i.i, align 8, !noalias !61
   br i1 %tobool.i.i, label %if.then.i.i.i.i12, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit.i"
@@ -5518,10 +5518,10 @@ if.else.i:                                        ; preds = %invoke.cont7
   br i1 %cmp1.i, label %if.then2.i, label %if.else8.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !61
   %attached.i.i.i.i27.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i27.i, align 8, !noalias !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
   %queue_.i.i.i30.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 24
   store ptr %8, ptr %queue_.i.i.i30.i, align 8, !noalias !61
   br i1 %tobool.i.i, label %if.then.i.i.i35.i, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit37.i"
@@ -5605,7 +5605,7 @@ invoke.cont6.i:                                   ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
   %conv.i56.i = trunc nuw nsw i64 %lastStreamId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
-  %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %48 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !61
   %.pn.i.i.i.i57.i = load ptr, ptr %agg.tmp4.i, align 8, !noalias !61
   %storemerge.i.i.i.i58.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i57.i, i64 2
@@ -5680,10 +5680,10 @@ if.else8.i:                                       ; preds = %if.else.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else16.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !61
   %attached.i.i.i.i96.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i96.i, align 8, !noalias !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
   %queue_.i.i.i99.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 24
   store ptr %8, ptr %queue_.i.i.i99.i, align 8, !noalias !61
   br i1 %tobool.i.i, label %if.then.i.i.i104.i, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit106.i"
@@ -5767,7 +5767,7 @@ invoke.cont14.i:                                  ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i131.i = phi ptr [ %73, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %64, %if.then.i.i.i.i140.i ]
   %conv.i132.i = trunc nuw nsw i64 %lastStreamId to i32
   %or.i133.i = or disjoint i32 %conv.i132.i, -2147483648
-  %74 = call noundef i32 @llvm.bswap.i32(i32 %or.i133.i)
+  %74 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i133.i)
   store i32 %74, ptr %.sink.i.i.i.i131.i, align 1, !noalias !61
   %.pn.i.i.i.i134.i = load ptr, ptr %agg.tmp12.i, align 8, !noalias !61
   %storemerge.i.i.i.i135.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i134.i, i64 4
@@ -5842,10 +5842,10 @@ if.else16.i:                                      ; preds = %if.else8.i
   br i1 %cmp17.i, label %if.then18.i, label %invoke.cont8
 
 if.then18.i:                                      ; preds = %if.else16.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !61
   %attached.i.i.i.i173.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i173.i, align 8, !noalias !61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !61
   %queue_.i.i.i176.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 24
   store ptr %8, ptr %queue_.i.i.i176.i, align 8, !noalias !61
   br i1 %tobool.i.i, label %if.then.i.i.i181.i, label %"_ZZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit183.i"
@@ -5928,7 +5928,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 invoke.cont22.i:                                  ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i216.i
   %.sink.i.i.i.i208.i = phi ptr [ %99, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %90, %if.then.i.i.i.i216.i ]
   %or.i209.i = or disjoint i64 %lastStreamId, -4611686018427387904
-  %100 = call noundef i64 @llvm.bswap.i64(i64 %or.i209.i)
+  %100 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i209.i)
   store i64 %100, ptr %.sink.i.i.i.i208.i, align 1, !noalias !61
   %.pn.i.i.i.i210.i = load ptr, ptr %agg.tmp20.i, align 8, !noalias !61
   %storemerge.i.i.i.i211.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i210.i, i64 8
@@ -6351,7 +6351,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 invoke.cont4:                                     ; preds = %invoke.cont3
   %value_.i.i.i = getelementptr inbounds i8, ptr %maxPushIdSize, i64 16
   %3 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -6382,12 +6382,12 @@ invoke.cont6:                                     ; preds = %if.then.i.i.i.i, %i
   %9 = phi i8 [ %.pre, %if.then.i.i.i.i ], [ 0, %invoke.cont4 ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %3, ptr %growth_.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %appender, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %appender, i64 16, i1 false)
   %attached.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %attached3.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
   %frombool.i.i.i = and i8 %9, 1
   store i8 %frombool.i.i.i, ptr %attached.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i4 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %8, ptr %queue_.i.i4, align 8
   %tobool.i.i = trunc i8 %9 to i1
@@ -6411,10 +6411,10 @@ invoke.cont7:                                     ; preds = %if.then.i.i, %invok
   br i1 %cmp.i6, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !73
   %attached.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i.i7, align 8, !noalias !73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
   %queue_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr %8, ptr %queue_.i.i.i.i, align 8, !noalias !73
   br i1 %tobool.i.i, label %if.then.i.i.i.i12, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit.i"
@@ -6565,10 +6565,10 @@ if.else.i:                                        ; preds = %invoke.cont7
   br i1 %cmp1.i, label %if.then2.i, label %if.else8.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp4.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !73
   %attached.i.i.i.i27.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i27.i, align 8, !noalias !73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
   %queue_.i.i.i30.i = getelementptr inbounds i8, ptr %agg.tmp4.i, i64 24
   store ptr %8, ptr %queue_.i.i.i30.i, align 8, !noalias !73
   br i1 %tobool.i.i, label %if.then.i.i.i35.i, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit37.i"
@@ -6652,7 +6652,7 @@ invoke.cont6.i:                                   ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i55.i = phi ptr [ %47, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %38, %if.then.i.i.i.i63.i ]
   %conv.i56.i = trunc nuw nsw i64 %maxPushId to i16
   %or.i.i = or disjoint i16 %conv.i56.i, 16384
-  %48 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %48 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %48, ptr %.sink.i.i.i.i55.i, align 1, !noalias !73
   %.pn.i.i.i.i57.i = load ptr, ptr %agg.tmp4.i, align 8, !noalias !73
   %storemerge.i.i.i.i58.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i57.i, i64 2
@@ -6727,10 +6727,10 @@ if.else8.i:                                       ; preds = %if.else.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else16.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !73
   %attached.i.i.i.i96.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i96.i, align 8, !noalias !73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
   %queue_.i.i.i99.i = getelementptr inbounds i8, ptr %agg.tmp12.i, i64 24
   store ptr %8, ptr %queue_.i.i.i99.i, align 8, !noalias !73
   br i1 %tobool.i.i, label %if.then.i.i.i104.i, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit106.i"
@@ -6814,7 +6814,7 @@ invoke.cont14.i:                                  ; preds = %_ZN5folly2io13Queue
   %.sink.i.i.i.i131.i = phi ptr [ %73, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %64, %if.then.i.i.i.i140.i ]
   %conv.i132.i = trunc nuw nsw i64 %maxPushId to i32
   %or.i133.i = or disjoint i32 %conv.i132.i, -2147483648
-  %74 = call noundef i32 @llvm.bswap.i32(i32 %or.i133.i)
+  %74 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i133.i)
   store i32 %74, ptr %.sink.i.i.i.i131.i, align 1, !noalias !73
   %.pn.i.i.i.i134.i = load ptr, ptr %agg.tmp12.i, align 8, !noalias !73
   %storemerge.i.i.i.i135.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i134.i, i64 4
@@ -6889,10 +6889,10 @@ if.else16.i:                                      ; preds = %if.else8.i
   br i1 %cmp17.i, label %if.then18.i, label %invoke.cont8
 
 if.then18.i:                                      ; preds = %if.else16.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i64 16, i1 false), !noalias !73
   %attached.i.i.i.i173.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 16
   store i8 %frombool.i.i.i, ptr %attached.i.i.i.i173.i, align 8, !noalias !73
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 17, i1 false), !noalias !73
   %queue_.i.i.i176.i = getelementptr inbounds i8, ptr %agg.tmp20.i, i64 24
   store ptr %8, ptr %queue_.i.i.i176.i, align 8, !noalias !73
   br i1 %tobool.i.i, label %if.then.i.i.i181.i, label %"_ZZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEmEN3$_0C2EOS4_.exit183.i"
@@ -6975,7 +6975,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 invoke.cont22.i:                                  ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i216.i
   %.sink.i.i.i.i208.i = phi ptr [ %99, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %90, %if.then.i.i.i.i216.i ]
   %or.i209.i = or disjoint i64 %maxPushId, -4611686018427387904
-  %100 = call noundef i64 @llvm.bswap.i64(i64 %or.i209.i)
+  %100 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i209.i)
   store i64 %100, ptr %.sink.i.i.i.i208.i, align 1, !noalias !73
   %.pn.i.i.i.i210.i = load ptr, ptr %agg.tmp20.i, align 8, !noalias !73
   %storemerge.i.i.i.i211.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i210.i, i64 8
@@ -7393,7 +7393,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 invoke.cont4:                                     ; preds = %invoke.cont3
   %value_.i.i.i = getelementptr inbounds i8, ptr %streamIdSize, i64 16
   %3 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -7567,7 +7567,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
   %conv.i26.i = trunc nuw nsw i64 %streamId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
-  %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %32 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !85
   br label %return.sink.split.i
 
@@ -7647,7 +7647,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i = phi ptr [ %44, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %34, %if.then.i.i.i.i73.i ]
   %conv.i64.i = trunc nuw nsw i64 %streamId to i32
   %or.i65.i = or disjoint i32 %conv.i64.i, -2147483648
-  %45 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i)
+  %45 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i)
   store i32 %45, ptr %.sink.i.i.i.i63.i, align 1, !noalias !85
   br label %return.sink.split.i
 
@@ -7726,7 +7726,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq19writePriorityUpdateERN5folly10IOBufQueueEmNS4_5RangeIPKcEEE3$_0EEmT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i111.i
   %.sink.i.i.i.i102.i = phi ptr [ %56, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %.pre, %if.then.i.i.i.i111.i ]
   %or.i103.i = or disjoint i64 %streamId, -4611686018427387904
-  %57 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i)
+  %57 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i)
   store i64 %57, ptr %.sink.i.i.i.i102.i, align 1, !noalias !85
   br label %return.sink.split.i
 
@@ -8042,7 +8042,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
 invoke.cont4:                                     ; preds = %invoke.cont3
   %value_.i.i.i = getelementptr inbounds i8, ptr %streamIdSize, i64 16
   %3 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %queue, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %queue, i64 32
@@ -8216,7 +8216,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i = phi ptr [ %31, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %21, %if.then.i.i.i.i34.i ]
   %conv.i26.i = trunc nuw nsw i64 %pushId to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
-  %32 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %32 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %32, ptr %.sink.i.i.i.i25.i, align 1, !noalias !98
   br label %return.sink.split.i
 
@@ -8296,7 +8296,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i = phi ptr [ %44, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %34, %if.then.i.i.i.i73.i ]
   %conv.i64.i = trunc nuw nsw i64 %pushId to i32
   %or.i65.i = or disjoint i32 %conv.i64.i, -2147483648
-  %45 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i)
+  %45 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i)
   store i32 %45, ptr %.sink.i.i.i.i63.i, align 1, !noalias !98
   br label %return.sink.split.i
 
@@ -8375,7 +8375,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq23writePushPriorityUpdateERN5folly10IOBufQueueEmNS4_5RangeIPKcEEE3$_0EEmT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i111.i
   %.sink.i.i.i.i102.i = phi ptr [ %56, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %.pre, %if.then.i.i.i.i111.i ]
   %or.i103.i = or disjoint i64 %pushId, -4611686018427387904
-  %57 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i)
+  %57 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i)
   store i64 %57, ptr %.sink.i.i.i.i102.i, align 1, !noalias !98
   br label %return.sink.split.i
 
@@ -8661,7 +8661,7 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont1:                                     ; preds = %invoke.cont
   %value_.i.i.i = getelementptr inbounds i8, ptr %streamPrefaceSize, i64 16
   %1 = load i64, ptr %value_.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %writeBuf, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
@@ -8835,7 +8835,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i = phi ptr [ %29, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %19, %if.then.i.i.i.i34.i ]
   %conv.i26.i = trunc nuw nsw i64 %streamPreface to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
-  %30 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %30 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %30, ptr %.sink.i.i.i.i25.i, align 1, !noalias !110
   br label %return.sink.split.i
 
@@ -8915,7 +8915,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i = phi ptr [ %42, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %32, %if.then.i.i.i.i73.i ]
   %conv.i64.i = trunc nuw nsw i64 %streamPreface to i32
   %or.i65.i = or disjoint i32 %conv.i64.i, -2147483648
-  %43 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i)
+  %43 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i)
   store i32 %43, ptr %.sink.i.i.i.i63.i, align 1, !noalias !110
   br label %return.sink.split.i
 
@@ -8994,7 +8994,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq18writeStreamPrefaceERN5folly10IOBufQueueEmE3$_0EEmT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i111.i
   %.sink.i.i.i.i102.i = phi ptr [ %55, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %45, %if.then.i.i.i.i111.i ]
   %or.i103.i = or disjoint i64 %streamPreface, -4611686018427387904
-  %56 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i)
+  %56 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i)
   store i64 %56, ptr %.sink.i.i.i.i102.i, align 1, !noalias !110
   br label %return.sink.split.i
 
@@ -9321,7 +9321,7 @@ lpad19:                                           ; preds = %while.body17
   unreachable
 
 while.end22:                                      ; preds = %while.cond8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %appender, i8 0, i64 17, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %appender, i8 0, i64 17, i1 false)
   %queue_.i.i = getelementptr inbounds i8, ptr %appender, i64 24
   store ptr %writeBuf, ptr %queue_.i.i, align 8
   %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %writeBuf, i64 32
@@ -9498,7 +9498,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i = phi ptr [ %30, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %20, %if.then.i.i.i.i34.i ]
   %conv.i26.i = trunc nuw nsw i64 %6 to i16
   %or.i.i = or disjoint i16 %conv.i26.i, 16384
-  %31 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i)
+  %31 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i)
   store i16 %31, ptr %.sink.i.i.i.i25.i, align 1, !noalias !113
   br label %invoke.cont27
 
@@ -9578,7 +9578,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i = phi ptr [ %43, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %33, %if.then.i.i.i.i73.i ]
   %conv.i64.i = trunc nuw nsw i64 %6 to i32
   %or.i65.i = or disjoint i32 %conv.i64.i, -2147483648
-  %44 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i)
+  %44 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i)
   store i32 %44, ptr %.sink.i.i.i.i63.i, align 1, !noalias !113
   br label %invoke.cont27
 
@@ -9657,7 +9657,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS3_22WebTransportStreamTypeEmE3$_0EEmT_m.exit.i": ; preds = %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i, %if.then.i.i.i.i111.i
   %.sink.i.i.i.i102.i = phi ptr [ %56, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i ], [ %46, %if.then.i.i.i.i111.i ]
   %or.i103.i = or disjoint i64 %6, -4611686018427387904
-  %57 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i)
+  %57 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i)
   store i64 %57, ptr %.sink.i.i.i.i102.i, align 1, !noalias !113
   br label %invoke.cont27
 
@@ -9809,7 +9809,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i25.i121 = phi ptr [ %82, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i120 ], [ %storemerge.i.i.i.i105.i, %if.then3.i95 ]
   %conv.i26.i122 = trunc nuw nsw i64 %wtSessionId to i16
   %or.i.i123 = or disjoint i16 %conv.i26.i122, 16384
-  %83 = call noundef i16 @llvm.bswap.i16(i16 %or.i.i123)
+  %83 = call noundef i16 @llvm.bswap.i16(i16 range(i16 16384, -32768) %or.i.i123)
   store i16 %83, ptr %.sink.i.i.i.i25.i121, align 1, !noalias !116
   br label %invoke.cont36
 
@@ -9884,7 +9884,7 @@ _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_
   %.sink.i.i.i.i63.i86 = phi ptr [ %95, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i85 ], [ %storemerge.i.i.i.i105.i, %if.then10.i60 ]
   %conv.i64.i87 = trunc nuw nsw i64 %wtSessionId to i32
   %or.i65.i88 = or disjoint i32 %conv.i64.i87, -2147483648
-  %96 = call noundef i32 @llvm.bswap.i32(i32 %or.i65.i88)
+  %96 = call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483648, -1073741824) %or.i65.i88)
   store i32 %96, ptr %.sink.i.i.i.i63.i86, align 1, !noalias !116
   br label %invoke.cont36
 
@@ -9958,7 +9958,7 @@ _ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_
 "_ZN4quic12_GLOBAL__N_116encodeEightBytesIZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS3_22WebTransportStreamTypeEmE3$_1EEmT_m.exit.i": ; preds = %if.then17.i22, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i47
   %.sink.i.i.i.i102.i48 = phi ptr [ %108, %_ZN5folly2io13QueueAppender9writeSlowImEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i.i.i.i47 ], [ %storemerge.i.i.i.i105.i, %if.then17.i22 ]
   %or.i103.i49 = or disjoint i64 %wtSessionId, -4611686018427387904
-  %109 = call noundef i64 @llvm.bswap.i64(i64 %or.i103.i49)
+  %109 = call noundef i64 @llvm.bswap.i64(i64 range(i64 -4611686018427387904, 0) %or.i103.i49)
   store i64 %109, ptr %.sink.i.i.i.i102.i48, align 1, !noalias !116
   br label %invoke.cont36
 
@@ -11126,7 +11126,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #25
+  call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #25
   resume { ptr, i32 } %0
 }
 
@@ -11153,7 +11153,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly17BadExpectedAccessIN4quic18TransportErrorCodeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }

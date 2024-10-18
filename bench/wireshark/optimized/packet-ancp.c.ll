@@ -462,7 +462,7 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %6
   %48 = load i32, ptr @hf_ancp_timer, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #2
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef range(i32 6, 17) 6, i32 noundef 1, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.165) #2
   %50 = load i32, ptr @hf_ancp_adj_code, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %50, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
@@ -530,7 +530,7 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %96, label %98, label %106
 
 98:                                               ; preds = %95
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %97, ptr noundef %0, i32 noundef 16, i32 noundef 14, i32 noundef 0) #2
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %97, ptr noundef %0, i32 noundef range(i32 6, 17) 16, i32 noundef 14, i32 noundef 0) #2
   %100 = load i32, ptr @hf_ancp_function, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %100, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #2
   %102 = load i32, ptr @hf_ancp_x_function, align 4
@@ -540,7 +540,7 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %108
 
 106:                                              ; preds = %95
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %97, ptr noundef %0, i32 noundef 16, i32 noundef 20, i32 noundef 0) #2
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %97, ptr noundef %0, i32 noundef range(i32 6, 17) 16, i32 noundef 20, i32 noundef 0) #2
   br label %108
 
 108:                                              ; preds = %106, %98

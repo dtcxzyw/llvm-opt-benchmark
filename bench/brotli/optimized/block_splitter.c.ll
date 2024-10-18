@@ -403,7 +403,7 @@ for.body.i47:                                     ; preds = %BuildBlockHistogram
   br i1 %cmp.i.i, label %for.body.preheader.i.i, label %if.end.i129.i
 
 for.body.preheader.i.i:                           ; preds = %for.body.i47
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i, i8 0, i64 %add.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i, i8 0, i64 range(i64 128, 0) %add.i, i1 false)
   br label %FindBlocksLiteral.exit.i
 
 if.end.i129.i:                                    ; preds = %for.body.i47
@@ -1595,7 +1595,7 @@ for.body.i167:                                    ; preds = %BuildBlockHistogram
   br i1 %cmp.i.i172, label %for.body.preheader.i.i642, label %if.end.i129.i173
 
 for.body.preheader.i.i642:                        ; preds = %for.body.i167
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i147, i8 0, i64 %num_commands, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i147, i8 0, i64 range(i64 128, 0) %num_commands, i1 false)
   br label %FindBlocksCommand.exit.i
 
 if.end.i129.i173:                                 ; preds = %for.body.i167
@@ -2811,7 +2811,7 @@ for.body.i807:                                    ; preds = %BuildBlockHistogram
   br i1 %cmp.i.i812, label %for.body.preheader.i.i1331, label %if.end.i129.i813
 
 for.body.preheader.i.i1331:                       ; preds = %for.body.i807
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i787, i8 0, i64 %j.1, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call97.i787, i8 0, i64 range(i64 128, 0) %j.1, i1 false)
   br label %FindBlocksDistance.exit.i
 
 if.end.i129.i813:                                 ; preds = %for.body.i807

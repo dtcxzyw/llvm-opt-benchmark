@@ -3634,7 +3634,7 @@ if.end.i.i323:                                    ; preds = %sw.bb.i.i
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %replay.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %make_script_args.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_interactive_rebase.make_script_args, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %todo_list.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) @__const.edit_todo_file.new_todo, i64 56, i1 false)
-  call fastcc void @get_replay_opts(ptr noalias align 8 %replay.i.i.i, ptr noundef %options)
+  call fastcc void @get_replay_opts(ptr noalias align 8 %replay.i.i.i, ptr noundef nonnull %options)
   %296 = load ptr, ptr %upstream.i.i, align 8
   %297 = load ptr, ptr %onto.i.i, align 8
   %orig_head.i.i.i = getelementptr inbounds i8, ptr %options, i64 56
@@ -3812,7 +3812,7 @@ if.end26.i.i.i:                                   ; preds = %if.then20.i.i.i, %i
   %323 = load i64, ptr %nr.i.i.i, align 8
   %conv.i.i.i = trunc i64 %323 to i32
   %324 = load ptr, ptr %make_script_args.i.i.i, align 8
-  %call27.i.i.i = call i32 @sequencer_make_script(ptr noundef %322, ptr noundef nonnull %todo_list.i.i.i, i32 noundef %conv.i.i.i, ptr noundef %324, i32 noundef %or18.i.i) #19
+  %call27.i.i.i = call i32 @sequencer_make_script(ptr noundef %322, ptr noundef nonnull %todo_list.i.i.i, i32 noundef %conv.i.i.i, ptr noundef %324, i32 noundef range(i32 0, 512) %or18.i.i) #19
   %tobool28.not.i.i.i = icmp eq i32 %call27.i.i.i, 0
   br i1 %tobool28.not.i.i.i, label %if.else.i.i.i324, label %if.then29.i.i.i
 
@@ -3851,7 +3851,7 @@ if.end38.i.i.i:                                   ; preds = %if.else.i.i.i324
   %oid42.i.i.i = getelementptr inbounds i8, ptr %331, i64 4
   %332 = load i32, ptr %autosquash, align 4
   %333 = load i32, ptr %update_refs, align 4
-  %call43.i.i.i = call i32 @complete_action(ptr noundef %328, ptr noundef nonnull %replay.i.i.i, i32 noundef %or18.i.i, ptr noundef %storemerge.i.i.i.i, ptr noundef %329, ptr noundef %330, ptr noundef nonnull %oid42.i.i.i, ptr noundef nonnull %exec, i32 noundef %332, i32 noundef %333, ptr noundef nonnull %todo_list.i.i.i) #19
+  %call43.i.i.i = call i32 @complete_action(ptr noundef %328, ptr noundef nonnull %replay.i.i.i, i32 noundef range(i32 0, 512) %or18.i.i, ptr noundef %storemerge.i.i.i.i, ptr noundef %329, ptr noundef %330, ptr noundef nonnull %oid42.i.i.i, ptr noundef nonnull %exec, i32 noundef %332, i32 noundef %333, ptr noundef nonnull %todo_list.i.i.i) #19
   br label %do_interactive_rebase.exit.i.i
 
 do_interactive_rebase.exit.i.i:                   ; preds = %if.end38.i.i.i, %_.exit.i.i.i, %init_basic_state.exit.i.i.i, %_.exit18.i.i.i.i, %merge_dir.exit10.i.i.i.i
@@ -3875,7 +3875,7 @@ sw.bb23.i.i:                                      ; preds = %if.end9.i
   br label %sw.bb24.i.i
 
 sw.bb24.i.i:                                      ; preds = %sw.bb23.i.i, %if.end9.i
-  call fastcc void @get_replay_opts(ptr noalias align 8 %replay_opts.i.i, ptr noundef %options)
+  call fastcc void @get_replay_opts(ptr noalias align 8 %replay_opts.i.i, ptr noundef nonnull %options)
   %336 = load ptr, ptr @the_repository, align 8
   %call25.i.i = call i32 @sequencer_continue(ptr noundef %336, ptr noundef nonnull %replay_opts.i.i) #19
   call void @replay_opts_release(ptr noundef nonnull %replay_opts.i.i) #19
@@ -3909,7 +3909,7 @@ if.end.i.i.i:                                     ; preds = %sw.bb26.i.i
   %338 = load i8, ptr @comment_line_char, align 1
   call void @strbuf_stripspace(ptr noundef nonnull %todo_list.i20.i.i, i8 noundef signext %338) #19
   %339 = load ptr, ptr @the_repository, align 8
-  %call6.i.i.i = call i32 @edit_todo_list(ptr noundef %339, ptr noundef nonnull %todo_list.i20.i.i, ptr noundef nonnull %new_todo.i.i.i, ptr noundef null, ptr noundef null, i32 noundef %or18.i.i) #19
+  %call6.i.i.i = call i32 @edit_todo_list(ptr noundef %339, ptr noundef nonnull %todo_list.i20.i.i, ptr noundef nonnull %new_todo.i.i.i, ptr noundef null, ptr noundef null, i32 noundef range(i32 0, 512) %or18.i.i) #19
   %tobool.not.i.i.i320 = icmp eq i32 %call6.i.i.i, 0
   br i1 %tobool.not.i.i.i320, label %land.lhs.true.i21.i.i, label %if.end13.i.i.i
 
@@ -4002,7 +4002,7 @@ if.end.i24.i:                                     ; preds = %if.then6.i.i, %if.t
   br i1 %tobool11.not.i.i, label %if.end13.i.i, label %run_am.exit.i
 
 if.end13.i.i:                                     ; preds = %if.end.i24.i
-  %call14.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
+  %call14.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
   br label %run_am.exit.i
 
 if.then18.i.i:                                    ; preds = %if.then13.i
@@ -4013,7 +4013,7 @@ if.then18.i.i:                                    ; preds = %if.then13.i
   br i1 %tobool24.not.i.i, label %if.end26.i.i, label %run_am.exit.i
 
 if.end26.i.i:                                     ; preds = %if.then18.i.i
-  %call27.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
+  %call27.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
   br label %run_am.exit.i
 
 if.then31.i.i:                                    ; preds = %if.then13.i
@@ -4183,7 +4183,7 @@ if.end123.i.i:                                    ; preds = %if.then119.i.i, %if
   br i1 %tobool126.not.i.i, label %if.then127.i.i, label %if.end129.i.i
 
 if.then127.i.i:                                   ; preds = %if.end123.i.i
-  %call128.i.i = call fastcc i32 @move_to_original_branch(ptr noundef readonly %options)
+  %call128.i.i = call fastcc i32 @move_to_original_branch(ptr noundef nonnull readonly %options)
   br label %run_am.exit.i
 
 if.end129.i.i:                                    ; preds = %if.end123.i.i
@@ -4194,7 +4194,7 @@ if.end129.i.i:                                    ; preds = %if.end123.i.i
   br i1 %tobool131.not.i.i, label %run_am.exit.i, label %if.then132.i.i
 
 if.then132.i.i:                                   ; preds = %if.end129.i.i
-  call fastcc void @rebase_write_basic_state(ptr noundef readonly %options)
+  call fastcc void @rebase_write_basic_state(ptr noundef nonnull readonly %options)
   br label %run_am.exit.i
 
 run_am.exit.i:                                    ; preds = %if.then132.i.i, %if.end129.i.i, %if.then127.i.i, %_.exit59.i.i, %_.exit54.i.i, %_.exit.i.i, %if.then31.i.i, %if.end26.i.i, %if.then18.i.i, %if.end13.i.i, %if.end.i24.i
@@ -4269,12 +4269,12 @@ state_dir_path.exit.i:                            ; preds = %if.then4.i.i.i, %if
   br i1 %tobool30.not.i, label %if.then31.i, label %run_specific_rebase.exit
 
 if.then31.i:                                      ; preds = %state_dir_path.exit.i
-  %call32.i = call fastcc i32 @finish_rebase(ptr noundef %options)
+  %call32.i = call fastcc i32 @finish_rebase(ptr noundef nonnull %options)
   br label %run_specific_rebase.exit
 
 if.then36.i:                                      ; preds = %if.else25.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dir.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.run_specific_rebase.dir, i64 24, i1 false)
-  %call37.i = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.64, ptr noundef %options)
+  %call37.i = call fastcc ptr @state_dir_path(ptr noundef nonnull @.str.64, ptr noundef nonnull %options)
   %call38.i = call i32 @apply_autostash(ptr noundef %call37.i) #19
   %state_dir.i307 = getelementptr inbounds i8, ptr %options, i64 16
   %372 = load ptr, ptr %state_dir.i307, align 8

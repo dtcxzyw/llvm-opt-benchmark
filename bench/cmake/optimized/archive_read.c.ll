@@ -1997,7 +1997,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   br i1 %.not97.i, label %20, label %12
 
 12:                                               ; preds = %9
-  %..i = tail call i64 @llvm.smin.i64(i64 %1, i64 %11)
+  %..i = tail call i64 @llvm.smin.i64(i64 range(i64 1, -9223372036854775808) %1, i64 %11)
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %..i
@@ -2063,7 +2063,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
 
 .preheader.i.i:                                   ; preds = %40
   %45 = getelementptr inbounds i8, ptr %0, i64 40
-  %46 = tail call i64 @llvm.umin.i64(i64 %.185.i, i64 1073741824)
+  %46 = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %.185.i, i64 1073741824)
   %47 = load ptr, ptr %45, align 8
   %48 = tail call i64 %44(ptr noundef nonnull %42, ptr noundef %47, i64 noundef %46) #15
   %49 = icmp eq i64 %48, 0
@@ -2104,7 +2104,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   %70 = load i64, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 40
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i64 %66(ptr noundef nonnull %42, ptr noundef %72, i64 noundef %.185.i, i32 noundef 1) #15
+  %73 = tail call i64 %66(ptr noundef nonnull %42, ptr noundef %72, i64 noundef range(i64 1, 0) %.185.i, i32 noundef 1) #15
   %74 = add nsw i64 %70, %.185.i
   %.not41.i.i = icmp eq i64 %73, %74
   %75 = sub nsw i64 %73, %70

@@ -41118,7 +41118,7 @@ if.then.i.i36:                                    ; preds = %land.lhs.true.i.i
   br i1 %tobool.not.i.i.i, label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.then.i.i36
-  %call.i.i.i = invoke noundef ptr %38(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp8, ptr noundef null)
+  %call.i.i.i = invoke noundef ptr %38(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp8, ptr noundef null)
           to label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i unwind label %terminate.lpad.i.i.i, !noalias !784
 
 terminate.lpad.i.i.i:                             ; preds = %cond.true.i.i.i
@@ -41130,7 +41130,7 @@ terminate.lpad.i.i.i:                             ; preds = %cond.true.i.i.i
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i:   ; preds = %cond.true.i.i.i, %if.then.i.i36
   %cond.i.i.i = phi ptr [ %call.i.i.i, %cond.true.i.i.i ], [ null, %if.then.i.i36 ]
-  %call5.i.i = invoke noundef ptr %33(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp4, ptr noundef %cond.i.i.i)
+  %call5.i.i = invoke noundef ptr %33(i8 noundef zeroext 5, ptr noundef nonnull align 8 dereferenceable(168) %ref.tmp4, ptr noundef %cond.i.i.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i, !noalias !784
 
 invoke.cont.i.i:                                  ; preds = %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit.i.i
@@ -71427,7 +71427,7 @@ entry:
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i3, align 8, !tbaa !1152
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i2, align 8, !tbaa !1152
   %tobool.not.i.i.i.i.i.i.i.i4 = icmp eq ptr %0, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %other, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i.i.i.i4, label %_ZN4entt15compressed_pairISt6vectorImSaImEENS_8identityEEaSEOS5_.exit.i, label %if.then.i.i.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i.i.i5:                         ; preds = %entry

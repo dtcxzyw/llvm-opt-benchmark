@@ -483,7 +483,7 @@ list_length.exit.i:                               ; preds = %196, %find_compatib
 277:                                              ; preds = %.critedge.i.i
   %278 = getelementptr inbounds i8, ptr %259, i64 64
   %279 = load i64, ptr %278, align 8
-  %280 = call zeroext i1 @datumIsEqual(i64 noundef %.0108.i, i64 noundef %279, i1 noundef zeroext %215, i32 noundef %213) #5
+  %280 = call zeroext i1 @datumIsEqual(i64 noundef %.0108.i, i64 noundef %279, i1 noundef zeroext %215, i32 noundef range(i32 -32768, 32768) %213) #5
   br i1 %280, label %find_compatible_trans.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %277

@@ -260,7 +260,7 @@ if.end32:                                         ; preds = %if.end21
   %call.i23 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %sub = add nsw i32 %call.i23, -1
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %call.i24 = tail call ptr @OPENSSL_sk_set(ptr noundef %5, i32 noundef %sub, ptr noundef nonnull %call18) #8
+  %call.i24 = tail call ptr @OPENSSL_sk_set(ptr noundef %5, i32 noundef range(i32 -2147483648, 2147483647) %sub, ptr noundef nonnull %call18) #8
   br label %err
 
 err:                                              ; preds = %if.end17, %if.end32, %if.then31, %if.then13

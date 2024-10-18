@@ -1457,7 +1457,7 @@ if.then:                                          ; preds = %entry
   %m_invMass = getelementptr inbounds i8, ptr %arrayidx4, i64 68
   %4 = load float, ptr %m_invMass, align 4
   %arrayidx12 = getelementptr inbounds %struct.b3InertiaData, ptr %gShapes, i64 %idxprom3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %invInertiaA, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %invInertiaA, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx12, i64 16, i1 false)
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx12, i64 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %invInertiaA, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i, i64 16, i1 false)
@@ -1471,7 +1471,7 @@ if.then:                                          ; preds = %entry
   %m_invMass24 = getelementptr inbounds i8, ptr %arrayidx14, i64 68
   %5 = load float, ptr %m_invMass24, align 4
   %arrayidx26 = getelementptr inbounds %struct.b3InertiaData, ptr %gShapes, i64 %idxprom13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %invInertiaB, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx26, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %invInertiaB, ptr noundef nonnull align 16 dereferenceable(48) %arrayidx26, i64 16, i1 false)
   %arrayidx6.i30 = getelementptr inbounds i8, ptr %arrayidx26, i64 16
   %arrayidx8.i31 = getelementptr inbounds i8, ptr %invInertiaB, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i31, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i30, i64 16, i1 false)
@@ -1895,7 +1895,7 @@ if.then.i:                                        ; preds = %if.then.i.lr.ph, %f
   %m_invMass.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 68
   %44 = load float, ptr %m_invMass.i, align 4
   %arrayidx12.i229 = getelementptr inbounds %struct.b3InertiaData, ptr %inertias, i64 %idxprom3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %invInertiaA.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx12.i229, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %invInertiaA.i, ptr noundef nonnull readonly align 16 dereferenceable(48) %arrayidx12.i229, i64 16, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx12.i229, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx6.i.i, i64 16, i1 false)
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx12.i229, i64 32
@@ -1907,7 +1907,7 @@ if.then.i:                                        ; preds = %if.then.i.lr.ph, %f
   %m_invMass24.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 68
   %45 = load float, ptr %m_invMass24.i, align 4
   %arrayidx26.i = getelementptr inbounds %struct.b3InertiaData, ptr %inertias, i64 %idxprom13.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %invInertiaB.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx26.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %invInertiaB.i, ptr noundef nonnull readonly align 16 dereferenceable(48) %arrayidx26.i, i64 16, i1 false)
   %arrayidx6.i30.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i31.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %arrayidx6.i30.i, i64 16, i1 false)
   %arrayidx10.i32.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 32
@@ -3720,7 +3720,7 @@ if.end.i:                                         ; preds = %_ZN20b3AlignedObjec
   %43 = load i32, ptr %m_idx3.i, align 8
   %inc.i = add nsw i32 %43, 1
   store i32 %inc.i, ptr %m_idx3.i, align 8
-  %call.i40 = invoke i32 %41(ptr noundef %42, i32 noundef %43, i64 noundef 4, ptr noundef nonnull %numManifolds)
+  %call.i40 = invoke i32 %41(ptr noundef %42, i32 noundef %43, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numManifolds)
           to label %invoke.cont38 unwind label %lpad26
 
 invoke.cont38:                                    ; preds = %if.end.i
@@ -3845,7 +3845,7 @@ if.end.i43:                                       ; preds = %_ZN20b3AlignedObjec
   %59 = load i32, ptr %m_idx3.i, align 8
   %inc.i46 = add nsw i32 %59, 1
   store i32 %inc.i46, ptr %m_idx3.i, align 8
-  %call.i69 = invoke i32 %57(ptr noundef %58, i32 noundef %59, i64 noundef 4, ptr noundef nonnull %solverInfo)
+  %call.i69 = invoke i32 %57(ptr noundef %58, i32 noundef %59, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %solverInfo)
           to label %invoke.cont40 unwind label %lpad26
 
 invoke.cont40:                                    ; preds = %if.end.i43
@@ -4196,7 +4196,7 @@ if.end.i116:                                      ; preds = %_ZN20b3AlignedObjec
   %117 = load i32, ptr %m_idx3.i118, align 8
   %inc.i119 = add nsw i32 %117, 1
   store i32 %inc.i119, ptr %m_idx3.i118, align 8
-  %call.i142 = invoke i32 %115(ptr noundef %116, i32 noundef %117, i64 noundef 4, ptr noundef nonnull %numContacts.addr)
+  %call.i142 = invoke i32 %115(ptr noundef %116, i32 noundef %117, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numContacts.addr)
           to label %invoke.cont90 unwind label %lpad76
 
 invoke.cont90:                                    ; preds = %if.end.i116
@@ -4321,7 +4321,7 @@ if.end.i146:                                      ; preds = %_ZN20b3AlignedObjec
   %133 = load i32, ptr %m_idx3.i118, align 8
   %inc.i149 = add nsw i32 %133, 1
   store i32 %inc.i149, ptr %m_idx3.i118, align 8
-  %call.i172 = invoke i32 %131(ptr noundef %132, i32 noundef %133, i64 noundef 4, ptr noundef nonnull %m_deltaTime.i)
+  %call.i172 = invoke i32 %131(ptr noundef %132, i32 noundef %133, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_deltaTime.i)
           to label %invoke.cont91 unwind label %lpad76
 
 invoke.cont91:                                    ; preds = %if.end.i146
@@ -4446,7 +4446,7 @@ if.end.i175:                                      ; preds = %_ZN20b3AlignedObjec
   %149 = load i32, ptr %m_idx3.i118, align 8
   %inc.i178 = add nsw i32 %149, 1
   store i32 %inc.i178, ptr %m_idx3.i118, align 8
-  %call.i201 = invoke i32 %147(ptr noundef %148, i32 noundef %149, i64 noundef 4, ptr noundef nonnull %m_positionDrift.i)
+  %call.i201 = invoke i32 %147(ptr noundef %148, i32 noundef %149, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionDrift.i)
           to label %invoke.cont92 unwind label %lpad76
 
 invoke.cont92:                                    ; preds = %if.end.i175
@@ -4571,7 +4571,7 @@ if.end.i205:                                      ; preds = %_ZN20b3AlignedObjec
   %165 = load i32, ptr %m_idx3.i118, align 8
   %inc.i208 = add nsw i32 %165, 1
   store i32 %inc.i208, ptr %m_idx3.i118, align 8
-  %call.i231 = invoke i32 %163(ptr noundef %164, i32 noundef %165, i64 noundef 4, ptr noundef nonnull %m_positionConstraintCoeff.i)
+  %call.i231 = invoke i32 %163(ptr noundef %164, i32 noundef %165, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionConstraintCoeff.i)
           to label %invoke.cont93 unwind label %lpad76
 
 invoke.cont93:                                    ; preds = %if.end.i205
@@ -4837,7 +4837,7 @@ if.end.i282:                                      ; preds = %_ZN20b3AlignedObjec
   %205 = load i32, ptr %m_idx3.i284, align 8
   %inc.i285 = add nsw i32 %205, 1
   store i32 %inc.i285, ptr %m_idx3.i284, align 8
-  %call.i308 = invoke i32 %203(ptr noundef %204, i32 noundef %205, i64 noundef 4, ptr noundef nonnull %totalNumSplitBodies)
+  %call.i308 = invoke i32 %203(ptr noundef %204, i32 noundef %205, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %totalNumSplitBodies)
           to label %invoke.cont126 unwind label %lpad117
 
 invoke.cont126:                                   ; preds = %if.end.i282
@@ -5127,7 +5127,7 @@ if.end.i340:                                      ; preds = %_ZN20b3AlignedObjec
   %248 = load i32, ptr %m_idx.i345, align 8
   %inc.i343 = add nsw i32 %248, 1
   store i32 %inc.i343, ptr %m_idx.i345, align 8
-  %call.i366 = invoke i32 %246(ptr noundef %247, i32 noundef %248, i64 noundef 4, ptr noundef nonnull %m_deltaTime.i)
+  %call.i366 = invoke i32 %246(ptr noundef %247, i32 noundef %248, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_deltaTime.i)
           to label %invoke.cont169 unwind label %lpad142
 
 invoke.cont169:                                   ; preds = %if.end.i340
@@ -5244,7 +5244,7 @@ if.end.i370:                                      ; preds = %_ZN20b3AlignedObjec
   %264 = load i32, ptr %m_idx.i345, align 8
   %inc.i373 = add nsw i32 %264, 1
   store i32 %inc.i373, ptr %m_idx.i345, align 8
-  %call.i396 = invoke i32 %262(ptr noundef %263, i32 noundef %264, i64 noundef 4, ptr noundef nonnull %m_positionDrift.i)
+  %call.i396 = invoke i32 %262(ptr noundef %263, i32 noundef %264, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionDrift.i)
           to label %invoke.cont171 unwind label %lpad142
 
 invoke.cont171:                                   ; preds = %if.end.i370
@@ -5361,7 +5361,7 @@ if.end.i400:                                      ; preds = %_ZN20b3AlignedObjec
   %280 = load i32, ptr %m_idx.i345, align 8
   %inc.i403 = add nsw i32 %280, 1
   store i32 %inc.i403, ptr %m_idx.i345, align 8
-  %call.i426 = invoke i32 %278(ptr noundef %279, i32 noundef %280, i64 noundef 4, ptr noundef nonnull %m_positionConstraintCoeff.i)
+  %call.i426 = invoke i32 %278(ptr noundef %279, i32 noundef %280, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionConstraintCoeff.i)
           to label %invoke.cont173 unwind label %lpad142
 
 invoke.cont173:                                   ; preds = %if.end.i400
@@ -5478,7 +5478,7 @@ if.end.i430:                                      ; preds = %_ZN20b3AlignedObjec
   %296 = load i32, ptr %m_idx.i345, align 8
   %inc.i433 = add nsw i32 %296, 1
   store i32 %inc.i433, ptr %m_idx.i345, align 8
-  %call.i456 = invoke i32 %294(ptr noundef %295, i32 noundef %296, i64 noundef 4, ptr noundef nonnull %solverInfo)
+  %call.i456 = invoke i32 %294(ptr noundef %295, i32 noundef %296, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %solverInfo)
           to label %invoke.cont175 unwind label %lpad142
 
 invoke.cont175:                                   ; preds = %if.end.i430
@@ -5595,7 +5595,7 @@ if.end.i460:                                      ; preds = %_ZN20b3AlignedObjec
   %312 = load i32, ptr %m_idx.i345, align 8
   %inc.i463 = add nsw i32 %312, 1
   store i32 %inc.i463, ptr %m_idx.i345, align 8
-  %call.i486 = invoke i32 %310(ptr noundef %311, i32 noundef %312, i64 noundef 4, ptr noundef nonnull %numManifolds)
+  %call.i486 = invoke i32 %310(ptr noundef %311, i32 noundef %312, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numManifolds)
           to label %invoke.cont176 unwind label %lpad142
 
 invoke.cont176:                                   ; preds = %if.end.i460
@@ -5816,7 +5816,7 @@ if.end.i518:                                      ; preds = %_ZN20b3AlignedObjec
   %351 = load i32, ptr %m_idx.i523, align 8
   %inc.i521 = add nsw i32 %351, 1
   store i32 %inc.i521, ptr %m_idx.i523, align 8
-  %call.i544 = invoke i32 %349(ptr noundef %350, i32 noundef %351, i64 noundef 4, ptr noundef nonnull %numBodies.addr)
+  %call.i544 = invoke i32 %349(ptr noundef %350, i32 noundef %351, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numBodies.addr)
           to label %invoke.cont212 unwind label %lpad190
 
 invoke.cont212:                                   ; preds = %if.end.i518
@@ -6050,7 +6050,7 @@ if.end.i577:                                      ; preds = %_ZN20b3AlignedObjec
   %393 = load i32, ptr %m_idx.i582, align 8
   %inc.i580 = add nsw i32 %393, 1
   store i32 %inc.i580, ptr %m_idx.i582, align 8
-  %call.i603 = invoke i32 %391(ptr noundef %392, i32 noundef %393, i64 noundef 4, ptr noundef nonnull %m_deltaTime.i)
+  %call.i603 = invoke i32 %391(ptr noundef %392, i32 noundef %393, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_deltaTime.i)
           to label %invoke.cont255 unwind label %lpad228
 
 invoke.cont255:                                   ; preds = %if.end.i577
@@ -6167,7 +6167,7 @@ if.end.i607:                                      ; preds = %_ZN20b3AlignedObjec
   %409 = load i32, ptr %m_idx.i582, align 8
   %inc.i610 = add nsw i32 %409, 1
   store i32 %inc.i610, ptr %m_idx.i582, align 8
-  %call.i633 = invoke i32 %407(ptr noundef %408, i32 noundef %409, i64 noundef 4, ptr noundef nonnull %m_positionDrift.i)
+  %call.i633 = invoke i32 %407(ptr noundef %408, i32 noundef %409, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionDrift.i)
           to label %invoke.cont257 unwind label %lpad228
 
 invoke.cont257:                                   ; preds = %if.end.i607
@@ -6284,7 +6284,7 @@ if.end.i637:                                      ; preds = %_ZN20b3AlignedObjec
   %425 = load i32, ptr %m_idx.i582, align 8
   %inc.i640 = add nsw i32 %425, 1
   store i32 %inc.i640, ptr %m_idx.i582, align 8
-  %call.i663 = invoke i32 %423(ptr noundef %424, i32 noundef %425, i64 noundef 4, ptr noundef nonnull %m_positionConstraintCoeff.i)
+  %call.i663 = invoke i32 %423(ptr noundef %424, i32 noundef %425, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %m_positionConstraintCoeff.i)
           to label %invoke.cont259 unwind label %lpad228
 
 invoke.cont259:                                   ; preds = %if.end.i637
@@ -6401,7 +6401,7 @@ if.end.i667:                                      ; preds = %_ZN20b3AlignedObjec
   %441 = load i32, ptr %m_idx.i582, align 8
   %inc.i670 = add nsw i32 %441, 1
   store i32 %inc.i670, ptr %m_idx.i582, align 8
-  %call.i693 = invoke i32 %439(ptr noundef %440, i32 noundef %441, i64 noundef 4, ptr noundef nonnull %solverInfo)
+  %call.i693 = invoke i32 %439(ptr noundef %440, i32 noundef %441, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %solverInfo)
           to label %invoke.cont261 unwind label %lpad228
 
 invoke.cont261:                                   ; preds = %if.end.i667
@@ -6518,7 +6518,7 @@ if.end.i697:                                      ; preds = %_ZN20b3AlignedObjec
   %457 = load i32, ptr %m_idx.i582, align 8
   %inc.i700 = add nsw i32 %457, 1
   store i32 %inc.i700, ptr %m_idx.i582, align 8
-  %call.i723 = invoke i32 %455(ptr noundef %456, i32 noundef %457, i64 noundef 4, ptr noundef nonnull %numManifolds)
+  %call.i723 = invoke i32 %455(ptr noundef %456, i32 noundef %457, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numManifolds)
           to label %invoke.cont262 unwind label %lpad228
 
 invoke.cont262:                                   ; preds = %if.end.i697
@@ -6739,7 +6739,7 @@ if.end.i755:                                      ; preds = %_ZN20b3AlignedObjec
   %496 = load i32, ptr %m_idx.i760, align 8
   %inc.i758 = add nsw i32 %496, 1
   store i32 %inc.i758, ptr %m_idx.i760, align 8
-  %call.i781 = invoke i32 %494(ptr noundef %495, i32 noundef %496, i64 noundef 4, ptr noundef nonnull %numBodies.addr)
+  %call.i781 = invoke i32 %494(ptr noundef %495, i32 noundef %496, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numBodies.addr)
           to label %invoke.cont299 unwind label %lpad277
 
 invoke.cont299:                                   ; preds = %if.end.i755
@@ -7213,7 +7213,7 @@ if.end.i837:                                      ; preds = %_ZN20b3AlignedObjec
   %578 = load i32, ptr %m_idx3.i839, align 8
   %inc.i840 = add nsw i32 %578, 1
   store i32 %inc.i840, ptr %m_idx3.i839, align 8
-  %call.i863 = invoke i32 %576(ptr noundef %577, i32 noundef %578, i64 noundef 4, ptr noundef nonnull %numBodies.addr)
+  %call.i863 = invoke i32 %576(ptr noundef %577, i32 noundef %578, i64 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %numBodies.addr)
           to label %invoke.cont335 unwind label %lpad313
 
 invoke.cont335:                                   ; preds = %if.end.i837

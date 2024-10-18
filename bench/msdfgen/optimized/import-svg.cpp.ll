@@ -1890,7 +1890,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #18
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.else17
@@ -1936,7 +1936,7 @@ if.then13:                                        ; preds = %if.else
   br label %for.inc
 
 if.else17:                                        ; preds = %for.body
-  %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %5 = load i8, ptr %call.i25, align 1
   %.not = icmp eq i8 %5, 103
   br i1 %.not, label %if.else17.tail, label %if.else25
@@ -1961,25 +1961,25 @@ lor.end:                                          ; preds = %lor.rhs, %if.then21
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
-  %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then41, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.else25
-  %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #18
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then41, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false29
-  %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #18
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then41, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
-  %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #18
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.else43
@@ -1991,13 +1991,13 @@ if.then41:                                        ; preds = %lor.lhs.false37, %l
   br label %for.inc
 
 if.else43:                                        ; preds = %lor.lhs.false37
-  %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #18
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then51, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.else43
-  %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #18
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %for.inc
@@ -2032,7 +2032,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #18
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.else17
@@ -2078,7 +2078,7 @@ if.then13:                                        ; preds = %if.else
   br label %for.inc
 
 if.else17:                                        ; preds = %for.body
-  %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i25 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %5 = load i8, ptr %call.i25, align 1
   %.not = icmp eq i8 %5, 103
   br i1 %.not, label %if.else17.tail, label %if.else25
@@ -2103,25 +2103,25 @@ lor.end:                                          ; preds = %lor.rhs, %if.then21
   br label %for.inc
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
-  %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then41, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.else25
-  %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #18
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then41, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false29
-  %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #18
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then41, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
-  %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #18
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.else43
@@ -2133,13 +2133,13 @@ if.then41:                                        ; preds = %lor.lhs.false37, %l
   br label %for.inc
 
 if.else43:                                        ; preds = %lor.lhs.false37
-  %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #18
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then51, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.else43
-  %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.034)
+  %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
   %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #18
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %for.inc
@@ -2391,7 +2391,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call.i65 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i65 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
   %3 = load i8, ptr %call.i65, align 1
   %.not = icmp eq i8 %3, 103
   br i1 %.not, label %for.body.tail, label %if.else
@@ -2410,13 +2410,13 @@ if.then:                                          ; preds = %for.body.tail
   br label %for.inc
 
 if.else:                                          ; preds = %for.body, %for.body.tail
-  %call.i66 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i66 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
   %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i66, ptr noundef nonnull dereferenceable(5) @.str.12) #18
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %call.i67 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i67 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
   %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i67, ptr noundef nonnull dereferenceable(4) @.str.13) #18
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %if.else13
@@ -2429,7 +2429,7 @@ if.then12:                                        ; preds = %lor.lhs.false, %if.
 
 if.else13:                                        ; preds = %lor.lhs.false
   call void @_ZN6SkPathC1Ev(ptr noundef nonnull align 8 dereferenceable(15) %curPath)
-  %call.i6869 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i6869 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.else13
@@ -2473,7 +2473,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.else25:                                        ; preds = %invoke.cont
-  %call.i7071 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i7071 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %if.else25
@@ -2548,7 +2548,7 @@ if.else68:                                        ; preds = %if.end52
           to label %if.end170 unwind label %lpad.loopexit.split-lp
 
 if.else72:                                        ; preds = %invoke.cont26
-  %call.i7576 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i7576 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
           to label %invoke.cont73 unwind label %lpad.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %if.else72
@@ -2580,7 +2580,7 @@ if.end89:                                         ; preds = %invoke.cont84
           to label %if.end170 unwind label %lpad.loopexit.split-lp
 
 if.else92:                                        ; preds = %invoke.cont73
-  %call.i7879 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i7879 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.else92
@@ -2629,7 +2629,7 @@ if.end118:                                        ; preds = %invoke.cont111
           to label %if.end170 unwind label %lpad.loopexit.split-lp
 
 if.else127:                                       ; preds = %invoke.cont93
-  %call.i8788 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104) %cur.0157)
+  %call.i8788 = invoke noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
           to label %invoke.cont128 unwind label %lpad.loopexit.split-lp
 
 invoke.cont128:                                   ; preds = %if.else127
@@ -2864,7 +2864,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %invoke.cont185 unwind label %lpad.loopexit.split-lp
 
 invoke.cont185:                                   ; preds = %invoke.cont183
-  invoke void @_ZNK6SkPath9transformERK8SkMatrixPS_22SkApplyPerspectiveClip(ptr noundef nonnull align 8 dereferenceable(15) %curPath, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp180, ptr noundef nonnull %curPath, i32 noundef 1)
+  invoke void @_ZNK6SkPath9transformERK8SkMatrixPS_22SkApplyPerspectiveClip(ptr noundef nonnull align 8 dereferenceable(15) %curPath, ptr noundef nonnull align 4 dereferenceable(40) %ref.tmp180, ptr noundef nonnull align 8 dereferenceable(15) %curPath, i32 noundef 1)
           to label %invoke.cont186 unwind label %lpad.loopexit.split-lp
 
 invoke.cont186:                                   ; preds = %invoke.cont185

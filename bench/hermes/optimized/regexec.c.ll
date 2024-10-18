@@ -156,7 +156,7 @@ cond.false.i.i:                                   ; preds = %for.cond40.i
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %for.cond40.i
   %cond.i.i = phi i32 [ %conv.i.i, %cond.false.i.i ], [ 128, %for.cond40.i ]
   %16 = load ptr, ptr %mv.i, align 8
-  %call.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %shl.i.i, i32 noundef 132, i64 noundef %shl.i.i)
+  %call.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i, i64 noundef %6, i64 noundef %shl.i.i, i32 noundef 132, i64 noundef %shl.i.i)
   %17 = load ptr, ptr %endp38.i, align 8
   %cflags.i.i = getelementptr inbounds i8, ptr %16, i64 40
   %nbol.i.i = getelementptr inbounds i8, ptr %16, i64 76
@@ -235,7 +235,7 @@ if.end43.i.i:                                     ; preds = %if.then38.i.i, %lan
 for.body.i.i:                                     ; preds = %if.end43.i.i, %for.body.i.i
   %st.2.i.i = phi i64 [ %call51.i.i, %for.body.i.i ], [ %st.0.i.i, %if.end43.i.i ]
   %i.2.i.i = phi i32 [ %dec.i.i, %for.body.i.i ], [ %i.1.i.i, %if.end43.i.i ]
-  %call51.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.1.i.i, i64 noundef %st.2.i.i)
+  %call51.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.1.i.i, i64 noundef %st.2.i.i)
   %dec.i.i = add nsw i32 %i.2.i.i, -1
   %cmp48.old.i.i = icmp ugt i32 %i.2.i.i, 1
   br i1 %cmp48.old.i.i, label %for.body.i.i, label %if.end52.i.i
@@ -337,7 +337,7 @@ if.end114.i.i:                                    ; preds = %land.lhs.true102.i.
 
 if.then120.i.i:                                   ; preds = %if.end114.i.i, %land.lhs.true102.i.i, %land.lhs.true96.i.i
   %flagch.393.i.i = phi i32 [ %flagch.3.i.i, %if.end114.i.i ], [ 134, %land.lhs.true96.i.i ], [ 134, %land.lhs.true102.i.i ]
-  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.1.i.i, i32 noundef %flagch.393.i.i, i64 noundef %st.1.i.i)
+  %call122.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i, i64 noundef %6, i64 noundef %st.1.i.i, i32 noundef %flagch.393.i.i, i64 noundef %st.1.i.i)
   br label %if.end123.i.i
 
 if.end123.i.i:                                    ; preds = %if.then120.i.i, %if.end114.i.i
@@ -349,7 +349,7 @@ if.end123.i.i:                                    ; preds = %if.then120.i.i, %if
   br i1 %or.cond.i.i, label %sfast.exit.i, label %if.end132.i.i
 
 if.end132.i.i:                                    ; preds = %if.end123.i.i
-  %call134.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef %add.i, i64 noundef %6, i64 noundef %st.3.i.i, i32 noundef %cond10.i.i, i64 noundef %call.i.i)
+  %call134.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i, i64 noundef %6, i64 noundef %st.3.i.i, i32 noundef %cond10.i.i, i64 noundef %call.i.i)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 1
   br label %for.cond.i.i
 
@@ -726,7 +726,7 @@ cond.end.i.i52:                                   ; preds = %cond.false.i.i49, %
   %arrayidx.i.i54 = getelementptr inbounds i8, ptr %71, i64 %add.i14
   store i8 1, ptr %arrayidx.i.i54, align 1
   %78 = load ptr, ptr %mv.i12, align 8
-  %call.i.i55 = call fastcc ptr @lstep(ptr noundef %78, i64 noundef %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef 132, ptr noundef %71)
+  %call.i.i55 = call fastcc ptr @lstep(ptr noundef %78, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef 132, ptr noundef %71)
   %79 = load ptr, ptr %mv.i12, align 8
   %nstates6.i.i = getelementptr inbounds i8, ptr %79, i64 48
   %80 = load i64, ptr %nstates6.i.i, align 8
@@ -815,7 +815,7 @@ if.end49.i.i:                                     ; preds = %if.then44.i.i, %lan
 for.body.i.i90:                                   ; preds = %if.end49.i.i, %for.body.i.i90
   %i.2.i.i91 = phi i32 [ %dec.i.i92, %for.body.i.i90 ], [ %i.1.i.i64, %if.end49.i.i ]
   %91 = load ptr, ptr %mv.i12, align 8
-  %call57.i.i = call fastcc ptr @lstep(ptr noundef %91, i64 noundef %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef %flagch.1.i.i63, ptr noundef %71)
+  %call57.i.i = call fastcc ptr @lstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef %flagch.1.i.i63, ptr noundef %71)
   %dec.i.i92 = add nsw i32 %i.2.i.i91, -1
   %cmp54.old.i.i = icmp ugt i32 %i.2.i.i91, 1
   br i1 %cmp54.old.i.i, label %for.body.i.i90, label %if.end58.i.i
@@ -917,7 +917,7 @@ if.end121.i.i:                                    ; preds = %land.lhs.true109.i.
 if.then127.i.i:                                   ; preds = %if.end121.i.i, %land.lhs.true109.i.i, %land.lhs.true103.i.i
   %flagch.3102.i.i = phi i32 [ %flagch.3.i.i69, %if.end121.i.i ], [ 134, %land.lhs.true103.i.i ], [ 134, %land.lhs.true109.i.i ]
   %102 = load ptr, ptr %mv.i12, align 8
-  %call129.i.i = call fastcc ptr @lstep(ptr noundef %102, i64 noundef %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef %flagch.3102.i.i, ptr noundef %71)
+  %call129.i.i = call fastcc ptr @lstep(ptr noundef %102, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef %flagch.3102.i.i, ptr noundef %71)
   br label %if.end130.i.i
 
 if.end130.i.i:                                    ; preds = %if.then127.i.i, %if.end121.i.i
@@ -937,7 +937,7 @@ if.end138.i.i:                                    ; preds = %if.end130.i.i
   %107 = load i64, ptr %nstates142.i.i, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %71, ptr align 1 %72, i64 %107, i1 false)
   %108 = load ptr, ptr %mv.i12, align 8
-  %call144.i.i = call fastcc ptr @lstep(ptr noundef %108, i64 noundef %add.i14, i64 noundef %63, ptr noundef %73, i32 noundef %cond13.i.i, ptr noundef nonnull %71)
+  %call144.i.i = call fastcc ptr @lstep(ptr noundef %108, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i14, i64 noundef %63, ptr noundef %73, i32 noundef %cond13.i.i, ptr noundef nonnull %71)
   %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %p.0.i.i57, i64 1
   br label %for.cond.i.i56
 

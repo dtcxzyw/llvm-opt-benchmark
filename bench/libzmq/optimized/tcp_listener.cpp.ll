@@ -92,7 +92,7 @@ invoke.cont:                                      ; preds = %if.then
 invoke.cont3:                                     ; preds = %invoke.cont
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp) #11
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %if.then
@@ -134,7 +134,7 @@ invoke.cont18:                                    ; preds = %if.then13
 invoke.cont20:                                    ; preds = %invoke.cont18
   %remote.i9 = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i9) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp15) #11
   br label %return
 
 lpad17:                                           ; preds = %invoke.cont18, %if.then13
@@ -154,7 +154,7 @@ eh.resume:                                        ; preds = %lpad17, %lpad
   %ref.tmp15.sink11 = phi ptr [ %ref.tmp15, %lpad17 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %1, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.sink11.sroa.phi) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.sink11) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp15.sink11) #11
   resume { ptr, i32 } %.pn
 }
 
@@ -519,7 +519,7 @@ _ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit: ; pre
 invoke.cont:                                      ; preds = %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
   %remote.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #11
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(68) %ref.tmp9) #11
   br label %return
 
 lpad:                                             ; preds = %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
@@ -567,7 +567,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14tcp_listener_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1584) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %this) #11
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -620,7 +620,7 @@ declare void @_ZN3zmq5own_t15process_destroyEv(ptr noundef nonnull align 8 deref
 define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %0) #11
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %0) #11
   ret void
 }
 
@@ -628,8 +628,8 @@ entry:
 define linkonce_odr void @_ZThn1448_N3zmq14tcp_listener_tD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1584) %0) #11
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1584) %0) #14
   ret void
 }
 

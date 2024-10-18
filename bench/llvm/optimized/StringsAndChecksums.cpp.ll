@@ -876,7 +876,7 @@ define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef12setChecksumsER
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i8 0, ptr %9, align 8, !noalias !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false), !noalias !21
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 0, ptr %10, align 4, !noalias !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1119,7 +1119,7 @@ define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef19initializeChec
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i8 0, ptr %17, align 8, !noalias !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !noalias !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 32, i1 false), !noalias !27
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 84
   store i32 0, ptr %18, align 4, !noalias !27
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2008,7 +2008,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN4llvm8codeview27DebugChecksumsSubsectionRefEEEvRS0_PT_.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %38) #14
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %38) #14
   ret void
 }
 
@@ -2191,7 +2191,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit
 
 _ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #14
+  tail call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #16
   ret void
 }

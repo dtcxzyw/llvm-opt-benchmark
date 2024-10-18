@@ -88,7 +88,7 @@ define noundef zeroext i1 @_ZN10tokio_test4task8MockTask8is_woken17h4ed43d8a2f1d
   br i1 %6, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i, label %7
 
 7:                                                ; preds = %1
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %4)
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 8 %4)
   br label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i: ; preds = %7, %1
@@ -106,7 +106,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i: ; pre
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7657b45618dbb8a1E.exit.i": ; preds = %11, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i
   %.0.i.i.i.i = phi i8 [ %14, %11 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i ]
   %15 = getelementptr inbounds i8, ptr %3, i64 20
-  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull %15, i8 noundef 0), !noalias !11
+  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull align 1 %15, i8 noundef 0), !noalias !11
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i", label %17
 
@@ -177,13 +177,13 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %35, %_Z
   br i1 %37, label %38, label %_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit
 
 38:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
-  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17hb07a3d057da5ea39E(ptr noundef nonnull align 4 %4)
+  tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17hb07a3d057da5ea39E(ptr noundef nonnull align 8 %4)
   br label %_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit
 
 39:                                               ; preds = %26
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$std..sync..mutex..MutexGuard$LT$usize$GT$$GT$17hf0e5300e01df7278E"(ptr nonnull %4, i8 %.0.i.i.i.i) #14
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$std..sync..mutex..MutexGuard$LT$usize$GT$$GT$17hf0e5300e01df7278E"(ptr nonnull align 8 %4, i8 %.0.i.i.i.i) #14
           to label %common.resume.i unwind label %42
 
 41:                                               ; preds = %26
@@ -275,7 +275,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7657b45618dbb8a1E.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %9
   %.0.i.i.i = phi i8 [ %12, %9 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit ]
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull %13, i8 noundef 0), !noalias !25
+  %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !25
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit", label %15
 
@@ -366,7 +366,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7657b45618dbb8a1E.exit": ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %11
   %.0.i.i.i = phi i8 [ %14, %11 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit ]
   %15 = getelementptr inbounds i8, ptr %0, i64 4
-  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull %15, i8 noundef 0), !noalias !33
+  %16 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h336f941913051bfcE.llvm.7731838488372856347(ptr noundef nonnull align 1 %15, i8 noundef 0), !noalias !33
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit", label %17
 

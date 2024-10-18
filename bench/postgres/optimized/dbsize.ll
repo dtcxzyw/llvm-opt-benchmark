@@ -520,7 +520,7 @@ define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull r
   br i1 %.not, label %74, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @relation_open(i32 noundef %14, i32 noundef 1) #9
+  %16 = tail call ptr @relation_open(i32 noundef range(i32 1, 0) %14, i32 noundef 1) #9
   %17 = getelementptr inbounds i8, ptr %16, i64 28
   br label %18
 
@@ -808,8 +808,8 @@ define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unn
   br label %13
 
 9:                                                ; preds = %1
-  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef %5)
-  %11 = tail call fastcc i64 @calculate_indexes_size(ptr noundef %5)
+  %10 = tail call fastcc i64 @calculate_table_size(ptr noundef nonnull %5)
+  %11 = tail call fastcc i64 @calculate_indexes_size(ptr noundef nonnull %5)
   %12 = add i64 %11, %10
   tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
   br label %13

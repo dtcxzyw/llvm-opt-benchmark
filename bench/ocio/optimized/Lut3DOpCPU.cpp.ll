@@ -2811,7 +2811,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   unreachable
 
 _ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i.i
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 %sub.i.i6)
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 range(i64 -82351538190829860, 82351538190829860) %sub.i.i6)
   %add.i.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i
   %54 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 82351536043346212)
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %54, 112
@@ -2827,7 +2827,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN19Op
   %__first.addr.02.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %this.val.i.i, %_ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__cur.03.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.02.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !77
   %minVals.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i, i64 16
   %minVals3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i, i64 16
   %56 = load ptr, ptr %minVals3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !75, !noalias !72
@@ -4617,7 +4617,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   unreachable
 
 _ZNKSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %sub)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 range(i64 1, 0) %sub)
   %add.i.i = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 288230376151711743)
   %mul.i.i.i.i = shl nuw nsw i64 %3, 5

@@ -662,7 +662,7 @@ if.else102:                                       ; preds = %if.else96
   %conv103 = zext nneg i32 %add to i64
   %call104 = tail call noalias ptr @g_malloc(i64 noundef %conv103) #20
   store ptr %call104, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
-  tail call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef %call104, i64 noundef %conv89, i1 noundef zeroext false) #18
+  tail call void @cpu_physical_memory_rw(i64 noundef %13, ptr noundef %call104, i64 noundef range(i64 12, 0) %conv89, i1 noundef zeroext false) #18
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
   %s.val.i = load i32, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 32), align 8
   %cmp.i.i = icmp eq i32 %s.val.i, 2
@@ -1675,7 +1675,7 @@ if.end11.i:                                       ; preds = %write_dump_bitmap.e
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.end11.i
-  %call.i.i49.i = call i64 @compressBound(i64 noundef %conv.i.i) #18
+  %call.i.i49.i = call i64 @compressBound(i64 noundef range(i64 0, 4294967296) %conv.i.i) #18
   br label %get_len_buf_out.exit.i.i
 
 get_len_buf_out.exit.thread133.i.i:               ; preds = %if.end11.i
@@ -1685,7 +1685,7 @@ get_len_buf_out.exit.thread133.i.i:               ; preds = %if.end11.i
   br label %if.end.i28.i
 
 sw.bb4.i.i.i:                                     ; preds = %if.end11.i
-  %call5.i.i.i = call i64 @snappy_max_compressed_length(i64 noundef %conv.i.i) #18
+  %call5.i.i.i = call i64 @snappy_max_compressed_length(i64 noundef range(i64 0, 4294967296) %conv.i.i) #18
   br label %get_len_buf_out.exit.i.i
 
 get_len_buf_out.exit.i.i:                         ; preds = %sw.bb4.i.i.i, %sw.bb.i.i.i

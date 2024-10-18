@@ -608,7 +608,7 @@ entry:
   %3 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %2, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -718,7 +718,7 @@ entry:
   %3 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %2, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -1058,7 +1058,7 @@ if.then9:                                         ; preds = %if.end
   %5 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then9
@@ -1093,7 +1093,7 @@ invoke.cont14:                                    ; preds = %if.end11
   %10 = getelementptr inbounds i8, ptr %path.i3, i64 8
   store i64 %9, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i3, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i3, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i5 unwind label %lpad.i4
 
 invoke.cont.i5:                                   ; preds = %invoke.cont14
@@ -1595,7 +1595,7 @@ invoke.cont:                                      ; preds = %if.end4
   %4 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %3, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i3 unwind label %lpad.i2
 
 invoke.cont.i3:                                   ; preds = %invoke.cont
@@ -1677,7 +1677,7 @@ invoke.cont:                                      ; preds = %if.end4
   %4 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %3, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont
@@ -1743,7 +1743,7 @@ if.then:                                          ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %3, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
@@ -1849,7 +1849,7 @@ invoke.cont19:                                    ; preds = %invoke.cont16
   %10 = getelementptr inbounds i8, ptr %path.i7, i64 8
   store i64 %9, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i7, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i7, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i9 unwind label %lpad.i8
 
 invoke.cont.i9:                                   ; preds = %invoke.cont19
@@ -2015,7 +2015,7 @@ invoke.cont31:                                    ; preds = %invoke.cont30
   %8 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %7, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont31
@@ -2164,7 +2164,7 @@ invoke.cont30:                                    ; preds = %invoke.cont29
   %8 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %7, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont30
@@ -2445,7 +2445,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %6 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %5, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont10
@@ -2500,7 +2500,7 @@ entry:
   %3 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %2, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -2734,7 +2734,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %3 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %2, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont4
@@ -2816,7 +2816,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   %4 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %3, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
-  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull %agg.result)
+  invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont6

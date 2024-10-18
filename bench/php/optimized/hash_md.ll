@@ -167,7 +167,7 @@ Encode.exit:                                      ; preds = %5
   %40 = getelementptr inbounds i8, ptr %1, i64 24
   %41 = zext nneg i32 %24 to i64
   %42 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %39, i1 false)
   tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull %40)
   %43 = add nuw nsw i64 %39, 63
   %44 = icmp samesign ult i64 %43, %27

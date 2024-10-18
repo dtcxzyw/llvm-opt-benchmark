@@ -991,7 +991,7 @@ dissect_dlt_non_verbose_payload_message.exit.i:   ; preds = %280, %278, %259, %.
 292:                                              ; preds = %283
   %293 = load i32, ptr @hf_dlt_payload_data, align 4
   %294 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %134) #7
-  %295 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %293, ptr noundef %0, i32 noundef %134, i32 noundef %294, i32 noundef %27) #7
+  %295 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %293, ptr noundef %0, i32 noundef %134, i32 noundef %294, i32 noundef range(i32 0, 2) %27) #7
   br label %dissect_dlt_non_verbose_payload.exit
 
 296:                                              ; preds = %135, %133
@@ -1172,7 +1172,7 @@ dissect_dlt_verbose_parameter_bool.exit.i.i:      ; preds = %340, %339, %338, %e
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i.i.i, label %367
 
 367:                                              ; preds = %366
-  %368 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %368 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i.i.i: ; preds = %367, %366
@@ -1219,7 +1219,7 @@ expert_dlt_unsupported_length_datatype.exit.i.i.i: ; preds = %367, %366
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit62.i.i.i, label %391
 
 391:                                              ; preds = %390
-  %392 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %392 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit62.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit62.i.i.i: ; preds = %391, %390
@@ -1297,7 +1297,7 @@ expert_dlt_buffer_too_short.exit.i90.i.i:         ; preds = %401, %400
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i88.i.i, label %426
 
 426:                                              ; preds = %425
-  %427 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %427 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i88.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i88.i.i: ; preds = %426, %425
@@ -1344,7 +1344,7 @@ expert_dlt_unsupported_length_datatype.exit.i88.i.i: ; preds = %426, %425
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit67.i.i.i, label %450
 
 450:                                              ; preds = %449
-  %451 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %451 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit67.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit67.i.i.i: ; preds = %450, %449
@@ -1408,7 +1408,7 @@ expert_dlt_buffer_too_short.exit.i95.i.i:         ; preds = %460, %459
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i93.i.i, label %477
 
 477:                                              ; preds = %476
-  %478 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %478 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i93.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i93.i.i: ; preds = %477, %476
@@ -1439,7 +1439,7 @@ expert_dlt_unsupported_length_datatype.exit.i93.i.i: ; preds = %477, %476
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit47.i.i.i, label %491
 
 491:                                              ; preds = %490
-  %492 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %492 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef range(i32 0, 17) %.078110.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit47.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit47.i.i.i: ; preds = %491, %490
@@ -1517,7 +1517,7 @@ expert_dlt_buffer_too_short.exit66.i.i.i:         ; preds = %515, %514
   br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_string_coding.exit.i.i.i, label %521
 
 521:                                              ; preds = %520
-  %522 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_string_coding, ptr noundef nonnull %0, i32 noundef %510, i32 noundef %512) #7
+  %522 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_string_coding, ptr noundef nonnull %0, i32 noundef %510, i32 noundef range(i32 0, 65536) %512) #7
   br label %expert_dlt_unsupported_string_coding.exit.i.i.i
 
 expert_dlt_unsupported_string_coding.exit.i.i.i:  ; preds = %521, %520

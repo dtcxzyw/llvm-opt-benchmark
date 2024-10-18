@@ -250,7 +250,7 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17h85e69679a19db8a0E(ptr align 8 %0,
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN4core3fmt5Write9write_fmt17hc5ef5f2c81ed0533E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = tail call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr align 1 %0, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.0, ptr align 8 %1)
+  %3 = tail call zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr align 8 %0, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.0, ptr align 8 %1)
   ret i1 %3
 }
 

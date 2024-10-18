@@ -1983,7 +1983,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow24DenseOpticalFlowRLOFImplC2Ev(pt
           to label %48 unwind label %419
 
 48:                                               ; preds = %30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %47, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds i8, ptr %47, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %49) #24
   %50 = getelementptr inbounds i8, ptr %47, i64 120
@@ -2196,7 +2196,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit:  ; preds = %122, %134, %_ZNSt16
           to label %140 unwind label %419
 
 140:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %139, i8 0, i64 24, i1 false)
   %141 = getelementptr inbounds i8, ptr %139, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %141) #24
   %142 = getelementptr inbounds i8, ptr %139, i64 120
@@ -2410,7 +2410,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50: ; preds = %215, %227, %_ZNSt1
           to label %233 unwind label %419
 
 233:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %232, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %232, i8 0, i64 24, i1 false)
   %234 = getelementptr inbounds i8, ptr %232, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %234) #24
   %235 = getelementptr inbounds i8, ptr %232, i64 120
@@ -2623,7 +2623,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72: ; preds = %307, %319, %_ZNSt1
           to label %325 unwind label %419
 
 325:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %324, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %324, i8 0, i64 24, i1 false)
   %326 = getelementptr inbounds i8, ptr %324, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %326) #24
   %327 = getelementptr inbounds i8, ptr %324, i64 120
@@ -6875,7 +6875,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow25SparseRLOFOpticalFlowImplC2Ev(p
           to label %36 unwind label %407
 
 36:                                               ; preds = %30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %35, i8 0, i64 24, i1 false)
   %37 = getelementptr inbounds i8, ptr %35, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #24
   %38 = getelementptr inbounds i8, ptr %35, i64 120
@@ -7088,7 +7088,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit:  ; preds = %110, %122, %_ZNSt16
           to label %128 unwind label %407
 
 128:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %127, i8 0, i64 24, i1 false)
   %129 = getelementptr inbounds i8, ptr %127, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %129) #24
   %130 = getelementptr inbounds i8, ptr %127, i64 120
@@ -7302,7 +7302,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50: ; preds = %203, %215, %_ZNSt1
           to label %221 unwind label %407
 
 221:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit50
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %220, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %220, i8 0, i64 24, i1 false)
   %222 = getelementptr inbounds i8, ptr %220, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %222) #24
   %223 = getelementptr inbounds i8, ptr %220, i64 120
@@ -7515,7 +7515,7 @@ _ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72: ; preds = %295, %307, %_ZNSt1
           to label %313 unwind label %407
 
 313:                                              ; preds = %_ZN2cv3PtrINS_7optflow12CImageBufferEED2Ev.exit72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %312, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(245) %312, i8 0, i64 24, i1 false)
   %314 = getelementptr inbounds i8, ptr %312, i64 24
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %314) #24
   %315 = getelementptr inbounds i8, ptr %312, i64 120

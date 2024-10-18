@@ -1321,7 +1321,7 @@ define internal fastcc void @beautify_leaves(i32 noundef range(i32 1, -214748364
   br label %bitarray_new.exit
 
 21:                                               ; preds = %14
-  %22 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 1) #22
+  %22 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2305843009213693953) %19, i64 noundef 1) #22
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %bitarray_new.exit
 
@@ -4007,7 +4007,7 @@ power_law_graph.exit:                             ; preds = %._crit_edge52.i, %3
   %391 = load ptr, ptr %390, align 8
   %392 = load double, ptr %345, align 8
   %393 = fmul double %392, 1.000000e-03
-  call void @SparseMatrix_multiply_dense(ptr noundef %378, ptr noundef %.1, ptr noundef %.0141, i32 noundef %0) #25
+  call void @SparseMatrix_multiply_dense(ptr noundef %378, ptr noundef %.1, ptr noundef %.0141, i32 noundef range(i32 1, -2147483648) %0) #25
   %394 = getelementptr inbounds i8, ptr %389, i64 24
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds i8, ptr %389, i64 32

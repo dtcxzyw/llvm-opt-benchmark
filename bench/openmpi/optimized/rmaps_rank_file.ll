@@ -370,7 +370,7 @@ pmix_pointer_array_get_item.exit.i.i:             ; preds = %124, %120
   br i1 %.not.i.i.i.i.i, label %138, label %140
 
 138:                                              ; preds = %136
-  %139 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef %137, i32 noundef 0) #20
+  %139 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %133, i32 noundef range(i32 0, -2) %137, i32 noundef 0) #20
   br label %hwloc_get_next_obj_by_type.exit.i.i.i
 
 140:                                              ; preds = %136
@@ -1423,7 +1423,7 @@ pmix_obj_run_destructors.exit434:                 ; preds = %.lr.ph.i431, %610
 .lr.ph.i438:                                      ; preds = %649, %.lr.ph.i438
   %655 = phi ptr [ %657, %.lr.ph.i438 ], [ %654, %649 ]
   %.07.i439 = phi ptr [ %656, %.lr.ph.i438 ], [ %653, %649 ]
-  call void %655(ptr noundef %632) #18
+  call void %655(ptr noundef nonnull %632) #18
   %656 = getelementptr inbounds i8, ptr %.07.i439, i64 8
   %657 = load ptr, ptr %656, align 8
   %.not.i440 = icmp eq ptr %657, null
@@ -1551,7 +1551,7 @@ pmix_obj_run_constructors.exit452:                ; preds = %.lr.ph.i449, %676, 
 .lr.ph.i456:                                      ; preds = %707, %.lr.ph.i456
   %713 = phi ptr [ %715, %.lr.ph.i456 ], [ %712, %707 ]
   %.07.i457 = phi ptr [ %714, %.lr.ph.i456 ], [ %711, %707 ]
-  call void %713(ptr noundef %690) #18
+  call void %713(ptr noundef nonnull %690) #18
   %714 = getelementptr inbounds i8, ptr %.07.i457, i64 8
   %715 = load ptr, ptr %714, align 8
   %.not.i458 = icmp eq ptr %715, null
@@ -1754,7 +1754,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %340, %pmix_obj_run_
 .lr.ph.i483:                                      ; preds = %800, %.lr.ph.i483
   %806 = phi ptr [ %808, %.lr.ph.i483 ], [ %805, %800 ]
   %.07.i484 = phi ptr [ %807, %.lr.ph.i483 ], [ %804, %800 ]
-  call void %806(ptr noundef %783) #18
+  call void %806(ptr noundef nonnull %783) #18
   %807 = getelementptr inbounds i8, ptr %.07.i484, i64 8
   %808 = load ptr, ptr %807, align 8
   %.not.i485 = icmp eq ptr %808, null

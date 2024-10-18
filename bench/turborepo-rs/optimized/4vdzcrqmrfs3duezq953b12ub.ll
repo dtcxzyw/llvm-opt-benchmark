@@ -40,13 +40,13 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
 
 23:                                               ; preds = %19
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %25 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #12
+  %25 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, -9223372036854775807) %1) #12
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
 
 26:                                               ; preds = %13
   %27 = icmp uge i64 %2, %16
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %16, i64 noundef %1, i64 noundef %2) #12
+  %28 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %16, i64 noundef range(i64 1, -9223372036854775807) %1, i64 noundef %2) #12
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
 
 29:                                               ; preds = %7
@@ -65,7 +65,7 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
   %37 = add i64 %1, -1
   %38 = icmp sgt i64 %37, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #12
+  %39 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %1) #12
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit": ; preds = %35, %31, %26, %23, %21
@@ -120,12 +120,12 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   %14 = load ptr, ptr %13, align 8, !alias.scope !9, !noalias !12, !nonnull !5, !noundef !5
   %15 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %8
   tail call void @llvm.assume(i1 %15)
-  %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %8, i64 noundef %.sroa.0.0.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i17.i) #12, !noalias !14
+  %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %8, i64 noundef range(i64 1, -9223372036854775807) %.sroa.0.0.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i17.i) #12, !noalias !14
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
 
 17:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.i
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !14
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %.sroa.0.0.sroa.speculated.i17.i, i64 noundef %.sroa.0.0.i.i) #12, !noalias !14
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %.sroa.0.0.sroa.speculated.i17.i, i64 noundef range(i64 1, 0) %.sroa.0.0.i.i) #12, !noalias !14
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i": ; preds = %17, %12
@@ -187,11 +187,11 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit": ; preds = %7
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %11 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %1, i64 noundef %.sroa.0.0.i) #12
+  %11 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #12
   br label %13
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h11bc396744ca58afE.exit": ; preds = %7
-  %12 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef %.sroa.0.0.i) #12
+  %12 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %1, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #12
   br label %13
 
 13:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h11bc396744ca58afE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit"
@@ -252,12 +252,12 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   %11 = load ptr, ptr %10, align 8, !alias.scope !21, !noalias !24, !nonnull !5, !noundef !5
   %12 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %12)
-  %13 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %11, i64 noundef %2, i64 noundef %.sroa.0.0.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i17.i) #12, !noalias !26
+  %13 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %11, i64 noundef %2, i64 noundef range(i64 1, -9223372036854775807) %.sroa.0.0.i.i, i64 noundef %.sroa.0.0.sroa.speculated.i17.i) #12, !noalias !26
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
 
 14:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.i
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !26
-  %16 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %.sroa.0.0.sroa.speculated.i17.i, i64 noundef %.sroa.0.0.i.i) #12, !noalias !26
+  %16 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %.sroa.0.0.sroa.speculated.i17.i, i64 noundef range(i64 1, 0) %.sroa.0.0.i.i) #12, !noalias !26
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i": ; preds = %14, %9
@@ -306,12 +306,12 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   %14 = load ptr, ptr %13, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !noundef !5
   %15 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17, %8
   tail call void @llvm.assume(i1 %15)
-  %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %8, i64 noundef %.sroa.0.0.i, i64 noundef %.sroa.0.0.sroa.speculated.i17) #12, !noalias !35
+  %16 = tail call noundef ptr @__rust_realloc(ptr noundef nonnull %14, i64 noundef %8, i64 noundef range(i64 1, -9223372036854775807) %.sroa.0.0.i, i64 noundef %.sroa.0.0.sroa.speculated.i17) #12, !noalias !35
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i"
 
 17:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !35
-  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %.sroa.0.0.sroa.speculated.i17, i64 noundef %.sroa.0.0.i) #12, !noalias !35
+  %19 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %.sroa.0.0.sroa.speculated.i17, i64 noundef range(i64 1, 0) %.sroa.0.0.i) #12, !noalias !35
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i": ; preds = %17, %12

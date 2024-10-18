@@ -82,7 +82,7 @@ define hidden void @_ZN12ZJNICritical5blockEv() local_unnamed_addr #1 align 2 {
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #6
+  %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #6
   br label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %3, %5
@@ -103,7 +103,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %3, %5
   br i1 %.not.i, label %.backedge.backedge, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #6
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #6
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %13, %._crit_edge, %15
@@ -125,7 +125,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %3, %5
   br i1 %.not.i8, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %20) #6
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %20) #6
   br label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9:       ; preds = %19, %21
@@ -146,7 +146,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit9:       ; preds = %19, %21
   br i1 %.not.i8, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit11, label %27
 
 27:                                               ; preds = %._crit_edge15
-  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #6
+  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %20) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit11
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit11:         ; preds = %27, %._crit_edge15, %18
@@ -162,13 +162,13 @@ define hidden void @_ZN12ZJNICritical7unblockEv() local_unnamed_addr #1 align 2 
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit.critedge, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %0
-  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #6
+  %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile i64 0, ptr @_ZN12ZJNICritical6_countE, align 8
   %4 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %5) #6
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #6
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit.critedge:  ; preds = %0
@@ -224,7 +224,7 @@ define hidden void @_ZN12ZJNICritical11enter_innerEP10JavaThread(ptr noundef %0)
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit, label %23
 
 23:                                               ; preds = %14
-  %24 = call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #6
+  %24 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %22) #6
   br label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %14, %23
@@ -245,7 +245,7 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit:        ; preds = %14, %23
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %22) #6
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %22) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %._crit_edge, %31
@@ -373,11 +373,11 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread: ; preds = %11
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #6
+  %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %12) #6
   %16 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %17) #6
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #6
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %12) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %3, %14, %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread, %9
@@ -428,11 +428,11 @@ _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread.i: ; preds = %16
   br label %_ZN12ZJNICritical10exit_innerEv.exit
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #6
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %17) #6
   %21 = load ptr, ptr @_ZN12ZJNICritical5_lockE, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %22) #6
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #6
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %17) #6
   br label %_ZN12ZJNICritical10exit_innerEv.exit
 
 _ZN12ZJNICritical10exit_innerEv.exit:             ; preds = %8, %19, %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread.i, %14, %1

@@ -393,7 +393,7 @@ if.end:                                           ; preds = %if.then21, %if.then
   br i1 %cmp24, label %if.then25, label %return
 
 if.then25:                                        ; preds = %if.end
-  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr noundef nonnull readonly %sphereCenter)
+  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter)
   br i1 %call.i61, label %if.end47.thread115, label %if.else
 
 if.end47.thread115:                               ; preds = %if.then25

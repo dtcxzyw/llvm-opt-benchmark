@@ -666,7 +666,7 @@ cid_parser_new.exit._crit_edge.i:                 ; preds = %145
 232:                                              ; preds = %228
   %233 = getelementptr inbounds i8, ptr %.05984.i.i, i64 24
   %234 = load ptr, ptr %233, align 8
-  call void %234(ptr noundef %1, ptr noundef nonnull %9) #13
+  call void %234(ptr noundef nonnull %1, ptr noundef nonnull %9) #13
   %235 = load i32, ptr %116, align 8
   br label %cid_load_keyword.exit.i.i
 

@@ -4514,7 +4514,7 @@ define internal fastcc i32 @__send_duplicate_bios(ptr nocapture noundef readonly
   %62 = load ptr, ptr %34, align 8
   %63 = getelementptr inbounds i8, ptr %54, i64 552
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @bio_alloc_clone(ptr noundef null, ptr noundef %62, i32 noundef %47, ptr noundef %64) #23
+  %65 = tail call ptr @bio_alloc_clone(ptr noundef null, ptr noundef %62, i32 noundef range(i32 3072, 10241) %47, ptr noundef %64) #23
   %66 = icmp eq ptr %65, null
   br i1 %66, label %alloc_tio.exit.thread, label %67
 

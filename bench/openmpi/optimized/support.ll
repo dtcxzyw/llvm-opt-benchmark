@@ -1031,7 +1031,7 @@ define dso_local void @pmix_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
   %.011.i = phi ptr [ %.0.i, %41 ], [ %.09.i, %1 ]
   %34 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(5) @.str.46) #23
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(5) @.str.46) #23
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %pmix_cmd_line_get_param.exit.preheader, label %41
 
@@ -1968,7 +1968,7 @@ define dso_local void @pmix_info_do_params(i1 noundef zeroext %0) local_unnamed_
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %1 ]
   %8 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(6) @.str.49) #23
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(6) @.str.49) #23
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %pmix_cmd_line_get_param.exit, label %12
 
@@ -2275,7 +2275,7 @@ define dso_local void @pmix_info_do_type() local_unnamed_addr #2 {
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %0 ]
   %8 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(5) @.str.26) #23
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(5) @.str.26) #23
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %pmix_cmd_line_get_param.exit, label %12
 

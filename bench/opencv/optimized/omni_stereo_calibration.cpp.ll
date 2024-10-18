@@ -1663,7 +1663,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %._crit_edge
   %646 = getelementptr inbounds i8, ptr %67, i64 80
   store ptr %646, ptr %645, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %646, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %39, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %152, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %39, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 noundef 0)
           to label %.noexc.i143 unwind label %.loopexit.split-lp232.loopexit.split-lp.i
 
 .noexc.i143:                                      ; preds = %639
@@ -1730,7 +1730,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %._crit_edge
   %664 = getelementptr inbounds i8, ptr %71, i64 80
   store ptr %664, ptr %663, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %664, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %35, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %153, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %35, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %153, i64 noundef 0)
           to label %.noexc156.i unwind label %.loopexit.split-lp232.loopexit.split-lp.i
 
 .noexc156.i:                                      ; preds = %657
@@ -1892,7 +1892,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %._crit_edge
   store ptr %709, ptr %712, align 8
   store ptr %714, ptr %713, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %714, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %29, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %738, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %29, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %738, i64 noundef 0)
           to label %.noexc166.i unwind label %.loopexit240.i
 
 .noexc166.i:                                      ; preds = %736
@@ -1947,7 +1947,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %._crit_edge
   store ptr %723, ptr %726, align 8
   store ptr %728, ptr %727, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %728, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %747, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 3, i32 noundef 1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(24) %747, i64 noundef 0)
           to label %.noexc171.i unwind label %.loopexit240.i
 
 .noexc171.i:                                      ; preds = %745

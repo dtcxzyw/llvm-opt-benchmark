@@ -359,7 +359,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEC2ERKS1_.exit: ; preds = %79
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   %95 = load ptr, ptr %94, align 8
-  invoke void %95(ptr noundef nonnull %89)
+  invoke void %95(ptr noundef nonnull align 8 dereferenceable(16) %89)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %98
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %93, %90
@@ -404,7 +404,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %88, %_ZN15QtSharedP
 108:                                              ; preds = %105
   %109 = getelementptr inbounds i8, ptr %104, i64 8
   %110 = load ptr, ptr %109, align 8
-  invoke void %110(ptr noundef nonnull %104)
+  invoke void %110(ptr noundef nonnull align 8 dereferenceable(16) %104)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i37 unwind label %113
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i37: ; preds = %108, %105
@@ -669,7 +669,7 @@ define linkonce_odr void @_ZN14QSharedPointerI13QCPAxisTickerED2Ev(ptr noundef n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
@@ -1438,7 +1438,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %171, %.preheader
 214:                                              ; preds = %211
   %215 = getelementptr inbounds i8, ptr %210, i64 8
   %216 = load ptr, ptr %215, align 8, !noalias !24
-  invoke void %216(ptr noundef nonnull %210)
+  invoke void %216(ptr noundef nonnull align 8 dereferenceable(16) %210)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i unwind label %219, !noalias !24
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i: ; preds = %214, %211
@@ -1469,7 +1469,7 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
 225:                                              ; preds = %222
   %226 = getelementptr inbounds i8, ptr %187, i64 8
   %227 = load ptr, ptr %226, align 8
-  invoke void %227(ptr noundef nonnull %187)
+  invoke void %227(ptr noundef nonnull align 8 dereferenceable(16) %187)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %230
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %225, %222
@@ -1566,7 +1566,7 @@ _ZNK20QCPAbstractPlottable9valueAxisEv.exit:      ; preds = %_ZN14QSharedPointer
 271:                                              ; preds = %268
   %272 = getelementptr inbounds i8, ptr %267, i64 8
   %273 = load ptr, ptr %272, align 8, !noalias !35
-  invoke void %273(ptr noundef nonnull %267)
+  invoke void %273(ptr noundef nonnull align 8 dereferenceable(16) %267)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i104 unwind label %276, !noalias !35
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i104: ; preds = %271, %268
@@ -1597,7 +1597,7 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
 282:                                              ; preds = %279
   %283 = getelementptr inbounds i8, ptr %244, i64 8
   %284 = load ptr, ptr %283, align 8
-  invoke void %284(ptr noundef nonnull %244)
+  invoke void %284(ptr noundef nonnull align 8 dereferenceable(16) %244)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111 unwind label %287
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111: ; preds = %282, %279
@@ -1688,7 +1688,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113: ; preds = %_Z18qSharedPointerC
 324:                                              ; preds = %321
   %325 = getelementptr inbounds i8, ptr %320, i64 8
   %326 = load ptr, ptr %325, align 8, !noalias !45
-  invoke void %326(ptr noundef nonnull %320)
+  invoke void %326(ptr noundef nonnull align 8 dereferenceable(16) %320)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i120 unwind label %329, !noalias !45
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i.i120: ; preds = %324, %321
@@ -1719,7 +1719,7 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
 335:                                              ; preds = %332
   %336 = getelementptr inbounds i8, ptr %297, i64 8
   %337 = load ptr, ptr %336, align 8
-  invoke void %337(ptr noundef nonnull %297)
+  invoke void %337(ptr noundef nonnull align 8 dereferenceable(16) %297)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127 unwind label %340
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127: ; preds = %335, %332
@@ -1758,7 +1758,7 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit129: ; preds = %_Z18qSharedPointerC
 350:                                              ; preds = %347
   %351 = getelementptr inbounds i8, ptr %346, i64 8
   %352 = load ptr, ptr %351, align 8
-  invoke void %352(ptr noundef nonnull %346)
+  invoke void %352(ptr noundef nonnull align 8 dereferenceable(16) %346)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i132 unwind label %355
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i132: ; preds = %350, %347
@@ -1792,7 +1792,7 @@ _ZN14QSharedPointerI17QCPAxisTickerTextED2Ev.exit: ; preds = %344, %_ZN15QtShare
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %359, i64 8
   %365 = load ptr, ptr %364, align 8
-  invoke void %365(ptr noundef nonnull %359)
+  invoke void %365(ptr noundef nonnull align 8 dereferenceable(16) %359)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136 unwind label %368
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i136: ; preds = %363, %360
@@ -1826,7 +1826,7 @@ _ZN14QSharedPointerI17QCPAxisTickerTextED2Ev.exit138: ; preds = %_ZN14QSharedPoi
 376:                                              ; preds = %373
   %377 = getelementptr inbounds i8, ptr %372, i64 8
   %378 = load ptr, ptr %377, align 8
-  invoke void %378(ptr noundef nonnull %372)
+  invoke void %378(ptr noundef nonnull align 8 dereferenceable(16) %372)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i141 unwind label %381
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i141: ; preds = %376, %373
@@ -2273,7 +2273,7 @@ define linkonce_odr void @_ZN14QSharedPointerI17QCPAxisTickerTextED2Ev(ptr nound
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull %3)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4

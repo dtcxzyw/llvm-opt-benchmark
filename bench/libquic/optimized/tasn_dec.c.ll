@@ -2007,7 +2007,7 @@ collect_data.exit.thread:                         ; preds = %land.lhs.true25
 collect_data.exit:                                ; preds = %land.lhs.true25
   %9 = load ptr, ptr %data.i, align 8
   %add.ptr.i18 = getelementptr inbounds i8, ptr %9, i64 %conv1.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i18, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i18, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 range(i64 1, 0) %7, i1 false)
   %add.ptr5.i = getelementptr inbounds i8, ptr %6, i64 %7
   store ptr %add.ptr5.i, ptr %p, align 8
   br label %if.end30

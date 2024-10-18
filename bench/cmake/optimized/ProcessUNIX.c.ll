@@ -113,8 +113,8 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not11.i, label %17, label %.preheader.i
 
 17:                                               ; preds = %14
-  tail call fastcc void @kwsysProcessClosePipes(ptr noundef %0)
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessClosePipes(ptr noundef nonnull %0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
   store volatile i32 7, ptr %3, align 4
   br label %.preheader.i
 
@@ -631,7 +631,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   store i32 5, ptr %59, align 4
   %154 = load ptr, ptr %28, align 8
   %155 = getelementptr inbounds %struct.kwsysProcessResults_s, ptr %154, i64 %indvars.iv, i32 4
-  %156 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %155, i64 noundef 1025, ptr noundef nonnull @.str.39, i32 noundef %58) #25
+  %156 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %155, i64 noundef 1025, ptr noundef nonnull @.str.39, i32 noundef range(i32 0, 128) %58) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 157:                                              ; preds = %51

@@ -1275,12 +1275,12 @@ define dso_local void @_ZN5clang13DiagnosticIDs18getDiagnosticFlagsB5cxx11Ev(ptr
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 2))
   %14 = getelementptr inbounds i8, ptr %6, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   %15 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1, i64 5))
   %16 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   store ptr %16, ptr %0, align 8
@@ -1726,7 +1726,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs16getNearestOptionENS_4di
   br i1 %23, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %24
 
 24:                                               ; preds = %16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %9, i64 noundef 8) #22
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %9, i64 noundef 8) #22
   %25 = call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEE(i32 noundef %0, ptr noundef nonnull %.019.ptr35, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br i1 %25, label %31, label %26
 
@@ -1745,7 +1745,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs16getNearestOptionENS_4di
   %.sroa.4.2 = phi i64 [ %.sroa.4.031, %24 ], [ %.sroa.4.031, %26 ], [ %21, %30 ], [ 0, %28 ]
   %.sroa.030.2 = phi ptr [ %.sroa.030.032, %24 ], [ %.sroa.030.032, %26 ], [ %19, %30 ], [ @.str.2, %28 ]
   %.2 = phi i32 [ %.034, %24 ], [ %.034, %26 ], [ %22, %30 ], [ %.034, %28 ]
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #22
   %33 = load ptr, ptr %5, align 8
   %34 = icmp eq ptr %33, %9
   br i1 %34, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %35

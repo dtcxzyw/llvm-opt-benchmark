@@ -2198,7 +2198,7 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
 
 .sink.split.i:                                    ; preds = %95, %94
   %.str.745.sink.i = phi ptr [ @.str.745, %95 ], [ @.str.744, %94 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i, ptr noundef nonnull @.str.339, i32 noundef %92) #9
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i, ptr noundef nonnull @.str.339, i32 noundef range(i32 0, 65536) %92) #9
   br label %uds_proto_item_append_address_text.exit
 
 uds_proto_item_append_address_text.exit:          ; preds = %91, %94, %.sink.split.i
@@ -2225,7 +2225,7 @@ uds_lookup_address_name.exit.i:                   ; preds = %uds_proto_item_appe
 
 uds_proto_item_append_address_name.exit:          ; preds = %uds_lookup_address_name.exit.thread.i, %uds_lookup_address_name.exit.i, %100
   %101 = load i32, ptr @hf_uds_diag_addr, align 4
-  %102 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %92) #9
+  %102 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 65536) %92) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 %96, ptr %21, align 8
   %103 = load ptr, ptr @uds_ht_addresses, align 8
@@ -2283,7 +2283,7 @@ uds_lookup_address_name.exit.i1116:               ; preds = %uds_proto_tree_add_
 
 118:                                              ; preds = %uds_lookup_address_name.exit.i1116, %uds_lookup_address_name.exit.thread.i1120
   %119 = call ptr @wmem_packet_scope() #9
-  %120 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %119, ptr noundef nonnull @.str.746, i32 noundef %92) #9
+  %120 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %119, ptr noundef nonnull @.str.746, i32 noundef range(i32 0, 65536) %92) #9
   br label %121
 
 121:                                              ; preds = %118, %uds_lookup_address_name.exit.i1116
@@ -2330,7 +2330,7 @@ uds_lookup_address_name.exit.i1116:               ; preds = %uds_proto_tree_add_
 
 .sink.split.i1121:                                ; preds = %138, %137
   %.str.745.sink.i1122 = phi ptr [ @.str.745, %138 ], [ @.str.744, %137 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i1122, ptr noundef nonnull @.str.723, i32 noundef %135) #9
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i1122, ptr noundef nonnull @.str.723, i32 noundef range(i32 0, 65536) %135) #9
   br label %uds_proto_item_append_address_text.exit1123
 
 uds_proto_item_append_address_text.exit1123:      ; preds = %134, %137, %.sink.split.i1121
@@ -2370,7 +2370,7 @@ uds_proto_item_append_address_name.exit1127:      ; preds = %uds_lookup_address_
 
 .sink.split.i1128:                                ; preds = %146, %145
   %.str.745.sink.i1129 = phi ptr [ @.str.745, %146 ], [ @.str.744, %145 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i1129, ptr noundef nonnull @.str.724, i32 noundef %144) #9
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %87, ptr noundef nonnull %.str.745.sink.i1129, ptr noundef nonnull @.str.724, i32 noundef range(i32 0, 65536) %144) #9
   br label %uds_proto_item_append_address_text.exit1130
 
 uds_proto_item_append_address_text.exit1130:      ; preds = %uds_proto_item_append_address_name.exit1127, %145, %.sink.split.i1128
@@ -2397,7 +2397,7 @@ uds_lookup_address_name.exit.i1131:               ; preds = %uds_proto_item_appe
 
 uds_proto_item_append_address_name.exit1134:      ; preds = %uds_lookup_address_name.exit.thread.i1133, %uds_lookup_address_name.exit.i1131, %151
   %152 = load i32, ptr @hf_uds_diag_source_addr, align 4
-  %153 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %152, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %135) #9
+  %153 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %152, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 65536) %135) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %139, ptr %17, align 8
   %154 = load ptr, ptr @uds_ht_addresses, align 8
@@ -2455,7 +2455,7 @@ uds_lookup_address_name.exit.i1143:               ; preds = %uds_proto_tree_add_
 
 169:                                              ; preds = %uds_lookup_address_name.exit.i1143, %uds_lookup_address_name.exit.thread.i1150
   %170 = call ptr @wmem_packet_scope() #9
-  %171 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %170, ptr noundef nonnull @.str.746, i32 noundef %135) #9
+  %171 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %170, ptr noundef nonnull @.str.746, i32 noundef range(i32 0, 65536) %135) #9
   br label %172
 
 172:                                              ; preds = %169, %uds_lookup_address_name.exit.i1143
@@ -2488,7 +2488,7 @@ uds_lookup_address_name.exit.i1143:               ; preds = %uds_proto_tree_add_
 
 uds_proto_tree_add_address_name.exit1151:         ; preds = %172, %174, %177, %181
   %185 = load i32, ptr @hf_uds_diag_addr, align 4
-  %186 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %185, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %135) #9
+  %186 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %185, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 65536) %135) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %139, ptr %15, align 8
   %187 = load ptr, ptr @uds_ht_addresses, align 8
@@ -2555,7 +2555,7 @@ uds_lookup_address_name.exit.i1160:               ; preds = %uds_proto_tree_add_
 
 205:                                              ; preds = %uds_lookup_address_name.exit.i1160, %uds_lookup_address_name.exit.thread.i1167
   %206 = call ptr @wmem_packet_scope() #9
-  %207 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %206, ptr noundef nonnull @.str.746, i32 noundef %135) #9
+  %207 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %206, ptr noundef nonnull @.str.746, i32 noundef range(i32 0, 65536) %135) #9
   br label %208
 
 208:                                              ; preds = %205, %uds_lookup_address_name.exit.i1160
@@ -2588,7 +2588,7 @@ uds_lookup_address_name.exit.i1160:               ; preds = %uds_proto_tree_add_
 
 uds_proto_tree_add_address_name.exit1168:         ; preds = %208, %210, %213, %217
   %221 = load i32, ptr @hf_uds_diag_target_addr, align 4
-  %222 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %221, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %144) #9
+  %222 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %221, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 65536) %144) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %147, ptr %13, align 8
   %223 = load ptr, ptr @uds_ht_addresses, align 8
@@ -2646,7 +2646,7 @@ uds_lookup_address_name.exit.i1177:               ; preds = %uds_proto_tree_add_
 
 238:                                              ; preds = %uds_lookup_address_name.exit.i1177, %uds_lookup_address_name.exit.thread.i1184
   %239 = call ptr @wmem_packet_scope() #9
-  %240 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %239, ptr noundef nonnull @.str.746, i32 noundef %144) #9
+  %240 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %239, ptr noundef nonnull @.str.746, i32 noundef range(i32 0, 65536) %144) #9
   br label %241
 
 241:                                              ; preds = %238, %uds_lookup_address_name.exit.i1177
@@ -2679,7 +2679,7 @@ uds_lookup_address_name.exit.i1177:               ; preds = %uds_proto_tree_add_
 
 uds_proto_tree_add_address_name.exit1185:         ; preds = %241, %243, %246, %250
   %254 = load i32, ptr @hf_uds_diag_addr, align 4
-  %255 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %254, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %144) #9
+  %255 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %254, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef range(i32 0, 65536) %144) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %147, ptr %11, align 8
   %256 = load ptr, ptr @uds_ht_addresses, align 8
@@ -2746,7 +2746,7 @@ uds_lookup_address_name.exit.i1195:               ; preds = %uds_proto_tree_add_
 
 274:                                              ; preds = %uds_lookup_address_name.exit.i1195, %uds_lookup_address_name.exit.thread.i1202
   %275 = call ptr @wmem_packet_scope() #9
-  %276 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %275, ptr noundef nonnull @.str.746, i32 noundef %144) #9
+  %276 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %275, ptr noundef nonnull @.str.746, i32 noundef range(i32 0, 65536) %144) #9
   br label %277
 
 277:                                              ; preds = %274, %uds_lookup_address_name.exit.i1195

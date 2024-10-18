@@ -585,7 +585,7 @@ entry:
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE)
+  %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4baseL35leaky_unix_epoch_singleton_instanceE)
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -604,7 +604,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %retval.0.i.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i.i.i.i.i, i64 %spec.select.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i
   %sub.i1.i.i.i.i.i = sub nsw i64 0, %retval.0.i.i.i.i.i.i.i.i
   store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8), align 8
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8) to i64), ptr noundef nonnull @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(16) @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_18UnixEpochSingletonENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i

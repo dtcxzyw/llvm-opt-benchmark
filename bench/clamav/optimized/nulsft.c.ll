@@ -121,7 +121,7 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   br i1 %.not.i, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = call fastcc i32 @nsis_unpack_next(ptr noundef %4, ptr noundef %0)
+  %38 = call fastcc i32 @nsis_unpack_next(ptr noundef nonnull %4, ptr noundef %0)
   br label %cli_nsis_unpack.exit
 
 39:                                               ; preds = %35
@@ -329,7 +329,7 @@ nsis_detcomp.exit83.i.i:                          ; preds = %105, %101
   %149 = load i64, ptr %5, align 8
   %150 = add nsw i64 %149, 28
   store i64 %150, ptr %4, align 8
-  %151 = call fastcc i32 @nsis_unpack_next(ptr noundef %4, ptr noundef %0)
+  %151 = call fastcc i32 @nsis_unpack_next(ptr noundef nonnull %4, ptr noundef %0)
   br label %nsis_headers.exit.i
 
 nsis_headers.exit.i:                              ; preds = %89, %71, %148, %39
@@ -583,7 +583,7 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %33, i64 4)
   %34 = getelementptr inbounds i8, ptr %28, i64 104
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr %35(ptr noundef nonnull %28, i64 noundef %29, i64 noundef %spec.select.i, i32 noundef 0) #10
+  %36 = tail call ptr %35(ptr noundef nonnull %28, i64 noundef %29, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #10
   %.not26.i = icmp eq ptr %36, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -649,7 +649,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   %61 = load i64, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %60, i64 104
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call ptr %63(ptr noundef %60, i64 noundef %61, i64 noundef %54, i32 noundef 0) #10
+  %64 = tail call ptr %63(ptr noundef %60, i64 noundef %61, i64 noundef range(i64 0, 4294967296) %54, i32 noundef 0) #10
   %.not160 = icmp eq ptr %64, null
   br i1 %.not160, label %65, label %66
 
@@ -892,7 +892,7 @@ nsis_init.exit:                                   ; preds = %146, %143
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds i8, ptr %163, i64 104
   %169 = load ptr, ptr %168, align 8
-  %170 = tail call ptr %169(ptr noundef %163, i64 noundef %164, i64 noundef %167, i32 noundef 0) #10
+  %170 = tail call ptr %169(ptr noundef %163, i64 noundef %164, i64 noundef range(i64 0, 4294967296) %167, i32 noundef 0) #10
   store ptr %170, ptr %138, align 8
   %.not171 = icmp eq ptr %170, null
   br i1 %.not171, label %171, label %173

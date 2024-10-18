@@ -363,11 +363,11 @@ land.lhs.true1.i.i77:                             ; preds = %if.end.i73
 _eth_copy_chunk.exit.thread119:                   ; preds = %land.lhs.true1.i.i77
   %24 = load ptr, ptr %iov, align 8
   %add.ptr.i.i83 = getelementptr i8, ptr %24, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %l4hdr_info, ptr noundef nonnull align 1 dereferenceable(20) %add.ptr.i.i83, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %l4hdr_info, ptr noundef nonnull align 1 dereferenceable(20) %add.ptr.i.i83, i64 range(i64 2, 41) 20, i1 false)
   br label %if.then53
 
 _eth_copy_chunk.exit:                             ; preds = %if.end.i73, %land.lhs.true1.i.i77
-  %call.i.i74 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %conv, i64 noundef %22, ptr noundef nonnull %l4hdr_info, i64 noundef 20) #8
+  %call.i.i74 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %conv, i64 noundef %22, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 41) 20) #8
   %cmp1.i = icmp ugt i64 %call.i.i74, 19
   br i1 %cmp1.i, label %if.then53, label %sw.epilog
 
@@ -444,7 +444,7 @@ _eth_copy_chunk.exit107.thread123:                ; preds = %land.lhs.true1.i.i9
   br label %if.then74
 
 _eth_copy_chunk.exit107:                          ; preds = %if.end.i91, %land.lhs.true1.i.i99
-  %call.i.i94 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %conv, i64 noundef %22, ptr noundef nonnull %l4hdr_info, i64 noundef 8) #8
+  %call.i.i94 = call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %conv, i64 noundef %22, ptr noundef nonnull %l4hdr_info, i64 noundef range(i64 2, 41) 8) #8
   %cmp1.i97 = icmp ugt i64 %call.i.i94, 7
   br i1 %cmp1.i97, label %if.then74, label %sw.epilog
 

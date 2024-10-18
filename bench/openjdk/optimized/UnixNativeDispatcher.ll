@@ -1294,7 +1294,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
 
 13:                                               ; preds = %16, %11
   %14 = load ptr, ptr @my_statx_func, align 8, !noalias !30
-  %15 = call i32 %14(i32 noundef %2, ptr noundef %9, i32 noundef %12, i32 noundef 4095, ptr noundef nonnull %8) #11
+  %15 = call i32 %14(i32 noundef %2, ptr noundef %9, i32 noundef range(i32 0, 4097) %12, i32 noundef 4095, ptr noundef nonnull %8) #11
   switch i32 %15, label %..critedge_crit_edge [
     i32 -1, label %16
     i32 0, label %20

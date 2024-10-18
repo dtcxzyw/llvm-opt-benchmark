@@ -441,7 +441,7 @@ _ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit:    ; preds = %124, %113, %._crit_
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
   %147 = getelementptr inbounds i8, ptr %143, i64 %146
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %147, ptr noundef nonnull %3, ptr noundef nonnull %142)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %147, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %142)
           to label %_ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit unwind label %.loopexit.split-lp
 
 _ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit:    ; preds = %139
@@ -459,7 +459,7 @@ _ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit:    ; preds = %139
   %156 = ptrtoint ptr %154 to i64
   %157 = sub i64 %155, %156
   %158 = getelementptr inbounds i8, ptr %154, i64 %157
-  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %158, ptr noundef nonnull %17, ptr noundef nonnull %153)
+  invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %158, ptr noundef nonnull %17, ptr noundef nonnull %153)
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit unwind label %.loopexit.split-lp
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %_ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit, %_ZN5draco13EncoderBuffer6EncodeIjEEbRKT_.exit, %149

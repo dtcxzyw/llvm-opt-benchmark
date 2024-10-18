@@ -167,7 +167,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9AddSymbolENS_9StringRefEPv(p
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -177,7 +177,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary9AddSymbolENS_9StringRefEPv(p
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %3, %6, %8
-  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %11
 
@@ -192,7 +192,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   %14 = load ptr, ptr %.fca.0.extract.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %15, align 8
-  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %16 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   ret void
 }
 
@@ -211,7 +211,7 @@ define dso_local ptr @_ZN4llvm3sys14DynamicLibrary19getPermanentLibraryEPKcPNSt7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %7
 
 7:                                                ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -239,7 +239,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   br i1 %.not, label %.split, label %.split9
 
 .split9:                                          ; preds = %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %15
 
@@ -250,7 +250,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %.split9
   %16 = icmp eq ptr %0, null
   %17 = tail call noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), ptr noundef nonnull %9, i1 noundef zeroext %16, i1 noundef zeroext true, i1 noundef zeroext false)
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   br label %.split
 
 .split:                                           ; preds = %10, %11, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
@@ -492,7 +492,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary19addPermanentLibraryE
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %7
 
 7:                                                ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -502,7 +502,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary19addPermanentLibraryE
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %2, %5, %7
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %10
 
@@ -519,7 +519,7 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   br label %14
 
 14:                                               ; preds = %12, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   ret ptr %0
 }
 
@@ -553,7 +553,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i9, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %12
 
 12:                                               ; preds = %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -563,7 +563,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt1
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %.split8, %10, %12
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %15
 
@@ -640,7 +640,7 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
 
 _ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit: ; preds = %17, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
-  %43 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %43 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   br label %.split
 
 .split:                                           ; preds = %4, %5, %_ZN4llvm3sys14DynamicLibrary9HandleSet6DLOpenEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet10AddLibraryEPvbbb.exit
@@ -660,7 +660,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary12closeLibraryERS1_(ptr nocap
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %6
 
 6:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -670,7 +670,7 @@ define dso_local void @_ZN4llvm3sys14DynamicLibrary12closeLibraryERS1_(ptr nocap
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %1, %4, %6
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %9
 
@@ -814,7 +814,7 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit: ; preds = %._crit_
   br label %64
 
 64:                                               ; preds = %_ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
-  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %65 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   ret void
 }
 
@@ -845,7 +845,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary24SearchForAddressOfSy
   br i1 %.not.i, label %_ZN12_GLOBAL__N_110getGlobalsEv.exit, label %6
 
 6:                                                ; preds = %4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i8 0, i64 20, i1 false)
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 20), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 24), i8 0, i64 104, i1 false)
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 104), align 8
@@ -855,7 +855,7 @@ define dso_local noundef ptr @_ZN4llvm3sys14DynamicLibrary24SearchForAddressOfSy
   br label %_ZN12_GLOBAL__N_110getGlobalsEv.exit
 
 _ZN12_GLOBAL__N_110getGlobalsEv.exit:             ; preds = %1, %4, %6
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %.not.i.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %9
 
@@ -905,11 +905,11 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN
 
 .thread:                                          ; preds = %19, %24, %27
   %.0.ph = phi ptr [ %29, %27 ], [ %26, %24 ], [ %23, %19 ]
-  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %30 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   br label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit
 
 31:                                               ; preds = %27
-  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
+  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 88)) #13
   %33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.1) #15
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %_ZN4llvm31SearchForAddressOfSpecialSymbolEPKc.exit, label %34
@@ -1115,7 +1115,7 @@ define internal void @_ZN12_GLOBAL__N_17GlobalsD2Ev(ptr noundef nonnull align 8 
 14:                                               ; preds = %.lr.ph.i
   %15 = load i64, ptr %13, align 8
   %16 = add i64 %15, 17
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %13, i64 noundef %16, i64 noundef 8) #13
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %16, i64 noundef 8) #13
   br label %17
 
 17:                                               ; preds = %14, %.lr.ph.i, %.lr.ph.i

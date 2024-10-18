@@ -3004,7 +3004,7 @@ pmix_bfrops_base_tma_geometry_destruct.exit:      ; preds = %29, %._crit_edge.i.
   br label %pmix_tma_free.exit
 
 44:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %0) #16
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %44, %41, %3
@@ -3349,7 +3349,7 @@ pmix_tma_free.exit.us.i.i.us:                     ; preds = %.preheader.i.i.us, 
   br i1 %.not10.us.i.i.us, label %pmix_bfrops_base_tma_argv_free.exit.i.us, label %pmix_tma_free.exit.us.i.i.us, !llvm.loop !29
 
 pmix_bfrops_base_tma_argv_free.exit.i.us:         ; preds = %pmix_tma_free.exit.us.i.i.us, %.preheader.i.i.us
-  tail call void @free(ptr noundef %9) #16
+  tail call void @free(ptr noundef nonnull %9) #16
   store ptr null, ptr %8, align 8
   br label %pmix_bfrops_base_tma_regattr_destruct.exit.us
 
@@ -3829,7 +3829,7 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
   br label %pmix_tma_free.exit148
 
 35:                                               ; preds = %._crit_edge298
-  tail call void @free(ptr noundef %27) #16
+  tail call void @free(ptr noundef nonnull %27) #16
   br label %pmix_tma_free.exit148
 
 36:                                               ; preds = %2
@@ -3863,7 +3863,7 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
   br label %pmix_tma_free.exit148
 
 46:                                               ; preds = %._crit_edge295
-  tail call void @free(ptr noundef %38) #16
+  tail call void @free(ptr noundef nonnull %38) #16
   br label %pmix_tma_free.exit148
 
 47:                                               ; preds = %2
@@ -3942,7 +3942,7 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph291, %55
   br label %pmix_tma_free.exit148
 
 72:                                               ; preds = %._crit_edge289
-  tail call void @free(ptr noundef %64) #16
+  tail call void @free(ptr noundef nonnull %64) #16
   br label %pmix_tma_free.exit148
 
 73:                                               ; preds = %2
@@ -4227,7 +4227,7 @@ pmix_tma_free.exit.i.i245:                        ; preds = %.lr.ph.i.i, %pmix_t
   br label %pmix_bfrops_base_tma_argv_free.exit.i
 
 175:                                              ; preds = %._crit_edge.i.i
-  tail call void @free(ptr noundef %164) #16
+  tail call void @free(ptr noundef nonnull %164) #16
   br label %pmix_bfrops_base_tma_argv_free.exit.i
 
 pmix_bfrops_base_tma_argv_free.exit.i:            ; preds = %175, %._crit_edge.thread.i.i
@@ -4848,7 +4848,7 @@ define internal fastcc void @pmix_bfrops_base_tma_value_free(ptr noundef %0, i64
   br label %pmix_tma_free.exit
 
 9:                                                ; preds = %._crit_edge
-  tail call void @free(ptr noundef %0) #16
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %9, %6, %3
@@ -4883,7 +4883,7 @@ define internal fastcc void @pmix_bfrops_base_tma_app_free(ptr noundef %0, i64 n
   br label %pmix_tma_free.exit
 
 9:                                                ; preds = %._crit_edge
-  tail call void @free(ptr noundef %0) #16
+  tail call void @free(ptr noundef nonnull %0) #16
   br label %pmix_tma_free.exit
 
 pmix_tma_free.exit:                               ; preds = %9, %6, %3
@@ -4962,7 +4962,7 @@ pmix_tma_free.exit.i:                             ; preds = %.lr.ph.i, %pmix_tma
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 23:                                               ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef %11) #16
+  tail call void @free(ptr noundef nonnull %11) #16
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 pmix_bfrops_base_tma_argv_free.exit:              ; preds = %._crit_edge.thread.i, %23
@@ -5015,7 +5015,7 @@ pmix_tma_free.exit.i36:                           ; preds = %.lr.ph.i34, %pmix_t
   br label %pmix_bfrops_base_tma_argv_free.exit45
 
 38:                                               ; preds = %._crit_edge.i43
-  tail call void @free(ptr noundef %26) #16
+  tail call void @free(ptr noundef nonnull %26) #16
   br label %pmix_bfrops_base_tma_argv_free.exit45
 
 pmix_bfrops_base_tma_argv_free.exit45:            ; preds = %._crit_edge.thread.i39, %38
@@ -10183,7 +10183,7 @@ pmix_tma_free.exit.i:                             ; preds = %.lr.ph.i, %pmix_tma
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 57:                                               ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef %.us-phi31) #16
+  tail call void @free(ptr noundef nonnull %.us-phi31) #16
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 58:                                               ; preds = %pmix_tma_strdup.exit.i

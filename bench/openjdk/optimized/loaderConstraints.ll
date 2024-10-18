@@ -1500,7 +1500,7 @@ _ZN17GrowableArrayViewIP16LoaderConstraintE6removeERKS1_.exit: ; preds = %17, %1
 
 37:                                               ; preds = %33
   store i32 0, ptr %31, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP15ClassLoaderData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP15ClassLoaderData13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %31)
   br label %_ZN13GrowableArrayIP15ClassLoaderDataED2Ev.exit.i
 
 _ZN13GrowableArrayIP15ClassLoaderDataED2Ev.exit.i: ; preds = %37, %33

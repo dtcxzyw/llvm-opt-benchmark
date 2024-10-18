@@ -1218,7 +1218,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 
 461:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %462 = load i32, ptr @hf_hip_tlv_opaque_data, align 4
-  %463 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %462, ptr noundef %0, i32 noundef %123, i32 noundef %118, i32 noundef 0) #3
+  %463 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %462, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, 65536) %118, i32 noundef 0) #3
   br label %dissect_hip_tlv.exit
 
 464:                                              ; preds = %.lr.ph
@@ -1260,7 +1260,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 
 483:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %484 = load i32, ptr @hf_hip_tlv_hmac, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %484, ptr noundef %0, i32 noundef %123, i32 noundef %118, i32 noundef 0) #3
+  %485 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %484, ptr noundef %0, i32 noundef %123, i32 noundef range(i32 0, 65536) %118, i32 noundef 0) #3
   br label %dissect_hip_tlv.exit
 
 486:                                              ; preds = %.lr.ph, %.lr.ph

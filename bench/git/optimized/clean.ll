@@ -2049,7 +2049,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.61, i64 noundef 4, i64 noundef %conv) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.61, i64 noundef 4, i64 noundef range(i64 -2147483648, 2147483648) %conv) #15
   unreachable
 
 st_mult.exit:                                     ; preds = %entry

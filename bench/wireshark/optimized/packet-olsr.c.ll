@@ -417,12 +417,12 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %105
-  %109 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_olsr_not_enough_bytes, ptr noundef %0, i32 noundef %102, i32 noundef %106, ptr noundef nonnull @.str.124) #3
+  %109 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_olsr_not_enough_bytes, ptr noundef %0, i32 noundef range(i32 16, 65535) %102, i32 noundef %106, ptr noundef nonnull @.str.124) #3
   br label %dissect_olsr_tc.exit
 
 110:                                              ; preds = %105
   %111 = load i32, ptr @hf_olsr_ansn, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %111, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0) #3
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %111, ptr noundef %0, i32 noundef range(i32 16, 65535) %102, i32 noundef 2, i32 noundef 0) #3
   %113 = add nuw nsw i32 %93, 8
   %114 = icmp samesign ult i32 %113, %83
   br i1 %114, label %.lr.ph.i, label %dissect_olsr_tc.exit
@@ -557,12 +557,12 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %172
-  %176 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_olsr_not_enough_bytes, ptr noundef %0, i32 noundef %102, i32 noundef %173, ptr noundef nonnull @.str.133) #3
+  %176 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull @ei_olsr_not_enough_bytes, ptr noundef %0, i32 noundef range(i32 16, 65535) %102, i32 noundef %173, ptr noundef nonnull @.str.133) #3
   br label %dissect_olsr_tc.exit
 
 177:                                              ; preds = %172
   %178 = load i32, ptr @hf_olsr_ansn, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %178, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0) #3
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %178, ptr noundef %0, i32 noundef range(i32 16, 65535) %102, i32 noundef 2, i32 noundef 0) #3
   %.07887.i = add nuw nsw i32 %93, 8
   %180 = icmp samesign ult i32 %.07887.i, %83
   br i1 %180, label %.lr.ph.i180, label %dissect_olsr_tc.exit

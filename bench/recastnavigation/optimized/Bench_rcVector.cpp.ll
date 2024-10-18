@@ -524,7 +524,7 @@ define dso_local void @_ZN18BM_rcVector_Assign4BodyEv() local_unnamed_addr #3 al
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store i32 2, ptr %2, align 4
   store i64 0, ptr %1, align 8
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 100000, ptr noundef nonnull %2)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit unwind label %11
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit: ; preds = %0
@@ -683,7 +683,7 @@ define dso_local void @_ZN18BM_rcVector_Resize4BodyEv() local_unnamed_addr #3 al
   %2 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 2, ptr %2, align 4
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 100000, ptr noundef nonnull %2)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit unwind label %10
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit: ; preds = %0
@@ -1315,7 +1315,7 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Assign3RunEv() local_unname
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
   store i32 2, ptr %3, align 4
   store i64 0, ptr %2, align 8
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull %3)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit.i unwind label %18
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit.i: ; preds = %11
@@ -1394,7 +1394,7 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Resize3RunEv() local_unname
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 2, ptr %3, align 4
-  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull %3)
+  invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit.i unwind label %17
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit.i: ; preds = %10

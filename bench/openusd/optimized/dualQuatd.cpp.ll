@@ -447,7 +447,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %13 = fadd double %.sroa.04.0.copyload, %.sroa.0.0.copyload
   %14 = fadd double %.sroa.25.0.copyload, %.sroa.2.0.copyload
   %15 = fadd double %.sroa.36.0.copyload, %.sroa.3.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store double %13, ptr %10, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store double %14, ptr %.sroa.29.0..sroa_idx, align 8

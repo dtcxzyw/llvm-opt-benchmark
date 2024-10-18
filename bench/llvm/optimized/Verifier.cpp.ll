@@ -2244,7 +2244,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #23
+  %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3) #23
   br label %_ZNSt8functionIFvRKbEED2Ev.exit
 
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
@@ -2262,7 +2262,7 @@ _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
 
 _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNSt8functionIFvRKbEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #23
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #23
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
@@ -2302,7 +2302,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm17ModuleSlotTrackerC1EPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull %3, i1 noundef zeroext true) #23
+  tail call void @_ZN4llvm17ModuleSlotTrackerC1EPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(857) %3, i1 noundef zeroext true) #23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
@@ -2331,10 +2331,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %24 = getelementptr inbounds i8, ptr %0, i64 224
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %24, i64 noundef 1) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(124) %23, ptr noundef nonnull %24, i64 noundef 1) #23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %26 = getelementptr inbounds i8, ptr %0, i64 248
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %26, i64 noundef 6) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull %26, i64 noundef 6) #23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 0, ptr %28, align 4
@@ -2385,7 +2385,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %52, i8 0, i64 20, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, i8 0, i64 20, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %55 = getelementptr inbounds i8, ptr %0, i64 936
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %55, i64 noundef 0) #23
@@ -2403,7 +2403,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %63 = getelementptr inbounds i8, ptr %0, i64 1264
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull %63, i64 noundef 4) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %63, i64 noundef 4) #23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   store ptr %65, ptr %64, align 8
@@ -2428,7 +2428,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %77 = getelementptr inbounds i8, ptr %0, i64 1888
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull %77, i64 noundef 16) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %76, ptr noundef nonnull %77, i64 noundef 16) #23
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   store ptr %0, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2024
@@ -2451,7 +2451,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   store i8 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %89 = getelementptr inbounds i8, ptr %0, i64 2264
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull %89, i64 noundef 4) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull %89, i64 noundef 4) #23
   store i8 %7, ptr %22, align 2
   ret void
 }
@@ -2745,7 +2745,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %195, %197
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132)
   %218 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %219 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %217, i64 16, i1 false)
   store ptr @_ZN4llvm12function_refIFvRKNS_5TwineEEE11callback_fnIZN12_GLOBAL__N_18Verifier6verifyERKNS_8FunctionEEUlS3_E_EEvlS3_, ptr %217, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 2088
   store i64 %216, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -2761,7 +2761,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %195, %197
   br i1 %.not.i.i.i.i, label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10initializeEPNS_11raw_ostreamENS_12function_refIFvRKNS_5TwineEEEERKS2_.exit, label %224
 
 224:                                              ; preds = %._crit_edge
-  %225 = call noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3) #23
+  %225 = call noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3) #23
   br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10initializeEPNS_11raw_ostreamENS_12function_refIFvRKNS_5TwineEEEERKS2_.exit
 
 _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10initializeEPNS_11raw_ostreamENS_12function_refIFvRKNS_5TwineEEEERKS2_.exit: ; preds = %._crit_edge, %224
@@ -2872,7 +2872,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10in
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %130)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %230 = load ptr, ptr %229, align 8
   store ptr %230, ptr %31, align 8
@@ -2892,7 +2892,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10in
   store ptr @.str.33, ptr %32, align 8
   store i8 3, ptr %239, align 8
   store ptr %1, ptr %33, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 241:                                              ; preds = %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10initializeEPNS_11raw_ostreamENS_12function_refIFvRKNS_5TwineEEEERKS2_.exit
@@ -2909,7 +2909,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE10in
   store ptr @.str.34, ptr %34, align 8
   store i8 3, ptr %247, align 8
   store ptr %1, ptr %35, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 249:                                              ; preds = %241
@@ -2960,7 +2960,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i: ; preds = %265, 
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i, label %267
 
 267:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJPNS_12FunctionTypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %31)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJPNS_12FunctionTypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %31)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 268:                                              ; preds = %249
@@ -2981,7 +2981,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i: ; preds = %265, 
   store ptr @.str.36, ptr %38, align 8
   store i8 3, ptr %277, align 8
   store ptr %1, ptr %39, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef nonnull align 8 dereferenceable(8) %39)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef nonnull align 8 dereferenceable(8) %39)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 279:                                              ; preds = %268
@@ -3011,7 +3011,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.37, ptr %40, align 8
   store i8 3, ptr %292, align 8
   store ptr %1, ptr %41, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %40, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 294:                                              ; preds = %_ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i, %_ZNK4llvm8Function16hasStructRetAttrEv.exit.i.i
@@ -3033,7 +3033,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.38, ptr %43, align 8
   store i8 3, ptr %299, align 8
   store ptr %1, ptr %44, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 301:                                              ; preds = %294
@@ -3056,7 +3056,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store i8 3, ptr %312, align 8
   store ptr %1, ptr %46, align 8
   store ptr %305, ptr %47, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJbPKNS_6ModuleEbEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 1 dereferenceable(1) %302, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 1 dereferenceable(1) %306)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJbPKNS_6ModuleEbEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 1 dereferenceable(1) %302, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 1 dereferenceable(1) %306)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 314:                                              ; preds = %301
@@ -3064,7 +3064,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   %316 = and i32 %315, 8192
   %317 = icmp ne i32 %316, 0
   %.sroa.099.0.copyload.i.i = load ptr, ptr %42, align 8
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %230, ptr %.sroa.099.0.copyload.i.i, ptr noundef %1, i1 noundef zeroext %317, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4llvm12FunctionTypeENS1_13AttributeListEPKNS1_5ValueEbb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %230, ptr %.sroa.099.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(136) %1, i1 noundef zeroext %317, i1 noundef zeroext false)
   %318 = call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef 4) #23
   br i1 %318, label %319, label %322
 
@@ -3075,7 +3075,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.40, ptr %48, align 8
   store i8 3, ptr %320, align 8
   store ptr %1, ptr %49, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 322:                                              ; preds = %314
@@ -3089,7 +3089,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.41, ptr %50, align 8
   store i8 3, ptr %325, align 8
   store ptr %1, ptr %51, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 327:                                              ; preds = %322
@@ -3117,7 +3117,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.42, ptr %52, align 8
   store i8 3, ptr %337, align 8
   store ptr %.0199300.i.i, ptr %53, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 339:                                              ; preds = %.lr.ph.i.i
@@ -3164,7 +3164,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.43, ptr %54, align 8
   store i8 3, ptr %351, align 8
   store ptr %1, ptr %55, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 353:                                              ; preds = %.loopexit274.i.i, %.loopexit274.i.i, %.loopexit274.i.i, %.loopexit274.i.i
@@ -3185,7 +3185,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.44, ptr %56, align 8
   store i8 3, ptr %363, align 8
   store ptr %1, ptr %57, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %56, ptr noundef nonnull align 8 dereferenceable(8) %57)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %56, ptr noundef nonnull align 8 dereferenceable(8) %57)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 365:                                              ; preds = %353, %.loopexit274.i.i, %.loopexit274.i.i, %.loopexit274.i.i, %.loopexit274.i.i, %.loopexit274.i.i
@@ -3199,7 +3199,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.45, ptr %58, align 8
   store i8 3, ptr %368, align 8
   store ptr %1, ptr %59, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %58, ptr noundef nonnull align 8 dereferenceable(8) %59)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 370:                                              ; preds = %365
@@ -3233,7 +3233,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.46, ptr %60, align 8
   store i8 3, ptr %384, align 8
   store ptr %1, ptr %61, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %60, ptr noundef nonnull align 8 dereferenceable(8) %61)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %60, ptr noundef nonnull align 8 dereferenceable(8) %61)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 386:                                              ; preds = %.lr.ph304.i.i
@@ -3247,7 +3247,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.47, ptr %62, align 8
   store i8 3, ptr %389, align 8
   store ptr %1, ptr %63, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %62, ptr noundef nonnull align 8 dereferenceable(8) %63)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %62, ptr noundef nonnull align 8 dereferenceable(8) %63)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 391:                                              ; preds = %386
@@ -3261,7 +3261,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   store ptr @.str.48, ptr %64, align 8
   store i8 3, ptr %394, align 8
   store ptr %1, ptr %65, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %64, ptr noundef nonnull align 8 dereferenceable(8) %65)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %64, ptr noundef nonnull align 8 dereferenceable(8) %65)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 396:                                              ; preds = %391
@@ -3299,7 +3299,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.49, ptr %66, align 8
   store i8 3, ptr %412, align 8
   store ptr %1, ptr %67, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %66, ptr noundef nonnull align 8 dereferenceable(8) %67)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %66, ptr noundef nonnull align 8 dereferenceable(8) %67)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 414:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i, %396
@@ -3321,7 +3321,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.50, ptr %68, align 8
   store i8 3, ptr %421, align 8
   store ptr %1, ptr %69, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %68, ptr noundef nonnull align 8 dereferenceable(8) %69)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %68, ptr noundef nonnull align 8 dereferenceable(8) %69)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 423:                                              ; preds = %.loopexit273.i.i, %348, %345, %.loopexit274.i.i
@@ -3354,7 +3354,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store i8 3, ptr %438, align 8
   store ptr %.0203307.i.i, ptr %71, align 8
   store ptr %435, ptr %72, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %72)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(8) %72)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 440:                                              ; preds = %.lr.ph309.i.i
@@ -3373,7 +3373,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.52, ptr %73, align 8
   store i8 3, ptr %444, align 8
   store ptr %.0203307.i.i, ptr %74, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 446:                                              ; preds = %440
@@ -3394,7 +3394,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store i8 3, ptr %449, align 8
   store ptr %.0203307.i.i, ptr %76, align 8
   store ptr %1, ptr %77, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %77)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %77)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 451:                                              ; preds = %447
@@ -3405,7 +3405,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store i8 3, ptr %452, align 8
   store ptr %.0203307.i.i, ptr %79, align 8
   store ptr %1, ptr %80, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %78, ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %78, ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 454:                                              ; preds = %447
@@ -3416,7 +3416,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store i8 3, ptr %455, align 8
   store ptr %.0203307.i.i, ptr %82, align 8
   store ptr %1, ptr %83, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %81, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ArgumentEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %81, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 457:                                              ; preds = %447, %446
@@ -3455,7 +3455,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.56, ptr %84, align 8
   store i8 3, ptr %470, align 8
   store ptr %1, ptr %85, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 472:                                              ; preds = %462
@@ -3465,13 +3465,13 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.57, ptr %86, align 8
   store i8 3, ptr %473, align 8
   store ptr %1, ptr %87, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %86, ptr noundef nonnull align 8 dereferenceable(8) %87)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %86, ptr noundef nonnull align 8 dereferenceable(8) %87)
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 475:                                              ; preds = %462, %._crit_edge.i.i
   %476 = getelementptr inbounds i8, ptr %88, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull %476, i64 noundef 4) #23
-  call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %88) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %88, ptr noundef nonnull %476, i64 noundef 4) #23
+  call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(16) %88) #23
   %477 = load ptr, ptr %88, align 8
   %478 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #23
   call fastcc void @_ZN12_GLOBAL__N_18Verifier22verifyFunctionMetadataEN4llvm8ArrayRefISt4pairIjPNS1_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %477, i64 %478)
@@ -3506,7 +3506,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr %1, ptr %91, align 8
   store ptr %489, ptr %92, align 8
   store ptr %488, ptr %93, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPKNS_6ModuleEPS2_PS5_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %90, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %93)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPKNS_6ModuleEPS2_PS5_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %90, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %93)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 494:                                              ; preds = %486, %481, %475
@@ -3540,11 +3540,11 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
 508:                                              ; preds = %504, %500
   %509 = phi ptr [ %507, %504 ], [ null, %500 ]
   store ptr %509, ptr %96, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %94, ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %94, ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 510:                                              ; preds = %494
-  %511 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #23
+  %511 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #23
   br i1 %511, label %512, label %537
 
 512:                                              ; preds = %510
@@ -3583,7 +3583,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.60, ptr %97, align 8
   store i8 3, ptr %525, align 8
   store ptr %1, ptr %98, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %97, ptr noundef nonnull align 8 dereferenceable(8) %98)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %97, ptr noundef nonnull align 8 dereferenceable(8) %98)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 527:                                              ; preds = %.lr.ph320.i.i
@@ -3593,7 +3593,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.61, ptr %99, align 8
   store i8 3, ptr %528, align 8
   store ptr %1, ptr %100, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %99, ptr noundef nonnull align 8 dereferenceable(8) %100)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %99, ptr noundef nonnull align 8 dereferenceable(8) %100)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 .thread.i.i:                                      ; preds = %517, %.lr.ph320..thread_crit_edge.i.i
@@ -3616,7 +3616,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.62, ptr %101, align 8
   store i8 3, ptr %535, align 8
   store ptr %1, ptr %102, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %101, ptr noundef nonnull align 8 dereferenceable(8) %102)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %101, ptr noundef nonnull align 8 dereferenceable(8) %102)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 537:                                              ; preds = %510
@@ -3629,7 +3629,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %405, %398
   store ptr @.str.63, ptr %103, align 8
   store i8 3, ptr %539, align 8
   store ptr %1, ptr %104, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 541:                                              ; preds = %537
@@ -3667,7 +3667,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %561, align 1
   store ptr @.str.64, ptr %106, align 8
   store i8 3, ptr %560, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %106, ptr noundef nonnull align 8 dereferenceable(8) %105)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %106, ptr noundef nonnull align 8 dereferenceable(8) %105)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 .loopexit272.i.i:                                 ; preds = %556, %541
@@ -3688,7 +3688,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %570, align 1
   store ptr @.str.65, ptr %107, align 8
   store i8 3, ptr %569, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %107, ptr noundef nonnull align 8 dereferenceable(8) %105)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %107, ptr noundef nonnull align 8 dereferenceable(8) %105)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 571:                                              ; preds = %565, %.loopexit272.i.i
@@ -3726,7 +3726,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 3, ptr %581, align 8
   store ptr %1, ptr %109, align 8
   %583 = getelementptr inbounds nuw i8, ptr %.0210311.i.i, i64 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(8) %583)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(8) %583)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 584:                                              ; preds = %578
@@ -3744,7 +3744,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr @.str.67, ptr %110, align 8
   store i8 3, ptr %591, align 8
   store ptr %1, ptr %111, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %110, ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull align 8 dereferenceable(8) %590)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %110, ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull align 8 dereferenceable(8) %590)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 593:                                              ; preds = %584
@@ -3761,7 +3761,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr @.str.68, ptr %112, align 8
   store i8 3, ptr %599, align 8
   store ptr %1, ptr %113, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %112, ptr noundef nonnull align 8 dereferenceable(8) %113)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %112, ptr noundef nonnull align 8 dereferenceable(8) %113)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 601:                                              ; preds = %593
@@ -3780,7 +3780,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store ptr @.str.69, ptr %115, align 8
   store i8 3, ptr %606, align 8
   store ptr %1, ptr %116, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_12DISubprogramEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %115, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(8) %116)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_12DISubprogramEJPKNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %115, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(8) %116)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 608:                                              ; preds = %601
@@ -3799,7 +3799,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 3, ptr %612, align 8
   store ptr %1, ptr %118, align 8
   %614 = getelementptr inbounds nuw i8, ptr %.0210311.i.i, i64 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %117, ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(8) %614)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %117, ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull align 8 dereferenceable(8) %614)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 615:                                              ; preds = %576
@@ -3814,7 +3814,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 3, ptr %618, align 8
   store ptr %1, ptr %120, align 8
   %620 = getelementptr inbounds nuw i8, ptr %.0210311.i.i, i64 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %119, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(8) %620)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8FunctionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %119, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(8) %620)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 621:                                              ; preds = %615, %609, %608, %576
@@ -3852,7 +3852,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %635, align 1
   store ptr @.str.72, ptr %122, align 8
   store i8 3, ptr %634, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_4UserEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %122, ptr noundef nonnull align 8 dereferenceable(8) %121)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_4UserEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %122, ptr noundef nonnull align 8 dereferenceable(8) %121)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 636:                                              ; preds = %631, %627, %.loopexit271.i.i
@@ -3876,7 +3876,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %646, align 1
   store ptr @.str.73, ptr %123, align 8
   store i8 3, ptr %645, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %123, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %123, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 647:                                              ; preds = %639
@@ -3895,7 +3895,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %657, align 1
   store ptr @.str.74, ptr %124, align 8
   store i8 3, ptr %656, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %124, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %124, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 658:                                              ; preds = %647
@@ -3910,7 +3910,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %664, align 1
   store ptr @.str.75, ptr %125, align 8
   store i8 3, ptr %663, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %125, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %125, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 665:                                              ; preds = %636
@@ -3926,7 +3926,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %672, align 1
   store ptr @.str.73, ptr %126, align 8
   store i8 3, ptr %671, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %126, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %126, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 673:                                              ; preds = %665
@@ -3946,7 +3946,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %684, align 1
   store ptr @.str.76, ptr %127, align 8
   store i8 3, ptr %683, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %127, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %127, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 685:                                              ; preds = %673
@@ -3963,7 +3963,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   store i8 1, ptr %693, align 1
   store ptr @.str.77, ptr %128, align 8
   store i8 3, ptr %692, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %128, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %128, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 694:                                              ; preds = %685, %658, %636
@@ -4033,7 +4033,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %.not.i.i236.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i
 
 _ZNK4llvm11Instruction11getMetadataEj.exit.i.i:   ; preds = %.lr.ph326.i.i
-  %725 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %719, i32 noundef 18) #23
+  %725 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %719, i32 noundef 18) #23
   %.not229.i.i = icmp eq ptr %725, null
   br i1 %.not229.i.i, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i, label %.preheader.i.i
 
@@ -4322,7 +4322,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.i.i.i: ; preds = %804, %800
   store ptr @.str.357, ptr %14, align 8
   store i8 3, ptr %781, align 8
   store ptr %787, ptr %15, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %808
@@ -4359,11 +4359,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %808
 
 _ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i.i.i: ; preds = %831, %.lr.ph.i.i.i.i.i.i.i.i, %820
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ null, %820 ], [ null, %831 ], [ %.sroa.0.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %764, i64 noundef 8) #23
-  call void @_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr %.sroa.0.1.i.i.i.i.i.i, ptr null)
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %765, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull %764, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEvEEvT_SB_(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr %.sroa.0.1.i.i.i.i.i.i, ptr null)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull %765, i64 noundef 8) #23
   %835 = load ptr, ptr %16, align 8
-  %836 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
+  %836 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %16) #23
   %837 = icmp slt i64 %836, 2
   br i1 %837, label %_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj8EEEEEvOT_.exit.i.i.i.i, label %838
 
@@ -4393,7 +4393,7 @@ _ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj8EEEEEvOT_.exit.i.i.i.i: ; pr
   store ptr @.str.358, ptr %18, align 8
   store i8 3, ptr %767, align 8
   store ptr %.sroa.086.0118.i.i.i.i, ptr %19, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i
 
 849:                                              ; preds = %.lr.ph120.i.i.i.i
@@ -4458,7 +4458,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9pus
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit.i.i.i.i, %_ZN4llvm15SmallVectorImplISt4pairIPNS_10BasicBlockEPNS_5ValueEEE7reserveEm.exit.i.i.i.i
   %880 = load ptr, ptr %17, align 8
-  %881 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
+  %881 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %17) #23
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %881, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EEEEEvOT_.exit.i.i.i.i, label %882
 
@@ -4553,7 +4553,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; preds = %9
   br i1 %.not.i.i.i.i9.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i, label %918
 
 918:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %895, ptr noundef nonnull align 8 dereferenceable(8) %906, ptr noundef nonnull align 8 dereferenceable(8) %907)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %895, ptr noundef nonnull align 8 dereferenceable(8) %906, ptr noundef nonnull align 8 dereferenceable(8) %907)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i
 
 919:                                              ; preds = %899, %894, %._crit_edge138.i.i.i.i
@@ -4604,7 +4604,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i: ; preds = 
   br i1 %.not.i71.i.i.i.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i, label %937
 
 937:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJPNS_10BasicBlockES6_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %926, ptr noundef nonnull align 8 dereferenceable(8) %925)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJPNS_10BasicBlockES6_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %926, ptr noundef nonnull align 8 dereferenceable(8) %925)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i
 
 ._crit_edge116.i.i.i.i:                           ; preds = %891, %_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EEEEEvOT_.exit.i.i.i.i
@@ -4624,7 +4624,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i: ; preds = 
 
 _ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i: ; preds = %._crit_edge116.i.i.i.i, %937, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i72.i.i.i.i, %918, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i.i.i, %848, %_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj8EEEEEvOT_.exit.i.i.i.i
   %.not103.i.i.i.i = phi i1 [ false, %937 ], [ false, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i ], [ false, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i72.i.i.i.i ], [ false, %918 ], [ false, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i ], [ false, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i.i.i ], [ false, %848 ], [ true, %_ZN4llvm4sortIRNS_11SmallVectorIPNS_10BasicBlockELj8EEEEEvOT_.exit.i.i.i.i ], [ true, %._crit_edge116.i.i.i.i ]
-  %947 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
+  %947 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %17) #23
   %948 = load ptr, ptr %17, align 8
   %949 = icmp eq ptr %948, %765
   br i1 %949, label %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EED2Ev.exit.i.i.i.i, label %950
@@ -4634,7 +4634,7 @@ _ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5Valu
   br label %_ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EED2Ev.exit.i.i.i.i
 
 _ZN4llvm11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EED2Ev.exit.i.i.i.i: ; preds = %950, %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_7PHINodeEJPNS_10BasicBlockEPNS_5ValueES8_EEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i.i.i
-  %951 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
+  %951 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %16) #23
   %952 = load ptr, ptr %16, align 8
   %953 = icmp eq ptr %952, %764
   br i1 %953, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EED2Ev.exit.i.i.i.i, label %954
@@ -4764,7 +4764,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; p
   br i1 %999, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i, label %1004
 
 1004:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJbPNS_8FunctionEbEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 1 dereferenceable(1) %975, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 1 dereferenceable(1) %979)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJbPNS_8FunctionEbEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 1 dereferenceable(1) %975, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 1 dereferenceable(1) %979)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i
 
 1005:                                             ; preds = %._crit_edge126.i.i.i.i
@@ -4781,7 +4781,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; p
   store ptr @.str.363, ptr %28, align 8
   store i8 3, ptr %779, align 8
   store ptr %788, ptr %29, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i: ; preds = %1009, %1007, %1005, %1004, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.thread.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EED2Ev.exit.i.i.i.i, %814
@@ -5057,7 +5057,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i: ; preds = %
 1122:                                             ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i
   store ptr %1096, ptr %11, align 8
   %1123 = getelementptr inbounds i8, ptr %12, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %1123, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull %1123, i64 noundef 8) #23
   br label %1124
 
 1124:                                             ; preds = %_ZL10getSuccPadPN4llvm11InstructionE.exit56.i, %1122
@@ -5196,11 +5196,11 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i: ; preds = %1186, %
   br i1 %.not.i.i27, label %_ZN4llvm15VerifierSupport11CheckFailedINS_8ArrayRefIPNS_11InstructionEEEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i, label %1188
 
 1188:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
-  call void @_ZN4llvm15VerifierSupport5WriteIPNS_11InstructionEEEvNS_8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr %1176, i64 %1177)
+  call void @_ZN4llvm15VerifierSupport5WriteIPNS_11InstructionEEEvNS_8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr %1176, i64 %1177)
   br label %_ZN4llvm15VerifierSupport11CheckFailedINS_8ArrayRefIPNS_11InstructionEEEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i
 
 _ZN4llvm15VerifierSupport11CheckFailedINS_8ArrayRefIPNS_11InstructionEEEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i: ; preds = %1188, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i
-  %1189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  %1189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %12) #23
   %1190 = load ptr, ptr %12, align 8
   %1191 = icmp eq ptr %1190, %1123
   br i1 %1191, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit.i, label %1192
@@ -5508,7 +5508,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %1317, %1321
   br i1 %or.cond.i.i31, label %1341, label %1342
 
 1341:                                             ; preds = %1335
-  call void @_ZN4llvm8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %1022)
+  call void @_ZN4llvm8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(40) %1022)
   br label %_ZN4llvm9MapVectorIPNS_11InstructionES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S2_ELj0EEEE5clearEv.exit
 
 1342:                                             ; preds = %1335
@@ -5572,7 +5572,7 @@ _ZN4llvm9MapVectorIPNS_11InstructionES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vE
   store i8 1, ptr %1366, align 1
   store ptr @.str.931, ptr %4, align 8
   store i8 3, ptr %1365, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1367:                                             ; preds = %.lr.ph.i35
@@ -5589,7 +5589,7 @@ _ZN4llvm8dyn_castINS_6MDNodeENS_8MetadataEEEDcPT0_.exit.i: ; preds = %1367
   store i8 1, ptr %1372, align 1
   store ptr @.str.932, ptr %5, align 8
   store i8 3, ptr %1371, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1373:                                             ; preds = %1367
@@ -5622,7 +5622,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1381, %1377
   store i8 1, ptr %1388, align 1
   store ptr @.str.933, ptr %6, align 8
   store i8 3, ptr %1387, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1389:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
@@ -5638,7 +5638,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1381, %1377
 
 1393:                                             ; preds = %._crit_edge.i
   %1394 = load ptr, ptr %1349, align 8
-  %1395 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1349) #23
+  %1395 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %1349) #23
   %.idx.i.i = shl nsw i64 %1395, 3
   %1396 = getelementptr inbounds i8, ptr %1394, i64 %.idx.i.i
   %.not.i.i.i.i.i38 = icmp eq i64 %1395, 0
@@ -5862,7 +5862,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1381, %1377
   store i8 1, ptr %1519, align 1
   store ptr @.str.934, ptr %8, align 8
   store i8 3, ptr %1518, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13IntrinsicInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1520:                                             ; preds = %1515, %1513
@@ -5905,7 +5905,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %211, %209, %155, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_18VerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(2296) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2264
   %6 = icmp eq ptr %4, %5
@@ -5946,7 +5946,7 @@ _ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit: ; preds = %1, %7
 
 29:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2080
-  %31 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef 3) #23
+  %31 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %30, i32 noundef 3) #23
   br label %_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit
 
 _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit, %29
@@ -5965,7 +5965,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEED2Ev
   %43 = shl nuw nsw i64 %42, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %39, i64 noundef %43, i64 noundef 8) #23
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #23
+  %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %44) #23
   %46 = load ptr, ptr %44, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 1888
   %48 = icmp eq ptr %46, %47
@@ -6001,7 +6001,7 @@ _ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit: ; preds = %_ZN4llvm11SmallVec
 
 _ZN4llvm11SmallPtrSetIPKvLj32EED2Ev.exit:         ; preds = %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit, %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #23
+  %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %62) #23
   %64 = load ptr, ptr %62, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 1264
   %66 = icmp eq ptr %64, %65
@@ -6097,7 +6097,7 @@ _ZN4llvm11SmallPtrSetIPNS_11InstructionELj16EED2Ev.exit: ; preds = %_ZN4llvm11Sm
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %116) #23
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #23
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %117) #23
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm17ModuleSlotTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %118) #23
   ret void
@@ -6363,7 +6363,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   store i8 1, ptr %155, align 1
   store ptr @.str.935, ptr %108, align 8
   store i8 3, ptr %154, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %107)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FunctionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %107)
   br label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit
 
 156:                                              ; preds = %.lr.ph.i
@@ -6505,7 +6505,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %105)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %106)
-  %223 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %222) #23
+  %223 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   br i1 %223, label %250, label %224
 
 224:                                              ; preds = %219
@@ -6523,7 +6523,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   store ptr @.str.936, ptr %65, align 8
   store i8 3, ptr %163, align 8
   store ptr %222, ptr %66, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 8 dereferenceable(8) %66)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 8 dereferenceable(8) %66)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 233:                                              ; preds = %224
@@ -6542,7 +6542,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   store ptr @.str.937, ptr %67, align 8
   store i8 3, ptr %165, align 8
   store ptr %222, ptr %68, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 241:                                              ; preds = %238
@@ -6556,7 +6556,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   store ptr @.str.938, ptr %69, align 8
   store i8 3, ptr %169, align 8
   store ptr %222, ptr %70, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %69, ptr noundef nonnull align 8 dereferenceable(8) %70)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %69, ptr noundef nonnull align 8 dereferenceable(8) %70)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 246:                                              ; preds = %241
@@ -6570,7 +6570,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   store ptr @.str.939, ptr %71, align 8
   store i8 3, ptr %167, align 8
   store ptr %222, ptr %72, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %71, ptr noundef nonnull align 8 dereferenceable(8) %72)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %71, ptr noundef nonnull align 8 dereferenceable(8) %72)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 250:                                              ; preds = %246, %233, %219
@@ -6581,7 +6581,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   br i1 %.not149.i, label %_ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i, label %254
 
 254:                                              ; preds = %250
-  %255 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %255 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %256 = extractvalue { ptr, i64 } %255, 1
   %.not.i.i = icmp eq i64 %256, 17
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread137.i
@@ -6593,7 +6593,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %254
   br i1 %258, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread137.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread137.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %254
-  %259 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %259 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %260 = extractvalue { ptr, i64 } %259, 1
   %.not.i100.i = icmp eq i64 %260, 17
   br i1 %.not.i100.i, label %_ZN4llvmeqENS_9StringRefES0_.exit103.i, label %_ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i
@@ -6605,7 +6605,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit103.i:           ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %262, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit103.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %263 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %222) #23
+  %263 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   br i1 %263, label %270, label %264
 
 264:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
@@ -6620,7 +6620,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.942, ptr %73, align 8
   store i8 3, ptr %171, align 8
   store ptr %222, ptr %74, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 270:                                              ; preds = %264, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
@@ -6634,7 +6634,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.943, ptr %75, align 8
   store i8 3, ptr %173, align 8
   store ptr %222, ptr %76, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 275:                                              ; preds = %270
@@ -6690,7 +6690,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.944, ptr %77, align 8
   store i8 3, ptr %181, align 8
   store ptr %222, ptr %78, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %77, ptr noundef nonnull align 8 dereferenceable(8) %78)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %77, ptr noundef nonnull align 8 dereferenceable(8) %78)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 309:                                              ; preds = %303
@@ -6702,7 +6702,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %178, align 1
   store ptr @.str.945, ptr %79, align 8
   store i8 3, ptr %177, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %79)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %79)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 313:                                              ; preds = %309
@@ -6719,7 +6719,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.944, ptr %80, align 8
   store i8 3, ptr %179, align 8
   store ptr %222, ptr %81, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %80, ptr noundef nonnull align 8 dereferenceable(8) %81)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %80, ptr noundef nonnull align 8 dereferenceable(8) %81)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i: ; preds = %313, %275, %_ZN4llvmeqENS_9StringRefES0_.exit103.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread137.i, %250
@@ -6729,7 +6729,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i: ; preds = %313, %275, %_ZN4llv
   br i1 %.not152.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i, label %323
 
 323:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i
-  %324 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %324 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %325 = extractvalue { ptr, i64 } %324, 1
   %.not.i105.i = icmp eq i64 %325, 9
   br i1 %.not.i105.i, label %_ZN4llvmeqENS_9StringRefES0_.exit108.i, label %_ZN4llvmeqENS_9StringRefES0_.exit108.thread143.i
@@ -6741,7 +6741,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.i:           ; preds = %323
   br i1 %327, label %_ZN4llvmeqENS_9StringRefES0_.exit108.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit108.thread143.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit108.thread143.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit108.i, %323
-  %328 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %328 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %329 = extractvalue { ptr, i64 } %328, 1
   %.not.i109.i = icmp eq i64 %329, 18
   br i1 %.not.i109.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i
@@ -6753,7 +6753,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit112.i:           ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %331, label %_ZN4llvmeqENS_9StringRefES0_.exit108.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit112.i, %_ZN4llvmeqENS_9StringRefES0_.exit108.i
-  %332 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %222) #23
+  %332 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   br i1 %332, label %339, label %333
 
 333:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit108.thread.i
@@ -6768,7 +6768,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.942, ptr %82, align 8
   store i8 3, ptr %183, align 8
   store ptr %222, ptr %83, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 339:                                              ; preds = %333, %_ZN4llvmeqENS_9StringRefES0_.exit108.thread.i
@@ -6782,7 +6782,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.943, ptr %84, align 8
   store i8 3, ptr %185, align 8
   store ptr %222, ptr %85, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %84, ptr noundef nonnull align 8 dereferenceable(8) %85)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 344:                                              ; preds = %339
@@ -6812,11 +6812,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.944, ptr %86, align 8
   store i8 3, ptr %203, align 8
   store ptr %222, ptr %87, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %86, ptr noundef nonnull align 8 dereferenceable(8) %87)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %86, ptr noundef nonnull align 8 dereferenceable(8) %87)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 359:                                              ; preds = %351
-  %360 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %222) #23
+  %360 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   br i1 %360, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i, label %361
 
 361:                                              ; preds = %359
@@ -6831,7 +6831,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %188, align 1
   store ptr @.str.948, ptr %89, align 8
   store i8 3, ptr %187, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ConstantEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %89, ptr noundef nonnull align 8 dereferenceable(8) %88)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ConstantEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %89, ptr noundef nonnull align 8 dereferenceable(8) %88)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 366:                                              ; preds = %361
@@ -6883,7 +6883,7 @@ _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %373, %370
   store i8 1, ptr %197, align 1
   store ptr @.str.949, ptr %93, align 8
   store i8 3, ptr %196, align 8
-  %386 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %386 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %387 = extractvalue { ptr, i64 } %386, 0
   %388 = extractvalue { ptr, i64 } %386, 1
   store i8 5, ptr %198, align 8
@@ -6895,7 +6895,7 @@ _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %373, %370
   store ptr @.str.950, ptr %95, align 8
   store i8 3, ptr %201, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %91, ptr noundef nonnull align 8 dereferenceable(34) %92, ptr noundef nonnull align 8 dereferenceable(34) %95)
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %91, ptr noundef nonnull align 8 dereferenceable(8) %90)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %91, ptr noundef nonnull align 8 dereferenceable(8) %90)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 389:                                              ; preds = %.lr.ph.i22, %.lr.ph.i22, %.lr.ph.i22
@@ -6909,7 +6909,7 @@ _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %373, %370
   store i8 1, ptr %190, align 1
   store ptr @.str.951, ptr %98, align 8
   store i8 3, ptr %189, align 8
-  %394 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %394 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %395 = extractvalue { ptr, i64 } %394, 0
   %396 = extractvalue { ptr, i64 } %394, 1
   store i8 5, ptr %191, align 8
@@ -6921,12 +6921,12 @@ _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %373, %370
   store ptr @.str.952, ptr %100, align 8
   store i8 3, ptr %194, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %96, ptr noundef nonnull align 8 dereferenceable(34) %97, ptr noundef nonnull align 8 dereferenceable(34) %100)
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %96, ptr noundef nonnull align 8 dereferenceable(8) %90)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %96, ptr noundef nonnull align 8 dereferenceable(8) %90)
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i: ; preds = %380, %_ZNK4llvm4User8operandsEv.exit.i, %359, %344, %_ZN4llvmeqENS_9StringRefES0_.exit112.i, %_ZN4llvmeqENS_9StringRefES0_.exit108.thread143.i, %_ZN4llvmeqENS_9StringRefES0_.exit103.thread140.i
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull %205, i64 noundef 1) #23
-  call void @_ZNK4llvm5Value11getMetadataEjRNS_15SmallVectorImplIPNS_6MDNodeEEE(ptr noundef nonnull align 8 dereferenceable(24) %222, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %101) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull %205, i64 noundef 1) #23
+  call void @_ZNK4llvm5Value11getMetadataEjRNS_15SmallVectorImplIPNS_6MDNodeEEE(ptr noundef nonnull align 8 dereferenceable(81) %222, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %101) #23
   %397 = load ptr, ptr %101, align 8
   %398 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
   %399 = getelementptr inbounds ptr, ptr %397, i64 %398
@@ -6993,7 +6993,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
   store ptr @.str.954, ptr %103, align 8
   store i8 3, ptr %217, align 8
   store ptr %222, ptr %104, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_14GlobalVariableEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %103, ptr noundef nonnull align 8 dereferenceable(8) %104)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13TargetExtTypeEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i
 
 423:                                              ; preds = %._crit_edge.i
@@ -7011,7 +7011,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
   br i1 %430, label %453, label %_ZN4llvmplERKNS_5TwineES2_.exit.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %429
-  %431 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %222) #23
+  %431 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   %432 = extractvalue { ptr, i64 } %431, 0
   %433 = extractvalue { ptr, i64 } %431, 1
   store i8 3, ptr %210, align 8, !alias.scope !31
@@ -7080,22 +7080,22 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i:           ; preds = %451, %449
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13TargetExtTypeEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i
 
 453:                                              ; preds = %429, %423
-  %454 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %222) #23
+  %454 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %222) #23
   br i1 %454, label %455, label %456
 
 455:                                              ; preds = %453
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(48) %222)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(81) %222)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13TargetExtTypeEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i
 
 456:                                              ; preds = %453
   %457 = getelementptr inbounds i8, ptr %222, i64 -32
   %458 = load ptr, ptr %457, align 8
   call fastcc void @_ZN12_GLOBAL__N_18Verifier29visitConstantExprsRecursivelyEPKN4llvm8ConstantE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %458)
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(48) %222)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(81) %222)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13TargetExtTypeEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i
 
 _ZN4llvm15VerifierSupport11CheckFailedIPNS_13TargetExtTypeEJEEEvRKNS_5TwineERKT_DpRKT0_.exit.i: ; preds = %456, %455, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i, %422, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
-  %459 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
+  %459 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %101) #23
   %460 = load ptr, ptr %101, align 8
   %461 = icmp eq ptr %460, %205
   br i1 %461, label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit, label %462
@@ -7218,7 +7218,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.i: ; 
   store ptr @.str.957, ptr %57, align 8
   store i8 3, ptr %467, align 8
   store ptr %483, ptr %58, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit
 
 _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.thread.i: ; preds = %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.i, %487, %487, %480, %480, %480
@@ -7232,7 +7232,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
   store ptr @.str.958, ptr %59, align 8
   store i8 3, ptr %478, align 8
   store ptr %483, ptr %60, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit
 
 494:                                              ; preds = %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.thread.i
@@ -7248,7 +7248,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
   store ptr @.str.959, ptr %61, align 8
   store i8 3, ptr %469, align 8
   store ptr %483, ptr %62, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef nonnull align 8 dereferenceable(8) %62)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef nonnull align 8 dereferenceable(8) %62)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit
 
 501:                                              ; preds = %494
@@ -7266,7 +7266,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
   store ptr @.str.960, ptr %63, align 8
   store i8 3, ptr %476, align 8
   store ptr %483, ptr %64, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalAliasEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit
 
 504:                                              ; preds = %501, %501, %501, %501, %501
@@ -7289,7 +7289,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
 
 _ZN12_GLOBAL__N_18Verifier19visitAliaseeSubExprERKN4llvm11GlobalAliasERKNS1_8ConstantE.exit.i: ; preds = %508, %504
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56)
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(48) %483)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitGlobalValueERKN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(64) %483)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit
 
 _ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit: ; preds = %490, %493, %500, %503, %_ZN12_GLOBAL__N_18Verifier19visitAliaseeSubExprERKN4llvm11GlobalAliasERKNS1_8ConstantE.exit.i
@@ -7365,7 +7365,7 @@ _ZN12_GLOBAL__N_18Verifier16visitGlobalAliasERKN4llvm11GlobalAliasE.exit: ; pred
   store ptr @.str.965, ptr %46, align 8
   store i8 3, ptr %522, align 8
   store ptr %527, ptr %47, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %46, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %46, ptr noundef nonnull align 8 dereferenceable(8) %47)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit
 
 _ZN4llvm11GlobalIFunc14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.thread.i: ; preds = %524, %524, %524, %524, %524, %524, %524
@@ -7378,7 +7378,7 @@ _ZN4llvm11GlobalIFunc14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
   store ptr @.str.966, ptr %48, align 8
   store i8 3, ptr %520, align 8
   store ptr %527, ptr %49, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %48, ptr noundef nonnull align 8 dereferenceable(8) %49)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit
 
 534:                                              ; preds = %_ZN4llvm11GlobalIFunc14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.thread.i
@@ -7397,7 +7397,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %_ZNK4
   store ptr @.str.967, ptr %50, align 8
   store i8 3, ptr %518, align 8
   store ptr %527, ptr %51, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit
 
 540:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i
@@ -7417,7 +7417,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %_ZNK4
   store ptr @.str.968, ptr %52, align 8
   store i8 3, ptr %513, align 8
   store ptr %527, ptr %53, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit
 
 551:                                              ; preds = %540
@@ -7440,7 +7440,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %_ZNK4
   store ptr @.str.969, ptr %54, align 8
   store i8 3, ptr %516, align 8
   store ptr %527, ptr %55, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalIFuncEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br label %_ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit
 
 _ZN12_GLOBAL__N_18Verifier16visitGlobalIFuncERKN4llvm11GlobalIFuncE.exit: ; preds = %531, %533, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i, %550, %551, %564
@@ -7514,7 +7514,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread51.i:     ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.971, ptr %43, align 8
   store i8 3, ptr %569, align 8
   store ptr %.sroa.0111.0189, ptr %44, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_11NamedMDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_11NamedMDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
   br label %_ZN12_GLOBAL__N_18Verifier16visitNamedMDNodeERKN4llvm11NamedMDNodeE.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread49.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i45, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %576
@@ -7729,7 +7729,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14Strin
   store i8 1, ptr %647, align 1
   store ptr @.str.973, ptr %42, align 8
   store i8 3, ptr %646, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %42, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_11GlobalValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %42, ptr noundef nonnull align 8 dereferenceable(8) %41)
   br label %_ZN12_GLOBAL__N_18Verifier11visitComdatERKN4llvm6ComdatE.exit
 
 _ZN12_GLOBAL__N_18Verifier11visitComdatERKN4llvm6ComdatE.exit: ; preds = %648, %652, %659, %664
@@ -7770,7 +7770,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14Strin
 669:                                              ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14StringMapEntryIS2_EEEppEv.exit._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %35, i8 0, i64 20, i1 false)
   %670 = getelementptr inbounds i8, ptr %36, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %670, i64 noundef 16) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull %670, i64 noundef 16) #23
   %671 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %668) #23, !noalias !46
   %.not130134.i = icmp eq i32 %671, 0
   br i1 %.not130134.i, label %._crit_edge.thread.i, label %.lr.ph.i48
@@ -7864,7 +7864,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %717, %713
   store i8 1, ptr %673, align 1
   store ptr @.str.979, ptr %19, align 8
   store i8 3, ptr %672, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(8) %18)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 723:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i
@@ -7953,7 +7953,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
 
 _ZNK4llvm6MDNode10getOperandEj.exit42.i.i:        ; preds = %764, %760
   %.sroa.0.0.i.i41.i.i = phi ptr [ %768, %764 ], [ %762, %760 ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i41.i.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i41.i.i)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i.i.i
@@ -7980,7 +7980,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
 
 _ZNK4llvm6MDNode10getOperandEj.exit45.i.i:        ; preds = %775, %771
   %.sroa.0.0.i.i44.i.i = phi ptr [ %779, %775 ], [ %773, %771 ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i44.i.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i44.i.i)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 780:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
@@ -8037,7 +8037,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit48.i.i:        ; preds = %785, %781
 _ZNK4llvm6MDNode10getOperandEj.exit53.i.i:        ; preds = %802, %798
   %.sroa.0.0.i.i52.i.i = phi ptr [ %806, %802 ], [ %800, %798 ]
   %807 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i52.i.i, i64 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(8) %807)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(8) %807)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 808:                                              ; preds = %792
@@ -8133,7 +8133,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
 _ZNK4llvm6MDNode10getOperandEj.exit64.i.i:        ; preds = %851, %847
   %.sroa.0.0.i.i63.i.i = phi ptr [ %855, %851 ], [ %849, %847 ]
   %856 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i63.i.i, i64 16
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(8) %856)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(8) %856)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 857:                                              ; preds = %808
@@ -8199,7 +8199,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
 _ZNK4llvm6MDNode10getOperandEj.exit75.i.i:        ; preds = %885, %881
   %.sroa.0.0.i.i74.i.i = phi ptr [ %889, %885 ], [ %883, %881 ]
   %890 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i74.i.i, i64 16
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(8) %890)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(8) %890)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 891:                                              ; preds = %808
@@ -8279,7 +8279,7 @@ _ZN4llvm8dyn_castINS_6MDNodeENS_9MDOperandEEEDcRKT0_.exit.i.i: ; preds = %_ZNK4l
 _ZNK4llvm6MDNode10getOperandEj.exit84.i.i:        ; preds = %925, %921
   %.sroa.0.0.i.i83.i.i = phi ptr [ %929, %925 ], [ %923, %921 ]
   %930 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i83.i.i, i64 16
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(8) %930)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(8) %930)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 931:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit81.i.i
@@ -8332,7 +8332,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit87.i.i:        ; preds = %938, %934
 
 _ZNK4llvm6MDNode10getOperandEj.exit90.i.i:        ; preds = %953, %949
   %.sroa.0.0.i.i89.i.i = phi ptr [ %957, %953 ], [ %951, %949 ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i89.i.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i89.i.i)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 958:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit87.i.i
@@ -8392,7 +8392,7 @@ _ZN4llvm3isaINS_6MDNodeENS_9MDOperandEEEbRKT0_.exit.i.i: ; preds = %_ZNK4llvm6MD
 _ZNK4llvm6MDNode10getOperandEj.exit96.i.i:        ; preds = %980, %976
   %.sroa.0.0.i.i95.i.i = phi ptr [ %984, %980 ], [ %978, %976 ]
   %985 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i95.i.i, i64 16
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(8) %985)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(8) %985)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit72thread-pre-split.i.i: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit93.i.i, %958, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i70.i.i, %_ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit61.i.i
@@ -8456,7 +8456,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit.i.i: ; preds = %1005, %987
   %.sink.i.i.i.i.i.i = phi ptr [ %1006, %1005 ], [ null, %987 ]
-  %1016 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %.sink.i.i.i.i.i.i), !noalias !49
+  %1016 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %.sink.i.i.i.i.i.i), !noalias !49
   %1017 = load ptr, ptr %30, align 8, !noalias !49
   store ptr %1017, ptr %1016, align 8, !noalias !49
   %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 8
@@ -8468,7 +8468,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInf
   store i8 1, ptr %691, align 1
   store ptr @.str.988, ptr %31, align 8
   store i8 3, ptr %690, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8MDStringEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8MDStringEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
 1020:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit.i.i, %_ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit72.i.i
@@ -8787,7 +8787,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i.i.i: ; pred
   store i8 1, ptr %699, align 1
   store ptr @.str.997, ptr %16, align 8
   store i8 3, ptr %698, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef nonnull align 8 dereferenceable(8) %.0189.i.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef nonnull align 8 dereferenceable(8) %.0189.i.i)
   br label %_ZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandE.exit.i.i
 
 1156:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i
@@ -8834,7 +8834,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %1163, %1159
   store i8 1, ptr %693, align 1
   store ptr @.str.999, ptr %15, align 8
   store i8 3, ptr %692, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i.i.i.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i.i.i.i)
   br label %"_ZZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandEENK3$_0clES4_.exit.i.i.i"
 
 "_ZZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandEENK3$_0clES4_.exit.i.i.i": ; preds = %.critedge.i.i.i.i57, %1172, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
@@ -8883,7 +8883,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit19.i.i.i:      ; preds = %1183, %1179
   store i8 1, ptr %695, align 1
   store ptr @.str.999, ptr %14, align 8
   store i8 3, ptr %694, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(8) %1188)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(8) %1188)
   br label %"_ZZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandEENK3$_0clES4_.exit24.i.i.i"
 
 "_ZZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandEENK3$_0clES4_.exit24.i.i.i": ; preds = %.critedge.i23.i.i.i, %1193, %_ZNK4llvm6MDNode10getOperandEj.exit19.i.i.i
@@ -8954,7 +8954,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
 _ZNK4llvm6MDNode10getOperandEj.exit32.i.i.i:      ; preds = %1228, %1224
   %.sroa.0.0.i.i31.i.i.i = phi ptr [ %1232, %1228 ], [ %1226, %1224 ]
   %1233 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i31.i.i.i, i64 16
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(8) %1233)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(8) %1233)
   br label %_ZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandE.exit.i.i
 
 _ZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandE.exit.i.i: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit32.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i133.i.i, %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i.i.i
@@ -9350,7 +9350,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit93.i:          ; preds = %1408, %1404
 
 .sink.split.i:                                    ; preds = %1415, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i
   %.sink.i = phi ptr [ %40, %1415 ], [ %39, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8MDStringEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_8MDStringEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i, ptr noundef nonnull align 8 dereferenceable(8) %38)
   br label %1416
 
 1416:                                             ; preds = %.sink.split.i, %_ZNK4llvm6MDNode10getOperandEj.exit93.i
@@ -9359,7 +9359,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit93.i:          ; preds = %1408, %1404
   br i1 %.not46.i, label %._crit_edge143.i, label %1345
 
 ._crit_edge143.i:                                 ; preds = %1416, %._crit_edge.thread.i
-  %1418 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #23
+  %1418 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %36) #23
   %1419 = load ptr, ptr %36, align 8
   %1420 = icmp eq ptr %1419, %670
   br i1 %1420, label %_ZN4llvm11SmallVectorIPKNS_6MDNodeELj16EED2Ev.exit.i, label %1421
@@ -9436,7 +9436,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i62:      ; preds = %1441, %1437
   store i8 1, ptr %1448, align 1
   store ptr @.str.1001, ptr %12, align 8
   store i8 3, ptr %1447, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %_ZN12_GLOBAL__N_18Verifier17visitModuleIdentsEv.exit
 
 1449:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i62
@@ -9495,7 +9495,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i66: ; pred
 
 _ZNK4llvm6MDNode10getOperandEj.exit20.i:          ; preds = %1473, %1469
   %.sroa.0.0.i.i19.i = phi ptr [ %1477, %1473 ], [ %1471, %1469 ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i19.i)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i19.i)
   br label %_ZN12_GLOBAL__N_18Verifier17visitModuleIdentsEv.exit
 
 _ZN12_GLOBAL__N_18Verifier17visitModuleIdentsEv.exit: ; preds = %1431, %_ZN12_GLOBAL__N_18Verifier16visitModuleFlagsEv.exit, %1429, %1446, %_ZNK4llvm6MDNode10getOperandEj.exit20.i
@@ -9553,7 +9553,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i72:      ; preds = %1492, %1488
   store i8 1, ptr %1499, align 1
   store ptr @.str.1004, ptr %9, align 8
   store i8 3, ptr %1498, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %_ZN12_GLOBAL__N_18Verifier23visitModuleCommandLinesEv.exit
 
 1500:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i72
@@ -9612,7 +9612,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.i78: ; pred
 
 _ZNK4llvm6MDNode10getOperandEj.exit20.i80:        ; preds = %1524, %1520
   %.sroa.0.0.i.i19.i81 = phi ptr [ %1528, %1524 ], [ %1522, %1520 ]
-  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i19.i81)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.i.i19.i81)
   br label %_ZN12_GLOBAL__N_18Verifier23visitModuleCommandLinesEv.exit
 
 _ZN12_GLOBAL__N_18Verifier23visitModuleCommandLinesEv.exit: ; preds = %1482, %_ZN12_GLOBAL__N_18Verifier17visitModuleIdentsEv.exit, %1480, %1497, %_ZNK4llvm6MDNode10getOperandEj.exit20.i80
@@ -9856,7 +9856,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i: ; preds = %.lr.ph.
   store i8 1, ptr %1617, align 1
   store ptr @.str.1006, ptr %7, align 8
   store i8 3, ptr %1616, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8MetadataEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_8MetadataEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
 1618:                                             ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i
@@ -10005,7 +10005,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i100: ; preds = %1672
   br i1 %.not.i.i102, label %_ZN12_GLOBAL__N_18Verifier28verifyDeoptimizeCallingConvsEv.exit, label %1674
 
 1674:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i100
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJS4_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJS4_EEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier28verifyDeoptimizeCallingConvsEv.exit
 
 _ZN12_GLOBAL__N_18Verifier28verifyDeoptimizeCallingConvsEv.exit: ; preds = %1652, %_ZN12_GLOBAL__N_18Verifier18verifyCompileUnitsEv.exit, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i103, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i100, %1674
@@ -10259,7 +10259,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
 
 103:                                              ; preds = %92, %72
   %.sink.i.i.i.i = phi ptr [ %93, %92 ], [ null, %72 ]
-  %104 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E20InsertIntoBucketImplIS4_EEPSB_RKS4_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sink.i.i.i.i), !noalias !71
+  %104 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E20InsertIntoBucketImplIS4_EEPSB_RKS4_RKT_SF_(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %.sink.i.i.i.i), !noalias !71
   %105 = load ptr, ptr %8, align 8, !noalias !71
   store ptr %105, ptr %104, align 8, !noalias !71
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -10938,7 +10938,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA28_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
   br label %_ZNSt8optionalIN4llvm5APIntEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
 
 281:                                              ; preds = %276, %273
-  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %271) #23
+  call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(12) %271) #23
   br label %_ZNSt8optionalIN4llvm5APIntEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit
 
 282:                                              ; preds = %.critedge37
@@ -10953,7 +10953,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA28_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
   br label %_ZNSt19_Optional_base_implIN4llvm5APIntESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJRKS1_EEEvDpOT_.exit.i
 
 287:                                              ; preds = %282
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %271) #23
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(12) %271) #23
   br label %_ZNSt19_Optional_base_implIN4llvm5APIntESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJRKS1_EEEvDpOT_.exit.i
 
 _ZNSt19_Optional_base_implIN4llvm5APIntESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJRKS1_EEEvDpOT_.exit.i: ; preds = %287, %285
@@ -11506,7 +11506,7 @@ _ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit: ; pre
 
 209:                                              ; preds = %198, %_ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit
   %.sink.i.i.i.i = phi ptr [ %199, %198 ], [ null, %_ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit ]
-  %210 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %.sink.i.i.i.i), !noalias !82
+  %210 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef %.sink.i.i.i.i), !noalias !82
   %211 = load ptr, ptr %4, align 8, !noalias !82
   store ptr %211, ptr %210, align 8, !noalias !82
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -13760,7 +13760,7 @@ define dso_local void @_ZN4llvm32initializeVerifierLegacyPassPassERNS_12PassRegi
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -13825,7 +13825,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm18createVerifierPassEb(i1 
   store ptr %2, ptr %13, align 8
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %14, align 8
-  %15 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
+  %15 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
   %.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_118VerifierLegacyPassC2Eb.exit, label %16
 
@@ -14875,7 +14875,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread: ; preds = %._crit
   br label %278
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_edge.i.i.i
-  %276 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %258, ptr noundef nonnull %1) #23, !noalias !105
+  %276 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(288) %258, ptr noundef nonnull %1) #23, !noalias !105
   %.fca.1.extract.i.i.i = extractvalue { ptr, i8 } %276, 1
   %277 = trunc i8 %.fca.1.extract.i.i.i to i1
   br i1 %277, label %278, label %_ZL11forEachUserPKN4llvm5ValueERNS_11SmallPtrSetIS2_Lj32EEENS_12function_refIFbS2_EEE.exit
@@ -14883,13 +14883,13 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_
 278:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %280 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %280, i64 noundef 6) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %280, i64 noundef 6) #23
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %282 = load ptr, ptr %281, align 8
   %283 = load ptr, ptr %17, align 8
-  %284 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
+  %284 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #23
   %285 = getelementptr inbounds ptr, ptr %283, i64 %284
-  %286 = call noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6insertINS1_18user_iterator_implIKNS_4UserEEEvEEPS3_SA_T_SB_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %285, ptr %282, ptr null)
+  %286 = call noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6insertINS1_18user_iterator_implIKNS_4UserEEEvEEPS3_SA_T_SB_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef %285, ptr %282, ptr null)
   %287 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   br i1 %287, label %._crit_edge.i, label %.lr.ph.i
 
@@ -14956,7 +14956,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_
   br label %328
 
 _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit30.i: ; preds = %._crit_edge.i.i29.i, %304
-  %326 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %258, ptr noundef %309) #23, !noalias !108
+  %326 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(288) %258, ptr noundef %309) #23, !noalias !108
   %.fca.1.extract.i.i8.i = extractvalue { ptr, i8 } %326, 1
   %327 = trunc i8 %.fca.1.extract.i.i8.i to i1
   br i1 %327, label %328, label %.backedge.i
@@ -15184,9 +15184,9 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i20.i.i: ; preds = %381
   %385 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %386 = load ptr, ptr %385, align 8
   %387 = load ptr, ptr %17, align 8
-  %388 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
+  %388 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #23
   %389 = getelementptr inbounds ptr, ptr %387, i64 %388
-  %390 = call noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6insertINS1_18user_iterator_implIKNS_4UserEEEvEEPS3_SA_T_SB_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %389, ptr %386, ptr null)
+  %390 = call noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6insertINS1_18user_iterator_implIKNS_4UserEEEvEEPS3_SA_T_SB_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef %389, ptr %386, ptr null)
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.lr.ph.i.i26.i, %"_ZN4llvm12function_refIFbPKNS_5ValueEEE11callback_fnIZN12_GLOBAL__N_18Verifier16visitGlobalValueERKNS_11GlobalValueEE3$_0EEblS3_.exit.thread", %384, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit30.i
@@ -15194,7 +15194,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i20.i.i: ; preds = %381
   br i1 %391, label %._crit_edge.i, label %304, !llvm.loop !111
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %278
-  %392 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
+  %392 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %17) #23
   %393 = load ptr, ptr %17, align 8
   %394 = icmp eq ptr %393, %280
   br i1 %394, label %_ZL11forEachUserPKN4llvm5ValueERNS_11SmallPtrSetIS2_Lj32EEENS_12function_refIFbS2_EEE.exit, label %395
@@ -17127,7 +17127,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i: ; preds = %71, %69
   br i1 %.not.i.i19, label %_ZN12_GLOBAL__N_18Verifier20verifySwiftErrorCallERN4llvm8CallBaseEPKNS1_5ValueE.exit, label %73
 
 73:                                               ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJNS_8CallBaseEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(88) %15)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJNS_8CallBaseEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(88) %15)
   br label %_ZN12_GLOBAL__N_18Verifier20verifySwiftErrorCallERN4llvm8CallBaseEPKNS1_5ValueE.exit
 
 74:                                               ; preds = %60, %.lr.ph.i
@@ -17681,7 +17681,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10Basic
   br i1 %.not.i, label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #23
+  %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %25) #23
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 16
   %30 = icmp eq ptr %28, %29
@@ -18733,7 +18733,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br i1 %18, label %20, label %30
 
 20:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -18753,7 +18753,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -19876,7 +19876,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %257, label %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread, label %259
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %251
-  %258 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %72, ptr noundef nonnull align 8 dereferenceable(12) %9) #24
+  %258 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %72, ptr noundef nonnull align 8 dereferenceable(32) %9) #24
   br i1 %258, label %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread, label %259
 
 259:                                              ; preds = %_ZNK4llvm5APInteqERKS0_.exit.i, %254
@@ -19891,7 +19891,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %251
   br i1 %265, label %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread, label %269
 
 _ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit: ; preds = %259
-  %266 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(12) %74) #24
+  %266 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(12) %74) #24
   br i1 %266, label %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread, label %269
 
 _ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit.thread: ; preds = %254, %_ZNK4llvm5APInteqERKS0_.exit.i, %262, %_ZL12isContiguousRKN4llvm13ConstantRangeES2_.exit
@@ -23933,7 +23933,7 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm6VFInfoEED2Ev(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #23
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = icmp eq ptr %10, %11
@@ -24451,7 +24451,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_Ident
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
+  %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %.07, i64 56
   %11 = icmp eq ptr %9, %10
@@ -24898,14 +24898,14 @@ _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
   br i1 %10, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %_ZN4llvm8CallBase17data_operands_endEv.exit
-  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %12 = extractvalue { ptr, i64 } %11, 0
   %.pr.i.i.i = load i32, ptr %8, align 4
   %13 = icmp slt i32 %.pr.i.i.i, 0
   br i1 %13, label %14, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
 
 14:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
-  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %15 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -24925,14 +24925,14 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %24 = load i32, ptr %8, align 4
   %25 = icmp slt i32 %24, 0
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
   %31 = icmp slt i32 %30, 0
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
@@ -24962,14 +24962,14 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm8CallBase20getNumOperandBundles
   br i1 %4, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit, label %_ZNK4llvm8CallBase18bundle_op_info_endEv.exit
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit:  ; preds = %1
-  %5 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %5 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %6 = extractvalue { ptr, i64 } %5, 0
   %.pr = load i32, ptr %2, align 4
   %7 = icmp slt i32 %.pr, 0
   br i1 %7, label %8, label %_ZNK4llvm8CallBase18bundle_op_info_endEv.exit
 
 8:                                                ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit
-  %9 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %9 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
@@ -25049,7 +25049,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br i1 %31, label %34, label %44
 
 34:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -25069,7 +25069,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -25320,7 +25320,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
   br i1 %.not.i.i, label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, label %16
 
 16:                                               ; preds = %11
-  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #23
+  %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #23
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 16
   %20 = icmp eq ptr %18, %19
@@ -26060,7 +26060,7 @@ _ZNK4llvm26DIGlobalVariableExpression13getExpressionEv.exit: ; preds = %62, %66
   store ptr @.str.266, ptr %8, align 8
   store i8 3, ptr %76, align 8
   store ptr %72, ptr %9, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_12DIExpressionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_12DIExpressionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %_ZN12_GLOBAL__N_18Verifier17visitDIExpressionERKN4llvm12DIExpressionE.exit
 
 _ZN12_GLOBAL__N_18Verifier17visitDIExpressionERKN4llvm12DIExpressionE.exit: ; preds = %73, %75
@@ -26218,7 +26218,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i: ; preds 
 
 _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_26DIGlobalVariableExpressionEJPKNS_10DIVariableEEEEvRKNS_5TwineERKT_DpRKT0_.exit.sink.split.i: ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
   %.sink.i = phi ptr [ %5, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i ], [ %7, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i ]
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_26DIGlobalVariableExpressionEJPKNS_10DIVariableEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_26DIGlobalVariableExpressionEJPKNS_10DIVariableEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i)
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm26DIGlobalVariableExpressionEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit
 
 _ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm26DIGlobalVariableExpressionEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit: ; preds = %_ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit21, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i, %130, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_26DIGlobalVariableExpressionEJPKNS_10DIVariableEEEEvRKNS_5TwineERKT_DpRKT0_.exit.sink.split.i
@@ -40748,7 +40748,7 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   store ptr @.str.365, ptr %401, align 8
   store i8 3, ptr %411, align 8
   store ptr %835, ptr %402, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %401, ptr noundef nonnull align 8 dereferenceable(8) %402)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %401, ptr noundef nonnull align 8 dereferenceable(8) %402)
   br label %_ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i
 
 843:                                              ; preds = %839
@@ -40765,7 +40765,7 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   store ptr @.str.366, ptr %403, align 8
   store i8 3, ptr %455, align 8
   store ptr %835, ptr %404, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %403, ptr noundef nonnull align 8 dereferenceable(8) %404)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %403, ptr noundef nonnull align 8 dereferenceable(8) %404)
   br label %_ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i
 
 .critedge.i.i:                                    ; preds = %846
@@ -40843,7 +40843,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i: ; preds
   br i1 %872, label %_ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i, label %877
 
 877:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJPNS_9DbgRecordEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %406, ptr noundef nonnull align 8 dereferenceable(8) %407)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJPNS_9DbgRecordEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %406, ptr noundef nonnull align 8 dereferenceable(8) %407)
   br label %_ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i
 
 878:                                              ; preds = %.lr.ph.i.i
@@ -40855,7 +40855,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i: ; preds
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i:      ; preds = %878
-  %881 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %408, ptr noundef nonnull align 4 dereferenceable(8) %880, i64 1) #23
+  %881 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %408, ptr noundef nonnull align 4 dereferenceable(8) %880, i64 1) #23
   %.pr.i.i = load ptr, ptr %408, align 8
   %.not.i.i35.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i35.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i, label %882
@@ -40863,7 +40863,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i:      ; preds = %878
 882:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i
   %883 = load i8, ptr %.pr.i.i, align 4
   %884 = icmp eq i8 %883, 6
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %408, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %408, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i) #23
   br i1 %884, label %_ZN4llvm8DebugLocD2Ev.exit.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %882
@@ -40908,7 +40908,7 @@ _ZN4llvm8DebugLocD2Ev.exit.thread.i.i:            ; preds = %_ZN4llvm8DebugLocD2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %398)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %399)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %400)
-  %888 = call noundef ptr @_ZN4llvm9DbgRecord9getParentEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i) #23
+  %888 = call noundef ptr @_ZN4llvm9DbgRecord9getParentEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i) #23
   store ptr %888, ptr %372, align 8
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 72
   %890 = load ptr, ptr %889, align 8
@@ -40924,7 +40924,7 @@ _ZN4llvm8DebugLocD2Ev.exit.thread.i.i:            ; preds = %_ZN4llvm8DebugLocD2
   store i8 3, ptr %413, align 8
   store ptr %.sroa.068.087.i.i, ptr %375, align 8
   store i8 %892, ptr %376, align 1
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_17DbgVariableRecordEJNS2_12LocationTypeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %374, ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull align 1 dereferenceable(1) %376)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_17DbgVariableRecordEJNS2_12LocationTypeEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %374, ptr noundef nonnull align 8 dereferenceable(8) %375, ptr noundef nonnull align 1 dereferenceable(1) %376)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 894:                                              ; preds = %887
@@ -41017,7 +41017,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i: ; pre
   br i1 %.not.i.i39.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %927
 
 927:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %922, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %922, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %928 = load ptr, ptr %0, align 8
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 32
   %930 = load ptr, ptr %929, align 8
@@ -41145,7 +41145,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74.i.i.i: ; p
   br i1 %.not.i75.i.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %980
 
 980:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74.i.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %975, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %975, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %981 = load ptr, ptr %0, align 8
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 32
   %983 = load ptr, ptr %982, align 8
@@ -41244,7 +41244,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80.i.i.i: ; p
   br i1 %.not.i81.i.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %1022
 
 1022:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80.i.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1017, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1017, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %1023 = load ptr, ptr %0, align 8
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 32
   %1025 = load ptr, ptr %1024, align 8
@@ -41493,7 +41493,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i393thread-pre
   br i1 %1126, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %1131
 
 1131:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i393thread-pre-split
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef nonnull align 8 dereferenceable(8) %383)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef nonnull align 8 dereferenceable(8) %383)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1132:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit93._crit_edge.i.i.i, %1094
@@ -41558,7 +41558,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i388thread-pre
   br i1 %1151, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %1156
 
 1156:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i388thread-pre-split
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_6MDNodeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef nonnull align 8 dereferenceable(8) %386)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_6MDNodeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %385, ptr noundef nonnull align 8 dereferenceable(8) %386)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1157:                                             ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DIExpressionEEPNS_6MDNodeEEEbRKT0_.exit100.i.i.i
@@ -41580,7 +41580,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i388thread-pre
   %.0161.i.i.i = phi ptr [ %1164, %1163 ], [ %1161, %1157 ]
   %1165 = load ptr, ptr %.0161.i.i.i, align 8
   store ptr %1165, ptr %387, align 8
-  %1166 = call noundef ptr @_ZN4llvm9DbgRecord11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i) #23
+  %1166 = call noundef ptr @_ZN4llvm9DbgRecord11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i) #23
   %1167 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %1165) #23
   %1168 = icmp eq ptr %1166, %1167
   br i1 %1168, label %1163, label %1169
@@ -41590,7 +41590,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i388thread-pre
   store ptr @.str.375, ptr %388, align 8
   store i8 3, ptr %417, align 8
   store ptr %.sroa.068.087.i.i, ptr %389, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %388, ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull align 8 dereferenceable(8) %389)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_11InstructionEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %388, ptr noundef nonnull align 8 dereferenceable(8) %387, ptr noundef nonnull align 8 dereferenceable(8) %389)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 .loopexit.i.i.i:                                  ; preds = %1163, %1157, %1044
@@ -41703,7 +41703,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i108.i.i.i: ; 
   br i1 %1214, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %1219
 
 1219:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i108.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocalVariableEJPNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef nonnull align 8 dereferenceable(8) %392)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocalVariableEJPNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef nonnull align 8 dereferenceable(8) %392)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1220:                                             ; preds = %1185, %1185, %1185, %1185, %1185, %_ZNK4llvm10DIVariable10getRawTypeEv.exit.i.i.i
@@ -41714,13 +41714,13 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i108.i.i.i: ; 
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.thread.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i:    ; preds = %1220
-  %1222 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %393, ptr noundef nonnull align 4 dereferenceable(8) %1221, i64 1) #23
+  %1222 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %393, ptr noundef nonnull align 4 dereferenceable(8) %1221, i64 1) #23
   %.pr.i.i.i = load ptr, ptr %393, align 8
   %.not.i.i.i.i.i37.i.i = icmp eq ptr %.pr.i.i.i, null
   br i1 %.not.i.i.i.i.i37.i.i, label %_ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.thread.i.i.i, label %_ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.i.i.i
 
 _ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.i.i.i: ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %393, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i.i) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %393, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i.i) #23
   %1223 = load i8, ptr %.pr.i.i.i, align 4
   %1224 = icmp eq i8 %1223, 6
   br i1 %1224, label %1262, label %_ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.thread.i.i.i
@@ -41822,7 +41822,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i400: ; preds = %1248, %12
   br i1 %.not.i.i.i.i.i112.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i, label %1264
 
 1264:                                             ; preds = %1262
-  %1265 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %396, ptr noundef nonnull align 4 dereferenceable(8) %1263, i64 1) #23
+  %1265 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull align 4 dereferenceable(8) %1263, i64 1) #23
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i: ; preds = %1264, %1262
@@ -41832,7 +41832,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i: ; preds = %1264, %1262
   br i1 %.not.i.i.i.i114.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit115.i.i.i, label %1268
 
 1268:                                             ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %396, ptr noundef nonnull align 4 dereferenceable(8) %1267) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %396, ptr noundef nonnull align 4 dereferenceable(8) %1267) #23
   br label %_ZN4llvm8DebugLocD2Ev.exit115.i.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit115.i.i.i:              ; preds = %1268, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit113.i.i.i
@@ -41986,7 +41986,7 @@ _ZL13getSubprogramPN4llvm8MetadataE.exit:         ; preds = %.lr.ph.i364
   %1338 = call noundef ptr @_ZNK4llvm10DILocation8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16) %1266)
   %1339 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1338) #23
   store ptr %1339, ptr %400, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_17DbgVariableRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_15DILocalVariableEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %397, ptr noundef nonnull align 8 dereferenceable(8) %398, ptr noundef nonnull align 8 dereferenceable(8) %372, ptr noundef nonnull align 8 dereferenceable(8) %373, ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(8) %395, ptr noundef nonnull align 8 dereferenceable(8) %400)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_17DbgVariableRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_15DILocalVariableEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %397, ptr noundef nonnull align 8 dereferenceable(8) %398, ptr noundef nonnull align 8 dereferenceable(8) %372, ptr noundef nonnull align 8 dereferenceable(8) %373, ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(8) %395, ptr noundef nonnull align 8 dereferenceable(8) %400)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1340:                                             ; preds = %1332
@@ -42158,7 +42158,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; p
   br i1 %.not.i.i15.i.i.i, label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i, label %1400
 
 1400:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1395, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1395, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %1401 = load ptr, ptr %0, align 8
   %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 32
   %1403 = load ptr, ptr %1402, align 8
@@ -42180,7 +42180,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; p
 _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i: ; preds = %1408, %1406
   %1410 = load ptr, ptr %0, align 8
   %1411 = load ptr, ptr %435, align 8
-  call void @_ZNK4llvm8Metadata5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleEb(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1410, ptr noundef nonnull align 8 dereferenceable(112) %434, ptr noundef %1411, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm8Metadata5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1410, ptr noundef nonnull align 8 dereferenceable(112) %434, ptr noundef %1411, i1 noundef zeroext false) #23
   %1412 = load ptr, ptr %0, align 8
   %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 32
   %1414 = load ptr, ptr %1413, align 8
@@ -42247,7 +42247,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.i.i.i: ; 
   br i1 %.not.i10.i.i.i.i, label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i, label %1439
 
 1439:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.i.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1434, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1434, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %1440 = load ptr, ptr %0, align 8
   %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 32
   %1442 = load ptr, ptr %1441, align 8
@@ -42269,7 +42269,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.i.i.i: ; 
 _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i16.i.i.i.i: ; preds = %1447, %1445
   %1449 = load ptr, ptr %0, align 8
   %1450 = load ptr, ptr %435, align 8
-  call void @_ZNK4llvm8Metadata5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleEb(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1449, ptr noundef nonnull align 8 dereferenceable(112) %434, ptr noundef %1450, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm8Metadata5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i42.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1449, ptr noundef nonnull align 8 dereferenceable(112) %434, ptr noundef %1450, i1 noundef zeroext false) #23
   %1451 = load ptr, ptr %0, align 8
   %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 32
   %1453 = load ptr, ptr %1452, align 8
@@ -42342,7 +42342,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8ArgumentENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds =
   store ptr @.str.385, ptr %367, align 8
   store i8 3, ptr %445, align 8
   store ptr %.sroa.068.087.i.i, ptr %368, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_17DbgVariableRecordEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %367, ptr noundef nonnull align 8 dereferenceable(8) %368)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_17DbgVariableRecordEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %367, ptr noundef nonnull align 8 dereferenceable(8) %368)
   br label %_ZN12_GLOBAL__N_18Verifier19verifyNotEntryValueERKN4llvm17DbgVariableRecordE.exit.i.i
 
 _ZN12_GLOBAL__N_18Verifier19verifyNotEntryValueERKN4llvm17DbgVariableRecordE.exit.i.i: ; preds = %1477, %1475, %1473, %1469, %_ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_6MDNodeEEEDaPT0_.exit.i51.i.i, %1460, %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionERKN4llvm17DbgVariableRecordE.exit.i.i, %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionERKN4llvm17DbgVariableRecordE.exit.thread.i.i
@@ -42413,7 +42413,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56.i.i: ; p
   br i1 %.not.i.i57.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i, label %1499
 
 1499:                                             ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56.i.i
-  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1494, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
+  call void @_ZNK4llvm9DbgRecord5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.068.087.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1494, ptr noundef nonnull align 8 dereferenceable(112) %434, i1 noundef zeroext false) #23
   %1500 = load ptr, ptr %0, align 8
   %1501 = getelementptr inbounds nuw i8, ptr %1500, i64 32
   %1502 = load ptr, ptr %1501, align 8
@@ -42462,19 +42462,19 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i58.i.i: ; preds = %1507
   br i1 %.not.i.i.i.i.i.i59.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i60.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i60.i.i:  ; preds = %1520
-  %1522 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %355, ptr noundef nonnull align 4 dereferenceable(8) %1521, i64 1) #23
+  %1522 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %355, ptr noundef nonnull align 4 dereferenceable(8) %1521, i64 1) #23
   %.pr.i61.i.i = load ptr, ptr %355, align 8
   %.not.i.i.i.i.i62.i.i = icmp eq ptr %.pr.i61.i.i, null
   br i1 %.not.i.i.i.i.i62.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i.i, label %1523
 
 1523:                                             ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i60.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %355, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i61.i.i) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %355, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i61.i.i) #23
   %1524 = load i8, ptr %.pr.i61.i.i, align 4
   %1525 = icmp eq i8 %1524, 6
   br i1 %1525, label %_ZN4llvm8DebugLocD2Ev.exit.thread.i.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit.thread.i.i.i:          ; preds = %1523, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i60.i.i, %1520
-  %1526 = call noundef ptr @_ZN4llvm9DbgRecord9getParentEv(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.068.087.i.i) #23
+  %1526 = call noundef ptr @_ZN4llvm9DbgRecord9getParentEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.068.087.i.i) #23
   store ptr %1526, ptr %356, align 8
   %.not17.i.i.i = icmp eq ptr %1526, null
   br i1 %.not17.i.i.i, label %1530, label %1527
@@ -42496,7 +42496,7 @@ _ZN4llvm8DebugLocD2Ev.exit.thread.i.i.i:          ; preds = %1523, %_ZNK4llvm9Db
   br i1 %.not.i.i.i.i.i20.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i, label %1534
 
 1534:                                             ; preds = %1530
-  %1535 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %360, ptr noundef nonnull align 4 dereferenceable(8) %1533, i64 1) #23
+  %1535 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %360, ptr noundef nonnull align 4 dereferenceable(8) %1533, i64 1) #23
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i:  ; preds = %1534, %1530
@@ -42506,7 +42506,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i:  ; preds = %1534, %1530
   br i1 %.not.i.i.i.i22.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit23.i.i.i, label %1538
 
 1538:                                             ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %360, ptr noundef nonnull align 4 dereferenceable(8) %1537) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %360, ptr noundef nonnull align 4 dereferenceable(8) %1537) #23
   br label %_ZN4llvm8DebugLocD2Ev.exit23.i.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit23.i.i.i:               ; preds = %1538, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit21.i.i.i
@@ -42519,7 +42519,7 @@ _ZN4llvm8DebugLocD2Ev.exit23.i.i.i:               ; preds = %1538, %_ZNK4llvm9Db
   store ptr @.str.387, ptr %361, align 8
   store i8 3, ptr %451, align 8
   store ptr %.sroa.068.087.i.i, ptr %362, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %361, ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 8 dereferenceable(8) %357)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %361, ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 8 dereferenceable(8) %357)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i
 
 1540:                                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit23.i.i.i
@@ -42718,7 +42718,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i.i.i:      ; preds = %1629, %1625
   %1634 = load ptr, ptr %.sroa.0.0.i.i.i.i43.i.i.i, align 8
   %1635 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1634) #23
   store ptr %1635, ptr %366, align 8
-  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_7DILabelEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %363, ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 8 dereferenceable(8) %357, ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(8) %365, ptr noundef nonnull align 8 dereferenceable(8) %359, ptr noundef nonnull align 8 dereferenceable(8) %366)
+  call void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_7DILabelEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %363, ptr noundef nonnull align 8 dereferenceable(8) %364, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 8 dereferenceable(8) %357, ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(8) %365, ptr noundef nonnull align 8 dereferenceable(8) %359, ptr noundef nonnull align 8 dereferenceable(8) %366)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i
 
 _ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i: ; preds = %_ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i35.i.i.i, %1587, %_ZNK4llvm10DILocation8getScopeEv.exit.i.i.i, %_ZL13getSubprogramPN4llvm8MetadataE.exit39.i.i.i, %_ZNK4llvm10DILocation11getRawScopeEv.exit.i.i.i, %1539, %1523, %1518, %1516, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56.i.i
@@ -42800,7 +42800,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %1651, %.lr.ph.split
   store ptr @.str.364, ptr %409, align 8
   store i8 3, ptr %457, align 8
   store ptr %836, ptr %410, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %409, ptr noundef nonnull align 8 dereferenceable(8) %410)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %409, ptr noundef nonnull align 8 dereferenceable(8) %410)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm11InstructionE.exit
 
 ._crit_edge.i:                                    ; preds = %1651, %1648, %_ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i
@@ -42943,7 +42943,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i360: ; preds = %16
   br i1 %.not.i.i.i362, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitRetERNS_10ReturnInstE.exit, label %1682
 
 1682:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i360
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitRetERNS_10ReturnInstE.exit
 
 1683:                                             ; preds = %1656
@@ -42998,7 +42998,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i14.i.i: ; preds = %170
   br i1 %.not.i16.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitRetERNS_10ReturnInstE.exit, label %1702
 
 1702:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i14.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitRetERNS_10ReturnInstE.exit
 
 1703:                                             ; preds = %1685, %1670
@@ -43024,7 +43024,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i356: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %4, align 8
   store i8 3, ptr %829, align 8
   store ptr %1658, ptr %5, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i357
 
 1714:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i355
@@ -43101,7 +43101,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i351: ; preds = %17
   br i1 %.not.i.i.i353, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit, label %1735
 
 1735:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i351
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BranchInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BranchInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
 
 1736:                                             ; preds = %1717, %1715
@@ -43129,7 +43129,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i347: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %12, align 8
   store i8 3, ptr %823, align 8
   store ptr %1738, ptr %13, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i348
 
 1749:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i346
@@ -43171,7 +43171,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
   store ptr @.str.474, ptr %19, align 8
   store i8 3, ptr %806, align 8
   store ptr %836, ptr %20, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSwitchERNS_10SwitchInstE.exit
 
 1758:                                             ; preds = %1750
@@ -43223,7 +43223,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
   store ptr @.str.475, ptr %22, align 8
   store i8 3, ptr %813, align 8
   store ptr %836, ptr %23, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 1788:                                             ; preds = %.lr.ph.i.i333
@@ -43237,7 +43237,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
   store ptr @.str.476, ptr %24, align 8
   store i8 3, ptr %815, align 8
   store ptr %836, ptr %25, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(8) %25)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 1793:                                             ; preds = %1788
@@ -43326,7 +43326,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i335: ; preds = %18
   br i1 %.not.i.i.i337, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i, label %1818
 
 1818:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i335
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SwitchInstEJPNS_11ConstantIntEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 ._crit_edge.i.i340:                               ; preds = %1769, %1758
@@ -43354,11 +43354,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i342: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %17, align 8
   store i8 3, ptr %819, align 8
   store ptr %1820, ptr %18, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i343
 
 1831:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i341
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i343
 
 _ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i343: ; preds = %1831, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i342
@@ -43410,7 +43410,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSwitchERNS_10SwitchInstE
   store ptr @.str.478, ptr %31, align 8
   store i8 3, ptr %800, align 8
   store ptr %836, ptr %32, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14IndirectBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14IndirectBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitIndirectBrERNS_14IndirectBrInstE.exit
 
 1847:                                             ; preds = %1836
@@ -43441,7 +43441,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSwitchERNS_10SwitchInstE
   store ptr @.str.479, ptr %33, align 8
   store i8 3, ptr %802, align 8
   store ptr %836, ptr %34, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14IndirectBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14IndirectBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %33, ptr noundef nonnull align 8 dereferenceable(8) %34)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitIndirectBrERNS_14IndirectBrInstE.exit
 
 1862:                                             ; preds = %1850
@@ -43469,11 +43469,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i331: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %29, align 8
   store i8 3, ptr %804, align 8
   store ptr %1864, ptr %30, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i332
 
 1875:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i330
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i332
 
 _ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i332: ; preds = %1875, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i331
@@ -43508,7 +43508,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i:         ; preds = %1876
   store ptr @.str.480, ptr %37, align 8
   store i8 3, ptr %798, align 8
   store ptr %836, ptr %38, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10InvokeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10InvokeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef nonnull align 8 dereferenceable(8) %38)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitInvokeERNS_10InvokeInstE.exit
 
 1881:                                             ; preds = %1876, %1876, %1876, %1876
@@ -43536,11 +43536,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i325: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %35, align 8
   store i8 3, ptr %796, align 8
   store ptr %1883, ptr %36, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %35, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %35, ptr noundef nonnull align 8 dereferenceable(8) %36)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i326
 
 1894:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i324
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(88) %836)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i326
 
 _ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i326: ; preds = %1894, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i325
@@ -43570,7 +43570,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitInvokeERNS_10InvokeInstE
   store ptr @.str.759, ptr %41, align 8
   store i8 3, ptr %794, align 8
   store ptr %836, ptr %42, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ResumeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %41, ptr noundef nonnull align 8 dereferenceable(8) %42)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ResumeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %41, ptr noundef nonnull align 8 dereferenceable(8) %42)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitResumeERNS_10ResumeInstE.exit
 
 1901:                                             ; preds = %1895
@@ -43595,7 +43595,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitInvokeERNS_10InvokeInstE
   store ptr @.str.760, ptr %43, align 8
   store i8 3, ptr %790, align 8
   store ptr %836, ptr %44, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ResumeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ResumeInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitResumeERNS_10ResumeInstE.exit
 
 1911:                                             ; preds = %1908, %1907
@@ -43623,7 +43623,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i322: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %39, align 8
   store i8 3, ptr %792, align 8
   store ptr %1913, ptr %40, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %39, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %39, ptr noundef nonnull align 8 dereferenceable(8) %40)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i323
 
 1924:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i321
@@ -43667,7 +43667,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i319: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %45, align 8
   store i8 3, ptr %788, align 8
   store ptr %1927, ptr %46, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef nonnull align 8 dereferenceable(8) %46)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitUnreachableERNS_15UnreachableInstE.exit
 
 1938:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i318
@@ -43733,7 +43733,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i309: ; preds = %19
   br i1 %.not.i.i.i311, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupRetERNS_17CleanupReturnInstE.exit, label %1957
 
 1957:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i309
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupRetERNS_17CleanupReturnInstE.exit
 
 1958:                                             ; preds = %1939
@@ -43763,7 +43763,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.i.i317:     ; preds = %1964
   store ptr @.str.762, ptr %52, align 8
   store i8 3, ptr %784, align 8
   store ptr %836, ptr %53, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17CleanupReturnInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17CleanupReturnInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupRetERNS_17CleanupReturnInstE.exit
 
 _ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread.i.i: ; preds = %1964, %1964, %1964, %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.i.i, %1958
@@ -43791,7 +43791,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i315: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %47, align 8
   store i8 3, ptr %786, align 8
   store ptr %1968, ptr %48, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %47, ptr noundef nonnull align 8 dereferenceable(8) %48)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %47, ptr noundef nonnull align 8 dereferenceable(8) %48)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i316
 
 1979:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i314
@@ -43861,7 +43861,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i300: ; preds = %19
   br i1 %.not.i.i.i302, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchReturnInstE.exit, label %1996
 
 1996:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i300
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchReturnInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchReturnInstEJPNS_5ValueEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchReturnInstE.exit
 
 1997:                                             ; preds = %1980
@@ -43889,7 +43889,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i305: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %54, align 8
   store i8 3, ptr %780, align 8
   store ptr %1999, ptr %55, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %55)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i306
 
 2010:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i304
@@ -43937,7 +43937,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchRetu
   store ptr @.str.764, ptr %61, align 8
   store i8 3, ptr %776, align 8
   store ptr %836, ptr %62, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef nonnull align 8 dereferenceable(8) %62)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %61, ptr noundef nonnull align 8 dereferenceable(8) %62)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 2020:                                             ; preds = %2011
@@ -43950,7 +43950,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchRetu
   store ptr @.str.765, ptr %63, align 8
   store i8 3, ptr %763, align 8
   store ptr %836, ptr %64, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef nonnull align 8 dereferenceable(8) %64)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 2024:                                             ; preds = %2020
@@ -43973,7 +43973,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchRetu
   store i8 1, ptr %766, align 1
   store ptr @.str.766, ptr %66, align 8
   store i8 3, ptr %765, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %66, ptr noundef nonnull align 8 dereferenceable(8) %65)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %66, ptr noundef nonnull align 8 dereferenceable(8) %65)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 2036:                                             ; preds = %2030, %2024
@@ -44003,7 +44003,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.i.i:        ; preds = %2042
   store ptr @.str.767, ptr %67, align 8
   store i8 3, ptr %768, align 8
   store ptr %836, ptr %68, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 2045:                                             ; preds = %2042, %2042, %2042
@@ -44047,7 +44047,7 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i: ; preds = %2053, %_
   store ptr @.str.768, ptr %70, align 8
   store i8 3, ptr %774, align 8
   store ptr %836, ptr %71, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(8) %71)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15CatchSwitchInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(8) %71)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 2060:                                             ; preds = %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i
@@ -44116,11 +44116,11 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i290: ; preds = %20
   br i1 %.not.i34.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit, label %2081
 
 2081:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i290
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJPNS_10BasicBlockEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %72)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJPNS_10BasicBlockEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %72)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchSwitchInstE.exit
 
 ._crit_edge.i.i294:                               ; preds = %2064, %2060
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
   %2082 = load ptr, ptr %2012, align 8
@@ -44144,11 +44144,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i296: ; preds = %_ZN4llvm1
   store ptr @.str.391, ptr %59, align 8
   store i8 3, ptr %772, align 8
   store ptr %2082, ptr %60, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i297
 
 2093:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i295
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i297
 
 _ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i297: ; preds = %2093, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i296
@@ -44188,7 +44188,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchS
   store ptr @.str.780, ptr %77, align 8
   store i8 3, ptr %757, align 8
   store ptr %836, ptr %78, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10CallBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %77, ptr noundef nonnull align 8 dereferenceable(8) %78)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10CallBrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %77, ptr noundef nonnull align 8 dereferenceable(8) %78)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitCallBrERNS_10CallBrInstE.exit
 
 2100:                                             ; preds = %2094
@@ -44229,7 +44229,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i281: ; preds = %2113
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitCallBrERNS_10CallBrInstE.exit
 
 2115:                                             ; preds = %2100
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyInlineAsmCallERKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(88) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyInlineAsmCallERKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(92) %836)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
   %2116 = getelementptr inbounds i8, ptr %836, i64 40
@@ -44254,11 +44254,11 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i: ; preds = %_ZN4llvm10Ba
   store ptr @.str.391, ptr %75, align 8
   store i8 3, ptr %759, align 8
   store ptr %2117, ptr %76, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10BasicBlockEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %75, ptr noundef nonnull align 8 dereferenceable(8) %76)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i
 
 2128:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(92) %836)
   br label %_ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i
 
 _ZN12_GLOBAL__N_18Verifier15visitTerminatorERN4llvm11InstructionE.exit.i.i: ; preds = %2128, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.thread.i.i.i
@@ -44291,7 +44291,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitCallBrERNS_10CallBrInstE
   store ptr @.str.782, ptr %80, align 8
   store i8 3, ptr %753, align 8
   store ptr %836, ptr %81, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13UnaryOperatorEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %80, ptr noundef nonnull align 8 dereferenceable(8) %81)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13UnaryOperatorEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %80, ptr noundef nonnull align 8 dereferenceable(8) %81)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFNegERNS_13UnaryOperatorE.exit
 
 2138:                                             ; preds = %2129
@@ -44331,7 +44331,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i275:   ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.783, ptr %82, align 8
   store i8 3, ptr %755, align 8
   store ptr %836, ptr %83, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13UnaryOperatorEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13UnaryOperatorEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %82, ptr noundef nonnull align 8 dereferenceable(8) %83)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFNegERNS_13UnaryOperatorE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i274: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i275, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i272, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i272, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i272, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i272, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i272
@@ -44481,7 +44481,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread15.i.i: ; preds =
   store ptr @.str.793, ptr %85, align 8
   store i8 3, ptr %743, align 8
   store ptr %836, ptr %86, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %85, ptr noundef nonnull align 8 dereferenceable(8) %86)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %85, ptr noundef nonnull align 8 dereferenceable(8) %86)
   br label %2211
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.i.i270, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i265, %2175, %2175, %2175, %2175, %2175, %2168
@@ -44500,7 +44500,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds 
   store ptr @.str.794, ptr %87, align 8
   store i8 3, ptr %745, align 8
   store ptr %836, ptr %88, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %87, ptr noundef nonnull align 8 dereferenceable(8) %88)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %87, ptr noundef nonnull align 8 dereferenceable(8) %88)
   br label %2211
 
 2191:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263
@@ -44515,7 +44515,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds 
   store ptr @.str.79, ptr %89, align 8
   store i8 3, ptr %747, align 8
   store ptr %836, ptr %90, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %89, ptr noundef nonnull align 8 dereferenceable(8) %90)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %89, ptr noundef nonnull align 8 dereferenceable(8) %90)
   br label %2211
 
 2197:                                             ; preds = %2191
@@ -44536,7 +44536,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds 
   store ptr @.str.795, ptr %91, align 8
   store i8 3, ptr %749, align 8
   store ptr %836, ptr %92, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %91, ptr noundef nonnull align 8 dereferenceable(8) %92)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %91, ptr noundef nonnull align 8 dereferenceable(8) %92)
   br label %2211
 
 2206:                                             ; preds = %2199
@@ -44548,15 +44548,15 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i263: ; preds 
   store ptr @.str.796, ptr %93, align 8
   store i8 3, ptr %751, align 8
   store ptr %836, ptr %94, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %93, ptr noundef nonnull align 8 dereferenceable(8) %94)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10AllocaInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %93, ptr noundef nonnull align 8 dereferenceable(8) %94)
   br label %2211
 
 2209:                                             ; preds = %2206
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier21verifySwiftErrorValueEPKN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier21verifySwiftErrorValueEPKN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(80) %836)
   br label %2210
 
 2210:                                             ; preds = %2209, %2197
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(80) %836)
   br label %2211
 
 2211:                                             ; preds = %2210, %2208, %2205, %2196, %2190, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread15.i.i
@@ -44614,7 +44614,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitAllocaERNS_10AllocaInstE
   store ptr @.str.797, ptr %95, align 8
   store i8 3, ptr %736, align 8
   store ptr %836, ptr %96, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %95, ptr noundef nonnull align 8 dereferenceable(8) %96)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 2226:                                             ; preds = %2216
@@ -44632,7 +44632,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitAllocaERNS_10AllocaInstE
   store ptr @.str.79, ptr %98, align 8
   store i8 3, ptr %726, align 8
   store ptr %836, ptr %99, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %98, ptr noundef nonnull align 8 dereferenceable(8) %99)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %98, ptr noundef nonnull align 8 dereferenceable(8) %99)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 2234:                                             ; preds = %2226
@@ -44681,11 +44681,11 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread22.i.i261: ; pred
   store ptr @.str.798, ptr %100, align 8
   store i8 3, ptr %728, align 8
   store ptr %836, ptr %101, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %100, ptr noundef nonnull align 8 dereferenceable(8) %101)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %100, ptr noundef nonnull align 8 dereferenceable(8) %101)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i249: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.i.i260, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i255, %2239, %2239, %2239, %2239, %2239, %2234
-  %2246 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %836) #24
+  %2246 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %836) #24
   br i1 %2246, label %2247, label %2258
 
 2247:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i249
@@ -44702,7 +44702,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i249: ; preds 
   store ptr @.str.799, ptr %102, align 8
   store i8 3, ptr %734, align 8
   store ptr %836, ptr %103, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %102, ptr noundef nonnull align 8 dereferenceable(8) %103)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %102, ptr noundef nonnull align 8 dereferenceable(8) %103)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 2253:                                             ; preds = %2247
@@ -44730,11 +44730,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i253:  ; preds = %2256
   store ptr @.str.800, ptr %104, align 8
   store i8 3, ptr %732, align 8
   store ptr %836, ptr %105, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_4TypeEJPNS_8LoadInstEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %104, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(8) %105)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_4TypeEJPNS_8LoadInstEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %104, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(8) %105)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i252: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i253, %2256, %2256, %2256, %2256, %2256, %2253
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2228, ptr noundef %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2228, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %2263
 
 2258:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i249
@@ -44748,11 +44748,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i252: ; preds = %_ZNK4llvm4Typ
   store ptr @.str.801, ptr %106, align 8
   store i8 3, ptr %730, align 8
   store ptr %836, ptr %107, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %106, ptr noundef nonnull align 8 dereferenceable(8) %107)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8LoadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %106, ptr noundef nonnull align 8 dereferenceable(8) %107)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 2263:                                             ; preds = %2258, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i252
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit: ; preds = %2225, %2233, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread22.i.i261, %2252, %2257, %2262, %2263
@@ -44802,7 +44802,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit:
   store ptr @.str.804, ptr %108, align 8
   store i8 3, ptr %724, align 8
   store ptr %836, ptr %109, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %109)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %108, ptr noundef nonnull align 8 dereferenceable(8) %109)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 2274:                                             ; preds = %2264
@@ -44822,7 +44822,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitLoadERNS_8LoadInstE.exit:
   store ptr @.str.79, ptr %111, align 8
   store i8 3, ptr %714, align 8
   store ptr %836, ptr %112, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %111, ptr noundef nonnull align 8 dereferenceable(8) %112)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %111, ptr noundef nonnull align 8 dereferenceable(8) %112)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 2284:                                             ; preds = %2274
@@ -44871,11 +44871,11 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread22.i.i: ; preds =
   store ptr @.str.805, ptr %113, align 8
   store i8 3, ptr %716, align 8
   store ptr %836, ptr %114, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %113, ptr noundef nonnull align 8 dereferenceable(8) %114)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %113, ptr noundef nonnull align 8 dereferenceable(8) %114)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i236: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.i.i245, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i240, %2289, %2289, %2289, %2289, %2289, %2284
-  %2296 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %836) #24
+  %2296 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %836) #24
   br i1 %2296, label %2297, label %2307
 
 2297:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i236
@@ -44892,7 +44892,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i236: ; preds 
   store ptr @.str.806, ptr %115, align 8
   store i8 3, ptr %720, align 8
   store ptr %836, ptr %116, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 2302:                                             ; preds = %2297
@@ -44920,11 +44920,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i239:  ; preds = %2305
   store ptr @.str.807, ptr %117, align 8
   store i8 3, ptr %722, align 8
   store ptr %836, ptr %118, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_4TypeEJPNS_9StoreInstEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %117, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %118)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_4TypeEJPNS_9StoreInstEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %117, ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 8 dereferenceable(8) %118)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i239, %2305, %2305, %2305, %2305, %2305, %2302
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2278, ptr noundef %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2278, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %2312
 
 2307:                                             ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i236
@@ -44938,11 +44938,11 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i: ; preds = %_ZNK4llvm4Type17
   store ptr @.str.808, ptr %119, align 8
   store i8 3, ptr %718, align 8
   store ptr %836, ptr %120, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %119, ptr noundef nonnull align 8 dereferenceable(8) %120)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9StoreInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %119, ptr noundef nonnull align 8 dereferenceable(8) %120)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 2312:                                             ; preds = %2307, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.i.i
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitStoreERNS_9StoreInstE.exit: ; preds = %2273, %2283, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread22.i.i, %2301, %2306, %2311, %2312
@@ -45016,7 +45016,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %2324, %2313
   store ptr @.str.809, ptr %121, align 8
   store i8 3, ptr %688, align 8
   store ptr %836, ptr %122, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %121, ptr noundef nonnull align 8 dereferenceable(8) %122)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %121, ptr noundef nonnull align 8 dereferenceable(8) %122)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitGetElementPtrERNS_17GetElementPtrInstE.exit
 
 2332:                                             ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
@@ -45073,7 +45073,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread79.i.i: ; preds =
   store ptr @.str.810, ptr %123, align 8
   store i8 3, ptr %690, align 8
   store ptr %836, ptr %124, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %123, ptr noundef nonnull align 8 dereferenceable(8) %124)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %123, ptr noundef nonnull align 8 dereferenceable(8) %124)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitGetElementPtrERNS_17GetElementPtrInstE.exit
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge.i.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i.i, %2339, %2339, %2339, %2339, %2339, %2332
@@ -45097,7 +45097,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i.i: ; preds = %
   store ptr @.str.811, ptr %126, align 8
   store i8 3, ptr %697, align 8
   store ptr %836, ptr %127, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %126, ptr noundef nonnull align 8 dereferenceable(8) %127)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %126, ptr noundef nonnull align 8 dereferenceable(8) %127)
   br label %2352
 
 2352:                                             ; preds = %2351, %2349
@@ -45120,10 +45120,10 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2356, %2352
   %2361 = sub nsw i64 0, %2360
   %2362 = getelementptr inbounds %"class.llvm::Use", ptr %836, i64 %2361
   %2363 = getelementptr inbounds i8, ptr %2362, i64 32
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull %699, i64 noundef 16) #23
-  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull %2363, ptr noundef nonnull %836)
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr noundef nonnull %699, i64 noundef 16) #23
+  call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr noundef nonnull %2363, ptr noundef nonnull align 8 dereferenceable(88) %836)
   %2364 = load ptr, ptr %128, align 8
-  %2365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #23
+  %2365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %128) #23
   %.idx2.i.i.i = shl nsw i64 %2365, 3
   %2366 = getelementptr inbounds i8, ptr %2364, i64 %.idx2.i.i.i
   %2367 = ashr i64 %2365, 2
@@ -45366,7 +45366,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2356, %2352
   store ptr @.str.812, ptr %129, align 8
   store i8 3, ptr %700, align 8
   store ptr %836, ptr %130, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %129, ptr noundef nonnull align 8 dereferenceable(8) %130)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %129, ptr noundef nonnull align 8 dereferenceable(8) %130)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 "_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.thread.i.i": ; preds = %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit68.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i
@@ -45383,7 +45383,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2356, %2352
   store ptr @.str.813, ptr %132, align 8
   store i8 3, ptr %712, align 8
   store ptr %836, ptr %133, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %132, ptr noundef nonnull align 8 dereferenceable(8) %133)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %132, ptr noundef nonnull align 8 dereferenceable(8) %133)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 2461:                                             ; preds = %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.thread.i.i"
@@ -45457,7 +45457,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i216: ; preds = %24
   br i1 %.not.i.i.i218, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i, label %2490
 
 2490:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i216
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull align 8 dereferenceable(8) %131)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull align 8 dereferenceable(8) %131)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 2491:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.thread.i
@@ -45493,7 +45493,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.815, ptr %136, align 8
   store i8 3, ptr %702, align 8
   store ptr %836, ptr %137, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %136, ptr noundef nonnull align 8 dereferenceable(8) %137)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %136, ptr noundef nonnull align 8 dereferenceable(8) %137)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 2513:                                             ; preds = %2507, %2491
@@ -45536,7 +45536,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit62.t
   store ptr @.str.816, ptr %138, align 8
   store i8 3, ptr %704, align 8
   store ptr %836, ptr %139, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %138, ptr noundef nonnull align 8 dereferenceable(8) %139)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %138, ptr noundef nonnull align 8 dereferenceable(8) %139)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 2532:                                             ; preds = %.lr.ph.i.i221
@@ -45560,7 +45560,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i223: ; preds = %.thread.i.i222, %25
   store i8 1, ptr %707, align 1
   store ptr @.str.817, ptr %140, align 8
   store i8 3, ptr %706, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %140)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %140)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 .loopexit.i.i:                                    ; preds = %2517, %2513, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i226
@@ -45608,15 +45608,15 @@ _ZNK4llvm17GetElementPtrInst15getAddressSpaceEv.exit.i.i: ; preds = %2556, %2543
   store ptr @.str.818, ptr %141, align 8
   store i8 3, ptr %710, align 8
   store ptr %836, ptr %142, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %141, ptr noundef nonnull align 8 dereferenceable(8) %142)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %141, ptr noundef nonnull align 8 dereferenceable(8) %142)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 2563:                                             ; preds = %_ZNK4llvm17GetElementPtrInst15getAddressSpaceEv.exit.i.i, %.loopexit.i.i
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(88) %836)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i
 
 _ZN4llvm15VerifierSupport11CheckFailedIPNS_17GetElementPtrInstEJPNS_4TypeEEEEvRKNS_5TwineERKT_DpRKT0_.exit.i.i: ; preds = %2563, %2562, %2537, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit62.thread.i.i, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thread.i.i225, %2490, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i216, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i219, %2460, %2455
-  %2564 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #23
+  %2564 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %128) #23
   %2565 = load ptr, ptr %128, align 8
   %2566 = icmp eq ptr %2565, %699
   br i1 %2566, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitGetElementPtrERNS_17GetElementPtrInstE.exit, label %2567
@@ -45664,11 +45664,11 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitGetElementPtrERNS_17GetE
   store ptr @.str.819, ptr %143, align 8
   store i8 3, ptr %686, align 8
   store ptr %836, ptr %144, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FenceInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %143, ptr noundef nonnull align 8 dereferenceable(8) %144)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FenceInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %143, ptr noundef nonnull align 8 dereferenceable(8) %144)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFenceERNS_9FenceInstE.exit
 
 2573:                                             ; preds = %2568
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFenceERNS_9FenceInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFenceERNS_9FenceInstE.exit: ; preds = %2572, %2573
@@ -45730,12 +45730,12 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i202: ; preds = %25
   br i1 %.not.i.i.i204, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit, label %2593
 
 2593:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i202
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPNS_17AtomicCmpXchgInstEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(8) %147)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPNS_17AtomicCmpXchgInstEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(8) %147)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit
 
 2594:                                             ; preds = %2574
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2578, ptr noundef %836)
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2578, ptr noundef nonnull align 8 dereferenceable(73) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17AtomicCmpXchgInstE.exit: ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i205, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i202, %2593, %2594
@@ -45770,7 +45770,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAtomicCmpXchgERNS_17Atom
   store ptr @.str.821, ptr %148, align 8
   store i8 3, ptr %682, align 8
   store ptr %836, ptr %149, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AtomicRMWInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %148, ptr noundef nonnull align 8 dereferenceable(8) %149)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AtomicRMWInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %148, ptr noundef nonnull align 8 dereferenceable(8) %149)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 2600:                                             ; preds = %2595
@@ -45857,7 +45857,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i195: ; preds = %26
   br i1 %.not.i.i.i197, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit, label %2630
 
 2630:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i195
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull align 8 dereferenceable(8) %150)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull align 8 dereferenceable(8) %150)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 2631:                                             ; preds = %2600
@@ -45951,7 +45951,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i35.i.i: ; preds = %265
   br i1 %.not.i37.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit, label %2657
 
 2657:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i35.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull align 8 dereferenceable(8) %150)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull align 8 dereferenceable(8) %150)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 2658:                                             ; preds = %2631
@@ -46006,15 +46006,15 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i: ; preds = %267
   br i1 %.not.i59.i.i, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit, label %2673
 
 2673:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(8) %150)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJPNS_4TypeEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef nonnull align 8 dereferenceable(8) %150)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 .thread.i.i186:                                   ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i185, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i187, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i, %2614, %2614, %2614, %2614, %2614, %2609
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %2677
 
 2674:                                             ; preds = %2658
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSizeEPN4llvm4TypeEPKNS1_11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull %2607, ptr noundef nonnull align 8 dereferenceable(73) %836)
   %2675 = icmp samesign ult i16 %2602, 17
   br i1 %2675, label %2677, label %2676
 
@@ -46023,11 +46023,11 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i: ; preds = %267
   store ptr @.str.826, ptr %160, align 8
   store i8 3, ptr %666, align 8
   store ptr %836, ptr %161, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AtomicRMWInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %160, ptr noundef nonnull align 8 dereferenceable(8) %161)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AtomicRMWInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %160, ptr noundef nonnull align 8 dereferenceable(8) %161)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 2677:                                             ; preds = %2674, %.thread.i.i186
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(73) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE14visitAtomicRMWERNS_13AtomicRMWInstE.exit: ; preds = %2599, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i198, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i195, %2630, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i38.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i35.i.i, %2657, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i60.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i, %2673, %2676, %2677
@@ -46090,7 +46090,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i168: ; preds = %2691, %2678
   store ptr @.str.827, ptr %162, align 8
   store i8 3, ptr %651, align 8
   store ptr %836, ptr %163, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %162, ptr noundef nonnull align 8 dereferenceable(8) %163)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %162, ptr noundef nonnull align 8 dereferenceable(8) %163)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitTruncERNS_9TruncInstE.exit
 
 2697:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i168
@@ -46120,7 +46120,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i171: ; preds = %2702, %2697
   store ptr @.str.828, ptr %164, align 8
   store i8 3, ptr %653, align 8
   store ptr %836, ptr %165, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %164, ptr noundef nonnull align 8 dereferenceable(8) %165)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %164, ptr noundef nonnull align 8 dereferenceable(8) %165)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitTruncERNS_9TruncInstE.exit
 
 2708:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i171
@@ -46132,7 +46132,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i171: ; preds = %2702, %2697
   store ptr @.str.829, ptr %166, align 8
   store i8 3, ptr %657, align 8
   store ptr %836, ptr %167, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %166, ptr noundef nonnull align 8 dereferenceable(8) %167)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %166, ptr noundef nonnull align 8 dereferenceable(8) %167)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitTruncERNS_9TruncInstE.exit
 
 2711:                                             ; preds = %2708
@@ -46144,7 +46144,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i171: ; preds = %2702, %2697
   store ptr @.str.830, ptr %168, align 8
   store i8 3, ptr %655, align 8
   store ptr %836, ptr %169, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %168, ptr noundef nonnull align 8 dereferenceable(8) %169)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9TruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %168, ptr noundef nonnull align 8 dereferenceable(8) %169)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitTruncERNS_9TruncInstE.exit
 
 2714:                                             ; preds = %2711
@@ -46203,7 +46203,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i156: ; preds = %2726, %2715
   store ptr @.str.831, ptr %170, align 8
   store i8 3, ptr %643, align 8
   store ptr %836, ptr %171, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %170, ptr noundef nonnull align 8 dereferenceable(8) %171)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %170, ptr noundef nonnull align 8 dereferenceable(8) %171)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitZExtERNS_8ZExtInstE.exit
 
 2732:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i156
@@ -46233,7 +46233,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i159: ; preds = %2737, %2732
   store ptr @.str.832, ptr %172, align 8
   store i8 3, ptr %645, align 8
   store ptr %836, ptr %173, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %172, ptr noundef nonnull align 8 dereferenceable(8) %173)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %172, ptr noundef nonnull align 8 dereferenceable(8) %173)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitZExtERNS_8ZExtInstE.exit
 
 2743:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i159
@@ -46245,7 +46245,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i159: ; preds = %2737, %2732
   store ptr @.str.833, ptr %174, align 8
   store i8 3, ptr %649, align 8
   store ptr %836, ptr %175, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %174, ptr noundef nonnull align 8 dereferenceable(8) %175)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %174, ptr noundef nonnull align 8 dereferenceable(8) %175)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitZExtERNS_8ZExtInstE.exit
 
 2746:                                             ; preds = %2743
@@ -46259,7 +46259,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i159: ; preds = %2737, %2732
   store ptr @.str.834, ptr %176, align 8
   store i8 3, ptr %647, align 8
   store ptr %836, ptr %177, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %176, ptr noundef nonnull align 8 dereferenceable(8) %177)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ZExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %176, ptr noundef nonnull align 8 dereferenceable(8) %177)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitZExtERNS_8ZExtInstE.exit
 
 2751:                                             ; preds = %2746
@@ -46320,7 +46320,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i149: ; preds = %2765, %2752
   store ptr @.str.835, ptr %178, align 8
   store i8 3, ptr %635, align 8
   store ptr %836, ptr %179, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %178, ptr noundef nonnull align 8 dereferenceable(8) %179)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %178, ptr noundef nonnull align 8 dereferenceable(8) %179)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitSExtERNS_8SExtInstE.exit
 
 2771:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i149
@@ -46350,7 +46350,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i:  ; preds = %2776, %2771
   store ptr @.str.836, ptr %180, align 8
   store i8 3, ptr %637, align 8
   store ptr %836, ptr %181, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %180, ptr noundef nonnull align 8 dereferenceable(8) %181)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %180, ptr noundef nonnull align 8 dereferenceable(8) %181)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitSExtERNS_8SExtInstE.exit
 
 2782:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i
@@ -46362,7 +46362,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i:  ; preds = %2776, %2771
   store ptr @.str.837, ptr %182, align 8
   store i8 3, ptr %641, align 8
   store ptr %836, ptr %183, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %182, ptr noundef nonnull align 8 dereferenceable(8) %183)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %182, ptr noundef nonnull align 8 dereferenceable(8) %183)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitSExtERNS_8SExtInstE.exit
 
 2785:                                             ; preds = %2782
@@ -46374,7 +46374,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit20.i.i:  ; preds = %2776, %2771
   store ptr @.str.838, ptr %184, align 8
   store i8 3, ptr %639, align 8
   store ptr %836, ptr %185, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %184, ptr noundef nonnull align 8 dereferenceable(8) %185)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8SExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %184, ptr noundef nonnull align 8 dereferenceable(8) %185)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitSExtERNS_8SExtInstE.exit
 
 2788:                                             ; preds = %2785
@@ -46425,7 +46425,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitSExtERNS_8SExtInstE.exit:
   store ptr @.str.839, ptr %186, align 8
   store i8 3, ptr %633, align 8
   store ptr %836, ptr %187, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %186, ptr noundef nonnull align 8 dereferenceable(8) %187)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %186, ptr noundef nonnull align 8 dereferenceable(8) %187)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToUIERNS_10FPToUIInstE.exit
 
 2806:                                             ; preds = %2789
@@ -46460,7 +46460,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i144:   ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.840, ptr %188, align 8
   store i8 3, ptr %627, align 8
   store ptr %836, ptr %189, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %188, ptr noundef nonnull align 8 dereferenceable(8) %189)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %188, ptr noundef nonnull align 8 dereferenceable(8) %189)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToUIERNS_10FPToUIInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i135: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i144, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i133, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i133, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i133, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i133, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i133
@@ -46485,7 +46485,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i136: ; preds = %2814, %_ZNK4llvm4Ty
   store ptr @.str.841, ptr %190, align 8
   store i8 3, ptr %629, align 8
   store ptr %836, ptr %191, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %190, ptr noundef nonnull align 8 dereferenceable(8) %191)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %190, ptr noundef nonnull align 8 dereferenceable(8) %191)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToUIERNS_10FPToUIInstE.exit
 
 2820:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i136
@@ -46510,7 +46510,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.842, ptr %192, align 8
   store i8 3, ptr %631, align 8
   store ptr %836, ptr %193, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %192, ptr noundef nonnull align 8 dereferenceable(8) %193)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToUIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %192, ptr noundef nonnull align 8 dereferenceable(8) %193)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToUIERNS_10FPToUIInstE.exit
 
 2831:                                             ; preds = %2822, %2820
@@ -46561,7 +46561,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToUIERNS_10FPToUIInstE
   store ptr @.str.843, ptr %194, align 8
   store i8 3, ptr %625, align 8
   store ptr %836, ptr %195, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %194, ptr noundef nonnull align 8 dereferenceable(8) %195)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %194, ptr noundef nonnull align 8 dereferenceable(8) %195)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToSIERNS_10FPToSIInstE.exit
 
 2849:                                             ; preds = %2832
@@ -46596,7 +46596,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i127:   ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.844, ptr %196, align 8
   store i8 3, ptr %619, align 8
   store ptr %836, ptr %197, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %196, ptr noundef nonnull align 8 dereferenceable(8) %197)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %196, ptr noundef nonnull align 8 dereferenceable(8) %197)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToSIERNS_10FPToSIInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i120: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i127, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i118
@@ -46621,7 +46621,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i121: ; preds = %2857, %_ZNK4llvm4Ty
   store ptr @.str.845, ptr %198, align 8
   store i8 3, ptr %621, align 8
   store ptr %836, ptr %199, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %198, ptr noundef nonnull align 8 dereferenceable(8) %199)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %198, ptr noundef nonnull align 8 dereferenceable(8) %199)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToSIERNS_10FPToSIInstE.exit
 
 2863:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i121
@@ -46646,7 +46646,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.846, ptr %200, align 8
   store i8 3, ptr %623, align 8
   store ptr %836, ptr %201, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %200, ptr noundef nonnull align 8 dereferenceable(8) %201)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10FPToSIInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %200, ptr noundef nonnull align 8 dereferenceable(8) %201)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToSIERNS_10FPToSIInstE.exit
 
 2874:                                             ; preds = %2865, %2863
@@ -46697,7 +46697,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitFPToSIERNS_10FPToSIInstE
   store ptr @.str.847, ptr %202, align 8
   store i8 3, ptr %617, align 8
   store ptr %836, ptr %203, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %202, ptr noundef nonnull align 8 dereferenceable(8) %203)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %202, ptr noundef nonnull align 8 dereferenceable(8) %203)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitUIToFPERNS_10UIToFPInstE.exit
 
 2892:                                             ; preds = %2875
@@ -46722,7 +46722,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i101: ; preds = %2893, %2892
   store ptr @.str.848, ptr %204, align 8
   store i8 3, ptr %611, align 8
   store ptr %836, ptr %205, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %204, ptr noundef nonnull align 8 dereferenceable(8) %205)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %204, ptr noundef nonnull align 8 dereferenceable(8) %205)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitUIToFPERNS_10UIToFPInstE.exit
 
 2899:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i101
@@ -46757,7 +46757,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i109:   ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.849, ptr %206, align 8
   store i8 3, ptr %613, align 8
   store ptr %836, ptr %207, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %206, ptr noundef nonnull align 8 dereferenceable(8) %207)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %206, ptr noundef nonnull align 8 dereferenceable(8) %207)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitUIToFPERNS_10UIToFPInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i105: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i109, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i103
@@ -46782,7 +46782,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.850, ptr %208, align 8
   store i8 3, ptr %615, align 8
   store ptr %836, ptr %209, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %208, ptr noundef nonnull align 8 dereferenceable(8) %209)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10UIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %208, ptr noundef nonnull align 8 dereferenceable(8) %209)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitUIToFPERNS_10UIToFPInstE.exit
 
 2917:                                             ; preds = %2908, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i105
@@ -46833,7 +46833,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitUIToFPERNS_10UIToFPInstE
   store ptr @.str.851, ptr %210, align 8
   store i8 3, ptr %609, align 8
   store ptr %836, ptr %211, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %210, ptr noundef nonnull align 8 dereferenceable(8) %211)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %210, ptr noundef nonnull align 8 dereferenceable(8) %211)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSIToFPERNS_10SIToFPInstE.exit
 
 2935:                                             ; preds = %2918
@@ -46858,7 +46858,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i85:  ; preds = %2936, %2935
   store ptr @.str.852, ptr %212, align 8
   store i8 3, ptr %603, align 8
   store ptr %836, ptr %213, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %212, ptr noundef nonnull align 8 dereferenceable(8) %213)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %212, ptr noundef nonnull align 8 dereferenceable(8) %213)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSIToFPERNS_10SIToFPInstE.exit
 
 2942:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i85
@@ -46893,7 +46893,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i92:    ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.853, ptr %214, align 8
   store i8 3, ptr %605, align 8
   store ptr %836, ptr %215, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %214, ptr noundef nonnull align 8 dereferenceable(8) %215)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %214, ptr noundef nonnull align 8 dereferenceable(8) %215)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSIToFPERNS_10SIToFPInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i89: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i92, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i87
@@ -46918,7 +46918,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.854, ptr %216, align 8
   store i8 3, ptr %607, align 8
   store ptr %836, ptr %217, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %216, ptr noundef nonnull align 8 dereferenceable(8) %217)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SIToFPInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %216, ptr noundef nonnull align 8 dereferenceable(8) %217)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSIToFPERNS_10SIToFPInstE.exit
 
 2960:                                             ; preds = %2951, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i89
@@ -46989,7 +46989,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i81:    ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.855, ptr %218, align 8
   store i8 3, ptr %595, align 8
   store ptr %836, ptr %219, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %218, ptr noundef nonnull align 8 dereferenceable(8) %219)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %218, ptr noundef nonnull align 8 dereferenceable(8) %219)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE12visitFPTruncERNS_11FPTruncInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i72: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i81, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i70, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i70, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i70, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i70, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i70
@@ -47029,7 +47029,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.i.i77:  ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.856, ptr %220, align 8
   store i8 3, ptr %597, align 8
   store ptr %836, ptr %221, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %220, ptr noundef nonnull align 8 dereferenceable(8) %221)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %220, ptr noundef nonnull align 8 dereferenceable(8) %221)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE12visitFPTruncERNS_11FPTruncInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i76: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.i.i77, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i74, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i74
@@ -47041,7 +47041,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i76: ; preds = %_ZNK4llvm4Typ
   store ptr @.str.857, ptr %222, align 8
   store i8 3, ptr %601, align 8
   store ptr %836, ptr %223, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %222, ptr noundef nonnull align 8 dereferenceable(8) %223)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %222, ptr noundef nonnull align 8 dereferenceable(8) %223)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE12visitFPTruncERNS_11FPTruncInstE.exit
 
 2994:                                             ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i76
@@ -47053,7 +47053,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i76: ; preds = %_ZNK4llvm4Typ
   store ptr @.str.858, ptr %224, align 8
   store i8 3, ptr %599, align 8
   store ptr %836, ptr %225, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %224, ptr noundef nonnull align 8 dereferenceable(8) %225)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11FPTruncInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %224, ptr noundef nonnull align 8 dereferenceable(8) %225)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE12visitFPTruncERNS_11FPTruncInstE.exit
 
 2997:                                             ; preds = %2994
@@ -47124,7 +47124,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i65:    ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.859, ptr %226, align 8
   store i8 3, ptr %587, align 8
   store ptr %836, ptr %227, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %226, ptr noundef nonnull align 8 dereferenceable(8) %227)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %226, ptr noundef nonnull align 8 dereferenceable(8) %227)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFPExtERNS_9FPExtInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i64: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i65, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i62, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i62, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i62, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i62, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i62
@@ -47164,7 +47164,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.i.i:    ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.860, ptr %228, align 8
   store i8 3, ptr %589, align 8
   store ptr %836, ptr %229, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %228, ptr noundef nonnull align 8 dereferenceable(8) %229)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %228, ptr noundef nonnull align 8 dereferenceable(8) %229)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFPExtERNS_9FPExtInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i16.i.i
@@ -47176,7 +47176,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i: ; preds = %_ZNK4llvm4Type1
   store ptr @.str.861, ptr %230, align 8
   store i8 3, ptr %593, align 8
   store ptr %836, ptr %231, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %230, ptr noundef nonnull align 8 dereferenceable(8) %231)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %230, ptr noundef nonnull align 8 dereferenceable(8) %231)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFPExtERNS_9FPExtInstE.exit
 
 3031:                                             ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i
@@ -47188,7 +47188,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit22.thread.i.i: ; preds = %_ZNK4llvm4Type1
   store ptr @.str.862, ptr %232, align 8
   store i8 3, ptr %591, align 8
   store ptr %836, ptr %233, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %232, ptr noundef nonnull align 8 dereferenceable(8) %233)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_9FPExtInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %232, ptr noundef nonnull align 8 dereferenceable(8) %233)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE10visitFPExtERNS_9FPExtInstE.exit
 
 3034:                                             ; preds = %3031
@@ -47247,7 +47247,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i48:  ; preds = %3046, %3035
   store ptr @.str.863, ptr %234, align 8
   store i8 3, ptr %579, align 8
   store ptr %836, ptr %235, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %234, ptr noundef nonnull align 8 dereferenceable(8) %235)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %234, ptr noundef nonnull align 8 dereferenceable(8) %235)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitPtrToIntERNS_12PtrToIntInstE.exit
 
 3052:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i48
@@ -47277,7 +47277,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i51:  ; preds = %3057, %3052
   store ptr @.str.864, ptr %236, align 8
   store i8 3, ptr %581, align 8
   store ptr %836, ptr %237, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %236, ptr noundef nonnull align 8 dereferenceable(8) %237)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %236, ptr noundef nonnull align 8 dereferenceable(8) %237)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitPtrToIntERNS_12PtrToIntInstE.exit
 
 3063:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i51
@@ -47289,7 +47289,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i51:  ; preds = %3057, %3052
   store ptr @.str.865, ptr %238, align 8
   store i8 3, ptr %585, align 8
   store ptr %836, ptr %239, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %238, ptr noundef nonnull align 8 dereferenceable(8) %239)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %238, ptr noundef nonnull align 8 dereferenceable(8) %239)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitPtrToIntERNS_12PtrToIntInstE.exit
 
 3066:                                             ; preds = %3063
@@ -47312,7 +47312,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.866, ptr %240, align 8
   store i8 3, ptr %583, align 8
   store ptr %836, ptr %241, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %240, ptr noundef nonnull align 8 dereferenceable(8) %241)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12PtrToIntInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %240, ptr noundef nonnull align 8 dereferenceable(8) %241)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitPtrToIntERNS_12PtrToIntInstE.exit
 
 3076:                                             ; preds = %3067, %3066
@@ -47371,7 +47371,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i34:  ; preds = %3088, %3077
   store ptr @.str.867, ptr %242, align 8
   store i8 3, ptr %571, align 8
   store ptr %836, ptr %243, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %242, ptr noundef nonnull align 8 dereferenceable(8) %243)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %242, ptr noundef nonnull align 8 dereferenceable(8) %243)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitIntToPtrERNS_12IntToPtrInstE.exit
 
 3094:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i34
@@ -47401,7 +47401,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i37:  ; preds = %3099, %3094
   store ptr @.str.868, ptr %244, align 8
   store i8 3, ptr %573, align 8
   store ptr %836, ptr %245, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %244, ptr noundef nonnull align 8 dereferenceable(8) %245)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %244, ptr noundef nonnull align 8 dereferenceable(8) %245)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitIntToPtrERNS_12IntToPtrInstE.exit
 
 3105:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i37
@@ -47413,7 +47413,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i37:  ; preds = %3099, %3094
   store ptr @.str.869, ptr %246, align 8
   store i8 3, ptr %577, align 8
   store ptr %836, ptr %247, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %246, ptr noundef nonnull align 8 dereferenceable(8) %247)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %246, ptr noundef nonnull align 8 dereferenceable(8) %247)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitIntToPtrERNS_12IntToPtrInstE.exit
 
 3108:                                             ; preds = %3105
@@ -47436,7 +47436,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.870, ptr %248, align 8
   store i8 3, ptr %575, align 8
   store ptr %836, ptr %249, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %248, ptr noundef nonnull align 8 dereferenceable(8) %249)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12IntToPtrInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %248, ptr noundef nonnull align 8 dereferenceable(8) %249)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitIntToPtrERNS_12IntToPtrInstE.exit
 
 3118:                                             ; preds = %3109, %3108
@@ -47471,7 +47471,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitIntToPtrERNS_12IntToPtrI
   store ptr @.str.427, ptr %250, align 8
   store i8 3, ptr %569, align 8
   store ptr %836, ptr %251, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11BitCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %250, ptr noundef nonnull align 8 dereferenceable(8) %251)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11BitCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %250, ptr noundef nonnull align 8 dereferenceable(8) %251)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE12visitBitCastERNS_11BitCastInstE.exit
 
 3128:                                             ; preds = %3119
@@ -47524,7 +47524,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i30:  ; preds = %3140, %3129
   store ptr @.str.871, ptr %252, align 8
   store i8 3, ptr %561, align 8
   store ptr %836, ptr %253, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %252, ptr noundef nonnull align 8 dereferenceable(8) %253)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %252, ptr noundef nonnull align 8 dereferenceable(8) %253)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17AddrSpaceCastInstE.exit
 
 3146:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i30
@@ -47554,7 +47554,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit22.i.i:  ; preds = %3151, %3146
   store ptr @.str.872, ptr %254, align 8
   store i8 3, ptr %563, align 8
   store ptr %836, ptr %255, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %254, ptr noundef nonnull align 8 dereferenceable(8) %255)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %254, ptr noundef nonnull align 8 dereferenceable(8) %255)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17AddrSpaceCastInstE.exit
 
 3157:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit22.i.i
@@ -47591,7 +47591,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit29.i.i: ; preds = %3163, %_ZNK4llvm
   store ptr @.str.873, ptr %256, align 8
   store i8 3, ptr %567, align 8
   store ptr %836, ptr %257, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %256, ptr noundef nonnull align 8 dereferenceable(8) %257)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %256, ptr noundef nonnull align 8 dereferenceable(8) %257)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17AddrSpaceCastInstE.exit
 
 3169:                                             ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit29.i.i
@@ -47614,7 +47614,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   store ptr @.str.874, ptr %258, align 8
   store i8 3, ptr %565, align 8
   store ptr %836, ptr %259, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %258, ptr noundef nonnull align 8 dereferenceable(8) %259)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17AddrSpaceCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %258, ptr noundef nonnull align 8 dereferenceable(8) %259)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17AddrSpaceCastInstE.exit
 
 3179:                                             ; preds = %3170, %3169
@@ -47654,7 +47654,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17Addr
   store ptr @.str.875, ptr %260, align 8
   store i8 3, ptr %559, align 8
   store ptr %836, ptr %261, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %260, ptr noundef nonnull align 8 dereferenceable(8) %261)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %260, ptr noundef nonnull align 8 dereferenceable(8) %261)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14CleanupPadInstE.exit
 
 3189:                                             ; preds = %3180
@@ -47667,7 +47667,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17Addr
   store ptr @.str.876, ptr %262, align 8
   store i8 3, ptr %555, align 8
   store ptr %836, ptr %263, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %262, ptr noundef nonnull align 8 dereferenceable(8) %263)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %262, ptr noundef nonnull align 8 dereferenceable(8) %263)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14CleanupPadInstE.exit
 
 3193:                                             ; preds = %3189
@@ -47689,7 +47689,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17Addr
   store ptr @.str.877, ptr %264, align 8
   store i8 3, ptr %557, align 8
   store ptr %836, ptr %265, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %264, ptr noundef nonnull align 8 dereferenceable(8) %265)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14CleanupPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %264, ptr noundef nonnull align 8 dereferenceable(8) %265)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14CleanupPadInstE.exit
 
 3204:                                             ; preds = %3198, %3193
@@ -47728,7 +47728,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14Cleanup
   store ptr @.str.882, ptr %266, align 8
   store i8 3, ptr %553, align 8
   store ptr %836, ptr %267, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12CatchPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %266, ptr noundef nonnull align 8 dereferenceable(8) %267)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12CatchPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %266, ptr noundef nonnull align 8 dereferenceable(8) %267)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchPadERNS_12CatchPadInstE.exit
 
 3214:                                             ; preds = %3205
@@ -47743,7 +47743,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14Cleanup
   store ptr @.str.883, ptr %268, align 8
   store i8 3, ptr %549, align 8
   store ptr %3216, ptr %269, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %268, ptr noundef nonnull align 8 dereferenceable(8) %269)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %268, ptr noundef nonnull align 8 dereferenceable(8) %269)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchPadERNS_12CatchPadInstE.exit
 
 3220:                                             ; preds = %3214
@@ -47756,7 +47756,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14Cleanup
   store ptr @.str.884, ptr %270, align 8
   store i8 3, ptr %551, align 8
   store ptr %836, ptr %271, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12CatchPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %270, ptr noundef nonnull align 8 dereferenceable(8) %271)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_12CatchPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %270, ptr noundef nonnull align 8 dereferenceable(8) %271)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchPadERNS_12CatchPadInstE.exit
 
 3224:                                             ; preds = %3220
@@ -47796,7 +47796,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchPadERNS_12CatchPadI
   store ptr @.str.885, ptr %272, align 8
   store i8 3, ptr %543, align 8
   store ptr %836, ptr %273, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %272, ptr noundef nonnull align 8 dereferenceable(8) %273)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %272, ptr noundef nonnull align 8 dereferenceable(8) %273)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitICmpERNS_8ICmpInstE.exit
 
 3236:                                             ; preds = %3225
@@ -47831,7 +47831,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i:    ; preds = %_ZNK4llvm4Type18isI
   store ptr @.str.886, ptr %274, align 8
   store i8 3, ptr %545, align 8
   store ptr %836, ptr %275, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %274, ptr noundef nonnull align 8 dereferenceable(8) %275)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %274, ptr noundef nonnull align 8 dereferenceable(8) %275)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitICmpERNS_8ICmpInstE.exit
 
 3248:                                             ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.thread.i.i, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i
@@ -47848,7 +47848,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i.i:    ; preds = %_ZNK4llvm4Type18isI
   store ptr @.str.887, ptr %276, align 8
   store i8 3, ptr %547, align 8
   store ptr %836, ptr %277, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %276, ptr noundef nonnull align 8 dereferenceable(8) %277)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8ICmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %276, ptr noundef nonnull align 8 dereferenceable(8) %277)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitICmpERNS_8ICmpInstE.exit
 
 3256:                                             ; preds = %3248
@@ -47887,7 +47887,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitICmpERNS_8ICmpInstE.exit:
   store ptr @.str.888, ptr %278, align 8
   store i8 3, ptr %537, align 8
   store ptr %836, ptr %279, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %278, ptr noundef nonnull align 8 dereferenceable(8) %279)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %278, ptr noundef nonnull align 8 dereferenceable(8) %279)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFCmpERNS_8FCmpInstE.exit
 
 3268:                                             ; preds = %3257
@@ -47927,7 +47927,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i:      ; preds = %_ZNK4llvm4Type13get
   store ptr @.str.889, ptr %280, align 8
   store i8 3, ptr %539, align 8
   store ptr %836, ptr %281, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %280, ptr noundef nonnull align 8 dereferenceable(8) %281)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %280, ptr noundef nonnull align 8 dereferenceable(8) %281)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFCmpERNS_8FCmpInstE.exit
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i: ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
@@ -47942,7 +47942,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i: ; preds = %_ZNK4llvm4Type16i
   store ptr @.str.890, ptr %282, align 8
   store i8 3, ptr %541, align 8
   store ptr %836, ptr %283, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %282, ptr noundef nonnull align 8 dereferenceable(8) %283)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8FCmpInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %282, ptr noundef nonnull align 8 dereferenceable(8) %283)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFCmpERNS_8FCmpInstE.exit
 
 3285:                                             ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread.i.i
@@ -48023,7 +48023,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i: ; preds = %3309,
   br i1 %.not.i.i.i13, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit, label %3311
 
 3311:                                             ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJPNS_10BasicBlockEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef nonnull align 8 dereferenceable(8) %286)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJPNS_10BasicBlockEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef nonnull align 8 dereferenceable(8) %286)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit
 
 .critedge.i.i14:                                  ; preds = %3295, %3286
@@ -48108,11 +48108,11 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %3334, %3331
   store ptr @.str.893, ptr %288, align 8
   store i8 3, ptr %533, align 8
   store ptr %836, ptr %289, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_7PHINodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %288, ptr noundef nonnull align 8 dereferenceable(8) %289)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_7PHINodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %288, ptr noundef nonnull align 8 dereferenceable(8) %289)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit
 
 ._crit_edge.i.i18:                                ; preds = %3340, %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit: ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i, %3311, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i, %3346, %._crit_edge.i.i18
@@ -48178,7 +48178,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit: ;
   store ptr @.str.894, ptr %290, align 8
   store i8 3, ptr %529, align 8
   store ptr %836, ptr %291, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %290, ptr noundef nonnull align 8 dereferenceable(8) %291)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %290, ptr noundef nonnull align 8 dereferenceable(8) %291)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3358:                                             ; preds = %3352
@@ -48204,7 +48204,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit: ;
   store ptr @.str.895, ptr %292, align 8
   store i8 3, ptr %527, align 8
   store ptr %836, ptr %293, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %292, ptr noundef nonnull align 8 dereferenceable(8) %293)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %292, ptr noundef nonnull align 8 dereferenceable(8) %293)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3375:                                             ; preds = %3358
@@ -48247,7 +48247,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread125.i.i.i: ; preds = %_ZL15isTyp
   store ptr @.str.896, ptr %294, align 8
   store i8 3, ptr %490, align 8
   store ptr %836, ptr %295, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %294, ptr noundef nonnull align 8 dereferenceable(8) %295)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %294, ptr noundef nonnull align 8 dereferenceable(8) %295)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit.i.i.i, %3375
@@ -48265,7 +48265,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCo
   store ptr @.str.897, ptr %296, align 8
   store i8 3, ptr %492, align 8
   store ptr %836, ptr %297, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %296, ptr noundef nonnull align 8 dereferenceable(8) %297)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %296, ptr noundef nonnull align 8 dereferenceable(8) %297)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3407:                                             ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i
@@ -48294,7 +48294,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCo
   store i8 1, ptr %495, align 1
   store ptr @.str.898, ptr %299, align 8
   store i8 3, ptr %494, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11BitCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %299, ptr noundef nonnull align 8 dereferenceable(8) %298)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11BitCastInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %299, ptr noundef nonnull align 8 dereferenceable(8) %298)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3423:                                             ; preds = %3418
@@ -48325,7 +48325,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCo
   store ptr @.str.899, ptr %301, align 8
   store i8 3, ptr %525, align 8
   store ptr %836, ptr %302, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %301, ptr noundef nonnull align 8 dereferenceable(8) %302)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %301, ptr noundef nonnull align 8 dereferenceable(8) %302)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3435:                                             ; preds = %.thread134.i.i.i
@@ -48356,7 +48356,7 @@ _ZNK4llvm10ReturnInst14getReturnValueEv.exit100.i.i.i: ; preds = %_ZNK4llvm10Ret
   store i8 1, ptr %497, align 1
   store ptr @.str.900, ptr %303, align 8
   store i8 3, ptr %496, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ReturnInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %303, ptr noundef nonnull align 8 dereferenceable(8) %300)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10ReturnInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %303, ptr noundef nonnull align 8 dereferenceable(8) %300)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 .critedge.i.i.i:                                  ; preds = %_ZNK4llvm10ReturnInst14getReturnValueEv.exit100.i.i.i, %_ZNK4llvm10ReturnInst14getReturnValueEv.exit.i.i.i, %3435
@@ -48387,12 +48387,12 @@ _ZNK4llvm10ReturnInst14getReturnValueEv.exit100.i.i.i: ; preds = %_ZNK4llvm10Ret
   store i64 %3452, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   store ptr @.str.903, ptr %498, align 8
   store i64 16, ptr %499, align 8
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %305, ptr noundef nonnull %500, i64 noundef 32) #23
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull %500, i64 noundef 32) #23
   call void @_ZN4llvm11SmallStringILj32EE6appendESt16initializer_listINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr nonnull %306, i64 2)
   %3457 = load ptr, ptr %305, align 8
-  %3458 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %305) #23
+  %3458 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %305) #23
   call fastcc void @_ZN12_GLOBAL__N_18Verifier25verifyTailCCMustTailAttrsERKN4llvm11AttrBuilderENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(88) %304, ptr %3457, i64 %3458)
-  %3459 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %305) #23
+  %3459 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %305) #23
   %3460 = load ptr, ptr %305, align 8
   %3461 = icmp eq ptr %3460, %500
   br i1 %3461, label %_ZN4llvm11SmallStringILj32EED2Ev.exit.i.i.i, label %3462
@@ -48402,7 +48402,7 @@ _ZNK4llvm10ReturnInst14getReturnValueEv.exit100.i.i.i: ; preds = %_ZNK4llvm10Ret
   br label %_ZN4llvm11SmallStringILj32EED2Ev.exit.i.i.i
 
 _ZN4llvm11SmallStringILj32EED2Ev.exit.i.i.i:      ; preds = %3462, %.lr.ph.i.i.i8
-  %3463 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %501) #23
+  %3463 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %501) #23
   %3464 = load ptr, ptr %501, align 8
   %3465 = icmp eq ptr %3464, %502
   br i1 %3465, label %_ZN4llvm11AttrBuilderD2Ev.exit.i.i.i, label %3466
@@ -48431,12 +48431,12 @@ _ZN4llvm11AttrBuilderD2Ev.exit.i.i.i:             ; preds = %3466, %_ZN4llvm11Sm
   store i64 %3452, ptr %.sroa.4.0..sroa_idx122.i.i.i, align 8
   store ptr @.str.904, ptr %503, align 8
   store i64 16, ptr %504, align 8
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %308, ptr noundef nonnull %505, i64 noundef 32) #23
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %308, ptr noundef nonnull %505, i64 noundef 32) #23
   call void @_ZN4llvm11SmallStringILj32EE6appendESt16initializer_listINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(56) %308, ptr nonnull %309, i64 2)
   %3472 = load ptr, ptr %308, align 8
-  %3473 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %308) #23
+  %3473 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %308) #23
   call fastcc void @_ZN12_GLOBAL__N_18Verifier25verifyTailCCMustTailAttrsERKN4llvm11AttrBuilderENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(88) %307, ptr %3472, i64 %3473)
-  %3474 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %308) #23
+  %3474 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %308) #23
   %3475 = load ptr, ptr %308, align 8
   %3476 = icmp eq ptr %3475, %505
   br i1 %3476, label %_ZN4llvm11SmallStringILj32EED2Ev.exit105.i.i.i, label %3477
@@ -48446,7 +48446,7 @@ _ZN4llvm11AttrBuilderD2Ev.exit.i.i.i:             ; preds = %3466, %_ZN4llvm11Sm
   br label %_ZN4llvm11SmallStringILj32EED2Ev.exit105.i.i.i
 
 _ZN4llvm11SmallStringILj32EED2Ev.exit105.i.i.i:   ; preds = %3477, %.lr.ph158.i.i.i
-  %3478 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %506) #23
+  %3478 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %506) #23
   %3479 = load ptr, ptr %506, align 8
   %3480 = icmp eq ptr %3479, %507
   br i1 %3480, label %_ZN4llvm11AttrBuilderD2Ev.exit106.i.i.i, label %3481
@@ -48478,7 +48478,7 @@ _ZN4llvm11AttrBuilderD2Ev.exit106.i.i.i:          ; preds = %3481, %_ZN4llvm11Sm
   store ptr @.str.906, ptr %314, align 8
   store i8 3, ptr %513, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %310, ptr noundef nonnull align 8 dereferenceable(34) %311, ptr noundef nonnull align 8 dereferenceable(34) %314)
-  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %310)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %310)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3486:                                             ; preds = %.critedge.i.i.i
@@ -48526,7 +48526,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm8
   store ptr @.str.907, ptr %315, align 8
   store i8 3, ptr %515, align 8
   store ptr %836, ptr %316, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %315, ptr noundef nonnull align 8 dereferenceable(8) %316)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %315, ptr noundef nonnull align 8 dereferenceable(8) %316)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 .lr.ph162.i.i.i:                                  ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i, %.lr.ph162.preheader.i.i.i
@@ -48569,7 +48569,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread150.i.i.i: ; preds = %_ZL15is
   store ptr @.str.908, ptr %317, align 8
   store i8 3, ptr %517, align 8
   store ptr %836, ptr %318, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %317, ptr noundef nonnull align 8 dereferenceable(8) %318)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %317, ptr noundef nonnull align 8 dereferenceable(8) %318)
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i: ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.i.i.i, %.lr.ph162.i.i.i
@@ -48608,11 +48608,11 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i: ; preds = %_ZL15isTyp
   %3535 = getelementptr inbounds %"class.llvm::Use", ptr %3534, i64 %indvars.iv168.i.i.i
   %3536 = load ptr, ptr %3535, align 8
   store ptr %3536, ptr %323, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %321, ptr noundef nonnull align 8 dereferenceable(8) %322, ptr noundef nonnull align 8 dereferenceable(8) %323)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %321, ptr noundef nonnull align 8 dereferenceable(8) %322, ptr noundef nonnull align 8 dereferenceable(8) %323)
   br label %3537
 
 3537:                                             ; preds = %3529, %3524
-  %3538 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %521) #23
+  %3538 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %521) #23
   %3539 = load ptr, ptr %521, align 8
   %3540 = icmp eq ptr %3539, %522
   br i1 %3540, label %_ZN4llvm11AttrBuilderD2Ev.exit119.i.i.i, label %3541
@@ -48622,7 +48622,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i: ; preds = %_ZL15isTyp
   br label %_ZN4llvm11AttrBuilderD2Ev.exit119.i.i.i
 
 _ZN4llvm11AttrBuilderD2Ev.exit119.i.i.i:          ; preds = %3541, %3537
-  %3542 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %523) #23
+  %3542 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %523) #23
   %3543 = load ptr, ptr %523, align 8
   %3544 = icmp eq ptr %3543, %524
   br i1 %3544, label %_ZN4llvm11AttrBuilderD2Ev.exit120.i.i.i, label %3545
@@ -48694,7 +48694,7 @@ _ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i: ; pre
   store ptr @.str.915, ptr %324, align 8
   store i8 3, ptr %486, align 8
   store ptr %836, ptr %325, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SelectInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %324, ptr noundef nonnull align 8 dereferenceable(8) %325)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SelectInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %324, ptr noundef nonnull align 8 dereferenceable(8) %325)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSelectERNS_10SelectInstE.exit
 
 3555:                                             ; preds = %3546
@@ -48711,7 +48711,7 @@ _ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i: ; pre
   store ptr @.str.916, ptr %326, align 8
   store i8 3, ptr %488, align 8
   store ptr %836, ptr %327, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SelectInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %326, ptr noundef nonnull align 8 dereferenceable(8) %327)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_10SelectInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %326, ptr noundef nonnull align 8 dereferenceable(8) %327)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSelectERNS_10SelectInstE.exit
 
 3563:                                             ; preds = %3555
@@ -48732,7 +48732,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSelectERNS_10SelectInstE
   store ptr @.str.917, ptr %352, align 8
   store i8 3, ptr %484, align 8
   store ptr %836, ptr %353, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %352, ptr noundef nonnull align 8 dereferenceable(8) %353)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %352, ptr noundef nonnull align 8 dereferenceable(8) %353)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %352)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %353)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm11InstructionE.exit
@@ -48744,7 +48744,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSelectERNS_10SelectInstE
   store ptr @.str.917, ptr %350, align 8
   store i8 3, ptr %482, align 8
   store ptr %836, ptr %351, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %350, ptr noundef nonnull align 8 dereferenceable(8) %351)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %350, ptr noundef nonnull align 8 dereferenceable(8) %351)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %350)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %351)
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm11InstructionE.exit
@@ -48768,7 +48768,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSelectERNS_10SelectInstE
   store ptr @.str.918, ptr %328, align 8
   store i8 3, ptr %480, align 8
   store ptr %836, ptr %329, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_18ExtractElementInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %328, ptr noundef nonnull align 8 dereferenceable(8) %329)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_18ExtractElementInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %328, ptr noundef nonnull align 8 dereferenceable(8) %329)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE19visitExtractElementERNS_18ExtractElementInstE.exit
 
 3574:                                             ; preds = %3567
@@ -48797,7 +48797,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE19visitExtractElementERNS_18Ext
   store ptr @.str.919, ptr %330, align 8
   store i8 3, ptr %478, align 8
   store ptr %836, ptr %331, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17InsertElementInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %330, ptr noundef nonnull align 8 dereferenceable(8) %331)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17InsertElementInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %330, ptr noundef nonnull align 8 dereferenceable(8) %331)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitInsertElementERNS_17InsertElementInstE.exit
 
 3584:                                             ; preds = %3575
@@ -48827,11 +48827,11 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitInsertElementERNS_17Inse
   store ptr @.str.920, ptr %332, align 8
   store i8 3, ptr %476, align 8
   store ptr %836, ptr %333, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17ShuffleVectorInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %332, ptr noundef nonnull align 8 dereferenceable(8) %333)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_17ShuffleVectorInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %332, ptr noundef nonnull align 8 dereferenceable(8) %333)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit
 
 3595:                                             ; preds = %3585
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(112) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitShuffleVectorERNS_17ShuffleVectorInstE.exit: ; preds = %3594, %3595
@@ -48860,11 +48860,11 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitShuffleVectorERNS_17Shuf
   store ptr @.str.921, ptr %334, align 8
   store i8 3, ptr %474, align 8
   store ptr %836, ptr %335, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_16ExtractValueInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %334, ptr noundef nonnull align 8 dereferenceable(8) %335)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_16ExtractValueInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %334, ptr noundef nonnull align 8 dereferenceable(8) %335)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE17visitExtractValueERNS_16ExtractValueInstE.exit
 
 3609:                                             ; preds = %3596
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(104) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE17visitExtractValueERNS_16ExtractValueInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE17visitExtractValueERNS_16ExtractValueInstE.exit: ; preds = %3608, %3609
@@ -48895,11 +48895,11 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE17visitExtractValueERNS_16Extra
   store ptr @.str.922, ptr %336, align 8
   store i8 3, ptr %472, align 8
   store ptr %836, ptr %337, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15InsertValueInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %336, ptr noundef nonnull align 8 dereferenceable(8) %337)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_15InsertValueInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %336, ptr noundef nonnull align 8 dereferenceable(8) %337)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15InsertValueInstE.exit
 
 3625:                                             ; preds = %3610
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(104) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15InsertValueInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15InsertValueInstE.exit: ; preds = %3624, %3625
@@ -48934,11 +48934,11 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
   store ptr @.str.923, ptr %338, align 8
   store i8 3, ptr %470, align 8
   store ptr %836, ptr %339, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %338, ptr noundef nonnull align 8 dereferenceable(8) %339)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %338, ptr noundef nonnull align 8 dereferenceable(8) %339)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3632:                                             ; preds = %3627, %3626
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   %3633 = load ptr, ptr %459, align 8
   %.not29.i.i = icmp eq ptr %3633, null
   %3634 = getelementptr inbounds nuw i8, ptr %836, i64 8
@@ -48958,7 +48958,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
   store ptr @.str.924, ptr %340, align 8
   store i8 3, ptr %460, align 8
   store ptr %836, ptr %341, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %340, ptr noundef nonnull align 8 dereferenceable(8) %341)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %340, ptr noundef nonnull align 8 dereferenceable(8) %341)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3640:                                             ; preds = %3637, %3636
@@ -48977,7 +48977,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
   store ptr @.str.925, ptr %342, align 8
   store i8 3, ptr %468, align 8
   store ptr %836, ptr %343, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %342, ptr noundef nonnull align 8 dereferenceable(8) %343)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %342, ptr noundef nonnull align 8 dereferenceable(8) %343)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3649:                                             ; preds = %3640
@@ -48990,7 +48990,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
   store ptr @.str.926, ptr %344, align 8
   store i8 3, ptr %462, align 8
   store ptr %836, ptr %345, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %344, ptr noundef nonnull align 8 dereferenceable(8) %345)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %344, ptr noundef nonnull align 8 dereferenceable(8) %345)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3653:                                             ; preds = %3649
@@ -49057,7 +49057,7 @@ _ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i: ; preds = %3677, %.lr.ph.sp
   store ptr @.str.927, ptr %346, align 8
   store i8 3, ptr %466, align 8
   store ptr %836, ptr %347, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %346, ptr noundef nonnull align 8 dereferenceable(8) %347)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %346, ptr noundef nonnull align 8 dereferenceable(8) %347)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 .thread.i.i:                                      ; preds = %_ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i
@@ -49072,7 +49072,7 @@ _ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i: ; preds = %3677, %.lr.ph.sp
   store ptr @.str.929, ptr %348, align 8
   store i8 3, ptr %464, align 8
   store ptr %836, ptr %349, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %348, ptr noundef nonnull align 8 dereferenceable(8) %349)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_14LandingPadInstEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %348, ptr noundef nonnull align 8 dereferenceable(8) %349)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3677:                                             ; preds = %.thread.i.i, %.thread.i.i, %_ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i
@@ -49081,7 +49081,7 @@ _ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i: ; preds = %3677, %.lr.ph.sp
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %_ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i, !llvm.loop !290
 
 ._crit_edge.i.i:                                  ; preds = %3677, %3667, %3653
-  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %836)
+  call fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(76) %836)
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit: ; preds = %3631, %3639, %3648, %3652, %.split.us.i.i, %.split44.us.i.i, %._crit_edge.i.i
@@ -51296,7 +51296,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier12verifyFnArgsERKN4llvm17
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %14, i64 1) #23
+  %16 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %14, i64 1) #23
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit:          ; preds = %12, %15
@@ -51357,7 +51357,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %_ZNK4llvm6MDNode14g
   br i1 %.not.i.i.i.i15, label %_ZN4llvm8DebugLocD2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %45) #23
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %45) #23
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit, %46
@@ -53321,14 +53321,14 @@ _ZN4llvm4User13getOperandUseEj.exit:              ; preds = %202, %204
   br i1 %213, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i.i: ; preds = %.split207
-  %214 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i) #23
+  %214 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #23
   %215 = extractvalue { ptr, i64 } %214, 0
   %.pr.i.i.i.i.i = load i32, ptr %156, align 4
   %216 = icmp slt i32 %.pr.i.i.i.i.i, 0
   br i1 %216, label %217, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i
 
 217:                                              ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i.i
-  %218 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i) #23
+  %218 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #23
   %219 = extractvalue { ptr, i64 } %218, 0
   %220 = extractvalue { ptr, i64 } %218, 1
   %221 = getelementptr inbounds i8, ptr %219, i64 %220
@@ -53348,7 +53348,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i.i: ; preds = %217, %_ZNK4llvm8C
   %227 = load i32, ptr %156, align 4
   %228 = icmp slt i32 %227, 0
   tail call void @llvm.assume(i1 %228)
-  %229 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i) #23
+  %229 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #23
   %230 = extractvalue { ptr, i64 } %229, 0
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load i32, ptr %231, align 8
@@ -53360,7 +53360,7 @@ _ZNK4llvm8CallBase15isBundleOperandEj.exit.i.i:   ; preds = %226
   %234 = load i32, ptr %156, align 4
   %235 = icmp slt i32 %234, 0
   tail call void @llvm.assume(i1 %235)
-  %236 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i) #23
+  %236 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %.0.i.i) #23
   %237 = extractvalue { ptr, i64 } %236, 0
   %238 = extractvalue { ptr, i64 } %236, 1
   %239 = getelementptr inbounds i8, ptr %237, i64 %238
@@ -53681,7 +53681,7 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit:        ; preds = %340, %347
   br i1 %.not.i.i313, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %._crit_edge501
-  %356 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 3) #23
+  %356 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 3) #23
   %.not241 = icmp eq ptr %356, null
   br i1 %.not241, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread, label %357
 
@@ -53862,7 +53862,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.thread: ; preds = %._crit_edge501, %4
   br i1 %.not.i.i326, label %_ZNK4llvm11Instruction11getMetadataEj.exit328.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit328
 
 _ZNK4llvm11Instruction11getMetadataEj.exit328:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
-  %434 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 4) #23
+  %434 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 4) #23
   %.not243 = icmp eq ptr %434, null
   br i1 %.not243, label %_ZNK4llvm11Instruction11getMetadataEj.exit328.thread, label %435
 
@@ -53886,7 +53886,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit328:    ; preds = %_ZNK4llvm11Instruct
 
 440:                                              ; preds = %435, %435, %435
   %441 = load ptr, ptr %101, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %434, ptr noundef %441, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyRangeMetadataERKN4llvm5ValueEPKNS1_6MDNodeEPNS1_4TypeEb(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %434, ptr noundef %441, i1 noundef zeroext false)
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit328.thread
 
 _ZNK4llvm11Instruction11getMetadataEj.exit328.thread: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.thread, %440, %_ZNK4llvm11Instruction11getMetadataEj.exit328
@@ -53896,7 +53896,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit328.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i.i329, label %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread, label %_ZNK4llvm11Instruction11hasMetadataEj.exit
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit328.thread
-  %444 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 16) #23
+  %444 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 16) #23
   %.not484 = icmp eq ptr %444, null
   br i1 %.not484, label %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread, label %445
 
@@ -53923,7 +53923,7 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit.thread: ; preds = %445, %_ZNK4llvm11I
   br i1 %.not.i.i331, label %_ZNK4llvm11Instruction11getMetadataEj.exit333.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit333
 
 _ZNK4llvm11Instruction11getMetadataEj.exit333:    ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread
-  %452 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 11) #23
+  %452 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 11) #23
   %.not244 = icmp eq ptr %452, null
   br i1 %.not244, label %_ZNK4llvm11Instruction11getMetadataEj.exit333.thread, label %453
 
@@ -54001,7 +54001,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit333.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i337, label %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit339
 
 _ZNK4llvm11Instruction11getMetadataEj.exit339:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit333.thread
-  %486 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 12) #23
+  %486 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 12) #23
   %.not245 = icmp eq ptr %486, null
   br i1 %.not245, label %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread, label %487
 
@@ -54016,7 +54016,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit339.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i340, label %_ZNK4llvm11Instruction11getMetadataEj.exit342.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit342
 
 _ZNK4llvm11Instruction11getMetadataEj.exit342:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit339.thread
-  %490 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 13) #23
+  %490 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 13) #23
   %.not246 = icmp eq ptr %490, null
   br i1 %.not246, label %_ZNK4llvm11Instruction11getMetadataEj.exit342.thread, label %491
 
@@ -54031,7 +54031,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit342.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i343, label %_ZNK4llvm11Instruction11getMetadataEj.exit345.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit345
 
 _ZNK4llvm11Instruction11getMetadataEj.exit345:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit342.thread
-  %494 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1) #23
+  %494 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1) #23
   %.not247 = icmp eq ptr %494, null
   br i1 %.not247, label %_ZNK4llvm11Instruction11getMetadataEj.exit345.thread, label %495
 
@@ -54047,7 +54047,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit345.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i346, label %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit348
 
 _ZNK4llvm11Instruction11getMetadataEj.exit348:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit345.thread
-  %500 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8) #23
+  %500 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 8) #23
   %.not248 = icmp eq ptr %500, null
   br i1 %.not248, label %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread, label %501
 
@@ -54062,7 +54062,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit348.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i349, label %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit351
 
 _ZNK4llvm11Instruction11getMetadataEj.exit351:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit348.thread
-  %504 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 7) #23
+  %504 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 7) #23
   %.not249 = icmp eq ptr %504, null
   br i1 %.not249, label %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread, label %505
 
@@ -54077,7 +54077,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit351.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i352, label %_ZNK4llvm11Instruction11getMetadataEj.exit354.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit354
 
 _ZNK4llvm11Instruction11getMetadataEj.exit354:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit351.thread
-  %508 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 25) #23
+  %508 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 25) #23
   %.not250 = icmp eq ptr %508, null
   br i1 %.not250, label %_ZNK4llvm11Instruction11getMetadataEj.exit354.thread, label %509
 
@@ -54092,7 +54092,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit354.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i355, label %_ZNK4llvm11Instruction11getMetadataEj.exit357.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit357
 
 _ZNK4llvm11Instruction11getMetadataEj.exit357:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit354.thread
-  %512 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 17) #23
+  %512 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 17) #23
   %.not251 = icmp eq ptr %512, null
   br i1 %.not251, label %_ZNK4llvm11Instruction11getMetadataEj.exit357.thread, label %513
 
@@ -54255,7 +54255,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit357.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i369, label %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit371
 
 _ZNK4llvm11Instruction11getMetadataEj.exit371:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit357.thread
-  %584 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 2) #23
+  %584 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 2) #23
   %.not253 = icmp eq ptr %584, null
   br i1 %.not253, label %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread, label %585
 
@@ -54270,7 +54270,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit371.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i372, label %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit374
 
 _ZNK4llvm11Instruction11getMetadataEj.exit374:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit371.thread
-  %588 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 34) #23
+  %588 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 34) #23
   %.not254 = icmp eq ptr %588, null
   br i1 %.not254, label %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread, label %589
 
@@ -54285,7 +54285,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit374.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i375, label %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit377
 
 _ZNK4llvm11Instruction11getMetadataEj.exit377:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit374.thread
-  %592 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 35) #23
+  %592 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 35) #23
   %.not255 = icmp eq ptr %592, null
   br i1 %.not255, label %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread, label %593
 
@@ -54300,7 +54300,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit377.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i378, label %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit380
 
 _ZNK4llvm11Instruction11getMetadataEj.exit380:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit377.thread
-  %596 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 38) #23
+  %596 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 38) #23
   %.not256 = icmp eq ptr %596, null
   br i1 %.not256, label %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread, label %597
 
@@ -54315,7 +54315,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit380.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i381, label %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit383
 
 _ZNK4llvm11Instruction11getMetadataEj.exit383:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit380.thread
-  %600 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 40) #23
+  %600 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 40) #23
   %.not257 = icmp eq ptr %600, null
   br i1 %.not257, label %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread, label %601
 
@@ -54330,7 +54330,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit383.thread: ; preds = %_ZNK4llvm11Inst
   br i1 %.not.i.i384, label %_ZNK4llvm11Instruction11getMetadataEj.exit386.thread, label %_ZNK4llvm11Instruction11getMetadataEj.exit386
 
 _ZNK4llvm11Instruction11getMetadataEj.exit386:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit383.thread
-  %604 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 30) #23
+  %604 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 30) #23
   %.not258 = icmp eq ptr %604, null
   br i1 %.not258, label %_ZNK4llvm11Instruction11getMetadataEj.exit386.thread, label %605
 
@@ -54376,7 +54376,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit386.thread: ; preds = %_ZNK4llvm11Inst
 
 618:                                              ; preds = %617, %615
   %619 = getelementptr inbounds i8, ptr %78, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %619, i64 noundef 4) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %78, ptr noundef nonnull %619, i64 noundef 4) #23
   %620 = load ptr, ptr %606, align 8
   %621 = icmp ne ptr %620, null
   %622 = load i32, ptr %151, align 4
@@ -54571,14 +54571,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_18Verifier16visitIn
   br i1 %6, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i: ; preds = %3
-  %7 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %7 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %8 = extractvalue { ptr, i64 } %7, 0
   %.pr.i.i.i.i = load i32, ptr %4, align 4
   %9 = icmp slt i32 %.pr.i.i.i.i, 0
   br i1 %9, label %10, label %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i
 
 10:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i
-  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
@@ -54598,7 +54598,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i.i: ; preds = %10, %_ZNK4llvm8Call
   %20 = load i32, ptr %4, align 4
   %21 = icmp slt i32 %20, 0
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %22 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
@@ -54609,7 +54609,7 @@ _ZNK4llvm8CallBase15isBundleOperandEj.exit.i:     ; preds = %19
   %26 = load i32, ptr %4, align 4
   %27 = icmp slt i32 %26, 0
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %28 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %29 = extractvalue { ptr, i64 } %28, 0
   %30 = extractvalue { ptr, i64 } %28, 1
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
@@ -54981,7 +54981,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %35
 
 39:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %40 = getelementptr inbounds i8, ptr %11, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %40, i64 noundef 16) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull %40, i64 noundef 16) #23
   %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
   %42 = add i64 %41, 1
   %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
@@ -55063,7 +55063,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit: ; pre
   store i8 1, ptr %53, align 1
   store ptr @.str.427, ptr %9, align 8
   store i8 3, ptr %52, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_12ConstantExprEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_12ConstantExprEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %_ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit
 
 _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; preds = %76, %80, %93
@@ -55442,7 +55442,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit59: ; p
   br i1 %.not25, label %.backedge, label %.lr.ph, !llvm.loop !326
 
 _ZN4llvm15VerifierSupport11CheckFailedIPKNS_8ConstantEJPKNS_6ModuleEPKNS_11GlobalValueES7_EEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %.backedge, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit, %206, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i
-  %253 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
+  %253 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %11) #23
   %254 = load ptr, ptr %11, align 8
   %255 = icmp eq ptr %254, %40
   br i1 %255, label %_ZN4llvm11SmallVectorIPKNS_8ConstantELj16EED2Ev.exit, label %256
@@ -55725,7 +55725,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %56, %52
   store i8 1, ptr %30, align 1
   store ptr @.str.438, ptr %4, align 8
   store i8 3, ptr %29, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 62:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
@@ -55788,7 +55788,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit16._crit_edge.i: ; preds = %_ZNK4llvm6MDNode1
   store i8 1, ptr %32, align 1
   store ptr @.str.439, ptr %5, align 8
   store i8 3, ptr %31, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 91:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit16._crit_edge.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
@@ -55830,7 +55830,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit19._crit_edge.i: ; preds = %_ZNK4llvm6MDNode1
   store i8 1, ptr %34, align 1
   store ptr @.str.440, ptr %6, align 8
   store i8 3, ptr %33, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 109:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit19._crit_edge.i, %91
@@ -55865,7 +55865,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit22.i:          ; preds = %116, %112
   store i8 1, ptr %36, align 1
   store ptr @.str.441, ptr %8, align 8
   store i8 3, ptr %35, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 125:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit22.i
@@ -55898,7 +55898,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit25.i:      ; preds = %133, %129
   store i8 1, ptr %38, align 1
   store ptr @.str.442, ptr %9, align 8
   store i8 3, ptr %37, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 139:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit25.i
@@ -55956,7 +55956,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit31.i:          ; preds = %160, %156
   store i8 1, ptr %40, align 1
   store ptr @.str.443, ptr %10, align 8
   store i8 3, ptr %39, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 169:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit31.i, %_ZNK4llvm6MDNode10getOperandEj.exit28.i
@@ -55994,7 +55994,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit34.i:          ; preds = %178, %174
   store i8 1, ptr %42, align 1
   store ptr @.str.444, ptr %11, align 8
   store i8 3, ptr %41, align 8
-  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit
 
 _ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit: ; preds = %61, %90, %108, %124, %138, %168, %169, %_ZNK4llvm6MDNode10getOperandEj.exit34.i, %187
@@ -57623,7 +57623,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %137, %.loopexit, %215, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i40, %186, %188
-  %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
+  %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
   %217 = load ptr, ptr %11, align 8
   %218 = getelementptr inbounds i8, ptr %11, i64 16
   %219 = icmp eq ptr %217, %218
@@ -58430,7 +58430,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i: ; preds 
 
 _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_20DbgVariableIntrinsicEJPKNS_10DIVariableEEEEvRKNS_5TwineERKT_DpRKT0_.exit.sink.split.i: ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
   %.sink.i = phi ptr [ %5, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i ], [ %7, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i ]
-  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJPKNS_10DIVariableEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i)
+  call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJPKNS_10DIVariableEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i)
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm20DbgVariableIntrinsicEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit
 
 _ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm20DbgVariableIntrinsicEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit: ; preds = %47, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i, %76, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_20DbgVariableIntrinsicEJPKNS_10DIVariableEEEEvRKNS_5TwineERKT_DpRKT0_.exit.sink.split.i
@@ -61000,14 +61000,14 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   br i1 %327, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %319
-  %328 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+  %328 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23
   %329 = extractvalue { ptr, i64 } %328, 0
   %.pr.i.i = load i32, ptr %109, align 4
   %330 = icmp slt i32 %.pr.i.i, 0
   br i1 %330, label %331, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 331:                                              ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %332 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+  %332 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23
   %333 = extractvalue { ptr, i64 } %332, 0
   %334 = extractvalue { ptr, i64 } %332, 1
   %335 = getelementptr inbounds i8, ptr %333, i64 %334
@@ -61038,7 +61038,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i._ZNK4llvm8CallBase25countOpera
   %343 = load i32, ptr %109, align 4, !noalias !344
   %344 = icmp slt i32 %343, 0
   call void @llvm.assume(i1 %344)
-  %345 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23, !noalias !344
+  %345 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !344
   %346 = extractvalue { ptr, i64 } %345, 0
   %347 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %346, i64 %indvars.iv.i
   %348 = load ptr, ptr %347, align 8, !noalias !347
@@ -61400,7 +61400,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread: ; preds = %_ZN4llvm16dyn
   %501 = load i32, ptr %109, align 4, !noalias !354
   %502 = icmp slt i32 %501, 0
   call void @llvm.assume(i1 %502)
-  %503 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23, !noalias !354
+  %503 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !354
   %504 = extractvalue { ptr, i64 } %503, 0
   %505 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %504, i64 %indvars.iv424
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
@@ -61998,7 +61998,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br i1 %18, label %20, label %30
 
 20:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -62018,7 +62018,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -62337,14 +62337,14 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm8CallBase25countOperandBundlesO
   br i1 %5, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i: ; preds = %2
-  %6 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %6 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %7 = extractvalue { ptr, i64 } %6, 0
   %.pr.i = load i32, ptr %3, align 4
   %8 = icmp slt i32 %.pr.i, 0
   br i1 %8, label %9, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit
 
 9:                                                ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i
-  %10 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %10 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
@@ -62371,7 +62371,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %2, %_ZNK4llvm8CallB
   %20 = load i32, ptr %3, align 4, !noalias !375
   %21 = icmp slt i32 %20, 0
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23, !noalias !375
+  %22 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23, !noalias !375
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !noalias !378
@@ -62657,7 +62657,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i32, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %246, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull %246, i64 noundef 8) #23
   call void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15SmallVectorImplINS0_13IITDescriptorEEE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   %247 = load ptr, ptr %8, align 8
   store ptr %247, ptr %9, align 8
@@ -62665,7 +62665,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   store i64 %249, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %250, i64 noundef 4) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %250, i64 noundef 4) #23
   %251 = call noundef i32 @_ZN4llvm9Intrinsic23matchIntrinsicSignatureEPNS_12FunctionTypeERNS_8ArrayRefINS0_13IITDescriptorEEERNS_15SmallVectorImplIPNS_4TypeEEE(ptr noundef nonnull %243, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   switch i32 %251, label %258 [
     i32 1, label %252
@@ -67487,7 +67487,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_11InstructionEEEDaPT0_.exit: ;
   %2598 = load i32, ptr %297, align 4, !noalias !388
   %2599 = icmp slt i32 %2598, 0
   call void @llvm.assume(i1 %2599)
-  %2600 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #23, !noalias !388
+  %2600 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #23, !noalias !388
   %2601 = extractvalue { ptr, i64 } %2600, 0
   %2602 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %2601, i64 %indvars.iv
   %2603 = load ptr, ptr %2602, align 8, !noalias !391
@@ -67535,7 +67535,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %796, %._crit_edge12
   br label %2614
 
 2614:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit, %273, %267, %262, %255, %252
-  %2615 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
+  %2615 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #23
   %2616 = load ptr, ptr %10, align 8
   %2617 = icmp eq ptr %2616, %250
   br i1 %2617, label %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit, label %2618
@@ -67545,7 +67545,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %796, %._crit_edge12
   br label %_ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_4TypeELj4EED2Ev.exit:   ; preds = %2614, %2618
-  %2619 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  %2619 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %8) #23
   %2620 = load ptr, ptr %8, align 8
   %2621 = icmp eq ptr %2620, %246
   br i1 %2621, label %_ZN4llvm11SmallVectorINS_9Intrinsic13IITDescriptorELj8EED2Ev.exit, label %2622
@@ -67762,7 +67762,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br i1 %24, label %26, label %36
 
 26:                                               ; preds = %22
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(112) %25, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(112) %25, i1 noundef zeroext false) #23
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -67782,7 +67782,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 36:                                               ; preds = %22
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %21, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %25) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %21, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %25) #23
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -68106,7 +68106,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br i1 %16, label %19, label %29
 
 19:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(112) %18, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(112) %18, i1 noundef zeroext false) #23
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -68126,7 +68126,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %17, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %18) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %17, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %18) #23
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -68219,7 +68219,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br i1 %31, label %34, label %44
 
 34:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -68239,7 +68239,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -68323,7 +68323,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br i1 %31, label %34, label %44
 
 34:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -68343,7 +68343,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -68427,7 +68427,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br i1 %31, label %34, label %44
 
 34:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(112) %33, i1 noundef zeroext false) #23
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -68447,7 +68447,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %32, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %33) #23
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -68580,14 +68580,14 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm8CallBase15bundle_op_infosEv(pt
   br i1 %4, label %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit, label %_ZN4llvm8CallBase18bundle_op_info_endEv.exit
 
 _ZN4llvm8CallBase20bundle_op_info_beginEv.exit:   ; preds = %1
-  %5 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %5 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %6 = extractvalue { ptr, i64 } %5, 0
   %.pr = load i32, ptr %2, align 4
   %7 = icmp slt i32 %.pr, 0
   br i1 %7, label %8, label %_ZN4llvm8CallBase18bundle_op_info_endEv.exit
 
 8:                                                ; preds = %_ZN4llvm8CallBase20bundle_op_info_beginEv.exit
-  %9 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %9 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
@@ -68610,7 +68610,7 @@ declare noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv(ptr noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #23
+  %2 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %0) #23
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
@@ -71570,14 +71570,14 @@ define linkonce_odr hidden void @_ZNK4llvm8CallBase16getOperandBundleEj(ptr dead
   br i1 %6, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i: ; preds = %3
-  %7 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+  %7 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23
   %8 = extractvalue { ptr, i64 } %7, 0
   %.pr.i = load i32, ptr %4, align 4
   %9 = icmp slt i32 %.pr.i, 0
   br i1 %9, label %10, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit
 
 10:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i
-  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+  %11 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
@@ -71604,7 +71604,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %3, %_ZNK4llvm8CallB
   %22 = load i32, ptr %4, align 4, !noalias !459
   %23 = icmp slt i32 %22, 0
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #23, !noalias !459
+  %24 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !459
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = zext i32 %.08 to i64
   %27 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %25, i64 %26
@@ -72715,7 +72715,7 @@ declare noundef ptr @_ZNK4llvm10BasicBlock20getUniquePredecessorEv(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_11SmallVectorIPNS_10BasicBlockELj16EEEPKS2_EEbOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   %.idx4 = shl nsw i64 %4, 3
   %5 = getelementptr inbounds i8, ptr %3, i64 %.idx4
   %6 = ashr i64 %4, 2
@@ -72826,7 +72826,7 @@ _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit
 _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %10, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit17, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit19, %30, %36, %42, %46
   %.028.i.i.i = phi ptr [ %5, %46 ], [ %.029.lcssa.i.i.i, %30 ], [ %.1.i.i.i, %36 ], [ %.2.i.i.i, %42 ], [ %47, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit ], [ %48, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit17 ], [ %49, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit19 ], [ %.02946.i.i.i, %10 ]
   %50 = load ptr, ptr %0, align 8
-  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
   %53 = icmp ne ptr %.028.i.i.i, %52
   ret i1 %53
@@ -72835,7 +72835,7 @@ _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %10, %_ZSt4fi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10CallBrInst16getIndirectDestsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.616") align 8 %0, ptr noundef nonnull align 8 dereferenceable(92) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 16) #23
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %3, i64 noundef 16) #23
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -72941,7 +72941,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
   br i1 %.not.i.i, label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #23
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #23
   %16 = load ptr, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 16
   %18 = icmp eq ptr %16, %17
@@ -73029,7 +73029,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
   br i1 %.not.i.i, label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = icmp eq ptr %15, %16
@@ -73185,7 +73185,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br i1 %18, label %20, label %30
 
 20:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, ptr noundef nonnull align 8 dereferenceable(112) %19, i1 noundef zeroext false) #23
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -73205,7 +73205,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_15VPCastIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %16
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %.pr, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %19) #23
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -74403,7 +74403,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br i1 %29, label %31, label %41
 
 31:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(112) %7, i1 noundef zeroext false) #23
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamERNS_17ModuleSlotTrackerEb(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(112) %7, i1 noundef zeroext false) #23
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
@@ -74423,7 +74423,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
-  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %30, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %7) #23
+  tail call void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbRNS_17ModuleSlotTrackerE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(48) %30, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(112) %7) #23
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
@@ -76128,7 +76128,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 
 37:                                               ; preds = %24, %2
   %.sink.i.i.i.i = phi ptr [ %25, %24 ], [ null, %2 ]
-  %38 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i), !noalias !475
+  %38 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef %.sink.i.i.i.i), !noalias !475
   %39 = load ptr, ptr %3, align 8, !noalias !475
   store ptr %39, ptr %38, align 8, !noalias !475
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -76625,14 +76625,14 @@ _ZNK4llvm8CallBase12doesNotThrowEv.exit.thread:   ; preds = %234, %_ZNK4llvm8Cal
   br i1 %245, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i: ; preds = %241
-  %246 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #23, !noalias !481
+  %246 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %242) #23, !noalias !481
   %247 = extractvalue { ptr, i64 } %246, 0
   %.pr.i.i = load i32, ptr %243, align 4, !noalias !481
   %248 = icmp slt i32 %.pr.i.i, 0
   br i1 %248, label %249, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
 
 249:                                              ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i
-  %250 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #23, !noalias !481
+  %250 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %242) #23, !noalias !481
   %251 = extractvalue { ptr, i64 } %250, 0
   %252 = extractvalue { ptr, i64 } %250, 1
   %253 = getelementptr inbounds i8, ptr %251, i64 %252
@@ -76663,7 +76663,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %249, %_ZNK4llvm8Ca
   %261 = load i32, ptr %243, align 4, !noalias !484
   %262 = icmp slt i32 %261, 0
   call void @llvm.assume(i1 %262)
-  %263 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #23, !noalias !484
+  %263 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %242) #23, !noalias !484
   %264 = extractvalue { ptr, i64 } %263, 0
   %265 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %264, i64 %indvars.iv
   %266 = load ptr, ptr %265, align 8, !noalias !487
@@ -81059,9 +81059,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitFuncletPadInstERN4
   store ptr null, ptr %3, align 8
   store ptr %1, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %17, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %17, i64 noundef 8) #23
   %18 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZN4llvm15SmallVectorImplIPNS_14FuncletPadInstEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, ptr noundef nonnull %18)
+  call void @_ZN4llvm15SmallVectorImplIPNS_14FuncletPadInstEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5, ptr noundef nonnull %18)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %19, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -81600,7 +81600,7 @@ _ZN4llvm15VerifierSupport11CheckFailedIPNS_14FuncletPadInstEJPNS_4UserES5_EEEvRK
   br label %_ZN4llvm8SmallSetIPNS_14FuncletPadInstELj8ESt4lessIS2_EED2Ev.exit
 
 _ZN4llvm8SmallSetIPNS_14FuncletPadInstELj8ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm15VerifierSupport11CheckFailedIPNS_14FuncletPadInstEJPNS_4UserES5_EEEvRKNS_5TwineERKT_DpRKT0_.exit, %230
-  %231 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
+  %231 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #23
   %232 = load ptr, ptr %4, align 8
   %233 = icmp eq ptr %232, %17
   br i1 %233, label %_ZN4llvm11SmallVectorIPNS_14FuncletPadInstELj8EED2Ev.exit, label %234
@@ -82659,7 +82659,7 @@ define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextE
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 8) #23
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %8, i64 noundef 8) #23
   br label %9
 
 9:                                                ; preds = %4, %15
@@ -84952,7 +84952,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN4llvm12GenericCycl
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #23
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 96
   %12 = icmp eq ptr %10, %11
@@ -84972,7 +84972,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @_ZNSt6vectorISt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt14default_deleteIS6_EESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #23
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #23
+  %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 24
   %24 = icmp eq ptr %22, %23
@@ -85018,7 +85018,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextI
 define linkonce_odr hidden void @_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %2) #23
   %.not4.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -85035,7 +85035,7 @@ define linkonce_odr hidden void @_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0
 
 8:                                                ; preds = %.lr.ph.i.i
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
+  %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #23
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 40
   %13 = icmp eq ptr %11, %12
@@ -85065,7 +85065,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10Basic
   br label %_ZN4llvm11SmallVectorISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELj6EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_.exit.i, %18
-  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
+  %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = icmp eq ptr %20, %21
@@ -85388,7 +85388,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %.thread
   br label %58
 
 _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalAliasEE6insertES3_.exit: ; preds = %._crit_edge.i.i, %36
-  %54 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef %spec.select.i.i48) #23, !noalias !541
+  %54 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %spec.select.i.i48) #23, !noalias !541
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %54, 1
   %55 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %55, label %58, label %.critedge72
@@ -86429,7 +86429,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   store ptr %1, ptr %11, align 8
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %12, align 8
-  %13 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
+  %13 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL36InitializeVerifierLegacyPassPassFlag, ptr noundef nonnull @__once_proxy) #23
   %.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_118VerifierLegacyPassC2Ev.exit, label %14
 
@@ -86483,7 +86483,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_18VerifierEEclEPS1_.exit.i.i: ; preds = %1
 
 _ZN12_GLOBAL__N_118VerifierLegacyPassD2Ev.exit:   ; preds = %1, %_ZNKSt14default_deleteIN12_GLOBAL__N_18VerifierEEclEPS1_.exit.i.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #23
+  tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #25
   ret void
 }
@@ -86664,7 +86664,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #23
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
@@ -87998,10 +87998,10 @@ define internal void @_GLOBAL__sub_I_Verifier.cpp() #17 section ".text.startup" 
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28VerifyNoAliasScopeDomination, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL28VerifyNoAliasScopeDomination) #23
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 152), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 160), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 160), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 184), align 8
   store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 176), align 8
-  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28VerifyNoAliasScopeDomination, ptr nonnull @.str, i64 29) #23
+  tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL28VerifyNoAliasScopeDomination, ptr nonnull align 1 dereferenceable(30) @.str, i64 29) #23
   %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 10), align 2
   %3 = and i16 %2, -97
   %4 = or disjoint i16 %3, 32

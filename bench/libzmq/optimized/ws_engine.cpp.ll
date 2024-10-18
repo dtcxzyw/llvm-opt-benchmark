@@ -57,7 +57,7 @@ entry:
   %_client = getelementptr inbounds i8, ptr %this, i64 1689
   store i8 %frombool, ptr %_client, align 1
   %_address = getelementptr inbounds i8, ptr %this, i64 1696
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_address, ptr noundef nonnull align 8 dereferenceable(28) %address_, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %_address, ptr noundef nonnull align 8 dereferenceable(96) %address_, i64 28, i1 false)
   %_host.i = getelementptr inbounds i8, ptr %this, i64 1728
   %_host3.i = getelementptr inbounds i8, ptr %address_, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_host.i, ptr noundef nonnull align 8 dereferenceable(32) %_host3.i)
@@ -212,7 +212,7 @@ define void @_ZThn16_N3zmq11ws_engine_tD0Ev(ptr noundef %this) unnamed_addr #7 a
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN3zmq11ws_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25696) %0) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(25696) %0) #22
   ret void
 }
 
@@ -367,7 +367,7 @@ _ZL13encode_base64PKhiPci.exit:                   ; preds = %while.body.i, %whil
   store i64 %conv, ptr %_outsize, align 8
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %9 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %9)
   br label %if.end26
 
 if.end26:                                         ; preds = %_ZL13encode_base64PKhiPci.exit, %entry
@@ -508,7 +508,7 @@ entry:
   tail call void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this)
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %0 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
+  tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %0)
   tail call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
   ret void
 }
@@ -914,7 +914,7 @@ do.end44:                                         ; preds = %new.cont34, %if.the
   tail call void @_ZN3zmq13socket_base_t25event_handshake_succeededERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %13, ptr noundef nonnull align 8 dereferenceable(68) %_endpoint_uri_pair, i32 noundef 0)
   %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %14 = load ptr, ptr %_handle.i, align 8
-  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %14)
+  tail call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %14)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then, %do.end44, %if.end

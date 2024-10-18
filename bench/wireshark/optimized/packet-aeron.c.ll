@@ -1171,7 +1171,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %.not48.i.i, label %390, label %381
 
 381:                                              ; preds = %378, %377
-  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef %373, ptr noundef nonnull readonly %1, ptr noundef readonly %11)
+  %382 = call fastcc ptr @aeron_term_msg_add(ptr noundef %373, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %11)
   br label %390
 
 383:                                              ; preds = %374
@@ -1184,7 +1184,7 @@ proto_item_set_generated.exit.i122:               ; preds = %335, %332, %aeron_i
   br i1 %387, label %390, label %388
 
 388:                                              ; preds = %384
-  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef %376, ptr noundef readonly %11)
+  %389 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef %376, ptr noundef nonnull readonly %11)
   %.not46.i.i = icmp eq ptr %389, null
   br i1 %.not46.i.i, label %390, label %aeron_msg_process.exit.i
 

@@ -7027,7 +7027,7 @@ skip_optional_kwonly:                             ; preds = %if.then41, %skip_op
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
 
 if.then.i:                                        ; preds = %skip_optional_kwonly
-  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %hostname_obj.037, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull %hostname.i) #11
+  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef nonnull %hostname_obj.037, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull %hostname.i) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %if.then.if.end2_crit_edge.i
 
@@ -7039,7 +7039,7 @@ if.end2.i:                                        ; preds = %skip_optional_kwonl
   %session.049 = phi ptr [ %session.0, %if.then.if.end2_crit_edge.i ], [ %session.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %owner.048 = phi ptr [ %owner.0, %if.then.if.end2_crit_edge.i ], [ %owner.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %16 = phi ptr [ %.pre.i, %if.then.if.end2_crit_edge.i ], [ null, %skip_optional_kwonly ], [ null, %skip_optional_kwonly.thread ]
-  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef %11, i32 noundef %call21, ptr noundef %16, ptr noundef %owner.048, ptr noundef %session.049, ptr noundef null, ptr noundef null)
+  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef %11, i32 noundef range(i32 0, -2147483648) %call21, ptr noundef %16, ptr noundef %owner.048, ptr noundef %session.049, ptr noundef null, ptr noundef null)
   %17 = load ptr, ptr %hostname.i, align 8
   %cmp4.not.i = icmp eq ptr %17, null
   br i1 %cmp4.not.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %if.then5.i
@@ -7195,7 +7195,7 @@ skip_optional_kwonly:                             ; preds = %if.then53, %skip_op
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
 
 if.then.i:                                        ; preds = %skip_optional_kwonly
-  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %hostname_obj.051, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull %hostname.i) #11
+  %call.i = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef nonnull %hostname_obj.051, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef nonnull %hostname.i) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_ssl__SSLContext__wrap_bio_impl.exit, label %if.then.if.end2_crit_edge.i
 
@@ -7207,7 +7207,7 @@ if.end2.i:                                        ; preds = %skip_optional_kwonl
   %session.063 = phi ptr [ %session.0, %if.then.if.end2_crit_edge.i ], [ %session.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %owner.062 = phi ptr [ %owner.0, %if.then.if.end2_crit_edge.i ], [ %owner.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %22 = phi ptr [ %.pre.i, %if.then.if.end2_crit_edge.i ], [ null, %skip_optional_kwonly ], [ null, %skip_optional_kwonly.thread ]
-  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef %call33, ptr noundef %22, ptr noundef %owner.062, ptr noundef %session.063, ptr noundef readonly %11, ptr noundef readonly %17)
+  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef range(i32 0, -2147483648) %call33, ptr noundef %22, ptr noundef %owner.062, ptr noundef %session.063, ptr noundef readonly %11, ptr noundef readonly %17)
   %23 = load ptr, ptr %hostname.i, align 8
   call void @PyMem_Free(ptr noundef %23) #11
   br label %_ssl__SSLContext__wrap_bio_impl.exit

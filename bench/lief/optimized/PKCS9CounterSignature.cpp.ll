@@ -103,7 +103,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE21PKCS9CounterSignatureD2Ev(ptr noun
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE21PKCS9CounterSignatureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4LIEF2PE10SignerInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #6
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
   ret void
 }
 
@@ -112,7 +112,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE21PKCS9CounterSignatureD0Ev(ptr noun
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE21PKCS9CounterSignatureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4LIEF2PE10SignerInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %2) #6
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #6
   tail call void @_ZdlPv(ptr noundef nonnull %0) #7
   ret void
 }
@@ -120,7 +120,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE21PKCS9CounterSignatureD0Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9CounterSignature5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #8
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef nonnull align 8 dereferenceable(200) %1)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %2
@@ -137,7 +137,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9CounterSignature5cloneEv(ptr
 9:                                                ; preds = %.noexc
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #6
   br label %.body
 
 _ZN4LIEF2PE21PKCS9CounterSignatureC2ERKS1_.exit:  ; preds = %.noexc

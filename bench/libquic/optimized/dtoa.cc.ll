@@ -1973,7 +1973,7 @@ _ZN6dmg_fpL3i2bEi.exit.i:                         ; preds = %if.end.i.i.i, %if.t
   br label %have_i.i
 
 if.else.i503:                                     ; preds = %if.then785
-  %call4.i = call fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr noundef %rv, ptr noundef %p2.i, ptr noundef %bbits.i)
+  %call4.i = call fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr noundef nonnull %rv, ptr noundef %p2.i, ptr noundef %bbits.i)
   %193 = load i32, ptr %p2.i, align 4
   %sub5.i = sub nsw i32 %193, %bc.sroa.39.0
   %194 = load i32, ptr %bbits.i, align 4

@@ -9317,7 +9317,7 @@ gincost_opexpr.exit.thread:                       ; preds = %180
 gincost_opexpr.exit:                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %.0.i224, i64 24
   %192 = load i64, ptr %191, align 8
-  %193 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %169, i32 noundef %.val, i64 noundef %192, ptr noundef %18)
+  %193 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef range(i32 -32768, 32768) %169, i32 noundef %.val, i64 noundef %192, ptr noundef nonnull %18)
   br i1 %193, label %343, label %.thread236
 
 194:                                              ; preds = %.lr.ph300
@@ -9536,7 +9536,7 @@ estimate_array_length.exit:                       ; preds = %227, %231, %245, %2
   %302 = load ptr, ptr %15, align 8
   %303 = getelementptr i64, ptr %302, i64 %indvars.iv.i226
   %304 = load i64, ptr %303, align 8
-  %305 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef %196, i32 noundef %.val216, i64 noundef %304, ptr noundef %17)
+  %305 = call fastcc zeroext i1 @gincost_pattern(ptr noundef readonly %22, i32 noundef range(i32 -32768, 32768) %196, i32 noundef %.val216, i64 noundef %304, ptr noundef %17)
   br i1 %305, label %306, label %321
 
 306:                                              ; preds = %301

@@ -776,7 +776,7 @@ sw.bb40.i.invoke:                                 ; preds = %if.then159, %sw.bb.
   %45 = phi ptr [ @.str.26, %sw.bb40.i ], [ @.str.25, %sw.bb37.i ], [ @.str.23, %sw.bb29.i ], [ @.str.20, %sw.bb21.i ], [ @.str.14, %sw.bb10.i ], [ @.str.14, %sw.bb2.i ], [ @.str.12, %sw.bb.i ], [ @.str.19, %if.then159 ]
   %46 = phi ptr [ null, %sw.bb40.i ], [ null, %sw.bb37.i ], [ %ref.tmp32.i, %sw.bb29.i ], [ %ref.tmp24.i, %sw.bb21.i ], [ %ref.tmp13.i, %sw.bb10.i ], [ %ref.tmp5.i, %sw.bb2.i ], [ %ref.tmp.i209, %sw.bb.i ], [ null, %if.then159 ]
   %47 = phi i64 [ 0, %sw.bb40.i ], [ 0, %sw.bb37.i ], [ 1, %sw.bb29.i ], [ 1, %sw.bb21.i ], [ 3, %sw.bb10.i ], [ 3, %sw.bb2.i ], [ 1, %sw.bb.i ], [ 0, %if.then159 ]
-  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %ref.tmp160, i64 %44, ptr nonnull %45, i8 noundef zeroext %43, ptr %46, i64 %47)
+  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %ref.tmp160, i64 %44, ptr nonnull %45, i8 noundef zeroext %43, ptr %46, i64 %47)
           to label %invoke.cont163 unwind label %lpad
 
 sw.default.i:                                     ; preds = %if.then159
@@ -802,7 +802,7 @@ call.i.i.noexc:                                   ; preds = %sw.default.i
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44.i) #21, !noalias !10
   %49 = extractvalue { i64, ptr } %call.i, 0
   %50 = extractvalue { i64, ptr } %call.i, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias align 8 %ref.tmp160, i64 %49, ptr %50, i8 noundef zeroext %43, ptr null, i64 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEhSt16initializer_listINS_9KnownFlagEE(ptr noalias nonnull align 8 %ref.tmp160, i64 %49, ptr %50, i8 noundef zeroext %43, ptr null, i64 0)
           to label %invoke.cont.i210 unwind label %lpad.i
 
 invoke.cont.i210:                                 ; preds = %.noexc219
@@ -1294,7 +1294,7 @@ _Z33grpc_chttp2_parsing_lookup_streamP21grpc_chttp2_transportj.exit.i.i: ; preds
   store i32 0, ptr %max_frame_size_.i.i.i, align 4, !noalias !25
   %preferred_rx_crypto_frame_size_.i.i.i = getelementptr inbounds i8, ptr %action.i.i, i64 16
   store i32 0, ptr %preferred_rx_crypto_frame_size_.i.i.i, align 4, !noalias !25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %action.i.i, i8 0, i64 5, i1 false), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %action.i.i, i8 0, i64 5, i1 false), !noalias !25
   %cmp.i.i = icmp eq ptr %retval.0.i.i.i, null
   br i1 %cmp.i.i, label %invoke.cont15.i.i, label %invoke.cont24.i.i
 
@@ -1680,7 +1680,7 @@ _ZL22init_data_frame_parserP21grpc_chttp2_transport.exit.i: ; preds = %_ZN4absl1
 
 sw.bb51.i.invoke:                                 ; preds = %if.end48.i, %if.end29.i
   %158 = phi i32 [ 1, %if.end29.i ], [ 0, %if.end48.i ]
-  invoke fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias align 8 %ref.tmp172, ptr noundef nonnull %t, i32 noundef %158, ptr noundef nonnull align 8 dereferenceable(8) %requests_started)
+  invoke fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %ref.tmp172, ptr noundef nonnull %t, i32 noundef %158, ptr noundef nonnull align 8 dereferenceable(8) %requests_started)
           to label %invoke.cont173 unwind label %lpad
 
 sw.bb52.i:                                        ; preds = %if.end48.i
@@ -3814,7 +3814,7 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i = zext i32 %t.val.i to i64
   %retval.sroa.2.0.insert.insert.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i, ptr noundef null, i32 noundef %22, i32 noundef %23, i8 noundef zeroext %retval.0.i.i, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i), !noalias !124
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i, ptr noundef null, i32 noundef %22, i32 noundef %23, i8 noundef zeroext %retval.0.i.i, i8 noundef zeroext range(i8 0, 2) %cond, i64 %retval.sroa.0.0.insert.insert.i.i), !noalias !124
   store i64 0, ptr %agg.result, align 8, !alias.scope !127
   br label %return
 
@@ -3876,7 +3876,7 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i165 = zext i32 %t.val.i160 to i64
   %retval.sroa.2.0.insert.insert.i.i166 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i164, %retval.sroa.0.0.insert.ext.i.i165
   %retval.sroa.0.0.insert.insert.i.i167 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i166, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i153, ptr noundef null, i32 noundef %29, i32 noundef %30, i8 noundef zeroext %retval.0.i.i159, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i167), !noalias !130
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i153, ptr noundef null, i32 noundef %29, i32 noundef %30, i8 noundef zeroext %retval.0.i.i159, i8 noundef zeroext range(i8 0, 2) %cond, i64 %retval.sroa.0.0.insert.insert.i.i167), !noalias !130
   store i64 0, ptr %agg.result, align 8, !alias.scope !133
   br label %return
 
@@ -3927,7 +3927,7 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i186 = zext i32 %t.val.i181 to i64
   %retval.sroa.2.0.insert.insert.i.i187 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i185, %retval.sroa.0.0.insert.ext.i.i186
   %retval.sroa.0.0.insert.insert.i.i188 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i187, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i174, ptr noundef null, i32 noundef %34, i32 noundef %35, i8 noundef zeroext %retval.0.i.i180, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i188), !noalias !136
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i174, ptr noundef null, i32 noundef %34, i32 noundef %35, i8 noundef zeroext %retval.0.i.i180, i8 noundef zeroext range(i8 0, 2) %cond, i64 %retval.sroa.0.0.insert.insert.i.i188), !noalias !136
   store i64 0, ptr %agg.result, align 8, !alias.scope !139
   br label %return
 
@@ -4355,7 +4355,7 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i234 = zext i32 %t.val.i229 to i64
   %retval.sroa.2.0.insert.insert.i.i235 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i233, %retval.sroa.0.0.insert.ext.i.i234
   %retval.sroa.0.0.insert.insert.i.i236 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i235, 8589934592
-  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i222, ptr noundef null, i32 noundef %94, i32 noundef %95, i8 noundef zeroext %retval.0.i.i228, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i236), !noalias !142
+  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i222, ptr noundef null, i32 noundef %94, i32 noundef %95, i8 noundef zeroext %retval.0.i.i228, i8 noundef zeroext range(i8 0, 2) %cond, i64 %retval.sroa.0.0.insert.insert.i.i236), !noalias !142
   store i64 0, ptr %agg.result, align 8, !alias.scope !145
   br label %return
 
@@ -4484,7 +4484,7 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i262 = zext i32 %t.val.i257 to i64
   %retval.sroa.2.0.insert.insert.i.i263 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i261, %retval.sroa.0.0.insert.ext.i.i262
   %retval.sroa.0.0.insert.insert.i.i264 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i263, 8589934592
-  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef null, i32 noundef %108, i32 noundef %109, i8 noundef zeroext %retval.0.i.i256, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i264), !noalias !148
+  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef null, i32 noundef %108, i32 noundef %109, i8 noundef zeroext %retval.0.i.i256, i8 noundef zeroext range(i8 0, 2) %cond, i64 %retval.sroa.0.0.insert.insert.i.i264), !noalias !148
   store i64 0, ptr %agg.result, align 8, !alias.scope !151
   br label %return
 
@@ -4810,7 +4810,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -4820,7 +4820,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #21
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry

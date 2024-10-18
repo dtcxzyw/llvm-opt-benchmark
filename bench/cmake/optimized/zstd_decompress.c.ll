@@ -1257,7 +1257,7 @@ ZSTD_decompressBegin_usingDDict.exit:             ; preds = %81, %74
 97:                                               ; preds = %96
   %.val.i.i = load i32, ptr %40, align 1
   store i32 %.val.i.i, ptr %29, align 8
-  %98 = call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %25, ptr noundef nonnull %.041, i64 noundef %.042)
+  %98 = call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %25, ptr noundef nonnull %.041, i64 noundef range(i64 1, 0) %.042)
   %99 = icmp ult i64 %98, -119
   br i1 %99, label %100, label %readSkippableFrameSize.exit.thread
 
@@ -2524,7 +2524,7 @@ define dso_local range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr nound
   %35 = getelementptr inbounds i8, ptr %1, i64 4
   %.val.i = load i32, ptr %35, align 1
   store i32 %.val.i, ptr %21, align 8
-  %36 = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %2)
+  %36 = tail call i64 @ZSTD_loadDEntropy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef range(i64 1, 0) %2)
   %37 = icmp ult i64 %36, -119
   br i1 %37, label %38, label %ZSTD_decompress_insertDictionary.exit
 

@@ -552,7 +552,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %179, %177, %_ZL
   br i1 %188, label %189, label %222
 
 189:                                              ; preds = %186
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %222 unwind label %190
 
 190:                                              ; preds = %189, %183
@@ -573,7 +573,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %179, %177, %_ZL
   br i1 %199, label %200, label %221
 
 200:                                              ; preds = %196
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %221 unwind label %219
 
 201:                                              ; preds = %190
@@ -601,7 +601,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %179, %177, %_ZL
   br i1 %212, label %213, label %.preheader153
 
 213:                                              ; preds = %209
-  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
+  invoke fastcc void @_ZL21commit_log_print_insnP11processor_tm6insn_t(ptr noundef nonnull %0, i64 noundef %.168143, i64 %.sroa.2.0.copyload.i)
           to label %.loopexit.i unwind label %217
 
 214:                                              ; preds = %201

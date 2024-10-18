@@ -719,7 +719,7 @@ proto_item_set_hidden.exit45.i:                   ; preds = %107, %104, %proto_i
   %117 = load i32, ptr @hf_gadu_gadu_msg_class, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %117, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #2
   %119 = load i32, ptr @hf_gadu_gadu_msg_text, align 4
-  %120 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 24, i32 noundef -1, i8 noundef zeroext 0) #2
+  %120 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef range(i32 12, 27) 24, i32 noundef -1, i8 noundef zeroext 0) #2
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %122, label %dissect_gadu_gadu_recv_msg.exit
 
@@ -876,7 +876,7 @@ switch.early.test.i.i:                            ; preds = %186
 
 gadu_gadu_status_has_descr.exit.thread.i:         ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %186
   %206 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %207 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 22, i32 noundef -1, i8 noundef zeroext 0) #2
+  %207 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef range(i32 12, 27) 22, i32 noundef -1, i8 noundef zeroext 0) #2
   %208 = icmp eq i32 %207, -1
   br i1 %208, label %209, label %dissect_gadu_gadu_stringz_cp1250.exit.i
 
@@ -928,7 +928,7 @@ switch.early.test.i.i265:                         ; preds = %215
 
 gadu_gadu_status_has_descr.exit.thread.i266:      ; preds = %switch.early.test.i.i265, %switch.early.test.i.i265, %switch.early.test.i.i265, %switch.early.test.i.i265, %215
   %237 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %238 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 26, i32 noundef -1, i8 noundef zeroext 0) #2
+  %238 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef range(i32 12, 27) 26, i32 noundef -1, i8 noundef zeroext 0) #2
   %239 = icmp eq i32 %238, -1
   br i1 %239, label %240, label %dissect_gadu_gadu_stringz_cp1250.exit.i267
 
@@ -1306,7 +1306,7 @@ proto_item_set_generated.exit48.i:                ; preds = %425, %422, %proto_i
   %429 = load i32, ptr @hf_gadu_gadu_msg_class, align 4
   %430 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %429, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #2
   %431 = load i32, ptr @hf_gadu_gadu_msg_text, align 4
-  %432 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 20, i32 noundef -1, i8 noundef zeroext 0) #2
+  %432 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef range(i32 12, 27) 20, i32 noundef -1, i8 noundef zeroext 0) #2
   %433 = icmp eq i32 %432, -1
   br i1 %433, label %434, label %dissect_gadu_gadu_send_msg.exit
 
@@ -1561,13 +1561,13 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %11
   %18 = load i32, ptr @hf_gadu_gadu_login_status, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #2
   %20 = add nuw nsw i32 %17, 4
-  %21 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %20) #2
+  %21 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 20, 84) %20) #2
   %22 = and i32 %21, 255
   %23 = load i32, ptr @hf_gadu_gadu_login_protocol, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #2
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef range(i32 20, 84) %20, i32 noundef 4, i32 noundef -2147483648) #2
   %25 = load i32, ptr @hf_gadu_gadu_login_version, align 4
   %26 = tail call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @gadu_gadu_version_vals, ptr noundef nonnull @.str.244) #2
-  %27 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef 4, ptr noundef %26) #2
+  %27 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef range(i32 20, 84) %20, i32 noundef 4, ptr noundef %26) #2
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %dissect_gadu_gadu_login_protocol.exit, label %28
 
@@ -1839,7 +1839,7 @@ gadu_gadu_status_has_descr.exit:                  ; preds = %switch.early.test.i
 
 gadu_gadu_status_has_descr.exit.thread:           ; preds = %2, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %gadu_gadu_status_has_descr.exit
   %9 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %10 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 12, i32 noundef -1, i8 noundef zeroext 0) #2
+  %10 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef range(i32 12, 27) 12, i32 noundef -1, i8 noundef zeroext 0) #2
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %dissect_gadu_gadu_stringz_cp1250.exit
 

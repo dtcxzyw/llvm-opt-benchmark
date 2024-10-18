@@ -156,7 +156,7 @@ fmap_need_off_once_len.exit:                      ; preds = %fmap_need_off_once_
   %spec.select.i = call i64 @llvm.umin.i64(i64 %56, i64 8192)
   %57 = getelementptr inbounds i8, ptr %55, i64 104
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef nonnull %55, i64 noundef %.0128221, i64 noundef %spec.select.i, i32 noundef 0) #9
+  %59 = call ptr %58(ptr noundef nonnull %55, i64 noundef %.0128221, i64 noundef range(i64 0, 8193) %spec.select.i, i32 noundef 0) #9
   %.not20.i = icmp eq ptr %59, null
   br i1 %.not20.i, label %fmap_need_off_once_len.exit.thread, label %60
 

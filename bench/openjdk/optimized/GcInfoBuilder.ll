@@ -420,7 +420,7 @@ setBooleanValueAtObjectArray.exit.sink.split:     ; preds = %98, %90, %84, %78, 
   %107 = getelementptr inbounds i8, ptr %106, i64 1392
   %108 = load ptr, ptr %107, align 8
   %109 = trunc nuw nsw i64 %indvars.iv to i32
-  call void %108(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %109, ptr noundef %.sink159) #4
+  call void %108(ptr noundef nonnull %0, ptr noundef %4, i32 noundef range(i32 -2147483648, 2147483647) %109, ptr noundef %.sink159) #4
   br label %setBooleanValueAtObjectArray.exit
 
 setBooleanValueAtObjectArray.exit:                ; preds = %setBooleanValueAtObjectArray.exit.sink.split, %98, %90, %84, %78, %71, %64, %57, %50

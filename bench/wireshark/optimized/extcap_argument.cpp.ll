@@ -602,7 +602,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41:    ; preds = %104
 
 _ZN7QStringD2Ev.exit35:                           ; preds = %87, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %90, %80
   %110 = load ptr, ptr %69, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %110, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %110, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.1, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %47
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %_ZN7QStringD2Ev.exit35
@@ -1330,7 +1330,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i70:    ; preds = %139
 
 _ZN7QStringD2Ev.exit68:                           ; preds = %.loopexit, %135, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i66, %132, %_ZN14ExtcapArgument6reloadEv.exit
   %144 = load ptr, ptr %21, align 8
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %144, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %11, ptr noundef %144, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.6, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
   call void @_ZN7QWidget9setLayoutEP7QLayout(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %14)
   ret ptr %12
@@ -2515,7 +2515,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %._crit_edge.thread,
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18ExtArgEditSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  tail call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV18ExtArgEditSelector, i64 16), ptr %0, align 8
@@ -3089,7 +3089,7 @@ _ZNK11ExtcapValue4callEv.exit:                    ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN5QListI7QStringE6appendERKS0_.exit unwind label %94
 
 _ZN5QListI7QStringE6appendERKS0_.exit:            ; preds = %_ZNK11ExtcapValue4callEv.exit
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull %51, ptr noundef nonnull @.str.9, ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef nonnull %51, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.10, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %94
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %_ZN5QListI7QStringE6appendERKS0_.exit
@@ -3951,7 +3951,7 @@ _ZN7QStringD2Ev.exit77:                           ; preds = %95, %_ZN17QArrayDat
   %100 = select i1 %.0, i32 2, i32 0
   call void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef nonnull align 8 dereferenceable(40) %99, i32 noundef %100)
   %101 = load ptr, ptr %25, align 8
-  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %101, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef 0)
+  call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %10, ptr noundef %101, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.6, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #21
   %102 = load ptr, ptr %25, align 8
   ret ptr %102
@@ -4579,7 +4579,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %83, %_ZN17QArrayDat
 
 101:                                              ; preds = %._crit_edge, %_ZN7QStringD2Ev.exit52
   %102 = phi ptr [ %.pre, %._crit_edge ], [ %.pre80, %_ZN7QStringD2Ev.exit52 ]
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %102, ptr noundef nonnull @.str.15, ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %102, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.16, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %45
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %101
@@ -5175,7 +5175,7 @@ declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12ExtArgNumberC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  tail call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ExtArgNumber, i64 16), ptr %0, align 8
@@ -5251,7 +5251,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %29, %_ZN17QArrayDat
 34:                                               ; preds = %_ZN7QStringD2Ev.exit
   %35 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %33, ptr %35, align 8
-  %36 = invoke noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull %33, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null)
+  %36 = invoke noundef zeroext i1 @_ZN7QObject10disconnectEPKS_PKcS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null)
           to label %_ZNK7QObject10disconnectEPKcPKS_S1_.exit unwind label %31
 
 _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %34
@@ -5467,7 +5467,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40:    ; preds = %117
 
 _ZN7QStringD2Ev.exit42:                           ; preds = %117, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i40, %120
   %122 = load ptr, ptr %35, align 8
-  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %122, ptr noundef nonnull @.str.15, ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef 0)
+  invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %7, ptr noundef %122, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.16, i32 noundef 0)
           to label %_ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit unwind label %31
 
 _ZNK7QObject7connectEPKS_PKcS3_N2Qt14ConnectionTypeE.exit: ; preds = %_ZN7QStringD2Ev.exit42

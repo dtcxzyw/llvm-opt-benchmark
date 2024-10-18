@@ -1266,7 +1266,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i215:   ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %.not.i.i.i223 = icmp eq ptr %457, null
   %spec.select.i.i.i = select i1 %.not.i.i.i223, ptr @_ZN7QString6_emptyE, ptr %457
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %35, ptr noundef nonnull %29, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %459)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %35, ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %459)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %485
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %454
@@ -2872,7 +2872,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %_ZN5QListIPvED2Ev.e
   br label %_ZN15WiresharkDialogD2Ev.exit
 
 _ZN15WiresharkDialogD2Ev.exit:                    ; preds = %_ZN5QListIPvED2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %27
-  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #17
+  tail call void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) #17
   ret void
 
 29:                                               ; preds = %11, %9, %7
@@ -2919,7 +2919,7 @@ define void @_ZN12PacketDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(9
 define void @_ZThn16_N12PacketDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN12PacketDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(968) %2) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #18
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(968) %2) #18
   ret void
 }
 

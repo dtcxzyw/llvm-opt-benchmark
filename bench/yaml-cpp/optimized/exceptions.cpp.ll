@@ -92,7 +92,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -110,7 +110,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -128,7 +128,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -146,7 +146,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -164,7 +164,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -182,7 +182,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -200,7 +200,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -218,7 +218,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -236,7 +236,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -254,7 +254,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -272,7 +272,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 
@@ -290,7 +290,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i) #3
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #3
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #3
   ret void
 }
 

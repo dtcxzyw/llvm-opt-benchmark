@@ -628,7 +628,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %v0.sroa.347.0.ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %et.i.i)
   store ptr %d, ptr %temp.i.i.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIjP4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE24insert_if_not_there_coreEOS9_RPS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_interp, ptr noundef nonnull align 8 dereferenceable(24) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIjP4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE24insert_if_not_there_coreEOS9_RPS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_interp, ptr noundef nonnull align 8 dereferenceable(24) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.i.i.i)
   %3 = load ptr, ptr %et.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
@@ -806,7 +806,7 @@ entry:
   store ptr %d, ptr %temp.i.i.i, align 8
   %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %temp.i.i.i, i64 8
   store ptr null, ptr %ref.tmp.sroa.2.0.temp.i.i.sroa_idx.i, align 8
-  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE24insert_if_not_there_coreEOS7_RPS5_(ptr noundef nonnull align 8 dereferenceable(20) %m_finterp, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
+  %call.i.i.i = call noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE24insert_if_not_there_coreEOS7_RPS5_(ptr noundef nonnull align 8 dereferenceable(24) %m_finterp, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %et.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
   %0 = load ptr, ptr %et.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %et.i.i)
@@ -1077,7 +1077,7 @@ _ZN7obj_mapI9func_declSt4pairIjP4exprEEixEPS0_.exit: ; preds = %if.then.i.i.i.i,
   store i32 0, ptr %m_value.i.i15, align 8
   %second.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr null, ptr %second.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIjP4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6removeERKS9_(ptr noundef nonnull align 8 dereferenceable(20) %m_interp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIjP4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6removeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %m_interp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %m_decls = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZN6vectorIP9func_declLb0EjE5eraseERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_decls, ptr noundef nonnull align 8 dereferenceable(8) %d.addr)
@@ -1186,7 +1186,7 @@ if.then.i60:                                      ; preds = %if.then.i.i52, %if.
   store ptr %d, ptr %ref.tmp.i57, align 8
   %m_value.i.i58 = getelementptr inbounds i8, ptr %ref.tmp.i57, i64 8
   store ptr null, ptr %m_value.i.i58, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_finterp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i57)
+  call void @_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_finterp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i57)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i57)
   %m_func_decls = getelementptr inbounds i8, ptr %this, i64 88
   call void @_ZN6vectorIP9func_declLb0EjE5eraseERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %m_func_decls, ptr noundef nonnull align 8 dereferenceable(8) %d.addr)
@@ -1827,7 +1827,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

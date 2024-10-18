@@ -59,7 +59,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2EPNS_10TextWriterENS_16HelpOutputF
           to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %.noexc10 unwind label %16
 
 .noexc10:                                         ; preds = %.noexc
@@ -69,7 +69,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2EPNS_10TextWriterENS_16HelpOutputF
 11:                                               ; preds = %.noexc10
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
@@ -122,7 +122,7 @@ define linkonce_odr void @_ZN3gmx22CommandLineHelpContext4ImplC2EPNS_10TextWrite
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc5 unwind label %12
 
 .noexc5:                                          ; preds = %.noexc
@@ -132,7 +132,7 @@ define linkonce_odr void @_ZN3gmx22CommandLineHelpContext4ImplC2EPNS_10TextWrite
 8:                                                ; preds = %.noexc5
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
@@ -180,7 +180,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplES
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit: ; preds = %1
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
+  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #18
   tail call void @_ZdlPv(ptr noundef nonnull %2) #19
   br label %4
 
@@ -306,7 +306,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx22CommandLineHelpContextC2ERKNS_17HelpWriterContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
-  invoke void @_ZN3gmx17HelpWriterContextC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke void @_ZN3gmx17HelpWriterContextC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %4 unwind label %8
 
 4:                                                ; preds = %2
@@ -360,7 +360,7 @@ declare noundef nonnull align 1 ptr @_ZN3gmx21ShellCompletionWriter12outputWrite
 define void @_ZN3gmx22CommandLineHelpContextC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %4 = load ptr, ptr %1, align 8
-  invoke void @_ZN3gmx17HelpWriterContextC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN3gmx17HelpWriterContextC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 dereferenceable(49) %4)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
@@ -372,7 +372,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2ERKS0_(ptr nocapture noundef nonnu
 7:                                                ; preds = %.noexc
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
+  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #18
   br label %.body
 
 9:                                                ; preds = %.noexc
@@ -418,7 +418,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx22CommandLineHelpC
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i.i.i.i: ; preds = %2
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
+  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %4) #18
   tail call void @_ZdlPv(ptr noundef nonnull %4) #19
   br label %_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplESt14default_deleteIS2_EEaSEOS5_.exit
 
@@ -435,7 +435,7 @@ define void @_ZN3gmx22CommandLineHelpContextD2Ev(ptr nocapture noundef nonnull a
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i: ; preds = %1
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #18
+  tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #18
   tail call void @_ZdlPv(ptr noundef nonnull %2) #19
   br label %_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplESt14default_deleteIS2_EED2Ev.exit
 
@@ -456,7 +456,7 @@ define void @_ZN3gmx22CommandLineHelpContext20setModuleDisplayNameERKNSt7__cxx11
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc10 unwind label %18
 
 .noexc10:                                         ; preds = %.noexc
@@ -466,7 +466,7 @@ define void @_ZN3gmx22CommandLineHelpContext20setModuleDisplayNameERKNSt7__cxx11
 9:                                                ; preds = %.noexc10
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10

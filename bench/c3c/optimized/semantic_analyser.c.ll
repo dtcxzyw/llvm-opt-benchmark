@@ -892,7 +892,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   %101 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
   %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i60
   %103 = load ptr, ptr %102, align 8
-  tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef %.04476)
+  tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
   br i1 %exitcond.not.i62, label %.loopexit.i, label %.lr.ph.i59, !llvm.loop !15
@@ -917,7 +917,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   %108 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv31.i
   %110 = load ptr, ptr %109, align 8
-  tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef %.04476)
+  tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef range(i32 0, 13) %.04476)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
   br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph27.i, !llvm.loop !16

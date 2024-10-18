@@ -167,7 +167,7 @@ define { ptr, i64 } @"_ZN6intern19Interned$LT$str$GT$7new_str17h2116fc579227f329
   %75 = getelementptr inbounds i8, ptr %72, i64 -16
   %.val4.i.i.i = load ptr, ptr %75, align 8, !nonnull !31, !noundef !31
   %76 = getelementptr inbounds i8, ptr %.val4.i.i.i, i64 8
-  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %0, ptr nonnull readonly %76, i64 %1), !alias.scope !51, !noalias !58
+  %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %76, i64 %1), !alias.scope !51, !noalias !58
   %77 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %77, label %88, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6701c46f35fc0ac5E.exit.backedge.i.i"
 

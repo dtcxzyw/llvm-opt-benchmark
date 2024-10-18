@@ -42,7 +42,7 @@ for.body11.i:                                     ; preds = %for.body.i, %for.in
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body11.i
-  %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.015.i, i32 noundef 0) #4
+  %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.015.i, i32 noundef 0) #4
   %1 = load i8, ptr %call.i.i, align 8
   %cond.i = icmp eq i8 %1, 49
   br i1 %cond.i, label %sw.bb21.i, label %for.inc.i

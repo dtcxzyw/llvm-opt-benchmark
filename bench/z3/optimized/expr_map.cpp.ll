@@ -464,7 +464,7 @@ _ZN11ast_manager7inc_refEP3ast.exit61:            ; preds = %if.else, %if.then.i
   store ptr %k, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %d, ptr %m_value.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2expr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2expr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_store_proofs17 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load i8, ptr %m_store_proofs17, align 8
@@ -488,7 +488,7 @@ _ZN11ast_manager7inc_refEP3ast.exit66:            ; preds = %if.then19, %if.then
   store ptr %k, ptr %ref.tmp.i67, align 8
   %m_value.i.i68 = getelementptr inbounds i8, ptr %ref.tmp.i67, i64 8
   store ptr %p, ptr %m_value.i.i68, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2pr21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i67)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2pr21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i67)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i67)
   br label %if.end23
 
@@ -723,7 +723,7 @@ if.then:                                          ; preds = %if.then.i.i.i, %if.
   store ptr %k, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr null, ptr %m_value.i.i.i, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6removeERKS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2expr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6removeERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2expr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %8 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -822,7 +822,7 @@ _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit:      ; preds = %for.body.i.i.i15, %
   store ptr %k, ptr %ref.tmp.i.i43, align 8
   %m_value.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i.i43, i64 8
   store ptr null, ptr %m_value.i.i.i44, align 8
-  call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2pr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i43)
+  call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2pr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i43)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i43)
   %19 = load ptr, ptr %this, align 8
   %tobool.not.i45 = icmp eq ptr %pr.0, null
@@ -1193,8 +1193,8 @@ entry:
   %1 = load ptr, ptr %this, align 8
   %m_expr2expr.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_Z18dec_ref_key_valuesI11ast_manager7obj_mapI4exprPS2_EEvRT_RT0_(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(24) %m_expr2expr.i)
-  tail call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2expr.i)
-  tail call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(20) %m_expr2pr.i)
+  tail call void @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2expr.i)
+  tail call void @_ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8finalizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_expr2pr.i)
   ret void
 }
 

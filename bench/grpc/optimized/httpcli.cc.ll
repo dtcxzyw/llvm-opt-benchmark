@@ -277,9 +277,9 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store ptr %call.i.i2.i.i.i3, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
   %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
@@ -293,7 +293,7 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3GetENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3GetENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -308,7 +308,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -383,7 +383,7 @@ if.then.i.i.i.i7:                                 ; preds = %invoke.cont20
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i7
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i32 noundef 3)
           to label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -444,7 +444,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20, i64 24
   %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp20, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8
   store ptr %6, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args15, i64 16
@@ -454,7 +454,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %args15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %args15, i64 16, i1 false)
   store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt22_Optional_payload_baseISt8functionIFvvEEE12_M_constructIJS2_EEEvDpOT_.exit.i.i.i.i.i
@@ -502,7 +502,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core13RefC
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp20, i32 noundef 3)
           to label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -562,7 +562,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt14_Optional_baseISt8functionIFvvEELb0ELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 3)
           to label %_ZNSt14_Optional_baseISt8functionIFvvEELb0ELb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
@@ -638,9 +638,9 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store ptr %call.i.i2.i.i.i3, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
   %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
@@ -654,7 +654,7 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest4PostENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest4PostENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -669,7 +669,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -744,7 +744,7 @@ if.then.i.i.i.i7:                                 ; preds = %invoke.cont20
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i7
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i32 noundef 3)
           to label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -833,9 +833,9 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store ptr %call.i.i2.i.i.i3, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
   %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
@@ -849,7 +849,7 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3PutENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3PutENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -864,7 +864,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   br label %invoke.cont2
 
 if.else.i:                                        ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i8 0, i64 32, i1 false)
   %call.i.i2.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
           to label %call.i.i2.i.i.i.i.i.noexc unwind label %lpad1
 
@@ -939,7 +939,7 @@ if.then.i.i.i.i7:                                 ; preds = %invoke.cont20
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i7
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i32 noundef 3)
           to label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -1054,7 +1054,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont13
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %test_only_generate_response_, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response_, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
@@ -1064,7 +1064,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont13
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response_, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response_, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response, i64 16, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -1092,7 +1092,7 @@ invoke.cont20:                                    ; preds = %_ZNSt22_Optional_pa
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   %dns_request_handle_ = getelementptr inbounds i8, ptr %this, i64 5264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dns_request_handle_, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core11DNSResolver11kNullHandleE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dns_request_handle_, ptr noundef nonnull align 8 dereferenceable(16) @_ZN9grpc_core11DNSResolver11kNullHandleE, i64 16, i1 false)
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 5280
   store i8 1, ptr %_M_engaged.i.i.i.i, align 8
   %parser_23 = getelementptr inbounds i8, ptr %this, i64 504
@@ -1839,7 +1839,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !19
@@ -1924,7 +1924,7 @@ if.then.i:                                        ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i
   %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  invoke void %5(ptr noundef nonnull %3)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %if.then.i, %if.end, %if.then.i.i
@@ -2086,7 +2086,7 @@ if.then.i.i.i.i6:                                 ; preds = %_ZN9grpc_core13RefC
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, label %if.then.i.i.i.i.i.i.i7
 
 if.then.i.i.i.i.i.i.i7:                           ; preds = %if.then.i.i.i.i6
-  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response_, ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response_, i32 noundef 3)
+  %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response_, ptr noundef nonnull align 8 dereferenceable(40) %test_only_generate_response_, i32 noundef 3)
           to label %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i7
@@ -2209,7 +2209,7 @@ if.then.i:                                        ; preds = %invoke.cont
 if.end.i4:                                        ; preds = %invoke.cont
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response_)
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(32) %test_only_generate_response_)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont14, %if.end.i4, %if.then.i
@@ -2278,7 +2278,7 @@ _ZNSt8optionalIN9grpc_core11DNSResolver16LookupTaskHandleEEaSIS2_EENSt9enable_if
   br i1 %tobool.not.i.i18, label %cleanup, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %_ZNSt8optionalIN9grpc_core11DNSResolver16LookupTaskHandleEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit
-  %call.i.i20 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i20 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %cleanup unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i19
@@ -2310,7 +2310,7 @@ lpad17:                                           ; preds = %invoke.cont15
   br i1 %tobool.not.i.i22, label %ehcleanup, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %lpad17
-  %call.i.i24 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i24 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i25
 
 terminate.lpad.i.i25:                             ; preds = %if.then.i.i23
@@ -3595,7 +3595,7 @@ cond.true:                                        ; preds = %entry
           to label %call.i.noexc unwind label %lpad.body.thread5
 
 call.i.noexc:                                     ; preds = %cond.true
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad.body.thread5
 
 .noexc:                                           ; preds = %call.i.noexc
@@ -3605,7 +3605,7 @@ call.i.noexc:                                     ; preds = %cond.true
 lpad.body.thread:                                 ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #17
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
@@ -5612,7 +5612,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvN4absl12lts_202308028Status
 entry:
   %0 = load ptr, ptr %__functor, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZSt13__invoke_implIvRMN9grpc_core11HttpRequestEFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS6_EEEEERPS1_JS9_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
+  tail call void @_ZSt13__invoke_implIvRMN9grpc_core11HttpRequestEFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS6_EEEEERPS1_JS9_EET_St21__invoke_memfun_derefOT0_OT1_DpOT2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args)
   ret void
 }
 

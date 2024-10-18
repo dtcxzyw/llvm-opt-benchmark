@@ -678,8 +678,8 @@ define void @_ZN5Yosys10PrettyJson11begin_valueEv(ptr noundef nonnull align 8 de
   %15 = shl i64 %14, 31
   %sext = ashr i64 %15, 32
   %16 = or i64 %sext, 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %16, i8 noundef signext 32)
-  %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %16, i8 noundef signext 32)
+  %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
@@ -767,8 +767,8 @@ _ZN5Yosys10PrettyJson3rawEPKc.exit:               ; preds = %.lr.ph.i, %28
   %61 = shl nsw i32 %60, 1
   %62 = or disjoint i32 %61, 1
   %63 = sext i32 %62 to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %63, i8 noundef signext 32)
-  %64 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %63, i8 noundef signext 32)
+  %64 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %65 = load ptr, ptr %29, align 8
   %66 = load ptr, ptr %31, align 8
   %.not8.i3.i5 = icmp eq ptr %65, %66
@@ -925,8 +925,8 @@ define void @_ZN5Yosys10PrettyJson10end_objectEv(ptr noundef nonnull align 8 der
   %24 = shl nsw i32 %23, 1
   %25 = or disjoint i32 %24, 1
   %26 = sext i32 %25 to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26, i8 noundef signext 32)
-  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %26, i8 noundef signext 32)
+  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1124,8 +1124,8 @@ define void @_ZN5Yosys10PrettyJson9end_arrayEv(ptr noundef nonnull align 8 deref
   %24 = shl nsw i32 %23, 1
   %25 = or disjoint i32 %24, 1
   %26 = sext i32 %25 to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %26, i8 noundef signext 32)
-  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %26, i8 noundef signext 32)
+  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1263,8 +1263,8 @@ define void @_ZN5Yosys10PrettyJson4nameEPKc(ptr noundef nonnull align 8 derefere
   %29 = shl nsw i32 %28, 1
   %30 = or disjoint i32 %29, 1
   %31 = sext i32 %30 to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %31, i8 noundef signext 32)
-  %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %31, i8 noundef signext 32)
+  %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %33 = getelementptr inbounds i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1346,8 +1346,8 @@ _ZN5Yosys10PrettyJson3rawEPKc.exit:               ; preds = %.lr.ph.i, %41
   %74 = shl nsw i32 %73, 1
   %75 = or disjoint i32 %74, 1
   %76 = sext i32 %75 to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %76, i8 noundef signext 32)
-  %77 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(84) %0, i64 noundef %76, i8 noundef signext 32)
+  %77 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #16
   %78 = load ptr, ptr %42, align 8
   %79 = load ptr, ptr %44, align 8
   %.not8.i3.i9 = icmp eq ptr %78, %79

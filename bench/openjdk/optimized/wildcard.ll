@@ -118,12 +118,12 @@ wildcardFileList.exit.thread.i:                   ; preds = %45
   %59 = and i64 %49, 2147483647
   %60 = getelementptr inbounds i8, ptr %phi.call22.i.i, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -3
-  %62 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(4) @.str.3) #6
+  %62 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(4) @.str.3) #6
   %.not.i15.i.i = icmp eq i32 %62, 0
   br i1 %.not.i15.i.i, label %isJarFileName.exit.i.i, label %63
 
 63:                                               ; preds = %58
-  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(4) @.str.4) #6
+  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(4) @.str.4) #6
   %.not9.i.i.i = icmp eq i32 %64, 0
   br i1 %.not9.i.i.i, label %isJarFileName.exit.i.i, label %.split.i.i
 

@@ -255,7 +255,7 @@ _ZN20ParallelScavengeHeap31trace_actual_reserved_page_sizeEm13ReservedSpace.exit
   %16 = call { ptr, i64 } @_ZNK17ReservedHeapSpace6regionEv(ptr noundef nonnull align 8 dereferenceable(49) %2) #15
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
-  call void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr %17, i64 %18) #15
+  call void @_ZN9CardTableC2E9MemRegion(ptr noundef nonnull align 8 dereferenceable(92) %15, ptr %17, i64 %18) #15
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11PSCardTable, i64 16), ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 88
   store volatile i32 0, ptr %19, align 8
@@ -938,15 +938,15 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
 
 .thread:                                          ; preds = %78, %77, %74
   %.4.ph = phi ptr [ null, %74 ], [ null, %77 ], [ %80, %78 ]
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #15
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   br label %.loopexit
 
 81:                                               ; preds = %60
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #15
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   br label %.backedge
 
 82:                                               ; preds = %57
-  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #15
+  call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
   %83 = add i32 %.034.ph79, 1
   %84 = load i64, ptr @QueuedAllocationWarningCount, align 8
   %.not57 = icmp eq i64 %84, 0
@@ -1683,7 +1683,7 @@ declare void @_ZN10PSYoungGen14object_iterateEP13ObjectClosure(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ParallelScavengeHeap23object_iterate_parallelEP13ObjectClosureP16HeapBlockClaimer(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #15, !srcloc !15
+  %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
   %5 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %6 = tail call noundef i64 @_ZNK8PSOldGen19num_iterable_blocksEv(ptr noundef nonnull align 8 dereferenceable(128) %5) #15
   %7 = add i64 %6, 2
@@ -1697,7 +1697,7 @@ define hidden void @_ZN20ParallelScavengeHeap23object_iterate_parallelEP13Object
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %1) #15
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #15, !srcloc !15
+  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
   %16 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %17 = tail call noundef i64 @_ZNK8PSOldGen19num_iterable_blocksEv(ptr noundef nonnull align 8 dereferenceable(128) %16) #15
   %18 = add i64 %17, 2
@@ -1720,7 +1720,7 @@ select.unfold:                                    ; preds = %11, %3
   %25 = getelementptr inbounds i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef %1) #15
-  %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #15, !srcloc !15
+  %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
   %28 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %29 = tail call noundef i64 @_ZNK8PSOldGen19num_iterable_blocksEv(ptr noundef nonnull align 8 dereferenceable(128) %28) #15
   %30 = add i64 %29, 2
@@ -1736,7 +1736,7 @@ select.unfold13:                                  ; preds = %select.unfold13.pre
   %32 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %33 = add i64 %.215, -2
   tail call void @_ZN8PSOldGen20object_iterate_blockEP13ObjectClosurem(ptr noundef nonnull align 8 dereferenceable(128) %32, ptr noundef %1, i64 noundef %33) #15
-  %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #15, !srcloc !15
+  %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %2) #15, !srcloc !15
   %35 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %36 = tail call noundef i64 @_ZNK8PSOldGen19num_iterable_blocksEv(ptr noundef nonnull align 8 dereferenceable(128) %35) #15
   %37 = add i64 %36, 2
@@ -1904,7 +1904,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   %55 = load ptr, ptr %.0.i.i, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 256
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.0) #15
+  %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #15
   br label %_ZN7oopDesc4sizeEv.exit
 
 59:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -1937,7 +1937,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   %82 = load ptr, ptr %.0.i.i, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 256
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull %.0) #15
+  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0) #15
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81
@@ -2670,7 +2670,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   %70 = load ptr, ptr %0, align 8, !noalias !18
   %71 = getelementptr inbounds i8, ptr %70, i64 296
   %72 = load ptr, ptr %71, align 8, !noalias !18
-  call void %72(ptr dead_on_unwind nonnull writable sret(%class.VirtualSpaceSummary) align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %0) #15, !noalias !18
+  call void %72(ptr dead_on_unwind nonnull writable sret(%class.VirtualSpaceSummary) align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %0) #15, !noalias !18
   %73 = load ptr, ptr %0, align 8, !noalias !18
   %74 = getelementptr inbounds i8, ptr %73, i64 96
   %75 = load ptr, ptr %74, align 8, !noalias !18

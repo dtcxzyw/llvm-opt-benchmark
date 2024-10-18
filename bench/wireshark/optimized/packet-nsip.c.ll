@@ -356,7 +356,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 decode_iei_control_bits.exit.i.i:                 ; preds = %64, %62
   %67 = getelementptr inbounds i8, ptr %18, i64 12
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef nonnull %19)
   %68 = load ptr, ptr %19, align 8
   %69 = load i32, ptr %29, align 8
   %70 = call ptr @tvb_new_subset_remaining(ptr noundef %68, i32 noundef %69) #5
@@ -388,28 +388,28 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
 85:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %17, ptr noundef nonnull align 16 dereferenceable(36) @__const.decode_pdu_ns_reset.ies, i64 36, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %17, i32 noundef 3, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %17)
   br label %decode_pdu.exit
 
 86:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_ns_reset_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %16, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %decode_pdu.exit
 
 87:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_ns_block.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %15, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %15, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %decode_pdu.exit
 
 88:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) @__const.decode_pdu_ns_block_ack.ies, i64 12, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %14, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %14, i32 noundef 1, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
   br label %decode_pdu.exit
 
@@ -420,14 +420,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   store i8 %92, ptr %90, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %13, ptr noundef nonnull align 16 dereferenceable(72) @__const.decode_pdu_ns_status.ies, i64 72, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %13, i32 noundef 6, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %13, i32 noundef 6, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   br label %decode_pdu.exit
 
 93:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %12, ptr noundef nonnull align 16 dereferenceable(72) @__const.decode_pdu_sns_ack.ies, i64 72, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %12, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %19)
   %94 = load i32, ptr %29, align 8
   %95 = getelementptr inbounds i8, ptr %12, i64 22
   %.val.i.i = load i16, ptr %95, align 2
@@ -448,14 +448,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %109 = add i32 %108, 1
   store i32 %109, ptr %29, align 8
   %110 = getelementptr inbounds i8, ptr %12, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %110, i32 noundef 4, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %110, i32 noundef 4, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   br label %decode_pdu.exit
 
 111:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %11, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %19)
   %112 = load i32, ptr %29, align 8
   %113 = getelementptr inbounds i8, ptr %11, i64 22
   %.val.i15.i = load i16, ptr %113, align 2
@@ -476,14 +476,14 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %127 = add i32 %126, 1
   store i32 %127, ptr %29, align 8
   %128 = getelementptr inbounds i8, ptr %11, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %128, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %128, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   br label %decode_pdu.exit
 
 129:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %10, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %19)
   %130 = load i32, ptr %29, align 8
   %131 = getelementptr inbounds i8, ptr %10, i64 22
   %.val.i16.i = load i16, ptr %131, align 2
@@ -504,7 +504,7 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %145 = add i32 %144, 1
   store i32 %145, ptr %29, align 8
   %146 = getelementptr inbounds i8, ptr %10, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %146, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %146, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %decode_pdu.exit
 
@@ -516,21 +516,21 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %150 = tail call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef %148, i32 noundef %149, ptr noundef nonnull @decode_iei_end_flag.end_flags, i32 noundef 0) #5
   store i32 2, ptr %29, align 8
   %151 = getelementptr inbounds i8, ptr %9, i64 12
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %151, i32 noundef 3, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %151, i32 noundef 3, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %decode_pdu.exit
 
 152:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_sns_size_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %8, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %decode_pdu.exit
 
 153:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) @__const.decode_pdu_sns_delete.ies, i64 60, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %7, i32 noundef 1, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %19)
   %154 = load i32, ptr %29, align 8
   %155 = getelementptr inbounds i8, ptr %7, i64 22
   %.val.i17.i = load i16, ptr %155, align 2
@@ -551,21 +551,21 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %169 = add i32 %168, 1
   store i32 %169, ptr %29, align 8
   %170 = getelementptr inbounds i8, ptr %7, i64 24
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %170, i32 noundef 3, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %170, i32 noundef 3, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %7)
   br label %decode_pdu.exit
 
 171:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %6, ptr noundef nonnull align 16 dereferenceable(60) @__const.decode_pdu_sns_size.ies, i64 60, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %6, i32 noundef 5, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %6, i32 noundef 5, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6)
   br label %decode_pdu.exit
 
 172:                                              ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const.decode_pdu_sns_size_ack.ies, i64 24, i1 false)
-  call fastcc void @decode_pdu_general(ptr noundef nonnull %5, i32 noundef 2, ptr noundef %19)
+  call fastcc void @decode_pdu_general(ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %decode_pdu.exit
 
@@ -895,7 +895,7 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %.val57.i = load i16, ptr %174, align 4
   %175 = getelementptr i8, ptr %10, i64 10
   %.val58.i = load i16, ptr %175, align 2
-  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef %2, i32 noundef %11)
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv4_element, i16 %.val57.i, i16 %.val58.i, ptr noundef nonnull %2, i32 noundef %11)
   br label %decode_ie.exit
 
 176:                                              ; preds = %60
@@ -903,7 +903,7 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %.val59.i = load i16, ptr %177, align 4
   %178 = getelementptr i8, ptr %10, i64 10
   %.val60.i = load i16, ptr %178, align 2
-  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef %2, i32 noundef %11)
+  call fastcc void @decode_ip_elements(ptr noundef nonnull @ipv6_element, i16 %.val59.i, i16 %.val60.i, ptr noundef nonnull %2, i32 noundef %11)
   br label %decode_ie.exit
 
 179:                                              ; preds = %60

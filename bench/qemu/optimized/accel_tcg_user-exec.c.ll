@@ -393,7 +393,7 @@ if.else17:                                        ; preds = %do.body
 if.then30:                                        ; preds = %do.body, %if.else17
   %reset.031 = phi i8 [ %3, %if.else17 ], [ 0, %do.body ]
   %flags.addr.029 = phi i32 [ %spec.select, %if.else17 ], [ 0, %do.body ]
-  %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %and13, i64 noundef %or) #16
+  %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef range(i64 0, -4095) %and13, i64 noundef range(i64 4095, 0) %or) #16
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
   %add.ptr.i32.i = getelementptr i8, ptr %call.i30.i, i64 -16
   %tobool.not2033.i = icmp eq ptr %add.ptr.i32.i, null
@@ -456,7 +456,7 @@ if.else18.i:                                      ; preds = %if.else.i
   br label %while.end.sink.split.i
 
 if.end24.i:                                       ; preds = %if.then17.i, %if.then8.i
-  %call.i.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %and13, i64 noundef %or) #16
+  %call.i.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef range(i64 0, -4095) %and13, i64 noundef range(i64 4095, 0) %or) #16
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 -16
   %tobool.not20.i = icmp eq ptr %add.ptr.i.i, null

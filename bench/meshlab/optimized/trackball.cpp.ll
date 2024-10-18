@@ -156,7 +156,7 @@ define void @_ZN3vcg9TrackballC2Ev(ptr noundef nonnull align 8 dereferenceable(5
 .lr.ph.i.i.i:                                     ; preds = %23, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %25, %23 ]
   %26 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #26
   %.not.i.i.i = icmp eq ptr %26, %17
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN3vcg9TransformESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -312,7 +312,7 @@ define void @_ZN3vcg9TrackballD2Ev(ptr noundef nonnull align 8 dereferenceable(5
 .lr.ph.i.i.i:                                     ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %12, %10 ]
   %13 = load ptr, ptr %.09.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %.09.i.i.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #26
   %.not.i.i.i = icmp eq ptr %13, %11
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIN3vcg9TransformESaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -872,7 +872,7 @@ define void @_ZN3vcg9Trackball11SetIdentityEv(ptr noundef nonnull align 8 derefe
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store float 1.000000e+00, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 376
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 360
@@ -2232,7 +2232,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %30 = getelementptr inbounds i8, ptr %0, i64 512
   %31 = load ptr, ptr %30, align 8
@@ -2385,7 +2385,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 500
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   %31 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %32 = sitofp i32 %1 to float
   %33 = sitofp i32 %2 to float
@@ -2526,7 +2526,7 @@ define void @_ZN3vcg9Trackball4SyncEj(ptr noundef nonnull align 8 dereferenceabl
   %20 = load ptr, ptr %16, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 88
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %19, ptr noundef nonnull %0)
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(597) %0)
   br label %_ZN3vcg9Trackball7AnimateEj.exit
 
 _ZN3vcg9Trackball7AnimateEj.exit:                 ; preds = %18, %12, %2
@@ -2764,7 +2764,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %74
 
@@ -2836,7 +2836,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg
   %.sroa.3.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i21, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %37
 
@@ -2853,7 +2853,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %32 = icmp eq ptr %.pre, null
   br i1 %32, label %37, label %33
@@ -2924,7 +2924,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit19:     ; preds = %_ZNKSt3mapIiPN3vcg9
   store float 0.000000e+00, ptr %39, align 8
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i22, align 4
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i23, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret void
 }
@@ -2994,7 +2994,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit.thread: ; preds = %_ZNKSt3mapIiPN3vcg
   %.sroa.3.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i24, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %29 = getelementptr inbounds i8, ptr %0, i64 328
   br label %37
@@ -3012,7 +3012,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %35 = getelementptr inbounds i8, ptr %0, i64 328
   %36 = icmp eq ptr %.pre, null
@@ -3097,7 +3097,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit22:     ; preds = %_ZNKSt3mapIiPN3vcg9
   store float 0.000000e+00, ptr %48, align 8
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i25, align 4
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret void
 }
@@ -3141,7 +3141,7 @@ define void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull ali
   %26 = load ptr, ptr %22, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 88
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %25, ptr noundef nonnull %0)
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(597) %0)
   br label %_ZN3vcg9Trackball4SyncEj.exit
 
 _ZN3vcg9Trackball4SyncEj.exit:                    ; preds = %3, %18, %24
@@ -3316,7 +3316,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 504
   store float -1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(597) %0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %93
 

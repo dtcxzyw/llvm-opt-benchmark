@@ -4187,7 +4187,7 @@ _ZN17pyo3_build_config5impl_30cross_compiling_from_cargo_env17h6ab3a96da981ec22E
           to label %90 unwind label %77, !noalias !33
 
 89:                                               ; preds = %90, %79
-  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %46, ptr align 8 %53)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %46, ptr nonnull align 8 %53)
           to label %191 unwind label %77, !noalias !33
 
 90:                                               ; preds = %.noexc49.i
@@ -4678,7 +4678,7 @@ _ZN17pyo3_build_config5impl_18find_sysconfigdata17hc155e892e3bcda62E.exit.i.i: ;
   br label %177
 
 176:                                              ; preds = %172
-  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %44, ptr align 8 %53)
+  invoke fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias align 8 %44, ptr nonnull align 8 %53)
           to label %184 unwind label %182, !noalias !33
 
 177:                                              ; preds = %194, %187, %175

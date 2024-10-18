@@ -1072,7 +1072,7 @@ define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1,
   %.084.lcssa = phi double [ %30, %._crit_edge100.thread ], [ %42, %.lr.ph103 ]
   %43 = tail call double @llvm.maxnum.f64(double %.084.lcssa, double 1.000000e-05)
   %44 = fmul double %43, 5.200000e-01
-  %45 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %45 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %gv_alloc.exit.i
 
@@ -1141,7 +1141,7 @@ declare double @llvm.maxnum.f64(double, double) #3
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @QuadTree_new(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
 
@@ -1270,7 +1270,7 @@ define void @QuadTree_delete(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %6 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %gv_alloc.exit.i
 
@@ -1365,7 +1365,7 @@ define internal fastcc noundef ptr @QuadTree_add_internal(ptr noundef returned %
 
 ._crit_edge177:                                   ; preds = %.lr.ph176, %12
   %.lcssa = phi i32 [ %17, %12 ], [ %23, %.lr.ph176 ]
-  %26 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #15
+  %26 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 40) #15
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %gv_alloc.exit.i
 
@@ -1486,7 +1486,7 @@ QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i129, %68
   %87 = getelementptr inbounds i8, ptr %0, i64 32
   %88 = load double, ptr %87, align 8
   %89 = fmul double %88, 5.000000e-01
-  %90 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %90 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %gv_alloc.exit.i.i
 
@@ -1602,7 +1602,7 @@ QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %122
   %145 = getelementptr inbounds i8, ptr %0, i64 32
   %146 = load double, ptr %145, align 8
   %147 = fmul double %146, 5.000000e-01
-  %148 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #15
+  %148 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %gv_alloc.exit.i.i146
 
@@ -1728,7 +1728,7 @@ QuadTree_new_in_quadrant.exit157:                 ; preds = %.lr.ph.i150, %QuadT
 
 ._crit_edge:                                      ; preds = %191, %184
   %.lcssa165 = phi i32 [ %7, %184 ], [ %203, %191 ]
-  %206 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #15
+  %206 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 40) #15
   %207 = icmp eq ptr %206, null
   br i1 %207, label %208, label %gv_alloc.exit.i158
 
@@ -2347,13 +2347,13 @@ define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0
   br label %gv_realloc.exit
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef %10) #20
+  %14 = tail call ptr @realloc(ptr noundef %0, i64 noundef range(i64 0, 17179869177) %10) #20
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, i64 noundef %10) #16
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, i64 noundef range(i64 0, 17179869177) %10) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 

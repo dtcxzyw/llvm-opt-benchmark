@@ -1255,7 +1255,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$all
   br i1 %15, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit.i", label %16
 
 16:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %11, i64 noundef %13) #30, !noalias !174
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %11, i64 noundef range(i64 1, -9223372036854775807) %13) #30, !noalias !174
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit.i"
 
 17:                                               ; preds = %4
@@ -1269,7 +1269,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$all
   br i1 %23, label %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..clocks..WasiSystemClock$GT$$GT$17h0aa0a3fc42ea4366E.llvm.5331966815222788767.exit", label %24
 
 24:                                               ; preds = %17
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %21) #30, !noalias !178
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %19, i64 noundef range(i64 1, -9223372036854775807) %21) #30, !noalias !178
   br label %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..clocks..WasiSystemClock$GT$$GT$17h0aa0a3fc42ea4366E.llvm.5331966815222788767.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit.i": ; preds = %16, %8
@@ -1468,7 +1468,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit", label %14
 
 14:                                               ; preds = %6
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %11) #30, !noalias !197
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %9, i64 noundef range(i64 1, -9223372036854775807) %11) #30, !noalias !197
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit"
 
 15:                                               ; preds = %1
@@ -1482,7 +1482,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
   br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit1", label %22
 
 22:                                               ; preds = %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef %19) #30, !noalias !200
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #30, !noalias !200
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit1"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h507550ec1fcd9d29E.llvm.5331966815222788767.exit1": ; preds = %15, %22
@@ -1515,7 +1515,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasi
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #31
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #31
           to label %15 unwind label %13
 
 13:                                               ; preds = %11
@@ -1528,7 +1528,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasi
   resume { ptr, i32 } %12
 
 "_ZN4core3ptr66drop_in_place$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$17hd119f46473bbd161E.exit": ; preds = %6
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   br label %5
 }
 
@@ -5436,7 +5436,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %6, i64 noundef %8) #30
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -9223372036854775808) %6, i64 noundef range(i64 1, -9223372036854775807) %8) #30
   br label %12
 
 12:                                               ; preds = %1, %11
@@ -6370,7 +6370,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h047ba66695db14
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !596
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !596
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6396,7 +6396,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h1956d01fd269cc
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.d795119150f63e27fa6f1b4ce1c75725.99, ptr noundef nonnull readonly dereferenceable(19) %0, i64 19), !alias.scope !603
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.d795119150f63e27fa6f1b4ce1c75725.99, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !603
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -6414,7 +6414,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h2ac8e08cbfbe02
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(26) @anon.d795119150f63e27fa6f1b4ce1c75725.101, ptr noundef nonnull readonly dereferenceable(26) %0, i64 26), !alias.scope !607
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(26) @anon.d795119150f63e27fa6f1b4ce1c75725.101, ptr noundef nonnull readonly align 1 dereferenceable(26) %0, i64 26), !alias.scope !607
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -6432,7 +6432,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h373588ff3b9267
   ret { i16, i16 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(19) @anon.d795119150f63e27fa6f1b4ce1c75725.103, ptr noundef nonnull readonly dereferenceable(19) %0, i64 19), !alias.scope !611
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) @anon.d795119150f63e27fa6f1b4ce1c75725.103, ptr noundef nonnull readonly align 1 dereferenceable(19) %0, i64 19), !alias.scope !611
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i16
   br label %.loopexit
@@ -6461,7 +6461,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h424cc6309d9729
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !615
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !615
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6498,7 +6498,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h7ed4a3f758a3f0
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !622
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !622
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6535,7 +6535,7 @@ define hidden { i1, i8 } @_ZN8bitflags6traits5Flags9from_name17hc8f7f005a669fcbc
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !629
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !629
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6572,7 +6572,7 @@ define hidden { i64, i64 } @_ZN8bitflags6traits5Flags9from_name17hced1f6573b5793
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !636
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !636
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6598,7 +6598,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17hfb7b2d280cb8df
   ret { i32, i32 } %4
 
 5:                                                ; preds = %2
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(14) @anon.d795119150f63e27fa6f1b4ce1c75725.150, ptr noundef nonnull readonly dereferenceable(14) %0, i64 14), !alias.scope !643
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(14) @anon.d795119150f63e27fa6f1b4ce1c75725.150, ptr noundef nonnull readonly align 1 dereferenceable(14) %0, i64 14), !alias.scope !643
   %6 = icmp eq i32 %bcmp.i, 0
   %spec.select = zext i1 %6 to i32
   br label %.loopexit
@@ -6627,7 +6627,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hff0bd489120b02
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.preheader"
   %9 = load ptr, ptr %.sroa.0.0.ptr18, align 8, !nonnull !7, !align !8, !noundef !7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %9, ptr nonnull readonly %0, i64 %1), !alias.scope !647
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %9, ptr nonnull readonly align 1 %0, i64 %1), !alias.scope !647
   %10 = icmp eq i32 %bcmp.i, 0
   br i1 %10, label %12, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06a772ea2239cecbE.exit.backedge"
 
@@ -6686,7 +6686,7 @@ define hidden void @_ZN11wasi_common6clocks10WasiClocks11with_system17hdd2b39b26
   br i1 %16, label %.body, label %17
 
 17:                                               ; preds = %9
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %12, i64 noundef %14) #30, !noalias !661
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef range(i64 1, -9223372036854775808) %12, i64 noundef range(i64 1, -9223372036854775807) %14) #30, !noalias !661
   br label %.body
 
 18:                                               ; preds = %5
@@ -6700,7 +6700,7 @@ define hidden void @_ZN11wasi_common6clocks10WasiClocks11with_system17hdd2b39b26
   br i1 %24, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..clocks..WasiSystemClock$GT$$GT$$GT$17h2e149c1a20b2e8e2E.llvm.5331966815222788767.exit", label %25
 
 25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %20, i64 noundef %22) #30, !noalias !664
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #30, !noalias !664
   br label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$wasi_common..clocks..WasiSystemClock$GT$$GT$$GT$17h2e149c1a20b2e8e2E.llvm.5331966815222788767.exit"
 
 .body:                                            ; preds = %9, %17
@@ -6771,7 +6771,7 @@ define hidden void @_ZN11wasi_common6clocks10WasiClocks14with_monotonic17hddcd84
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #31
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #31
           to label %.body unwind label %23
 
 23:                                               ; preds = %21
@@ -6781,7 +6781,7 @@ define hidden void @_ZN11wasi_common6clocks10WasiClocks14with_monotonic17hddcd84
   unreachable
 
 "_ZN4core3ptr66drop_in_place$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$17hd119f46473bbd161E.exit.i": ; preds = %16
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda40ed262f49600eE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
           to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$$GT$17h798c91aad7eb799bE.llvm.5331966815222788767.exit" unwind label %25
 
 25:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$wasi_common..clocks..WasiMonotonicOffsetClock$GT$17hd119f46473bbd161E.exit.i"
@@ -6854,7 +6854,7 @@ define noundef nonnull ptr @"_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %2, i64 32
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr139drop_in_place$LT$alloc..sync..ArcInner$LT$std..sync..rwlock..RwLock$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hdb2604c6c3597947E.exit.i" unwind label %12, !noalias !677
 
 12:                                               ; preds = %9
@@ -6914,7 +6914,7 @@ define noundef nonnull ptr @"_ZN155_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 14:                                               ; preds = %13, %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx)
           to label %"_ZN4core3ptr139drop_in_place$LT$alloc..sync..ArcInner$LT$std..sync..rwlock..RwLock$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hdb2604c6c3597947E.exit.i.i" unwind label %16, !noalias !680
 
 16:                                               ; preds = %14
@@ -6968,7 +6968,7 @@ define noundef nonnull ptr @"_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %2, i64 32
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr135drop_in_place$LT$alloc..sync..ArcInner$LT$std..sync..rwlock..RwLock$LT$std..io..cursor..Cursor$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb9de72ed5fc6439fE.exit.i" unwind label %12, !noalias !685
 
 12:                                               ; preds = %9
@@ -7028,7 +7028,7 @@ define noundef nonnull ptr @"_ZN142_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 14:                                               ; preds = %13, %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx)
           to label %"_ZN4core3ptr135drop_in_place$LT$alloc..sync..ArcInner$LT$std..sync..rwlock..RwLock$LT$std..io..cursor..Cursor$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb9de72ed5fc6439fE.exit.i.i" unwind label %16, !noalias !688
 
 16:                                               ; preds = %14
@@ -7079,7 +7079,7 @@ define noundef nonnull ptr @"_ZN11wasi_common4pipe73WritePipe$LT$std..io..cursor
 8:                                                ; preds = %7, %0
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx)
+  invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h35ab2a46cfcf11dcE.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx)
           to label %"_ZN4core3ptr139drop_in_place$LT$alloc..sync..ArcInner$LT$std..sync..rwlock..RwLock$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hdb2604c6c3597947E.exit.i" unwind label %10, !noalias !693
 
 10:                                               ; preds = %8

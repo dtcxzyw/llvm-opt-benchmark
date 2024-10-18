@@ -1762,21 +1762,21 @@ define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noun
   ]
 
 46:                                               ; preds = %45
-  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #2
+  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   %48 = zext i8 %47 to i32
   br label %juniper_ext_get_tlv_value.exit
 
 49:                                               ; preds = %45
-  %50 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %43) #2
+  %50 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   %51 = zext i16 %50 to i32
   br label %juniper_ext_get_tlv_value.exit
 
 52:                                               ; preds = %45
-  %53 = call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %43) #2
+  %53 = call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   br label %juniper_ext_get_tlv_value.exit
 
 54:                                               ; preds = %45
-  %55 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %43) #2
+  %55 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   br label %juniper_ext_get_tlv_value.exit
 
 56:                                               ; preds = %37
@@ -1788,21 +1788,21 @@ define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noun
   ]
 
 57:                                               ; preds = %56
-  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #2
+  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   %59 = zext i8 %58 to i32
   br label %juniper_ext_get_tlv_value.exit
 
 60:                                               ; preds = %56
-  %61 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %43) #2
+  %61 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   %62 = zext i16 %61 to i32
   br label %juniper_ext_get_tlv_value.exit
 
 63:                                               ; preds = %56
-  %64 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %43) #2
+  %64 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   br label %juniper_ext_get_tlv_value.exit
 
 65:                                               ; preds = %56
-  %66 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %43) #2
+  %66 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 2, 65538) %43) #2
   br label %juniper_ext_get_tlv_value.exit
 
 juniper_ext_get_tlv_value.exit:                   ; preds = %45, %46, %49, %52, %54, %56, %57, %60, %63, %65

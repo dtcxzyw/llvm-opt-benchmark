@@ -65,7 +65,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %25)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %25)
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %28

@@ -6175,7 +6175,7 @@ define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef nonnu
 256:                                              ; preds = %255, %239
   %257 = load ptr, ptr %1, align 8
   %258 = load ptr, ptr %257, align 8
-  %259 = tail call fastcc ptr @igmpv3_newpack(ptr noundef %258, i32 noundef %22)
+  %259 = tail call fastcc ptr @igmpv3_newpack(ptr noundef %258, i32 noundef range(i32 68, 0) %22)
   %260 = icmp eq ptr %259, null
   br i1 %260, label %add_grhead.exit, label %261
 

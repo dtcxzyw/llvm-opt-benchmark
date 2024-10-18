@@ -144,7 +144,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %50 = fmul double %49, 2.550000e+02
   %51 = fptoui double %50 to i32
   %52 = call i32 @llvm.umin.i32(i32 %51, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select.i, i32 noundef %47, i32 noundef %52)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select.i, i32 noundef %47, i32 noundef %52)
   br label %color_string.exit
 
 53:                                               ; preds = %38
@@ -152,7 +152,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %55 = fmul double %54, 2.550000e+02
   %56 = fptoui double %55 to i32
   %spec.select32.i = call i32 @llvm.umin.i32(i32 %56, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i)
   br label %color_string.exit
 
 57:                                               ; preds = %38
@@ -165,7 +165,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %63 = fmul double %62, 2.550000e+02
   %64 = fptoui double %63 to i32
   %65 = call i32 @llvm.umin.i32(i32 %64, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select33.i, i32 noundef 0, i32 noundef %65)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select33.i, i32 noundef 0, i32 noundef %65)
   br label %color_string.exit
 
 color_string.exit:                                ; preds = %38, %39, %53, %57
@@ -925,7 +925,7 @@ agxbsizeof.exit.i.i.us:                           ; preds = %.lr.ph, %agxbuse.ex
   br i1 %.not.i.i.us, label %36, label %35
 
 35:                                               ; preds = %agxbsizeof.exit.i.i.us
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i.us = load i8, ptr %15, align 1
   br label %36
 
@@ -988,7 +988,7 @@ agxbsizeof.exit.i.i:                              ; preds = %.lr.ph, %agxbuse.ex
   br i1 %.not.i.i, label %57, label %56
 
 56:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %15, align 1
   br label %57
 
@@ -2302,7 +2302,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i, label %107, label %106
 
 106:                                              ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %8, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %8, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %92, align 1
   br label %107
 
@@ -2431,7 +2431,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

@@ -219,7 +219,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -295,7 +295,7 @@ define dso_local noundef ptr @stbi_load_from_file(ptr noundef %f, ptr nocapture 
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -398,7 +398,7 @@ cond.end:                                         ; preds = %if.then6, %cond.tru
   %mul.i = mul nsw i32 %2, %1
   %mul1.i = mul nsw i32 %mul.i, %cond
   %conv.i = sext i32 %mul1.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #35
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i) #35
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -521,7 +521,7 @@ define dso_local noundef ptr @stbi_load_from_file_16(ptr noundef %f, ptr nocaptu
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -622,7 +622,7 @@ cond.end:                                         ; preds = %if.then6, %cond.tru
   %mul1.i = mul nsw i32 %mul.i, %cond
   %mul2.i = shl nsw i32 %mul1.i, 1
   %conv.i = sext i32 %mul2.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #35
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i) #35
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -754,7 +754,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -1006,7 +1006,7 @@ entry:
   %img_buffer_end.i = getelementptr inbounds i8, ptr %s, i64 200
   store ptr %add.ptr.i, ptr %img_buffer_end.i, align 8
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %g.i)
-  %call.i = call fastcc noundef i32 @_ZL14stbi__gif_testP13stbi__context(ptr noundef %s)
+  %call.i = call fastcc noundef i32 @_ZL14stbi__gif_testP13stbi__context(ptr noundef nonnull %s)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else79.i, label %if.then.i
 
@@ -1020,7 +1020,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
-  %call3101.i = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef null)
+  %call3101.i = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef null)
   %cmp102.i = icmp eq ptr %call3101.i, %s
   %tobool6.not53103.i = icmp eq ptr %call3101.i, null
   %tobool6.not104.i = or i1 %cmp102.i, %tobool6.not53103.i
@@ -1120,7 +1120,7 @@ if.end28.i:                                       ; preds = %if.then21.i
   br label %if.end55.i
 
 if.else33.i:                                      ; preds = %if.then7.i
-  %call.i.i = call noalias noundef ptr @malloc(i64 noundef %conv35.i) #35
+  %call.i.i = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv35.i) #35
   %tobool37.not.i = icmp eq ptr %call.i.i, null
   br i1 %tobool37.not.i, label %if.then38.i, label %if.end40.i
 
@@ -1155,7 +1155,7 @@ if.end40.i:                                       ; preds = %if.else33.i
 
 if.then43.i:                                      ; preds = %if.end40.i
   %mul45.i = shl nuw nsw i64 %indvars.iv.next.i, 2
-  %call.i74.i = call noalias noundef ptr @malloc(i64 noundef %mul45.i) #35
+  %call.i74.i = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %mul45.i) #35
   store ptr %call.i74.i, ptr %delays, align 8
   %tobool47.not.i = icmp eq ptr %call.i74.i, null
   br i1 %tobool47.not.i, label %land.lhs.true.i82.i, label %if.end55.i
@@ -1208,7 +1208,7 @@ if.then65.i:                                      ; preds = %if.end55.i
   br label %do.cond.i
 
 do.cond.i:                                        ; preds = %if.then65.i, %if.end55.i
-  %call3.i = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef %two_back.1.i)
+  %call3.i = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef %two_back.1.i)
   %cmp.i = icmp eq ptr %call3.i, %s
   %tobool6.not53.i = icmp eq ptr %call3.i, null
   %tobool6.not.i = or i1 %cmp.i, %tobool6.not53.i
@@ -1494,7 +1494,7 @@ land.lhs.true3.i.i.i:                             ; preds = %_ZL21stbi__mul2size
 _ZL17stbi__malloc_mad4iiiii.exit.i:               ; preds = %land.lhs.true3.i.i.i
   %mul2.i.i = shl nuw nsw i32 %mul5.i.i.i, 2
   %conv.i.i19 = zext nneg i32 %mul2.i.i to i64
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i.i19) #35
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i.i19) #35
   %cmp.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i, label %if.then1.i, label %if.end4.i
 
@@ -1657,7 +1657,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -1718,7 +1718,7 @@ define dso_local noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -1984,7 +1984,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %call.i3 = tail call i64 @ftell(ptr noundef nonnull %call.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -2047,7 +2047,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -2203,7 +2203,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %call.i3 = tail call i64 @ftell(ptr noundef nonnull %call.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -2266,7 +2266,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -2332,7 +2332,7 @@ _ZL15stbi__jpeg_infoP13stbi__contextPiS1_S1_.exit.thread: ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   store ptr %s, ptr %call.i.i, align 8
-  %call.i4.i = tail call fastcc noundef i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr noundef %call.i.i, i32 noundef 2)
+  %call.i4.i = tail call fastcc noundef i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr noundef nonnull %call.i.i, i32 noundef 2)
   %tobool.not.i.i = icmp eq i32 %call.i4.i, 0
   br i1 %tobool.not.i.i, label %_ZL15stbi__jpeg_infoP13stbi__contextPiS1_S1_.exit, label %if.end.i.i
 
@@ -2398,7 +2398,7 @@ if.then.i.i35:                                    ; preds = %if.end
   br label %if.end4
 
 if.end.i.i26:                                     ; preds = %if.end
-  %call2.i.i = tail call fastcc noundef i32 @_ZL16stbi__gif_headerP13stbi__contextP9stbi__gifPii(ptr noundef %s, ptr noundef %call.i.i.i, ptr noundef %comp, i32 noundef 1)
+  %call2.i.i = tail call fastcc noundef i32 @_ZL16stbi__gif_headerP13stbi__contextP9stbi__gifPii(ptr noundef nonnull %s, ptr noundef %call.i.i.i, ptr noundef %comp, i32 noundef 1)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.then4.i.i, label %if.end5.i.i
 
@@ -2441,7 +2441,7 @@ if.end4:                                          ; preds = %if.then4.i.i, %if.t
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %info.i)
   %all_a.i = getelementptr inbounds i8, ptr %info.i, i64 28
   store i32 255, ptr %all_a.i, align 4
-  %call.i = call fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP14stbi__bmp_data(ptr noundef %s, ptr noundef %info.i)
+  %call.i = call fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP14stbi__bmp_data(ptr noundef nonnull %s, ptr noundef %info.i)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.end8, label %if.end.i36
 
@@ -2639,7 +2639,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %call.i3 = tail call i64 @ftell(ptr noundef nonnull %call.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -2702,7 +2702,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -2827,7 +2827,7 @@ if.end:                                           ; preds = %entry, %if.end.i, %
   %7 = load ptr, ptr %img_buffer_original_end.i20.i, align 8
   %img_buffer_end.i21.i = getelementptr inbounds i8, ptr %s, i64 200
   store ptr %7, ptr %img_buffer_end.i21.i, align 8
-  %call.i = tail call fastcc noundef i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef %s, ptr noundef null, ptr noundef null, ptr noundef null)
+  %call.i = tail call fastcc noundef i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef nonnull %s, ptr noundef null, ptr noundef null, ptr noundef null)
   %cmp.i.not = icmp eq i32 %call.i, 16
   %. = zext i1 %cmp.i.not to i32
   br label %return
@@ -3206,14 +3206,14 @@ _ZL10stbi__get8P13stbi__context.exit45.i.i:       ; preds = %_ZL19stbi__refill_b
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %_ZL14stbi__bmp_testP13stbi__context.exit.thread
 
 if.end5.i.i:                                      ; preds = %_ZL10stbi__get8P13stbi__context.exit45.i.i
-  %call.i.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call7.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call8.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call.i46.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i47.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call.i50.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i51.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call7.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call8.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call.i46.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i47.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call.i50.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i51.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i52.i.i = shl nuw i32 %call1.i51.i.i, 16
   %add.i53.i.i = or disjoint i32 %shl.i52.i.i, %call.i50.i.i
   switch i32 %add.i53.i.i, label %_ZL14stbi__bmp_testP13stbi__context.exit [
@@ -3257,7 +3257,7 @@ if.then:                                          ; preds = %_ZL14stbi__bmp_test
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %info.i)
   %all_a1.i = getelementptr inbounds i8, ptr %info.i, i64 28
   store i32 255, ptr %all_a1.i, align 4
-  %call.i = call fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP14stbi__bmp_data(ptr noundef %s, ptr noundef %info.i)
+  %call.i = call fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP14stbi__bmp_data(ptr noundef nonnull %s, ptr noundef %info.i)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit, label %if.end.i
 
@@ -3429,7 +3429,7 @@ _ZL21stbi__mul2sizes_validii.exit14.i.i.i:        ; preds = %if.end.i8.i.i.i
 _ZL17stbi__malloc_mad3iiii.exit.i:                ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i, %if.end.i8.i.i.i
   %mul4.i.i.i = mul nuw nsw i32 %mul.i.i, %29
   %conv.i232.i = zext nneg i32 %mul4.i.i.i to i64
-  %call.i.i.i53 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i232.i) #35
+  %call.i.i.i53 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i232.i) #35
   %tobool77.not.i = icmp eq ptr %call.i.i.i53, null
   br i1 %tobool77.not.i, label %if.then78.i, label %if.end82.i
 
@@ -4719,11 +4719,11 @@ for.body410.i:                                    ; preds = %for.cond407.prehead
   %all_a.461.i = phi i32 [ %or448.i, %for.inc457.i ], [ %all_a.167.i, %for.cond407.preheader.i ]
   %z286.460.i = phi i32 [ %z286.5.i, %for.inc457.i ], [ %z286.066.i, %for.cond407.preheader.i ]
   %i.459.i = phi i32 [ %inc458.i, %for.inc457.i ], [ 0, %for.cond407.preheader.i ]
-  %call414.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call414.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   br i1 %cmp412.i, label %cond.end417.i, label %cond.false415.i
 
 cond.false415.i:                                  ; preds = %for.body410.i
-  %call1.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call1.i.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i.i = shl nuw i32 %call1.i.i, 16
   %add.i.i = or disjoint i32 %shl.i.i, %call414.i
   br label %cond.end417.i
@@ -5004,7 +5004,7 @@ if.end:                                           ; preds = %_ZL14stbi__bmp_test
 if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 34928, ptr nonnull %g.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %g.i, i8 0, i64 34928, i1 false)
-  %call.i57 = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef null)
+  %call.i57 = call fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh(ptr noundef nonnull %s, ptr noundef %g.i, ptr noundef %comp, ptr noundef null)
   %cmp.i58 = icmp eq ptr %call.i57, %s
   %tobool.not1.i = icmp eq ptr %call.i57, null
   %tobool.not.i = or i1 %cmp.i58, %tobool.not1.i
@@ -5176,11 +5176,11 @@ if.then41.i:                                      ; preds = %if.end38.i
   br label %return
 
 if.end45.i:                                       ; preds = %if.end38.i
-  %call46.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef %s)
+  %call46.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %s)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %s, i32 noundef %call46.i)
-  %call47.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef %s)
+  %call47.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %s)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %s, i32 noundef %call47.i)
-  %call48.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef %s)
+  %call48.i = tail call fastcc noundef i32 @_ZL13stbi__get32beP13stbi__context(ptr noundef nonnull %s)
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %s, i32 noundef %call48.i)
   %call49.i = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %s)
   %cmp50.i84 = icmp samesign ugt i32 %call49.i, 1
@@ -5218,7 +5218,7 @@ if.else.i87:                                      ; preds = %if.end62.i
   %mul.i = shl i32 %add.i149.i, 2
   %mul70.i = mul i32 %mul.i, %add.i153.i
   %conv.i88 = sext i32 %mul70.i to i64
-  %call.i154.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i88) #35
+  %call.i154.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i88) #35
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.else.i87, %if.then68.i
@@ -5272,7 +5272,7 @@ for.body89.us.i:                                  ; preds = %for.cond87.preheade
   br i1 %exitcond197.not.i, label %for.inc103.us.i, label %for.body89.us.i, !llvm.loop !26
 
 if.else94.us.i:                                   ; preds = %for.body.us.i
-  %call95.us.i = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef %s, ptr noundef %add.ptr.us.i104, i32 noundef %mul79.fr.i)
+  %call95.us.i = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef nonnull %s, ptr noundef %add.ptr.us.i104, i32 noundef %mul79.fr.i)
   %tobool96.not.us.i = icmp eq i32 %call95.us.i, 0
   br i1 %tobool96.not.us.i, label %if.then97.i, label %for.inc103.us.i
 
@@ -5293,7 +5293,7 @@ for.body.i90:                                     ; preds = %if.then81.i, %for.i
 
 if.else94.i:                                      ; preds = %for.body.i90
   %add.ptr.i = getelementptr inbounds i8, ptr %out.0.i89, i64 %indvars.iv.i91
-  %call95.i = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef %s, ptr noundef %add.ptr.i, i32 noundef %mul79.fr.i)
+  %call95.i = tail call fastcc noundef i32 @_ZL20stbi__psd_decode_rleP13stbi__contextPhi(ptr noundef nonnull %s, ptr noundef %add.ptr.i, i32 noundef %mul79.fr.i)
   %tobool96.not.i = icmp eq i32 %call95.i, 0
   br i1 %tobool96.not.i, label %if.then97.i, label %for.inc103.i
 
@@ -5643,7 +5643,7 @@ if.end.i145:                                      ; preds = %if.end11
   store i32 -1, ptr %app14_color_transform.i.i, align 4
   %marker.i.i = getelementptr inbounds i8, ptr %call.i.i143, i64 18472
   store i8 -1, ptr %marker.i.i, align 8
-  %call.i6.i = tail call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef %call.i.i143)
+  %call.i6.i = tail call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef nonnull %call.i.i143)
   %cmp.i.i146.not = icmp eq i8 %call.i6.i, -40
   br i1 %cmp.i.i146.not, label %if.then14.critedge, label %if.then.i.i147
 
@@ -5708,12 +5708,12 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %img_comp.i.i.i = getelementptr inbounds i8, ptr %call.i.i155, i64 18080
   %restart_interval.i.i.i = getelementptr inbounds i8, ptr %call.i.i155, i64 18536
   store i32 0, ptr %restart_interval.i.i.i, align 8
-  %call.i.i.i162 = tail call fastcc noundef i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr noundef %call.i.i155, i32 noundef 0)
+  %call.i.i.i162 = tail call fastcc noundef i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr noundef nonnull %call.i.i155, i32 noundef 0)
   %tobool.not.i.i.i163 = icmp eq i32 %call.i.i.i162, 0
   br i1 %tobool.not.i.i.i163, label %if.then4.i.i165, label %if.end.i.i.i164
 
 if.end.i.i.i164:                                  ; preds = %for.end.i.i.i
-  %call4.i.i.i = tail call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef %call.i.i155)
+  %call4.i.i.i = tail call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %scan_n.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i155, i64 18516
   %order.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i155, i64 18520
   %spec_start.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i155, i64 18484
@@ -6381,7 +6381,7 @@ for.body11.us.i.i.i.i:                            ; preds = %for.inc.us.i.i.i.i,
   %471 = load i32, ptr %tq.i.i.i.i, align 4
   %idxprom29.us.i.i.i.i = sext i32 %471 to i64
   %arrayidx30.us.i.i.i.i = getelementptr inbounds [4 x [64 x i16]], ptr %dequant135.i.i.i.i, i64 0, i64 %idxprom29.us.i.i.i.i
-  %call.us.i.i.i.i = call fastcc noundef i32 @_ZL23stbi__jpeg_decode_blockP10stbi__jpegPsP13stbi__huffmanS3_S1_iPt(ptr noundef %call.i.i155, ptr noundef %data.i.i.i.i, ptr noundef %add.ptr.us.i.i.i.i, ptr noundef %add.ptr22.us.i.i.i.i, ptr noundef %arrayidx24.us.i.i.i.i, i32 noundef %466, ptr noundef %arrayidx30.us.i.i.i.i)
+  %call.us.i.i.i.i = call fastcc noundef i32 @_ZL23stbi__jpeg_decode_blockP10stbi__jpegPsP13stbi__huffmanS3_S1_iPt(ptr noundef nonnull %call.i.i155, ptr noundef %data.i.i.i.i, ptr noundef %add.ptr.us.i.i.i.i, ptr noundef %add.ptr22.us.i.i.i.i, ptr noundef %arrayidx24.us.i.i.i.i, i32 noundef %466, ptr noundef %arrayidx30.us.i.i.i.i)
   %tobool32.not.us.i.i.i.i = icmp eq i32 %call.us.i.i.i.i, 0
   br i1 %tobool32.not.us.i.i.i.i, label %_ZL30stbi__parse_entropy_coded_dataP10stbi__jpeg.exit.i.i.i, label %if.end.us.i.i.i.i
 
@@ -6407,7 +6407,7 @@ if.then53.us.i.i.i.i:                             ; preds = %if.end.us.i.i.i.i
   br i1 %cmp54.us.i.i.i.i, label %if.then55.us.i.i.i.i, label %if.end56.us.i.i.i.i
 
 if.then55.us.i.i.i.i:                             ; preds = %if.then53.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %if.end56.us.i.i.i.i
 
 if.end56.us.i.i.i.i:                              ; preds = %if.then55.us.i.i.i.i, %if.then53.us.i.i.i.i
@@ -6501,7 +6501,7 @@ for.body98.i.i.i.i:                               ; preds = %for.cond92.preheade
   %497 = load i32, ptr %tq139.i.i.i.i, align 4
   %idxprom140.i.i.i.i = sext i32 %497 to i64
   %arrayidx141.i.i.i.i = getelementptr inbounds [4 x [64 x i16]], ptr %dequant135.i.i.i.i, i64 0, i64 %idxprom140.i.i.i.i
-  %call143.i.i.i.i = call fastcc noundef i32 @_ZL23stbi__jpeg_decode_blockP10stbi__jpegPsP13stbi__huffmanS3_S1_iPt(ptr noundef %call.i.i155, ptr noundef %data71.i.i.i.i, ptr noundef %add.ptr126.i.i.i.i, ptr noundef %add.ptr130.i.i.i.i, ptr noundef %arrayidx133.i.i.i.i, i32 noundef %487, ptr noundef %arrayidx141.i.i.i.i)
+  %call143.i.i.i.i = call fastcc noundef i32 @_ZL23stbi__jpeg_decode_blockP10stbi__jpegPsP13stbi__huffmanS3_S1_iPt(ptr noundef nonnull %call.i.i155, ptr noundef %data71.i.i.i.i, ptr noundef %add.ptr126.i.i.i.i, ptr noundef %add.ptr130.i.i.i.i, ptr noundef %arrayidx133.i.i.i.i, i32 noundef %487, ptr noundef %arrayidx141.i.i.i.i)
   %tobool144.not.i.i.i.i = icmp eq i32 %call143.i.i.i.i, 0
   br i1 %tobool144.not.i.i.i.i, label %_ZL30stbi__parse_entropy_coded_dataP10stbi__jpeg.exit.i.i.i, label %if.end146.i.i.i.i
 
@@ -6565,7 +6565,7 @@ if.then178.i.i.i.i:                               ; preds = %for.end174.i.i.i.i
   br i1 %cmp180.i.i.i.i, label %if.then181.i.i.i.i, label %if.end182.i.i.i.i
 
 if.then181.i.i.i.i:                               ; preds = %if.then178.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %if.end182.i.i.i.i
 
 if.end182.i.i.i.i:                                ; preds = %if.then181.i.i.i.i, %if.then178.i.i.i.i
@@ -6708,7 +6708,7 @@ if.then81.i.us.i.i.i.i:                           ; preds = %for.body.i.us.i.i.i
   br i1 %cmp.i96.i.us.i.i.i.i, label %if.then.i98.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i
 
 if.then.i98.i.us.i.i.i.i:                         ; preds = %if.then81.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %.pre.i99.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.i.us.i.i.i.i
 
@@ -6751,7 +6751,7 @@ do.body109.preheader.i.us.i.i.i.i:                ; preds = %if.else63.i.us.i.i.
 
 do.body109.i.us.i.i.i.i:                          ; preds = %do.cond190.i.us.i.i.i.i, %do.body109.preheader.i.us.i.i.i.i
   %k.3.i.us.i.i.i.i = phi i32 [ %k.5.i.us.i.i.i.i, %do.cond190.i.us.i.i.i.i ], [ %524, %do.body109.preheader.i.us.i.i.i.i ]
-  %call113.i.us.i.i.i.i = call fastcc noundef i32 @_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman(ptr noundef %call.i.i155, ptr noundef readonly %arrayidx261.us.i.i.i.i)
+  %call113.i.us.i.i.i.i = call fastcc noundef i32 @_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman(ptr noundef nonnull %call.i.i155, ptr noundef nonnull readonly %arrayidx261.us.i.i.i.i)
   %cmp114.i.us.i.i.i.i = icmp slt i32 %call113.i.us.i.i.i.i, 0
   br i1 %cmp114.i.us.i.i.i.i, label %return.sink.split.i.i.i.i, label %if.end117.i.us.i.i.i.i
 
@@ -6769,7 +6769,7 @@ if.end139.i.us.i.i.i.i:                           ; preds = %if.end117.i.us.i.i.
   br i1 %cmp.i110.i.us.i.i.i.i, label %if.then.i115.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i
 
 if.then.i115.i.us.i.i.i.i:                        ; preds = %if.end139.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %.pre.i116.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i
 
@@ -6803,7 +6803,7 @@ if.then128.i.us.i.i.i.i:                          ; preds = %if.then123.i.us.i.i
   br i1 %cmp.i101.i.us.i.i.i.i, label %if.then.i107.i.us.i.i.i.i, label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
 
 if.then.i107.i.us.i.i.i.i:                        ; preds = %if.then128.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %.pre.i108.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   %.pre.i.us.i.i.i.i = load i32, ptr %eob_run.i.i.i.i.i, align 4
   br label %_ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i
@@ -6812,7 +6812,7 @@ _ZL19stbi__jpeg_get_bitsP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i10
   %547 = phi i32 [ %.pre.i.us.i.i.i.i, %if.then.i107.i.us.i.i.i.i ], [ %sub125.i.us.i.i.i.i, %if.then128.i.us.i.i.i.i ]
   %548 = phi i32 [ %.pre.i108.i.us.i.i.i.i, %if.then.i107.i.us.i.i.i.i ], [ %546, %if.then128.i.us.i.i.i.i ]
   %549 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %or.i103.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %549, i32 %549, i32 %shr119.i.us.i.i.i.i)
+  %or.i103.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %549, i32 %549, i32 range(i32 1, 15) %shr119.i.us.i.i.i.i)
   %idxprom.i104.i.us.i.i.i.i = zext nneg i32 %shr119.i.us.i.i.i.i to i64
   %arrayidx.i105.i.us.i.i.i.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i104.i.us.i.i.i.i
   %550 = load i32, ptr %arrayidx.i105.i.us.i.i.i.i, align 4
@@ -6855,7 +6855,7 @@ if.then159.i.us.i.i.i.i:                          ; preds = %while.body.i.us.i.i
   br i1 %cmp.i119.i.us.i.i.i.i, label %if.then.i124.i.us.i.i.i.i, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
 
 if.then.i124.i.us.i.i.i.i:                        ; preds = %if.then159.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %.pre.i125.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit126.i.us.i.i.i.i
 
@@ -6931,7 +6931,7 @@ do.body.i.us.i.i.i.i:                             ; preds = %if.then2.i.us.i.i.i
   br i1 %cmp7.i.us.i.i.i.i, label %if.then8.i.us.i.i.i.i, label %if.end9.i.us.i.i.i.i
 
 if.then8.i.us.i.i.i.i:                            ; preds = %do.body.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %if.end9.i.us.i.i.i.i
 
 if.end9.i.us.i.i.i.i:                             ; preds = %if.then8.i.us.i.i.i.i, %do.body.i.us.i.i.i.i
@@ -6967,7 +6967,7 @@ if.then11.i.us.i.i.i.i:                           ; preds = %if.end9.i.us.i.i.i.
   br label %do.cond.i.us.i.i.i.i
 
 if.else.i.us.i.i.i.i:                             ; preds = %if.end9.i.us.i.i.i.i
-  %call25.i.us.i.i.i.i = call fastcc noundef i32 @_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman(ptr noundef %call.i.i155, ptr noundef readonly %arrayidx261.us.i.i.i.i)
+  %call25.i.us.i.i.i.i = call fastcc noundef i32 @_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman(ptr noundef nonnull %call.i.i155, ptr noundef nonnull readonly %arrayidx261.us.i.i.i.i)
   %cmp26.i.us.i.i.i.i = icmp slt i32 %call25.i.us.i.i.i.i, 0
   br i1 %cmp26.i.us.i.i.i.i, label %return.sink.split.i.i.i.i, label %if.end29.i.us.i.i.i.i
 
@@ -6988,14 +6988,14 @@ if.else48.i.us.i.i.i.i:                           ; preds = %if.end29.i.us.i.i.i
   br i1 %cmp.i.i.us.i.i.i.i, label %if.then.i.i.us.i.i.i.i, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i
 
 if.then.i.i.us.i.i.i.i:                           ; preds = %if.else48.i.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   %.pre.i.i.us.i.i.i.i = load i32, ptr %code_bits.i.i.i.i.i, align 4
   br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i
 
 _ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i.i.us.i.i.i.i, %if.else48.i.us.i.i.i.i
   %571 = phi i32 [ %.pre.i.i.us.i.i.i.i, %if.then.i.i.us.i.i.i.i ], [ %570, %if.else48.i.us.i.i.i.i ]
   %572 = load i32, ptr %code_buffer.i.i.i.i.i, align 8
-  %or.i.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %572, i32 %572, i32 %and30.i.us.i.i.i.i)
+  %or.i.i.us.i.i.i.i = call i32 @llvm.fshl.i32(i32 %572, i32 %572, i32 range(i32 1, 16) %and30.i.us.i.i.i.i)
   %idxprom.i.i.us.i.i.i.i = zext nneg i32 %and30.i.us.i.i.i.i to i64
   %arrayidx.i.i.us.i.i.i.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i.i.us.i.i.i.i
   %573 = load i32, ptr %arrayidx.i.i.us.i.i.i.i, align 4
@@ -7038,7 +7038,7 @@ if.then35.i.us.i.i.i.i:                           ; preds = %if.then33.i.us.i.i.
   br i1 %tobool38.not.i.us.i.i.i.i, label %if.end270.us.sink.split.i.i.i.i, label %if.then39.i.us.i.i.i.i
 
 if.then39.i.us.i.i.i.i:                           ; preds = %if.then35.i.us.i.i.i.i
-  %call40.i.us.i.i.i.i = call fastcc noundef i32 @_ZL19stbi__jpeg_get_bitsP10stbi__jpegi(ptr noundef %call.i.i155, i32 noundef %shr31.i.us.i.i.i.i)
+  %call40.i.us.i.i.i.i = call fastcc noundef i32 @_ZL19stbi__jpeg_get_bitsP10stbi__jpegi(ptr noundef nonnull %call.i.i155, i32 noundef %shr31.i.us.i.i.i.i)
   %576 = load i32, ptr %eob_run.i.i.i.i.i, align 4
   %add42.i.us.i.i.i.i = add nsw i32 %576, %call40.i.us.i.i.i.i
   br label %if.end270.us.sink.split.i.i.i.i
@@ -7047,7 +7047,7 @@ if.then241.us.i.i.i.i:                            ; preds = %for.body227.us.i.i.
   %577 = load i32, ptr %hd246.i.i.i.i, align 8
   %idxprom247.us.i.i.i.i = sext i32 %577 to i64
   %arrayidx248.us.i.i.i.i = getelementptr inbounds [4 x %struct.stbi__huffman], ptr %huff_dc359.i.i.i.i, i64 0, i64 %idxprom247.us.i.i.i.i
-  %call249.us.i.i.i.i = call fastcc noundef i32 @_ZL31stbi__jpeg_decode_block_prog_dcP10stbi__jpegPsP13stbi__huffmani(ptr noundef %call.i.i155, ptr noundef %add.ptr239.us.i.i.i.i, ptr noundef %arrayidx248.us.i.i.i.i, i32 noundef %519)
+  %call249.us.i.i.i.i = call fastcc noundef i32 @_ZL31stbi__jpeg_decode_block_prog_dcP10stbi__jpegPsP13stbi__huffmani(ptr noundef nonnull %call.i.i155, ptr noundef %add.ptr239.us.i.i.i.i, ptr noundef %arrayidx248.us.i.i.i.i, i32 noundef %519)
   %tobool250.not.us.i.i.i.i = icmp eq i32 %call249.us.i.i.i.i, 0
   br i1 %tobool250.not.us.i.i.i.i, label %_ZL30stbi__parse_entropy_coded_dataP10stbi__jpeg.exit.i.i.i, label %if.end270.us.i.i.i.i
 
@@ -7070,7 +7070,7 @@ if.then274.us.i.i.i.i:                            ; preds = %if.end270.us.i.i.i.
   br i1 %cmp276.us.i.i.i.i, label %if.then277.us.i.i.i.i, label %if.end278.us.i.i.i.i
 
 if.then277.us.i.i.i.i:                            ; preds = %if.then274.us.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %if.end278.us.i.i.i.i
 
 if.end278.us.i.i.i.i:                             ; preds = %if.then277.us.i.i.i.i, %if.then274.us.i.i.i.i
@@ -7172,7 +7172,7 @@ for.body330.i.i.i.i:                              ; preds = %for.cond324.prehead
   %600 = load i32, ptr %hd363.i.i.i.i, align 8
   %idxprom364.i.i.i.i = sext i32 %600 to i64
   %arrayidx365.i.i.i.i = getelementptr inbounds [4 x %struct.stbi__huffman], ptr %huff_dc359.i.i.i.i, i64 0, i64 %idxprom364.i.i.i.i
-  %call366.i.i.i.i = call fastcc noundef i32 @_ZL31stbi__jpeg_decode_block_prog_dcP10stbi__jpegPsP13stbi__huffmani(ptr noundef %call.i.i155, ptr noundef %add.ptr358.i.i.i.i, ptr noundef %arrayidx365.i.i.i.i, i32 noundef %589)
+  %call366.i.i.i.i = call fastcc noundef i32 @_ZL31stbi__jpeg_decode_block_prog_dcP10stbi__jpegPsP13stbi__huffmani(ptr noundef nonnull %call.i.i155, ptr noundef %add.ptr358.i.i.i.i, ptr noundef %arrayidx365.i.i.i.i, i32 noundef %589)
   %tobool367.not.i.i.i.i = icmp eq i32 %call366.i.i.i.i, 0
   br i1 %tobool367.not.i.i.i.i, label %_ZL30stbi__parse_entropy_coded_dataP10stbi__jpeg.exit.i.i.i, label %for.cond324.i.i.i.i
 
@@ -7215,7 +7215,7 @@ if.then382.i.i.i.i:                               ; preds = %for.end378.i.i.i.i
   br i1 %cmp384.i.i.i.i, label %if.then385.i.i.i.i, label %if.end386.i.i.i.i
 
 if.then385.i.i.i.i:                               ; preds = %if.then382.i.i.i.i
-  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %call.i.i155)
+  call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %if.end386.i.i.i.i
 
 if.end386.i.i.i.i:                                ; preds = %if.then385.i.i.i.i, %if.then382.i.i.i.i
@@ -7475,12 +7475,12 @@ if.then46.i.i.i:                                  ; preds = %if.end43.i.i.i
 
 if.else49.i.i.i:                                  ; preds = %while.cond.i.i.i
   %m.1.i.i.i = zext i8 %m.1.in.i.i.i to i32
-  %call50.i.i.i = call fastcc noundef i32 @_ZL20stbi__process_markerP10stbi__jpegi(ptr noundef %call.i.i155, i32 noundef %m.1.i.i.i)
+  %call50.i.i.i = call fastcc noundef i32 @_ZL20stbi__process_markerP10stbi__jpegi(ptr noundef nonnull %call.i.i155, i32 noundef %m.1.i.i.i)
   %tobool51.not.i.i.i = icmp eq i32 %call50.i.i.i, 0
   br i1 %tobool51.not.i.i.i, label %if.then4.i.i165, label %if.end55.i.i.i
 
 if.end55.i.i.i:                                   ; preds = %_ZL12stbi__at_eofP13stbi__context.exit.i.i.i, %if.end.i45.i.i.i, %if.else49.i.i.i, %if.end43.i.i.i, %_ZL10stbi__get8P13stbi__context.exit92.i.i.i, %if.end15.i.i.i
-  %call56.i.i.i = call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef %call.i.i155)
+  %call56.i.i.i = call fastcc noundef zeroext i8 @_ZL16stbi__get_markerP10stbi__jpeg(ptr noundef nonnull %call.i.i155)
   br label %while.cond.i.i.i, !llvm.loop !59
 
 while.end58.i.i.i:                                ; preds = %while.cond.i.i.i
@@ -7752,7 +7752,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i178 = getelementptr inbounds [4 x %struct.stbi__resample], ptr %res_comp.i.i, i64 0, i64 %indvars.iv.i.i
   %add.i.i179 = add i32 %685, 3
   %conv35.i.i = zext i32 %add.i.i179 to i64
-  %call.i268.i.i = call noalias noundef ptr @malloc(i64 noundef %conv35.i.i) #35
+  %call.i268.i.i = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv35.i.i) #35
   %arrayidx38.i.i = getelementptr inbounds [4 x %struct.anon], ptr %img_comp.i.i.i, i64 0, i64 %indvars.iv.i.i
   %linebuf.i.i = getelementptr inbounds i8, ptr %arrayidx38.i.i, i64 72
   store ptr %call.i268.i.i, ptr %linebuf.i.i, align 8
@@ -7917,7 +7917,7 @@ _ZL21stbi__mad3sizes_validiiii.exit.i.i.i:        ; preds = %_ZL21stbi__mul2size
 _ZL17stbi__malloc_mad3iiii.exit.i.i:              ; preds = %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i
   %add2.i.i.i = add nsw i32 %mul4.i.i.i.i, 1
   %conv.i.i.i182 = sext i32 %add2.i.i.i to i64
-  %call.i.i298.i.i = call noalias noundef ptr @malloc(i64 noundef %conv.i.i.i182) #35
+  %call.i.i298.i.i = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i.i.i182) #35
   %tobool106.not.i.i = icmp eq ptr %call.i.i298.i.i, null
   br i1 %tobool106.not.i.i, label %if.then107.i.i, label %for.cond112.preheader.i.i
 
@@ -8639,7 +8639,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA54_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA54_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(54) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA54_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(54) %args)
           to label %_ZN4pbrt12StringPrintfIJRA54_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -9357,7 +9357,7 @@ _ZL21stbi__mul2sizes_validii.exit27.i.i:          ; preds = %if.end.i21.i.i
 _ZL17stbi__malloc_mad4iiiii.exit:                 ; preds = %if.end.i21.i.i, %_ZL21stbi__mul2sizes_validii.exit27.i.i
   %mul2.i = mul i32 %div, %mul5.i
   %conv.i36 = sext i32 %mul2.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i36) #35
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i36) #35
   %tobool37.not = icmp eq ptr %call.i.i, null
   br i1 %tobool37.not, label %if.then38, label %if.end42
 
@@ -9640,7 +9640,7 @@ if.end128.us:                                     ; preds = %if.end120.us
   br i1 %cmp129.us, label %if.then130.us, label %if.end138.us
 
 if.then130.us:                                    ; preds = %if.end128.us
-  %call.i.i98.us = call noalias noundef ptr @malloc(i64 noundef %conv.i97) #35
+  %call.i.i98.us = call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i97) #35
   %tobool132.not.us = icmp eq ptr %call.i.i98.us, null
   br i1 %tobool132.not.us, label %if.then133, label %if.end138.us
 
@@ -10169,7 +10169,7 @@ _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %comp
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #35
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i) #35
   %cmp = icmp eq ptr %call.i.i, null
   br i1 %cmp, label %if.then1, label %if.end4
 
@@ -11247,7 +11247,7 @@ _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %_ZL21stbi__mul2size
   %mul.i102106 = phi i32 [ %mul.i99, %_ZL21stbi__mul2sizes_validii.exit.i.i ], [ %mul.i, %land.lhs.true.i ]
   %mul4.i.i = mul nuw nsw i32 %mul.i102106, %tga_comp.0.ph
   %conv.i324 = zext nneg i32 %mul4.i.i to i64
-  %call.i.i325 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i324) #35
+  %call.i.i325 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i324) #35
   %tobool52.not = icmp eq ptr %call.i.i325, null
   br i1 %tobool52.not, label %if.then53, label %if.end57
 
@@ -11483,7 +11483,7 @@ if.end13.i362:                                    ; preds = %if.then4.i354, %if.
 _ZL10stbi__skipP13stbi__contexti.exit376:         ; preds = %if.end79, %if.then8.i366, %if.end13.i362
   %mul.i.i384 = mul nuw nsw i32 %call6, %tga_comp.0.ph
   %conv.i386 = zext nneg i32 %mul.i.i384 to i64
-  %call.i.i387 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i386) #35
+  %call.i.i387 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i386) #35
   %tobool81.not = icmp eq ptr %call.i.i387, null
   br i1 %tobool81.not, label %if.then82, label %if.end86
 
@@ -11507,7 +11507,7 @@ land.rhs:                                         ; preds = %if.then88
 for.body92:                                       ; preds = %if.then88, %for.body92
   %pal_entry.029 = phi ptr [ %add.ptr94, %for.body92 ], [ %call.i.i387, %if.then88 ]
   %i.128 = phi i32 [ %inc96, %for.body92 ], [ 0, %if.then88 ]
-  %call.i388 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i388 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %101 = trunc nuw i32 %call.i388 to i16
   %102 = lshr i16 %101, 10
   %103 = and i16 %102, 31
@@ -11747,7 +11747,7 @@ land.rhs157:                                      ; preds = %if.then155
   unreachable
 
 land.end158:                                      ; preds = %if.then155
-  %call.i455 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i455 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %136 = trunc nuw i32 %call.i455 to i16
   %137 = lshr i16 %136, 10
   %138 = and i16 %137, 31
@@ -12294,18 +12294,18 @@ if.then:                                          ; preds = %if.end.i98, %if.end
   br label %return
 
 if.end:                                           ; preds = %_ZL10stbi__get8P13stbi__context.exit127
-  %call.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %call6 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
   %call7 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call.i128 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i129 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i128 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i129 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i130 = shl nuw i32 %call1.i129, 16
   %add.i131 = or disjoint i32 %shl.i130, %call.i128
   %offset = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %add.i131, ptr %offset, align 4
-  %call.i132 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i133 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i132 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i133 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i134 = shl nuw i32 %call1.i133, 16
   %add.i135 = or disjoint i32 %shl.i134, %call.i132
   %hsz10 = getelementptr inbounds i8, ptr %info, i64 8
@@ -12348,13 +12348,13 @@ if.then32:                                        ; preds = %if.end17
   br label %if.end39
 
 if.else:                                          ; preds = %if.end17, %if.end17, %if.end17, %if.end17
-  %call.i136 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i137 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i136 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i137 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i138 = shl nuw i32 %call1.i137, 16
   %add.i139 = or disjoint i32 %shl.i138, %call.i136
   store i32 %add.i139, ptr %s, align 8
-  %call.i140 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i141 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i140 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i141 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i142 = shl nuw i32 %call1.i141, 16
   %add.i143 = or disjoint i32 %shl.i142, %call.i140
   br label %if.end39
@@ -12378,8 +12378,8 @@ if.end46:                                         ; preds = %if.end39
   br i1 %cmp18.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
-  %call.i144 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i145 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i144 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i145 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %shl.i146 = shl nuw i32 %call1.i145, 16
   %add.i147 = or disjoint i32 %shl.i146, %call.i144
   %27 = add i32 %add.i147, -1
@@ -12528,8 +12528,8 @@ if.end151:                                        ; preds = %if.then149, %if.end
 
 for.body:                                         ; preds = %if.end151, %for.body
   %i.0158 = phi i32 [ 0, %if.end151 ], [ %inc, %for.body ]
-  %call.i150 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i151 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call.i150 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
+  %call1.i151 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef nonnull %s)
   %inc = add nuw nsw i32 %i.0158, 1
   %exitcond.not = icmp eq i32 %inc, 12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !98
@@ -12636,7 +12636,7 @@ _ZL21stbi__mad3sizes_validiiii.exit:              ; preds = %if.end.i8.i, %_ZL21
 if.end:                                           ; preds = %_ZL21stbi__mad3sizes_validiiii.exit
   %add2 = add nsw i32 %mul4.i, %add
   %conv = sext i32 %add2 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %entry, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mul2sizes_validii.exit14.i, %_ZL21stbi__mad3sizes_validiiii.exit, %if.end
@@ -12810,7 +12810,7 @@ _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
   %mul4.i.i = mul nsw i32 %mul.i.i, %y
   %conv.i = sext i32 %mul4.i.i to i64
-  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #35
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv.i) #35
   %cmp3 = icmp eq ptr %call.i.i, null
   br i1 %cmp3, label %if.then4, label %for.cond.preheader
 
@@ -13223,7 +13223,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA8_KcEEEvNS_8LogLevelEPS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA8_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(8) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA8_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(8) %args)
           to label %_ZN4pbrt12StringPrintfIJRA8_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13488,7 +13488,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA31_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA31_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(31) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA31_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(31) %args)
           to label %_ZN4pbrt12StringPrintfIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13520,7 +13520,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA2_KcEEEvNS_8LogLevelEPS
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA2_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(2) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA2_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(2) %args)
           to label %_ZN4pbrt12StringPrintfIJRA2_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -13905,13 +13905,13 @@ if.end7:                                          ; preds = %_ZL21stbi__mul2size
   %mul = mul nuw nsw i32 %2, %1
   %mul10 = shl nsw i32 %mul, 2
   %conv = zext nneg i32 %mul10 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   store ptr %call.i, ptr %out, align 8
-  %call.i141 = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i141 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   %background = getelementptr inbounds i8, ptr %g, i64 16
   store ptr %call.i141, ptr %background, align 8
   %conv16 = zext nneg i32 %mul to i64
-  %call.i142 = tail call noalias noundef ptr @malloc(i64 noundef %conv16) #35
+  %call.i142 = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv16) #35
   %history = getelementptr inbounds i8, ptr %g, i64 24
   store ptr %call.i142, ptr %history, align 8
   %tobool19.not = icmp eq ptr %call.i, null
@@ -14697,7 +14697,7 @@ if.else80.i:                                      ; preds = %if.end52.i
 if.end87.i:                                       ; preds = %if.else80.i, %cond.end.i
   %avail.2.i = phi i32 [ %inc56.i, %cond.end.i ], [ %avail.0.i.ph, %if.else80.i ]
   %conv88.i = trunc i32 %and.i to i16
-  tail call fastcc void @_ZL18stbi__out_gif_codeP9stbi__gift(ptr noundef %g, i16 noundef zeroext %conv88.i)
+  tail call fastcc void @_ZL18stbi__out_gif_codeP9stbi__gift(ptr noundef nonnull %g, i16 noundef zeroext %conv88.i)
   %and89.i = and i32 %avail.2.i, %codemask.0.i.ph
   %cmp90.i = icmp eq i32 %and89.i, 0
   %cmp91.i = icmp slt i32 %avail.2.i, 4096
@@ -16589,7 +16589,7 @@ land.end:                                         ; preds = %if.end
   %mul3 = mul i32 %mul, %x
   %mul4 = mul i32 %mul3, %y
   %conv = zext i32 %mul4 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   %cmp5 = icmp eq ptr %call.i, null
   br i1 %cmp5, label %if.then6, label %for.cond.preheader
 
@@ -19393,7 +19393,7 @@ _ZL21stbi__mad2sizes_validiii.exit:               ; preds = %if.end.i.i, %_ZL21s
 if.end:                                           ; preds = %_ZL21stbi__mad2sizes_validiii.exit
   %add1 = add nsw i32 %mul.i, %add
   %conv = sext i32 %add1 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   br label %return
 
 return:                                           ; preds = %entry, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mad2sizes_validiii.exit, %if.end
@@ -19661,7 +19661,7 @@ cond.true:                                        ; preds = %if.end5
   br i1 %cmp.i, label %if.then.i, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit
 
 if.then.i:                                        ; preds = %cond.true
-  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %j)
+  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
   %.pre.i = load i32, ptr %code_bits, align 4
   br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit
 
@@ -19669,7 +19669,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit:     ; preds = %cond.true, %if.then
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %cond.true ]
   %code_buffer.i = getelementptr inbounds i8, ptr %j, i64 18464
   %3 = load i32, ptr %code_buffer.i, align 8
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 %call)
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 range(i32 1, 16) %call)
   %idxprom.i = zext nneg i32 %call to i64
   %arrayidx.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
@@ -19775,14 +19775,14 @@ if.else53:                                        ; preds = %if.end44
   br i1 %cmp.i42, label %if.then.i55, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57
 
 if.then.i55:                                      ; preds = %if.else53
-  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %j)
+  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
   %.pre.i56 = load i32, ptr %code_bits, align 4
   br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit57
 
 _ZL20stbi__extend_receiveP10stbi__jpegi.exit57:   ; preds = %if.else53, %if.then.i55
   %18 = phi i32 [ %.pre.i56, %if.then.i55 ], [ %17, %if.else53 ]
   %19 = load i32, ptr %code_buffer, align 8
-  %or.i44 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 %and45)
+  %or.i44 = tail call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 range(i32 1, 16) %and45)
   %idxprom.i45 = zext nneg i32 %and45 to i64
   %arrayidx.i46 = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i45
   %20 = load i32, ptr %arrayidx.i46, align 4
@@ -20137,7 +20137,7 @@ cond.true:                                        ; preds = %if.end11
   br i1 %cmp.i, label %if.then.i, label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit
 
 if.then.i:                                        ; preds = %cond.true
-  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %j)
+  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
   %.pre.i = load i32, ptr %code_bits, align 4
   br label %_ZL20stbi__extend_receiveP10stbi__jpegi.exit
 
@@ -20145,7 +20145,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit:     ; preds = %cond.true, %if.then
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %cond.true ]
   %code_buffer.i = getelementptr inbounds i8, ptr %j, i64 18464
   %7 = load i32, ptr %code_buffer.i, align 8
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 %call6)
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %7, i32 %7, i32 range(i32 1, 16) %call6)
   %idxprom.i = zext nneg i32 %call6 to i64
   %arrayidx.i = getelementptr inbounds [17 x i32], ptr @_ZL11stbi__bmask, i64 0, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
@@ -20184,7 +20184,7 @@ if.else:                                          ; preds = %if.end3
   br i1 %cmp.i20, label %if.then.i22, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
 if.then.i22:                                      ; preds = %if.else
-  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef %j)
+  tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %j)
   %.pre.i23 = load i32, ptr %code_bits, align 4
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
@@ -20338,7 +20338,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA82_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA82_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(82) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA82_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(82) %args)
           to label %_ZN4pbrt12StringPrintfIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -21235,7 +21235,7 @@ _ZL21stbi__mul2sizes_validii.exit27.i:            ; preds = %if.end.i21.i
 if.end:                                           ; preds = %_ZL21stbi__mul2sizes_validii.exit27.i, %if.end.i21.i
   %mul2 = mul nsw i32 %mul5.i, %d
   %conv = sext i32 %mul2 to i64
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %conv) #35
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef range(i64 -8589934588, 8589934589) %conv) #35
   br label %return
 
 return:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry, %_ZL21stbi__mul2sizes_validii.exit.i, %_ZL21stbi__mul2sizes_validii.exit18.i, %_ZL21stbi__mul2sizes_validii.exit27.i, %if.end
@@ -21929,7 +21929,7 @@ define linkonce_odr dso_local void @_ZN4pbrt8LogFatalIJRA21_KcEEEvNS_8LogLevelEP
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
-  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA21_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(21) %args)
+  invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRA21_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_(ptr noundef nonnull align 8 %s, ptr noundef %fmt, ptr noundef nonnull align 1 dereferenceable(21) %args)
           to label %_ZN4pbrt12StringPrintfIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_DpOT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i

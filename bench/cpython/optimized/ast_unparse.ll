@@ -1080,7 +1080,7 @@ land.lhs.true15.i:                                ; preds = %do.body13.i
 do.body21.i:                                      ; preds = %land.lhs.true15.i, %do.body13.i
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i552
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %call22.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %4, i32 noundef %add.i)
+  %call22.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %4, i32 noundef %add.i)
   %cmp23.i = icmp eq i32 %call22.i, -1
   br i1 %cmp23.i, label %common.ret611, label %for.cond.i
 
@@ -1172,7 +1172,7 @@ do.body15.i:                                      ; preds = %land.lhs.true.i71, 
   %7 = load ptr, ptr %v.i67, align 8
   %conv.i = zext i1 %rassoc.0.i to i32
   %add.i69 = add nuw nsw i32 %pr.0.i, %conv.i
-  %call17.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %7, i32 noundef %add.i69)
+  %call17.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %7, i32 noundef %add.i69)
   %cmp18.i = icmp eq i32 %call17.i, -1
   br i1 %cmp18.i, label %common.ret611, label %do.body23.i
 
@@ -1187,7 +1187,7 @@ do.body30.i:                                      ; preds = %do.body23.i
   %lnot.i = xor i1 %rassoc.0.i, true
   %lnot.ext.i = zext i1 %lnot.i to i32
   %add33.i = add nuw nsw i32 %pr.0.i, %lnot.ext.i
-  %call34.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %8, i32 noundef %add33.i)
+  %call34.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %8, i32 noundef %add33.i)
   %cmp35.i = icmp eq i32 %call34.i, -1
   br i1 %cmp35.i, label %common.ret611, label %do.body40.i
 
@@ -1237,7 +1237,7 @@ do.body6.i:                                       ; preds = %land.lhs.true.i83, 
 do.body12.i:                                      ; preds = %do.body6.i
   %operand.i = getelementptr inbounds i8, ptr %e, i64 16
   %14 = load ptr, ptr %operand.i, align 8
-  %call14.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %14, i32 noundef %switch.load599)
+  %call14.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %14, i32 noundef %switch.load599)
   %cmp15.i = icmp eq i32 %call14.i, -1
   br i1 %cmp15.i, label %common.ret611, label %do.body19.i
 
@@ -1294,7 +1294,7 @@ cond.end16.i:                                     ; preds = %cond.false11.i, %co
 
 do.body25.i:                                      ; preds = %cond.end16.i
   %20 = load ptr, ptr %v.i90, align 8
-  %call28.i = tail call fastcc i32 @append_ast_args(ptr noundef %writer, ptr noundef %20)
+  %call28.i = tail call fastcc i32 @append_ast_args(ptr noundef nonnull %writer, ptr noundef %20)
   %cmp29.i = icmp eq i32 %call28.i, -1
   br i1 %cmp29.i, label %common.ret611, label %do.body33.i
 
@@ -1306,7 +1306,7 @@ do.body33.i:                                      ; preds = %do.body25.i
 do.body39.i:                                      ; preds = %do.body33.i
   %body.i = getelementptr inbounds i8, ptr %e, i64 16
   %21 = load ptr, ptr %body.i, align 8
-  %call41.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %21, i32 noundef 1)
+  %call41.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %21, i32 noundef 1)
   %cmp42.i = icmp eq i32 %call41.i, -1
   br i1 %cmp42.i, label %common.ret611, label %do.body46.i
 
@@ -1334,7 +1334,7 @@ do.body2.i:                                       ; preds = %land.lhs.true.i111,
   %v.i101 = getelementptr inbounds i8, ptr %e, i64 8
   %body.i102 = getelementptr inbounds i8, ptr %e, i64 16
   %22 = load ptr, ptr %body.i102, align 8
-  %call3.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %22, i32 noundef 2)
+  %call3.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %22, i32 noundef 2)
   %cmp4.i = icmp eq i32 %call3.i, -1
   br i1 %cmp4.i, label %common.ret611, label %do.body8.i
 
@@ -1345,7 +1345,7 @@ do.body8.i:                                       ; preds = %do.body2.i
 
 do.body14.i:                                      ; preds = %do.body8.i
   %23 = load ptr, ptr %v.i101, align 8
-  %call16.i104 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %23, i32 noundef 2)
+  %call16.i104 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %23, i32 noundef 2)
   %cmp17.i105 = icmp eq i32 %call16.i104, -1
   br i1 %cmp17.i105, label %common.ret611, label %do.body21.i106
 
@@ -1357,7 +1357,7 @@ do.body21.i106:                                   ; preds = %do.body14.i
 do.body27.i109:                                   ; preds = %do.body21.i106
   %orelse.i = getelementptr inbounds i8, ptr %e, i64 24
   %24 = load ptr, ptr %orelse.i, align 8
-  %call29.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %24, i32 noundef 1)
+  %call29.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %24, i32 noundef 1)
   %cmp30.i = icmp eq i32 %call29.i, -1
   br i1 %cmp30.i, label %common.ret611, label %do.body34.i
 
@@ -1408,7 +1408,7 @@ do.end11.i:                                       ; preds = %land.lhs.true.i138,
   br i1 %cmp13.not.i, label %do.body37.i, label %do.body15.i129
 
 do.body15.i129:                                   ; preds = %do.end11.i
-  %call16.i130 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %28, i32 noundef 1)
+  %call16.i130 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef nonnull %28, i32 noundef 1)
   %cmp17.i131 = icmp eq i32 %call16.i130, -1
   br i1 %cmp17.i131, label %common.ret611, label %do.body21.i132
 
@@ -1422,7 +1422,7 @@ do.body27.i135:                                   ; preds = %do.body21.i132
   %typed_elements30.i = getelementptr inbounds i8, ptr %29, i64 16
   %arrayidx31.i = getelementptr [1 x ptr], ptr %typed_elements30.i, i64 0, i64 %i.0.i123550
   %30 = load ptr, ptr %arrayidx31.i, align 8
-  %call32.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %30, i32 noundef 1)
+  %call32.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %30, i32 noundef 1)
   %cmp33.i = icmp eq i32 %call32.i, -1
   br i1 %cmp33.i, label %common.ret611, label %for.inc.i136
 
@@ -1436,7 +1436,7 @@ do.body43.i:                                      ; preds = %do.body37.i
   %typed_elements46.i = getelementptr inbounds i8, ptr %31, i64 16
   %arrayidx47.i = getelementptr [1 x ptr], ptr %typed_elements46.i, i64 0, i64 %i.0.i123550
   %32 = load ptr, ptr %arrayidx47.i, align 8
-  %call48.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %32, i32 noundef 6)
+  %call48.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %32, i32 noundef 6)
   %cmp49.i = icmp eq i32 %call48.i, -1
   br i1 %cmp49.i, label %common.ret611, label %for.inc.i136
 
@@ -1485,7 +1485,7 @@ do.body12.i155:                                   ; preds = %land.lhs.true.i160,
   %typed_elements.i156 = getelementptr inbounds i8, ptr %35, i64 16
   %arrayidx.i157 = getelementptr [1 x ptr], ptr %typed_elements.i156, i64 0, i64 %i.0.i150548
   %36 = load ptr, ptr %arrayidx.i157, align 8
-  %call15.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %36, i32 noundef 1)
+  %call15.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %36, i32 noundef 1)
   %cmp16.i = icmp eq i32 %call15.i, -1
   br i1 %cmp16.i, label %common.ret611, label %for.cond.i149
 
@@ -1501,14 +1501,14 @@ sw.bb13:                                          ; preds = %entry
 do.body1.i:                                       ; preds = %sw.bb13
   %v.i165 = getelementptr inbounds i8, ptr %e, i64 8
   %37 = load ptr, ptr %v.i165, align 8
-  %call2.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %37, i32 noundef 1)
+  %call2.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %37, i32 noundef 1)
   %cmp3.i166 = icmp eq i32 %call2.i, -1
   br i1 %cmp3.i166, label %common.ret611, label %do.body7.i
 
 do.body7.i:                                       ; preds = %do.body1.i
   %generators.i = getelementptr inbounds i8, ptr %e, i64 16
   %38 = load ptr, ptr %generators.i, align 8
-  %call9.i167 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %38)
+  %call9.i167 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef nonnull %writer, ptr noundef %38)
   %cmp10.i168 = icmp eq i32 %call9.i167, -1
   br i1 %cmp10.i168, label %common.ret611, label %do.body14.i169
 
@@ -1524,14 +1524,14 @@ sw.bb15:                                          ; preds = %entry
 do.body1.i174:                                    ; preds = %sw.bb15
   %v.i175 = getelementptr inbounds i8, ptr %e, i64 8
   %39 = load ptr, ptr %v.i175, align 8
-  %call2.i176 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %39, i32 noundef 1)
+  %call2.i176 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %39, i32 noundef 1)
   %cmp3.i177 = icmp eq i32 %call2.i176, -1
   br i1 %cmp3.i177, label %common.ret611, label %do.body7.i178
 
 do.body7.i178:                                    ; preds = %do.body1.i174
   %generators.i179 = getelementptr inbounds i8, ptr %e, i64 16
   %40 = load ptr, ptr %generators.i179, align 8
-  %call9.i180 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %40)
+  %call9.i180 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef nonnull %writer, ptr noundef %40)
   %cmp10.i181 = icmp eq i32 %call9.i180, -1
   br i1 %cmp10.i181, label %common.ret611, label %do.body14.i182
 
@@ -1547,14 +1547,14 @@ sw.bb17:                                          ; preds = %entry
 do.body1.i187:                                    ; preds = %sw.bb17
   %v.i188 = getelementptr inbounds i8, ptr %e, i64 8
   %41 = load ptr, ptr %v.i188, align 8
-  %call2.i189 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %41, i32 noundef 1)
+  %call2.i189 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %41, i32 noundef 1)
   %cmp3.i190 = icmp eq i32 %call2.i189, -1
   br i1 %cmp3.i190, label %common.ret611, label %do.body7.i191
 
 do.body7.i191:                                    ; preds = %do.body1.i187
   %generators.i192 = getelementptr inbounds i8, ptr %e, i64 16
   %42 = load ptr, ptr %generators.i192, align 8
-  %call9.i193 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %42)
+  %call9.i193 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef nonnull %writer, ptr noundef %42)
   %cmp10.i194 = icmp eq i32 %call9.i193, -1
   br i1 %cmp10.i194, label %common.ret611, label %do.body14.i195
 
@@ -1570,7 +1570,7 @@ sw.bb19:                                          ; preds = %entry
 do.body1.i200:                                    ; preds = %sw.bb19
   %v.i201 = getelementptr inbounds i8, ptr %e, i64 8
   %43 = load ptr, ptr %v.i201, align 8
-  %call2.i202 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
+  %call2.i202 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %43, i32 noundef 1)
   %cmp3.i203 = icmp eq i32 %call2.i202, -1
   br i1 %cmp3.i203, label %common.ret611, label %do.body7.i204
 
@@ -1582,14 +1582,14 @@ do.body7.i204:                                    ; preds = %do.body1.i200
 do.body13.i206:                                   ; preds = %do.body7.i204
   %value.i = getelementptr inbounds i8, ptr %e, i64 16
   %44 = load ptr, ptr %value.i, align 8
-  %call15.i207 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %44, i32 noundef 1)
+  %call15.i207 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %44, i32 noundef 1)
   %cmp16.i208 = icmp eq i32 %call15.i207, -1
   br i1 %cmp16.i208, label %common.ret611, label %do.body20.i209
 
 do.body20.i209:                                   ; preds = %do.body13.i206
   %generators.i210 = getelementptr inbounds i8, ptr %e, i64 24
   %45 = load ptr, ptr %generators.i210, align 8
-  %call22.i211 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef %writer, ptr noundef %45)
+  %call22.i211 = tail call fastcc i32 @append_ast_comprehensions(ptr noundef nonnull %writer, ptr noundef %45)
   %cmp23.i212 = icmp eq i32 %call22.i211, -1
   br i1 %cmp23.i212, label %common.ret611, label %do.body27.i213
 
@@ -1614,7 +1614,7 @@ do.body1.i218:                                    ; preds = %sw.bb21
 
 do.body6.i221:                                    ; preds = %do.body1.i218
   %47 = load ptr, ptr %v.i216, align 8
-  %call9.i222 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %47, i32 noundef 1)
+  %call9.i222 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %47, i32 noundef 1)
   %cmp10.i223 = icmp eq i32 %call9.i222, -1
   br i1 %cmp10.i223, label %common.ret611, label %do.body14.i224
 
@@ -1630,7 +1630,7 @@ sw.bb23:                                          ; preds = %entry
 do.body1.i231:                                    ; preds = %sw.bb23
   %v.i232 = getelementptr inbounds i8, ptr %e, i64 8
   %48 = load ptr, ptr %v.i232, align 8
-  %call2.i233 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %48, i32 noundef 1)
+  %call2.i233 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %48, i32 noundef 1)
   %cmp3.i234 = icmp eq i32 %call2.i233, -1
   br i1 %cmp3.i234, label %common.ret611, label %do.body7.i235
 
@@ -1655,7 +1655,7 @@ do.body2.i239:                                    ; preds = %land.lhs.true.i250,
 do.body8.i242:                                    ; preds = %do.body2.i239
   %v.i243 = getelementptr inbounds i8, ptr %e, i64 8
   %49 = load ptr, ptr %v.i243, align 8
-  %call9.i244 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %49, i32 noundef 15)
+  %call9.i244 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %49, i32 noundef 15)
   %cmp10.i245 = icmp eq i32 %call9.i244, -1
   br i1 %cmp10.i245, label %common.ret611, label %do.body14.i246
 
@@ -1695,7 +1695,7 @@ cond.false.i257:                                  ; preds = %do.end.i254
 cond.end.i258:                                    ; preds = %cond.false.i257, %do.end.i254
   %cond.i259 = phi i64 [ %52, %cond.false.i257 ], [ 0, %do.end.i254 ]
   %53 = load ptr, ptr %v.i255, align 8
-  %call8.i260 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %53, i32 noundef 6)
+  %call8.i260 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %53, i32 noundef 6)
   %cmp9.i261 = icmp eq i32 %call8.i260, -1
   br i1 %cmp9.i261, label %common.ret611, label %for.cond.i262.preheader
 
@@ -1737,7 +1737,7 @@ switch.lookup600:                                 ; preds = %for.body.i
 do.body29.i:                                      ; preds = %switch.lookup600
   %arrayidx31.i273 = getelementptr [1 x ptr], ptr %typed_elements30.i272, i64 0, i64 %i.0.i263546
   %58 = load ptr, ptr %arrayidx31.i273, align 8
-  %call32.i274 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %58, i32 noundef 6)
+  %call32.i274 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %58, i32 noundef 6)
   %cmp33.i275 = icmp eq i32 %call32.i274, -1
   br i1 %cmp33.i275, label %common.ret611, label %for.cond.i262
 
@@ -1755,7 +1755,7 @@ do.end44.i:                                       ; preds = %land.lhs.true39.i, 
 sw.bb29:                                          ; preds = %entry
   %v.i282 = getelementptr inbounds i8, ptr %e, i64 8
   %59 = load ptr, ptr %v.i282, align 8
-  %call.i283 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %59, i32 noundef 15)
+  %call.i283 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %59, i32 noundef 15)
   %cmp.i284 = icmp eq i32 %call.i283, -1
   br i1 %cmp.i284, label %common.ret611, label %do.end.i285
 
@@ -1795,7 +1795,7 @@ if.then16.i:                                      ; preds = %cond.end12.i
   br i1 %cmp19.i, label %if.then20.i, label %do.body24.i.thread
 
 if.then20.i:                                      ; preds = %if.then16.i
-  %call21.i302 = tail call fastcc i32 @append_ast_genexp(ptr noundef %writer, ptr noundef nonnull %64)
+  %call21.i302 = tail call fastcc i32 @append_ast_genexp(ptr noundef nonnull %writer, ptr noundef nonnull %64)
   br label %common.ret611
 
 do.body24.i:                                      ; preds = %cond.end12.i
@@ -1840,7 +1840,7 @@ do.end38.i:                                       ; preds = %land.lhs.true33.i, 
   %typed_elements43.i = getelementptr inbounds i8, ptr %66, i64 16
   %arrayidx44.i = getelementptr [1 x ptr], ptr %typed_elements43.i, i64 0, i64 %i.0.i293540
   %67 = load ptr, ptr %arrayidx44.i, align 8
-  %call45.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %67, i32 noundef 1)
+  %call45.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %67, i32 noundef 1)
   %cmp46.i = icmp eq i32 %call45.i, -1
   br i1 %cmp46.i, label %common.ret611, label %for.cond.i292
 
@@ -1886,7 +1886,7 @@ do.body8.i468:                                    ; preds = %if.else.i
 do.body15.i470:                                   ; preds = %do.body8.i468, %do.body.i475
   %value.i471 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %value.i471, align 8
-  %call16.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %71, i32 noundef 1)
+  %call16.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %71, i32 noundef 1)
   %cmp17.i472 = icmp eq i32 %call16.i, -1
   br i1 %cmp17.i472, label %common.ret611, label %for.cond50.i
 
@@ -1964,15 +1964,15 @@ for.body.i490:                                    ; preds = %for.body.i490.lr.ph
 sw.bb.i.i:                                        ; preds = %for.body.i490
   %v.i.i = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %v.i.i, align 8
-  %call.i.i496 = call fastcc i32 @append_fstring_unicode(ptr noundef %body_writer.i, ptr noundef %79)
+  %call.i.i496 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %body_writer.i, ptr noundef %79)
   br label %append_fstring_element.exit.i
 
 sw.bb1.i.i:                                       ; preds = %for.body.i490
-  %call2.i.i = call fastcc i32 @append_joinedstr(ptr noundef %body_writer.i, ptr noundef nonnull %77, i1 noundef zeroext false) #5
+  %call2.i.i = call fastcc i32 @append_joinedstr(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %77, i1 noundef zeroext false) #5
   br label %append_fstring_element.exit.i
 
 sw.bb3.i.i:                                       ; preds = %for.body.i490
-  %call4.i.i = call fastcc i32 @append_formattedvalue(ptr noundef %body_writer.i, ptr noundef nonnull %77)
+  %call4.i.i = call fastcc i32 @append_formattedvalue(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %77)
   br label %append_fstring_element.exit.i
 
 append_fstring_element.exit.i.thread:             ; preds = %for.body.i490
@@ -2002,7 +2002,7 @@ if.end.i:                                         ; preds = %build_fstring_body.
   br i1 %cmp.not.i, label %if.end10.i, label %land.lhs.true.i306
 
 land.lhs.true.i306:                               ; preds = %if.end.i
-  %call5.i = call fastcc i32 @append_repr(ptr noundef %writer, ptr noundef nonnull %call3.i488)
+  %call5.i = call fastcc i32 @append_repr(ptr noundef nonnull %writer, ptr noundef nonnull %call3.i488)
   %cmp6.not.i = icmp eq i32 %call5.i, -1
   %spec.select.i = sext i1 %cmp6.not.i to i32
   br label %if.end10.i
@@ -2031,7 +2031,7 @@ sw.bb47:                                          ; preds = %entry
 sw.bb49:                                          ; preds = %entry
   %v1.i = getelementptr inbounds i8, ptr %e, i64 8
   %83 = load ptr, ptr %v1.i, align 8
-  %call.i308 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %83, i32 noundef 15)
+  %call.i308 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %83, i32 noundef 15)
   %cmp.i309 = icmp eq i32 %call.i308, -1
   br i1 %cmp.i309, label %common.ret611, label %do.end.i310
 
@@ -2066,7 +2066,7 @@ do.end13.i:                                       ; preds = %do.body8.i312
 sw.bb51:                                          ; preds = %entry
   %v.i319 = getelementptr inbounds i8, ptr %e, i64 8
   %88 = load ptr, ptr %v.i319, align 8
-  %call.i320 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %88, i32 noundef 15)
+  %call.i320 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %88, i32 noundef 15)
   %cmp.i321 = icmp eq i32 %call.i320, -1
   br i1 %cmp.i321, label %common.ret611, label %do.body1.i322
 
@@ -2078,7 +2078,7 @@ do.body1.i322:                                    ; preds = %sw.bb51
 do.body7.i325:                                    ; preds = %do.body1.i322
   %slice.i = getelementptr inbounds i8, ptr %e, i64 16
   %89 = load ptr, ptr %slice.i, align 8
-  %call9.i326 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %89, i32 noundef 0)
+  %call9.i326 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %89, i32 noundef 0)
   %cmp10.i327 = icmp eq i32 %call9.i326, -1
   br i1 %cmp10.i327, label %common.ret611, label %do.body14.i328
 
@@ -2098,7 +2098,7 @@ common.ret611:                                    ; preds = %do.end28.i, %land.l
 do.body1.i333:                                    ; preds = %sw.bb53
   %v.i334 = getelementptr inbounds i8, ptr %e, i64 8
   %90 = load ptr, ptr %v.i334, align 8
-  %call2.i335 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %90, i32 noundef 6)
+  %call2.i335 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %90, i32 noundef 6)
   %cmp3.i336 = icmp eq i32 %call2.i335, -1
   %..i = sext i1 %cmp3.i336 to i32
   br label %common.ret611
@@ -2110,7 +2110,7 @@ sw.bb55:                                          ; preds = %entry
   br i1 %tobool.not.i339, label %do.body5.i343, label %do.body.i340
 
 do.body.i340:                                     ; preds = %sw.bb55
-  %call.i341 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %91, i32 noundef 1)
+  %call.i341 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef nonnull %91, i32 noundef 1)
   %cmp.i342 = icmp eq i32 %call.i341, -1
   br i1 %cmp.i342, label %common.ret611, label %do.body5.i343
 
@@ -2126,7 +2126,7 @@ do.end10.i:                                       ; preds = %do.body5.i343
   br i1 %tobool12.not.i, label %if.end22.i, label %do.body14.i345
 
 do.body14.i345:                                   ; preds = %do.end10.i
-  %call17.i346 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef nonnull %92, i32 noundef 1)
+  %call17.i346 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef nonnull %92, i32 noundef 1)
   %cmp18.i347 = icmp eq i32 %call17.i346, -1
   br i1 %cmp18.i347, label %common.ret611, label %if.end22.i
 
@@ -2143,7 +2143,7 @@ do.body26.i:                                      ; preds = %if.end22.i
 
 do.body32.i348:                                   ; preds = %do.body26.i
   %94 = load ptr, ptr %step.i, align 8
-  %call35.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %94, i32 noundef 1)
+  %call35.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %94, i32 noundef 1)
   %cmp36.i = icmp eq i32 %call35.i, -1
   br i1 %cmp36.i, label %common.ret611, label %if.end40.i
 
@@ -2192,7 +2192,7 @@ do.body12.i366:                                   ; preds = %land.lhs.true.i373,
   %typed_elements.i367 = getelementptr inbounds i8, ptr %98, i64 16
   %arrayidx.i368 = getelementptr [1 x ptr], ptr %typed_elements.i367, i64 0, i64 %i.0.i359536
   %99 = load ptr, ptr %arrayidx.i368, align 8
-  %call15.i369 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %99, i32 noundef 1)
+  %call15.i369 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %99, i32 noundef 1)
   %cmp16.i370 = icmp eq i32 %call15.i369, -1
   br i1 %cmp16.i370, label %common.ret611, label %for.cond.i358
 
@@ -2248,7 +2248,7 @@ do.body20.i394:                                   ; preds = %land.lhs.true14.i, 
   %typed_elements.i395 = getelementptr inbounds i8, ptr %102, i64 16
   %arrayidx.i396 = getelementptr [1 x ptr], ptr %typed_elements.i395, i64 0, i64 %i.0.i387534
   %103 = load ptr, ptr %arrayidx.i396, align 8
-  %call23.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %103, i32 noundef 1)
+  %call23.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %103, i32 noundef 1)
   %cmp24.i = icmp eq i32 %call23.i, -1
   br i1 %cmp24.i, label %common.ret611, label %for.cond.i386
 
@@ -2284,7 +2284,7 @@ land.lhs.true.i402:                               ; preds = %sw.bb64
 do.body2.i405:                                    ; preds = %land.lhs.true.i402, %sw.bb64
   %v.i406 = getelementptr inbounds i8, ptr %e, i64 8
   %104 = load ptr, ptr %v.i406, align 8
-  %call3.i407 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %104, i32 noundef 15)
+  %call3.i407 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %104, i32 noundef 15)
   %cmp4.i408 = icmp eq i32 %call3.i407, -1
   br i1 %cmp4.i408, label %common.ret611, label %do.body8.i409
 
@@ -2296,7 +2296,7 @@ do.body8.i409:                                    ; preds = %do.body2.i405
 do.body14.i412:                                   ; preds = %do.body8.i409
   %value.i413 = getelementptr inbounds i8, ptr %e, i64 16
   %105 = load ptr, ptr %value.i413, align 8
-  %call16.i414 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %105, i32 noundef 15)
+  %call16.i414 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %105, i32 noundef 15)
   %cmp17.i415 = icmp eq i32 %call16.i414, -1
   br i1 %cmp17.i415, label %common.ret611, label %do.body21.i416
 
@@ -2364,7 +2364,7 @@ do.body.i:                                        ; preds = %do.body.i.lr.ph, %f
   %i.0.i10 = phi i64 [ 0, %do.body.i.lr.ph ], [ %inc.i, %for.cond.i ]
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.0.i10
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i5 = tail call fastcc i32 @append_ast_comprehension(ptr noundef %writer, ptr noundef %3)
+  %call.i5 = tail call fastcc i32 @append_ast_comprehension(ptr noundef nonnull %writer, ptr noundef %3)
   %cmp2.i = icmp eq i32 %call.i5, -1
   br i1 %cmp2.i, label %do.end16, label %for.cond.i
 
@@ -2491,15 +2491,15 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 sw.bb.i:                                          ; preds = %for.body.i
   %v.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v.i, align 8
-  %call.i12 = call fastcc i32 @append_fstring_unicode(ptr noundef %body_writer.i, ptr noundef %4)
+  %call.i12 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %body_writer.i, ptr noundef %4)
   br label %append_fstring_element.exit
 
 sw.bb1.i:                                         ; preds = %for.body.i
-  %call2.i = call fastcc i32 @append_joinedstr(ptr noundef %body_writer.i, ptr noundef nonnull %2, i1 noundef zeroext %is_format_spec)
+  %call2.i = call fastcc i32 @append_joinedstr(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %2, i1 noundef zeroext %is_format_spec)
   br label %append_fstring_element.exit
 
 sw.bb3.i:                                         ; preds = %for.body.i
-  %call4.i = call fastcc i32 @append_formattedvalue(ptr noundef %body_writer.i, ptr noundef nonnull %2)
+  %call4.i = call fastcc i32 @append_formattedvalue(ptr noundef nonnull %body_writer.i, ptr noundef nonnull %2)
   br label %append_fstring_element.exit
 
 append_fstring_element.exit.thread:               ; preds = %for.body.i
@@ -2720,15 +2720,15 @@ lor.lhs.false:                                    ; preds = %if.then27
 sw.bb.i:                                          ; preds = %lor.lhs.false
   %v.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %v.i, align 8
-  %call.i28 = call fastcc i32 @append_fstring_unicode(ptr noundef %writer, ptr noundef %14)
+  %call.i28 = call fastcc i32 @append_fstring_unicode(ptr noundef nonnull %writer, ptr noundef %14)
   br label %append_fstring_element.exit
 
 sw.bb1.i:                                         ; preds = %lor.lhs.false
-  %call2.i = call fastcc i32 @append_joinedstr(ptr noundef %writer, ptr noundef nonnull %12, i1 noundef zeroext true)
+  %call2.i = call fastcc i32 @append_joinedstr(ptr noundef nonnull %writer, ptr noundef nonnull %12, i1 noundef zeroext true)
   br label %append_fstring_element.exit
 
 sw.bb3.i:                                         ; preds = %lor.lhs.false
-  %call4.i = call fastcc i32 @append_formattedvalue(ptr noundef %writer, ptr noundef nonnull %12)
+  %call4.i = call fastcc i32 @append_formattedvalue(ptr noundef nonnull %writer, ptr noundef nonnull %12)
   br label %append_fstring_element.exit
 
 append_fstring_element.exit.thread:               ; preds = %lor.lhs.false
@@ -2828,7 +2828,7 @@ do.body.i:                                        ; preds = %if.end.i
 
 do.body7.i:                                       ; preds = %do.body.i
   %10 = load ptr, ptr %annotation.i, align 8
-  %call9.i = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %10, i32 noundef 1)
+  %call9.i = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %10, i32 noundef 1)
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %return, label %if.end39
 
@@ -2856,7 +2856,7 @@ do.body.i76:                                      ; preds = %if.end.i73
 
 do.body7.i79:                                     ; preds = %do.body.i76
   %15 = load ptr, ptr %annotation.i74, align 8
-  %call9.i80 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %15, i32 noundef 1)
+  %call9.i80 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %15, i32 noundef 1)
   %cmp10.i81 = icmp eq i32 %call9.i80, -1
   br i1 %cmp10.i81, label %return, label %if.end39
 
@@ -2950,7 +2950,7 @@ do.body.i94:                                      ; preds = %if.end.i91
 
 do.body7.i97:                                     ; preds = %do.body.i94
   %25 = load ptr, ptr %annotation.i92, align 8
-  %call9.i98 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %25, i32 noundef 1)
+  %call9.i98 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %25, i32 noundef 1)
   %cmp10.i99 = icmp eq i32 %call9.i98, -1
   br i1 %cmp10.i99, label %return, label %if.end110
 
@@ -3015,7 +3015,7 @@ do.body.i109:                                     ; preds = %if.end.i106
 
 do.body7.i112:                                    ; preds = %do.body.i109
   %35 = load ptr, ptr %annotation.i107, align 8
-  %call9.i113 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %35, i32 noundef 1)
+  %call9.i113 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %35, i32 noundef 1)
   %cmp10.i114 = icmp eq i32 %call9.i113, -1
   br i1 %cmp10.i114, label %return, label %do.end147
 
@@ -3095,7 +3095,7 @@ do.body.i160:                                     ; preds = %if.end.i157
 
 do.body7.i162:                                    ; preds = %do.body.i160
   %43 = load ptr, ptr %annotation.i158, align 8
-  %call9.i163 = tail call fastcc i32 @append_ast_expr(ptr noundef %writer, ptr noundef %43, i32 noundef 1)
+  %call9.i163 = tail call fastcc i32 @append_ast_expr(ptr noundef nonnull %writer, ptr noundef %43, i32 noundef 1)
   %cmp10.i164 = icmp eq i32 %call9.i163, -1
   br i1 %cmp10.i164, label %append_ast_arg.exit.thread, label %return
 

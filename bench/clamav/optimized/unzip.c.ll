@@ -372,7 +372,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %17 = zext i32 %1 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef %0, i64 noundef %17, i64 noundef 46, i32 noundef 1) #12
+  %20 = tail call ptr %19(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %17, i64 noundef 46, i32 noundef 1) #12
   %.not109 = icmp eq ptr %20, null
   br i1 %.not109, label %.critedge, label %21
 
@@ -442,7 +442,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   %63 = zext nneg i16 %narrow to i64
   %64 = zext i32 %33 to i64
   %65 = load ptr, ptr %18, align 8
-  %66 = tail call ptr %65(ptr noundef nonnull %0, i64 noundef %64, i64 noundef %63, i32 noundef 0) #12
+  %66 = tail call ptr %65(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %64, i64 noundef %63, i32 noundef 0) #12
   %.not112 = icmp eq ptr %66, null
   br i1 %.not112, label %69, label %67
 
@@ -681,7 +681,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %31
   %indvars.iv191 = phi i64 [ %20, %.lr.ph.split.us.preheader ], [ %indvars.iv.next192, %31 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %8, i64 noundef %indvars.iv191, i64 noundef 20, i32 noundef 0) #12
+  %24 = tail call ptr %23(ptr noundef nonnull %8, i64 noundef range(i64 0, 4294967296) %indvars.iv191, i64 noundef 20, i32 noundef 0) #12
   %.not114.us = icmp eq ptr %24, null
   br i1 %.not114.us, label %31, label %25
 
@@ -705,7 +705,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %20, %.lr.ph ]
   %33 = load ptr, ptr %18, align 8
-  %34 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef %indvars.iv, i64 noundef 20, i32 noundef 0) #12
+  %34 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef range(i64 0, 4294967296) %indvars.iv, i64 noundef 20, i32 noundef 0) #12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %35 = and i64 %indvars.iv.next, 4294967295
   %.not113 = icmp eq i64 %35, 0
@@ -780,7 +780,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %67 = add i32 %66, %64
   %68 = zext i32 %67 to i64
   %69 = load ptr, ptr %18, align 8
-  %70 = call ptr %69(ptr noundef %8, i64 noundef %68, i64 noundef 30, i32 noundef 1) #12
+  %70 = call ptr %69(ptr noundef %8, i64 noundef range(i64 0, 4294967296) %68, i64 noundef 30, i32 noundef 1) #12
   %71 = load ptr, ptr %5, align 8
   %72 = getelementptr inbounds %struct.zip_record, ptr %71, i64 %.099165
   %73 = getelementptr inbounds i8, ptr %72, i64 20
@@ -796,7 +796,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %80 = ptrtoint ptr %.val.i138 to i64
   %81 = add i64 %.val4.i139, %80
   %82 = sub i64 %79, %81
-  %83 = call ptr %78(ptr noundef nonnull %8, i64 noundef %82, i64 noundef %77, i32 noundef 0) #12
+  %83 = call ptr %78(ptr noundef nonnull %8, i64 noundef %82, i64 noundef range(i64 0, 4294967296) %77, i32 noundef 0) #12
   %.not120 = icmp eq ptr %83, null
   br i1 %.not119, label %100, label %84
 
@@ -813,7 +813,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %92 = load i32, ptr %87, align 8
   %93 = zext i32 %92 to i64
   %94 = load ptr, ptr %18, align 8
-  %95 = call ptr %94(ptr noundef nonnull %8, i64 noundef %93, i64 noundef 30, i32 noundef 1) #12
+  %95 = call ptr %94(ptr noundef nonnull %8, i64 noundef range(i64 0, 4294967296) %93, i64 noundef 30, i32 noundef 1) #12
   %96 = load ptr, ptr %5, align 8
   %97 = getelementptr inbounds %struct.zip_record, ptr %96, i64 %.099165, i32 7
   %98 = load ptr, ptr %97, align 8
@@ -1818,7 +1818,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %14 = zext i32 %1 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %16(ptr noundef %0, i64 noundef %14, i64 noundef 30, i32 noundef 1) #12
+  %17 = tail call ptr %16(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %14, i64 noundef 30, i32 noundef 1) #12
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
 
@@ -1869,7 +1869,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %39 = ptrtoint ptr %.val.i to i64
   %40 = add i64 %.val4.i, %39
   %41 = sub i64 %38, %40
-  %42 = tail call ptr %35(ptr noundef nonnull %0, i64 noundef %41, i64 noundef %34, i32 noundef 0) #12
+  %42 = tail call ptr %35(ptr noundef nonnull %0, i64 noundef %41, i64 noundef range(i64 0, 4294967296) %34, i32 noundef 0) #12
   %43 = icmp ne i16 %28, 0
   %44 = icmp ne ptr %42, null
   %or.cond = select i1 %43, i1 %44, i1 false
@@ -2054,7 +2054,7 @@ define internal fastcc i32 @parse_local_file_header(ptr noundef %0, i32 noundef 
   %137 = ptrtoint ptr %.val.i176 to i64
   %138 = add i64 %.val4.i177, %137
   %139 = sub i64 %136, %138
-  %140 = call ptr %135(ptr noundef nonnull %0, i64 noundef %139, i64 noundef %134, i32 noundef 0) #12
+  %140 = call ptr %135(ptr noundef nonnull %0, i64 noundef %139, i64 noundef range(i64 0, 4294967296) %134, i32 noundef 0) #12
   %.not167 = icmp eq ptr %140, null
   br i1 %.not166, label %145, label %141
 
@@ -2283,7 +2283,7 @@ define i32 @cli_unzip_single(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 18:                                               ; preds = %15
   %19 = trunc i64 %1 to i32
-  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull readonly @cli_magic_scan_desc, ptr noundef null)
+  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
   %21 = load i32, ptr %3, align 4
   br label %unzip_single_internal.exit
 
@@ -2376,7 +2376,7 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 24:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = tail call ptr %25(ptr noundef nonnull %.052, i64 noundef %indvars.iv, i64 noundef 20, i32 noundef 0) #12
+  %26 = tail call ptr %25(ptr noundef nonnull %.052, i64 noundef range(i64 0, 4294967296) %indvars.iv, i64 noundef 20, i32 noundef 0) #12
   %.not61 = icmp eq ptr %26, null
   br i1 %.not61, label %35, label %27
 

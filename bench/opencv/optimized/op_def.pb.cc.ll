@@ -716,7 +716,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow12OpDef_ArgDef14_InternalParseE
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
-  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %23, i32 noundef %15)
+  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %23, i32 noundef %15)
   %32 = extractvalue { ptr, i8 } %31, 0
   %33 = extractvalue { ptr, i8 } %31, 1
   %34 = trunc i8 %33 to i1
@@ -2653,7 +2653,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow13OpDef_AttrDef14_InternalParse
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
-  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %23, i32 noundef %15)
+  %31 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %23, i32 noundef %15)
   %32 = extractvalue { ptr, i8 } %31, 0
   %33 = extractvalue { ptr, i8 } %31, 1
   %34 = trunc i8 %33 to i1
@@ -4619,7 +4619,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow5OpDef14_InternalParseEPKcPN6go
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %29
-  %42 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %34, i32 noundef %26)
+  %42 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %34, i32 noundef %26)
   %43 = extractvalue { ptr, i8 } %42, 0
   %44 = extractvalue { ptr, i8 } %42, 1
   %45 = trunc i8 %44 to i1
@@ -6077,7 +6077,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow5OpDef12ByteSizeLongEv(ptr nou
 _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN17opencv_tensorflow13OpDeprecationEEEmRKT_.exit: ; preds = %163, %166
   %.1.i.i = phi i64 [ %174, %166 ], [ %.0.i.i, %163 ]
   %175 = getelementptr inbounds i8, ptr %137, i64 28
-  %176 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %137, i64 noundef %.1.i.i, ptr noundef nonnull %175)
+  %176 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(32) %137, i64 noundef %.1.i.i, ptr noundef nonnull %175)
   %177 = trunc i64 %176 to i32
   %178 = or i32 %177, 1
   %179 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %178, i1 true)
@@ -6951,7 +6951,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow13OpDeprecation14_InternalParse
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %13
-  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %18, i32 noundef %10)
+  %26 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %18, i32 noundef %10)
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc i8 %28 to i1
@@ -7756,7 +7756,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow6OpList14_InternalParseEPKcPN6g
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
-  %28 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %20, i32 noundef %12)
+  %28 = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(120) %2, i32 noundef %20, i32 noundef %12)
   %29 = extractvalue { ptr, i8 } %28, 0
   %30 = extractvalue { ptr, i8 } %28, 1
   %31 = trunc i8 %30 to i1

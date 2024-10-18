@@ -1391,7 +1391,7 @@ cond.false.i61:                                   ; preds = %_ZNK5boost10shared_
 _ZNK5boost10shared_ptrIN8QuantLib21BlackVolTermStructureEEptEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit, %cond.false.i61
   %54 = phi ptr [ %53, %_ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit ], [ %.pre.i62, %cond.false.i61 ]
   %55 = load double, ptr %center_, align 8, !tbaa !55
-  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64) %54, double noundef %t, i1 noundef zeroext false)
+  tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %54, double noundef %t, i1 noundef zeroext false)
   tail call void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68) %54, double noundef %55, i1 noundef zeroext false)
   %vtable.i = load ptr, ptr %54, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
@@ -2282,7 +2282,7 @@ cond.false.i86:                                   ; preds = %invoke.cont59
 
 invoke.cont61:                                    ; preds = %.noexc88, %invoke.cont59
   %88 = phi ptr [ %87, %invoke.cont59 ], [ %.pre.i87, %.noexc88 ]
-  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate_, i1 noundef zeroext false)
+  invoke void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef nonnull align 8 dereferenceable(68) %88, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate_, i1 noundef zeroext false)
           to label %.noexc89 unwind label %lpad54
 
 .noexc89:                                         ; preds = %invoke.cont61
@@ -2290,7 +2290,7 @@ invoke.cont61:                                    ; preds = %.noexc88, %invoke.c
           to label %.noexc90 unwind label %lpad54
 
 .noexc90:                                         ; preds = %.noexc89
-  %call.i91 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate_)
+  %call.i91 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(68) %88, ptr noundef nonnull align 8 dereferenceable(8) %exerciseDate_)
           to label %call.i.noexc unwind label %lpad54
 
 call.i.noexc:                                     ; preds = %.noexc90

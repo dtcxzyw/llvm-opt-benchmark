@@ -973,12 +973,12 @@ if.then8.i.i112:                                  ; preds = %if.then.i.i108
   %tv_usec.i.i115 = getelementptr inbounds i8, ptr %_now.i.i101, i64 8
   %81 = load i64, ptr %tv_usec.i.i115, align 8
   %conv11.i.i116 = zext i8 %75 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.170, i32 noundef %call10.i.i114, i64 noundef %80, i64 noundef %81, ptr noundef nonnull %call.i, i32 noundef %73, i32 noundef %conv11.i.i116) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.170, i32 noundef %call10.i.i114, i64 noundef %80, i64 noundef %81, ptr noundef nonnull %call.i, i32 noundef range(i32 0, 16) %73, i32 noundef %conv11.i.i116) #13
   br label %trace_m25p80_read_data.exit
 
 if.else.i.i110:                                   ; preds = %if.then.i.i108
   %conv12.i.i111 = zext i8 %75 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171, ptr noundef nonnull %call.i, i32 noundef %73, i32 noundef %conv12.i.i111) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171, ptr noundef nonnull %call.i, i32 noundef range(i32 0, 16) %73, i32 noundef %conv12.i.i111) #13
   br label %trace_m25p80_read_data.exit
 
 trace_m25p80_read_data.exit:                      ; preds = %if.end74, %land.lhs.true5.i.i105, %if.then8.i.i112, %if.else.i.i110
@@ -1088,11 +1088,11 @@ if.then8.i.i.i158:                                ; preds = %if.then.i.i.i155
   %100 = load i64, ptr %_now.i.i.i133, align 8
   %tv_usec.i.i.i161 = getelementptr inbounds i8, ptr %_now.i.i.i133, i64 8
   %101 = load i64, ptr %tv_usec.i.i.i161, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.183, i32 noundef %call10.i.i.i160, i64 noundef %100, i64 noundef %101, ptr noundef nonnull %call.i, i32 noundef %conv112) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.183, i32 noundef %call10.i.i.i160, i64 noundef %100, i64 noundef %101, ptr noundef nonnull %call.i, i32 noundef range(i32 0, 256) %conv112) #13
   br label %trace_m25p80_command_decoded.exit.i
 
 if.else.i.i.i157:                                 ; preds = %if.then.i.i.i155
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.184, ptr noundef nonnull %call.i, i32 noundef %conv112) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.184, ptr noundef nonnull %call.i, i32 noundef range(i32 0, 256) %conv112) #13
   br label %trace_m25p80_command_decoded.exit.i
 
 trace_m25p80_command_decoded.exit.i:              ; preds = %if.else.i.i.i157, %if.then8.i.i.i158, %land.lhs.true5.i.i.i152, %sw.bb110
@@ -2320,7 +2320,7 @@ sw.default641.i:                                  ; preds = %sw.bb630.i, %if.end
   br i1 %cmp.i423.not.i, label %sw.epilog, label %if.then656.i
 
 if.then656.i:                                     ; preds = %sw.default641.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %conv112) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef range(i32 0, 256) %conv112) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %flash_write8.exit, %if.then656.i, %sw.default641.i, %if.then633.i, %if.then626.i, %do.body618.i, %if.then613.i, %do.body605.i, %if.else597.i, %if.then595.i, %sw.bb583.i, %sw.bb579.i, %sw.bb565.i, %sw.bb563.i, %if.then561.i, %sw.bb558.i, %sw.bb556.i, %if.then550.i, %sw.bb547.i, %sw.bb539.i, %if.then533.i, %sw.bb530.i, %sw.bb521.i, %if.then515.i, %land.lhs.true511.i, %sw.bb507.i, %sw.bb494.i, %if.then488.i, %sw.bb485.i, %sw.bb479.i, %sw.bb477.i, %sw.bb475.i, %if.then470.i, %do.body462.i, %if.then460.i, %sw.bb437.i, %if.then433.i, %do.body425.i, %for.end420.i, %sw.bb377.i, %if.end373.i, %sw.bb250.i, %if.then247.i, %sw.bb242.i, %sw.epilog.i, %if.then228.i, %do.body220.i, %if.then203.i, %do.body195.i, %decode_qio_read_cmd.exit.i, %if.then178.i, %do.body170.i, %decode_dio_read_cmd.exit.i, %if.then153.i, %do.body145.i, %if.then143.i, %if.then128.i, %do.body120.i, %if.then118.i, %sw.bb108.i, %if.then102.i, %do.body94.i, %get_addr_length.exit300.i, %if.then71.i, %do.body63.i, %if.then55.i, %if.then40.i, %do.body32.i, %get_addr_length.exit264.i, %get_addr_length.exit.i, %if.end14.i, %trace_m25p80_read_data.exit, %if.then91, %if.then88, %if.end42, %if.then53, %land.lhs.true, %if.then, %trace_m25p80_read_sfdp.exit, %do.end70, %do.end, %trace_m25p80_read_byte.exit
@@ -2596,12 +2596,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %8 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %s, i32 noundef %conv7, i32 noundef %retval.0.i112, i32 noundef %conv11.i.i, i32 noundef %and) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %s, i32 noundef range(i32 0, 256) %conv7, i32 noundef range(i32 2, 5) %retval.0.i112, i32 noundef %conv11.i.i, i32 noundef %and) #13
   br label %trace_m25p80_complete_collecting.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %8 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, ptr noundef nonnull %s, i32 noundef %conv7, i32 noundef %retval.0.i112, i32 noundef %conv12.i.i, i32 noundef %and) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, ptr noundef nonnull %s, i32 noundef range(i32 0, 256) %conv7, i32 noundef range(i32 2, 5) %retval.0.i112, i32 noundef %conv12.i.i, i32 noundef %and) #13
   br label %trace_m25p80_complete_collecting.exit
 
 trace_m25p80_complete_collecting.exit:            ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3147,9 +3147,9 @@ if.end4.i:                                        ; preds = %if.end.i
   tail call void @qemu_iovec_init(ptr noundef %call5.i, i32 noundef 1) #13
   %22 = load ptr, ptr %storage, align 8
   %add.ptr.i = getelementptr i8, ptr %22, i64 %idx.ext
-  tail call void @qemu_iovec_add(ptr noundef %call5.i, ptr noundef %add.ptr.i, i64 noundef %conv47) #13
+  tail call void @qemu_iovec_add(ptr noundef %call5.i, ptr noundef %add.ptr.i, i64 noundef range(i64 0, 4294967296) %conv47) #13
   %23 = load ptr, ptr %blk.i, align 8
-  %call7.i = tail call ptr @blk_aio_pwritev(ptr noundef %23, i64 noundef %idx.ext, ptr noundef %call5.i, i32 noundef 0, ptr noundef nonnull @blk_sync_complete, ptr noundef %call5.i) #13
+  %call7.i = tail call ptr @blk_aio_pwritev(ptr noundef %23, i64 noundef range(i64 -2147483648, 2147483648) %idx.ext, ptr noundef %call5.i, i32 noundef 0, ptr noundef nonnull @blk_sync_complete, ptr noundef %call5.i) #13
   br label %return
 
 return:                                           ; preds = %if.end4.i, %lor.lhs.false.i, %if.end46, %if.then43, %do.body35, %if.then12, %do.body

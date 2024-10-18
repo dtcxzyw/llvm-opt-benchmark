@@ -445,7 +445,7 @@ if.then61:                                        ; preds = %if.end59
           to label %call.i.noexc unwind label %lpad63
 
 call.i.noexc:                                     ; preds = %if.then61
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i63, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp62)
           to label %.noexc64 unwind label %lpad63
 
 .noexc64:                                         ; preds = %call.i.noexc
@@ -455,7 +455,7 @@ call.i.noexc:                                     ; preds = %if.then61
 lpad.i:                                           ; preds = %.noexc64
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #26
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   br label %lpad63.body
 
 invoke.cont64:                                    ; preds = %.noexc64
@@ -1128,7 +1128,7 @@ entry:
   store i32 0, ptr %max_frame_size_.i, align 4
   %preferred_rx_crypto_frame_size_.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 0, ptr %preferred_rx_crypto_frame_size_.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %agg.result, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.result, i8 0, i64 5, i1 false)
   %conv = zext i32 %value to i64
   %target_initial_window_size_ = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load i64, ptr %target_initial_window_size_, align 8

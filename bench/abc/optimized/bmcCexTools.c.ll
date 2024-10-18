@@ -905,7 +905,7 @@ define ptr @Bmc_CexBuildNetwork(ptr nocapture noundef readonly %0, ptr nocapture
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @Gia_ManStart(i32 noundef 1000) #20
   %6 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
   store ptr %6, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 32
   %.val148 = load ptr, ptr %7, align 8
@@ -4182,7 +4182,7 @@ Vec_WecStart.exit:                                ; preds = %1, %4
 
 25:                                               ; preds = %18
   %26 = shl nsw i32 %23, 1
-  %27 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %26, i32 %16)
+  %27 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %26, i32 range(i32 -2147483647, -2147483648) %16)
   %28 = load i32, ptr %2, align 8
   %.not.i.i17 = icmp slt i32 %28, %27
   br i1 %.not.i.i17, label %29, label %Vec_WecGrow.exit.i

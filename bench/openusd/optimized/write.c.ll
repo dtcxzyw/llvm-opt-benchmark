@@ -4010,7 +4010,7 @@ define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull 
   br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %57
-  %60 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef %0, ptr noundef %2, i32 noundef 0)
+  %60 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0)
   %.not50.i = icmp eq i32 %60, 0
   br i1 %.not50.i, label %.thread54, label %avifEncoderWriteNclxProperty.exit.thread
 
@@ -4074,7 +4074,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   br i1 %.not, label %.thread.i, label %83
 
 83:                                               ; preds = %81
-  %84 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef %0, ptr noundef %2, i32 noundef 0)
+  %84 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0)
   %.not133.i = icmp eq i32 %84, 0
   br i1 %.not133.i, label %._crit_edge.i, label %avifEncoderWriteExtendedColorProperties.exit
 
@@ -4177,7 +4177,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   br i1 %.not135162.i, label %133, label %131
 
 131:                                              ; preds = %129
-  %132 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef %0, ptr noundef %2, i32 noundef 1)
+  %132 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
   %.not145.i = icmp eq i32 %132, 0
   br i1 %.not145.i, label %133, label %avifEncoderWriteExtendedColorProperties.exit
 
@@ -4234,7 +4234,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   br i1 %.not147167.i, label %157, label %155
 
 155:                                              ; preds = %153
-  %156 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef %0, ptr noundef %2, i32 noundef 1)
+  %156 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
   %.not151.i = icmp eq i32 %156, 0
   br i1 %.not151.i, label %157, label %avifEncoderWriteExtendedColorProperties.exit
 
@@ -4290,7 +4290,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   br i1 %.not153172.i, label %179, label %177
 
 177:                                              ; preds = %175
-  %178 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef %0, ptr noundef %2, i32 noundef 1)
+  %178 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1)
   %.not158.i = icmp eq i32 %178, 0
   br i1 %.not158.i, label %179, label %avifEncoderWriteExtendedColorProperties.exit
 

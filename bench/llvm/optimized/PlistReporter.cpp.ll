@@ -123,7 +123,7 @@ define dso_local void @_ZN5clang5arcmt20writeARCDiagsToPlistERKNSt7__cxx1112basi
   call void @_ZN5clang13DiagnosticIDsC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %12, i64 noundef 10) #11
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull %12, i64 noundef 10) #11
   %13 = getelementptr inbounds %"class.clang::StoredDiagnostic", ptr %1, i64 %2
   %.not246 = icmp eq i64 %2, 0
   br i1 %.not246, label %._crit_edge250, label %.lr.ph249
@@ -1394,7 +1394,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit161:              ; preds = %610, %612
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %623, %621, %321, %319
   call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  %626 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %626 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #11
   %627 = load ptr, ptr %9, align 8
   %628 = icmp eq ptr %627, %12
   br i1 %628, label %_ZN4llvm11SmallVectorIN5clang6FileIDELj10EED2Ev.exit, label %629

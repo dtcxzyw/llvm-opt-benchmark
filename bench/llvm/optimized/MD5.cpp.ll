@@ -1099,7 +1099,7 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallString") align 8 %0, ptr noundef nonnull align 1 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, i64 noundef 32) #10
+  tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef 32) #10
   tail call void @_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE(ptr nonnull %1, i64 16, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }

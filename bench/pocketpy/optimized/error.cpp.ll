@@ -729,7 +729,7 @@ _ZNK4pkpy3Str6lstripEv.exit:                      ; preds = %70
           to label %.noexc unwind label %114
 
 .noexc:                                           ; preds = %106
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %107, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %107, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %.noexc43 unwind label %114
 
 .noexc43:                                         ; preds = %.noexc
@@ -739,7 +739,7 @@ _ZNK4pkpy3Str6lstripEv.exit:                      ; preds = %70
 108:                                              ; preds = %.noexc43
   %109 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %.noexc43
@@ -1285,7 +1285,7 @@ _ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit.i.i: ; preds = %14, %11, %.l
 .body:                                            ; preds = %_ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
-  tail call void @_ZNSt10shared_ptrIN4pkpy10SourceDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.014) #18
+  tail call void @_ZNSt10shared_ptrIN4pkpy10SourceDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.014) #18
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #18
   invoke void @_ZSt8_DestroyIPN4pkpy13ExceptionLineEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.014)

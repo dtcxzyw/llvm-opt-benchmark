@@ -2423,7 +2423,7 @@ define void @Inta_ManPrepareInter(ptr nocapture noundef readonly %0) local_unnam
   %37 = getelementptr inbounds ptr, ptr %.val, i64 %36
   %.val43 = load ptr, ptr %5, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @Aig_IthVar(ptr noundef %.val43, i32 noundef %34) #19
+  %39 = tail call ptr @Aig_IthVar(ptr noundef %.val43, i32 noundef range(i32 0, 2147483647) %34) #19
   %40 = ptrtoint ptr %39 to i64
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr

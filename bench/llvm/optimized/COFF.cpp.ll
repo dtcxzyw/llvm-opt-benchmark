@@ -26,7 +26,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4COFF17encodeSectionNameEPcm(ptr no
 
 _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %7, i64 noundef 8) #4
+  call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %7, i64 noundef 8) #4
   store ptr inttoptr (i64 47 to ptr), ptr %5, align 8, !alias.scope !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %8, align 8, !alias.scope !4
@@ -38,7 +38,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %2
   %11 = load ptr, ptr %4, align 8
   %12 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %11, i64 %12, i1 false)
-  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %13 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #4
   %14 = load ptr, ptr %4, align 8
   %15 = icmp eq ptr %14, %7
   br i1 %15, label %_ZN4llvm11SmallVectorIcLj8EED2Ev.exit, label %16

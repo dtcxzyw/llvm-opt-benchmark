@@ -8460,7 +8460,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; pre
   %51 = load i32, ptr %.05375, align 4
   store i32 %51, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
-  %52 = call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %.sink81, ptr %.sroa.070.074, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %52 = call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %.sink81, ptr %.sroa.070.074, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %53 = extractvalue { ptr, ptr } %52, 0
   %54 = extractvalue { ptr, ptr } %52, 1
   %.not.i.i.i = icmp eq ptr %54, null
@@ -14262,7 +14262,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23Par
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 47:                                               ; preds = %34
-  %48 = invoke { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %39, i32 noundef %31)
+  %48 = invoke { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %4, i32 noundef %39, i32 noundef %31)
           to label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit unwind label %.loopexit224.loopexit
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %47
@@ -15398,7 +15398,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_111is_packableENS1_14WireFormatLite8Wir
   %177 = load ptr, ptr %3, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
-  %180 = invoke noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1, i32 noundef %.0.i)
+  %180 = invoke noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1, i32 noundef range(i32 1, 0) %.0.i)
           to label %_ZZN6google8protobuf8internal12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEEN6MSLite9SkipFieldEjS5_.exit.i unwind label %.loopexit
 
 _ZZN6google8protobuf8internal12ExtensionSet23ParseMessageSetItemLiteEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperEEN6MSLite9SkipFieldEjS5_.exit.i: ; preds = %176
@@ -23477,7 +23477,7 @@ define linkonce_odr void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS1_25
   tail call void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #24
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %1) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 112) #27
   br label %11
 

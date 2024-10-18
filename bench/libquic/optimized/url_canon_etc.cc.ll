@@ -404,7 +404,7 @@ if.else24.i:                                      ; preds = %if.else20.i, %for.b
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ch.i.i)
   %call.i.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef nonnull %spec, ptr noundef nonnull %i.i, i32 noundef %add.i.i, ptr noundef nonnull %ch.i.i)
   %22 = load i32, ptr %ch.i.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %22, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %22, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ch.i.i)
   br label %for.inc.i
 
@@ -654,7 +654,7 @@ if.else25.i:                                      ; preds = %if.else21.i, %for.b
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %char_value.i.i)
   %call.i.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef nonnull %spec, ptr noundef nonnull %i.i, i32 noundef %add.i.i, ptr noundef nonnull %char_value.i.i)
   %22 = load i32, ptr %char_value.i.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %22, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %22, ptr noundef nonnull %output)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %char_value.i.i)
   br label %for.inc.i
 
@@ -1110,7 +1110,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %do.body.i.i.i, %ret
   br label %_ZN3url12_GLOBAL__N_16DoPortIchEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEEPS5_.exit
 
 if.end9.i:                                        ; preds = %if.end.i
-  %call.i.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %call.i, ptr noundef nonnull %buf.i, i64 noundef 6, i32 noundef 10)
+  %call.i.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef range(i32 0, -2) %call.i, ptr noundef nonnull %buf.i, i64 noundef 6, i32 noundef 10)
   %cur_len_.i26.i = getelementptr inbounds i8, ptr %output, i64 20
   %10 = load i32, ptr %cur_len_.i26.i, align 4
   %buffer_len_.i27.i = getelementptr inbounds i8, ptr %output, i64 16
@@ -1305,7 +1305,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %do.body.i.i.i, %ret
   br label %_ZN3url12_GLOBAL__N_16DoPortIttEEbPKT_RKNS_9ComponentEiPNS_12CanonOutputTIcEEPS5_.exit
 
 if.end9.i:                                        ; preds = %if.end.i
-  %call.i.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %call.i, ptr noundef nonnull %buf.i, i64 noundef 6, i32 noundef 10)
+  %call.i.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef range(i32 0, -2) %call.i, ptr noundef nonnull %buf.i, i64 noundef 6, i32 noundef 10)
   %cur_len_.i26.i = getelementptr inbounds i8, ptr %output, i64 20
   %10 = load i32, ptr %cur_len_.i26.i, align 4
   %buffer_len_.i27.i = getelementptr inbounds i8, ptr %output, i64 16
@@ -1558,7 +1558,7 @@ return.sink.split.i34.i:                          ; preds = %if.end5.i31.i, %if.
 if.else21.i:                                      ; preds = %if.else13.i
   %call22.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKcPiiPj(ptr noundef nonnull %spec, ptr noundef nonnull %i.i, i32 noundef %add.i.i, ptr noundef nonnull %code_point.i)
   %15 = load i32, ptr %code_point.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %15, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %15, ptr noundef nonnull %output)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.body.i.i25.i, %if.else21.i, %return.sink.split.i34.i, %if.then10.i, %for.body.i
@@ -1724,7 +1724,7 @@ return.sink.split.i34.i:                          ; preds = %if.end5.i31.i, %if.
 if.else23.i:                                      ; preds = %if.else14.i
   %call24.i = call noundef zeroext i1 @_ZN3url11ReadUTFCharEPKtPiiPj(ptr noundef nonnull %spec, ptr noundef nonnull %i.i, i32 noundef %add.i.i, ptr noundef nonnull %code_point.i)
   %15 = load i32, ptr %code_point.i, align 4
-  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %15, ptr noundef %output)
+  call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %15, ptr noundef nonnull %output)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.body.i.i25.i, %if.else23.i, %return.sink.split.i34.i, %if.then10.i, %for.body.i

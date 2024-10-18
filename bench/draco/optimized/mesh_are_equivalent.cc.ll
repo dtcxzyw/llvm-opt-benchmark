@@ -247,7 +247,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEiE7reserveE
 
 38:                                               ; preds = %_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi.exit.i, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi.exit.i ]
-  %39 = call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %36, i32 noundef 0), !noalias !4
+  %39 = call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %36, i32 noundef 0), !noalias !4
   %40 = load ptr, ptr %37, align 8, !noalias !4
   %41 = getelementptr inbounds %"struct.std::array", ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds [3 x %"class.draco::IndexType.17"], ptr %41, i64 0, i64 %indvars.iv.i
@@ -436,7 +436,7 @@ define noundef i32 @_ZN5draco17MeshAreEquivalent36ComputeCornerIndexOfSmallestPo
 
 5:                                                ; preds = %.preheader, %_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi.exit ]
-  %6 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %0, i32 noundef 0), !noalias !13
+  %6 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 0), !noalias !13
   %7 = load ptr, ptr %3, align 8, !noalias !13
   %8 = getelementptr inbounds %"struct.std::array", ptr %7, i64 %4
   %9 = getelementptr inbounds [3 x %"class.draco::IndexType.17"], ptr %8, i64 0, i64 %indvars.iv
@@ -1192,7 +1192,7 @@ define noundef zeroext i1 @_ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9In
   %17 = load ptr, ptr %16, align 8
   %18 = add nsw i32 %.0847, %11
   %19 = srem i32 %18, 3
-  %20 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %17, i32 noundef 0), !noalias !33
+  %20 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %17, i32 noundef 0), !noalias !33
   %21 = getelementptr inbounds i8, ptr %17, i64 192
   %22 = load ptr, ptr %21, align 8, !noalias !33
   %23 = getelementptr inbounds %"struct.std::array", ptr %22, i64 %8
@@ -1233,7 +1233,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %46 = load ptr, ptr %45, align 8
   %47 = add nsw i32 %.0847, %14
   %48 = srem i32 %47, 3
-  %49 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %46, i32 noundef 0), !noalias !36
+  %49 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %46, i32 noundef 0), !noalias !36
   %50 = getelementptr inbounds i8, ptr %46, i64 192
   %51 = load ptr, ptr %50, align 8, !noalias !36
   %52 = getelementptr inbounds %"struct.std::array", ptr %51, i64 %12
@@ -1462,7 +1462,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5dr
   %37 = load ptr, ptr %.sroa.0.0.copyload, align 8
   %38 = add nsw i32 %.0847.i12, %32
   %39 = srem i32 %38, 3
-  %40 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %37, i32 noundef 0), !noalias !42
+  %40 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %37, i32 noundef 0), !noalias !42
   %41 = getelementptr inbounds i8, ptr %37, i64 192
   %42 = load ptr, ptr %41, align 8, !noalias !42
   %43 = getelementptr inbounds %"struct.std::array", ptr %42, i64 %29
@@ -1502,7 +1502,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %65 = load ptr, ptr %.sroa.0.0.copyload, align 8
   %66 = add nsw i32 %.0847.i12, %35
   %67 = srem i32 %66, 3
-  %68 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %65, i32 noundef 0), !noalias !45
+  %68 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %65, i32 noundef 0), !noalias !45
   %69 = getelementptr inbounds i8, ptr %65, i64 192
   %70 = load ptr, ptr %69, align 8, !noalias !45
   %71 = getelementptr inbounds %"struct.std::array", ptr %70, i64 %33
@@ -1643,7 +1643,7 @@ _ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag
   %129 = load ptr, ptr %.sroa.0.0.copyload, align 8
   %130 = add nsw i32 %.0847.i, %125
   %131 = srem i32 %130, 3
-  %132 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %129, i32 noundef 0), !noalias !49
+  %132 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %129, i32 noundef 0), !noalias !49
   %133 = getelementptr inbounds i8, ptr %129, i64 192
   %134 = load ptr, ptr %133, align 8, !noalias !49
   %135 = getelementptr inbounds %"struct.std::array", ptr %134, i64 %122
@@ -1683,7 +1683,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %157 = load ptr, ptr %.sroa.0.0.copyload, align 8
   %158 = add nsw i32 %.0847.i, %127
   %159 = srem i32 %158, 3
-  %160 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %157, i32 noundef 0), !noalias !52
+  %160 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %157, i32 noundef 0), !noalias !52
   %161 = getelementptr inbounds i8, ptr %157, i64 192
   %162 = load ptr, ptr %161, align 8, !noalias !52
   %163 = getelementptr inbounds %"struct.std::array", ptr %162, i64 %118
@@ -1988,7 +1988,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %16 = load ptr, ptr %3, align 8
   %17 = add nsw i32 %.0847.i, %11
   %18 = srem i32 %17, 3
-  %19 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %16, i32 noundef 0), !noalias !57
+  %19 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %16, i32 noundef 0), !noalias !57
   %20 = getelementptr inbounds i8, ptr %16, i64 192
   %21 = load ptr, ptr %20, align 8, !noalias !57
   %22 = getelementptr inbounds %"struct.std::array", ptr %21, i64 %8
@@ -2028,7 +2028,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %44 = load ptr, ptr %3, align 8
   %45 = add nsw i32 %.0847.i, %14
   %46 = srem i32 %45, 3
-  %47 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %44, i32 noundef 0), !noalias !60
+  %47 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %44, i32 noundef 0), !noalias !60
   %48 = getelementptr inbounds i8, ptr %44, i64 192
   %49 = load ptr, ptr %48, align 8, !noalias !60
   %50 = getelementptr inbounds %"struct.std::array", ptr %49, i64 %12
@@ -2149,7 +2149,7 @@ _ZNK5draco17MeshAreEquivalent13FaceIndexLessclENS_9IndexTypeIjNS_19FaceIndex_tag
   %97 = load ptr, ptr %3, align 8
   %98 = add nsw i32 %.0847.i10, %92
   %99 = srem i32 %98, 3
-  %100 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %97, i32 noundef 0), !noalias !64
+  %100 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %97, i32 noundef 0), !noalias !64
   %101 = getelementptr inbounds i8, ptr %97, i64 192
   %102 = load ptr, ptr %101, align 8, !noalias !64
   %103 = getelementptr inbounds %"struct.std::array", ptr %102, i64 %89
@@ -2189,7 +2189,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %125 = load ptr, ptr %3, align 8
   %126 = add nsw i32 %.0847.i10, %95
   %127 = srem i32 %126, 3
-  %128 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %125, i32 noundef 0), !noalias !67
+  %128 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %125, i32 noundef 0), !noalias !67
   %129 = getelementptr inbounds i8, ptr %125, i64 192
   %130 = load ptr, ptr %129, align 8, !noalias !67
   %131 = getelementptr inbounds %"struct.std::array", ptr %130, i64 %93
@@ -2397,7 +2397,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5draco9IndexTypeIjNS2_19Fac
   %38 = load ptr, ptr %29, align 8
   %39 = add nsw i32 %.0847.i, %33
   %40 = srem i32 %39, 3
-  %41 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %38, i32 noundef 0), !noalias !73
+  %41 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %38, i32 noundef 0), !noalias !73
   %42 = getelementptr inbounds i8, ptr %38, i64 192
   %43 = load ptr, ptr %42, align 8, !noalias !73
   %44 = getelementptr inbounds %"struct.std::array", ptr %43, i64 %27
@@ -2437,7 +2437,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %66 = load ptr, ptr %29, align 8
   %67 = add nsw i32 %.0847.i, %36
   %68 = srem i32 %67, 3
-  %69 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %66, i32 noundef 0), !noalias !76
+  %69 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %66, i32 noundef 0), !noalias !76
   %70 = getelementptr inbounds i8, ptr %66, i64 192
   %71 = load ptr, ptr %70, align 8, !noalias !76
   %72 = getelementptr inbounds %"struct.std::array", ptr %71, i64 %34
@@ -2595,7 +2595,7 @@ define linkonce_odr void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal
   %20 = load ptr, ptr %11, align 8
   %21 = add nsw i32 %.0847.i, %15
   %22 = srem i32 %21, 3
-  %23 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %20, i32 noundef 0), !noalias !81
+  %23 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %20, i32 noundef 0), !noalias !81
   %24 = getelementptr inbounds i8, ptr %20, i64 192
   %25 = load ptr, ptr %24, align 8, !noalias !81
   %26 = getelementptr inbounds %"struct.std::array", ptr %25, i64 %9
@@ -2635,7 +2635,7 @@ _ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceInd
   %48 = load ptr, ptr %11, align 8
   %49 = add nsw i32 %.0847.i, %18
   %50 = srem i32 %49, 3
-  %51 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %48, i32 noundef 0), !noalias !84
+  %51 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(216) %48, i32 noundef 0), !noalias !84
   %52 = getelementptr inbounds i8, ptr %48, i64 192
   %53 = load ptr, ptr %52, align 8, !noalias !84
   %54 = getelementptr inbounds %"struct.std::array", ptr %53, i64 %16

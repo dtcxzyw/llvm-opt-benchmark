@@ -39,7 +39,7 @@ define void @_ZN4LIEF2PE11ExportEntryD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #8
   tail call void @_ZN4LIEF6SymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   ret void
 }
@@ -66,7 +66,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2ERKS1_(ptr noundef nonnull align 8 derefe
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4, i64 13, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = getelementptr inbounds i8, ptr %1, i64 72
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %2
@@ -78,7 +78,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2ERKS1_(ptr noundef nonnull align 8 derefe
 9:                                                ; preds = %.noexc
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
   br label %.body
 
 _ZN4LIEF2PE11ExportEntry21forward_information_tC2ERKS2_.exit: ; preds = %.noexc
@@ -110,7 +110,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN4LIEF2PE11ExportEntr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5, i64 13, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = getelementptr inbounds i8, ptr %1, i64 72
-  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7)
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = getelementptr inbounds i8, ptr %1, i64 104
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -132,7 +132,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2Ev(ptr noundef nonnull align 8 dereferenc
   %5 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   ret void
@@ -154,7 +154,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2Ejbtj(ptr noundef nonnull align 8 derefer
   %10 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 %6, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #8
   %12 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #8
   ret void
@@ -204,7 +204,7 @@ define noundef zeroext i1 @_ZNK4LIEF2PE11ExportEntry9is_externEv(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK4LIEF2PE11ExportEntry12is_forwardedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
+  %3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %2) #8
   br i1 %3, label %4, label %_ZNK4LIEF2PE11ExportEntry21forward_information_tcvbEv.exit
 
 4:                                                ; preds = %1
@@ -221,7 +221,7 @@ _ZNK4LIEF2PE11ExportEntry21forward_information_tcvbEv.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE11ExportEntry19forward_informationEv(ptr dead_on_unwind noalias writable sret(%"struct.LIEF::PE::ExportEntry::forward_information_t") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
-  %4 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  %4 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #8
   br i1 %4, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread
 
 _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit:   ; preds = %2
@@ -236,7 +236,7 @@ _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit:   ; preds = %2
   br label %_ZN4LIEF2PE11ExportEntry21forward_information_tC2ERKS2_.exit
 
 _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread: ; preds = %2, %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = getelementptr inbounds i8, ptr %1, i64 104
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -245,7 +245,7 @@ _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread: ; preds = %2, %_ZNK4LIEF2
 11:                                               ; preds = %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #8
   resume { ptr, i32 } %12
 
 _ZN4LIEF2PE11ExportEntry21forward_information_tC2ERKS2_.exit: ; preds = %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread, %7
@@ -393,7 +393,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_11
 
 48:                                               ; preds = %46, %40
   %49 = getelementptr inbounds i8, ptr %1, i64 72
-  %50 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #8
+  %50 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %49) #8
   br i1 %50, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread
 
 _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit:   ; preds = %48
@@ -406,7 +406,7 @@ _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread: ; preds = %48, %_ZNK4LIEF
           to label %54 unwind label %20
 
 54:                                               ; preds = %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread
-  %55 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #8, !noalias !4
+  %55 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(64) %49) #8, !noalias !4
   br i1 %55, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.i, label %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread.i
 
 _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.i: ; preds = %54
@@ -421,7 +421,7 @@ _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.i: ; preds = %54
   br label %_ZNK4LIEF2PE11ExportEntry19forward_informationEv.exit
 
 _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread.i: ; preds = %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.i, %54
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %49)
           to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread.i
@@ -433,11 +433,11 @@ _ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit.thread.i: ; preds = %_ZNK4LIEF2PE
 62:                                               ; preds = %.noexc
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
   br label %.body
 
 _ZNK4LIEF2PE11ExportEntry19forward_informationEv.exit: ; preds = %.noexc, %58
-  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.noexc20 unwind label %68
 
 .noexc20:                                         ; preds = %_ZNK4LIEF2PE11ExportEntry19forward_informationEv.exit
@@ -451,7 +451,7 @@ _ZNK4LIEF2PE11ExportEntry19forward_informationEv.exit: ; preds = %.noexc, %58
 
 _ZN4LIEF2PElsERSoRKNS0_11ExportEntry21forward_information_tE.exit: ; preds = %.noexc21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
   br label %71
 
 68:                                               ; preds = %.noexc21, %.noexc20, %_ZNK4LIEF2PE11ExportEntry19forward_informationEv.exit
@@ -459,7 +459,7 @@ _ZN4LIEF2PElsERSoRKNS0_11ExportEntry21forward_information_tE.exit: ; preds = %.n
           cleanup
   %70 = getelementptr inbounds i8, ptr %6, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
   br label %.body
 
 71:                                               ; preds = %_ZN4LIEF2PElsERSoRKNS0_11ExportEntry21forward_information_tE.exit, %_ZNK4LIEF2PE11ExportEntry12is_forwardedEv.exit

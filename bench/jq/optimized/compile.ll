@@ -836,7 +836,7 @@ define { ptr, ptr } @block_bind_library(ptr nocapture readnone %0, ptr %1, ptr %
   %spec.select = select i1 %.not40, i32 %8, i32 1028
   store ptr %33, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %44 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef %spec.select, i32 noundef 0)
+  %44 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef range(i32 1024, 5) %spec.select, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   store ptr %30, ptr %29, align 8
   tail call void @free(ptr noundef %33) #17
@@ -889,7 +889,7 @@ define { ptr, ptr } @block_bind_referenced(ptr nocapture readnone %0, ptr %1, pt
 14:                                               ; preds = %.lr.ph, %11
   %.sroa.2.1.ph = phi ptr [ null, %.lr.ph ], [ %13, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %15 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.sroa.2.019, ptr %.sroa.07.020, i32 noundef %7, i32 noundef 0)
+  %15 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.sroa.2.019, ptr %.sroa.07.020, i32 noundef range(i32 1024, 5) %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %18
@@ -967,7 +967,7 @@ define { ptr, ptr } @block_bind_self(ptr nocapture readnone %0, ptr %1, i32 noun
 12:                                               ; preds = %.lr.ph, %9
   %.sroa.2.1.ph = phi ptr [ null, %.lr.ph ], [ %11, %9 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %13 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %.sroa.2.014, ptr %.sroa.05.015, i32 noundef %5, i32 noundef 0)
+  %13 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %.sroa.2.014, ptr %.sroa.05.015, i32 noundef range(i32 1024, 5) %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %.sroa.05.015, null
   br i1 %.not.i.i, label %block_join.exit, label %14
@@ -1874,7 +1874,7 @@ define { ptr, ptr } @gen_lambda(ptr %0, ptr %1) local_unnamed_addr #1 {
   store ptr %0, ptr %10, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 120
   store ptr %1, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %13 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
+  %13 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
   %14 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 96
@@ -5460,7 +5460,7 @@ block_join.exit:
   %14 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %15 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
+  %15 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
   %16 = getelementptr inbounds i8, ptr %6, i64 88
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 96
@@ -5514,7 +5514,7 @@ block_join.exit:
   store ptr %20, ptr %38, align 8
   %.sroa.5.0..sroa_idx.i.i32 = getelementptr inbounds i8, ptr %32, i64 120
   store ptr %20, ptr %.sroa.5.0..sroa_idx.i.i32, align 8
-  %41 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.6) #17
+  %41 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.6) #17
   %42 = getelementptr inbounds i8, ptr %32, i64 88
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %32, i64 96

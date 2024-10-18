@@ -44,7 +44,7 @@ define linkonce_odr void @_ZN4absl12lts_2023080212AnyInvocableIFvPvPN17grpc_even
 entry:
   %manager_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %manager_.i.i, align 16
-  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull %this, ptr noundef nonnull %this) #14
+  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %this, ptr noundef nonnull align 16 dereferenceable(32) %this) #14
   ret void
 }
 
@@ -1195,12 +1195,12 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit21:      ; preds = %ehcleanup
 define void @_ZN17grpc_event_engine12experimental29TcpSetWriteTimestampsCallbackEN4absl12lts_2023080212AnyInvocableIFvPvPNS0_10TimestampsENS2_6StatusEEEE(ptr noundef %fn) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
-  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
+  tail call void %0(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, ptr noundef nonnull align 16 dereferenceable(32) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 24), align 8
   %manager_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  tail call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
+  tail call void %1(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %fn, ptr noundef nonnull align 16 dereferenceable(32) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE) #14
   %2 = load ptr, ptr %manager_.i.i.i, align 16
   store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_timestamps_callbackE, i64 16), align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 24

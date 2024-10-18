@@ -309,7 +309,7 @@ define dso_local i64 @_ZN12cmFileCopier22CollectMatchPropertiesERKNSt7__cxx1112b
 .lr.ph:                                           ; preds = %.lr.ph.outer, %9
   %.sroa.09.017 = phi ptr [ %10, %9 ], [ %.sroa.09.017.ph, %.lr.ph.outer ]
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %8 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(520) %.sroa.09.017)
+  %8 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017)
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %.lr.ph
@@ -768,7 +768,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier30GetDefaultDirectoryPermi
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc23 unwind label %36
 
 .noexc23:                                         ; preds = %.noexc
@@ -778,7 +778,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier30GetDefaultDirectoryPermi
 12:                                               ; preds = %.noexc23
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc23
@@ -838,7 +838,7 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
           to label %.noexc26 unwind label %42
 
 .noexc26:                                         ; preds = %28
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc27 unwind label %42
 
 .noexc27:                                         ; preds = %.noexc26
@@ -848,7 +848,7 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 32:                                               ; preds = %.noexc27
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %.body28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; preds = %.noexc27
@@ -1644,9 +1644,9 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier10CheckValueERKNSt7__cxx11
   store ptr null, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %102, i64 552
   store i32 0, ptr %108, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %102, i8 0, i64 522, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %102, i8 0, i64 522, i1 false)
   %109 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
-  %110 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %102, ptr noundef %109)
+  %110 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(600) %102, ptr noundef %109)
           to label %.noexc unwind label %131
 
 .noexc:                                           ; preds = %105
@@ -1782,9 +1782,9 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr null, ptr %159, align 8
   %160 = getelementptr inbounds i8, ptr %154, i64 552
   store i32 0, ptr %160, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %154, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %154, i8 0, i64 522, i1 false)
   %161 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %162 = tail call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %154, ptr noundef %161)
+  %162 = tail call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(600) %154, ptr noundef %161)
   %163 = getelementptr inbounds i8, ptr %154, i64 560
   store i8 0, ptr %163, align 4
   %164 = getelementptr inbounds i8, ptr %154, i64 564
@@ -2013,7 +2013,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier3RunERKSt6vectorINSt7__cxx
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc33 unwind label %53
 
 .noexc33:                                         ; preds = %.noexc
@@ -2023,7 +2023,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier3RunERKSt6vectorINSt7__cxx
 49:                                               ; preds = %.noexc33
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc33
@@ -2271,7 +2271,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier7InstallERKNSt7__cxx1112ba
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %9
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc28 unwind label %17
 
 .noexc28:                                         ; preds = %.noexc
@@ -2281,7 +2281,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier7InstallERKNSt7__cxx1112ba
 13:                                               ; preds = %.noexc28
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc28
@@ -2328,7 +2328,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.outer.i
   %.sroa.09.017.i = phi ptr [ %29, %28 ], [ %.sroa.09.017.ph.i, %.lr.ph.outer.i ]
   %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %27 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017.i, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(520) %.sroa.09.017.i)
+  %27 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017.i, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(556) %.sroa.09.017.i)
   br i1 %27, label %.thread.i, label %28
 
 28:                                               ; preds = %.lr.ph.i
@@ -4178,9 +4178,9 @@ _ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE11_M_allocateEm.exit: ; pr
   store ptr null, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 552
   store i32 0, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %24, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %24, i8 0, i64 522, i1 false)
   %28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %29 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %24, ptr noundef %28)
+  %29 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(600) %24, ptr noundef %28)
           to label %.noexc unwind label %.body.thread42
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE11_M_allocateEm.exit
@@ -4327,7 +4327,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPKN12cmFileCop
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructIN12cmFileCopier9MatchRuleEJRKS1_EEvPT_DpOT0_.exit
   %.018 = phi ptr [ %16, %_ZSt10_ConstructIN12cmFileCopier9MatchRuleEJRKS1_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.01217 = phi ptr [ %15, %_ZSt10_ConstructIN12cmFileCopier9MatchRuleEJRKS1_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  invoke void @_ZN5cmsys17RegularExpressionC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(556) %.018, ptr noundef nonnull align 8 dereferenceable(556) %.01217)
+  invoke void @_ZN5cmsys17RegularExpressionC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(600) %.018, ptr noundef nonnull align 8 dereferenceable(600) %.01217)
           to label %.noexc unwind label %17
 
 .noexc:                                           ; preds = %.lr.ph
@@ -4442,9 +4442,9 @@ _ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE11_M_allocateEm.exit: ; pr
   store ptr null, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 552
   store i32 0, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %24, i8 0, i64 522, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %24, i8 0, i64 522, i1 false)
   %28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %29 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %24, ptr noundef %28)
+  %29 = invoke noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(600) %24, ptr noundef %28)
           to label %.noexc unwind label %.body.thread42
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN12cmFileCopier9MatchRuleESaIS1_EE11_M_allocateEm.exit

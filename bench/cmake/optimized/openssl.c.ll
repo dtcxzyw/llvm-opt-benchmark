@@ -1715,7 +1715,7 @@ define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr 
 39:                                               ; preds = %.thread
   %40 = load ptr, ptr %2, align 8
   %41 = load ptr, ptr %27, align 8
-  %42 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef %33, i64 noundef %36, ptr noundef %40, i64 noundef %8) #13
+  %42 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef %33, i64 noundef range(i64 -2147483648, 2147483648) %36, ptr noundef %40, i64 noundef %8) #13
   %or.cond.not.i.us = and i1 %.not.i, %42
   br i1 %or.cond.not.i.us, label %43, label %subj_alt_hostcheck.exit.us
 

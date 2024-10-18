@@ -6099,7 +6099,7 @@ define void @Cec5_ManPackAddPatterns(ptr nocapture noundef readonly %0, i32 noun
   %6 = load i32, ptr %5, align 8
   %7 = shl nsw i32 %6, 6
   %8 = add nsw i32 %7, -1
-  %9 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30, i32 %8)
+  %9 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30, i32 range(i32 -2147483648, 2147483647) %8)
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph37.split.preheader, label %._crit_edge
 
@@ -6336,7 +6336,7 @@ define i32 @Cec5_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   %.val30.i = load i32, ptr %19, align 4
   %20 = shl nsw i32 %16, 6
   %21 = add nsw i32 %20, -1
-  %22 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30.i, i32 %21)
+  %22 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30.i, i32 range(i32 -2147483648, 2147483647) %21)
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph37.split.preheader.i, label %Cec5_ManPackAddPatterns.exit
 
@@ -6462,7 +6462,7 @@ Cec5_ManPackAddPatterns.exit:                     ; preds = %66, %Cec5_ManPackAd
   %82 = load i32, ptr %4, align 8
   %83 = shl nsw i32 %82, 6
   %84 = add nsw i32 %83, -1
-  %85 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30.i30, i32 %84)
+  %85 = tail call range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %.val30.i30, i32 range(i32 -2147483648, 2147483647) %84)
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph37.split.preheader.i31, label %Cec5_ManPackAddPatterns.exit54
 

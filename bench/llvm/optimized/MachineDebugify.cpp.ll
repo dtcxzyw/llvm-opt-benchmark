@@ -80,7 +80,7 @@ define dso_local void @_ZN4llvm35initializeDebugifyMachineModulePassERNS_12PassR
   store ptr %2, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8
-  %7 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZL39InitializeDebugifyMachineModulePassFlag, ptr noundef nonnull @__once_proxy) #14
+  %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL39InitializeDebugifyMachineModulePassFlag, ptr noundef nonnull @__once_proxy) #14
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
 
@@ -253,7 +253,7 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   br i1 %.not.i.i, label %_ZNSt8functionIFbRN4llvm9DIBuilderERNS0_8FunctionEEED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit
-  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #14
+  %31 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #14
   br label %_ZNSt8functionIFbRN4llvm9DIBuilderERNS0_8FunctionEEED2Ev.exit
 
 _ZNSt8functionIFbRN4llvm9DIBuilderERNS0_8FunctionEEED2Ev.exit: ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit, %30
@@ -484,7 +484,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilder
   %.sroa.072.0143.i.i.i.i = phi ptr [ %.sroa.072.0.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.sroa.072.0140.i.i.i.i, %.lr.ph149.i.i.i.i ]
   %.1112142.i.i.i.i = phi i32 [ %38, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.0111146.i.i.i.i, %.lr.ph149.i.i.i.i ]
   %38 = add i32 %.1112142.i.i.i.i, 1
-  %39 = call noundef ptr @_ZN4llvm10DILocation7getImplERNS_11LLVMContextEjjPNS_8MetadataES4_bNS3_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %.1112142.i.i.i.i, i32 noundef 1, ptr noundef %28, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true) #14
+  %39 = call noundef ptr @_ZN4llvm10DILocation7getImplERNS_11LLVMContextEjjPNS_8MetadataES4_bNS3_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %.1112142.i.i.i.i, i32 noundef 1, ptr noundef nonnull %28, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true) #14
   call void @_ZN4llvm8DebugLocC1EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %39) #14
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.072.0143.i.i.i.i, i64 56
   %41 = icmp eq ptr %8, %40
@@ -496,7 +496,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilder
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i, label %44
 
 44:                                               ; preds = %42
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %40, ptr noundef nonnull align 4 dereferenceable(8) %43) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %43) #14
   br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i
 
 _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i: ; preds = %44, %42
@@ -506,7 +506,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i: ; preds = %44, %42
   br i1 %.not.i6.i.i.i.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i, label %46
 
 46:                                               ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i
-  %47 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull %40) #14
+  %47 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %40) #14
   store ptr null, ptr %8, align 8
   br label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i
 
@@ -516,7 +516,7 @@ _ZN4llvm12MachineInstr11setDebugLocENS_8DebugLocE.exit.i.i.i.i: ; preds = %.lr.p
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i, label %48
 
 48:                                               ; preds = %_ZN4llvm12MachineInstr11setDebugLocENS_8DebugLocE.exit.i.i.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i.i.i) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %.pr.i.i.i.i) #14
   br label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit.i.i.i.i:               ; preds = %48, %_ZN4llvm12MachineInstr11setDebugLocENS_8DebugLocE.exit.i.i.i.i, %46, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i
@@ -815,7 +815,7 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
   br i1 %.not.i.i.i.i.i152.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i, label %176
 
 176:                                              ; preds = %173
-  %177 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %175, i64 1) #14
+  %177 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %175, i64 1) #14
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i
 
 _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i:  ; preds = %176, %173
@@ -825,7 +825,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i:  ; preds = %176, %173
   br i1 %.not.i.i.i.i153.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit154.i.i.i.i, label %180
 
 180:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %179) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %179) #14
   br label %_ZN4llvm8DebugLocD2Ev.exit154.i.i.i.i
 
 _ZN4llvm8DebugLocD2Ev.exit154.i.i.i.i:            ; preds = %180, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i.i
@@ -1284,7 +1284,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvE
   br i1 %.not.i.i.i.i.i168.i.i.i.i, label %402, label %400
 
 400:                                              ; preds = %397
-  %401 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %399, i64 1) #14
+  %401 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %399, i64 1) #14
   br label %402
 
 402:                                              ; preds = %400, %397
@@ -1295,7 +1295,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvE
   br i1 %.not.i.i.i.i170.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit171.i.i.i.i, label %406
 
 406:                                              ; preds = %402
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(8) %405) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %405) #14
   br i1 %404, label %_ZN4llvm8DebugLocD2Ev.exit171.thread.i.i.i.i, label %407
 
 _ZN4llvm8DebugLocD2Ev.exit171.i.i.i.i:            ; preds = %402
@@ -1525,7 +1525,7 @@ split.i.i.i.i:                                    ; preds = %468, %_ZNK4llvm12Ma
   br i1 %.not.i.i.i.i.i186.i.i.i.i, label %505, label %501
 
 501:                                              ; preds = %499
-  %502 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(8) %500, i64 1) #14
+  %502 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %500, i64 1) #14
   br label %505
 
 503:                                              ; preds = %.loopexit.i.i.i.i
@@ -1541,7 +1541,7 @@ split.i.i.i.i:                                    ; preds = %468, %_ZNK4llvm12Ma
   br i1 %.not.i.i.i.i188.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5countERKj.exit.i.i.i.i, label %508
 
 508:                                              ; preds = %505
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %15, ptr noundef nonnull align 4 dereferenceable(8) %507) #14
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %507) #14
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5countERKj.exit.i.i.i.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E5countERKj.exit.i.i.i.i: ; preds = %492, %508, %505, %503, %484
@@ -1641,7 +1641,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvE
   br label %_ZN4llvm15SmallPtrSetImplIPNS_15DILocalVariableEE6insertES2_.exit.i.i.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_15DILocalVariableEE6insertES2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %554, %552
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %436, i64 noundef 4) #14
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %436, i64 noundef 4) #14
   %556 = getelementptr inbounds nuw i8, ptr %.sroa.028.0191.i.i.i.i, i64 32
   %557 = load ptr, ptr %556, align 8, !noalias !31
   %558 = getelementptr inbounds nuw i8, ptr %.sroa.028.0191.i.i.i.i, i64 40
@@ -1754,7 +1754,7 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
 
 600:                                              ; preds = %594, %._crit_edge204.i.i.i.i
   %.2127.i.i.i.i = phi i64 [ %595, %594 ], [ %.1126.ph207.i.i.i.i, %._crit_edge204.i.i.i.i ]
-  %601 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
+  %601 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #14
   %602 = load ptr, ptr %16, align 8
   %603 = icmp eq ptr %602, %436
   br i1 %603, label %_ZN4llvm11SmallVectorIPNS_14MachineOperandELj4EED2Ev.exit.i.i.i.i, label %604

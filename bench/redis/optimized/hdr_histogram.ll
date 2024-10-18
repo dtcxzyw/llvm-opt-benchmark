@@ -678,12 +678,12 @@ counts_inc_normalised.exit.i:                     ; preds = %if.end.i.i.i, %if.e
   %min_value.i.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
+  %13 = tail call i64 @llvm.smin.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %12)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %14)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %hdr_record_values.exit
 
@@ -762,12 +762,12 @@ counts_inc_normalised.exit:                       ; preds = %if.end4, %if.end.i.
   %min_value.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i, align 8
   %cmp1.not.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
+  %13 = tail call i64 @llvm.smin.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %12)
   %value..i = select i1 %cmp1.not.i, i64 %12, i64 %13
   store i64 %value..i, ptr %min_value.i, align 8
   %max_value.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i, align 8
-  %cond9.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
+  %cond9.i = tail call i64 @llvm.smax.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %14)
   store i64 %cond9.i, ptr %max_value.i, align 8
   br label %return
 
@@ -1053,12 +1053,12 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.e
   %min_value.i.i = getelementptr inbounds i8, ptr %h, i64 48
   %12 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %value, 0
-  %13 = tail call i64 @llvm.smin.i64(i64 %value, i64 %12)
+  %13 = tail call i64 @llvm.smin.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %12)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %12, i64 %13
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %max_value.i.i = getelementptr inbounds i8, ptr %h, i64 56
   %14 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 %value, i64 %14)
+  %cond9.i.i = tail call i64 @llvm.smax.i64(i64 range(i64 0, -9223372036854775808) %value, i64 %14)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   %cmp = icmp slt i64 %expected_interval, 1
   %cmp1.not = icmp sle i64 %value, %expected_interval
@@ -1123,10 +1123,10 @@ hdr_record_values.exit57:                         ; preds = %if.end4.i33, %if.en
   %add1.i.i51 = add nsw i64 %25, %count
   store i64 %add1.i.i51, ptr %total_count.i.i, align 8
   %26 = load i64, ptr %min_value.i.i, align 8
-  %27 = tail call i64 @llvm.smin.i64(i64 %missing_value.063, i64 %26)
+  %27 = tail call i64 @llvm.smin.i64(i64 range(i64 0, -9223372036854775808) %missing_value.063, i64 %26)
   store i64 %27, ptr %min_value.i.i, align 8
   %28 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i56 = tail call i64 @llvm.smax.i64(i64 %missing_value.063, i64 %28)
+  %cond9.i.i56 = tail call i64 @llvm.smax.i64(i64 range(i64 0, -9223372036854775808) %missing_value.063, i64 %28)
   store i64 %cond9.i.i56, ptr %max_value.i.i, align 8
   %missing_value.0 = sub nsw i64 %missing_value.063, %expected_interval
   %cmp4.not = icmp slt i64 %missing_value.0, %expected_interval
@@ -1433,11 +1433,11 @@ hdr_record_values.exit.thread:                    ; preds = %while.body, %lor.lh
   store i64 %add1.i.i, ptr %total_count.i.i3, align 8
   %16 = load i64, ptr %min_value.i.i, align 8
   %cmp1.not.i.i = icmp eq i64 %2, 0
-  %17 = call i64 @llvm.smin.i64(i64 %2, i64 %16)
+  %17 = call i64 @llvm.smin.i64(i64 range(i64 0, -9223372036854775808) %2, i64 %16)
   %value..i.i = select i1 %cmp1.not.i.i, i64 %16, i64 %17
   store i64 %value..i.i, ptr %min_value.i.i, align 8
   %18 = load i64, ptr %max_value.i.i, align 8
-  %cond9.i.i = call i64 @llvm.smax.i64(i64 %2, i64 %18)
+  %cond9.i.i = call i64 @llvm.smax.i64(i64 range(i64 0, -9223372036854775808) %2, i64 %18)
   store i64 %cond9.i.i, ptr %max_value.i.i, align 8
   br label %while.cond
 

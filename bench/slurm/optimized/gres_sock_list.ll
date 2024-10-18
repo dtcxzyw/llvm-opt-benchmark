@@ -323,7 +323,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 168:                                              ; preds = %165
   %169 = trunc nuw nsw i64 %indvars.iv132.i to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._can_use_gres_exc_topo, i32 noundef %13, i32 noundef %169) #5
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._can_use_gres_exc_topo, i32 noundef %13, i32 noundef range(i32 -2147483648, 65535) %169) #5
   br label %_can_use_gres_exc_topo.exit.thread.i
 
 170:                                              ; preds = %159
@@ -345,7 +345,7 @@ define ptr @gres_sock_list_create(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 178:                                              ; preds = %175
   %179 = trunc nuw nsw i64 %indvars.iv132.i to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._can_use_gres_exc_topo, i32 noundef %13, i32 noundef %179) #5
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._can_use_gres_exc_topo, i32 noundef %13, i32 noundef range(i32 -2147483648, 65535) %179) #5
   br label %_can_use_gres_exc_topo.exit.thread.i
 
 _can_use_gres_exc_topo.exit.i:                    ; preds = %156, %.thread.i.i

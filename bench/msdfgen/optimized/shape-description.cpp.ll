@@ -192,7 +192,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.
   store i8 0, ptr %inverseYAxis, align 8
   %y.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
-  %call.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %p, ptr noundef nonnull %y.i)
+  %call.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull %y.i)
   switch i32 %call.i, label %do.body.i [
     i32 2, label %if.then
     i32 1, label %return
@@ -320,7 +320,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %y.i33 = getelementptr inbounds i8, ptr %p, i64 8
-  %call.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %p, ptr noundef nonnull %y.i33)
+  %call.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull %y.i33)
   switch i32 %call.i, label %do.body.i [
     i32 2, label %if.end6
     i32 1, label %return
@@ -373,7 +373,7 @@ _ZN7msdfgen9readCharFEP8_IO_FILE.exit38:          ; preds = %do.body.i35
   br i1 %or.cond.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38
-  %call.i40 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx14, ptr noundef nonnull %y.i39)
+  %call.i40 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14, ptr noundef nonnull %y.i39)
   switch i32 %call.i40, label %do.body.i42 [
     i32 2, label %if.then17
     i32 1, label %return
@@ -478,7 +478,7 @@ do.body.i47.backedge:                             ; preds = %do.body.i47, %do.bo
 
 READ_CONTROL_POINTS:                              ; preds = %do.body.i42, %do.body.i47
   %color.1 = phi i32 [ %color.2, %do.body.i47 ], [ 7, %do.body.i42 ]
-  %call.i.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx14, ptr noundef nonnull %y.i39)
+  %call.i.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14, ptr noundef nonnull %y.i39)
   switch i32 %call.i.i, label %do.body.i15.i [
     i32 2, label %do.body.i.i
     i32 1, label %return
@@ -499,7 +499,7 @@ do.body.i.i.backedge:                             ; preds = %do.body.i.i, %do.bo
   br label %do.body.i.i
 
 sw.epilog.i:                                      ; preds = %do.body.i.i
-  %call.i10.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx3.i, ptr noundef nonnull %y.i9.i)
+  %call.i10.i = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3.i, ptr noundef nonnull %y.i9.i)
   %cmp5.i = icmp eq i32 %call.i10.i, 2
   br i1 %cmp5.i, label %do.body.i11.i, label %return
 
@@ -553,7 +553,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i42, %do.bo
   %idxprom = zext nneg i32 %add to i64
   %arrayidx55 = getelementptr inbounds [4 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
   %y.i55 = getelementptr inbounds i8, ptr %arrayidx55, i64 8
-  %call.i56 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx55, ptr noundef nonnull %y.i55)
+  %call.i56 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx55, ptr noundef nonnull %y.i55)
   switch i32 %call.i56, label %do.body.i57 [
     i32 2, label %if.end71
     i32 1, label %return

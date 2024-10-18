@@ -292,7 +292,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit31: ; preds = %_ZN12Disa
   %78 = load ptr, ptr %11, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #7
+  call void %80(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10) #7
   %81 = getelementptr inbounds i8, ptr %10, i64 40
   %82 = getelementptr inbounds i8, ptr %11, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
@@ -833,7 +833,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit78: ; preds = %_ZN12Disa
 
 58:                                               ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit78, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit74
   %59 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 -1, i64 16, i1 false)
   store i32 0, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 20
   store i8 0, ptr %60, align 4
@@ -915,12 +915,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80: ; preds = %_ZN12Disa
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit80, %93
   call void @_ZN14MacroAssembler16argument_addressE18RegisterOrConstanti(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %8, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 2, i64 0, i32 noundef -1) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %94 = getelementptr inbounds i8, ptr %8, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(20) %94, ptr noundef nonnull align 8 dereferenceable(40) %61) #7
+  call void %97(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %61) #7
   br label %98
 
 98:                                               ; preds = %58, %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81
@@ -942,12 +942,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disa
   br label %105
 
 105:                                              ; preds = %104, %101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %106 = getelementptr inbounds i8, ptr %9, i64 24
   %107 = load ptr, ptr %61, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(40) %106) #7
+  call void %109(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %106) #7
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 1, ptr noundef nonnull %9) #7
   call void @_ZN13MethodHandles37trace_method_handle_interpreter_entryEP14MacroAssembler13vmIntrinsicID(ptr noundef nonnull %0, i32 noundef %1) #7
   %110 = icmp eq i32 %1, 397
@@ -971,12 +971,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disa
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit83: ; preds = %113, %116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %10, ptr noundef nonnull align 8 dereferenceable(21) %5, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %117 = getelementptr inbounds i8, ptr %10, i64 24
   %118 = load ptr, ptr %61, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(20) %61, ptr noundef nonnull align 8 dereferenceable(40) %117) #7
+  call void %120(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %117) #7
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 1, ptr noundef nonnull %10) #7
   br label %121
 
@@ -1236,10 +1236,10 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit246: ; preds = %_ZN12Dis
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit247: ; preds = %92, %98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %13, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %99 = getelementptr inbounds i8, ptr %13, i64 24
   %100 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(40) %99) #7
+  call void %100(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %99) #7
   call void @_ZN14MacroAssembler13load_heap_oopE8Register7AddressS0_S0_m(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 11, ptr noundef nonnull %13, i32 0, i32 -1, i64 noundef 0) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   %101 = load i8, ptr @PrintInterpreter, align 1
@@ -1338,12 +1338,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit251: ; preds = %_ZN12Dis
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252: ; preds = %129, %132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %15, ptr noundef nonnull align 8 dereferenceable(21) %10, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
   %133 = getelementptr inbounds i8, ptr %15, i64 24
   %134 = load ptr, ptr %53, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(40) %133) #7
+  call void %136(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %133) #7
   call void @_ZN14MacroAssembler13load_heap_oopE8Register7AddressS0_S0_m(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %15, i32 -1, i32 -1, i64 noundef 0) #7
   %137 = load i8, ptr @PrintInterpreter, align 1
   %138 = trunc i8 %137 to i1
@@ -1354,12 +1354,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252: ; preds = %129, %13
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit252, %139
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %16, ptr noundef nonnull align 8 dereferenceable(21) %11, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
   %140 = getelementptr inbounds i8, ptr %16, i64 24
   %141 = load ptr, ptr %62, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(40) %140) #7
+  call void %143(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %140) #7
   call void @_ZN14MacroAssembler14access_load_atE9BasicTypem8Register7AddressS1_S1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext 15, i64 noundef 262144, i32 3, ptr noundef nonnull %16, i32 -1, i32 -1) #7
   br label %244
 
@@ -1373,12 +1373,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit253: ; preds = %_ZN12Dis
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254: ; preds = %144, %147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %17, ptr noundef nonnull align 8 dereferenceable(21) %10, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 21, i1 false)
   %148 = getelementptr inbounds i8, ptr %17, i64 24
   %149 = load ptr, ptr %53, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(20) %53, ptr noundef nonnull align 8 dereferenceable(40) %148) #7
+  call void %151(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %148) #7
   call void @_ZN14MacroAssembler13load_heap_oopE8Register7AddressS0_S0_m(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %17, i32 -1, i32 -1, i64 noundef 0) #7
   %152 = load i8, ptr @PrintInterpreter, align 1
   %153 = trunc i8 %152 to i1
@@ -1389,12 +1389,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254: ; preds = %144, %14
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit254, %154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %18, ptr noundef nonnull align 8 dereferenceable(21) %11, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
   %155 = getelementptr inbounds i8, ptr %18, i64 24
   %156 = load ptr, ptr %62, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(40) %155) #7
+  call void %158(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %155) #7
   call void @_ZN14MacroAssembler14access_load_atE9BasicTypem8Register7AddressS1_S1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext 15, i64 noundef 262144, i32 3, ptr noundef nonnull %18, i32 -1, i32 -1) #7
   br label %244
 
@@ -1408,12 +1408,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit255: ; preds = %_ZN12Dis
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit256: ; preds = %159, %162
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %19, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %163 = getelementptr inbounds i8, ptr %19, i64 24
   %164 = load ptr, ptr %44, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
-  call void %166(ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 8 dereferenceable(40) %163) #7
+  call void %166(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %163) #7
   call void @_ZN14MacroAssembler14access_load_atE9BasicTypem8Register7AddressS1_S1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext 15, i64 noundef 262144, i32 11, ptr noundef nonnull %19, i32 -1, i32 -1) #7
   %167 = load i8, ptr @VerifyMethodHandles, align 1
   %168 = trunc i8 %167 to i1
@@ -1492,12 +1492,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit261: ; preds = %185, %18
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit262: ; preds = %189, %192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %21, ptr noundef nonnull align 8 dereferenceable(21) %8, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %193 = getelementptr inbounds i8, ptr %21, i64 24
   %194 = load ptr, ptr %35, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 16
   %196 = load ptr, ptr %195, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(40) %193) #7
+  call void %196(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %193) #7
   call void @_ZN14MacroAssembler13load_heap_oopE8Register7AddressS0_S0_m(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, ptr noundef nonnull %21, i32 -1, i32 -1, i64 noundef 0) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %197 = load i8, ptr @PrintInterpreter, align 1
@@ -1548,12 +1548,12 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit264: ; preds = %_ZN13Met
   br label %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit265
 
 _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit265: ; preds = %_ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit264, %214
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %22, ptr noundef nonnull align 8 dereferenceable(21) %9, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %215 = getelementptr inbounds i8, ptr %22, i64 24
   %216 = load ptr, ptr %44, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 16
   %218 = load ptr, ptr %217, align 8
-  call void %218(ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 8 dereferenceable(40) %215) #7
+  call void %218(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %215) #7
   call void @_ZN14MacroAssembler14access_load_atE9BasicTypem8Register7AddressS1_S1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext 15, i64 noundef 262144, i32 3, ptr noundef nonnull %22, i32 -1, i32 -1) #7
   %219 = load i8, ptr @VerifyMethodHandles, align 1
   %220 = trunc i8 %219 to i1
@@ -1668,7 +1668,7 @@ _ZN12Disassembler4hookI14MacroAssemblerEEPT_PKciS3_.exit273: ; preds = %_ZN12Dis
   %257 = load ptr, ptr %25, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(40) %24) #7
+  call void %259(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %24) #7
   %260 = getelementptr inbounds i8, ptr %24, i64 40
   %261 = getelementptr inbounds i8, ptr %25, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false)

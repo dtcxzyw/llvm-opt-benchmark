@@ -356,7 +356,7 @@ define hidden void @_ZN2cv16CvCaptureCAM_V4LC2Ev(ptr noundef nonnull align 8 der
 13:                                               ; preds = %1, %13
   %.idx = phi i64 [ 240, %1 ], [ %.add, %13 ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.ptr, i8 0, i64 640, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %.ptr, i8 0, i64 640, i1 false)
   %14 = getelementptr inbounds i8, ptr %.ptr, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 0, i64 88, i1 false)
   %.add = add nuw nsw i64 %.idx, 736
@@ -8172,7 +8172,7 @@ define hidden void @_ZN2cv22create_V4L_capture_camEi(ptr dead_on_unwind noalias 
 15:                                               ; preds = %15, %2
   %.idx.i = phi i64 [ 240, %2 ], [ %.add.i, %15 ]
   %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.ptr.i, i8 0, i64 640, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %.ptr.i, i8 0, i64 640, i1 false)
   %16 = getelementptr inbounds i8, ptr %.ptr.i, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 88, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 736
@@ -8257,7 +8257,7 @@ define hidden void @_ZN2cv23create_V4L_capture_fileERKNSt7__cxx1112basic_stringI
 15:                                               ; preds = %15, %2
   %.idx.i = phi i64 [ 240, %2 ], [ %.add.i, %15 ]
   %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %.ptr.i, i8 0, i64 640, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(736) %.ptr.i, i8 0, i64 640, i1 false)
   %16 = getelementptr inbounds i8, ptr %.ptr.i, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 88, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 736

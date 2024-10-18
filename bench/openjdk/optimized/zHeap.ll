@@ -199,9 +199,9 @@ define hidden void @_ZN5ZHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(1
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 1272
-  %14 = tail call noundef i64 @_ZNK14ZPageAllocator16initial_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
-  %15 = tail call noundef i64 @_ZNK14ZPageAllocator12min_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
-  %16 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %14 = tail call noundef i64 @_ZNK14ZPageAllocator16initial_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
+  %15 = tail call noundef i64 @_ZNK14ZPageAllocator12min_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
+  %16 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   tail call void @_ZN15ZServiceabilityC1Emmm(ptr noundef nonnull align 8 dereferenceable(1216) %13, i64 noundef %14, i64 noundef %15, i64 noundef %16) #10
   %17 = getelementptr inbounds i8, ptr %0, i64 2496
   tail call void @_ZN14ZGenerationOldC1EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) %17, ptr noundef nonnull %8, ptr noundef nonnull %0) #10
@@ -388,7 +388,7 @@ declare noundef i64 @_ZNK14ZPageAllocator6unusedEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5ZHeap13tlab_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %2 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   ret i64 %2
 }
 
@@ -706,7 +706,7 @@ define hidden void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align
   br label %_ZN5ZHeap9free_pageEP5ZPage.exit
 
 _ZN5ZHeap9free_pageEP5ZPage.exit:                 ; preds = %15, %20
-  tail call void @_ZN14ZPageAllocator9free_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef nonnull %1) #10
+  tail call void @_ZN14ZPageAllocator9free_pageEP5ZPage(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef nonnull %1) #10
   ret void
 }
 
@@ -947,11 +947,11 @@ declare noundef ptr @_ZN15ZServiceability8countersEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5ZHeap8print_onEP12outputStream(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %3 = tail call noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %4 = lshr i64 %3, 20
-  %5 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %5 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %6 = lshr i64 %5, 20
-  %7 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %7 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %8 = lshr i64 %7, 20
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, i64 noundef %4, i64 noundef %6, i64 noundef %8) #10
   tail call void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef nonnull %1) #10
@@ -964,11 +964,11 @@ declare void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef) local_un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5ZHeap17print_extended_onEP12outputStream(ptr noundef nonnull align 64 dereferenceable(15937) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %3 = tail call noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %4 = lshr i64 %3, 20
-  %5 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %5 = tail call noundef i64 @_ZNK14ZPageAllocator8capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %6 = lshr i64 %5, 20
-  %7 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
+  %7 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %0) #10
   %8 = lshr i64 %7, 20
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, i64 noundef %4, i64 noundef %6, i64 noundef %8) #10
   tail call void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef nonnull %1) #10

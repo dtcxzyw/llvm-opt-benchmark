@@ -264,7 +264,7 @@ define i32 @nxmq_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %6 = call i32 @getumask() #8
-  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %5, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %nxmq_vopen.exit, label %9
 
@@ -307,7 +307,7 @@ define range(i32 -1, -2147483648) i32 @mq_open(ptr noundef %0, i32 noundef %1, .
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %6 = call i32 @getumask() #8
-  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %5, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %24, label %9
 

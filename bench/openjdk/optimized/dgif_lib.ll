@@ -1193,7 +1193,7 @@ InternalRead.exit.i:                              ; preds = %33, %31
 
 47:                                               ; preds = %42
   %48 = zext i8 %40 to i32
-  %49 = call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %43, i32 noundef %48) #14
+  %49 = call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %43, i32 noundef range(i32 0, 256) %48) #14
   br label %InternalRead.exit15.i
 
 50:                                               ; preds = %42
@@ -1658,7 +1658,7 @@ InternalRead.exit:                                ; preds = %8, %10
 
 27:                                               ; preds = %20
   %28 = zext i8 %19 to i32
-  %29 = call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef %28) #14
+  %29 = call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef range(i32 0, 256) %28) #14
   br label %InternalRead.exit15
 
 30:                                               ; preds = %20
@@ -1774,7 +1774,7 @@ InternalRead.exit.i:                              ; preds = %28, %26
 
 42:                                               ; preds = %37
   %43 = zext i8 %35 to i32
-  %44 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef %43) #14
+  %44 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef range(i32 0, 256) %43) #14
   br label %InternalRead.exit15.i
 
 45:                                               ; preds = %37
@@ -1908,7 +1908,7 @@ InternalRead.exit.i:                              ; preds = %33, %31
 
 50:                                               ; preds = %43
   %51 = zext i8 %42 to i32
-  %52 = call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %51) #14
+  %52 = call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef range(i32 0, 256) %51) #14
   br label %InternalRead.exit13.i
 
 53:                                               ; preds = %43
@@ -1995,7 +1995,7 @@ InternalRead.exit:                                ; preds = %8, %10
 
 27:                                               ; preds = %20
   %28 = zext i8 %19 to i32
-  %29 = call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef %28) #14
+  %29 = call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef range(i32 0, 256) %28) #14
   br label %InternalRead.exit13
 
 30:                                               ; preds = %20
@@ -2343,7 +2343,7 @@ InternalRead.exit.i:                              ; preds = %19, %17
 
 36:                                               ; preds = %29
   %37 = zext i8 %28 to i32
-  %38 = call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %32, i32 noundef %37) #14
+  %38 = call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %32, i32 noundef range(i32 0, 256) %37) #14
   br label %InternalRead.exit15.i
 
 39:                                               ; preds = %29
@@ -2452,7 +2452,7 @@ InternalRead.exit.i:                              ; preds = %23, %21
 
 37:                                               ; preds = %32
   %38 = zext i8 %30 to i32
-  %39 = call i32 %36(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef %38) #14
+  %39 = call i32 %36(ptr noundef nonnull %0, ptr noundef nonnull %33, i32 noundef range(i32 0, 256) %38) #14
   br label %InternalRead.exit15.i
 
 40:                                               ; preds = %32
@@ -2599,7 +2599,7 @@ InternalRead.exit.i:                              ; preds = %27, %25
 
 44:                                               ; preds = %40
   %45 = zext i8 %36 to i32
-  %46 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef %45) #14
+  %46 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef range(i32 0, 256) %45) #14
   br label %InternalRead.exit22.i
 
 47:                                               ; preds = %40
@@ -3029,7 +3029,7 @@ InternalRead.exit.i71:                            ; preds = %126, %124
 
 140:                                              ; preds = %134
   %141 = zext i8 %133 to i32
-  %142 = call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef %141) #14
+  %142 = call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef range(i32 0, 256) %141) #14
   br label %InternalRead.exit13.i
 
 143:                                              ; preds = %134

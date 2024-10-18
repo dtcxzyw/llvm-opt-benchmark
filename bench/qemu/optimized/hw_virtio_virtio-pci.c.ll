@@ -1603,7 +1603,7 @@ if.then88:                                        ; preds = %if.end84
   %add94 = add i64 %cond, %call93
   %conv96 = and i64 %add94, 4294967295
   %sub.i177 = add nsw i64 %conv96, -1
-  %60 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i177, i1 false)
+  %60 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, 4294967295) %sub.i177, i1 false)
   %tobool.not.i178 = icmp eq i64 %60, 0
   %sub2.i = add nuw nsw i64 %60, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
@@ -2164,7 +2164,7 @@ land.lhs.true.i55:                                ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i57, label %if.else.i48, label %if.then.i58
 
 if.then.i58:                                      ; preds = %land.lhs.true.i55
-  tail call void %15(ptr noundef nonnull %cond.i.i43, i32 noundef %conv36, i1 noundef zeroext true) #14
+  tail call void %15(ptr noundef nonnull %cond.i.i43, i32 noundef range(i32 -1, 65536) %conv36, i1 noundef zeroext true) #14
   br label %virtio_pci_one_vector_mask.exit59
 
 if.else.i48:                                      ; preds = %land.lhs.true.i55, %virtio_bus_get_device.exit.i42
@@ -2263,7 +2263,7 @@ land.lhs.true.i:                                  ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef %conv3, i1 noundef zeroext true) #14
+  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef range(i32 -1, 65536) %conv3, i1 noundef zeroext true) #14
   br label %if.end9
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %virtio_bus_get_device.exit.i
@@ -4640,7 +4640,7 @@ do.body.i:                                        ; preds = %virtio_bus_get_devi
   br i1 %cmp.i.not.i, label %sw.epilog, label %if.then89.i
 
 if.then89.i:                                      ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.virtio_ioport_write, i32 noundef %conv5, i32 noundef %conv6) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.virtio_ioport_write, i32 noundef range(i32 0, 24) %conv5, i32 noundef %conv6) #14
   br label %sw.epilog
 
 if.end7:                                          ; preds = %if.end
@@ -4867,7 +4867,7 @@ if.end:                                           ; preds = %land.end, %if.then
   %modern_bar = getelementptr inbounds i8, ptr %call.i, i64 4320
   %4 = or disjoint i32 %cond.i, 12287
   %sub.i = zext nneg i32 %4 to i64
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, 4294967295) %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %5, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i

@@ -1667,7 +1667,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf11EnumOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf11EnumOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14EnumDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -1767,7 +1767,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf16EnumValueOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf16EnumValueOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_19EnumValueDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -1865,7 +1865,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf12FieldOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf12FieldOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(144) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15FieldDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -1961,7 +1961,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf11FileOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(176) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf11FileOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(176) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14FileDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -2059,7 +2059,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf14MessageOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf14MessageOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_10DescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -2185,7 +2185,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf13MethodOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf13MethodOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_16MethodDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -2285,7 +2285,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf12OneofOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf12OneofOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15OneofDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -2383,7 +2383,7 @@ invoke.cont2.i.i.i.i:                             ; preds = %if.else.i.i10.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %invoke.cont2.i.i.i.i
-  invoke void @_ZN6google8protobuf14ServiceOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull %options.i)
+  invoke void @_ZN6google8protobuf14ServiceOptions12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %options.i)
           to label %_ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_17ServiceDescriptorEEEDaRKT_.exit unwind label %terminate.lpad.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i
@@ -2637,7 +2637,7 @@ if.then.i.i48:                                    ; preds = %if.then.i46
   br i1 %23, label %if.then.i.i.i49, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i48
-  %call1.i.i.i50 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %20, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i50 = invoke noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
           to label %call1.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call1.i.i.i.noexc:                                ; preds = %lor.lhs.false.i.i.i
@@ -2645,7 +2645,7 @@ call1.i.i.i.noexc:                                ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i49, label %invoke.cont17
 
 if.then.i.i.i49:                                  ; preds = %call1.i.i.i.noexc, %if.then.i.i48
-  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %5)
+  invoke void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %5)
           to label %.noexc51 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc51:                                         ; preds = %if.then.i.i.i49
@@ -2654,7 +2654,7 @@ if.then.i.i.i49:                                  ; preds = %call1.i.i.i.noexc, 
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %invoke.cont17
 
 if.then5.i.i.i:                                   ; preds = %.noexc51
-  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %20, i1 noundef zeroext true)
+  invoke void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull align 4 dereferenceable(4) %20, i1 noundef zeroext true)
           to label %invoke.cont17 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont17:                                    ; preds = %.noexc51, %call1.i.i.i.noexc, %if.then.i46, %if.else, %if.then5.i.i.i
@@ -3276,7 +3276,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i.i, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.coerce, i64 16, i1 false)
   %0 = load i32, ptr %second.i.i.i.i, align 4
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   store i32 %0, ptr %second3.i.i.i.i, align 8
@@ -3405,7 +3405,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN4absl12lts_202308024SpanIKiEEiEN
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN4absl12lts_202308024SpanIKiEEiENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i.i, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__next.sroa.0.0.i.i, i64 16, i1 false)
   %second.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 -8
   %5 = load i32, ptr %second.i.i.i, align 4
   %second3.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 16
@@ -3530,7 +3530,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
   %6 = phi i64 [ %sub3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread ], [ %mul, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit ], [ %mul, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i ], [ %mul, %for.body.i.i.i.i.i.i.i12.i.i ]
   %add.ptr.i18 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %6
   %add.ptr.i19 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.040
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i18, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i18, i64 16, i1 false)
   %second.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 16
   %7 = load i32, ptr %second.i, align 4
   %second3.i = getelementptr inbounds i8, ptr %add.ptr.i19, i64 16
@@ -3555,7 +3555,7 @@ if.then21:                                        ; preds = %land.lhs.true
   %sub25 = or disjoint i64 %add22, 1
   %add.ptr.i20 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub25
   %add.ptr.i21 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i20, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i20, i64 16, i1 false)
   %second.i22 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 16
   %8 = load i32, ptr %second.i22, align 4
   %second3.i23 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 16
@@ -3654,7 +3654,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN4absl12l
 
 while.body.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i.i
   %add.ptr.i8.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.023.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i.i, i64 16, i1 false)
   %second.i.i25 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %14 = load i32, ptr %second.i.i25, align 4
   %second3.i.i = getelementptr inbounds i8, ptr %add.ptr.i8.i, i64 16
@@ -3834,9 +3834,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
 
 if.then12:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i14, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
   br label %if.end62
 
@@ -3911,17 +3911,17 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
 
 if.then22:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i64, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i74, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i101)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i101, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i101)
   br label %if.end62
 
 if.else27:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i83, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i93, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i104)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i104, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i104)
   br label %if.end62
 
@@ -4000,9 +4000,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
 
 if.then39:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i120, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i130, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i157)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__a.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i157, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i157)
   br label %if.end62
 
@@ -4076,17 +4076,17 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12
 
 if.then50:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i173, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i183, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i210)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__c.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i210, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i210)
   br label %if.end62
 
 if.else55:                                        ; preds = %for.body.i.i.i.i.i.i.i12.i.i192, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit26.i.i202, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit209
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i213)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__result.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__b.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i213, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i213)
   br label %if.end62
 
@@ -4284,9 +4284,9 @@ if.then:                                          ; preds = %while.end18
 
 if.end:                                           ; preds = %while.end18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.1, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
   %second.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 16
   %second3.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -8
@@ -4417,7 +4417,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.0.018, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %incdec.ptr.i.i.i.i.i, i64 16, i1 false)
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -8
   %6 = load i32, ptr %second.i.i.i.i.i.i, align 4
   %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -8
@@ -4510,7 +4510,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN4absl12lts_202308024SpanIKiEEiEN
   br i1 %cmp.i.i.i, label %while.body.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 while.body.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN4absl12lts_202308024SpanIKiEEiENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i, %_ZN4absl12lts_20230802ltIKiEEbNS0_4SpanIT_EES5_.exit.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.0.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__last.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(20) %__next.sroa.0.0.i, i64 16, i1 false)
   %second.i.i3 = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 -8
   %12 = load i32, ptr %second.i.i3, align 4
   %second3.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 16

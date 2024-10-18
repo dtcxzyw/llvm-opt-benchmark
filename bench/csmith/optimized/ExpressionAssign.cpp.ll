@@ -117,7 +117,7 @@ define dso_local noundef nonnull ptr @_ZN16ExpressionAssign11make_randomER9CGCon
           to label %24 unwind label %11
 
 24:                                               ; preds = %22
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 3)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %25 unwind label %27
 
 25:                                               ; preds = %24
@@ -184,7 +184,7 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16ExpressionAssignD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
@@ -194,7 +194,7 @@ define dso_local noundef nonnull ptr @_ZNK16ExpressionAssign5cloneEv(ptr nocaptu
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3)
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %5 unwind label %7
 
 5:                                                ; preds = %1

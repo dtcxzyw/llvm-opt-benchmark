@@ -91,7 +91,7 @@ entry:
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %t, ptr noundef %t)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull %t, ptr noundef nonnull %t)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %entry
@@ -116,7 +116,7 @@ entry:
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %t, ptr noundef %t, ptr noundef nonnull @aes_zero)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %entry
@@ -141,7 +141,7 @@ entry:
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %t, ptr noundef %t)
+  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull %t, ptr noundef nonnull %t)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %entry
@@ -168,7 +168,7 @@ entry:
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr noundef %t, ptr noundef %t, ptr noundef %z)
+  call fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z)
   br label %aesdec_ISB_ISR_IMC_AK.exit
 
 if.then7.i:                                       ; preds = %entry
@@ -234,7 +234,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %t, ptr noundef %t, ptr noundef nonnull %rc)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %rc)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %if.end
@@ -259,7 +259,7 @@ entry:
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call fastcc void @aesdec_IMC_accel(ptr noundef %t, ptr noundef %t)
+  call fastcc void @aesdec_IMC_accel(ptr noundef nonnull %t, ptr noundef nonnull %t)
   br label %aesdec_IMC.exit
 
 if.then7.i:                                       ; preds = %entry

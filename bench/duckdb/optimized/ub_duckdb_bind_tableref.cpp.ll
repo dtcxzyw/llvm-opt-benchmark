@@ -21639,7 +21639,7 @@ _ZNSt12_Vector_baseIN6duckdb16PivotColumnEntryESaIS1_EE11_M_allocateEm.exit.i: ;
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %116 = load ptr, ptr %_M_end_of_storage.i, align 16, !tbaa !650
   store ptr %116, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8, !tbaa !650
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %entry194, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %entry194, i8 0, i64 24, i1 false)
   %star_expr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %117 = load i64, ptr %star_expr3.i.i.i.i.i, align 8, !tbaa !67
   store i64 %117, ptr %star_expr.i.i.i.i, align 8, !tbaa !67

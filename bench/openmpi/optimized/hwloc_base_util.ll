@@ -978,7 +978,7 @@ define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr nocapture noun
   br label %hwloc_get_next_obj_by_depth.exit.us
 
 22:                                               ; preds = %.split.us
-  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %23 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, -2) %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit.us
 
 hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
@@ -1001,7 +1001,7 @@ hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
   br i1 %.not.i, label %29, label %31
 
 29:                                               ; preds = %.split
-  %30 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %30 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, -2) %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit
 
 31:                                               ; preds = %.split
@@ -1081,7 +1081,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
   br i1 %.not66, label %.preheader, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %71 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, -2) %7, i32 noundef 0) #10
   %.not.i71 = icmp eq ptr %71, null
   br i1 %.not.i71, label %hwloc_get_nbobjs_inside_cpuset_by_depth.exit, label %.preheader.i
 
@@ -1123,7 +1123,7 @@ hwloc_get_nbobjs_inside_cpuset_by_depth.exit:     ; preds = %78, %70
   br i1 %.not.i.i, label %82, label %84
 
 82:                                               ; preds = %81
-  %83 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef %7, i32 noundef 0) #10
+  %83 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, -2) %7, i32 noundef 0) #10
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 84:                                               ; preds = %81

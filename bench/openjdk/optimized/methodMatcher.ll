@@ -1078,7 +1078,7 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr n
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 36, i1 false)
   call void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4)
   %6 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %6, null
@@ -1226,7 +1226,7 @@ define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr nocapture noundef nonn
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %3, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 36, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24

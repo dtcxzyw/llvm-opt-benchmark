@@ -450,7 +450,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   %4 = phi i1 [ true, %entry ], [ %retval.0.i.i, %lor.rhs ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #20
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %__v, i64 12, i1 false), !tbaa.struct !49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %__v, i64 12, i1 false), !tbaa.struct !49
   %second.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   %second3.i = getelementptr inbounds i8, ptr %__v, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 80

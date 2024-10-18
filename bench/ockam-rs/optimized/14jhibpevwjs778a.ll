@@ -957,7 +957,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   store i64 3, ptr %14, align 8, !alias.scope !119
   %15 = getelementptr inbounds i8, ptr %3, i64 88
   store i64 274877906944, ptr %15, align 8, !alias.scope !119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.01.i, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.01.i, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.01.i), !noalias !119
   %16 = load i64, ptr %11, align 8, !alias.scope !122, !noalias !125, !noundef !6
   %17 = load i64, ptr %10, align 8, !alias.scope !122, !noalias !125, !noundef !6
@@ -965,7 +965,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   br i1 %18, label %19, label %.noexc
 
 19:                                               ; preds = %13
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd95d532eaa910ce0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %16)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd95d532eaa910ce0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %16)
           to label %._crit_edge.i unwind label %20, !noalias !125
 
 ._crit_edge.i:                                    ; preds = %19
@@ -1049,7 +1049,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
 
 47:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i"
   %48 = mul nsw i64 %.val4.i, 96
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %48, i64 noundef 8) #26, !noalias !127
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %48, i64 noundef 8) #26, !noalias !127
   br label %49
 
 49:                                               ; preds = %47, %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", %.noexc
@@ -1355,7 +1355,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   br label %.critedge
 
 32:                                               ; preds = %17
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 %2, i64 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }
 
@@ -1432,7 +1432,7 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   br label %.critedge
 
 32:                                               ; preds = %17
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 %2, i64 %1)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }
 
@@ -1600,7 +1600,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 6:                                                ; preds = %4
   %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !180
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %8, i64 %3), !alias.scope !180
   %9 = icmp eq i32 %bcmp.i, 0
   br label %5
 }
@@ -1676,7 +1676,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   %3 = mul nsw i64 %.8.val, 96
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %3, i64 noundef 8) #26
   br label %5
 
 5:                                                ; preds = %0, %2

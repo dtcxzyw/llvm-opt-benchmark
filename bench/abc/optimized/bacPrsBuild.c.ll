@@ -651,7 +651,7 @@ Bac_NtkStartNames.exit:                           ; preds = %23, %Vec_IntGrow.ex
 41:                                               ; preds = %38, %34
   %42 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 1, i32 noundef -1)
   %43 = shl i32 %33, 2
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %42, i32 noundef %43)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %42, i32 noundef range(i32 0, -3) %43)
   %.val377 = load ptr, ptr %30, align 8
   %44 = getelementptr inbounds i32, ptr %.val377, i64 %35
   store i32 %42, ptr %44, align 4
@@ -894,7 +894,7 @@ Bac_ObjAlloc.exit470:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %156, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %Bac_ObjAlloc.exit470, %Psr_ManNtk.exit.thread
-  %157 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef 60, i32 noundef %91)
+  %157 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 60, i32 noundef %91)
   %.val.i455 = load i32, ptr %54, align 4
   %158 = load i32, ptr %8, align 8
   %159 = icmp eq i32 %.val.i455, %158
@@ -1027,7 +1027,7 @@ Bac_ObjAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
   %216 = getelementptr i8, ptr %215, i64 8
   %217 = load i32, ptr %216, align 4
   %218 = shl i32 %217, 2
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %157, i32 noundef %218)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %157, i32 noundef range(i32 0, -3) %218)
   %Psr_BoxSignals.V.val388 = load i32, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 4), align 4
   %Psr_BoxSignals.V.val389 = load ptr, ptr getelementptr inbounds (i8, ptr @Psr_BoxSignals.V, i64 8), align 8
   %219 = sext i32 %Psr_BoxSignals.V.val388 to i64
@@ -1052,7 +1052,7 @@ Bac_ObjAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
 230:                                              ; preds = %228, %Bac_ObjAlloc.exit
   %231 = add nsw i32 %157, 1
   %232 = shl i32 %spec.select.i, 2
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %231, i32 noundef %232)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %231, i32 noundef range(i32 0, -3) %232)
   %.val376 = load ptr, ptr %59, align 8
   %233 = getelementptr inbounds i32, ptr %.val376, i64 %225
   store i32 %231, ptr %233, align 4
@@ -1196,7 +1196,7 @@ Bac_ObjAlloc.exit500:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %292, label %.lr.ph.i401, label %._crit_edge.i397, !llvm.loop !20
 
 ._crit_edge.i397:                                 ; preds = %Bac_ObjAlloc.exit500, %234
-  %293 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef 5, i32 noundef %91)
+  %293 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 5, i32 noundef %91)
   %294 = icmp sgt i32 %.val367, 0
   br i1 %294, label %.lr.ph14.i398, label %Bac_BoxAlloc.exit404
 
@@ -1339,7 +1339,7 @@ Bac_BoxAlloc.exit404:                             ; preds = %Bac_ObjAlloc.exit48
   %354 = getelementptr i8, ptr %353, i64 8
   %355 = load i32, ptr %354, align 4
   %356 = shl i32 %355, 2
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %293, i32 noundef %356)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %293, i32 noundef range(i32 0, -3) %356)
   %357 = load ptr, ptr %0, align 8
   %.val351 = load ptr, ptr %50, align 8
   %.val352 = load ptr, ptr %51, align 8
@@ -1707,7 +1707,7 @@ Bac_ObjAlloc.exit541:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %513, label %.lr.ph.i410, label %._crit_edge.i406, !llvm.loop !20
 
 ._crit_edge.i406:                                 ; preds = %Bac_ObjAlloc.exit541, %454
-  %514 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef %91, i32 noundef -1)
+  %514 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef %91, i32 noundef -1)
   %.val.i512 = load i32, ptr %54, align 4
   %515 = load i32, ptr %8, align 8
   %516 = icmp eq i32 %.val.i512, %515
@@ -1855,7 +1855,7 @@ Bac_ObjAlloc.exit526:                             ; preds = %.Vec_IntGrow.exit10
 580:                                              ; preds = %578, %Bac_ObjAlloc.exit526
   %581 = add nsw i32 %514, 1
   %582 = shl i32 %spec.select.i414, 2
-  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %581, i32 noundef %582)
+  tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %581, i32 noundef range(i32 0, -3) %582)
   %.val374 = load ptr, ptr %59, align 8
   %583 = getelementptr inbounds i32, ptr %.val374, i64 %575
   store i32 %581, ptr %583, align 4
@@ -2045,7 +2045,7 @@ Psr_ManNtk.exit429:                               ; preds = %642
   br i1 %668, label %.lr.ph14.i432, label %728
 
 .lr.ph14.i432:                                    ; preds = %.lr.ph696
-  %669 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef 6, i32 noundef -1)
+  %669 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 6, i32 noundef -1)
   %.val.i542 = load i32, ptr %69, align 4
   %670 = load i32, ptr %8, align 8
   %671 = icmp eq i32 %.val.i542, %670
@@ -2306,7 +2306,7 @@ Vec_IntSetEntry.exit574:                          ; preds = %728, %._crit_edge.i
   br i1 %777, label %.lr.ph14.i438, label %837
 
 .lr.ph14.i438:                                    ; preds = %767
-  %778 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef 6, i32 noundef -1)
+  %778 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 6, i32 noundef -1)
   %.val.i575 = load i32, ptr %69, align 4
   %779 = load i32, ptr %8, align 8
   %780 = icmp eq i32 %.val.i575, %779
@@ -2958,7 +2958,7 @@ Vec_IntSetEntry.exit655:                          ; preds = %1002, %._crit_edge.
   br i1 %1047, label %.lr.ph14.i449, label %.critedge6
 
 .lr.ph14.i449:                                    ; preds = %1043
-  %1048 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef %0, i32 noundef 6, i32 noundef -1)
+  %1048 = tail call fastcc i32 @Bac_ObjAlloc(ptr noundef nonnull %0, i32 noundef 6, i32 noundef -1)
   %.val.i656 = load i32, ptr %617, align 4
   %1049 = load i32, ptr %8, align 8
   %1050 = icmp eq i32 %.val.i656, %1049

@@ -1430,7 +1430,7 @@ define hidden void @_ZN11ClassLoader16trace_class_pathEPKcS1_(ptr noundef %0, pt
   br i1 %.not13, label %19, label %5
 
 5:                                                ; preds = %2
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #21
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #21
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #21
@@ -3333,7 +3333,7 @@ define hidden noundef ptr @_ZN11ClassLoader19get_system_packagesEP10JavaThread(p
   br label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
 
 35:                                               ; preds = %23
-  %36 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef 8, i32 noundef 0) #21
+  %36 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %25, i64 noundef 8, i32 noundef 0) #21
   br label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
 
 _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %33, %35
@@ -3385,7 +3385,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %49, %52
   %60 = shl nuw nsw i64 %indvars.iv, %.8.i
   %61 = add nuw nsw i64 %59, %60
   %62 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %62(ptr noundef nonnull %50, i64 noundef %61, ptr noundef %54) #21
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %61, ptr noundef %54) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %15, align 4
   %64 = sext i32 %63 to i64
@@ -3715,7 +3715,7 @@ define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntryb
   br i1 %64, label %65, label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events17log_class_loadingEP6ThreadPKczEEED2Ev.exit
 
 65:                                               ; preds = %.thread
-  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(272) %6) #21
+  call void @_ZN13EventMarkBase7log_endEv(ptr noundef nonnull align 8 dereferenceable(536) %6) #21
   br label %_ZN24EventMarkWithLogFunctionIXadL_ZN6Events17log_class_loadingEP6ThreadPKczEEED2Ev.exit
 
 _ZN24EventMarkWithLogFunctionIXadL_ZN6Events17log_class_loadingEP6ThreadPKczEEED2Ev.exit: ; preds = %.thread, %65

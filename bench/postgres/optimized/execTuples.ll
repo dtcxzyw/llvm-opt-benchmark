@@ -4402,7 +4402,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   %127 = sext i16 %114 to i32
   %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %128)
-  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %127) #13
+  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %127) #13
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 

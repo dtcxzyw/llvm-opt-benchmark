@@ -816,7 +816,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %191 = sext i16 %178 to i32
   %192 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %192)
-  %193 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %191) #8
+  %193 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %191) #8
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
@@ -825,7 +825,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   br label %index_getattr.exit129
 
 196:                                              ; preds = %162
-  %197 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef %159, ptr noundef nonnull %160) #8
+  %197 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef range(i32 -32768, 32768) %159, ptr noundef nonnull %160) #8
   br label %index_getattr.exit129
 
 198:                                              ; preds = %156
@@ -842,7 +842,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   br i1 %.not.i21.i127, label %index_getattr.exit129.thread, label %208
 
 208:                                              ; preds = %198
-  %209 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef %159, ptr noundef %160) #8
+  %209 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef range(i32 -32768, 32768) %159, ptr noundef %160) #8
   br label %index_getattr.exit129
 
 index_getattr.exit129:                            ; preds = %179, %182, %185, %188, %194, %196, %208
@@ -984,7 +984,7 @@ index_getattr.exit129.thread:                     ; preds = %198
   %285 = sext i16 %272 to i32
   %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %286)
-  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %285) #8
+  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %285) #8
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
@@ -993,7 +993,7 @@ index_getattr.exit129.thread:                     ; preds = %198
   br label %index_getattr.exit
 
 290:                                              ; preds = %256
-  %291 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef %253, ptr noundef nonnull %254) #8
+  %291 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef range(i32 -32768, 32768) %253, ptr noundef nonnull %254) #8
   br label %index_getattr.exit
 
 292:                                              ; preds = %250
@@ -1010,7 +1010,7 @@ index_getattr.exit129.thread:                     ; preds = %198
   br i1 %.not.i21.i, label %index_getattr.exit.thread, label %302
 
 302:                                              ; preds = %292
-  %303 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef %253, ptr noundef %254) #8
+  %303 = call i64 @nocache_index_getattr(ptr noundef nonnull %121, i32 noundef range(i32 -32768, 32768) %253, ptr noundef %254) #8
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %273, %276, %279, %282, %288, %290, %302

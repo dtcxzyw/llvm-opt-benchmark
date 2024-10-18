@@ -1802,7 +1802,7 @@ define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef reado
   br i1 %.not47, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
 
 slot_getsomeattrs.exit.i:                         ; preds = %65
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %29, i32 noundef %63) #10
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %29, i32 noundef range(i32 -16383, 16385) %63) #10
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %65, %slot_getsomeattrs.exit.i
@@ -2059,7 +2059,7 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr nocapture noundef readon
   br i1 %.not96.us, label %slot_getattr.exit.us, label %slot_getsomeattrs.exit.i.us
 
 slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph105.split.us
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100.us, i32 noundef %100) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100.us, i32 noundef range(i32 -16383, 16385) %100) #10
   br label %slot_getattr.exit.us
 
 slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph105.split.us
@@ -2130,7 +2130,7 @@ ExecQualAndReset.exit.thread.us:                  ; preds = %122
   br i1 %.not96, label %slot_getattr.exit, label %slot_getsomeattrs.exit.i
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph105.split
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100, i32 noundef %100) #10
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.083100, i32 noundef range(i32 -16383, 16385) %100) #10
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %.lr.ph105.split, %slot_getsomeattrs.exit.i

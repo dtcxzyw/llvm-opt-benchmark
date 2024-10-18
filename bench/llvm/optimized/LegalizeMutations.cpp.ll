@@ -175,7 +175,7 @@ define dso_local void @_ZN4llvm17LegalizeMutations22moreElementsToNextPow2Ejj(pt
 define dso_local void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store i32 %1, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations9scalarizeEjE3$_0E9_M_invokeERKSt9_Any_dataS6_", ptr %4, align 8
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_17LegalizeMutations9scalarizeEjE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %3, align 8

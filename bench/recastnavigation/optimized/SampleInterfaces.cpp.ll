@@ -556,7 +556,7 @@ define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceabl
   br label %_ZN6FileIOD2Ev.exit
 
 _ZN6FileIOD2Ev.exit:                              ; preds = %1, %4
-  tail call void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }

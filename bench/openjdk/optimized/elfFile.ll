@@ -1913,7 +1913,7 @@ _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
   %35 = add nsw i64 %34, 8
   store i64 %35, ptr %18, align 8
   %36 = load ptr, ptr %19, align 8
-  %37 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %36)
+  %37 = call i64 @fread(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 8, i64 noundef 1, ptr noundef %36)
   %38 = icmp eq i64 %37, 1
   br i1 %38, label %_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.exit.i, label %_ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHeaderEjRb.exit
 
@@ -2259,7 +2259,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges24read_address_desc
   %14 = add nsw i64 %13, 8
   store i64 %14, ptr %6, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %15)
+  %16 = call i64 @fread(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 8, i64 noundef 1, ptr noundef %15)
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.exit, label %.critedge
 

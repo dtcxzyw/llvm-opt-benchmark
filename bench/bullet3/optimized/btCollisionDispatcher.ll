@@ -393,7 +393,7 @@ _ZN21btCollisionDispatcherD2Ev.exit:              ; preds = %entry, %if.then.i.i
   store i32 0, ptr %m_size.i.i.i.i, align 4
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %m_capacity.i.i.i.i, align 8
-  tail call void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
+  tail call void @_ZN12btDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(20816) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }

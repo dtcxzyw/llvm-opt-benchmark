@@ -235,7 +235,7 @@ for.body30.i:                                     ; preds = %for.body24.i, %for.
   ]
 
 sw.bb33.i:                                        ; preds = %for.body30.i
-  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.030.i, i32 noundef 0) #11
+  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %__begin2.sroa.0.030.i, i32 noundef 0) #11
   %value.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   %31 = load double, ptr %value.i.i.i.i, align 8
   %cmp.i.i.i.i = fcmp ule double %31, 0x41DFFFFFFFC00000
@@ -339,7 +339,7 @@ while.end:                                        ; preds = %while.body, %do.end
   store i8 1, ptr %ref.tmp.sroa.2.0.statementCount_.sroa_idx.i.i, align 4
   %41 = load i8, ptr %strictMode_.i.i, align 4
   %tobool.i93.i = trunc i8 %41 to i1
-  %call.i94.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %12, i32 noundef 2) #11
+  %call.i94.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %12, i32 noundef 2) #11
   br i1 %tobool.i93.i, label %if.end.i32, label %if.then.i
 
 if.then.i:                                        ; preds = %while.end
@@ -427,14 +427,14 @@ for.body.i36:                                     ; preds = %_ZN4llvh12DenseMapB
   %argIndex.0686.i = phi i32 [ %inc.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit135.i ], [ 1, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit.i ]
   %__begin2.0685.i = phi ptr [ %incdec.ptr.i37, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit135.i ], [ %51, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_EixEOS4_.exit.i ]
   %53 = load ptr, ptr %__begin2.0685.i, align 8
-  %call.i95.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %12) #11
+  %call.i95.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %12) #11
   %sub.i.i = add i32 %call.i95.i, -2
   %cmp29.i = icmp ult i32 %argIndex.0686.i, %sub.i.i
   br i1 %cmp29.i, label %cond.true30.i, label %cond.false32.i
 
 cond.true30.i:                                    ; preds = %for.body.i36
   %add.i.i = add i32 %argIndex.0686.i, 2
-  %call.i96.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %12, i32 noundef %add.i.i) #11
+  %call.i96.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %12, i32 noundef %add.i.i) #11
   br label %cond.end35.i
 
 cond.false32.i:                                   ; preds = %for.body.i36
@@ -3275,7 +3275,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 
 if.end:                                           ; preds = %if.then12.i.i.i.i, %while.body
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %while.body ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %visited, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef %cond.sink.i.i.i.i), !noalias !14
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIPN6hermes10BasicBlockENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(40) %visited, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef nonnull align 8 dereferenceable(8) %BB, ptr noundef %cond.sink.i.i.i.i), !noalias !14
   %13 = load ptr, ptr %BB, align 8
   store ptr %13, ptr %call.i.i.i, align 8, !noalias !14
   %14 = load i32, ptr %Size.i.i.i.i.i, align 8

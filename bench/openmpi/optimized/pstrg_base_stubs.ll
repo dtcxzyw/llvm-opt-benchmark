@@ -215,7 +215,7 @@ pmix_obj_new_tma.exit.thread69:                   ; preds = %.lr.ph.i.i, %15
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
   %88 = phi ptr [ %90, %.lr.ph.i ], [ %87, %83 ]
   %.07.i = phi ptr [ %89, %.lr.ph.i ], [ %86, %83 ]
-  tail call void %88(ptr noundef %10) #10
+  tail call void %88(ptr noundef nonnull %10) #10
   %89 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not.i67 = icmp eq ptr %90, null

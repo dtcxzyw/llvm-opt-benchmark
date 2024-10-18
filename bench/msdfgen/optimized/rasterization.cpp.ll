@@ -267,7 +267,7 @@ entry:
 
 if.else.i.i.i:                                    ; preds = %entry
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline.i)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 8
@@ -634,7 +634,7 @@ if.then.i.i.i72.i:                                ; preds = %if.end117.i, %invok
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i72.i, %if.end117.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %34 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i73.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i73.i, label %_ZN7msdfgenL27multiDistanceSignCorrectionILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit, label %if.then.i.i.i.i74.i
@@ -667,7 +667,7 @@ entry:
 
 if.else.i.i.i:                                    ; preds = %entry
   call void @_ZN7msdfgen8ScanlineC1Ev(ptr noundef nonnull align 8 dereferenceable(28) %scanline.i)
-  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i, i8 0, i64 24, i1 false)
   %conv.i = sext i32 %mul.i to i64
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %matchMap.i, i64 8
@@ -1046,7 +1046,7 @@ if.then.i.i.i76.i:                                ; preds = %if.end128.i, %invok
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit.i
 
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i76.i, %if.end128.i
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %matchMap.i) #10
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matchMap.i) #10
   %36 = load ptr, ptr %scanline.i, align 8
   %tobool.not.i.i.i.i77.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i77.i, label %_ZN7msdfgenL27multiDistanceSignCorrectionILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionENS_8FillRuleE.exit, label %if.then.i.i.i.i78.i
@@ -1114,7 +1114,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #10
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #10
   ret void
 }
 

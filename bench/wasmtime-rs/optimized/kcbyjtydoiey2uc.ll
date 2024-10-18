@@ -66,7 +66,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %6
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h821fc4f496c1701fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %28)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h821fc4f496c1701fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %28)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %31
@@ -228,7 +228,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   br i1 %84, label %85, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit"
 
 85:                                               ; preds = %81
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbf611bdfe207164dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %82)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hbf611bdfe207164dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %82)
           to label %.noexc28 unwind label %.loopexit
 
 .noexc28:                                         ; preds = %85

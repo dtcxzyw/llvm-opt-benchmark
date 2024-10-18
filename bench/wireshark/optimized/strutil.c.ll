@@ -960,7 +960,7 @@ define ptr @xml_escape(ptr nocapture noundef readonly %0) local_unnamed_addr #3 
   br label %g_string_append_c_inline.exit
 
 32:                                               ; preds = %21
-  %33 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext %8) #13
+  %33 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext range(i8 1, 0) %8) #13
   br label %g_string_append_c_inline.exit
 
 34:                                               ; preds = %7
@@ -994,7 +994,7 @@ define ptr @xml_escape(ptr nocapture noundef readonly %0) local_unnamed_addr #3 
   br label %g_string_append_c_inline.exit
 
 51:                                               ; preds = %40
-  %52 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext %8) #13
+  %52 = tail call ptr @g_string_insert_c(ptr noundef nonnull %2, i64 noundef -1, i8 noundef signext range(i8 1, 0) %8) #13
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %51, %45, %32, %26, %39, %19, %17, %15, %13, %11

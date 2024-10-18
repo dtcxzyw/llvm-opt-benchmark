@@ -890,7 +890,7 @@ Vec_IntRemove.exit:                               ; preds = %66, %._crit_edge.i,
   br i1 %92, label %Vec_IntPushUniqueOrder.exit, label %88
 
 ._crit_edge.i67:                                  ; preds = %88, %84
-  tail call fastcc void @Vec_IntPushOrder(ptr noundef nonnull %4, i32 noundef %spec.select)
+  tail call fastcc void @Vec_IntPushOrder(ptr noundef nonnull %4, i32 noundef range(i32 1, 0) %spec.select)
   br label %Vec_IntPushUniqueOrder.exit
 
 Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i67, %Vec_IntRemove.exit
@@ -921,7 +921,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i6
   br i1 %102, label %.critedge, label %98
 
 ._crit_edge.i73:                                  ; preds = %98, %93
-  tail call fastcc void @Vec_IntPushOrder(ptr noundef nonnull %4, i32 noundef %43)
+  tail call fastcc void @Vec_IntPushOrder(ptr noundef nonnull %4, i32 noundef range(i32 1, 0) %43)
   br label %.critedge
 
 103:                                              ; preds = %53, %25, %48, %19

@@ -155,7 +155,7 @@ define void @_ZN2cv4gapi3wip6onevpl18create_host_deviceEv(ptr dead_on_unwind noa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #10, !noalias !7
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(4) @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %5, !noalias !7
 
 4:                                                ; preds = %1

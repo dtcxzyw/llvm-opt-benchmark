@@ -69,7 +69,7 @@ define hidden noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode12commit_rangeE
   %16 = sub i64 %15, %8
   %17 = ashr exact i64 %16, 3
   %18 = udiv i64 %17, %12
-  %19 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %13, i64 noundef %18) #8
+  %19 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %13, i64 noundef %18) #8
   %20 = load i64, ptr %11, align 8
   %21 = mul i64 %20, %19
   %22 = sub i64 %2, %21
@@ -177,12 +177,12 @@ define hidden noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode12commit_rangeE
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %66
-  tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %79, i1 noundef zeroext true) #8
+  tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %79, i1 noundef zeroext true) #8
   br label %_ZN9metaspace10CommitMask23mark_range_as_committedEPKP12MetaWordImplm.exit
 
 85:                                               ; preds = %66
-  %86 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %79, i64 noundef %82) #8
-  tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %79, i64 noundef %82) #8
+  %86 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %79, i64 noundef %82) #8
+  tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %79, i64 noundef %82) #8
   br label %_ZN9metaspace10CommitMask23mark_range_as_committedEPKP12MetaWordImplm.exit
 
 _ZN9metaspace10CommitMask23mark_range_as_committedEPKP12MetaWordImplm.exit: ; preds = %84, %85
@@ -246,7 +246,7 @@ define hidden void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWord
   %16 = sub i64 %15, %8
   %17 = ashr exact i64 %16, 3
   %18 = udiv i64 %17, %12
-  %19 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %13, i64 noundef %18) #8
+  %19 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %13, i64 noundef %18) #8
   %20 = load i64, ptr %11, align 8
   %21 = mul i64 %20, %19
   %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -326,12 +326,12 @@ define hidden void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWord
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %49
-  tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %63, i1 noundef zeroext false) #8
+  tail call void @_ZN6BitMap6at_putEmb(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %63, i1 noundef zeroext false) #8
   br label %_ZN9metaspace10CommitMask25mark_range_as_uncommittedEPKP12MetaWordImplm.exit
 
 69:                                               ; preds = %49
-  %70 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %63, i64 noundef %66) #8
-  tail call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %63, i64 noundef %66) #8
+  %70 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %63, i64 noundef %66) #8
+  tail call void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %63, i64 noundef %66) #8
   br label %_ZN9metaspace10CommitMask25mark_range_as_uncommittedEPKP12MetaWordImplm.exit
 
 _ZN9metaspace10CommitMask25mark_range_as_uncommittedEPKP12MetaWordImplm.exit: ; preds = %68, %69
@@ -582,7 +582,7 @@ define hidden void @_ZN9metaspace16VirtualSpaceNodeD2Ev(ptr noundef nonnull alig
 
 14:                                               ; preds = %12, %8
   %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #8
+  %16 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #8
   %17 = getelementptr inbounds i8, ptr %0, i64 136
   %18 = load i64, ptr %17, align 8
   %19 = mul i64 %18, %16
@@ -608,7 +608,7 @@ define hidden void @_ZN9metaspace16VirtualSpaceNodeD2Ev(ptr noundef nonnull alig
   store i64 %35, ptr @_ZN9metaspace13InternalStats19_num_vsnodes_deathsE, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZN9metaspace16RootChunkAreaLUTD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #8
-  tail call void @_ZN11CHeapBitMapD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %15) #8
+  tail call void @_ZN11CHeapBitMapD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %15) #8
   ret void
 }
 
@@ -617,7 +617,7 @@ declare void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK9metaspace16VirtualSpaceNode15committed_wordsEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
-  %3 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %3 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, %3
@@ -760,7 +760,7 @@ define hidden void @_ZNK9metaspace16VirtualSpaceNode8print_onEP12outputStream(pt
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %7, i64 noundef 1024, i32 noundef -1) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19) #8
   %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  %9 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %9

@@ -2169,7 +2169,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   %92 = getelementptr inbounds i8, ptr %.192125, i64 44
   store i32 0, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %.192125, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, i8 0, i64 16, i1 false)
   store i32 %82, ptr %93, align 8
   br label %99
 
@@ -2955,7 +2955,7 @@ define void @_ZN2cv4MSER6createEiiiddiddi(ptr dead_on_unwind noalias nocapture w
   store i32 1, ptr %13, align 4, !noalias !54
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv9MSER_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %11, align 8, !noalias !54
   %14 = getelementptr inbounds i8, ptr %11, i64 16
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(240) %14)
           to label %_ZN2cv3PtrINS_9MSER_ImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9MSER_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i, !noalias !54
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9MSER_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %10
@@ -3125,7 +3125,7 @@ _ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vec
 _ZN2cv9MSER_ImplD2Ev.exit:                        ; preds = %_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EED2Ev.exit.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #23
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   ret void
 }
@@ -3164,8 +3164,8 @@ _ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt6v
 _ZN2cv9MSER_ImplD1Ev.exit:                        ; preds = %_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EED2Ev.exit.i.i, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #23
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -4208,7 +4208,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_
   %.013.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.013.i.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %.013.i.i.i, i8 0, i64 32, i1 false)
   store float -1.000000e+00, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 36
   store i32 0, ptr %20, align 4
@@ -4244,7 +4244,7 @@ _ZNKSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_EE12_M_check_lenEmPKc.exit: ; pr
   %.013.i.i.i31 = phi ptr [ %36, %.lr.ph.i.i.i30 ], [ %31, %_ZNKSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %35, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv9MSER_Impl11CompHistoryESaIS2_EE12_M_check_lenEmPKc.exit ]
   %32 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.013.i.i.i31, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %.013.i.i.i31, i8 0, i64 32, i1 false)
   store float -1.000000e+00, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 36
   store i32 0, ptr %33, align 4
@@ -6033,8 +6033,8 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN2cv9MSER_ImplEEEvRS0_PT_.exit: ; preds =
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #23
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #23
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %11, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv9MSER_ImplE, i64 16)) #23
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %11) #23
   ret void
 }
 

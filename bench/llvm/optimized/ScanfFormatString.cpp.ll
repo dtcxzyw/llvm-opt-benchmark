@@ -1771,7 +1771,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   br i1 %.not.not, label %._crit_edge, label %51, !llvm.loop !150
 
 204:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %11, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
   store ptr %storemerge87.i, ptr %45, align 8, !alias.scope !145
   store i8 0, ptr %46, align 8, !alias.scope !145
   %205 = load ptr, ptr %6, align 8, !noalias !145

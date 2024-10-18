@@ -227,7 +227,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %20, label %21, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.i.i.i: ; preds = %15
@@ -261,7 +261,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %28 = lshr i64 %.06.i.i, 1
   %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
-  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
   %33 = add i64 %.06.i.i, %32
@@ -459,7 +459,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %20, label %21, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.i.i.i: ; preds = %15
@@ -493,7 +493,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %28 = lshr i64 %.06.i.i, 1
   %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
-  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
   %33 = add i64 %.06.i.i, %32
@@ -655,7 +655,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %20 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %20, label %21, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SH_ESH_SH_RKS6_RKT0_E7CompareEclISE_SJ_EEbSH_RSL_.exit.i.i.i: ; preds = %15
@@ -689,7 +689,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %28 = lshr i64 %.06.i.i, 1
   %29 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %28
-  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %31 = getelementptr inbounds i8, ptr %29, i64 12
   %32 = xor i64 %28, -1
   %33 = add i64 %.06.i.i, %32
@@ -803,7 +803,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i.i", label %20
 
 20:                                               ; preds = %19
-  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %21, label %22, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.i.i.i": ; preds = %16
@@ -886,7 +886,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrRe
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i", label %18
 
 18:                                               ; preds = %17
-  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %19, label %20, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.i.i": ; preds = %14
@@ -1733,7 +1733,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i, label %33
 
 33:                                               ; preds = %32
-  %34 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %34 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %34, label %35, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.i.i.i: ; preds = %29
@@ -1767,7 +1767,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %43 = lshr i64 %.06.i.i, 1
   %44 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %43
-  %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %44, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %46 = getelementptr inbounds i8, ptr %44, i64 12
   %47 = xor i64 %43, -1
   %48 = add i64 %.06.i.i, %47
@@ -1866,7 +1866,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i, label %27
 
 27:                                               ; preds = %26
-  %28 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %28 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %28, label %29, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__24SdfPathFindPrefixedRangeINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEES5_IT_SI_ESI_SI_RKS6_RKT0_E7CompareEclISF_SK_EEbSI_RSM_.exit.i.i.i: ; preds = %23
@@ -1900,7 +1900,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.012.0.lcssa.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS3_17UsdStageLoadRules4RuleEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
   %38 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.03.05.i.i, i64 %37
-  %39 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %39 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(12) %38, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %40 = getelementptr inbounds i8, ptr %38, i64 12
   %41 = xor i64 %37, -1
   %42 = add i64 %.06.i.i, %41
@@ -1969,7 +1969,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules25IsLoadedWithNoDescendantsERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i", label %20
 
 20:                                               ; preds = %19
-  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %21 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %21, label %22, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules25IsLoadedWithNoDescendantsERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules25IsLoadedWithNoDescendantsERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.i.i": ; preds = %16
@@ -2111,7 +2111,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i", label %18
 
 18:                                               ; preds = %17
-  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  %19 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br i1 %19, label %20, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK32pxrInternal_v0_24__pxrReserved__17UsdStageLoadRules11_LowerBoundERKNS2_7SdfPathEE3$_0EclINS_17__normal_iteratorIPKSt4pairIS4_NS3_4RuleEESt6vectorISD_SaISD_EEEES5_EEbT_RT0_.exit.i.i": ; preds = %14
@@ -2185,7 +2185,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt4pa
 .lr.ph:                                           ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit
   %.sroa.08.012 = phi ptr [ %19, %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit ], [ %4, %2 ]
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2)
-  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.08.012)
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012)
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.3)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %11 = load i32, ptr %10, align 4
@@ -3605,7 +3605,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__29Sdf_PathFindLongestPrefixImplINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEET_SI_SI_RKS6_bRKT0_E7CompareEclISF_SJ_EEbSI_RSL_.exit.thread.i.i, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %2)
+  %23 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(8) %2)
   br i1 %23, label %24, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__29Sdf_PathFindLongestPrefixImplINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEET_SI_SI_RKS6_bRKT0_E7CompareEclISF_SJ_EEbSI_RSL_.exit.thread.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__29Sdf_PathFindLongestPrefixImplINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEET_SI_SI_RKS6_bRKT0_E7CompareEclISF_SJ_EEbSI_RSL_.exit.i.i: ; preds = %18
@@ -3682,7 +3682,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrR
   br i1 %.not.i.i37, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN32pxrInternal_v0_24__pxrReserved__29Sdf_PathFindLongestPrefixImplINS_17__normal_iteratorIPKSt4pairINS2_7SdfPathENS2_17UsdStageLoadRules4RuleEESt6vectorIS9_SaIS9_EEEENS2_5TfGetILm0EEEEET_SI_SI_RKS6_bRKT0_E7CompareEclISF_SJ_EEbSI_RSL_.exit.thread.i.i38, label %51
 
 51:                                               ; preds = %50
-  %52 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %52 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessThanInternalERKS0_S2_(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(8) %6)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %51

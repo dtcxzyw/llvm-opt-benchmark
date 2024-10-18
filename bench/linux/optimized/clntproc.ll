@@ -269,7 +269,7 @@ define dso_local i32 @nlmclnt_proc(ptr noundef %0, i32 noundef %1, ptr noundef %
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 600
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 -1, ptr elementtype(i32) %14) #12, !srcloc !15
+  %109 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #12, !srcloc !15
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %114, label %111
 
@@ -278,7 +278,7 @@ define dso_local i32 @nlmclnt_proc(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %112, label %nlmclnt_release_call.exit, label %113, !prof !12
 
 113:                                              ; preds = %111
-  tail call void @refcount_warn_saturate(ptr noundef %14, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %14, i32 noundef 3) #12
   br label %nlmclnt_release_call.exit
 
 114:                                              ; preds = %104
@@ -313,7 +313,7 @@ define dso_local i32 @nlmclnt_proc(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %129
 
 129:                                              ; preds = %128, %123
-  tail call void @kfree(ptr noundef %14) #12
+  tail call void @kfree(ptr noundef nonnull %14) #12
   br label %nlmclnt_release_call.exit
 
 130:                                              ; preds = %96

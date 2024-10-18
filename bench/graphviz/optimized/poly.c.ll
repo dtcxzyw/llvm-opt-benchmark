@@ -117,12 +117,12 @@ gv_calloc.exit:                                   ; preds = %10
   %44 = getelementptr inbounds i8, ptr %39, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(4) @.str) #19
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull dereferenceable(4) @.str) #19
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %38
-  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #19
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %46, ptr noundef nonnull dereferenceable(8) @.str.1) #19
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %isBox.exit.thread
 
@@ -665,7 +665,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(4) @.str) #19
+  %68 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull dereferenceable(4) @.str) #19
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %72
 
@@ -675,7 +675,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br label %153
 
 72:                                               ; preds = %.loopexit
-  %73 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #19
+  %73 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull dereferenceable(8) @.str.1) #19
   %74 = icmp eq i32 %73, 0
   %75 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %75, 4

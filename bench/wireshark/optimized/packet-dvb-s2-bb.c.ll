@@ -1031,7 +1031,7 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %41 = load i32, ptr @proto_dvb_s2_modeadapt, align 4
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef %37, ptr noundef nonnull @.str.647, i32 noundef %.074) #9
   %43 = sext i32 %.075 to i64
-  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %43)
   %45 = icmp samesign ugt i64 %44, 1
   br i1 %45, label %46, label %48
 

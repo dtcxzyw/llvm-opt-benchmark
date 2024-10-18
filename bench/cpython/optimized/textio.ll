@@ -4831,7 +4831,7 @@ if.end14:                                         ; preds = %if.end
 
 skip_optional_pos:                                ; preds = %if.end14, %if.end
   %final.0 = phi i32 [ %call16, %if.end14 ], [ 0, %if.end ]
-  %call.i = call ptr @_PyIncrementalNewlineDecoder_decode(ptr noundef %self, ptr noundef %3, i32 noundef %final.0)
+  %call.i = call ptr @_PyIncrementalNewlineDecoder_decode(ptr noundef %self, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %final.0)
   br label %exit
 
 exit:                                             ; preds = %if.end14, %cond.end9, %skip_optional_pos
@@ -6283,7 +6283,7 @@ if.end63:                                         ; preds = %if.end51
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end63
-  %call1.i = call ptr @_PyIncrementalNewlineDecoder_decode(ptr noundef nonnull %37, ptr noundef nonnull %call.i69, i32 noundef %conv65)
+  %call1.i = call ptr @_PyIncrementalNewlineDecoder_decode(ptr noundef nonnull %37, ptr noundef nonnull %call.i69, i32 noundef range(i32 0, 2) %conv65)
   br label %if.end.i70
 
 if.else.i:                                        ; preds = %if.end63
@@ -7968,7 +7968,7 @@ if.end.i73.i:                                     ; preds = %if.else70.i
   %decoded_chars_used.i.i = getelementptr inbounds i8, ptr %self, i64 128
   %33 = load i64, ptr %decoded_chars_used.i.i, align 8
   %sub.i.i = sub i64 %.val.i.i, %33
-  %34 = call i64 @llvm.smin.i64(i64 %1, i64 %sub.i.i)
+  %34 = call i64 @llvm.smin.i64(i64 range(i64 -1, -9223372036854775808) %1, i64 %sub.i.i)
   %cmp8.i.i = icmp sgt i64 %33, 0
   %cmp10.i.i = icmp slt i64 %1, %sub.i.i
   %or.cond16.i.i = select i1 %cmp8.i.i, i1 true, i1 %cmp10.i.i
@@ -8083,7 +8083,7 @@ if.end.i79.i:                                     ; preds = %Py_DECREF.exit137.i
   %.val.i80.i = load i64, ptr %43, align 8
   %44 = load i64, ptr %decoded_chars_used.i81.i, align 8
   %sub.i82.i = sub i64 %.val.i80.i, %44
-  %45 = call i64 @llvm.smin.i64(i64 %remaining.0.ph149.i, i64 %sub.i82.i)
+  %45 = call i64 @llvm.smin.i64(i64 range(i64 -1, -9223372036854775808) %remaining.0.ph149.i, i64 %sub.i82.i)
   %cmp8.i85.i = icmp sgt i64 %44, 0
   %cmp10.i86.i = icmp slt i64 %remaining.0.ph149.i, %sub.i82.i
   %or.cond16.i87.i = select i1 %cmp8.i85.i, i1 true, i1 %cmp10.i86.i

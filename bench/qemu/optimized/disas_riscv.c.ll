@@ -1450,7 +1450,7 @@ for.body.i:                                       ; preds = %for.body.backedge.i
 
 if.then.i:                                        ; preds = %for.body.i
   store ptr %16, ptr %14, align 8
-  call void %17(ptr noundef nonnull %dec.i, i32 noundef %isa) #12
+  call void %17(ptr noundef nonnull %dec.i, i32 noundef range(i32 0, 3) %isa) #12
   %18 = load i16, ptr %op.i, align 8
   %cmp10.not.i = icmp eq i16 %18, 0
   %cmp.i = icmp samesign ult i64 %i.068.i, 12
@@ -3512,7 +3512,7 @@ append.exit295.i.i:                               ; preds = %if.then.i292.i.i, %
 append.exit301.i.i:                               ; preds = %append.exit295.i.i, %append.exit301.i.i
   %call115559.i.i = phi i64 [ %call115.i.i, %append.exit301.i.i ], [ %call115557.i.i, %append.exit295.i.i ]
   %sub.i299.i.i = sub nuw nsw i64 128, %call115559.i.i
-  %call3.i300.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i299.i.i) #12
+  %call3.i300.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i299.i.i) #12
   %call115.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.i.i = icmp ult i64 %call115.i.i, 48
   br i1 %cmp.i.i, label %append.exit301.i.i, label %while.end.i.i, !llvm.loop !10
@@ -3554,7 +3554,7 @@ while.cond131.preheader.i.i:                      ; preds = %append.exit313.i.i
 append.exit319.i.i:                               ; preds = %while.cond131.preheader.i.i, %append.exit319.i.i
   %call132556.i.i = phi i64 [ %call132.i.i, %append.exit319.i.i ], [ %call132554.i.i, %while.cond131.preheader.i.i ]
   %sub.i317.i.i = sub nuw nsw i64 128, %call132556.i.i
-  %call3.i318.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i317.i.i) #12
+  %call3.i318.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i317.i.i) #12
   %call132.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp134.i.i = icmp ult i64 %call132.i.i, 48
   br i1 %cmp134.i.i, label %append.exit319.i.i, label %while.end137.i.i, !llvm.loop !11
@@ -4451,7 +4451,7 @@ if.then170.i.i:                                   ; preds = %sw.bb166.i.i
 
 if.then.i382.i.i:                                 ; preds = %if.then170.i.i
   %sub.i383.i.i = sub i64 128, %call.i380.i.i
-  %call3.i384.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.970, i64 noundef %sub.i383.i.i) #12
+  %call3.i384.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.970, i64 noundef %sub.i383.i.i) #12
   br label %if.end171.i.i
 
 if.end171.i.i:                                    ; preds = %if.then.i382.i.i, %if.then170.i.i, %sw.bb166.i.i
@@ -4466,7 +4466,7 @@ if.then176.i.i:                                   ; preds = %if.end171.i.i
 
 if.then.i388.i.i:                                 ; preds = %if.then176.i.i
   %sub.i389.i.i = sub i64 128, %call.i386.i.i
-  %call3.i390.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.971, i64 noundef %sub.i389.i.i) #12
+  %call3.i390.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.971, i64 noundef %sub.i389.i.i) #12
   br label %if.end177.i.i
 
 if.end177.i.i:                                    ; preds = %if.then.i388.i.i, %if.then176.i.i, %if.end171.i.i
@@ -4481,7 +4481,7 @@ if.then182.i.i:                                   ; preds = %if.end177.i.i
 
 if.then.i394.i.i:                                 ; preds = %if.then182.i.i
   %sub.i395.i.i = sub i64 128, %call.i392.i.i
-  %call3.i396.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.972, i64 noundef %sub.i395.i.i) #12
+  %call3.i396.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.972, i64 noundef %sub.i395.i.i) #12
   br label %if.end183.i.i
 
 if.end183.i.i:                                    ; preds = %if.then.i394.i.i, %if.then182.i.i, %if.end177.i.i
@@ -4507,7 +4507,7 @@ if.then194.i.i:                                   ; preds = %sw.bb190.i.i
 
 if.then.i406.i.i:                                 ; preds = %if.then194.i.i
   %sub.i407.i.i = sub i64 128, %call.i404.i.i
-  %call3.i408.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.970, i64 noundef %sub.i407.i.i) #12
+  %call3.i408.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.970, i64 noundef %sub.i407.i.i) #12
   br label %if.end195.i.i
 
 if.end195.i.i:                                    ; preds = %if.then.i406.i.i, %if.then194.i.i, %sw.bb190.i.i
@@ -4522,7 +4522,7 @@ if.then200.i.i:                                   ; preds = %if.end195.i.i
 
 if.then.i412.i.i:                                 ; preds = %if.then200.i.i
   %sub.i413.i.i = sub i64 128, %call.i410.i.i
-  %call3.i414.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.971, i64 noundef %sub.i413.i.i) #12
+  %call3.i414.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.971, i64 noundef %sub.i413.i.i) #12
   br label %if.end201.i.i
 
 if.end201.i.i:                                    ; preds = %if.then.i412.i.i, %if.then200.i.i, %if.end195.i.i
@@ -4537,7 +4537,7 @@ if.then206.i.i:                                   ; preds = %if.end201.i.i
 
 if.then.i418.i.i:                                 ; preds = %if.then206.i.i
   %sub.i419.i.i = sub i64 128, %call.i416.i.i
-  %call3.i420.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.972, i64 noundef %sub.i419.i.i) #12
+  %call3.i420.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.972, i64 noundef %sub.i419.i.i) #12
   br label %if.end207.i.i
 
 if.end207.i.i:                                    ; preds = %if.then.i418.i.i, %if.then206.i.i, %if.end201.i.i
@@ -4553,7 +4553,7 @@ if.then212.i.i:                                   ; preds = %if.end207.i.i
 append.exit433.i.i:                               ; preds = %while.cond215.preheader.i.i, %append.exit433.i.i
   %call216553.i.i = phi i64 [ %call216.i.i, %append.exit433.i.i ], [ %call216551.i.i, %while.cond215.preheader.i.i ]
   %sub.i431.i.i = sub nuw nsw i64 128, %call216553.i.i
-  %call3.i432.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly dereferenceable(1) @.str.960, i64 noundef %sub.i431.i.i) #12
+  %call3.i432.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.960, i64 noundef %sub.i431.i.i) #12
   %call216.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp217.i.i = icmp ult i64 %call216.i.i, 24
   br i1 %cmp217.i.i, label %append.exit433.i.i, label %sw.epilog321.i.i, !llvm.loop !12
@@ -4658,7 +4658,7 @@ sw.bb256.i.i:                                     ; preds = %while.cond.i.i
 
 if.then.i484.i.i:                                 ; preds = %sw.bb256.i.i
   %sub.i485.i.i = sub i64 128, %call.i482.i.i
-  %call3.i486.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.982, i64 noundef %sub.i485.i.i) #12
+  %call3.i486.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.982, i64 noundef %sub.i485.i.i) #12
   br label %append.exit487.i.i
 
 append.exit487.i.i:                               ; preds = %if.then.i484.i.i, %sw.bb256.i.i
@@ -4678,7 +4678,7 @@ append.exit493.i.i:                               ; preds = %if.then.i490.i.i, %
 
 if.then.i496.i.i:                                 ; preds = %append.exit493.i.i
   %sub.i497.i.i = sub i64 128, %call.i494.i.i
-  %call3.i498.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.983, i64 noundef %sub.i497.i.i) #12
+  %call3.i498.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.983, i64 noundef %sub.i497.i.i) #12
   br label %append.exit499.i.i
 
 append.exit499.i.i:                               ; preds = %if.then.i496.i.i, %append.exit493.i.i
@@ -4731,7 +4731,7 @@ if.end296.i.i:                                    ; preds = %if.end296.sink.spli
 
 if.then.i514.i.i:                                 ; preds = %if.end296.i.i
   %sub.i515.i.i = sub i64 128, %call.i512.i.i
-  %call3.i516.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i515.i.i) #12
+  %call3.i516.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.955, i64 noundef %sub.i515.i.i) #12
   br label %append.exit517.i.i
 
 append.exit517.i.i:                               ; preds = %if.then.i514.i.i, %if.end296.i.i
@@ -4751,7 +4751,7 @@ append.exit523.i.i:                               ; preds = %if.then.i520.i.i, %
 
 if.then.i526.i.i:                                 ; preds = %append.exit523.i.i
   %sub.i527.i.i = sub i64 128, %call.i524.i.i
-  %call3.i528.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i527.i.i) #12
+  %call3.i528.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull @.str.955, i64 noundef %sub.i527.i.i) #12
   br label %append.exit529.i.i
 
 append.exit529.i.i:                               ; preds = %if.then.i526.i.i, %append.exit523.i.i
@@ -4806,7 +4806,7 @@ sw.epilog321.i.sink.split.i:                      ; preds = %if.then.i544.i.i, %
   %arrayidx318.i.sink.i = phi ptr [ %arrayidx318.i.i, %if.then.i544.i.i ], [ %arrayidx254.i.i, %if.then.i478.i.i ], [ %arrayidx249.i.i, %if.then.i472.i.i ], [ %arrayidx244.i.i, %if.then.i466.i.i ], [ %arrayidx239.i.i, %if.then.i460.i.i ], [ %arrayidx86.i.i, %if.then.i262.i.i ], [ %arrayidx70.i.i, %if.then.i256.i.i ], [ %arrayidx53.i.i, %if.then.i250.i.i ], [ %arrayidx38.i.i, %if.then.i244.i.i ], [ %arrayidx27.i.i, %if.then.i238.i.i ], [ %arrayidx23.i.i, %if.then.i232.i.i ], [ %arrayidx19.i.i, %if.then.i226.i.i ], [ %422, %if.then.i.i61.i ], [ @.str.954, %sw.bb5.i.i ], [ @.str.955, %sw.bb6.i58.i ], [ @.str.956, %sw.bb7.i.i ], [ @.str.957, %sw.bb8.i.i ], [ %tmp.i.i, %sw.bb9.i.i ], [ %tmp.i.i, %sw.bb12.i.i ], [ %tmp.i.i, %sw.bb90.i.i ], [ %tmp.i.i, %sw.bb96.i.i ], [ %tmp.i.i, %sw.bb100.i.i ], [ %tmp.i.i, %sw.bb105.i.i ], [ %tmp.i.i, %while.end.i.i ], [ %tmp.i.i, %while.end137.i.i ], [ %retval.0.i.ph.i.i, %if.then151.i.i ], [ %tmp.i.i, %if.else.i.i ], [ @.str.963, %sw.bb160.i.i ], [ @.str.964, %sw.bb161.i35.i ], [ @.str.965, %sw.bb162.i.i ], [ @.str.966, %sw.bb163.i.i ], [ @.str.967, %sw.bb164.i.i ], [ @.str.968, %sw.bb165.i.i ], [ @.str.969, %sw.default.i.i ], [ @.str.973, %if.then188.i.i ], [ @.str.973, %if.then212.i.i ], [ @.str.974, %if.then223.i.i ], [ @.str.975, %if.then227.i.i ], [ @.str.976, %sw.bb229.i33.i ], [ @.str.977, %if.then234.i.i ], [ %cond276.i.i, %append.exit529.i.i ], [ %tmp.i.i, %sw.epilog313.i.i ]
   %fmt.1.i.ph.i = phi ptr [ %fmt.0.i.i, %if.then.i544.i.i ], [ %fmt.0.i.i, %if.then.i478.i.i ], [ %fmt.0.i.i, %if.then.i472.i.i ], [ %fmt.0.i.i, %if.then.i466.i.i ], [ %fmt.0.i.i, %if.then.i460.i.i ], [ %fmt.0.i.i, %if.then.i262.i.i ], [ %fmt.0.i.i, %if.then.i256.i.i ], [ %fmt.0.i.i, %if.then.i250.i.i ], [ %fmt.0.i.i, %if.then.i244.i.i ], [ %fmt.0.i.i, %if.then.i238.i.i ], [ %fmt.0.i.i, %if.then.i232.i.i ], [ %fmt.0.i.i, %if.then.i226.i.i ], [ %fmt.0.i.i, %if.then.i.i61.i ], [ %fmt.0.i.i, %sw.bb5.i.i ], [ %fmt.0.i.i, %sw.bb6.i58.i ], [ %fmt.0.i.i, %sw.bb7.i.i ], [ %fmt.0.i.i, %sw.bb8.i.i ], [ %fmt.0.i.i, %sw.bb9.i.i ], [ %fmt.0.i.i, %sw.bb12.i.i ], [ %fmt.0.i.i, %sw.bb90.i.i ], [ %fmt.0.i.i, %sw.bb96.i.i ], [ %fmt.0.i.i, %sw.bb100.i.i ], [ %fmt.0.i.i, %sw.bb105.i.i ], [ %fmt.0.i.i, %while.end.i.i ], [ %incdec.ptr.i53.i, %while.end137.i.i ], [ %fmt.0.i.i, %if.then151.i.i ], [ %fmt.0.i.i, %if.else.i.i ], [ %fmt.0.i.i, %sw.bb160.i.i ], [ %fmt.0.i.i, %sw.bb161.i35.i ], [ %fmt.0.i.i, %sw.bb162.i.i ], [ %fmt.0.i.i, %sw.bb163.i.i ], [ %fmt.0.i.i, %sw.bb164.i.i ], [ %fmt.0.i.i, %sw.bb165.i.i ], [ %fmt.0.i.i, %sw.default.i.i ], [ %fmt.0.i.i, %if.then188.i.i ], [ %fmt.0.i.i, %if.then212.i.i ], [ %fmt.0.i.i, %if.then223.i.i ], [ %fmt.0.i.i, %if.then227.i.i ], [ %fmt.0.i.i, %sw.bb229.i33.i ], [ %fmt.0.i.i, %if.then234.i.i ], [ %fmt.0.i.i, %append.exit529.i.i ], [ %fmt.0.i.i, %sw.epilog313.i.i ]
   %sub.i545.i.i = sub i64 128, %call.i542.i.sink.i
-  %call3.i546.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx318.i.sink.i, i64 noundef %sub.i545.i.i) #12
+  %call3.i546.i.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef %arrayidx318.i.sink.i, i64 noundef %sub.i545.i.i) #12
   br label %sw.epilog321.i.i
 
 sw.epilog321.i.i:                                 ; preds = %append.exit433.i.i, %sw.epilog321.i.sink.split.i, %sw.bb315.i.i, %sw.epilog313.i.i, %append.exit529.i.i, %sw.bb251.i32.i, %sw.bb246.i.i, %sw.bb241.i.i, %sw.bb236.i.i, %if.then234.i.i, %sw.bb230.i.i, %sw.bb229.i33.i, %if.then227.i.i, %sw.bb225.i.i, %if.then223.i.i, %sw.bb221.i34.i, %if.then212.i.i, %if.end207.i.i, %if.then188.i.i, %if.end183.i.i, %sw.default.i.i, %sw.bb165.i.i, %sw.bb164.i.i, %sw.bb163.i.i, %sw.bb162.i.i, %sw.bb161.i35.i, %sw.bb160.i.i, %if.else.i.i, %if.then151.i.i, %while.end137.i.i, %append.exit313.i.i, %while.end.i.i, %sw.bb105.i.i, %sw.bb100.i.i, %sw.bb96.i.i, %sw.bb90.i.i, %sw.bb74.i.i, %sw.bb57.i.i, %sw.bb40.i.i, %sw.bb29.i.i, %sw.bb25.i.i, %sw.bb21.i56.i, %sw.bb17.i.i, %sw.bb12.i.i, %sw.bb9.i.i, %sw.bb8.i.i, %sw.bb7.i.i, %sw.bb6.i58.i, %sw.bb5.i.i, %sw.bb.i59.i, %while.cond215.preheader.i.i, %while.cond.i.i

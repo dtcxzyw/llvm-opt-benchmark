@@ -180,7 +180,7 @@ _ZNSt8functionIFbP4exprEEaSIZN12mbp_basic_tg4impl5applyEvEUlS1_E1_EENSt9enable_i
   br label %if.end
 
 _ZNSt8functionIFbP4exprEEaSIZN12mbp_basic_tg4impl5applyEvEUlS1_E4_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit: ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %should_split, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %should_split, i8 0, i64 16, i1 false)
   %_M_manager3.i.i80 = getelementptr inbounds i8, ptr %should_split, i64 16
   store ptr @_ZNSt17_Function_handlerIFbP4exprEZN12mbp_basic_tg4impl5applyEvEUlS1_E2_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager3.i.i80, align 8
   %_M_invoker4.i.i81 = getelementptr inbounds i8, ptr %should_split, i64 24
@@ -391,7 +391,7 @@ land.lhs.true:                                    ; preds = %_ZNK11ast_manager6i
 
 if.end.i:                                         ; preds = %land.lhs.true
   %27 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i109 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %should_split, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
+  %call2.i109 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %should_split, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
           to label %invoke.cont26 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont26:                                    ; preds = %if.end.i
@@ -402,7 +402,7 @@ if.then28:                                        ; preds = %invoke.cont26
   %28 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i)
   store ptr %9, ptr %tmp.i.i.i, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i)
           to label %invoke.cont29 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont29:                                    ; preds = %if.then28
@@ -512,7 +512,7 @@ if.then54:                                        ; preds = %land.lhs.true.i
 
 if.end.i136:                                      ; preds = %if.then54
   %48 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i140 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133)
+  %call2.i140 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i133)
           to label %invoke.cont55 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont55:                                    ; preds = %if.end.i136
@@ -528,7 +528,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont55
 
 if.end.i145:                                      ; preds = %lor.lhs.false
   %50 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i149 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i142)
+  %call2.i149 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i142)
           to label %invoke.cont57 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont57:                                    ; preds = %if.end.i145
@@ -539,7 +539,7 @@ if.then59:                                        ; preds = %invoke.cont57, %inv
   %51 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i151)
   store ptr %9, ptr %tmp.i.i.i151, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %51, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i151)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i151)
           to label %invoke.cont60 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont60:                                    ; preds = %if.then59
@@ -552,7 +552,7 @@ invoke.cont60:                                    ; preds = %if.then59
 
 if.end.i158:                                      ; preds = %invoke.cont60
   %53 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i162 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i155)
+  %call2.i162 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i155)
           to label %invoke.cont61 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont61:                                    ; preds = %if.end.i158
@@ -568,7 +568,7 @@ if.else66:                                        ; preds = %invoke.cont61
 
 if.end.i167:                                      ; preds = %if.else66
   %55 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i171 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164)
+  %call2.i171 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i164)
           to label %invoke.cont67 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.end.i167
@@ -590,7 +590,7 @@ if.else79:                                        ; preds = %invoke.cont57
 
 if.end.i178:                                      ; preds = %if.else79
   %59 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i182 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i175)
+  %call2.i182 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i175)
           to label %invoke.cont80 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont80:                                    ; preds = %if.end.i178
@@ -606,7 +606,7 @@ land.lhs.true82:                                  ; preds = %invoke.cont80
 
 if.end.i187:                                      ; preds = %land.lhs.true82
   %61 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i191 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184)
+  %call2.i191 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i184)
           to label %invoke.cont83 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont83:                                    ; preds = %if.end.i187
@@ -617,7 +617,7 @@ if.then85:                                        ; preds = %invoke.cont83
   %62 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i193)
   store ptr %9, ptr %tmp.i.i.i193, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i193)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i193)
           to label %invoke.cont86 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont86:                                    ; preds = %if.then85
@@ -691,7 +691,7 @@ for.body.i:                                       ; preds = %call2.i.i.noexc, %f
 
 _ZNKSt8functionIFbP4exprEEclES1_.exit.i:          ; preds = %for.body.i
   %78 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i.i229 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
+  %call2.i.i229 = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %call2.i.i.noexc unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i
@@ -726,7 +726,7 @@ for.body.i239:                                    ; preds = %call2.i.i.noexc248,
 
 _ZNKSt8functionIFbP4exprEEclES1_.exit.i242:       ; preds = %for.body.i239
   %83 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i.i249 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i230)
+  %call2.i.i249 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i230)
           to label %call2.i.i.noexc248 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc248:                               ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i242
@@ -766,7 +766,7 @@ for.body.i260:                                    ; preds = %for.cond.i265, %for
 
 _ZNKSt8functionIFbP4exprEEclES1_.exit.i263:       ; preds = %for.body.i260
   %87 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i.i271 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i250)
+  %call2.i.i271 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i250)
           to label %call2.i.i.noexc270 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc270:                               ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i263
@@ -803,7 +803,7 @@ for.body.i283:                                    ; preds = %for.cond.i288, %for
 
 _ZNKSt8functionIFbP4exprEEclES1_.exit.i286:       ; preds = %for.body.i283
   %91 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i.i294 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i273)
+  %call2.i.i294 = invoke noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i273)
           to label %call2.i.i.noexc293 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call2.i.i.noexc293:                               ; preds = %_ZNKSt8functionIFbP4exprEEclES1_.exit.i286
@@ -821,7 +821,7 @@ if.then128:                                       ; preds = %for.cond.i288, %for
   %93 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i296)
   store ptr %9, ptr %tmp.i.i.i296, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %93, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i296)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i296)
           to label %invoke.cont129 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont129:                                   ; preds = %if.then128
@@ -860,7 +860,7 @@ if.end.i309:                                      ; preds = %for.body151.prehead
   %100 = phi ptr [ %104, %for.body151.backedge ], [ %98, %for.body151.preheader ]
   %__begin5.0506569 = phi ptr [ %__begin5.0506.be, %for.body151.backedge ], [ %m_args.i.ptr, %for.body151.preheader ]
   %101 = load ptr, ptr %_M_invoker.i146, align 8
-  %call2.i313 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i306)
+  %call2.i313 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i306)
           to label %invoke.cont152 unwind label %lpad12.loopexit.split-lp.loopexit
 
 invoke.cont152:                                   ; preds = %if.end.i309
@@ -920,7 +920,7 @@ if.end.i323:                                      ; preds = %for.body174.prehead
   %108 = phi ptr [ %111, %for.body174.backedge ], [ %106, %for.body174.preheader ]
   %__begin5166.0504567 = phi ptr [ %__begin5166.0504.be, %for.body174.backedge ], [ %m_args.i315.ptr, %for.body174.preheader ]
   %109 = load ptr, ptr %_M_invoker.i137, align 8
-  %call2.i327 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i320)
+  %call2.i327 = invoke noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i320)
           to label %invoke.cont176 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont176:                                   ; preds = %if.end.i323
@@ -985,7 +985,7 @@ if.then197:                                       ; preds = %invoke.cont195
   %119 = load ptr, ptr %m_seen.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i.i341)
   store ptr %9, ptr %tmp.i.i.i341, align 8
-  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %119, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i341)
+  invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i.i.i341)
           to label %invoke.cont198 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont198:                                   ; preds = %if.then197
@@ -1156,7 +1156,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit383:      ; preds = %invoke.cont15, %_ZN
   br i1 %tobool.not.i.i385, label %_ZNSt8functionIFbP4exprEED2Ev.exit, label %if.then.i.i386
 
 if.then.i.i386:                                   ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit383
-  %call.i.i = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(16) %is_false, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(32) %is_false, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i386
@@ -1173,7 +1173,7 @@ _ZNSt8functionIFbP4exprEED2Ev.exit:               ; preds = %_ZN7obj_refI4expr11
   br i1 %tobool.not.i.i388, label %_ZNSt8functionIFbP4exprEED2Ev.exit392, label %if.then.i.i389
 
 if.then.i.i389:                                   ; preds = %_ZNSt8functionIFbP4exprEED2Ev.exit
-  %call.i.i390 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(16) %is_true, i32 noundef 3)
+  %call.i.i390 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(32) %is_true, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit392 unwind label %terminate.lpad.i.i391
 
 terminate.lpad.i.i391:                            ; preds = %if.then.i.i389
@@ -1190,7 +1190,7 @@ _ZNSt8functionIFbP4exprEED2Ev.exit392:            ; preds = %_ZNSt8functionIFbP4
   br i1 %tobool.not.i.i394, label %_ZNSt8functionIFbP4exprEED2Ev.exit398, label %if.then.i.i395
 
 if.then.i.i395:                                   ; preds = %_ZNSt8functionIFbP4exprEED2Ev.exit392
-  %call.i.i396 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %should_split, ptr noundef nonnull align 8 dereferenceable(16) %should_split, i32 noundef 3)
+  %call.i.i396 = invoke noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(32) %should_split, ptr noundef nonnull align 8 dereferenceable(32) %should_split, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit398 unwind label %terminate.lpad.i.i397
 
 terminate.lpad.i.i397:                            ; preds = %if.then.i.i395
@@ -1212,7 +1212,7 @@ ehcleanup:                                        ; preds = %lpad12.loopexit, %l
   br i1 %tobool.not.i.i400, label %_ZNSt8functionIFbP4exprEED2Ev.exit404, label %if.then.i.i401
 
 if.then.i.i401:                                   ; preds = %ehcleanup
-  %call.i.i402 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(16) %is_false, ptr noundef nonnull align 8 dereferenceable(16) %is_false, i32 noundef 3)
+  %call.i.i402 = invoke noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(32) %is_false, ptr noundef nonnull align 8 dereferenceable(32) %is_false, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit404 unwind label %terminate.lpad.i.i403
 
 terminate.lpad.i.i403:                            ; preds = %if.then.i.i401
@@ -1229,7 +1229,7 @@ _ZNSt8functionIFbP4exprEED2Ev.exit404:            ; preds = %ehcleanup, %if.then
   br i1 %tobool.not.i.i406, label %_ZNSt8functionIFbP4exprEED2Ev.exit410, label %if.then.i.i407
 
 if.then.i.i407:                                   ; preds = %_ZNSt8functionIFbP4exprEED2Ev.exit404
-  %call.i.i408 = invoke noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(16) %is_true, ptr noundef nonnull align 8 dereferenceable(16) %is_true, i32 noundef 3)
+  %call.i.i408 = invoke noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(32) %is_true, ptr noundef nonnull align 8 dereferenceable(32) %is_true, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit410 unwind label %terminate.lpad.i.i409
 
 terminate.lpad.i.i409:                            ; preds = %if.then.i.i407
@@ -1246,7 +1246,7 @@ _ZNSt8functionIFbP4exprEED2Ev.exit410:            ; preds = %_ZNSt8functionIFbP4
   br i1 %tobool.not.i.i412, label %_ZNSt8functionIFbP4exprEED2Ev.exit416, label %if.then.i.i413
 
 if.then.i.i413:                                   ; preds = %_ZNSt8functionIFbP4exprEED2Ev.exit410
-  %call.i.i414 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(16) %should_split, ptr noundef nonnull align 8 dereferenceable(16) %should_split, i32 noundef 3)
+  %call.i.i414 = invoke noundef zeroext i1 %157(ptr noundef nonnull align 8 dereferenceable(32) %should_split, ptr noundef nonnull align 8 dereferenceable(32) %should_split, i32 noundef 3)
           to label %_ZNSt8functionIFbP4exprEED2Ev.exit416 unwind label %terminate.lpad.i.i415
 
 terminate.lpad.i.i415:                            ; preds = %if.then.i.i413

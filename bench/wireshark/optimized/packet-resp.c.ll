@@ -382,7 +382,7 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   br label %dissect_resp_message.exit
 
 139:                                              ; preds = %135
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %77) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef range(i32 0, -2147483648) %77) #2
   br label %dissect_resp_message.exit
 
 140:                                              ; preds = %131
@@ -403,7 +403,7 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 
 147:                                              ; preds = %146
   %148 = load ptr, ptr %14, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %77) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef range(i32 0, -2147483648) %77) #2
   br label %dissect_resp_message.exit
 
 149:                                              ; preds = %127

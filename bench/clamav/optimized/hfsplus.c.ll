@@ -572,7 +572,7 @@ switch.lookup:
   %15 = zext i32 %7 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr %17(ptr noundef %14, i64 noundef %.053, i64 noundef %15, i32 noundef 0) #12
+  %18 = tail call ptr %17(ptr noundef %14, i64 noundef range(i64 0, 8589934590) %.053, i64 noundef range(i64 0, 4294967296) %15, i32 noundef 0) #12
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.sink.split, label %19
 
@@ -1190,7 +1190,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 227:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %228 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %301, %.loopexit.i ]
-  %229 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
+  %229 = call fastcc i32 @hfsplus_fetch_node(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef readonly %3, ptr noundef nonnull readonly %47, i32 noundef %218, ptr noundef nonnull %221, i64 noundef %220)
   %.not133.i = icmp eq i32 %229, 0
   br i1 %.not133.i, label %231, label %230
 
@@ -1568,7 +1568,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %371 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %6, i64 noundef 16) #12
+  %371 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %6, i64 noundef 16) #12
   %.not.i378 = icmp eq i64 %371, 16
   br i1 %.not.i378, label %372, label %._crit_edge.thread.i
 
@@ -1586,14 +1586,14 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   %380 = call i32 @llvm.bswap.i32(i32 %379)
   store i32 %380, ptr %50, align 4
   %381 = zext i32 %376 to i64
-  %382 = call i64 @lseek(i32 noundef %366, i64 noundef %381, i32 noundef 0) #12
+  %382 = call i64 @lseek(i32 noundef range(i32 0, -1) %366, i64 noundef %381, i32 noundef 0) #12
   %383 = load i32, ptr %48, align 4
   %384 = zext i32 %383 to i64
   %.not22.i = icmp eq i64 %382, %384
   br i1 %.not22.i, label %385, label %._crit_edge.thread.i
 
 385:                                              ; preds = %372
-  %386 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %7, i64 noundef 30) #12
+  %386 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %7, i64 noundef 30) #12
   %.not23.i = icmp eq i64 %386, 30
   br i1 %.not23.i, label %387, label %._crit_edge.thread.i
 
@@ -1617,7 +1617,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   %.01842.i = phi i32 [ %403, %399 ], [ 0, %387 ]
   %.01941.i = phi i32 [ %.1.i, %399 ], [ -1, %387 ]
   %.02040.i = phi i32 [ %404, %399 ], [ 0, %387 ]
-  %392 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %8, i64 noundef 8) #12
+  %392 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %8, i64 noundef 8) #12
   %.not33.i = icmp eq i64 %392, 8
   br i1 %.not33.i, label %393, label %._crit_edge.thread.i
 
@@ -1660,12 +1660,12 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
 408:                                              ; preds = %._crit_edge.i
   %409 = zext nneg i32 %.1.i to i64
   %410 = mul nuw nsw i64 %409, 12
-  %411 = call i64 @lseek(i32 noundef %366, i64 noundef %410, i32 noundef 1) #12
+  %411 = call i64 @lseek(i32 noundef range(i32 0, -1) %366, i64 noundef %410, i32 noundef 1) #12
   %412 = icmp slt i64 %411, 0
   br i1 %412, label %._crit_edge.thread.i, label %413
 
 413:                                              ; preds = %408
-  %414 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %9, i64 noundef 12) #12
+  %414 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %9, i64 noundef 12) #12
   %.not28.i = icmp eq i64 %414, 12
   br i1 %.not28.i, label %415, label %._crit_edge.thread.i
 
@@ -1683,12 +1683,12 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   %426 = load i32, ptr %6, align 4
   %427 = zext i32 %426 to i64
   %428 = add nuw nsw i64 %425, %427
-  %429 = call i64 @lseek(i32 noundef %366, i64 noundef %428, i32 noundef 0) #12
+  %429 = call i64 @lseek(i32 noundef range(i32 0, -1) %366, i64 noundef %428, i32 noundef 0) #12
   %430 = icmp slt i64 %429, 0
   br i1 %430, label %._crit_edge.thread.i, label %431
 
 431:                                              ; preds = %415
-  %432 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %10, i64 noundef 4) #12
+  %432 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %10, i64 noundef 4) #12
   %.not29.i = icmp eq i64 %432, 4
   br i1 %.not29.i, label %433, label %._crit_edge.thread.i
 
@@ -1712,7 +1712,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %434 = call i64 @lseek(i32 noundef %366, i64 noundef 0, i32 noundef 1) #12
   %435 = trunc i64 %434 to i32
-  %436 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %19, i64 noundef 4) #12
+  %436 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %19, i64 noundef 4) #12
   %.not.i383 = icmp eq i64 %436, 4
   br i1 %.not.i383, label %437, label %450
 
@@ -1728,7 +1728,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   %443 = load i32, ptr %19, align 4
   %444 = zext i32 %443 to i64
   %445 = shl nuw nsw i64 %444, 3
-  %446 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %441, i64 noundef %445) #12
+  %446 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %366, ptr noundef nonnull %441, i64 noundef %445) #12
   %447 = load i32, ptr %19, align 4
   %448 = zext i32 %447 to i64
   %449 = shl nuw nsw i64 %448, 3
@@ -2445,10 +2445,10 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 
 85:                                               ; preds = %83
   %86 = sub nuw i64 %80, %.069
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %78, i64 %86)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %78, i64 %86)
   %87 = getelementptr inbounds i8, ptr %75, i64 104
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call ptr %88(ptr noundef nonnull %75, i64 noundef %.069, i64 noundef %spec.select.i, i32 noundef 0) #12
+  %89 = tail call ptr %88(ptr noundef nonnull %75, i64 noundef range(i64 0, 8589934590) %.069, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
   %.not.i = icmp eq ptr %89, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %90
 
@@ -2604,7 +2604,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
   %57 = load ptr, ptr %26, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 104
   %59 = load ptr, ptr %58, align 8
-  %60 = call ptr %59(ptr noundef %57, i64 noundef %56, i64 noundef %54, i32 noundef 0) #12
+  %60 = call ptr %59(ptr noundef %57, i64 noundef range(i64 0, 8589934590) %56, i64 noundef range(i64 0, 4294967296) %54, i32 noundef 0) #12
   %.not94 = icmp eq ptr %60, null
   br i1 %.not94, label %61, label %62
 

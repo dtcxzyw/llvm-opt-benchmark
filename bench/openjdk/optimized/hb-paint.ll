@@ -1898,8 +1898,8 @@ define hidden void @hb_paint_funcs_destroy(ptr noundef %0) local_unnamed_addr #0
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 40
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %11) #12
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
+  %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #12
   tail call void @free(ptr noundef nonnull %11) #12
   store atomic i64 0, ptr %8 monotonic, align 8
   br label %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit
@@ -2281,7 +2281,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef %0, 
   br i1 %.not20.i, label %_ZL23hb_object_set_user_dataI16hb_paint_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #12
+  %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #12
   %13 = getelementptr inbounds i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -2290,8 +2290,8 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef %0, 
   br i1 %16, label %.split.loop.exit.i, label %17
 
 17:                                               ; preds = %11
-  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(40) %10)
-  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %10) #12
+  tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
   tail call void @free(ptr noundef nonnull %10) #12
   %19 = load atomic i64, ptr %8 acquire, align 8
   %.not19.i = icmp eq i64 %19, 0
@@ -2331,7 +2331,7 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
   br i1 %.not9.i, label %_ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #12
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #12
   %11 = getelementptr inbounds i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 44
@@ -2360,7 +2360,7 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, %9
   %20 = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ null, %9 ], [ null, %17 ]
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #12
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %8) #12
   br label %_ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -2429,7 +2429,7 @@ define hidden void @hb_paint_push_transform(ptr noundef %0, ptr noundef %1, floa
 
 _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %8, %13
   %15 = phi ptr [ %14, %13 ], [ null, %8 ]
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef %15)
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef %15)
   ret void
 }
 
@@ -2449,7 +2449,7 @@ define hidden void @hb_paint_pop_transform(ptr noundef %0, ptr noundef %1) local
 
 _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %2, %7
   %10 = phi ptr [ %9, %7 ], [ null, %2 ]
-  tail call void %4(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %10)
   ret void
 }
 
@@ -2469,7 +2469,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_color_glyph(ptr noundef %0, ptr noun
 
 _ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %4, %9
   %12 = phi ptr [ %11, %9 ], [ null, %4 ]
-  %13 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
+  %13 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   ret i32 %15
@@ -2491,7 +2491,7 @@ define hidden void @hb_paint_push_clip_glyph(ptr noundef %0, ptr noundef %1, i32
 
 _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %4, %9
   %12 = phi ptr [ %11, %9 ], [ null, %4 ]
-  tail call void %6(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
   ret void
 }
 
@@ -2511,7 +2511,7 @@ define hidden void @hb_paint_push_clip_rectangle(ptr noundef %0, ptr noundef %1,
 
 _ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %6, %11
   %14 = phi ptr [ %13, %11 ], [ null, %6 ]
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef %14)
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef %14)
   ret void
 }
 
@@ -2531,7 +2531,7 @@ define hidden void @hb_paint_pop_clip(ptr noundef %0, ptr noundef %1) local_unna
 
 _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %2, %7
   %10 = phi ptr [ %9, %7 ], [ null, %2 ]
-  tail call void %4(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %10)
   ret void
 }
 
@@ -2551,7 +2551,7 @@ define hidden void @hb_paint_color(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %4, %9
   %12 = phi ptr [ %11, %9 ], [ null, %4 ]
-  tail call void %6(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %12)
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %12)
   ret void
 }
 
@@ -2571,7 +2571,7 @@ define hidden void @hb_paint_image(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 _ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit: ; preds = %8, %13
   %16 = phi ptr [ %15, %13 ], [ null, %8 ]
-  %17 = tail call noundef i32 %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, ptr noundef %7, ptr noundef %16)
+  %17 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, ptr noundef %7, ptr noundef %16)
   ret void
 }
 
@@ -2591,7 +2591,7 @@ define hidden void @hb_paint_linear_gradient(ptr noundef %0, ptr noundef %1, ptr
 
 _ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit: ; preds = %9, %14
   %17 = phi ptr [ %16, %14 ], [ null, %9 ]
-  tail call void %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %17)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %17)
   ret void
 }
 
@@ -2611,7 +2611,7 @@ define hidden void @hb_paint_radial_gradient(ptr noundef %0, ptr noundef %1, ptr
 
 _ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit: ; preds = %9, %14
   %17 = phi ptr [ %16, %14 ], [ null, %9 ]
-  tail call void %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %7, float noundef %6, float noundef %8, ptr noundef %17)
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %7, float noundef %6, float noundef %8, ptr noundef %17)
   ret void
 }
 
@@ -2631,7 +2631,7 @@ define hidden void @hb_paint_sweep_gradient(ptr noundef %0, ptr noundef %1, ptr 
 
 _ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit: ; preds = %7, %12
   %15 = phi ptr [ %14, %12 ], [ null, %7 ]
-  tail call void %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef %15)
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef %15)
   ret void
 }
 
@@ -2651,7 +2651,7 @@ define hidden void @hb_paint_push_group(ptr noundef %0, ptr noundef %1) local_un
 
 _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %2, %7
   %10 = phi ptr [ %9, %7 ], [ null, %2 ]
-  tail call void %4(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10)
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %10)
   ret void
 }
 
@@ -2671,7 +2671,7 @@ define hidden void @hb_paint_pop_group(ptr noundef %0, ptr noundef %1, i32 nound
 
 _ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit: ; preds = %3, %8
   %11 = phi ptr [ %10, %8 ], [ null, %3 ]
-  tail call void %5(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %11)
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, ptr noundef %11)
   ret void
 }
 
@@ -2691,7 +2691,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_custom_palette_color(ptr noundef %0,
 
 _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit: ; preds = %4, %9
   %12 = phi ptr [ %11, %9 ], [ null, %4 ]
-  %13 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
+  %13 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12)
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   ret i32 %15
@@ -2727,7 +2727,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br label %28
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #12
+  %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
   %12 = load i32, ptr %3, align 4
   %.not510 = icmp eq i32 %12, 0
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
@@ -2747,7 +2747,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !8
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #12
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
 
@@ -2756,7 +2756,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, %20
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %1) #12
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
   br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !11
@@ -2775,7 +2775,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9: ; preds = %._crit_edge, %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #12
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
   br label %28
 
 28:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -2808,7 +2808,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
   br i1 %or.cond, label %32, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #12
+  %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2850,7 +2850,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %27, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   %.not.i7.i = icmp eq ptr %.sroa.2.0.copyload.i, null
   br i1 %.not.i7.i, label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit, label %30
 
@@ -2859,7 +2859,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18hb_user_data_key_tEEPS1_RKT_S6_.exit.thread.i: ; preds = %20, %12
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #12
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
@@ -2883,7 +2883,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #12
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2919,7 +2919,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #12
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   %.not.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %19
 
@@ -2928,7 +2928,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #12
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread: ; preds = %13, %4
@@ -3000,7 +3000,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
   %.0.i = phi ptr [ %41, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i ]
-  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #12
+  %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit

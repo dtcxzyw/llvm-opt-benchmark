@@ -175,7 +175,7 @@ define void @KINProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   br i1 %.not.i, label %28, label %29
 
 28:                                               ; preds = %26
-  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1) #14
+  call void (i32, ptr, ptr, ptr, i32, ...) @SUNGlobalFallbackErrHandler(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1) #14
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -192,7 +192,7 @@ define void @KINProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %.021.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef %1, ptr noundef %35, ptr noundef %27) #14
+  call void %33(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef range(i32 100, 99) %1, ptr noundef %35, ptr noundef %27) #14
   %.0.i = load ptr, ptr %.021.i, align 8
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i
@@ -1584,7 +1584,7 @@ KINFP.exit.thread:                                ; preds = %109, %26
   %80 = load ptr, ptr %14, align 8
   %81 = load ptr, ptr %42, align 8
   %82 = load ptr, ptr %43, align 8
-  tail call fastcc void @AndersonAcc(ptr noundef %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.062.i, ptr noundef %81, ptr noundef %82)
+  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.062.i, ptr noundef %81, ptr noundef %82)
   %83 = icmp eq i64 %.062.i, 0
   br i1 %83, label %84, label %88
 
@@ -1866,7 +1866,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
 217:                                              ; preds = %215
   %218 = load ptr, ptr %206, align 8
   %219 = load ptr, ptr %16, align 8
-  %220 = tail call fastcc double @KINScFNorm(ptr noundef %0, ptr noundef %218, ptr noundef %219)
+  %220 = tail call fastcc double @KINScFNorm(ptr noundef nonnull %0, ptr noundef %218, ptr noundef %219)
   %221 = load double, ptr %172, align 8
   %222 = fmul double %221, 1.000000e-02
   %223 = fcmp ugt double %220, %222
@@ -2184,7 +2184,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   %408 = load ptr, ptr %14, align 8
   %409 = load ptr, ptr %342, align 8
   %410 = load ptr, ptr %343, align 8
-  tail call fastcc void @AndersonAcc(ptr noundef %0, ptr noundef %406, ptr noundef %318, ptr noundef %407, ptr noundef %408, i64 noundef %.076.i, ptr noundef %409, ptr noundef %410)
+  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %406, ptr noundef %318, ptr noundef %407, ptr noundef %408, i64 noundef %.076.i, ptr noundef %409, ptr noundef %410)
   br label %411
 
 411:                                              ; preds = %403, %400, %394
@@ -2233,7 +2233,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   %440 = load ptr, ptr %206, align 8
   %441 = load ptr, ptr %16, align 8
   %442 = tail call double @N_VWL2Norm(ptr noundef %440, ptr noundef %441) #14
-  tail call fastcc void @KINForcingTerm(ptr noundef %0, double noundef %442)
+  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %442)
   br label %443
 
 443:                                              ; preds = %439, %437
@@ -2388,7 +2388,7 @@ KINLinSolDrv.exit:                                ; preds = %471
   br label %511
 
 496:                                              ; preds = %494
-  %497 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
+  %497 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %498 = icmp eq i32 %497, -996
   br i1 %498, label %499, label %.preheader512
 
@@ -2561,7 +2561,7 @@ KINLinSolDrv.exit167:                             ; preds = %556
   br label %596
 
 581:                                              ; preds = %579
-  %582 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
+  %582 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
   %583 = icmp eq i32 %582, -996
   br i1 %583, label %584, label %.preheader516
 

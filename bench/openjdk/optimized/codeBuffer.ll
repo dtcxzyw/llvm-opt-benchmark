@@ -119,15 +119,15 @@ define hidden void @_ZN10CodeBufferC2EP8CodeBlob(ptr noundef nonnull align 8 der
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 0, ptr %4, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %3, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 66, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = getelementptr inbounds i8, ptr %0, i64 164
   store i32 0, ptr %6, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %5, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 66, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   %8 = getelementptr inbounds i8, ptr %0, i64 252
   store i32 0, ptr %8, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %7, i8 0, i64 66, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 66, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef null, i1 noundef zeroext false) #16
   %10 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1175,7 +1175,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %16 = getelementptr inbounds i8, ptr %7, i64 20
   store i32 %4, ptr %16, align 4, !alias.scope !15
   %17 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV27opt_virtual_call_Relocation, i64 32), align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  call void %17(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   br label %31
 
 18:                                               ; preds = %5
@@ -1187,7 +1187,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %21 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 %4, ptr %21, align 4, !alias.scope !20
   %22 = load ptr, ptr getelementptr inbounds inrange(-32, 56) (i8, ptr @_ZTV22static_call_Relocation, i64 32), align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   br label %31
 
 23:                                               ; preds = %5
@@ -1195,7 +1195,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  call void %26(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   br label %31
 
 27:                                               ; preds = %5
@@ -1203,7 +1203,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   br label %31
 
 31:                                               ; preds = %27, %23, %18, %13
@@ -1285,7 +1285,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %75 = add i32 %74, %.0.lcssa.i
   %76 = trunc i32 %75 to i16
   store i16 %76, ptr %.1.lcssa.i, align 2
-  call void @_ZN9relocInfo10initializeEP11CodeSectionP10Relocation(ptr noundef nonnull align 2 dereferenceable(2) %.1.lcssa.i, ptr noundef nonnull %0, ptr noundef nonnull %6) #16
+  call void @_ZN9relocInfo10initializeEP11CodeSectionP10Relocation(ptr noundef nonnull align 2 dereferenceable(2) %.1.lcssa.i, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   br label %_ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit
 
 _ZN11CodeSection8relocateEPhRK16RelocationHolderi.exit: ; preds = %._crit_edge.i, %38, %35, %31, %5
@@ -2368,7 +2368,7 @@ _ZL21append_oop_referencesP13GrowableArrayIP7oopDescEP5Klass.exit64: ; preds = %
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 274:                                              ; preds = %260
-  %275 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %262, i64 noundef 8, i32 noundef 0) #16
+  %275 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %262, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %272, %274
@@ -2380,16 +2380,16 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %272, %274
   br i1 %.not.i65, label %280, label %278
 
 278:                                              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
-  %279 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %277, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %261) #16
+  %279 = call noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %277, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %261) #16
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 280:                                              ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
-  %281 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %261, ptr noundef nonnull %.0.i.i.i) #16
+  %281 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(88) %261, ptr noundef nonnull %.0.i.i.i) #16
   %282 = icmp slt i32 %281, 0
   br i1 %282, label %283, label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 283:                                              ; preds = %280
-  %284 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(33) %261, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext true) #16
+  %284 = call noundef i32 @_ZN13ValueRecorderIP8_jobjectE10add_handleES1_b(ptr noundef nonnull align 8 dereferenceable(88) %261, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext true) #16
   br label %_ZN11OopRecorder10find_indexEP8_jobject.exit
 
 _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %278, %280, %283
@@ -2804,15 +2804,15 @@ define hidden void @_ZN10CodeBuffer12copy_code_toEP8CodeBlob(ptr noundef nonnull
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 76
   store i32 0, ptr %5, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %4, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 66, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 96
   %7 = getelementptr inbounds i8, ptr %3, i64 164
   store i32 0, ptr %7, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %6, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 66, i1 false)
   %8 = getelementptr inbounds i8, ptr %3, i64 184
   %9 = getelementptr inbounds i8, ptr %3, i64 252
   store i32 0, ptr %9, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %8, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 66, i1 false)
   %10 = getelementptr inbounds i8, ptr %3, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef null, i1 noundef zeroext false) #16
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3335,15 +3335,15 @@ define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull a
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   %13 = getelementptr inbounds i8, ptr %5, i64 76
   store i32 0, ptr %13, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %12, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 66, i1 false)
   %14 = getelementptr inbounds i8, ptr %5, i64 96
   %15 = getelementptr inbounds i8, ptr %5, i64 164
   store i32 0, ptr %15, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %14, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %14, i8 0, i64 66, i1 false)
   %16 = getelementptr inbounds i8, ptr %5, i64 184
   %17 = getelementptr inbounds i8, ptr %5, i64 252
   store i32 0, ptr %17, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %16, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %16, i8 0, i64 66, i1 false)
   %18 = getelementptr inbounds i8, ptr %5, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef null, i1 noundef zeroext false) #16
   store ptr %11, ptr %5, align 8
@@ -3396,15 +3396,15 @@ define hidden void @_ZN10CodeBuffer6expandEP11CodeSectioni(ptr noundef nonnull a
   %43 = getelementptr inbounds i8, ptr %36, i64 8
   %44 = getelementptr inbounds i8, ptr %36, i64 76
   store i32 0, ptr %44, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %43, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %43, i8 0, i64 66, i1 false)
   %45 = getelementptr inbounds i8, ptr %36, i64 96
   %46 = getelementptr inbounds i8, ptr %36, i64 164
   store i32 0, ptr %46, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %45, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %45, i8 0, i64 66, i1 false)
   %47 = getelementptr inbounds i8, ptr %36, i64 184
   %48 = getelementptr inbounds i8, ptr %36, i64 252
   store i32 0, ptr %48, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %47, i8 0, i64 66, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %47, i8 0, i64 66, i1 false)
   %49 = getelementptr inbounds i8, ptr %36, i64 312
   call void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef null, i1 noundef zeroext false) #16
   store ptr @.str.23, ptr %36, align 8

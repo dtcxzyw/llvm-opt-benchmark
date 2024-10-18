@@ -914,7 +914,7 @@ opal_datatype_span.exit:                          ; preds = %19, %30
   br i1 %.not.i234, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i226, !llvm.loop !6
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %49, %56, %54, %47
-  %61 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %.val218.val, i1 true)
+  %61 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, -2147483648) %.val218.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %61
   %62 = shl nuw i32 1, %narrow.i
   %63 = ashr i32 %62, 1
@@ -1313,7 +1313,7 @@ opal_datatype_span.exit.i:                        ; preds = %25, %24
   br label %ompi_coll_base_sendrecv.exit.i
 
 75:                                               ; preds = %.lr.ph21.i
-  %76 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %68, i64 noundef %63, ptr noundef %3, i32 noundef %62, i32 noundef -23, ptr noundef %70, i64 noundef %63, ptr noundef %3, i32 noundef %62, i32 noundef -23, ptr noundef %5, ptr noundef null) #7
+  %76 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %68, i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %63, ptr noundef %3, i32 noundef %62, i32 noundef -23, ptr noundef %70, i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %63, ptr noundef %3, i32 noundef %62, i32 noundef -23, ptr noundef %5, ptr noundef null) #7
   br label %ompi_coll_base_sendrecv.exit.i
 
 ompi_coll_base_sendrecv.exit.i:                   ; preds = %75, %72
@@ -1453,7 +1453,7 @@ opal_datatype_span.exit:                          ; preds = %95, %97
   br i1 %.not.i277, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i268, !llvm.loop !6
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %116, %123, %121, %114
-  %128 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %.val256.val, i1 true)
+  %128 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, -2147483648) %.val256.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %128
   %129 = shl nuw i32 1, %narrow.i
   %130 = ashr i32 %129, 1
@@ -1597,7 +1597,7 @@ ompi_range_sum.exit283:                           ; preds = %ompi_range_sum.exit
   br label %ompi_coll_base_sendrecv.exit
 
 209:                                              ; preds = %ompi_range_sum.exit283
-  %210 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %201, i64 noundef %179, ptr noundef %3, i32 noundef %163, i32 noundef -23, ptr noundef %203, i64 noundef %191, ptr noundef %3, i32 noundef %163, i32 noundef -23, ptr noundef %5, ptr noundef null) #7
+  %210 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef nonnull %201, i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %179, ptr noundef %3, i32 noundef %163, i32 noundef -23, ptr noundef %203, i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %191, ptr noundef %3, i32 noundef %163, i32 noundef -23, ptr noundef %5, ptr noundef null) #7
   br label %ompi_coll_base_sendrecv.exit
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %205, %209

@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %packed_do
   %3 = load ptr, ptr %path, align 8
   %4 = load i32, ptr @packed_refs_lock.timeout_value, align 4
   %conv = sext i32 %4 to i64
-  %call.i = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %3, i32 noundef %flags, i64 noundef %conv, i32 noundef 438) #18
+  %call.i = tail call i32 @hold_lock_file_for_update_timeout_mode(ptr noundef nonnull %lock, ptr noundef %3, i32 noundef %flags, i64 noundef range(i64 -2147483648, 2147483648) %conv, i32 noundef 438) #18
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then4, label %if.end7
 

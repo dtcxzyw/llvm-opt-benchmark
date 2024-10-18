@@ -608,7 +608,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %123 unwind label %146, !noalias !28
 
 123:                                              ; preds = %121
-  %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %122, i64 noundef %119)
+  %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %122, i64 noundef range(i64 0, 4294967296) %119)
           to label %125 unwind label %146, !noalias !28
 
 125:                                              ; preds = %123
@@ -1047,7 +1047,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2.i:                 ; preds = %7, %_ZNSt6vectorIjS
   br label %_ZN4LIEF3ELF7GnuHashD2Ev.exit
 
 _ZN4LIEF3ELF7GnuHashD2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit2.i, %10
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #8
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9
   ret void
 }

@@ -11757,7 +11757,7 @@ define internal fastcc void @ATRewriteCatalogs(ptr noundef nonnull %0, i32 nound
   %147 = getelementptr inbounds i8, ptr %142, i64 45
   %148 = load i8, ptr %147, align 1
   %149 = trunc i8 %148 to i1
-  %150 = call fastcc { i64, i32 } @ATExecAddColumn(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %51, i1 noundef zeroext %149, i1 noundef zeroext false, i32 noundef %1, i32 noundef %117, ptr noundef %2)
+  %150 = call fastcc { i64, i32 } @ATExecAddColumn(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %51, i1 noundef zeroext %149, i1 noundef zeroext false, i32 noundef %1, i32 noundef range(i32 -2147483648, 12) %117, ptr noundef %2)
   %.fca.0.extract215.i = extractvalue { i64, i32 } %150, 0
   %.fca.1.extract216.i = extractvalue { i64, i32 } %150, 1
   %.pre.i = load ptr, ptr %51, align 8
@@ -11904,7 +11904,7 @@ ATExecColumnDefault.exit:                         ; preds = %209, %212
   br label %.thread.i
 
 230:                                              ; preds = %139
-  %231 = call fastcc ptr @ATParseTransformCmd(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef %117, ptr noundef %2)
+  %231 = call fastcc ptr @ATParseTransformCmd(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef range(i32 -2147483648, 12) %117, ptr noundef %2)
   store ptr %231, ptr %51, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 8
   %233 = load ptr, ptr %232, align 8
@@ -11919,7 +11919,7 @@ ATExecColumnDefault.exit:                         ; preds = %209, %212
   br label %.thread.i
 
 240:                                              ; preds = %139
-  %241 = call fastcc ptr @ATParseTransformCmd(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef %117, ptr noundef %2)
+  %241 = call fastcc ptr @ATParseTransformCmd(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef range(i32 -2147483648, 12) %117, ptr noundef %2)
   store ptr %241, ptr %51, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 8
   %243 = load ptr, ptr %242, align 8
@@ -12157,7 +12157,7 @@ ATExecDropNotNull.exit:                           ; preds = %374, %376, %277
   %381 = getelementptr inbounds i8, ptr %142, i64 45
   %382 = load i8, ptr %381, align 1
   %383 = trunc i8 %382 to i1
-  %384 = call fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef %0, ptr noundef %143, ptr noundef null, ptr noundef %380, i1 noundef zeroext %383, i1 noundef zeroext false, ptr noundef null, i32 noundef %1)
+  %384 = call fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull %0, ptr noundef %143, ptr noundef null, ptr noundef %380, i1 noundef zeroext %383, i1 noundef zeroext false, ptr noundef null, i32 noundef %1)
   %.fca.0.extract173.i = extractvalue { i64, i32 } %384, 0
   %.fca.1.extract174.i = extractvalue { i64, i32 } %384, 1
   br label %.thread.i
@@ -13183,7 +13183,7 @@ thread-pre-split.i:                               ; preds = %928
   %929 = getelementptr inbounds i8, ptr %142, i64 45
   %930 = load i8, ptr %929, align 1
   %931 = trunc i8 %930 to i1
-  %932 = call fastcc ptr @ATParseTransformCmd(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext %931, i32 noundef %1, i32 noundef 6, ptr noundef %2)
+  %932 = call fastcc ptr @ATParseTransformCmd(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext %931, i32 noundef %1, i32 noundef 6, ptr noundef %2)
   store ptr %932, ptr %51, align 8
   %.not.i = icmp eq ptr %932, null
   br i1 %.not.i, label %ATExecCmd.exit, label %thread-pre-split.thread.i
@@ -13195,7 +13195,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %936 = getelementptr inbounds i8, ptr %933, i64 45
   %937 = load i8, ptr %936, align 1
   %938 = trunc i8 %937 to i1
-  %939 = call fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %935, i1 noundef zeroext %938, i1 noundef zeroext false, i32 noundef %1)
+  %939 = call fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %935, i1 noundef zeroext %938, i1 noundef zeroext false, i32 noundef %1)
   %.fca.0.extract95.i = extractvalue { i64, i32 } %939, 0
   %.fca.1.extract96.i = extractvalue { i64, i32 } %939, 1
   br label %.thread.i
@@ -13203,7 +13203,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 940:                                              ; preds = %139
   %941 = getelementptr inbounds i8, ptr %142, i64 32
   %942 = load ptr, ptr %941, align 8
-  %943 = call fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %942, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %1)
+  %943 = call fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef %942, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %1)
   %.fca.0.extract89.i = extractvalue { i64, i32 } %943, 0
   %.fca.1.extract90.i = extractvalue { i64, i32 } %943, 1
   br label %.thread.i
@@ -13536,7 +13536,7 @@ ATExecAlterConstraint.exit:                       ; preds = %.lr.ph10.i, %1116, 
   %1131 = getelementptr inbounds i8, ptr %142, i64 45
   %1132 = load i8, ptr %1131, align 1
   %1133 = trunc i8 %1132 to i1
-  %1134 = call fastcc { i64, i32 } @ATExecValidateConstraint(ptr noundef %0, ptr noundef %143, ptr noundef %1130, i1 noundef zeroext %1133, i1 noundef zeroext false, i32 noundef %1)
+  %1134 = call fastcc { i64, i32 } @ATExecValidateConstraint(ptr noundef nonnull %0, ptr noundef %143, ptr noundef %1130, i1 noundef zeroext %1133, i1 noundef zeroext false, i32 noundef %1)
   %.fca.0.extract59.i = extractvalue { i64, i32 } %1134, 0
   %.fca.1.extract60.i = extractvalue { i64, i32 } %1134, 1
   br label %.thread.i
@@ -13900,7 +13900,7 @@ ATExecDropConstraint.exit:                        ; preds = %1151, %1161, %1163
   %1337 = sext i16 %1324 to i32
   %1338 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %1338)
-  %1339 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %1337) #13
+  %1339 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef range(i32 -32768, 32768) %1337) #13
   call void @errfinish(ptr noundef nonnull @.str.279, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 
@@ -13909,7 +13909,7 @@ ATExecDropConstraint.exit:                        ; preds = %1151, %1161, %1163
   br label %heap_getattr.exit
 
 1342:                                             ; preds = %1308
-  %1343 = call i64 @nocachegetattr(ptr noundef nonnull %1182, i32 noundef 26, ptr noundef nonnull %1296) #13
+  %1343 = call i64 @nocachegetattr(ptr noundef nonnull %1182, i32 noundef range(i32 16, 28) 26, ptr noundef nonnull %1296) #13
   br label %heap_getattr.exit
 
 1344:                                             ; preds = %1304
@@ -13924,7 +13924,7 @@ ATExecDropConstraint.exit:                        ; preds = %1151, %1161, %1163
   br label %heap_getattr.exit
 
 1349:                                             ; preds = %1344
-  %1350 = call i64 @nocachegetattr(ptr noundef nonnull %1182, i32 noundef 26, ptr noundef %1296) #13
+  %1350 = call i64 @nocachegetattr(ptr noundef nonnull %1182, i32 noundef range(i32 16, 28) 26, ptr noundef %1296) #13
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %1302, %1325, %1328, %1331, %1334, %1340, %1342, %1348, %1349
@@ -16059,7 +16059,7 @@ ATExecGenericOptions.exit:                        ; preds = %2414, %2460
   br label %.thread.i
 
 2461:                                             ; preds = %139
-  %2462 = call fastcc ptr @ATParseTransformCmd(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef %117, ptr noundef %2)
+  %2462 = call fastcc ptr @ATParseTransformCmd(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef range(i32 -2147483648, 12) %117, ptr noundef %2)
   store ptr %2462, ptr %51, align 8
   %2463 = getelementptr inbounds i8, ptr %143, i64 56
   %2464 = load ptr, ptr %2463, align 8
@@ -16342,16 +16342,16 @@ ATExecGenericOptions.exit:                        ; preds = %2414, %2460
   %2629 = getelementptr inbounds i8, ptr %2628, i64 4
   %2630 = getelementptr inbounds i8, ptr %2469, i64 16
   %2631 = load ptr, ptr %2630, align 8
-  call void @check_new_partition_bound(ptr noundef nonnull %2629, ptr noundef %143, ptr noundef %2631, ptr noundef %2471) #13
-  call fastcc void @CreateInheritance(ptr noundef nonnull %2480, ptr noundef %143, i1 noundef zeroext true)
+  call void @check_new_partition_bound(ptr noundef nonnull %2629, ptr noundef nonnull %143, ptr noundef %2631, ptr noundef %2471) #13
+  call fastcc void @CreateInheritance(ptr noundef nonnull %2480, ptr noundef nonnull %143, i1 noundef zeroext true)
   %2632 = load ptr, ptr %2630, align 8
-  call void @StorePartitionBound(ptr noundef nonnull %2480, ptr noundef %143, ptr noundef %2632) #13
+  call void @StorePartitionBound(ptr noundef nonnull %2480, ptr noundef nonnull %143, ptr noundef %2632) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40)
   %2633 = load ptr, ptr @CurrentMemoryContext, align 8
   %2634 = call ptr @AllocSetContextCreateInternal(ptr noundef %2633, ptr noundef nonnull @.str.424, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
   %2635 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %2634, ptr @CurrentMemoryContext, align 8
-  %2636 = call ptr @RelationGetIndexList(ptr noundef %143) #13
+  %2636 = call ptr @RelationGetIndexList(ptr noundef nonnull %143) #13
   %2637 = call ptr @RelationGetIndexList(ptr noundef nonnull %2480) #13
   %.not.i.i.i87 = icmp eq ptr %2637, null
   br i1 %.not.i.i.i87, label %list_length.exit128.thread.i.i, label %.lr.ph.i.i88
@@ -16646,11 +16646,11 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
   store ptr %2635, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %2634) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  call fastcc void @CloneRowTriggersToPartition(ptr noundef %143, ptr noundef %2480)
-  call fastcc void @CloneForeignKeyConstraints(ptr noundef nonnull %0, ptr noundef %143, ptr noundef %2480)
+  call fastcc void @CloneRowTriggersToPartition(ptr noundef nonnull %143, ptr noundef %2480)
+  call fastcc void @CloneForeignKeyConstraints(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef %2480)
   %2803 = load ptr, ptr %2630, align 8
-  %2804 = call ptr @get_qual_from_partbound(ptr noundef %143, ptr noundef %2803) #13
-  %2805 = call ptr @RelationGetPartitionQual(ptr noundef %143) #13
+  %2804 = call ptr @get_qual_from_partbound(ptr noundef nonnull %143, ptr noundef %2803) #13
+  %2805 = call ptr @RelationGetPartitionQual(ptr noundef nonnull %143) #13
   %2806 = call ptr @list_concat(ptr noundef %2804, ptr noundef %2805) #13
   %.not121.i = icmp eq ptr %2806, null
   br i1 %.not121.i, label %2812, label %2807
@@ -16659,8 +16659,8 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
   %2808 = call ptr @eval_const_expressions(ptr noundef null, ptr noundef nonnull %2806) #13
   %2809 = call ptr @make_ands_explicit(ptr noundef %2808) #13
   %2810 = call ptr @list_make1_impl(i32 noundef 1, ptr %2809) #13
-  %2811 = call ptr @map_partition_varattnos(ptr noundef %2810, i32 noundef 1, ptr noundef %2480, ptr noundef %143) #13
-  call fastcc void @QueuePartitionConstraintValidation(ptr noundef %0, ptr noundef %2480, ptr noundef %2811, i1 noundef zeroext false)
+  %2811 = call ptr @map_partition_varattnos(ptr noundef %2810, i32 noundef 1, ptr noundef %2480, ptr noundef nonnull %143) #13
+  call fastcc void @QueuePartitionConstraintValidation(ptr noundef nonnull %0, ptr noundef %2480, ptr noundef %2811, i1 noundef zeroext false)
   br label %2812
 
 2812:                                             ; preds = %2807, %AttachPartitionEnsureIndexes.exit.i
@@ -16669,8 +16669,8 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
 2813:                                             ; preds = %2812
   %2814 = call ptr @table_open(i32 noundef %2475, i32 noundef 0) #13
   %2815 = call ptr @get_proposed_default_constraint(ptr noundef %2804) #13
-  %2816 = call ptr @map_partition_varattnos(ptr noundef %2815, i32 noundef 1, ptr noundef %2814, ptr noundef %143) #13
-  call fastcc void @QueuePartitionConstraintValidation(ptr noundef %0, ptr noundef %2814, ptr noundef %2816, i1 noundef zeroext true)
+  %2816 = call ptr @map_partition_varattnos(ptr noundef %2815, i32 noundef 1, ptr noundef %2814, ptr noundef nonnull %143) #13
+  call fastcc void @QueuePartitionConstraintValidation(ptr noundef nonnull %0, ptr noundef %2814, ptr noundef %2816, i1 noundef zeroext true)
   call void @table_close(ptr noundef %2814, i32 noundef 0) #13
   br label %2817
 
@@ -16857,7 +16857,7 @@ refuseDupeIndexAttach.exit.i:                     ; preds = %2871
 
 2924:                                             ; preds = %2906
   %2925 = call ptr @BuildIndexInfo(ptr noundef %2848) #13
-  %2926 = call ptr @BuildIndexInfo(ptr noundef %143) #13
+  %2926 = call ptr @BuildIndexInfo(ptr noundef nonnull %143) #13
   %2927 = getelementptr inbounds i8, ptr %2857, i64 64
   %2928 = load ptr, ptr %2927, align 8
   %2929 = getelementptr inbounds i8, ptr %2852, i64 64
@@ -17002,7 +17002,7 @@ ATExecAttachPartitionIdx.exit:                    ; preds = %2867, %3012
   br label %.thread.i
 
 3013:                                             ; preds = %139
-  %3014 = call fastcc ptr @ATParseTransformCmd(ptr noundef %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef %117, ptr noundef %2)
+  %3014 = call fastcc ptr @ATParseTransformCmd(ptr noundef nonnull %0, ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %142, i1 noundef zeroext false, i32 noundef %1, i32 noundef range(i32 -2147483648, 12) %117, ptr noundef %2)
   store ptr %3014, ptr %51, align 8
   %3015 = getelementptr inbounds i8, ptr %3014, i64 32
   %3016 = load ptr, ptr %3015, align 8
@@ -17469,7 +17469,7 @@ ATGetQueueEntry.exit.i.i:                         ; preds = %3225, %._crit_edge.
   store i8 1, ptr %3255, align 1
   %3256 = getelementptr inbounds i8, ptr %3246, i64 18
   store i8 1, ptr %3256, align 2
-  %3257 = call fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef %0, ptr noundef nonnull %.0.i.i.i, ptr noundef %3094, ptr noundef nonnull %3246, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 4)
+  %3257 = call fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i.i, ptr noundef %3094, ptr noundef nonnull %3246, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 4)
   br label %DetachAddConstraintIfNeeded.exit.i
 
 DetachAddConstraintIfNeeded.exit.i:               ; preds = %ATGetQueueEntry.exit.i.i, %ConstraintImpliedByRelConstraint.exit
@@ -17729,7 +17729,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3382 = load ptr, ptr %3340, align 8
   %3383 = load i32, ptr %3325, align 4
   %3384 = icmp ne i32 %3383, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3345, i32 noundef %.0.i, i32 noundef %3370, ptr noundef %3382, ptr noundef %0, i1 noundef zeroext %3384)
+  call fastcc void @ATPostAlterTypeParse(i32 noundef %3345, i32 noundef %.0.i, i32 noundef %3370, ptr noundef %3382, ptr noundef nonnull %0, i1 noundef zeroext %3384)
   br label %3385
 
 3385:                                             ; preds = %3381, %3368
@@ -17783,7 +17783,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3414 = load ptr, ptr %3407, align 8
   %3415 = load i32, ptr %3325, align 4
   %3416 = icmp ne i32 %3415, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3412, i32 noundef %3413, i32 noundef 0, ptr noundef %3414, ptr noundef %0, i1 noundef zeroext %3416)
+  call fastcc void @ATPostAlterTypeParse(i32 noundef %3412, i32 noundef %3413, i32 noundef 0, ptr noundef %3414, ptr noundef nonnull %0, i1 noundef zeroext %3416)
   store i32 1259, ptr %46, align 4
   store i32 %3412, ptr %109, align 4
   store i32 0, ptr %110, align 4
@@ -17840,7 +17840,7 @@ ATExecCmd.exit:                                   ; preds = %thread-pre-split.i,
   %3446 = load ptr, ptr %3439, align 8
   %3447 = load i32, ptr %3325, align 4
   %3448 = icmp ne i32 %3447, 0
-  call fastcc void @ATPostAlterTypeParse(i32 noundef %3444, i32 noundef %3445, i32 noundef 0, ptr noundef %3446, ptr noundef %0, i1 noundef zeroext %3448)
+  call fastcc void @ATPostAlterTypeParse(i32 noundef %3444, i32 noundef %3445, i32 noundef 0, ptr noundef %3446, ptr noundef nonnull %0, i1 noundef zeroext %3448)
   store i32 3381, ptr %46, align 4
   store i32 %3444, ptr %109, align 4
   store i32 0, ptr %110, align 4
@@ -18137,7 +18137,7 @@ define internal fastcc void @ATPrepAddColumn(ptr nocapture noundef nonnull %0, p
   %34 = load i32, ptr %33, align 8
   %35 = tail call ptr @relation_open(i32 noundef %34, i32 noundef %6) #13
   tail call void @CheckTableNotInUse(ptr noundef %35, ptr noundef nonnull @.str.31)
-  tail call fastcc void @ATPrepCmd(ptr noundef %0, ptr noundef %35, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef %7)
+  tail call fastcc void @ATPrepCmd(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef %7)
   tail call void @relation_close(ptr noundef %35, i32 noundef 0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %28, align 4
@@ -18328,7 +18328,7 @@ define internal fastcc void @ATPrepDropColumn(ptr nocapture noundef nonnull %0, 
   %33 = load i32, ptr %32, align 8
   %34 = tail call ptr @relation_open(i32 noundef %33, i32 noundef %5) #13
   tail call void @CheckTableNotInUse(ptr noundef %34, ptr noundef nonnull @.str.31)
-  tail call fastcc void @ATPrepCmd(ptr noundef %0, ptr noundef %34, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %5, ptr noundef %6)
+  tail call fastcc void @ATPrepCmd(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %5, ptr noundef %6)
   tail call void @relation_close(ptr noundef %34, i32 noundef 0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %27, align 4
@@ -19054,7 +19054,7 @@ thread-pre-split:                                 ; preds = %ATColumnChangeRequi
   %277 = load i32, ptr %276, align 8
   %278 = call ptr @relation_open(i32 noundef %277, i32 noundef %6) #13
   call void @CheckTableNotInUse(ptr noundef %278, ptr noundef nonnull @.str.31)
-  call fastcc void @ATPrepCmd(ptr noundef %0, ptr noundef %278, ptr noundef %.3, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef %7)
+  call fastcc void @ATPrepCmd(ptr noundef nonnull %0, ptr noundef %278, ptr noundef %.3, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef %7)
   call void @relation_close(ptr noundef %278, i32 noundef 0) #13
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %279 = load i32, ptr %271, align 4
@@ -23782,7 +23782,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   %52 = sext i16 %38 to i32
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %52) #13
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef range(i32 -32768, 32768) %52) #13
   tail call void @errfinish(ptr noundef nonnull @.str.279, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #13
   unreachable
 
@@ -23791,7 +23791,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   br label %fastgetattr.exit
 
 57:                                               ; preds = %19
-  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
+  %58 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 28) %1, ptr noundef nonnull %2) #13
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
@@ -23813,7 +23813,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   br label %fastgetattr.exit
 
 71:                                               ; preds = %59
-  %72 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+  %72 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 28) %1, ptr noundef %2) #13
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %71, %70, %57, %55, %49, %46, %43, %40, %12
@@ -26535,8 +26535,8 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.th
   br i1 %.not13.i.i, label %constraints_equivalent.exit.i, label %constraints_equivalent.exit.thread.i
 
 constraints_equivalent.exit.i:                    ; preds = %241
-  %248 = call fastcc ptr @decompile_conbin(ptr noundef %176, ptr noundef %228)
-  %249 = call fastcc ptr @decompile_conbin(ptr noundef %197, ptr noundef %228)
+  %248 = call fastcc ptr @decompile_conbin(ptr noundef nonnull %176, ptr noundef %228)
+  %249 = call fastcc ptr @decompile_conbin(ptr noundef nonnull %197, ptr noundef %228)
   %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %248, ptr noundef nonnull dereferenceable(1) %249) #15
   %.not14.i.i = icmp eq i32 %250, 0
   br i1 %.not14.i.i, label %257, label %constraints_equivalent.exit.thread.i
@@ -29387,7 +29387,7 @@ slot_attisnull.exit:                              ; preds = %.lr.ph356, %slot_ge
   %359 = load ptr, ptr %170, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 160
   %361 = load ptr, ptr %360, align 8
-  tail call void %361(ptr noundef nonnull %.0250, ptr noundef %.0207, i32 noundef %.0203, i32 noundef %.0205, ptr noundef %.0204) #13
+  tail call void %361(ptr noundef nonnull %.0250, ptr noundef %.0207, i32 noundef %.0203, i32 noundef range(i32 0, 3) %.0205, ptr noundef %.0204) #13
   br label %362
 
 362:                                              ; preds = %358, %357
@@ -29449,7 +29449,7 @@ slot_attisnull.exit:                              ; preds = %.lr.ph356, %slot_ge
   br i1 %.not5.i247, label %table_finish_bulk_insert.exit, label %388
 
 388:                                              ; preds = %385
-  tail call void %387(ptr noundef nonnull %.0250, i32 noundef %.0205) #13
+  tail call void %387(ptr noundef nonnull %.0250, i32 noundef range(i32 0, 3) %.0205) #13
   br label %table_finish_bulk_insert.exit
 
 table_finish_bulk_insert.exit:                    ; preds = %382, %385, %388

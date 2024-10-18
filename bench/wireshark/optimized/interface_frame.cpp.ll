@@ -1578,7 +1578,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %_ZN5QListI20Interfa
   br label %_ZN24InterfaceSortFilterModelD2Ev.exit
 
 _ZN24InterfaceSortFilterModelD2Ev.exit:           ; preds = %_ZN5QListI20InterfaceTreeColumnsED2Ev.exit.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %33
-  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #20
+  tail call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %24) #20
   tail call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   ret void
 }
@@ -1601,7 +1601,7 @@ define void @_ZN14InterfaceFrameD0Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZThn16_N14InterfaceFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN14InterfaceFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(208) %2) #21
   ret void
 }
 
@@ -1701,7 +1701,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %35
           to label %45 unwind label %55
 
 45:                                               ; preds = %43
-  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull %3)
+  invoke void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIiE8metaTypeE, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit unwind label %.loopexit
 
 _ZN8QVariant9fromValueIiEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS2_.exit: ; preds = %45
@@ -2812,7 +2812,7 @@ _ZNK11QModelIndex7siblingEii.exit:                ; preds = %53, %54, %58
   br label %_ZNK11QModelIndex4dataEi.exit
 
 67:                                               ; preds = %_ZNK11QModelIndex7siblingEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false), !alias.scope !27
   %68 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 2, ptr %68, align 8, !alias.scope !27
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -4976,7 +4976,7 @@ _ZNK11QModelIndex7siblingEii.exit.i.i.i:          ; preds = %71, %67
           to label %_ZNK11QModelIndex4dataEi.exit.i.i.i unwind label %58
 
 78:                                               ; preds = %72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false), !alias.scope !45
   store i64 2, ptr %41, align 8, !alias.scope !45
   br label %_ZNK11QModelIndex4dataEi.exit.i.i.i
 
@@ -4988,7 +4988,7 @@ _ZNK11QModelIndex4dataEi.exit.i.i.i:              ; preds = %78, %74
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
   %80 = load ptr, ptr %42, align 8
   %81 = load i64, ptr %43, align 8
-  %82 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull %6, i64 %81, ptr %80, i32 noundef 1)
+  %82 = invoke noundef zeroext i1 @_ZN9QtPrivate20QStringList_containsEPK5QListI7QStringE11QStringViewN2Qt15CaseSensitivityE(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %81, ptr %80, i32 noundef 1)
           to label %_ZNK19QListSpecialMethodsI7QStringE8containsERKS0_N2Qt15CaseSensitivityE.exit.i.i.i unwind label %83
 
 83:                                               ; preds = %79

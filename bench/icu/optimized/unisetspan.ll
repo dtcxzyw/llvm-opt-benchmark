@@ -284,7 +284,7 @@ if.then38:                                        ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length8.i)
   store i32 0, ptr %errorCode.i, align 4
   store i32 0, ptr %length8.i, align 4
-  %call.i125 = invoke ptr @u_strToUTF8_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %length8.i, ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull %errorCode.i)
+  %call.i125 = invoke ptr @u_strToUTF8_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %length8.i, ptr noundef %retval.0.i, i32 noundef range(i32 1, 0) %cond.i, ptr noundef nonnull %errorCode.i)
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp.loopexit.split
 
 invoke.cont39:                                    ; preds = %if.then38

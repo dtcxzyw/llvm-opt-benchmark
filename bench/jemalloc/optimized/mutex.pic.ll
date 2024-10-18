@@ -226,7 +226,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex, i8 0, i64 64, i1 false)
   tail call void @nstime_copy(ptr noundef nonnull %rank, ptr noundef nonnull @nstime_zero) #7
-  tail call void @nstime_copy(ptr noundef %mutex, ptr noundef nonnull @nstime_zero) #7
+  tail call void @nstime_copy(ptr noundef nonnull %mutex, ptr noundef nonnull @nstime_zero) #7
   %prev_owner.i.i = getelementptr inbounds i8, ptr %mutex, i64 48
   store ptr null, ptr %prev_owner.i.i, align 8
   %call.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #7

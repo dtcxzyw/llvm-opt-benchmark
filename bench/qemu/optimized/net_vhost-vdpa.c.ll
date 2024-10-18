@@ -160,7 +160,7 @@ if.then24:                                        ; preds = %if.else19
 
 if.end26:                                         ; preds = %if.else19, %if.then13
   %vdpa_device_fd.0 = phi i32 [ %call, %if.then13 ], [ %call22, %if.else19 ]
-  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd.0, i64 noundef 2148052736, ptr noundef nonnull %features) #13
+  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd.0, i64 noundef 2148052736, ptr noundef nonnull %features) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %vhost_vdpa_get_features.exit.thread, label %if.end32
 
@@ -181,7 +181,7 @@ if.then3.i:                                       ; preds = %if.end32
   store i32 8, ptr %call.i46, align 4
   %len.i = getelementptr inbounds i8, ptr %call.i46, i64 4
   store i32 2, ptr %len.i, align 4
-  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd.0, i64 noundef 2148052851, ptr noundef nonnull %call.i46) #13
+  %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd.0, i64 noundef 2148052851, ptr noundef nonnull %call.i46) #13
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end7.i, label %vhost_vdpa_get_max_queue_pairs.exit
 
@@ -370,7 +370,7 @@ if.else4:                                         ; preds = %if.end
   %cmp.i = icmp eq ptr %errp, @error_fatal
   %or.cond.i = or i1 %tobool.i, %cmp.i
   %spec.select.i = select i1 %or.cond.i, ptr %_auto_errp_prop.i, ptr %errp
-  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 2148052774, ptr noundef nonnull %backend_features.i) #13
+  %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 2148052774, ptr noundef nonnull %backend_features.i) #13
   %cmp3.i = icmp slt i32 %call.i, 0
   br i1 %cmp3.i, label %if.then6.i, label %if.end8.i
 
@@ -387,7 +387,7 @@ if.end8.i:                                        ; preds = %if.else4
   br i1 %tobool9.not.i, label %vhost_vdpa_probe_cvq_isolation.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %call12.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
+  %call12.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.end21.i, label %if.then20.i
 
@@ -397,7 +397,7 @@ if.then20.i:                                      ; preds = %if.end11.i
   br label %out.i
 
 if.end21.i:                                       ; preds = %if.end11.i
-  %call22.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 1074310912, ptr noundef nonnull %features.addr.i) #13
+  %call22.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 1074310912, ptr noundef nonnull %features.addr.i) #13
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %if.end32.i, label %if.then30.i
 
@@ -410,7 +410,7 @@ if.end32.i:                                       ; preds = %if.end21.i
   %2 = load i8, ptr %status.i, align 1
   %3 = or i8 %2, 8
   store i8 %3, ptr %status.i, align 1
-  %call35.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
+  %call35.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %if.end45.i, label %if.then43.i
 
@@ -420,7 +420,7 @@ if.then43.i:                                      ; preds = %if.end32.i
   br label %out.i
 
 if.end45.i:                                       ; preds = %if.end32.i
-  %call46.i = call fastcc i64 @vhost_vdpa_get_vring_group(i32 noundef %vdpa_device_fd, i32 noundef %mul, ptr noundef nonnull %spec.select.i)
+  %call46.i = call fastcc i64 @vhost_vdpa_get_vring_group(i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %mul, ptr noundef nonnull %spec.select.i)
   %cmp47.i = icmp slt i64 %call46.i, 0
   br i1 %cmp47.i, label %if.then55.i, label %for.cond.preheader.i
 
@@ -456,7 +456,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %state.i.i)
   store i32 %i.038.i, ptr %state.i.i, align 4
   store i32 0, ptr %num.i.i, align 4
-  %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 3221794683, ptr noundef nonnull %state.i.i) #13
+  %call.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 3221794683, ptr noundef nonnull %state.i.i) #13
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %vhost_vdpa_get_vring_group.exit.i, label %vhost_vdpa_get_vring_group.exit.thread.i
 
@@ -483,7 +483,7 @@ if.end75.i:                                       ; preds = %vhost_vdpa_get_vrin
 out.i:                                            ; preds = %if.end75.i, %vhost_vdpa_get_vring_group.exit.i, %for.cond.i, %if.end60.i, %if.then58.i, %for.cond.preheader.i, %if.then43.i, %if.then30.i, %if.then20.i
   %r.0.i = phi i32 [ %call12.i, %if.then20.i ], [ %call22.i, %if.then30.i ], [ %call35.i, %if.then43.i ], [ %conv59.i, %if.then58.i ], [ 0, %if.end60.i ], [ 1, %for.cond.preheader.i ], [ %sub.i.i, %vhost_vdpa_get_vring_group.exit.i ], [ 1, %for.cond.i ], [ 0, %if.end75.i ]
   store i8 0, ptr %status.i, align 1
-  %call80.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
+  %call80.i = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -1) %vdpa_device_fd, i64 noundef 1073852274, ptr noundef nonnull %status.i) #13
   br label %vhost_vdpa_probe_cvq_isolation.exit
 
 vhost_vdpa_probe_cvq_isolation.exit:              ; preds = %if.then6.i, %if.end8.i, %out.i
@@ -1429,7 +1429,7 @@ if.then.i:                                        ; preds = %if.then2
   store ptr %mac.i, ptr %data.i, align 8
   %iov_len.i32 = getelementptr inbounds i8, ptr %data.i, i64 8
   store i64 6, ptr %iov_len.i32, align 8
-  %call1.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef %data.i, i64 noundef 1)
+  %call1.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef %data.i, i64 noundef 1)
   %cmp.i = icmp slt i64 %call1.i, 0
   br i1 %cmp.i, label %vhost_vdpa_net_load_mac.exit.thread77, label %if.then.if.end5_crit_edge.i
 
@@ -1492,7 +1492,7 @@ vhost_vdpa_net_load_mac.exit:                     ; preds = %lor.lhs.false.i
   %iov_len34.i = getelementptr inbounds i8, ptr %data20.i, i64 56
   %conv35.i = zext i32 %mul15.i to i64
   store i64 %conv35.i, ptr %iov_len34.i, align 8
-  %call38.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %data20.i, i64 noundef 4)
+  %call38.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %data20.i, i64 noundef 4)
   %spec.select.i = trunc nsw i64 %call38.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
@@ -1516,7 +1516,7 @@ if.end.i:                                         ; preds = %if.end10
   store ptr %mq.i, ptr %data.i33, align 8
   %iov_len.i36 = getelementptr inbounds i8, ptr %data.i33, i64 8
   store i64 2, ptr %iov_len.i36, align 8
-  %call2.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef %data.i33, i64 noundef 1)
+  %call2.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef %data.i33, i64 noundef 1)
   %cmp.i37 = icmp slt i64 %call2.i, 0
   br i1 %cmp.i37, label %vhost_vdpa_net_load_mq.exit.thread86, label %if.end6.i
 
@@ -1609,7 +1609,7 @@ vhost_vdpa_net_load_rss.exit:                     ; preds = %vhost_vdpa_net_load
   store ptr %key.i, ptr %arrayinit.element37.i, align 16
   %iov_len40.i = getelementptr inbounds i8, ptr %data.i61, i64 56
   store i64 40, ptr %iov_len40.i, align 8
-  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef %data.i61, i64 noundef 4)
+  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef %data.i61, i64 noundef 4)
   call void @g_free(ptr noundef %call.i66) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i61)
@@ -1673,7 +1673,7 @@ vhost_vdpa_net_load_rss.exit.i:                   ; preds = %lor.lhs.false.i.i
   store ptr %key.i.i, ptr %arrayinit.element37.i.i, align 16
   %iov_len40.i.i = getelementptr inbounds i8, ptr %data.i.i, i64 56
   store i64 40, ptr %iov_len40.i.i, align 8
-  %call45.i.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 2, ptr noundef %data.i.i, i64 noundef 4)
+  %call45.i.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 2, ptr noundef %data.i.i, i64 noundef 4)
   call void @g_free(ptr noundef nonnull %call.i.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i)
@@ -1721,7 +1721,7 @@ vhost_vdpa_net_load_offloads.exit:                ; preds = %if.end.i44
   store ptr %offloads.i, ptr %data.i40, align 8
   %iov_len.i47 = getelementptr inbounds i8, ptr %data.i40, i64 8
   store i64 8, ptr %iov_len.i47, align 8
-  %call6.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef %data.i40, i64 noundef 1)
+  %call6.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef %data.i40, i64 noundef 1)
   %spec.select.i48 = trunc nsw i64 %call6.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offloads.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i40)
@@ -1753,7 +1753,7 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   store ptr %on.addr.i.i, ptr %data.i.i50, align 8
   %iov_len.i.i58 = getelementptr inbounds i8, ptr %data.i.i50, i64 8
   store i64 1, ptr %iov_len.i.i58, align 8
-  %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %data.i.i50, i64 noundef 1)
+  %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %data.i.i50, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i.i50)
   %cmp.i60 = icmp slt i64 %call.i.i59, 0
@@ -1778,7 +1778,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i57, 
   store ptr %on.addr.i37.i, ptr %data.i38.i, align 8
   %iov_len.i39.i = getelementptr inbounds i8, ptr %data.i38.i, i64 8
   store i64 1, ptr %iov_len.i39.i, align 8
-  %call.i40.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %data.i38.i, i64 noundef 1)
+  %call.i40.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %data.i38.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i37.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i38.i)
   %cmp20.i = icmp slt i64 %call.i40.i, 0
@@ -1803,7 +1803,7 @@ if.then37.i:                                      ; preds = %if.end35.i
   store ptr %on.addr.i44.i, ptr %data.i45.i, align 8
   %iov_len.i46.i = getelementptr inbounds i8, ptr %data.i45.i, i64 8
   store i64 1, ptr %iov_len.i46.i, align 8
-  %call.i47.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 2, ptr noundef %data.i45.i, i64 noundef 1)
+  %call.i47.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 2, ptr noundef %data.i45.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i44.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i45.i)
   %cmp40.i = icmp slt i64 %call.i47.i, 0
@@ -1822,7 +1822,7 @@ if.then47.i:                                      ; preds = %if.end45.i
   store ptr %on.addr.i49.i, ptr %data.i50.i, align 8
   %iov_len.i51.i = getelementptr inbounds i8, ptr %data.i50.i, i64 8
   store i64 1, ptr %iov_len.i51.i, align 8
-  %call.i52.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 3, ptr noundef %data.i50.i, i64 noundef 1)
+  %call.i52.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 3, ptr noundef %data.i50.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i49.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i50.i)
   %cmp50.i = icmp slt i64 %call.i52.i, 0
@@ -1841,7 +1841,7 @@ if.then57.i:                                      ; preds = %if.end55.i
   store ptr %on.addr.i54.i, ptr %data.i55.i, align 8
   %iov_len.i56.i = getelementptr inbounds i8, ptr %data.i55.i, i64 8
   store i64 1, ptr %iov_len.i56.i, align 8
-  %call.i57.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 4, ptr noundef %data.i55.i, i64 noundef 1)
+  %call.i57.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 4, ptr noundef %data.i55.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i54.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i55.i)
   %cmp60.i = icmp slt i64 %call.i57.i, 0
@@ -1860,7 +1860,7 @@ if.then67.i:                                      ; preds = %if.end65.i
   store ptr %on.addr.i59.i, ptr %data.i60.i, align 8
   %iov_len.i61.i = getelementptr inbounds i8, ptr %data.i60.i, i64 8
   store i64 1, ptr %iov_len.i61.i, align 8
-  %call.i62.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 5, ptr noundef %data.i60.i, i64 noundef 1)
+  %call.i62.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 5, ptr noundef %data.i60.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i59.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i60.i)
   %cmp70.i = icmp slt i64 %call.i62.i, 0
@@ -2101,7 +2101,7 @@ if.then8:                                         ; preds = %for.body3
   store i16 %conv, ptr %vid.addr.i, align 2
   store ptr %vid.addr.i, ptr %data.i, align 8
   store i64 2, ptr %iov_len.i, align 8
-  %call.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef %data.i, i64 noundef 1)
+  %call.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly %s, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef %data.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vid.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   %cmp11.not = icmp eq i64 %call.i, 0
@@ -2484,7 +2484,7 @@ iov_to_buf.exit53.i:                              ; preds = %land.lhs.true1.i45.
   %mul84.i = phi i32 [ %mul.i, %if.end.i ], [ %mul85.i, %land.lhs.true1.i45.i ]
   %22 = phi ptr [ %.pre74.i, %if.end.i ], [ %18, %land.lhs.true1.i45.i ]
   %23 = phi i32 [ 0, %if.end.i ], [ %19, %land.lhs.true1.i45.i ]
-  %call.i43.i = call i64 @iov_to_buf_full(ptr noundef %22, i32 noundef %23, i64 noundef %conv1187.i, ptr noundef nonnull %mac_data.i, i64 noundef 4) #13
+  %call.i43.i = call i64 @iov_to_buf_full(ptr noundef %22, i32 noundef %23, i64 noundef range(i64 0, 4294967296) %conv1187.i, ptr noundef nonnull %mac_data.i, i64 noundef 4) #13
   %cmp13.not.i = icmp eq i64 %call.i43.i, 4
   br i1 %cmp13.not.i, label %iov_to_buf.exit53.if.end17_crit_edge.i, label %if.then15.i
 

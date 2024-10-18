@@ -177,7 +177,7 @@ define hidden void @_ZN14BytecodeTracer18print_method_codesERK12methodHandleiiP1
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 %4, ptr %11, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %7, ptr noundef nonnull align 8 dereferenceable(16) %0) #7
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(16) %0) #7
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   store i32 %1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 28
@@ -1740,7 +1740,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool30resolved_reference_f
   %18 = shl nuw nsw i64 %16, %.7.i
   %19 = add nuw nsw i64 %17, %18
   %20 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull %3, i64 noundef %19) #7
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %19) #7
   ret ptr %21
 }
 

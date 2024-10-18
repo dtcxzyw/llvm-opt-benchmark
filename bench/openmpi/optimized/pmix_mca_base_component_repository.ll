@@ -500,7 +500,7 @@ pmix_obj_new_tma.exit88.thread102:                ; preds = %.lr.ph.i.i85, %103
 .lr.ph.i90:                                       ; preds = %130, %.lr.ph.i90
   %135 = phi ptr [ %137, %.lr.ph.i90 ], [ %134, %130 ]
   %.07.i91 = phi ptr [ %136, %.lr.ph.i90 ], [ %133, %130 ]
-  call void %135(ptr noundef %98) #15
+  call void %135(ptr noundef nonnull %98) #15
   %136 = getelementptr inbounds i8, ptr %.07.i91, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i92 = icmp eq ptr %137, null
@@ -1552,7 +1552,7 @@ define void @pmix_mca_base_component_repository_finalize() local_unnamed_addr #1
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %34 ]
   %.07.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %34 ]
-  call void %40(ptr noundef %17) #15
+  call void %40(ptr noundef nonnull %17) #15
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null

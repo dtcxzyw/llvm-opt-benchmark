@@ -4461,7 +4461,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end9.i:                                        ; preds = %if.then1.i.i, %if.end.i.i, %if.else.i, %if.then4.i, %if.end.i36
   %stacklevel.addr.0.i = phi i64 [ %spec.store.select.i, %if.then4.i ], [ %stacklevel.051, %if.end.i36 ], [ %stacklevel.051, %if.else.i ], [ %stacklevel.051, %if.then1.i.i ], [ %stacklevel.051, %if.end.i.i ]
   %skip_file_prefixes.addr.0.i = phi ptr [ %skip_file_prefixes.0, %if.then4.i ], [ null, %if.end.i36 ], [ null, %if.else.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ]
-  %call10.i = call fastcc ptr @do_warn(ptr noundef %4, ptr noundef nonnull %category.addr.0.i.i, i64 noundef %stacklevel.addr.0.i, ptr noundef %source.052, ptr noundef %skip_file_prefixes.addr.0.i)
+  %call10.i = call fastcc ptr @do_warn(ptr noundef %4, ptr noundef nonnull %category.addr.0.i.i, i64 noundef %stacklevel.addr.0.i, ptr noundef nonnull %source.052, ptr noundef %skip_file_prefixes.addr.0.i)
   br label %exit
 
 exit:                                             ; preds = %if.end9.i, %get_category.exit.i, %if.then13.i.i, %skip_optional_kwonly, %land.lhs.true33, %cond.end9, %if.then59

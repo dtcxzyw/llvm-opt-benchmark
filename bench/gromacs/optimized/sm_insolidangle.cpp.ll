@@ -115,7 +115,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 define internal noundef nonnull ptr @_ZL22init_data_insolidangleiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(352) %3, i8 0, i64 352, i1 false)
-  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %3)
+  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %3)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
@@ -126,7 +126,7 @@ define internal noundef nonnull ptr @_ZL22init_data_insolidangleiP18gmx_ana_selp
 5:                                                ; preds = %.noexc
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %3) #18
+  tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %3) #18
   br label %.body
 
 _ZN23methoddata_insolidangleC2Ev.exit:            ; preds = %.noexc
@@ -203,7 +203,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %.0 = phi i1 [ false, %16 ], [ true, %14 ]
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #18
   br i1 %.0, label %21, label %83
@@ -243,7 +243,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %44 = fptosi double %43 to i32
   %45 = add nsw i32 %44, 1
   %46 = sext i32 %45 to i64
-  %47 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 404, i64 noundef %46, i64 noundef 16)
+  %47 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 404, i64 noundef range(i64 -2147483647, 2147483648) %46, i64 noundef 16)
   store ptr %47, ptr %41, align 8
   %48 = getelementptr inbounds i8, ptr %3, i64 336
   store i32 0, ptr %48, align 8
@@ -276,7 +276,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %69 = getelementptr inbounds %struct.partition, ptr %68, i64 %indvars.iv, i32 1
   %70 = add nsw i32 %67, 2
   %71 = sext i32 %70 to i64
-  %72 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, i32 noundef 411, i64 noundef %71, i64 noundef 8)
+  %72 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, i32 noundef 411, i64 noundef range(i64 -2147483646, 2147483648) %71, i64 noundef 8)
   store ptr %72, ptr %69, align 8
   %73 = load i32, ptr %48, align 8
   %74 = add i32 %73, 1
@@ -296,7 +296,7 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %80 = getelementptr inbounds i8, ptr %3, i64 340
   store i32 0, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %3, i64 344
-  %82 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7, i32 noundef 415, i64 noundef %storemerge.lcssa, i64 noundef 16)
+  %82 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7, i32 noundef 415, i64 noundef range(i64 -2147483648, 2147483648) %storemerge.lcssa, i64 noundef 16)
   store ptr %82, ptr %81, align 8
   ret void
 
@@ -384,7 +384,7 @@ define internal void @_ZL22free_data_insolidanglePv(ptr noundef %0) #0 {
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7, i32 noundef 439, ptr noundef %33)
   %34 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %34) #18
-  tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) #18
+  tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
@@ -930,7 +930,7 @@ _ZL18find_partition_binP9partitionf.exit91.i:     ; preds = %252, %_ZL18find_par
   %336 = load i32, ptr %335, align 4
   %337 = sext i32 %336 to i64
   %338 = load ptr, ptr %334, align 8
-  %339 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 746, ptr noundef %338, i64 noundef %337, i64 noundef 12)
+  %339 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 746, ptr noundef %338, i64 noundef range(i64 -2147483648, 2147483648) %337, i64 noundef 12)
   store ptr %339, ptr %334, align 8
   %.pre.i.i = load ptr, ptr %94, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds %struct.spheresurfacebin, ptr %.pre.i.i, i64 %322
@@ -1262,7 +1262,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -1279,7 +1279,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -1382,7 +1382,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #18
   ret void
 }
 
@@ -1446,7 +1446,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }

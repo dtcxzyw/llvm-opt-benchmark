@@ -301,7 +301,7 @@ list_length.exit.i:                               ; preds = %96, %92
   %152 = sext i32 %.1143176183.i to i64
   %153 = getelementptr i16, ptr %151, i64 %152
   store i16 %.1140177182.i, ptr %153, align 2
-  %154 = call fastcc ptr @examine_expression(ptr noundef %150, i32 noundef %.012.i)
+  %154 = call fastcc ptr @examine_expression(ptr noundef %150, i32 noundef range(i32 1, 0) %.012.i)
   %155 = load ptr, ptr %113, align 8
   %156 = getelementptr ptr, ptr %155, i64 %152
   store ptr %154, ptr %156, align 8
@@ -352,7 +352,7 @@ list_length.exit.i:                               ; preds = %96, %92
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %179
-  %188 = call i64 @getmissingattr(ptr noundef %174, i32 noundef %167, ptr noundef %178) #10
+  %188 = call i64 @getmissingattr(ptr noundef %174, i32 noundef range(i32 0, -2147483648) %167, ptr noundef %178) #10
   br label %heap_getattr.exit.i
 
 189:                                              ; preds = %179
@@ -419,7 +419,7 @@ list_length.exit.i:                               ; preds = %96, %92
   %227 = sext i16 %214 to i32
   %228 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %228)
-  %229 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %227) #10
+  %229 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef range(i32 -32768, 32768) %227) #10
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
@@ -428,7 +428,7 @@ list_length.exit.i:                               ; preds = %96, %92
   br label %heap_getattr.exit.i
 
 232:                                              ; preds = %194
-  %233 = call i64 @nocachegetattr(ptr noundef nonnull %168, i32 noundef %167, ptr noundef nonnull %174) #10
+  %233 = call i64 @nocachegetattr(ptr noundef nonnull %168, i32 noundef range(i32 1, 2048) %167, ptr noundef nonnull %174) #10
   br label %heap_getattr.exit.i
 
 234:                                              ; preds = %189
@@ -450,7 +450,7 @@ list_length.exit.i:                               ; preds = %96, %92
   br label %heap_getattr.exit.i
 
 246:                                              ; preds = %234
-  %247 = call i64 @nocachegetattr(ptr noundef nonnull %168, i32 noundef %167, ptr noundef %174) #10
+  %247 = call i64 @nocachegetattr(ptr noundef nonnull %168, i32 noundef range(i32 1, 2048) %167, ptr noundef %174) #10
   br label %heap_getattr.exit.i
 
 248:                                              ; preds = %166
@@ -654,7 +654,7 @@ make_build_data.exit:                             ; preds = %._crit_edge195.spli
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr %struct.AnlExprData, ptr %339, i64 %indvars.iv.i110
   store ptr %345, ptr %346, align 8
-  %347 = call fastcc ptr @examine_expression(ptr noundef %345, i32 noundef %.012.i)
+  %347 = call fastcc ptr @examine_expression(ptr noundef %345, i32 noundef range(i32 1, 0) %.012.i)
   %348 = getelementptr inbounds i8, ptr %346, i64 8
   store ptr %347, ptr %348, align 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1

@@ -684,7 +684,7 @@ read_skip_txfm.exit.i:                            ; preds = %._crit_edge.loopexi
   %159 = load i32, ptr %158, align 4
   %160 = sub nsw i32 %159, %143
   %161 = tail call i32 @llvm.smin.i32(i32 %160, i32 %156)
-  %162 = tail call fastcc i32 @read_segment_id(ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %1, ptr noundef %2, i32 noundef %142)
+  %162 = tail call fastcc i32 @read_segment_id(ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %1, ptr noundef %2, i32 noundef range(i32 -128, 128) %142)
   %163 = icmp sgt i32 %161, 0
   br i1 %163, label %.preheader.lr.ph.i.i107.i, label %read_intra_segment_id.exit114.i
 
@@ -914,7 +914,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %300 = load i32, ptr %194, align 4
   %301 = load ptr, ptr %27, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 12198
-  call fastcc void @read_mv(ptr noundef nonnull %2, ptr noundef nonnull %298, ptr noundef readonly %10, ptr noundef nonnull %302, i8 noundef signext -1)
+  call fastcc void @read_mv(ptr noundef nonnull %2, ptr noundef nonnull %298, ptr noundef nonnull readonly %10, ptr noundef nonnull %302, i8 noundef signext -1)
   %303 = getelementptr inbounds nuw i8, ptr %221, i64 10
   %304 = load i16, ptr %303, align 2
   %305 = and i16 %304, -8
@@ -2954,7 +2954,7 @@ av1_ref_frame_type.exit.i:                        ; preds = %get_uni_comp_ref_id
   %828 = getelementptr inbounds nuw i8, ptr %1, i64 47910
   %829 = getelementptr inbounds nuw i8, ptr %1, i64 8312
   %830 = getelementptr inbounds nuw i8, ptr %1, i64 10168
-  call void @av1_find_mv_refs(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %14, i8 noundef signext %.0.i.i, ptr noundef nonnull %828, ptr noundef nonnull %829, ptr noundef nonnull %830, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #9
+  call void @av1_find_mv_refs(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull %14, i8 noundef signext %.0.i.i, ptr noundef nonnull %828, ptr noundef nonnull %829, ptr noundef nonnull %830, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #9
   %831 = load i16, ptr %19, align 1
   %832 = and i16 %831, -49
   store i16 %832, ptr %19, align 1
@@ -4065,7 +4065,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
   %1408 = phi ptr [ %1391, %thread-pre-split.thread.i ], [ %1398, %thread-pre-split.i ]
   %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 11912
   %1410 = trunc nsw i32 %spec.select.i633.i to i8
-  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef readonly %10, ptr noundef nonnull %1409, i8 noundef signext %1410)
+  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %1409, i8 noundef signext %1410)
   br label %.loopexit.i.i
 
 1411:                                             ; preds = %thread-pre-split.i
@@ -4111,7 +4111,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
 1434:                                             ; preds = %thread-pre-split.i
   %1435 = getelementptr inbounds nuw i8, ptr %1398, i64 11912
   %1436 = trunc nsw i32 %spec.select.i.i to i8
-  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef readonly %10, ptr noundef nonnull %1435, i8 noundef signext %1436)
+  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %1435, i8 noundef signext %1436)
   %1437 = load i32, ptr %1396, align 4
   store i32 %1437, ptr %16, align 4
   br label %.loopexit.i.i
@@ -4134,7 +4134,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
 1445:                                             ; preds = %thread-pre-split.i
   %1446 = getelementptr inbounds nuw i8, ptr %1398, i64 11912
   %1447 = trunc nsw i32 %spec.select.i.i to i8
-  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef readonly %10, ptr noundef nonnull %1446, i8 noundef signext %1447)
+  call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %1446, i8 noundef signext %1447)
   %1448 = getelementptr inbounds i8, ptr %5, i64 4
   %1449 = load i32, ptr %1448, align 4
   store i32 %1449, ptr %16, align 4
@@ -5492,7 +5492,7 @@ av1_is_interp_needed.exit.thread24.i.i:           ; preds = %av1_is_interp_neede
   %2225 = phi i1 [ false, %aom_read_symbol_.exit.us.i.i ], [ true, %2221 ]
   %indvars.iv.i478.sroa.phi.i = phi ptr [ %.sroa.5.i, %aom_read_symbol_.exit.us.i.i ], [ %.sroa.0.i, %2221 ]
   %indvars.iv.i478.i = phi i32 [ 1, %aom_read_symbol_.exit.us.i.i ], [ 0, %2221 ]
-  %2226 = call i32 @av1_get_pred_context_switchable_interp(ptr noundef %1, i32 noundef %indvars.iv.i478.i) #9
+  %2226 = call i32 @av1_get_pred_context_switchable_interp(ptr noundef nonnull %1, i32 noundef %indvars.iv.i478.i) #9
   %2227 = sext i32 %2226 to i64
   %2228 = getelementptr inbounds [16 x [4 x i16]], ptr %2222, i64 0, i64 %2227
   %2229 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2223, ptr noundef nonnull %2228, i32 noundef 3) #9
@@ -5560,7 +5560,7 @@ aom_read_symbol_.exit.us.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %2225, label %.split.us.i.i, label %.loopexit.loopexit.i.i, !llvm.loop !14
 
 .split.i.i:                                       ; preds = %2221
-  %2264 = call i32 @av1_get_pred_context_switchable_interp(ptr noundef %1, i32 noundef 0) #9
+  %2264 = call i32 @av1_get_pred_context_switchable_interp(ptr noundef nonnull %1, i32 noundef 0) #9
   %2265 = sext i32 %2264 to i64
   %2266 = getelementptr inbounds [16 x [4 x i16]], ptr %2222, i64 0, i64 %2265
   %2267 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2223, ptr noundef nonnull %2266, i32 noundef 3) #9
@@ -7060,7 +7060,7 @@ aom_read_literal_.exit66.i:                       ; preds = %aom_read_literal_.e
   %172 = zext i16 %171 to i32
   %173 = add nsw i32 %.06.lcssa.i61.i, %172
   %174 = icmp slt i32 %173, 0
-  %175 = call i32 @llvm.smin.i32(i32 %173, i32 %160)
+  %175 = call i32 @llvm.smin.i32(i32 %173, i32 range(i32 -2147483648, 2147483647) %160)
   %176 = select i1 %174, i32 0, i32 %175
   %177 = trunc i32 %176 to i16
   %178 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %indvars.iv100.i
@@ -7441,7 +7441,7 @@ aom_read_literal_.exit119.i:                      ; preds = %.lr.ph.i115.i, %346
   %355 = zext i16 %354 to i32
   %356 = add nsw i32 %.06.lcssa.i114.i, %355
   %357 = icmp slt i32 %356, 0
-  %358 = call i32 @llvm.smin.i32(i32 %356, i32 %344)
+  %358 = call i32 @llvm.smin.i32(i32 %356, i32 range(i32 -2147483648, 2147483647) %344)
   %359 = select i1 %357, i32 0, i32 %358
   %360 = trunc i32 %359 to i16
   %361 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %indvars.iv201.i

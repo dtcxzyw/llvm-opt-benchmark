@@ -231,7 +231,7 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %.018 = phi i1 [ false, %25 ], [ true, %23 ]
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
   br i1 %.018, label %30, label %65
@@ -248,7 +248,7 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %33 = tail call noundef ptr @_Z17enumValueToString20InteractionModifiers(i32 noundef %3)
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.2, ptr noundef %33, i32 noundef %3)
   %34 = call ptr @__cxa_allocate_exception(i64 24) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %35 unwind label %.thread59
 
 35:                                               ; preds = %32
@@ -288,7 +288,7 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %.015 = phi i1 [ false, %39 ], [ true, %37 ]
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #14
   br i1 %.015, label %44, label %45
@@ -319,7 +319,7 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %52 = tail call noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef %2)
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.3, ptr noundef %52, i32 noundef %2)
   %53 = call ptr @__cxa_allocate_exception(i64 24) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %54 unwind label %.thread67
 
 54:                                               ; preds = %51
@@ -359,7 +359,7 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %.0 = phi i1 [ false, %58 ], [ true, %56 ]
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
   br i1 %.0, label %63, label %64
@@ -458,7 +458,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %.noexc3 unwind label %14
 
 .noexc3:                                          ; preds = %.noexc
@@ -475,7 +475,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 8:                                                ; preds = %10, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #14
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   br label %.body
 
 10:                                               ; preds = %.noexc3
@@ -580,7 +580,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
 
 _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   ret void
 }
 
@@ -656,7 +656,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -905,7 +905,7 @@ _Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.ex
   store ptr %30, ptr %17, align 8
   %69 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %35, i32 %69)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.omp_outlined, ptr nonnull %16, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull %3, ptr nonnull %25, ptr nonnull %13, ptr nonnull %14, ptr nonnull %2, ptr nonnull %17, ptr nonnull %15, ptr nonnull %29)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.omp_outlined, ptr nonnull %16, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull align 1 dereferenceable(20) %3, ptr nonnull align 4 dereferenceable(8) %25, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 dereferenceable(152) %2, ptr nonnull %17, ptr nonnull %15, ptr nonnull %29)
   %70 = getelementptr inbounds i8, ptr %3, i64 5
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1

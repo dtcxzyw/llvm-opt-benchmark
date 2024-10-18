@@ -1383,32 +1383,32 @@ phar_tar_process_metadata.exit:                   ; preds = %433, %450, %452, %.
 496:                                              ; preds = %492
   %497 = getelementptr inbounds [512 x i8], ptr %15, i64 0, i64 %493
   store i8 0, ptr %497, align 1
-  %498 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 47, i64 noundef %493) #15
+  %498 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 47, i64 noundef range(i64 0, 512) %493) #15
   %.not.i650 = icmp eq ptr %498, null
   br i1 %.not.i650, label %499, label %phar_validate_alias.exit.thread
 
 499:                                              ; preds = %496
-  %500 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 92, i64 noundef %493) #15
+  %500 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 92, i64 noundef range(i64 0, 512) %493) #15
   %.not11.i = icmp eq ptr %500, null
   br i1 %.not11.i, label %501, label %phar_validate_alias.exit.thread
 
 501:                                              ; preds = %499
-  %502 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 58, i64 noundef %493) #15
+  %502 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 58, i64 noundef range(i64 0, 512) %493) #15
   %.not12.i = icmp eq ptr %502, null
   br i1 %.not12.i, label %503, label %phar_validate_alias.exit.thread
 
 503:                                              ; preds = %501
-  %504 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 59, i64 noundef %493) #15
+  %504 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 59, i64 noundef range(i64 0, 512) %493) #15
   %.not13.i = icmp eq ptr %504, null
   br i1 %.not13.i, label %505, label %phar_validate_alias.exit.thread
 
 505:                                              ; preds = %503
-  %506 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 10, i64 noundef %493) #15
+  %506 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 10, i64 noundef range(i64 0, 512) %493) #15
   %.not14.i = icmp eq ptr %506, null
   br i1 %.not14.i, label %phar_validate_alias.exit, label %phar_validate_alias.exit.thread
 
 phar_validate_alias.exit:                         ; preds = %505
-  %507 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 13, i64 noundef %493) #15
+  %507 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 13, i64 noundef range(i64 0, 512) %493) #15
   %.not737 = icmp eq ptr %507, null
   br i1 %.not737, label %519, label %phar_validate_alias.exit.thread
 

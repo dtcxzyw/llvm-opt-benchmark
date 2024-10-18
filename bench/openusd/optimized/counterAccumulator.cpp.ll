@@ -100,7 +100,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23TraceCounterAccumulator15OnE
 16:                                               ; preds = %.lr.ph49, %._crit_edge
   %.sroa.026.047 = phi ptr [ %5, %.lr.ph49 ], [ %182, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.026.047, i64 32
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %17)
   %19 = load double, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %.sroa.026.047, i64 64
   %21 = load ptr, ptr %20, align 8
@@ -495,7 +495,7 @@ _ZNSt6vectorISt4pairImdESaIS1_EE12emplace_backIJRKmRdEEERS1_DpOT_.exit: ; preds 
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt4pairImdESaIS1_EE12emplace_backIJRKmRdEEERS1_DpOT_.exit, %16
   %.0.lcssa = phi double [ %19, %16 ], [ %storemerge, %_ZNSt6vectorISt4pairImdESaIS1_EE12emplace_backIJRKmRdEEERS1_DpOT_.exit ]
-  %181 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %181 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS2_dESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_11HashFunctorENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %17)
   store double %.0.lcssa, ptr %181, align 8
   %182 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.026.047) #21
   %.not = icmp eq ptr %182, %6

@@ -1479,7 +1479,7 @@ _ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %29, %45
   br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %51
 
 51:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %31, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %31, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %38, %38, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %51
@@ -1550,7 +1550,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit250: ; preds = %64,
   br i1 %brmerge.i252, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit253, label %86
 
 86:                                               ; preds = %82
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.8, i32 noundef %73, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.8, i32 noundef %73, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit253
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit253: ; preds = %82, %86
@@ -1593,7 +1593,7 @@ _ZNK15ClassFileParser15valid_symbol_atEi.exit:    ; preds = %91, %99
   br i1 %brmerge.i255, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit256, label %110
 
 110:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %93, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %93, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit256
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit256: ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit, %110
@@ -1674,7 +1674,7 @@ _ZNK15ClassFileParser15valid_symbol_atEi.exit261: ; preds = %133, %142
   br i1 %brmerge.i263, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit264, label %153
 
 153:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit261
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %135, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %135, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit264
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit264: ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit261, %153
@@ -1726,7 +1726,7 @@ _ZNK15ClassFileParser15valid_symbol_atEi.exit265: ; preds = %163, %172
   br i1 %brmerge.i267, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit268, label %183
 
 183:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit265
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %165, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %165, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit268
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit268: ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit265, %183
@@ -1758,7 +1758,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit268: ; preds = %_ZN
   br i1 %brmerge.i270.not, label %200, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit271
 
 200:                                              ; preds = %192
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %195, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %195, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit271
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit271: ; preds = %192, %200
@@ -1893,7 +1893,7 @@ _ZNK15ClassFileParser15valid_symbol_atEi.exit284: ; preds = %238, %247
   br i1 %brmerge.i286, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit287, label %258
 
 258:                                              ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit284
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %240, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %240, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit287
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit287: ; preds = %_ZNK15ClassFileParser15valid_symbol_atEi.exit284, %258
@@ -1929,7 +1929,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit287: ; preds = %_ZN
   br i1 %brmerge.i289, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit290, label %278
 
 278:                                              ; preds = %274
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %263, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %263, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit290
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit290: ; preds = %274, %278
@@ -1971,7 +1971,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit290: ; preds = %274
   br i1 %brmerge.i292, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit293, label %301
 
 301:                                              ; preds = %297
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %286, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.7, i32 noundef %286, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit293
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit293: ; preds = %297, %301
@@ -2070,7 +2070,7 @@ _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit293: ; preds = %297
 
 347:                                              ; preds = %334
   %348 = zext i16 %336 to i32
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.14, i32 noundef %348, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.14, i32 noundef %348, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit
 
 _ZNK15ClassFileParser18guarantee_propertyEbPKciP10JavaThread.exit: ; preds = %334, %347
@@ -3129,7 +3129,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %103
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 123:                                              ; preds = %112
-  %124 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %113, i64 noundef 8, i32 noundef 0) #23
+  %124 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %113, i64 noundef 8, i32 noundef 0) #23
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %123, %121
@@ -3326,7 +3326,7 @@ define linkonce_odr hidden void @_ZN6HandleC2EP6ThreadP7oopDesc(ptr noundef nonn
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef 8, i32 noundef 0) #23
+  %18 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef 8, i32 noundef 0) #23
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %15, %17
@@ -4387,7 +4387,7 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
 29:                                               ; preds = %.lr.ph.i
   %30 = add nsw i32 %.in.i, -1
   %31 = add nuw nsw i32 %.01723.i, 2
-  %32 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %1, i32 noundef %2, i32 noundef %31)
+  %32 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %1, i32 noundef range(i32 3, -2147483648) %2, i32 noundef %31)
   %33 = icmp sgt i32 %.in.i, 1
   %34 = icmp samesign ult i32 %32, %2
   %35 = select i1 %33, i1 %34, i1 false
@@ -5936,7 +5936,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.thread: ; preds = %_ZN
   br i1 %50, label %.thread, label %54
 
 .thread:                                          ; preds = %49
-  tail call void @_ZN21CompressedWriteStreamC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef %30) #23
+  tail call void @_ZN21CompressedWriteStreamC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %51, i32 noundef %30) #23
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 20
@@ -6028,7 +6028,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %.lr
   br i1 %.not.i.i.i.i, label %_ZN21CompressedWriteStream10write_byteEa.exit.i.i, label %94
 
 94:                                               ; preds = %88
-  tail call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #23
+  tail call void @_ZN21CompressedWriteStream4growEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #23
   %.pre.i.i.i.i = load i32, ptr %90, align 8
   br label %_ZN21CompressedWriteStream10write_byteEa.exit.i.i
 
@@ -6462,7 +6462,7 @@ _ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %43, %59
   br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %65
 
 65:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.56, i32 noundef %47, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.56, i32 noundef %47, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %52, %52, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %65
@@ -6735,7 +6735,7 @@ define hidden void @_ZN25MethodAnnotationCollector8apply_toERK12methodHandle(ptr
 20:                                               ; preds = %20, %16
   %.0.i.i.i.i.i.i = phi i32 [ %22, %20 ], [ %19, %16 ]
   %21 = or i32 %.0.i.i.i.i.i.i, 2048
-  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %21, i32 %.0.i.i.i.i.i.i, ptr nonnull %18) #23, !srcloc !32
+  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %21, i32 %.0.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %18) #23, !srcloc !32
   %.not.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i, %22
   br i1 %.not.i.i.i.i.i.i, label %_ZN6Method16set_force_inlineEv.exit.loopexit, label %20, !llvm.loop !33
 
@@ -6758,7 +6758,7 @@ _ZN6Method16set_force_inlineEv.exit:              ; preds = %_ZN6Method16set_for
 29:                                               ; preds = %29, %25
   %.0.i.i.i.i.i.i16 = phi i32 [ %31, %29 ], [ %28, %25 ]
   %30 = or i32 %.0.i.i.i.i.i.i16, 4096
-  %31 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %30, i32 %.0.i.i.i.i.i.i16, ptr nonnull %27) #23, !srcloc !32
+  %31 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %30, i32 %.0.i.i.i.i.i.i16, ptr nonnull align 4 dereferenceable(4) %27) #23, !srcloc !32
   %.not.i.i.i.i.i.i17 = icmp eq i32 %.0.i.i.i.i.i.i16, %31
   br i1 %.not.i.i.i.i.i.i17, label %_ZN6Method15set_dont_inlineEv.exit.loopexit, label %29, !llvm.loop !33
 
@@ -8247,7 +8247,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit597: ; preds = %229, %2
   br i1 %252, label %253, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit599
 
 253:                                              ; preds = %.lr.ph
-  tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef %5) #23
+  tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull %5) #23
   br label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit599
 
 _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit599: ; preds = %.lr.ph, %253
@@ -10080,7 +10080,7 @@ define hidden noundef zeroext i1 @_ZN15ClassFileParser31check_inner_classes_circ
   br i1 %20, label %_ZL38inner_classes_check_loop_through_outerPK5ArrayItEiPK12ConstantPooli.exit, label %.lr.ph.i.i.preheader.us.i
 
 .lr.ph.i.i.preheader.us.i:                        ; preds = %17, %.lr.ph.split.us.i
-  %21 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef %.054.us.i) #23
+  %21 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef range(i32 1, 0) %.054.us.i) #23
   br label %.lr.ph.i.i.us.i
 
 .lr.ph.i.i.us.i:                                  ; preds = %27, %.lr.ph.i.i.preheader.us.i
@@ -10109,7 +10109,7 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit.us.i: ; preds
 
 35:                                               ; preds = %_ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit.us.i
   %36 = zext i16 %33 to i32
-  %37 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef %36) #23
+  %37 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef range(i32 1, 0) %36) #23
   br label %.lr.ph.i.i31.us.i
 
 .lr.ph.i.i31.us.i:                                ; preds = %43, %35
@@ -10136,7 +10136,7 @@ _ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit36.us.i: ; pre
   br i1 %.not29.us.i, label %_ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit43.us.i, label %50
 
 50:                                               ; preds = %_ZL27inner_classes_jump_to_outerPK5ArrayItEiPK12ConstantPooli.exit36.us.i
-  %51 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef %.02553.us.i) #23
+  %51 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %1, i32 noundef range(i32 1, 0) %.02553.us.i) #23
   br label %.lr.ph.i.i38.us.i
 
 .lr.ph.i.i38.us.i:                                ; preds = %57, %50
@@ -10954,7 +10954,7 @@ _ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %52, %68
   br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %74
 
 74:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.99, i32 noundef %56, ptr noundef %3) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.99, i32 noundef %56, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %61, %61, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %74
@@ -11114,7 +11114,7 @@ _ZNK15ClassFileParser24valid_klass_reference_atEi.exit: ; preds = %53, %69
   br i1 %brmerge.i, label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit, label %75
 
 75:                                               ; preds = %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit
-  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.100, i32 noundef %57, ptr noundef %3) #23
+  tail call void @_ZNK15ClassFileParser21classfile_parse_errorEPKciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.100, i32 noundef %57, ptr noundef nonnull %3) #23
   br label %_ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit
 
 _ZNK15ClassFileParser14check_propertyEbPKciP10JavaThread.exit: ; preds = %62, %62, %_ZNK15ClassFileParser24valid_klass_reference_atEi.exit, %75
@@ -12655,7 +12655,7 @@ _ZN15ClassFileParser36parse_classfile_sourcefile_attributeEPK15ClassFileStreamP1
   br i1 %144, label %145, label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i.i
 
 145:                                              ; preds = %138
-  tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef %4) #23
+  tail call void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(42) %1, ptr noundef nonnull %4) #23
   br label %_ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i.i
 
 _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit.i.i: ; preds = %145, %138
@@ -15631,7 +15631,7 @@ _ZNK5Klass12class_loaderEv.exit:                  ; preds = %139, %144
   br label %165
 
 162:                                              ; preds = %150
-  %163 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %152, i64 noundef 8, i32 noundef 0) #23
+  %163 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %152, i64 noundef 8, i32 noundef 0) #23
   br label %165
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZNK5Klass12class_loaderEv.exit
@@ -16104,7 +16104,7 @@ _ZN19OopMapBlocksBuilder4copyEP11OopMapBlock.exit: ; preds = %_ZN13InstanceKlass
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 24
   %407 = load ptr, ptr %406, align 8
-  %408 = tail call noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5KlassS2_S2_11AccessFlagsbbP10JavaThread(ptr noundef nonnull %1, ptr noundef %407, ptr noundef %407, i32 %.sroa.0.0.copyload.i.i40.i, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %4) #23
+  %408 = tail call noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5KlassS2_S2_11AccessFlagsbbP10JavaThread(ptr noundef nonnull %1, ptr noundef %407, ptr noundef %407, i32 %.sroa.0.0.copyload.i.i40.i, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %4) #23
   %409 = load ptr, ptr %98, align 8
   %.not53.i = icmp eq ptr %409, null
   br i1 %.not53.i, label %410, label %_ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit.thread
@@ -17330,7 +17330,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %39
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 60:                                               ; preds = %48
-  %61 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %50, i64 noundef 8, i32 noundef 0) #23
+  %61 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %50, i64 noundef 8, i32 noundef 0) #23
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %58, %60
@@ -17928,7 +17928,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit32:     ; preds = %_ZL12sort_methodsP5
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i34
 
 340:                                              ; preds = %328
-  %341 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %330, i64 noundef 8, i32 noundef 0) #23
+  %341 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %330, i64 noundef 8, i32 noundef 0) #23
   %.pre66 = ptrtoint ptr %341 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i34
 
@@ -18322,7 +18322,7 @@ declare noundef ptr @_ZN12ConstantPool8allocateEP15ClassLoaderDataiP10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9LogStreamC2ILN8LogLevel4typeE2ELN6LogTag4typeE16ELS4_118ELS4_0ELS4_0ELS4_0ELS4_0EEERK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false) #23
+  tail call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 noundef zeroext false) #23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #23
@@ -19314,7 +19314,7 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
 46:                                               ; preds = %.lr.ph
   %47 = add nsw i32 %.in, -1
   %48 = add nuw nsw i32 %.017.i44, 2
-  %49 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %48)
+  %49 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef range(i32 3, -2147483648) %1, i32 noundef %48)
   %50 = icmp sgt i32 %.in, 1
   %51 = icmp samesign ult i32 %49, %1
   %52 = select i1 %50, i1 %51, i1 false

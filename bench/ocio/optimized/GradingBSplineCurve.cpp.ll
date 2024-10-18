@@ -189,7 +189,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %newSpline, align 8, !alias.scope !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newSpline, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJRmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %size.addr)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJRmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %size.addr)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %0 = load ptr, ptr %newSpline, align 8
   store ptr %0, ptr %agg.result, align 8
@@ -382,7 +382,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %newSpline, align 8, !alias.scope !7
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newSpline, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %add.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %values.coerce0, i64 %values.coerce1
   %cmp.not37 = icmp eq i64 %values.coerce1, 0
@@ -781,7 +781,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
   store ptr null, ptr %copy, align 8, !alias.scope !12
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 8
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %copy, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %copy, ptr nonnull %__a.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
   %m_controlPoints = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %copy, align 8

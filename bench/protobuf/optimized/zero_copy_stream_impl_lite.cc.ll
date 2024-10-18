@@ -1664,7 +1664,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor9WriteCordERKN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %cord) unnamed_addr #5 align 2 {
 entry:
   %__begin2 = alloca %"class.absl::lts_20230802::Cord::ChunkIterator", align 8
-  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin2, ptr noundef nonnull %cord)
+  call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %__begin2, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %bytes_remaining_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 24
   %0 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i.not3 = icmp eq i64 %0, 0
@@ -2131,7 +2131,7 @@ define void @_ZN6google8protobuf2io15CordInputStreamC2EPKN4absl12lts_202308024Co
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15CordInputStreamE, i64 16), ptr %this, align 8
   %it_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %it_, ptr noundef nonnull %cord)
+  tail call void @_ZN4absl12lts_202308024Cord13ChunkIteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %it_, ptr noundef nonnull align 8 dereferenceable(16) %cord)
   %0 = load i8, ptr %cord, align 1
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0

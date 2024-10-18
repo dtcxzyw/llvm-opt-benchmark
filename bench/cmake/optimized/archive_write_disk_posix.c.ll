@@ -3255,7 +3255,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %44, label %45, label %.split212.us
 
 45:                                               ; preds = %41
-  %46 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
+  %46 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %.sink.split, label %.split217.us
 
@@ -3270,7 +3270,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %.loopexit148
 
 49:                                               ; preds = %48
-  %50 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
+  %50 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us.us, ptr noundef %.0114186.us.us, i32 noundef 2686976) #19
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %.sink.split, label %.split222.us
 
@@ -3355,7 +3355,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %.loopexit148
 
 74:                                               ; preds = %73
-  %75 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.0187.us, ptr noundef %.0114186.us, i32 noundef 2686976) #19
+  %75 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187.us, ptr noundef %.0114186.us, i32 noundef 2686976) #19
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %.split222.us
 
@@ -3452,7 +3452,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %.loopexit148
 
 104:                                              ; preds = %103
-  %105 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.0187, ptr noundef %.0114186, i32 noundef 2686976) #19
+  %105 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef range(i32 -100, -2147483648) %.0187, ptr noundef %.0114186, i32 noundef 2686976) #19
   %106 = icmp sgt i32 %105, -1
   br i1 %106, label %109, label %.split222.us
 

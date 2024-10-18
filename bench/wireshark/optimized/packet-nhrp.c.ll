@@ -891,11 +891,11 @@ dissect_nhrp_hdr.exit.thread:                     ; preds = %96, %177
   ]
 
 267:                                              ; preds = %266, %266, %266
-  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef %20, i32 noundef 1, i32 noundef %4)
+  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef nonnull %20, i32 noundef 1, i32 noundef range(i32 0, 2) %4)
   br label %dissect_nhrp_mand.exit
 
 268:                                              ; preds = %266, %266, %266
-  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef %20, i32 noundef 0, i32 noundef %4)
+  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef nonnull %20, i32 noundef 0, i32 noundef range(i32 0, 2) %4)
   br label %dissect_nhrp_mand.exit
 
 269:                                              ; preds = %266
@@ -1093,7 +1093,7 @@ dissect_nhrp_mand.exit:                           ; preds = %266, %267, %268, %2
 
 373:                                              ; preds = %372, %372, %372, %372
   %374 = add i32 %323, %328
-  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %323, i32 noundef %374, ptr noundef readonly %20, i32 noundef 0, i32 noundef 0)
+  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %323, i32 noundef %374, ptr noundef nonnull readonly %20, i32 noundef 0, i32 noundef 0)
   br label %437
 
 375:                                              ; preds = %372

@@ -1440,7 +1440,7 @@ Vec_StrFree.exit143:                              ; preds = %Abc_Clock.exit141, 
 191:                                              ; preds = %184
   %192 = getelementptr i8, ptr %189, i64 8
   %.val.i144 = load ptr, ptr %192, align 8
-  %193 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val.i144, ptr noundef nonnull readonly dereferenceable(1) @.str.22) #13
+  %193 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val.i144, ptr noundef nonnull dereferenceable(1) @.str.22) #13
   %.not.i145 = icmp eq ptr %193, null
   br i1 %.not.i145, label %197, label %194
 

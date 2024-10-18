@@ -615,7 +615,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit:         ; preds = %41
           to label %51 unwind label %57
 
 51:                                               ; preds = %_ZNKSt10error_code7messageB5cxx11Ev.exit
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %50) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %50) #21
   %52 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %52, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #21
@@ -789,7 +789,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit.i:       ; preds = %104
           to label %114 unwind label %118, !noalias !41
 
 114:                                              ; preds = %_ZNKSt10error_code7messageB5cxx11Ev.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %113) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %113) #21
   %115 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %115, align 8, !alias.scope !41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -840,7 +840,7 @@ _ZNKSt10error_code7messageB5cxx11Ev.exit.i:       ; preds = %104
 
 132:                                              ; preds = %131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21, !noalias !41
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #21
   %133 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %133, align 8, !alias.scope !41
   br label %"_ZN5vcpkg4HashL7do_hashINS_9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEEEZNS0_13get_file_hashERKNS_18ReadOnlyFilesystemERKNS_4PathENS0_9AlgorithmEE3$_0EET_SH_RKT0_.exit"
@@ -901,7 +901,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg5Debug7printlnIJA16_cNS_4PathEEEEvD
           to label %8 unwind label %14
 
 8:                                                ; preds = %7
-  invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %0)
+  invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(16) %0)
           to label %9 unwind label %14
 
 9:                                                ; preds = %8

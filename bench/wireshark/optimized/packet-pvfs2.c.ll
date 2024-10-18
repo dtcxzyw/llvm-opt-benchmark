@@ -936,7 +936,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %.12.i.i.i = phi i32 [ %123, %.preheader.i.i.i ], [ 64, %111 ]
   %.0161.i.i.i = phi i32 [ %124, %.preheader.i.i.i ], [ 0, %111 ]
   %120 = load i32, ptr @ett_pvfs_extent_item, align 4
-  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef %.0161.i.i.i) #9
+  %121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 8, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.399, i32 noundef range(i32 0, -1) %.0161.i.i.i) #9
   %122 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.12.i.i.i, ptr noundef %121, ptr noundef nonnull @.str.400)
   %123 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %122, ptr noundef %121, ptr noundef nonnull @.str.401)
   %124 = add nuw i32 %.0161.i.i.i, 1

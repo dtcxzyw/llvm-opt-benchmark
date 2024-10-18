@@ -39,7 +39,7 @@ define range(i32 0, -2147483648) i32 @Hash_DefaultHashFunc(i32 noundef %0, i32 n
   %5 = mul i32 %4, %3
   %6 = add nsw i32 %5, 3
   %7 = srem i32 %6, %1
-  %8 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %7, i1 true)
+  %8 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483645, -2147483648) %7, i1 true)
   ret i32 %8
 }
 

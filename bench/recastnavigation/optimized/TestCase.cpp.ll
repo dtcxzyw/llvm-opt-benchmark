@@ -289,7 +289,7 @@ _ZL8copyNameRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit75: ; p
   %91 = getelementptr inbounds i8, ptr %89, i64 72
   store i32 0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %89, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %89, i8 0, i64 61, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %89, i8 0, i64 61, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 24, i1 false)
   store i32 1, ptr %89, align 8
   %93 = load ptr, ptr %28, align 8

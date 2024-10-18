@@ -920,7 +920,7 @@ define internal range(i32 -1, 1) i32 @tar_close(ptr noundef %0, i32 noundef %1) 
 44:                                               ; preds = %44, %42
   %.0911.i = phi i64 [ %43, %42 ], [ %48, %44 ]
   %45 = call i64 @llvm.umin.i64(i64 %.0911.i, i64 8192)
-  %46 = call i64 @tar_write(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %45)
+  %46 = call i64 @tar_write(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %45)
   %47 = icmp sgt i64 %46, -1
   %48 = sub i64 %.0911.i, %46
   %.not.i = icmp ne i64 %48, 0

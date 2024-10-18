@@ -837,7 +837,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %1 = load ptr, ptr %buf1, align 8
   %sub.i = add i64 %0, -5
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %sub.i
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(5) @.str.12, i64 5)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.12, i64 5)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %strip_suffix_mem.exit
 
@@ -1822,7 +1822,7 @@ entry:
 lor.lhs.false.i:                                  ; preds = %entry
   %sub.i = add i64 %path_len, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %path, i64 %sub.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(4) @.str.18, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end, label %return
 
@@ -2904,7 +2904,7 @@ do.body.i:                                        ; preds = %do.end, %st_left_sh
 
 if.then.i.i:                                      ; preds = %do.body.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.63, i64 noundef %and.i, i32 noundef %7) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.63, i64 noundef range(i64 0, 128) %and.i, i32 noundef %7) #21
   unreachable
 
 st_left_shift.exit.i:                             ; preds = %do.body.i
@@ -2931,7 +2931,7 @@ do.body.i10:                                      ; preds = %st_left_shift.exit.
 
 if.then.i.i26:                                    ; preds = %do.body.i10
   %11 = trunc nuw nsw i64 %indvars.iv.i11 to i32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.63, i64 noundef %and.i14, i32 noundef %11) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.63, i64 noundef range(i64 0, 128) %and.i14, i32 noundef %11) #21
   unreachable
 
 st_left_shift.exit.i19:                           ; preds = %do.body.i10
@@ -6237,7 +6237,7 @@ entry:
 lor.lhs.false.i:                                  ; preds = %entry
   %sub.i = add i64 %full_name_len, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %full_name, i64 %sub.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(4) @.str.18, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %land.lhs.true, label %if.end15
 

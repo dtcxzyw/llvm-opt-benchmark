@@ -3477,7 +3477,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %43 = sext i16 %29 to i32
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71, i32 noundef %43) #15
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71, i32 noundef range(i32 -32768, 32768) %43) #15
   tail call void @errfinish(ptr noundef nonnull @.str.72, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
@@ -5616,7 +5616,7 @@ define internal fastcc noundef zeroext i1 @GetTupleForTrigger(ptr nocapture noun
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 208
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef %12, ptr noundef %3, ptr noundef %17, ptr noundef %5, i32 noundef %19, i32 noundef %4, i32 noundef 0, i8 noundef zeroext %spec.select, ptr noundef nonnull %10) #15
+  %24 = call i32 %23(ptr noundef %12, ptr noundef %3, ptr noundef %17, ptr noundef %5, i32 noundef %19, i32 noundef %4, i32 noundef 0, i8 noundef zeroext range(i8 0, 3) %spec.select, ptr noundef nonnull %10) #15
   %.not40 = icmp eq ptr %7, null
   br i1 %.not40, label %26, label %25
 

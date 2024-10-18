@@ -950,7 +950,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl18ScientificModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #19
   ret void
 }
@@ -984,7 +984,7 @@ define linkonce_odr void @_ZThn8_N6icu_756number4impl17ScientificHandlerD0Ev(ptr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %0) #19
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
   ret void
 }
 

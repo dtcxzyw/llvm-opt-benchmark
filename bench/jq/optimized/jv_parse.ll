@@ -485,12 +485,12 @@ seq_check_truncation.exit.thread124.i:            ; preds = %seq_check_truncatio
   br i1 %.not98.i, label %138, label %136
 
 136:                                              ; preds = %133
-  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
+  %137 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not100.i = icmp eq i32 %137, 0
   br i1 %.not100.i, label %140, label %.critedge.thread
 
 138:                                              ; preds = %133
-  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef %2)
+  %139 = call fastcc i32 @parse_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not99.i = icmp eq i32 %139, 0
   br i1 %.not99.i, label %140, label %.critedge.thread
 
@@ -549,7 +549,7 @@ classify.exit.thread.i:                           ; preds = %152, %151, %150
   br i1 %.not86.i, label %160, label %158
 
 158:                                              ; preds = %155
-  %159 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
+  %159 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not88.i = icmp eq i32 %159, 0
   br i1 %.not88.i, label %classify.exit.i, label %170
 
@@ -651,7 +651,7 @@ default.unreachable:                              ; preds = %classify.exit.i
   br i1 %.not91.i, label %200, label %198
 
 198:                                              ; preds = %195
-  %199 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
+  %199 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not93.i = icmp eq i32 %199, 0
   br i1 %.not93.i, label %.backedge, label %.critedge.thread
 
@@ -943,7 +943,7 @@ unhex4.exit83.i.i:                                ; preds = %277
   br i1 %.not81.i, label %329, label %327
 
 327:                                              ; preds = %322
-  %328 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef %2)
+  %328 = call fastcc i32 @stream_check_done(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.not83.i = icmp eq i32 %328, 0
   br i1 %.not83.i, label %.backedge, label %.critedge.thread
 

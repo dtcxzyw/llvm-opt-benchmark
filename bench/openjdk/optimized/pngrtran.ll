@@ -1877,7 +1877,7 @@ define hidden void @png_init_read_transformations(ptr noalias noundef %0) local_
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %9 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %4, i32 noundef %6, i32 noundef 100000) #11
+  %9 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 1, 0) %6, i32 noundef 100000) #11
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %png_gamma_threshold.exit.thread, label %png_gamma_threshold.exit
 

@@ -73,7 +73,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %0) #15
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %0) #15
   resume { ptr, i32 } %1
 }
 
@@ -110,7 +110,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i) #15
   %peer_address.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i) #15
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i.i) #15
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i) #15
   ret void
 }
 
@@ -128,7 +128,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i) #15
   %peer_address.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i) #15
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i.i.i) #15
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i) #15
   ret void
 }
 
@@ -142,7 +142,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i) #15
   %peer_address.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i) #15
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i.i.i) #15
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -164,8 +164,8 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i.i) #15
   %peer_address.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i.i) #15
-  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i.i.i.i) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
+  tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i.i) #15
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1576) %3) #16
   ret void
 }
 
@@ -234,7 +234,7 @@ if.then15:                                        ; preds = %land.lhs.true12
   br label %return
 
 if.then24:                                        ; preds = %if.end9
-  tail call void @_ZN3zmq12zap_client_t16send_zap_requestEPKcmPPKhPmm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef null, ptr noundef null, i64 noundef 0)
+  tail call void @_ZN3zmq12zap_client_t16send_zap_requestEPKcmPPKhPmm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef null, ptr noundef null, i64 noundef 0)
   store i8 1, ptr %_zap_request_sent, align 4
   %call26 = tail call noundef i32 @_ZN3zmq12zap_client_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
   %cmp27.not = icmp eq i32 %call26, 0
@@ -596,7 +596,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq16null_mechanism_t17zap_msg_availableEv.exit
 
 if.end.i:                                         ; preds = %entry
-  %call2.i = tail call noundef i32 @_ZN3zmq12zap_client_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
+  %call2.i = tail call noundef i32 @_ZN3zmq12zap_client_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(1576) %3)
   %cmp.i = icmp eq i32 %call2.i, 0
   br i1 %cmp.i, label %if.then3.i, label %if.end5.i
 

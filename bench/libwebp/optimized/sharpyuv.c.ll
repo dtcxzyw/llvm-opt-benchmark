@@ -294,7 +294,7 @@ SharpYuvInit.exit:                                ; preds = %51, %.sink.split.i
 .preheader279..preheader278_crit_edge.i:          ; preds = %.preheader279.i
   %.pre.i110 = shl nsw i32 %105, 1
   %.pre297.i = sext i32 %.pre.i110 to i64
-  %.pre299.i = tail call i32 @llvm.smax.i32(i32 %105, i32 1)
+  %.pre299.i = tail call i32 @llvm.smax.i32(i32 range(i32 0, -1) %105, i32 1)
   %.pre300.i = zext nneg i32 %.pre299.i to i64
   br label %.preheader278.i
 
@@ -304,7 +304,7 @@ SharpYuvInit.exit:                                ; preds = %51, %.sink.split.i
   %148 = sext i32 %4 to i64
   %149 = shl nsw i32 %105, 1
   %150 = sext i32 %149 to i64
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %105, i32 1)
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 range(i32 0, -1) %105, i32 1)
   %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
   %invariant.gep.i.i = getelementptr i16, ptr %115, i64 %116
   %invariant.gep13.i.i = getelementptr i16, ptr %115, i64 %150

@@ -5267,7 +5267,7 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
   %110 = sub i32 %4, %3
   %111 = zext i8 %109 to i32
   %112 = tail call ptr @val_to_str_const(i32 noundef %111, ptr noundef nonnull @ssl_31_handshake_type, ptr noundef nonnull @.str.990) #11
-  %113 = tail call ptr @val_to_str_const(i32 noundef %107, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.874) #11
+  %113 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 65536) %107, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.874) #11
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %2, ptr noundef nonnull @.str.1002, ptr noundef %113, ptr noundef nonnull @.str.1004) #11
   %114 = load i32, ptr @hf_tls_handshake_protocol, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %114, ptr noundef %0, i32 noundef %3, i32 noundef %110, i32 noundef 0) #11
@@ -5347,7 +5347,7 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
   %152 = getelementptr inbounds i8, ptr %1, i64 8
   %153 = load ptr, ptr %152, align 8
   tail call void @col_append_sep_str(ptr noundef %153, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.990) #11
-  %154 = tail call ptr @val_to_str_const(i32 noundef %151, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.874) #11
+  %154 = tail call ptr @val_to_str_const(i32 noundef range(i32 0, 65536) %151, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.874) #11
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %2, ptr noundef nonnull @.str.1002, ptr noundef %154, ptr noundef nonnull @.str.990) #11
   %155 = load i32, ptr @hf_tls_handshake_protocol, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %155, ptr noundef %0, i32 noundef %3, i32 noundef %121, i32 noundef 0) #11
@@ -5671,7 +5671,7 @@ ssl_proto_tree_add_segment_data.exit.i:           ; preds = %74, %proto_item_set
 
 133:                                              ; preds = %86, %84, %80
   store i32 %.0217405.i, ptr %6, align 8
-  call fastcc void @process_ssl_payload(ptr noundef nonnull %0, i32 noundef %.0411.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @process_ssl_payload(ptr noundef nonnull %0, i32 noundef %.0411.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %6)
   %134 = load i32, ptr %27, align 8
   %.not248.i = icmp eq i32 %134, 0
   br i1 %.not248.i, label %.thread333.thread.thread.i, label %135
@@ -5716,7 +5716,7 @@ ssl_proto_tree_add_segment_data.exit.i:           ; preds = %74, %proto_item_set
   %155 = load i32, ptr %83, align 8
   store i32 %155, ptr %6, align 8
   store i32 1, ptr %35, align 4
-  call fastcc void @process_ssl_payload(ptr noundef %154, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %6)
+  call fastcc void @process_ssl_payload(ptr noundef %154, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %6)
   %156 = call i32 @tvb_reported_length(ptr noundef %154) #11
   %157 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0411.i) #11
   %158 = load i32, ptr %27, align 8

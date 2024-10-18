@@ -13052,7 +13052,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLogicPush(ptr noundef %0, i32 no
 
 24:                                               ; preds = %22
   %25 = tail call i32 @Abc_NtkGetFaninMax(ptr noundef nonnull %4) #28
-  %26 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.021.ph, i32 %25)
+  %26 = tail call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 range(i32 0, -2147483648) %.021.ph, i32 %25)
   %27 = tail call i32 @Abc_NtkToSop(ptr noundef nonnull %4, i32 noundef -1, i32 noundef 1000000000) #28
   %28 = tail call ptr @Abc_NtkOptPush(ptr noundef nonnull %4, i32 noundef %26, i32 noundef %.020) #28
   tail call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef %28) #28

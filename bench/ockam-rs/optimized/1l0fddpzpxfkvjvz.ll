@@ -892,7 +892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %84
 
 93:                                               ; preds = %57, %84, %.critedge173, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit"
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false), !alias.scope !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %0, i8 0, i64 1024, i1 false), !alias.scope !50
   %.sroa.4.0..sroa_idx.i196 = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %.sroa.4.0..sroa_idx.i196, align 8, !alias.scope !50
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1032

@@ -96,7 +96,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i"
 
 17:                                               ; preds = %13
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de5855e59491c8ad172df975d984eca4.13) #7, !noalias !29
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de5855e59491c8ad172df975d984eca4.13) #7, !noalias !29
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E.exit.i.i": ; preds = %13

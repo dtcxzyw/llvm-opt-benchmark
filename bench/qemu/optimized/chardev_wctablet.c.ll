@@ -269,7 +269,7 @@ if.end.i:                                         ; preds = %trace_wct_init.exit
   %outbuf.i = getelementptr inbounds i8, ptr %call.i, i64 264
   %idx.ext.i = sext i32 %21 to i64
   %add.ptr.i62 = getelementptr i8, ptr %outbuf.i, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr.i62, ptr noundef nonnull readonly align 16 dereferenceable(18) @WC_MODEL_STRING, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %add.ptr.i62, ptr noundef nonnull align 16 dereferenceable(18) @WC_MODEL_STRING, i64 18, i1 false)
   %23 = load i32, ptr %outlen.i, align 8
   %add5.i = add i32 %23, 18
   store i32 %add5.i, ptr %outlen.i, align 8
@@ -934,11 +934,11 @@ if.then8.i:                                       ; preds = %if.then.i
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %input) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %input) #8
   br label %_nocheck__trace_wct_cmd_ts.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %input) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef range(i32 0, 256) %input) #8
   br label %_nocheck__trace_wct_cmd_ts.exit
 
 _nocheck__trace_wct_cmd_ts.exit:                  ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i

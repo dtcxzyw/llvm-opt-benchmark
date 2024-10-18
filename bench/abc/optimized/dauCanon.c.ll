@@ -7189,7 +7189,7 @@ grayFlip.exit.i.i:                                ; preds = %226
   %233 = getelementptr inbounds [16 x i8], ptr %129, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = sext i8 %234 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %6, i32 noundef %235)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %6, i32 noundef %235)
   %236 = load ptr, ptr %6, align 8
   %237 = load i32, ptr %92, align 8
   %238 = icmp slt i32 %237, 7
@@ -7367,7 +7367,7 @@ Vec_IntPush.exit69.i.i:                           ; preds = %302, %Vec_IntGrow.e
   %312 = getelementptr inbounds [16 x i8], ptr %129, i64 0, i64 %311
   %313 = load i8, ptr %312, align 1
   %314 = sext i8 %313 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %6, i32 noundef %314)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %6, i32 noundef %314)
   %.val.i.i = load i32, ptr %192, align 4
   %.03.off5.i.i.i = add i32 %.val.i.i, 1
   %.not6.i.i.i = icmp ult i32 %.03.off5.i.i.i, 3
@@ -8608,7 +8608,7 @@ Abc_TtEqual.exit75.i.us.i:                        ; preds = %375, %.lr.ph.i70.i.
   br i1 %384, label %.lr.ph18.preheader.i.i.us.i, label %Abc_TtEqual.exit.thread.i.us.i
 
 Abc_TtEqual.exit.thread.i.us.i:                   ; preds = %377
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull @pSymCopy, i32 noundef %379, i32 noundef %117, i32 noundef %223)
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull @pSymCopy, i32 noundef %379, i32 noundef range(i32 0, 128) %117, i32 noundef range(i32 0, 128) %223)
   br label %Abc_TtIsSymmetricHigh.exit.us.i
 
 .lr.ph18.preheader.i.i.us.i:                      ; preds = %377
@@ -8626,7 +8626,7 @@ Abc_TtEqual.exit.thread.i.us.i:                   ; preds = %377
   br i1 %exitcond25.not.i.i.us.i, label %Abc_TtCopy.exit.i.us.i, label %.lr.ph18.i.i.us.i, !llvm.loop !18
 
 Abc_TtCopy.exit.i.us.i:                           ; preds = %.lr.ph18.i.i.us.i
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull @pSymCopy, i32 noundef %379, i32 noundef %117, i32 noundef %223)
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull @pSymCopy, i32 noundef %379, i32 noundef range(i32 0, 128) %117, i32 noundef range(i32 0, 128) %223)
   br label %.lr.ph.i.i.us.i
 
 .lr.ph.i.i.us.i:                                  ; preds = %392, %Abc_TtCopy.exit.i.us.i
@@ -9175,7 +9175,7 @@ Abc_TtFill.exit:                                  ; preds = %8, %.lr.ph.preheade
   br i1 %.not.i, label %26, label %25
 
 25:                                               ; preds = %Abc_TtFill.exit
-  tail call fastcc void @Abc_TgPermEnumerationScc(ptr noundef readonly %0, ptr noundef %1)
+  tail call fastcc void @Abc_TgPermEnumerationScc(ptr noundef nonnull readonly %0, ptr noundef nonnull %1)
   br label %Abc_TgPhaseEnumerationScc.exit
 
 26:                                               ; preds = %Abc_TtFill.exit
@@ -9309,7 +9309,7 @@ Abc_TgFlipVar.exit.i.us.us.us.us.i:               ; preds = %.lr.ph.i.us.us.us.i
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %Abc_TgFlipSymGroupByVar.exit.us.us.us.i
   store i32 %.us-phi28.us.us.us.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef nonnull %1)
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %.val.us.us.i = load i32, ptr %38, align 4
   %93 = sext i32 %.val.us.us.i to i64
@@ -9376,7 +9376,7 @@ Abc_TgFlipVar.exit.i.us.us.us50.us.us.us.us.i:    ; preds = %.lr.ph.i.us41.us.us
 
 ._crit_edge.split.us44.split.us.split.us.us.us.i: ; preds = %Abc_TgFlipSymGroupByVar.exit.us42.us.us.us.us.i
   store i32 %.us-phi28.us43.us.us.us.us.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef nonnull %1)
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %.val.us.us66.us.i = load i32, ptr %38, align 4
   %119 = sext i32 %.val.us.us66.us.i to i64
@@ -9502,7 +9502,7 @@ Abc_TgFlipSymGroupByVar.exit.us42.i:              ; preds = %168, %128, %124
 
 ._crit_edge.split.us44.split.i:                   ; preds = %Abc_TgFlipSymGroupByVar.exit.us42.i
   store i32 %.us-phi28.us43.i, ptr %46, align 4
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef nonnull %1)
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %.val.us.i = load i32, ptr %38, align 4
   %173 = sext i32 %.val.us.i to i64
@@ -9511,7 +9511,7 @@ Abc_TgFlipSymGroupByVar.exit.us42.i:              ; preds = %168, %128, %124
 
 .lr.ph35.split.i:                                 ; preds = %.lr.ph35.i, %.lr.ph35.split.i
   %.034.i = phi i32 [ %175, %.lr.ph35.split.i ], [ 0, %.lr.ph35.i ]
-  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef %1)
+  call fastcc void @Abc_TgPermEnumerationScc(ptr noundef %4, ptr noundef nonnull %1)
   %175 = add nuw nsw i32 %.034.i, 1
   %.val.i = load i32, ptr %38, align 4
   %176 = icmp slt i32 %175, %.val.i
@@ -12179,7 +12179,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
 20:                                               ; preds = %Abc_TgManCopy.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @Abc_TgCalcScc(ptr noundef %5, ptr noundef %3, i32 noundef 0)
+  call fastcc void @Abc_TgCalcScc(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 0)
   %.ptr.i = getelementptr inbounds i8, ptr %5, i64 92
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   %22 = load i32, ptr %21, align 8
@@ -12191,7 +12191,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
   %24 = load i8, ptr %.012.i, align 1
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds i32, ptr %3, i64 %25
-  %27 = call fastcc i32 @Abc_TgSplitGroup(ptr noundef %5, ptr noundef %.012.i, ptr noundef %26)
+  %27 = call fastcc i32 @Abc_TgSplitGroup(ptr noundef nonnull %5, ptr noundef %.012.i, ptr noundef %26)
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.TiedGroup_, ptr %.012.i, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 2
@@ -12275,7 +12275,7 @@ Abc_TgManCopy.exit:                               ; preds = %.lr.ph18.i.i, %2
   br i1 %58, label %.lr.ph38.i.i, label %Abc_TgSplitGroupsByScc.exit, !llvm.loop !81
 
 Abc_TgSplitGroupsByScc.exit:                      ; preds = %.lr.ph38.i.i, %._crit_edge31.i.i
-  call fastcc void @Abc_TgImplementPerm(ptr noundef %5, ptr noundef nonnull %4)
+  call fastcc void @Abc_TgImplementPerm(ptr noundef nonnull %5, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %59
@@ -13119,7 +13119,7 @@ Abc_TgManCopy.exit52:                             ; preds = %.lr.ph18.i.i48, %Ab
   %52 = getelementptr inbounds [16 x i8], ptr %50, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %54)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %54)
   %55 = zext i32 %11 to i64
   br label %56
 
@@ -13177,7 +13177,7 @@ Abc_TgManCopy.exit63:                             ; preds = %56, %.lr.ph18.i.i59
   %78 = getelementptr inbounds [16 x i8], ptr %50, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %80)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %80)
   br label %81
 
 81:                                               ; preds = %84, %Abc_TgManCopy.exit63
@@ -13231,7 +13231,7 @@ Abc_TgManCopy.exit74:                             ; preds = %81, %.lr.ph18.i.i70
   %.1 = phi i32 [ 3, %Abc_TtCompareRev.exit67 ], [ %.031, %90 ], [ 3, %.lr.ph18.i.i70 ], [ %.031, %81 ]
   %101 = load i8, ptr %52, align 1
   %102 = sext i8 %101 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %102)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %102)
   br label %103
 
 103:                                              ; preds = %106, %Abc_TgManCopy.exit74
@@ -13337,7 +13337,7 @@ Abc_TgManCopy.exit96:                             ; preds = %123, %.lr.ph18.i.i9
   %.3 = phi i32 [ 6, %Abc_TtCompareRev.exit89 ], [ %.2, %132 ], [ 6, %.lr.ph18.i.i92 ], [ %.2, %123 ]
   %143 = load i8, ptr %78, align 1
   %144 = sext i8 %143 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %144)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %144)
   br label %145
 
 145:                                              ; preds = %148, %Abc_TgManCopy.exit96
@@ -13391,7 +13391,7 @@ Abc_TgManCopy.exit107:                            ; preds = %145, %.lr.ph18.i.i1
   %.4 = phi i32 [ 7, %Abc_TtCompareRev.exit100 ], [ %.3, %154 ], [ 7, %.lr.ph18.i.i103 ], [ %.3, %145 ]
   %165 = load i8, ptr %52, align 1
   %166 = sext i8 %165 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %166)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %166)
   br label %167
 
 167:                                              ; preds = %170, %Abc_TgManCopy.exit107
@@ -13445,7 +13445,7 @@ Abc_TgManCopy.exit118:                            ; preds = %167, %.lr.ph18.i.i1
   %.5 = phi i32 [ 5, %Abc_TtCompareRev.exit111 ], [ %.4, %176 ], [ 5, %.lr.ph18.i.i114 ], [ %.4, %167 ]
   %187 = load i8, ptr %78, align 1
   %188 = sext i8 %187 to i32
-  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef %4, i32 noundef %188)
+  call fastcc void @Abc_TgFlipSymGroupByVar(ptr noundef nonnull %4, i32 noundef %188)
   br label %189
 
 189:                                              ; preds = %192, %Abc_TgManCopy.exit118

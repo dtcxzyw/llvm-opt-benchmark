@@ -373,7 +373,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %2) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %2)
           to label %_ZSt8_DestroyIN6spacer13lemma_cluster10lemma_infoEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -551,7 +551,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i:        ; preds = %if.then.i.i.i.i, %i
 lpad.i.i:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i9) #17
+  tail call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr.i9) #17
   br label %lpad7.body
 
 for.inc:                                          ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
@@ -957,7 +957,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i:          ; preds = %if.then.i.i.i, %for
 common.resume:                                    ; preds = %lpad.i26, %lpad.i
   %l25.sink = phi ptr [ %l25, %lpad.i26 ], [ %l, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %19, %lpad.i26 ], [ %7, %lpad.i ]
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l25.sink) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %l25.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i
@@ -984,7 +984,7 @@ if.then.i.i.i12:                                  ; preds = %_ZN6spacer13lemma_c
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i12
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %10) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %10)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %10)
           to label %_ZN6spacer13lemma_cluster10lemma_infoD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -1075,7 +1075,7 @@ if.then.i.i.i34:                                  ; preds = %if.end47
 
 if.then.i.i.i.i37:                                ; preds = %if.then.i.i.i34
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %23) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %23)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %23)
           to label %_ZN6spacer13lemma_cluster10lemma_infoD2Ev.exit39 unwind label %terminate.lpad.i.i38
 
 terminate.lpad.i.i38:                             ; preds = %if.then.i.i.i.i37
@@ -1113,7 +1113,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %0)
           to label %_ZN3refIN6spacer5lemmaEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -1288,7 +1288,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i: 
   br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
-  invoke void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_subst.i)
+  invoke void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(20) %m_subst.i)
           to label %.noexc unwind label %lpad3.loopexit
 
 .noexc:                                           ; preds = %while.body.i.i.i
@@ -1879,7 +1879,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %2) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %2)
           to label %_ZSt8_DestroyIN6spacer13lemma_cluster10lemma_infoEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -1994,7 +1994,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i:          ; preds = %if.then.i.i.i, %for
 lpad.i:                                           ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %l) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %l) #17
   br label %ehcleanup88
 
 invoke.cont19:                                    ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i
@@ -2022,7 +2022,7 @@ if.then.i.i.i25:                                  ; preds = %invoke.cont29
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i25
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %21) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %21)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %21)
           to label %_ZN6spacer13lemma_cluster10lemma_infoD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
@@ -2179,7 +2179,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i41:        ; preds = %if.then.i.i.i39, %f
 lpad.i44:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i41
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lem) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %lem) #17
   br label %ehcleanup
 
 for.cond56:                                       ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i41, %invoke.cont68
@@ -2348,7 +2348,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i:        ; preds = %if.then.i.i.i.i73, 
 lpad.i.i:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i72) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr.i72) #17
   br label %lpad57.body
 
 lpad46:                                           ; preds = %if.then.i.i139
@@ -2418,7 +2418,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i88:      ; preds = %if.then.i.i.i.i86, 
 lpad.i.i91:                                       ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i88
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i84) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr.i84) #17
   br label %lpad57.body
 
 if.end80:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i88, %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
@@ -2442,7 +2442,7 @@ if.then.i.i.i104:                                 ; preds = %if.end80
 
 if.then.i.i.i.i107:                               ; preds = %if.then.i.i.i104
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %91) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %91)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %91)
           to label %_ZN6spacer13lemma_cluster10lemma_infoD2Ev.exit109 unwind label %terminate.lpad.i.i108
 
 terminate.lpad.i.i108:                            ; preds = %if.then.i.i.i.i107
@@ -2487,7 +2487,7 @@ if.then.i.i.i.i.i.i.i.i.i119:                     ; preds = %for.body.i.i.i.i.i1
 
 if.then.i.i.i.i.i.i.i.i.i.i131:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i119
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %97) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %97)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %97)
           to label %_ZSt8_DestroyIN6spacer13lemma_cluster10lemma_infoEEvPT_.exit.i.i.i.i.i122 unwind label %terminate.lpad.i.i.i.i.i.i.i.i132
 
 terminate.lpad.i.i.i.i.i.i.i.i132:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i131
@@ -2582,7 +2582,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i.i:      ; preds = %if.then.i.i.i.i.i, 
 lpad.i.i.i:                                       ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i.i
   %112 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr.i.i) #17
   br label %ehcleanup
 
 _ZN6vectorIN6spacer13lemma_cluster10lemma_infoELb1EjE9push_backERKS2_.exit.i: ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i.i
@@ -2623,7 +2623,7 @@ if.then.i.i.i.i.i145:                             ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i145
   call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %117) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %117)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %117)
           to label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7dec_refEPS0_.exit.i.i.i unwind label %terminate.lpad.i.i148
 
 _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7dec_refEPS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i145, %for.body.i.i.i
@@ -2675,7 +2675,7 @@ if.then.i.i150:                                   ; preds = %_ZN11sref_bufferI4g
 
 if.then.i.i.i153:                                 ; preds = %if.then.i.i150
   call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %124) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %124)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %124)
           to label %_ZN3refI4goalED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i153
@@ -2702,7 +2702,7 @@ if.then.i.i.i159:                                 ; preds = %if.then.i.i155
   %vtable.i.i.i.i = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %vtable.i.i.i.i, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(12) %128) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %128)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %128)
           to label %cleanup.cont unwind label %terminate.lpad.i160
 
 terminate.lpad.i160:                              ; preds = %if.then.i.i.i159
@@ -2772,7 +2772,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %2) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %2)
           to label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7dec_refEPS0_.exit.i.i unwind label %terminate.lpad.i
 
 _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7dec_refEPS0_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i, %for.body.i.i
@@ -2831,7 +2831,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_ZN4goalD1Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(124) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -2864,7 +2864,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -2940,7 +2940,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i: 
   br i1 %cmp3.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i, %while.cond.i.i.i
-  invoke void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_subst.i)
+  invoke void @_ZN6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(20) %m_subst.i)
           to label %.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %while.body.i.i.i
@@ -3154,7 +3154,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i:          ; preds = %if.then.i.i.i26, %i
 lpad.i:                                           ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %li) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %li) #17
   br label %ehcleanup47
 
 invoke.cont19:                                    ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i
@@ -3204,7 +3204,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i:        ; preds = %if.then.i.i.i.i27, 
 lpad.i.i:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %add.ptr.i) #17
   br label %ehcleanup45
 
 invoke.cont21:                                    ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i.i
@@ -3258,7 +3258,7 @@ _ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i37:        ; preds = %if.then.i.i.i35, %f
 lpad.i39:                                         ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i37
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rm) #17
+  call void @_ZN3refIN6spacer5lemmaEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %rm) #17
   br label %lpad24.body
 
 invoke.cont30:                                    ; preds = %_ZN3refIN6spacer5lemmaEEC2ERKS2_.exit.i37
@@ -3279,7 +3279,7 @@ if.then.i.i.i44:                                  ; preds = %invoke.cont30
 
 if.then.i.i.i.i47:                                ; preds = %if.then.i.i.i44
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %51) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %51)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %51)
           to label %_ZN6spacer13lemma_cluster10lemma_infoD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i47
@@ -3331,7 +3331,7 @@ if.then.i.i.i50:                                  ; preds = %cleanup44
 
 if.then.i.i.i.i53:                                ; preds = %if.then.i.i.i50
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %57) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %57)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %57)
           to label %cleanup46 unwind label %terminate.lpad.i.i54
 
 terminate.lpad.i.i54:                             ; preds = %if.then.i.i.i.i53
@@ -4740,7 +4740,7 @@ if.then.i.i125:                                   ; preds = %for.inc.i.i115, %ca
 
 if.then.i.i.i127:                                 ; preds = %if.then.i.i125
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %50) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %50)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %50)
           to label %cleanup.done unwind label %terminate.lpad.i128
 
 terminate.lpad.i128:                              ; preds = %if.then.i.i.i127
@@ -4925,7 +4925,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %.noexc164
   br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i162, label %_ZN15ref_vector_coreIN6spacer13lemma_clusterE21ref_unmanaged_wrapperIS1_EE9push_backEPS1_.exit.i.i
 
 if.then.i.i.i.i162:                               ; preds = %lor.lhs.false.i.i.i.i, %.noexc164
-  invoke void @_ZN6vectorIPN6spacer13lemma_clusterELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_cluster_db.i)
+  invoke void @_ZN6vectorIPN6spacer13lemma_clusterELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(12) %m_cluster_db.i)
           to label %.noexc165 unwind label %lpad90
 
 .noexc165:                                        ; preds = %if.then.i.i.i.i162
@@ -5080,7 +5080,7 @@ if.then.i.i177:                                   ; preds = %invoke.cont156
 
 if.then.i.i.i180:                                 ; preds = %if.then.i.i177
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %119) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %119)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %119)
           to label %_ZN3refIN6spacer5lemmaEED2Ev.exit182 unwind label %terminate.lpad.i181
 
 terminate.lpad.i181:                              ; preds = %if.then.i.i.i180
@@ -5158,7 +5158,7 @@ if.then.i.i.i.i197:                               ; preds = %for.body.i.i195
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i197
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %132) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %132)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %132)
           to label %_ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i.i unwind label %terminate.lpad.i201
 
 _ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i197, %for.body.i.i195
@@ -5331,7 +5331,7 @@ if.then.i.i.i.i236:                               ; preds = %for.body.i.i233
 
 if.then.i.i.i.i.i248:                             ; preds = %if.then.i.i.i.i236
   call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %162) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %162)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %162)
           to label %_ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i.i239 unwind label %terminate.lpad.i249
 
 _ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i.i239: ; preds = %if.then.i.i.i.i.i248, %if.then.i.i.i.i236, %for.body.i.i233
@@ -5581,7 +5581,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry, %if.then.i.i
@@ -5639,7 +5639,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %3) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %3)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %3)
           to label %_ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i unwind label %terminate.lpad
 
 _ZN15ref_vector_coreIN6spacer5lemmaE21ref_unmanaged_wrapperIS1_EE7dec_refEPS1_.exit.i: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %for.body.i
@@ -6827,7 +6827,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -8055,7 +8055,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %vtable.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %0) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %_ZN3refI5modelED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i.i
@@ -8080,7 +8080,7 @@ if.then.i.i2:                                     ; preds = %_ZN3refI5modelED2Ev
 
 if.then.i1.i:                                     ; preds = %if.then.i.i2
   tail call void @_ZN6spacer3pobD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(152) %5)
           to label %_ZN3refIN6spacer3pobEED2Ev.exit unwind label %terminate.lpad.i3
 
 terminate.lpad.i3:                                ; preds = %if.then.i1.i
@@ -8564,7 +8564,7 @@ if.then.i.i:                                      ; preds = %_ZN7obj_refI4expr11
 
 if.then.i:                                        ; preds = %if.then.i.i
   call void @_ZN6spacer3pobD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %39) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %39)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(152) %39)
           to label %_ZN3refIN6spacer3pobEED2Ev.exit unwind label %terminate.lpad.i29
 
 terminate.lpad.i29:                               ; preds = %if.then.i
@@ -9252,7 +9252,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   tail call void @_ZN6spacer5lemmaD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %23) #17
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %23)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(109) %23)
           to label %_ZSt8_DestroyIN6spacer13lemma_cluster10lemma_infoEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i

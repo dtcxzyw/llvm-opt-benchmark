@@ -1827,7 +1827,7 @@ define hidden void @_ZN2cv15nld_step_scalarERNS_3MatERKS0_S1_f(ptr noundef nonnu
           to label %23 unwind label %80
 
 23:                                               ; preds = %20
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #17
   %24 = getelementptr inbounds i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %2, i64 72
@@ -1904,7 +1904,7 @@ define hidden void @_ZN2cv15nld_step_scalarERNS_3MatERKS0_S1_f(ptr noundef nonnu
 80:                                               ; preds = %20, %4
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
+  call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %10) #17
   br label %243
 
 ._crit_edge.loopexit:                             ; preds = %43
@@ -2448,7 +2448,7 @@ declare float @llvm.floor.f32(float) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv23Nld_Step_Scalar_InvokerD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }

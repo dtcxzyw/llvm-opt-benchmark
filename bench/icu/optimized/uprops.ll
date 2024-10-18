@@ -461,7 +461,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN12_GLOBAL__N_120ulayout_isAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull %errorCode)
+  %call.i = tail call ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN12_GLOBAL__N_120ulayout_isAcceptableEPvPKcS2_PK9UDataInfo, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call.i, ptr @_ZN12_GLOBAL__N_113gLayoutMemoryE, align 8
   %2 = load i32, ptr %errorCode, align 4
   %cmp.i.i5 = icmp slt i32 %2, 1
@@ -488,7 +488,7 @@ if.end4.i:                                        ; preds = %if.end.i6
 if.then7.i:                                       ; preds = %if.end4.i
   %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i7, i64 %idx.ext.i
-  %call8.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i, ptr noundef null, ptr noundef nonnull %errorCode)
+  %call8.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call8.i, ptr @_ZN12_GLOBAL__N_19gInpcTrieE, align 8
   br label %if.end9.i
 
@@ -502,7 +502,7 @@ if.end9.i:                                        ; preds = %if.then7.i, %if.end
 if.then13.i:                                      ; preds = %if.end9.i
   %idx.ext14.i = sext i32 %4 to i64
   %add.ptr15.i = getelementptr inbounds i8, ptr %call2.i7, i64 %idx.ext14.i
-  %call16.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr15.i, i32 noundef %sub11.i, ptr noundef null, ptr noundef nonnull %errorCode)
+  %call16.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr15.i, i32 noundef %sub11.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call16.i, ptr @_ZN12_GLOBAL__N_19gInscTrieE, align 8
   br label %if.end17.i
 
@@ -516,7 +516,7 @@ if.end17.i:                                       ; preds = %if.then13.i, %if.en
 if.then21.i:                                      ; preds = %if.end17.i
   %idx.ext22.i = sext i32 %5 to i64
   %add.ptr23.i = getelementptr inbounds i8, ptr %call2.i7, i64 %idx.ext22.i
-  %call24.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr23.i, i32 noundef %sub19.i, ptr noundef null, ptr noundef nonnull %errorCode)
+  %call24.i = tail call ptr @ucptrie_openFromBinary_75(i32 noundef -1, i32 noundef -1, ptr noundef nonnull %add.ptr23.i, i32 noundef %sub19.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call24.i, ptr @_ZN12_GLOBAL__N_17gVoTrieE, align 8
   br label %if.end25.i
 

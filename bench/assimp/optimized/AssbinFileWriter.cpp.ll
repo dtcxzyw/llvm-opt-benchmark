@@ -315,7 +315,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   %vtable.i31 = load ptr, ptr %call, align 8
   %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 24
   %12 = load ptr, ptr %vfn.i32, align 8
-  %call.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %ref.tmp41, i64 noundef 2, i64 noundef 1)
+  %call.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp41, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont43 unwind label %lpad22
 
 invoke.cont43:                                    ; preds = %invoke.cont39
@@ -327,7 +327,7 @@ invoke.cont43:                                    ; preds = %invoke.cont39
   %vtable.i34 = load ptr, ptr %call, align 8
   %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 24
   %15 = load ptr, ptr %vfn.i35, align 8
-  %call.i36 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %ref.tmp45, i64 noundef 2, i64 noundef 1)
+  %call.i36 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp45, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont48 unwind label %lpad22
 
 invoke.cont48:                                    ; preds = %invoke.cont43
@@ -561,7 +561,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #17
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
@@ -946,19 +946,19 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 define linkonce_odr void @_ZN17DeadlyExportErrorC2IJRA20_KcEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(20) %args) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
   invoke void @_ZN15DeadlyErrorBaseC2IJERA20_KcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(20) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17DeadlyExportError, i64 16), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
   resume { ptr, i32 } %0
 }
 
@@ -1405,7 +1405,7 @@ for.body3.us.i:                                   ; preds = %for.cond1.preheader
   %vtable.i.us.i = load ptr, ptr %chunk, align 8
   %vfn.i.us.i = getelementptr inbounds i8, ptr %vtable.i.us.i, i64 24
   %6 = load ptr, ptr %vfn.i.us.i, align 8
-  %call.i.us.i30 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us.i30 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us.i.noexc:                                ; preds = %for.body3.us.i
@@ -1419,7 +1419,7 @@ for.body3.us7.i:                                  ; preds = %for.cond1.preheader
   %vtable.i.us13.i = load ptr, ptr %chunk, align 8
   %vfn.i.us14.i = getelementptr inbounds i8, ptr %vtable.i.us13.i, i64 24
   %7 = load ptr, ptr %vfn.i.us14.i, align 8
-  %call.i.us15.i31 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us15.i31 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us15.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us15.i.noexc:                              ; preds = %for.body3.us7.i
@@ -1433,7 +1433,7 @@ for.body3.us19.i:                                 ; preds = %for.cond1.preheader
   %vtable.i.us25.i = load ptr, ptr %chunk, align 8
   %vfn.i.us26.i = getelementptr inbounds i8, ptr %vtable.i.us25.i, i64 24
   %8 = load ptr, ptr %vfn.i.us26.i, align 8
-  %call.i.us27.i32 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us27.i32 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us27.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us27.i.noexc:                              ; preds = %for.body3.us19.i
@@ -1447,7 +1447,7 @@ for.body3.us31.i:                                 ; preds = %for.cond1.preheader
   %vtable.i.us37.i = load ptr, ptr %chunk, align 8
   %vfn.i.us38.i = getelementptr inbounds i8, ptr %vtable.i.us37.i, i64 24
   %9 = load ptr, ptr %vfn.i.us38.i, align 8
-  %call.i.us39.i33 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us36.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us39.i33 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us36.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us39.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us39.i.noexc:                              ; preds = %for.body3.us31.i
@@ -1620,7 +1620,7 @@ for.body29:                                       ; preds = %for.body29.preheade
   %vtable.i57 = load ptr, ptr %chunk, align 8
   %vfn.i58 = getelementptr inbounds i8, ptr %vtable.i57, i64 24
   %32 = load ptr, ptr %vfn.i58, align 8
-  %call.i64 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx32, i64 noundef 4, i64 noundef 1)
+  %call.i64 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(1028) %arrayidx32, i64 noundef 4, i64 noundef 1)
           to label %call.i.noexc63 unwind label %lpad.loopexit
 
 call.i.noexc63:                                   ; preds = %for.body29
@@ -1638,7 +1638,7 @@ invoke.cont40:                                    ; preds = %call.i.noexc63
   %vtable.i67 = load ptr, ptr %chunk, align 8
   %vfn.i68 = getelementptr inbounds i8, ptr %vtable.i67, i64 24
   %34 = load ptr, ptr %vfn.i68, align 8
-  %call.i70 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp, i64 noundef 2, i64 noundef 1)
+  %call.i70 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont42 unwind label %lpad.loopexit
 
 invoke.cont42:                                    ; preds = %invoke.cont40
@@ -1675,7 +1675,7 @@ sw.bb58:                                          ; preds = %invoke.cont42
   %vtable.i92 = load ptr, ptr %chunk, align 8
   %vfn.i93 = getelementptr inbounds i8, ptr %vtable.i92, i64 24
   %40 = load ptr, ptr %vfn.i93, align 8
-  %call.i99 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %30, i64 noundef 4, i64 noundef 1)
+  %call.i99 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(1028) %30, i64 noundef 4, i64 noundef 1)
           to label %call.i.noexc98 unwind label %lpad.loopexit
 
 call.i.noexc98:                                   ; preds = %sw.bb58
@@ -1687,7 +1687,7 @@ sw.bb61:                                          ; preds = %invoke.cont42
   %vtable.i.i = load ptr, ptr %chunk, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %41 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i102 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %30, i64 noundef 4, i64 noundef 1)
+  %call.i.i102 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.noexc:                                   ; preds = %sw.bb61
@@ -1695,7 +1695,7 @@ call.i.i.noexc:                                   ; preds = %sw.bb61
   %vtable.i7.i = load ptr, ptr %chunk, align 8
   %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %42 = load ptr, ptr %vfn.i8.i, align 8
-  %call.i9.i103 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i103 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad.loopexit
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
@@ -1985,7 +1985,7 @@ for.body.i:                                       ; preds = %call.i12.i.i.noexc,
   %vtable.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %17 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i116 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i116 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
@@ -1993,7 +1993,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i
   %vtable.i7.i.i = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i, i64 24
   %18 = load ptr, ptr %vfn.i8.i.i, align 8
-  %call.i9.i.i117 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i117 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc:                                ; preds = %call.i.i.i.noexc
@@ -2001,7 +2001,7 @@ call.i9.i.i.noexc:                                ; preds = %call.i.i.i.noexc
   %vtable.i10.i.i = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %19 = load ptr, ptr %vfn.i11.i.i, align 8
-  %call.i12.i.i118 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i118 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc:                               ; preds = %call.i9.i.i.noexc
@@ -2038,7 +2038,7 @@ for.body.i122:                                    ; preds = %call.i12.i.i.noexc1
   %vtable.i.i.i125 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i125, i64 24
   %23 = load ptr, ptr %vfn.i.i.i126, align 8
-  %call.i.i.i138 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i124, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i138 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i124, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc137 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc137:                              ; preds = %for.body.i122
@@ -2046,7 +2046,7 @@ call.i.i.i.noexc137:                              ; preds = %for.body.i122
   %vtable.i7.i.i128 = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i129 = getelementptr inbounds i8, ptr %vtable.i7.i.i128, i64 24
   %24 = load ptr, ptr %vfn.i8.i.i129, align 8
-  %call.i9.i.i140 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i127, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i140 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i127, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc139 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc139:                             ; preds = %call.i.i.i.noexc137
@@ -2054,7 +2054,7 @@ call.i9.i.i.noexc139:                             ; preds = %call.i.i.i.noexc137
   %vtable.i10.i.i131 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i132 = getelementptr inbounds i8, ptr %vtable.i10.i.i131, i64 24
   %25 = load ptr, ptr %vfn.i11.i.i132, align 8
-  %call.i12.i.i142 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i130, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i142 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i130, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc141 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc141:                            ; preds = %call.i9.i.i.noexc139
@@ -2103,7 +2103,7 @@ for.body.i147:                                    ; preds = %call.i12.i.i.noexc1
   %vtable.i.i.i150 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i151 = getelementptr inbounds i8, ptr %vtable.i.i.i150, i64 24
   %32 = load ptr, ptr %vfn.i.i.i151, align 8
-  %call.i.i.i163 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i149, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i163 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i149, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc162 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc162:                              ; preds = %for.body.i147
@@ -2111,7 +2111,7 @@ call.i.i.i.noexc162:                              ; preds = %for.body.i147
   %vtable.i7.i.i153 = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i154 = getelementptr inbounds i8, ptr %vtable.i7.i.i153, i64 24
   %33 = load ptr, ptr %vfn.i8.i.i154, align 8
-  %call.i9.i.i165 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i152, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i165 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i152, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc164 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc164:                             ; preds = %call.i.i.i.noexc162
@@ -2119,7 +2119,7 @@ call.i9.i.i.noexc164:                             ; preds = %call.i.i.i.noexc162
   %vtable.i10.i.i156 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i157 = getelementptr inbounds i8, ptr %vtable.i10.i.i156, i64 24
   %34 = load ptr, ptr %vfn.i11.i.i157, align 8
-  %call.i12.i.i167 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i155, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i167 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i155, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc166 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc166:                            ; preds = %call.i9.i.i.noexc164
@@ -2143,7 +2143,7 @@ for.body.i172:                                    ; preds = %call.i12.i.i.noexc1
   %vtable.i.i.i175 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i176 = getelementptr inbounds i8, ptr %vtable.i.i.i175, i64 24
   %36 = load ptr, ptr %vfn.i.i.i176, align 8
-  %call.i.i.i188 = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i174, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i188 = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i174, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc187 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc187:                              ; preds = %for.body.i172
@@ -2151,7 +2151,7 @@ call.i.i.i.noexc187:                              ; preds = %for.body.i172
   %vtable.i7.i.i178 = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i179 = getelementptr inbounds i8, ptr %vtable.i7.i.i178, i64 24
   %37 = load ptr, ptr %vfn.i8.i.i179, align 8
-  %call.i9.i.i190 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i177, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i190 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i177, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc189 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc189:                             ; preds = %call.i.i.i.noexc187
@@ -2159,7 +2159,7 @@ call.i9.i.i.noexc189:                             ; preds = %call.i.i.i.noexc187
   %vtable.i10.i.i181 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i182 = getelementptr inbounds i8, ptr %vtable.i10.i.i181, i64 24
   %38 = load ptr, ptr %vfn.i11.i.i182, align 8
-  %call.i12.i.i192 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i180, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i192 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i180, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc191 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc191:                            ; preds = %call.i9.i.i.noexc189
@@ -2201,7 +2201,7 @@ for.body.i197:                                    ; preds = %call.i18.i.i.noexc,
   %vtable.i.i.i200 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i201 = getelementptr inbounds i8, ptr %vtable.i.i.i200, i64 24
   %42 = load ptr, ptr %vfn.i.i.i201, align 8
-  %call.i.i.i209 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i199, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i209 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i199, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc208:                              ; preds = %for.body.i197
@@ -2209,7 +2209,7 @@ call.i.i.i.noexc208:                              ; preds = %for.body.i197
   %vtable.i10.i.i202 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i203 = getelementptr inbounds i8, ptr %vtable.i10.i.i202, i64 24
   %43 = load ptr, ptr %vfn.i11.i.i203, align 8
-  %call.i12.i.i211 = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i211 = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %g.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc210 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc210:                            ; preds = %call.i.i.i.noexc208
@@ -2217,7 +2217,7 @@ call.i12.i.i.noexc210:                            ; preds = %call.i.i.i.noexc208
   %vtable.i13.i.i = load ptr, ptr %chunk, align 8
   %vfn.i14.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i, i64 24
   %44 = load ptr, ptr %vfn.i14.i.i, align 8
-  %call.i15.i.i212 = invoke noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i15.i.i212 = invoke noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %b.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i15.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i15.i.i.noexc:                               ; preds = %call.i12.i.i.noexc210
@@ -2225,7 +2225,7 @@ call.i15.i.i.noexc:                               ; preds = %call.i12.i.i.noexc2
   %vtable.i16.i.i = load ptr, ptr %chunk, align 8
   %vfn.i17.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i, i64 24
   %45 = load ptr, ptr %vfn.i17.i.i, align 8
-  %call.i18.i.i213 = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %a.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i18.i.i213 = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %a.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i18.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i18.i.i.noexc:                               ; preds = %call.i15.i.i.noexc
@@ -2286,7 +2286,7 @@ for.body.i222:                                    ; preds = %call.i12.i.i.noexc2
   %vtable.i.i.i225 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i226 = getelementptr inbounds i8, ptr %vtable.i.i.i225, i64 24
   %52 = load ptr, ptr %vfn.i.i.i226, align 8
-  %call.i.i.i238 = invoke noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i224, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i238 = invoke noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i224, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc237 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc237:                              ; preds = %for.body.i222
@@ -2294,7 +2294,7 @@ call.i.i.i.noexc237:                              ; preds = %for.body.i222
   %vtable.i7.i.i228 = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i229 = getelementptr inbounds i8, ptr %vtable.i7.i.i228, i64 24
   %53 = load ptr, ptr %vfn.i8.i.i229, align 8
-  %call.i9.i.i240 = invoke noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i227, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i240 = invoke noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i227, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc239 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc239:                             ; preds = %call.i.i.i.noexc237
@@ -2302,7 +2302,7 @@ call.i9.i.i.noexc239:                             ; preds = %call.i.i.i.noexc237
   %vtable.i10.i.i231 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i232 = getelementptr inbounds i8, ptr %vtable.i10.i.i231, i64 24
   %54 = load ptr, ptr %vfn.i11.i.i232, align 8
-  %call.i12.i.i242 = invoke noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i230, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i242 = invoke noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i230, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc241 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc241:                            ; preds = %call.i9.i.i.noexc239
@@ -2451,7 +2451,7 @@ for.body204:                                      ; preds = %for.body204.lr.ph, 
   %vtable.i281 = load ptr, ptr %chunk, align 8
   %vfn.i282 = getelementptr inbounds i8, ptr %vtable.i281, i64 24
   %74 = load ptr, ptr %vfn.i282, align 8
-  %call.i283 = invoke noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp209, i64 noundef 2, i64 noundef 1)
+  %call.i283 = invoke noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp209, i64 noundef 2, i64 noundef 1)
           to label %for.cond214.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond214.preheader:                            ; preds = %for.body204
@@ -2478,7 +2478,7 @@ if.then220:                                       ; preds = %for.body217
   %vtable.i284 = load ptr, ptr %chunk, align 8
   %vfn.i285 = getelementptr inbounds i8, ptr %vtable.i284, i64 24
   %79 = load ptr, ptr %vfn.i285, align 8
-  %call.i286 = invoke noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp221, i64 noundef 2, i64 noundef 1)
+  %call.i286 = invoke noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp221, i64 noundef 2, i64 noundef 1)
           to label %for.inc235 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else228:                                       ; preds = %for.body217
@@ -2771,7 +2771,7 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i49:    ; preds = %if.then.i48
 invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i49, %invoke.cont
   %6 = phi ptr [ %call4.i.i50, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i49 ], [ %4, %invoke.cont ]
   %add.ptr.i46 = getelementptr inbounds i8, ptr %6, i64 %add6.i
-  %7 = load i64, ptr %mDuration, align 1
+  %7 = load i64, ptr %mDuration, align 8
   store i64 %7, ptr %add.ptr.i46, align 1
   %8 = load i64, ptr %cursor.i31, align 8
   %add6.i47 = add i64 %8, 8
@@ -2780,7 +2780,7 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %vtable.i14 = load ptr, ptr %chunk, align 8
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
   %9 = load ptr, ptr %vfn.i15, align 8
-  %call.i17 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mTicksPerSecond, i64 noundef 8, i64 noundef 1)
+  %call.i17 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 8 dereferenceable(8) %mTicksPerSecond, i64 noundef 8, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -3111,7 +3111,7 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %vtable.i.i = load ptr, ptr %chunk, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i21 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mPosition, i64 noundef 4, i64 noundef 1)
+  %call.i.i21 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mPosition, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont2
@@ -3119,7 +3119,7 @@ call.i.i.noexc:                                   ; preds = %invoke.cont2
   %vtable.i7.i = load ptr, ptr %chunk, align 8
   %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %10 = load ptr, ptr %vfn.i8.i, align 8
-  %call.i9.i22 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i22 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
@@ -3127,7 +3127,7 @@ call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
   %vtable.i10.i = load ptr, ptr %chunk, align 8
   %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %11 = load ptr, ptr %vfn.i11.i, align 8
-  %call.i12.i23 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i23 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %call.i9.i.noexc
@@ -3135,7 +3135,7 @@ invoke.cont4:                                     ; preds = %call.i9.i.noexc
   %vtable.i.i24 = load ptr, ptr %chunk, align 8
   %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 24
   %12 = load ptr, ptr %vfn.i.i25, align 8
-  %call.i.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mDirection, i64 noundef 4, i64 noundef 1)
+  %call.i.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mDirection, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc32 unwind label %lpad
 
 call.i.i.noexc32:                                 ; preds = %invoke.cont4
@@ -3143,7 +3143,7 @@ call.i.i.noexc32:                                 ; preds = %invoke.cont4
   %vtable.i7.i27 = load ptr, ptr %chunk, align 8
   %vfn.i8.i28 = getelementptr inbounds i8, ptr %vtable.i7.i27, i64 24
   %13 = load ptr, ptr %vfn.i8.i28, align 8
-  %call.i9.i35 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i26, i64 noundef 4, i64 noundef 1)
+  %call.i9.i35 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i26, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc34 unwind label %lpad
 
 call.i9.i.noexc34:                                ; preds = %call.i.i.noexc32
@@ -3151,7 +3151,7 @@ call.i9.i.noexc34:                                ; preds = %call.i.i.noexc32
   %vtable.i10.i30 = load ptr, ptr %chunk, align 8
   %vfn.i11.i31 = getelementptr inbounds i8, ptr %vtable.i10.i30, i64 24
   %14 = load ptr, ptr %vfn.i11.i31, align 8
-  %call.i12.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i29, i64 noundef 4, i64 noundef 1)
+  %call.i12.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i29, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %call.i9.i.noexc34
@@ -3159,7 +3159,7 @@ invoke.cont6:                                     ; preds = %call.i9.i.noexc34
   %vtable.i.i38 = load ptr, ptr %chunk, align 8
   %vfn.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i38, i64 24
   %15 = load ptr, ptr %vfn.i.i39, align 8
-  %call.i.i47 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mUp, i64 noundef 4, i64 noundef 1)
+  %call.i.i47 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mUp, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc46 unwind label %lpad
 
 call.i.i.noexc46:                                 ; preds = %invoke.cont6
@@ -3167,7 +3167,7 @@ call.i.i.noexc46:                                 ; preds = %invoke.cont6
   %vtable.i7.i41 = load ptr, ptr %chunk, align 8
   %vfn.i8.i42 = getelementptr inbounds i8, ptr %vtable.i7.i41, i64 24
   %16 = load ptr, ptr %vfn.i8.i42, align 8
-  %call.i9.i49 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i40, i64 noundef 4, i64 noundef 1)
+  %call.i9.i49 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i40, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc48 unwind label %lpad
 
 call.i9.i.noexc48:                                ; preds = %call.i.i.noexc46
@@ -3175,7 +3175,7 @@ call.i9.i.noexc48:                                ; preds = %call.i.i.noexc46
   %vtable.i10.i44 = load ptr, ptr %chunk, align 8
   %vfn.i11.i45 = getelementptr inbounds i8, ptr %vtable.i10.i44, i64 24
   %17 = load ptr, ptr %vfn.i11.i45, align 8
-  %call.i12.i50 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i43, i64 noundef 4, i64 noundef 1)
+  %call.i12.i50 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i43, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %call.i9.i.noexc48
@@ -3188,7 +3188,7 @@ if.then:                                          ; preds = %invoke.cont8
   %vtable.i52 = load ptr, ptr %chunk, align 8
   %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 24
   %19 = load ptr, ptr %vfn.i53, align 8
-  %call.i55 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationConstant, i64 noundef 4, i64 noundef 1)
+  %call.i55 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAttenuationConstant, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then
@@ -3196,7 +3196,7 @@ invoke.cont11:                                    ; preds = %if.then
   %vtable.i56 = load ptr, ptr %chunk, align 8
   %vfn.i57 = getelementptr inbounds i8, ptr %vtable.i56, i64 24
   %20 = load ptr, ptr %vfn.i57, align 8
-  %call.i59 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationLinear, i64 noundef 4, i64 noundef 1)
+  %call.i59 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAttenuationLinear, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -3204,7 +3204,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %vtable.i61 = load ptr, ptr %chunk, align 8
   %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 24
   %21 = load ptr, ptr %vfn.i62, align 8
-  %call.i64 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationQuadratic, i64 noundef 4, i64 noundef 1)
+  %call.i64 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAttenuationQuadratic, i64 noundef 4, i64 noundef 1)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i135, %if.then.i127, %if.then.i122, %invoke.cont26, %if.then25, %call.i9.i.noexc101, %call.i.i.noexc99, %invoke.cont19, %call.i9.i.noexc87, %call.i.i.noexc85, %invoke.cont17, %call.i9.i.noexc74, %call.i.i.noexc72, %if.end, %invoke.cont13, %invoke.cont11, %if.then, %call.i9.i.noexc48, %call.i.i.noexc46, %invoke.cont6, %call.i9.i.noexc34, %call.i.i.noexc32, %invoke.cont4, %call.i9.i.noexc, %call.i.i.noexc, %invoke.cont2
@@ -3218,7 +3218,7 @@ if.end:                                           ; preds = %invoke.cont13, %inv
   %vtable.i.i66 = load ptr, ptr %chunk, align 8
   %vfn.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i66, i64 24
   %23 = load ptr, ptr %vfn.i.i67, align 8
-  %call.i.i73 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorDiffuse, i64 noundef 4, i64 noundef 1)
+  %call.i.i73 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mColorDiffuse, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc72 unwind label %lpad
 
 call.i.i.noexc72:                                 ; preds = %if.end
@@ -3226,7 +3226,7 @@ call.i.i.noexc72:                                 ; preds = %if.end
   %vtable.i7.i68 = load ptr, ptr %chunk, align 8
   %vfn.i8.i69 = getelementptr inbounds i8, ptr %vtable.i7.i68, i64 24
   %24 = load ptr, ptr %vfn.i8.i69, align 8
-  %call.i9.i75 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i75 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %g.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc74 unwind label %lpad
 
 call.i9.i.noexc74:                                ; preds = %call.i.i.noexc72
@@ -3234,7 +3234,7 @@ call.i9.i.noexc74:                                ; preds = %call.i.i.noexc72
   %vtable.i10.i70 = load ptr, ptr %chunk, align 8
   %vfn.i11.i71 = getelementptr inbounds i8, ptr %vtable.i10.i70, i64 24
   %25 = load ptr, ptr %vfn.i11.i71, align 8
-  %call.i12.i76 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i76 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %b.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %call.i9.i.noexc74
@@ -3242,7 +3242,7 @@ invoke.cont17:                                    ; preds = %call.i9.i.noexc74
   %vtable.i.i77 = load ptr, ptr %chunk, align 8
   %vfn.i.i78 = getelementptr inbounds i8, ptr %vtable.i.i77, i64 24
   %26 = load ptr, ptr %vfn.i.i78, align 8
-  %call.i.i86 = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorSpecular, i64 noundef 4, i64 noundef 1)
+  %call.i.i86 = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mColorSpecular, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc85 unwind label %lpad
 
 call.i.i.noexc85:                                 ; preds = %invoke.cont17
@@ -3250,7 +3250,7 @@ call.i.i.noexc85:                                 ; preds = %invoke.cont17
   %vtable.i7.i80 = load ptr, ptr %chunk, align 8
   %vfn.i8.i81 = getelementptr inbounds i8, ptr %vtable.i7.i80, i64 24
   %27 = load ptr, ptr %vfn.i8.i81, align 8
-  %call.i9.i88 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i79, i64 noundef 4, i64 noundef 1)
+  %call.i9.i88 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %g.i79, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc87 unwind label %lpad
 
 call.i9.i.noexc87:                                ; preds = %call.i.i.noexc85
@@ -3258,7 +3258,7 @@ call.i9.i.noexc87:                                ; preds = %call.i.i.noexc85
   %vtable.i10.i83 = load ptr, ptr %chunk, align 8
   %vfn.i11.i84 = getelementptr inbounds i8, ptr %vtable.i10.i83, i64 24
   %28 = load ptr, ptr %vfn.i11.i84, align 8
-  %call.i12.i89 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i82, i64 noundef 4, i64 noundef 1)
+  %call.i12.i89 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %b.i82, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %call.i9.i.noexc87
@@ -3266,7 +3266,7 @@ invoke.cont19:                                    ; preds = %call.i9.i.noexc87
   %vtable.i.i91 = load ptr, ptr %chunk, align 8
   %vfn.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i91, i64 24
   %29 = load ptr, ptr %vfn.i.i92, align 8
-  %call.i.i100 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorAmbient, i64 noundef 4, i64 noundef 1)
+  %call.i.i100 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mColorAmbient, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc99 unwind label %lpad
 
 call.i.i.noexc99:                                 ; preds = %invoke.cont19
@@ -3274,7 +3274,7 @@ call.i.i.noexc99:                                 ; preds = %invoke.cont19
   %vtable.i7.i94 = load ptr, ptr %chunk, align 8
   %vfn.i8.i95 = getelementptr inbounds i8, ptr %vtable.i7.i94, i64 24
   %30 = load ptr, ptr %vfn.i8.i95, align 8
-  %call.i9.i102 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i93, i64 noundef 4, i64 noundef 1)
+  %call.i9.i102 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %g.i93, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc101 unwind label %lpad
 
 call.i9.i.noexc101:                               ; preds = %call.i.i.noexc99
@@ -3282,7 +3282,7 @@ call.i9.i.noexc101:                               ; preds = %call.i.i.noexc99
   %vtable.i10.i97 = load ptr, ptr %chunk, align 8
   %vfn.i11.i98 = getelementptr inbounds i8, ptr %vtable.i10.i97, i64 24
   %31 = load ptr, ptr %vfn.i11.i98, align 8
-  %call.i12.i103 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i96, i64 noundef 4, i64 noundef 1)
+  %call.i12.i103 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %b.i96, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %call.i9.i.noexc101
@@ -3295,7 +3295,7 @@ if.then25:                                        ; preds = %invoke.cont21
   %vtable.i105 = load ptr, ptr %chunk, align 8
   %vfn.i106 = getelementptr inbounds i8, ptr %vtable.i105, i64 24
   %33 = load ptr, ptr %vfn.i106, align 8
-  %call.i108 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAngleInnerCone, i64 noundef 4, i64 noundef 1)
+  %call.i108 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAngleInnerCone, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then25
@@ -3303,7 +3303,7 @@ invoke.cont26:                                    ; preds = %if.then25
   %vtable.i110 = load ptr, ptr %chunk, align 8
   %vfn.i111 = getelementptr inbounds i8, ptr %vtable.i110, i64 24
   %34 = load ptr, ptr %vfn.i111, align 8
-  %call.i113 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAngleOuterCone, i64 noundef 4, i64 noundef 1)
+  %call.i113 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAngleOuterCone, i64 noundef 4, i64 noundef 1)
           to label %if.end30 unwind label %lpad
 
 if.end30:                                         ; preds = %invoke.cont26, %invoke.cont21
@@ -3429,7 +3429,7 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81:    ; preds = %if.then.i80
 call.i.i.noexc:                                   ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81, %invoke.cont
   %6 = phi ptr [ %call4.i.i82, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit.i81 ], [ %4, %invoke.cont ]
   %add.ptr.i78 = getelementptr inbounds i8, ptr %6, i64 %add6.i
-  %7 = load i32, ptr %mPosition, align 1
+  %7 = load i32, ptr %mPosition, align 4
   store i32 %7, ptr %add.ptr.i78, align 1
   %8 = load i64, ptr %cursor.i63, align 8
   %add6.i79 = add i64 %8, 4
@@ -3438,7 +3438,7 @@ call.i.i.noexc:                                   ; preds = %_ZN6Assimp17AssbinC
   %vtable.i7.i = load ptr, ptr %chunk, align 8
   %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %9 = load ptr, ptr %vfn.i8.i, align 8
-  %call.i9.i11 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i11 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
@@ -3446,7 +3446,7 @@ call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
   %vtable.i10.i = load ptr, ptr %chunk, align 8
   %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %10 = load ptr, ptr %vfn.i11.i, align 8
-  %call.i12.i12 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i12 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %call.i9.i.noexc
@@ -3454,7 +3454,7 @@ invoke.cont2:                                     ; preds = %call.i9.i.noexc
   %vtable.i.i13 = load ptr, ptr %chunk, align 8
   %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 24
   %11 = load ptr, ptr %vfn.i.i14, align 8
-  %call.i.i22 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mLookAt, i64 noundef 4, i64 noundef 1)
+  %call.i.i22 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mLookAt, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc21 unwind label %lpad
 
 call.i.i.noexc21:                                 ; preds = %invoke.cont2
@@ -3462,7 +3462,7 @@ call.i.i.noexc21:                                 ; preds = %invoke.cont2
   %vtable.i7.i16 = load ptr, ptr %chunk, align 8
   %vfn.i8.i17 = getelementptr inbounds i8, ptr %vtable.i7.i16, i64 24
   %12 = load ptr, ptr %vfn.i8.i17, align 8
-  %call.i9.i24 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i15, i64 noundef 4, i64 noundef 1)
+  %call.i9.i24 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i15, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc23 unwind label %lpad
 
 call.i9.i.noexc23:                                ; preds = %call.i.i.noexc21
@@ -3470,7 +3470,7 @@ call.i9.i.noexc23:                                ; preds = %call.i.i.noexc21
   %vtable.i10.i19 = load ptr, ptr %chunk, align 8
   %vfn.i11.i20 = getelementptr inbounds i8, ptr %vtable.i10.i19, i64 24
   %13 = load ptr, ptr %vfn.i11.i20, align 8
-  %call.i12.i25 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i18, i64 noundef 4, i64 noundef 1)
+  %call.i12.i25 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i18, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %call.i9.i.noexc23
@@ -3478,7 +3478,7 @@ invoke.cont4:                                     ; preds = %call.i9.i.noexc23
   %vtable.i.i27 = load ptr, ptr %chunk, align 8
   %vfn.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i27, i64 24
   %14 = load ptr, ptr %vfn.i.i28, align 8
-  %call.i.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mUp, i64 noundef 4, i64 noundef 1)
+  %call.i.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mUp, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc35 unwind label %lpad
 
 call.i.i.noexc35:                                 ; preds = %invoke.cont4
@@ -3486,7 +3486,7 @@ call.i.i.noexc35:                                 ; preds = %invoke.cont4
   %vtable.i7.i30 = load ptr, ptr %chunk, align 8
   %vfn.i8.i31 = getelementptr inbounds i8, ptr %vtable.i7.i30, i64 24
   %15 = load ptr, ptr %vfn.i8.i31, align 8
-  %call.i9.i38 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i29, i64 noundef 4, i64 noundef 1)
+  %call.i9.i38 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i29, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc37 unwind label %lpad
 
 call.i9.i.noexc37:                                ; preds = %call.i.i.noexc35
@@ -3494,7 +3494,7 @@ call.i9.i.noexc37:                                ; preds = %call.i.i.noexc35
   %vtable.i10.i33 = load ptr, ptr %chunk, align 8
   %vfn.i11.i34 = getelementptr inbounds i8, ptr %vtable.i10.i33, i64 24
   %16 = load ptr, ptr %vfn.i11.i34, align 8
-  %call.i12.i39 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i32, i64 noundef 4, i64 noundef 1)
+  %call.i12.i39 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i32, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %call.i9.i.noexc37
@@ -3502,7 +3502,7 @@ invoke.cont6:                                     ; preds = %call.i9.i.noexc37
   %vtable.i41 = load ptr, ptr %chunk, align 8
   %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 24
   %17 = load ptr, ptr %vfn.i42, align 8
-  %call.i44 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mHorizontalFOV, i64 noundef 4, i64 noundef 1)
+  %call.i44 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mHorizontalFOV, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -3510,7 +3510,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %vtable.i45 = load ptr, ptr %chunk, align 8
   %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 24
   %18 = load ptr, ptr %vfn.i46, align 8
-  %call.i48 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mClipPlaneNear, i64 noundef 4, i64 noundef 1)
+  %call.i48 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mClipPlaneNear, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -3518,7 +3518,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %vtable.i50 = load ptr, ptr %chunk, align 8
   %vfn.i51 = getelementptr inbounds i8, ptr %vtable.i50, i64 24
   %19 = load ptr, ptr %vfn.i51, align 8
-  %call.i53 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mClipPlaneFar, i64 noundef 4, i64 noundef 1)
+  %call.i53 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mClipPlaneFar, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -3526,7 +3526,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %vtable.i55 = load ptr, ptr %chunk, align 8
   %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 24
   %20 = load ptr, ptr %vfn.i56, align 8
-  %call.i58 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAspect, i64 noundef 4, i64 noundef 1)
+  %call.i58 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mAspect, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -3653,27 +3653,27 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assi
   %vtable.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %15 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 4, i64 noundef 1)
+  %call.i.i = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(12) %minc, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i = load ptr, ptr %stream, align 8
   %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %16 = load ptr, ptr %vfn.i8.i, align 8
-  %call.i9.i = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %y.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i = load ptr, ptr %stream, align 8
   %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %17 = load ptr, ptr %vfn.i11.i, align 8
-  %call.i12.i = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %z.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i6 = load ptr, ptr %stream, align 8
   %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 24
   %18 = load ptr, ptr %vfn.i.i7, align 8
-  %call.i.i8 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 4, i64 noundef 1)
+  %call.i.i8 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(12) %maxc, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i10 = load ptr, ptr %stream, align 8
   %vfn.i8.i11 = getelementptr inbounds i8, ptr %vtable.i7.i10, i64 24
   %19 = load ptr, ptr %vfn.i8.i11, align 8
-  %call.i9.i12 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i2, i64 noundef 4, i64 noundef 1)
+  %call.i9.i12 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %y.i2, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i14 = load ptr, ptr %stream, align 8
   %vfn.i11.i15 = getelementptr inbounds i8, ptr %vtable.i10.i14, i64 24
   %20 = load ptr, ptr %vfn.i11.i15, align 8
-  %call.i12.i16 = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i3, i64 noundef 4, i64 noundef 1)
+  %call.i12.i16 = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %z.i3, i64 noundef 4, i64 noundef 1)
   ret i64 24
 }
 
@@ -3760,35 +3760,35 @@ _ZN6Assimp11ArrayBoundsI9aiColor4tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assimp
   %vtable.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 4, i64 noundef 1)
+  %call.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(16) %minc, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i = load ptr, ptr %stream, align 8
   %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %21 = load ptr, ptr %vfn.i11.i, align 8
-  %call.i12.i = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.2.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.sroa.2.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i = load ptr, ptr %stream, align 8
   %vfn.i14.i = getelementptr inbounds i8, ptr %vtable.i13.i, i64 24
   %22 = load ptr, ptr %vfn.i14.i, align 8
-  %call.i15.i = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.3.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i15.i = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.sroa.3.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i = load ptr, ptr %stream, align 8
   %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 24
   %23 = load ptr, ptr %vfn.i17.i, align 8
-  %call.i18.i = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.4.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i18.i = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.sroa.4.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i2 = load ptr, ptr %stream, align 8
   %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 24
   %24 = load ptr, ptr %vfn.i.i3, align 8
-  %call.i.i4 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 4, i64 noundef 1)
+  %call.i.i4 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(16) %maxc, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i6 = load ptr, ptr %stream, align 8
   %vfn.i11.i7 = getelementptr inbounds i8, ptr %vtable.i10.i6, i64 24
   %25 = load ptr, ptr %vfn.i11.i7, align 8
-  %call.i12.i8 = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.2.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i8 = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sroa.2.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i10 = load ptr, ptr %stream, align 8
   %vfn.i14.i11 = getelementptr inbounds i8, ptr %vtable.i13.i10, i64 24
   %26 = load ptr, ptr %vfn.i14.i11, align 8
-  %call.i15.i12 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.3.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i15.i12 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sroa.3.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i14 = load ptr, ptr %stream, align 8
   %vfn.i17.i15 = getelementptr inbounds i8, ptr %vtable.i16.i14, i64 24
   %27 = load ptr, ptr %vfn.i17.i15, align 8
-  %call.i18.i16 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.4.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i18.i16 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sroa.4.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   ret i64 32
 }
 
@@ -3895,7 +3895,7 @@ for.body3.us.i:                                   ; preds = %for.cond1.preheader
   %vtable.i.us.i = load ptr, ptr %chunk, align 8
   %vfn.i.us.i = getelementptr inbounds i8, ptr %vtable.i.us.i, i64 24
   %9 = load ptr, ptr %vfn.i.us.i, align 8
-  %call.i.us.i13 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us.i13 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.us.i.noexc:                                ; preds = %for.body3.us.i
@@ -3909,7 +3909,7 @@ for.body3.us7.i:                                  ; preds = %for.cond1.preheader
   %vtable.i.us13.i = load ptr, ptr %chunk, align 8
   %vfn.i.us14.i = getelementptr inbounds i8, ptr %vtable.i.us13.i, i64 24
   %10 = load ptr, ptr %vfn.i.us14.i, align 8
-  %call.i.us15.i14 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us15.i14 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us15.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us15.i.noexc:                              ; preds = %for.body3.us7.i
@@ -3923,7 +3923,7 @@ for.body3.us19.i:                                 ; preds = %for.cond1.preheader
   %vtable.i.us25.i = load ptr, ptr %chunk, align 8
   %vfn.i.us26.i = getelementptr inbounds i8, ptr %vtable.i.us25.i, i64 24
   %11 = load ptr, ptr %vfn.i.us26.i, align 8
-  %call.i.us27.i15 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us27.i15 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us27.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us27.i.noexc:                              ; preds = %for.body3.us19.i
@@ -3937,7 +3937,7 @@ for.body3.us31.i:                                 ; preds = %for.cond1.preheader
   %vtable.i.us37.i = load ptr, ptr %chunk, align 8
   %vfn.i.us38.i = getelementptr inbounds i8, ptr %vtable.i.us37.i, i64 24
   %12 = load ptr, ptr %vfn.i.us38.i, align 8
-  %call.i.us39.i16 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us36.i, i64 noundef 4, i64 noundef 1)
+  %call.i.us39.i16 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.us36.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us39.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.us39.i.noexc:                              ; preds = %for.body3.us31.i
@@ -4028,7 +4028,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN6Assimp11ArrayBo
   %vtable.i3.i.i = load ptr, ptr %chunk, align 8
   %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
   %29 = load ptr, ptr %vfn.i4.i.i, align 8
-  %call.i5.i.i18 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i5.i.i18 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mWeight.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i5.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i5.i.i.noexc:                                ; preds = %call.i.i.i.noexc
@@ -4045,7 +4045,7 @@ call.i.i7.i.noexc:                                ; preds = %call.i5.i.i.noexc
   %vtable.i3.i9.i = load ptr, ptr %chunk, align 8
   %vfn.i4.i10.i = getelementptr inbounds i8, ptr %vtable.i3.i9.i, i64 24
   %31 = load ptr, ptr %vfn.i4.i10.i, align 8
-  %call.i5.i11.i20 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i2.i, i64 noundef 4, i64 noundef 1)
+  %call.i5.i11.i20 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mWeight.i2.i, i64 noundef 4, i64 noundef 1)
           to label %_ZN6Assimp11WriteBoundsI14aiVertexWeightEEmPNS_8IOStreamEPKT_j.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN6Assimp11WriteBoundsI14aiVertexWeightEEmPNS_8IOStreamEPKT_j.exit: ; preds = %call.i.i7.i.noexc
@@ -4114,7 +4114,7 @@ call.i.i.i.noexc30:                               ; preds = %for.body.i
   %vtable.i3.i.i26 = load ptr, ptr %chunk, align 8
   %vfn.i4.i.i27 = getelementptr inbounds i8, ptr %vtable.i3.i.i26, i64 24
   %34 = load ptr, ptr %vfn.i4.i.i27, align 8
-  %call.i5.i.i33 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i.i25, i64 noundef 4, i64 noundef 1)
+  %call.i5.i.i33 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %mWeight.i.i25, i64 noundef 4, i64 noundef 1)
           to label %call.i5.i.i.noexc32 unwind label %lpad.loopexit
 
 call.i5.i.i.noexc32:                              ; preds = %call.i.i.i.noexc30
@@ -4574,7 +4574,7 @@ for.body.i:                                       ; preds = %call.i12.i.i.i.noex
   %vtable.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i53 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 8, i64 noundef 1)
+  %call.i.i.i53 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 8 dereferenceable(20) %arrayidx.i, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
@@ -4582,7 +4582,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i
   %vtable.i.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i54 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i.i54 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mValue.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
@@ -4590,7 +4590,7 @@ call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
   %vtable.i7.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i.i, i64 24
   %22 = load ptr, ptr %vfn.i8.i.i.i, align 8
-  %call.i9.i.i.i55 = invoke noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i.i55 = invoke noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.i.noexc:                              ; preds = %call.i.i.i.i.noexc
@@ -4598,7 +4598,7 @@ call.i9.i.i.i.noexc:                              ; preds = %call.i.i.i.i.noexc
   %vtable.i10.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i.i, i64 24
   %23 = load ptr, ptr %vfn.i11.i.i.i, align 8
-  %call.i12.i.i.i56 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i.i56 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.i.noexc:                             ; preds = %call.i9.i.i.i.noexc
@@ -4636,7 +4636,7 @@ for.body.i60:                                     ; preds = %call.i18.i.i.i.noex
   %vtable.i.i.i63 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i64 = getelementptr inbounds i8, ptr %vtable.i.i.i63, i64 24
   %27 = load ptr, ptr %vfn.i.i.i64, align 8
-  %call.i.i.i77 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i62, i64 noundef 8, i64 noundef 1)
+  %call.i.i.i77 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i62, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc76 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc76:                               ; preds = %for.body.i60
@@ -4644,7 +4644,7 @@ call.i.i.i.noexc76:                               ; preds = %for.body.i60
   %vtable.i.i.i.i66 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i66, i64 24
   %28 = load ptr, ptr %vfn.i.i.i.i67, align 8
-  %call.i.i.i.i79 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i65, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i.i79 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(16) %mValue.i.i65, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc78 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.i.noexc78:                             ; preds = %call.i.i.i.noexc76
@@ -4652,7 +4652,7 @@ call.i.i.i.i.noexc78:                             ; preds = %call.i.i.i.noexc76
   %vtable.i10.i.i.i68 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i.i69 = getelementptr inbounds i8, ptr %vtable.i10.i.i.i68, i64 24
   %29 = load ptr, ptr %vfn.i11.i.i.i69, align 8
-  %call.i12.i.i.i81 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %x.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i.i81 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %x.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc80 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i12.i.i.i.noexc80:                           ; preds = %call.i.i.i.i.noexc78
@@ -4660,7 +4660,7 @@ call.i12.i.i.i.noexc80:                           ; preds = %call.i.i.i.i.noexc7
   %vtable.i13.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i14.i.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i.i, i64 24
   %30 = load ptr, ptr %vfn.i14.i.i.i, align 8
-  %call.i15.i.i.i82 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i70, i64 noundef 4, i64 noundef 1)
+  %call.i15.i.i.i82 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i.i70, i64 noundef 4, i64 noundef 1)
           to label %call.i15.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i15.i.i.i.noexc:                             ; preds = %call.i12.i.i.i.noexc80
@@ -4668,7 +4668,7 @@ call.i15.i.i.i.noexc:                             ; preds = %call.i12.i.i.i.noex
   %vtable.i16.i.i.i = load ptr, ptr %chunk, align 8
   %vfn.i17.i.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i.i, i64 24
   %31 = load ptr, ptr %vfn.i17.i.i.i, align 8
-  %call.i18.i.i.i83 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i71, i64 noundef 4, i64 noundef 1)
+  %call.i18.i.i.i83 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i.i71, i64 noundef 4, i64 noundef 1)
           to label %call.i18.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i18.i.i.i.noexc:                             ; preds = %call.i15.i.i.i.noexc
@@ -4706,7 +4706,7 @@ for.body.i87:                                     ; preds = %call.i12.i.i.i.noex
   %vtable.i.i.i90 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i91 = getelementptr inbounds i8, ptr %vtable.i.i.i90, i64 24
   %35 = load ptr, ptr %vfn.i.i.i91, align 8
-  %call.i.i.i106 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i89, i64 noundef 8, i64 noundef 1)
+  %call.i.i.i106 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 8 dereferenceable(20) %arrayidx.i89, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc105 unwind label %lpad.loopexit
 
 call.i.i.i.noexc105:                              ; preds = %for.body.i87
@@ -4714,7 +4714,7 @@ call.i.i.i.noexc105:                              ; preds = %for.body.i87
   %vtable.i.i.i.i93 = load ptr, ptr %chunk, align 8
   %vfn.i.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i.i93, i64 24
   %36 = load ptr, ptr %vfn.i.i.i.i94, align 8
-  %call.i.i.i.i108 = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i92, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i.i108 = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(12) %mValue.i.i92, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc107 unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc107:                            ; preds = %call.i.i.i.noexc105
@@ -4722,7 +4722,7 @@ call.i.i.i.i.noexc107:                            ; preds = %call.i.i.i.noexc105
   %vtable.i7.i.i.i96 = load ptr, ptr %chunk, align 8
   %vfn.i8.i.i.i97 = getelementptr inbounds i8, ptr %vtable.i7.i.i.i96, i64 24
   %37 = load ptr, ptr %vfn.i8.i.i.i97, align 8
-  %call.i9.i.i.i110 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i95, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i.i110 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i.i95, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.i.noexc109 unwind label %lpad.loopexit
 
 call.i9.i.i.i.noexc109:                           ; preds = %call.i.i.i.i.noexc107
@@ -4730,7 +4730,7 @@ call.i9.i.i.i.noexc109:                           ; preds = %call.i.i.i.i.noexc1
   %vtable.i10.i.i.i99 = load ptr, ptr %chunk, align 8
   %vfn.i11.i.i.i100 = getelementptr inbounds i8, ptr %vtable.i10.i.i.i99, i64 24
   %38 = load ptr, ptr %vfn.i11.i.i.i100, align 8
-  %call.i12.i.i.i112 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i98, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i.i112 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i.i98, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc111 unwind label %lpad.loopexit
 
 call.i12.i.i.i.noexc111:                          ; preds = %call.i9.i.i.i.noexc109
@@ -4870,35 +4870,35 @@ _ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit: ; preds = %_ZN6Assimp
   %vtable.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 8, i64 noundef 1)
+  %call.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 8 dereferenceable(20) %minc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %21 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(12) %mValue.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i.i = load ptr, ptr %stream, align 8
   %vfn.i8.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i, i64 24
   %22 = load ptr, ptr %vfn.i8.i.i, align 8
-  %call.i9.i.i = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.2.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.sroa.2.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i = load ptr, ptr %stream, align 8
   %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %23 = load ptr, ptr %vfn.i11.i.i, align 8
-  %call.i12.i.i = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i2 = load ptr, ptr %stream, align 8
   %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 24
   %24 = load ptr, ptr %vfn.i.i3, align 8
-  %call.i.i4 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 8, i64 noundef 1)
+  %call.i.i4 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 8 dereferenceable(20) %maxc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i6 = load ptr, ptr %stream, align 8
   %vfn.i.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i.i6, i64 24
   %25 = load ptr, ptr %vfn.i.i.i7, align 8
-  %call.i.i.i8 = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue4.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i8 = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(12) %mValue4.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i.i10 = load ptr, ptr %stream, align 8
   %vfn.i8.i.i11 = getelementptr inbounds i8, ptr %vtable.i7.i.i10, i64 24
   %26 = load ptr, ptr %vfn.i8.i.i11, align 8
-  %call.i9.i.i12 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.2.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i9.i.i12 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sroa.2.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i14 = load ptr, ptr %stream, align 8
   %vfn.i11.i.i15 = getelementptr inbounds i8, ptr %vtable.i10.i.i14, i64 24
   %27 = load ptr, ptr %vfn.i11.i.i15, align 8
-  %call.i12.i.i16 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i16 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   ret i64 40
 }
 
@@ -4999,43 +4999,43 @@ _ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit: ; preds = %_ZN6Assimp11A
   %vtable.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %25 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 8, i64 noundef 1)
+  %call.i.i = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 8 dereferenceable(24) %minc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i = load ptr, ptr %stream, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %26 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(16) %mValue.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i = load ptr, ptr %stream, align 8
   %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %27 = load ptr, ptr %vfn.i11.i.i, align 8
-  %call.i12.i.i = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %x.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %x.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i.i = load ptr, ptr %stream, align 8
   %vfn.i14.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i, i64 24
   %28 = load ptr, ptr %vfn.i14.i.i, align 8
-  %call.i15.i.i = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i15.i.i = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i.i = load ptr, ptr %stream, align 8
   %vfn.i17.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i, i64 24
   %29 = load ptr, ptr %vfn.i17.i.i, align 8
-  %call.i18.i.i = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i.i, i64 noundef 4, i64 noundef 1)
+  %call.i18.i.i = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i10 = load ptr, ptr %stream, align 8
   %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 24
   %30 = load ptr, ptr %vfn.i.i11, align 8
-  %call.i.i12 = call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 8, i64 noundef 1)
+  %call.i.i12 = call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 8 dereferenceable(24) %maxc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i14 = load ptr, ptr %stream, align 8
   %vfn.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i14, i64 24
   %31 = load ptr, ptr %vfn.i.i.i15, align 8
-  %call.i.i.i16 = call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i2, i64 noundef 4, i64 noundef 1)
+  %call.i.i.i16 = call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(16) %mValue.i2, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i18 = load ptr, ptr %stream, align 8
   %vfn.i11.i.i19 = getelementptr inbounds i8, ptr %vtable.i10.i.i18, i64 24
   %32 = load ptr, ptr %vfn.i11.i.i19, align 8
-  %call.i12.i.i20 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %x.i.i3, i64 noundef 4, i64 noundef 1)
+  %call.i12.i.i20 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %x.i.i3, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i.i22 = load ptr, ptr %stream, align 8
   %vfn.i14.i.i23 = getelementptr inbounds i8, ptr %vtable.i13.i.i22, i64 24
   %33 = load ptr, ptr %vfn.i14.i.i23, align 8
-  %call.i15.i.i24 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i.i4, i64 noundef 4, i64 noundef 1)
+  %call.i15.i.i24 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i4, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i.i26 = load ptr, ptr %stream, align 8
   %vfn.i17.i.i27 = getelementptr inbounds i8, ptr %vtable.i16.i.i26, i64 24
   %34 = load ptr, ptr %vfn.i17.i.i27, align 8
-  %call.i18.i.i28 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i.i5, i64 noundef 4, i64 noundef 1)
+  %call.i18.i.i28 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull align 4 dereferenceable(4) %z.i.i5, i64 noundef 4, i64 noundef 1)
   ret i64 48
 }
 
@@ -5044,14 +5044,14 @@ define linkonce_odr void @_ZN15DeadlyErrorBaseC2IJERA20_KcEEN6Assimp9Formatter15
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr noundef nonnull %u)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %f, ptr noundef nonnull align 1 dereferenceable(20) %u)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %f)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %f)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit unwind label %lpad3.i
 
 lpad.i:                                           ; preds = %entry
@@ -5067,7 +5067,7 @@ lpad3.i:                                          ; preds = %invoke.cont.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
@@ -5077,7 +5077,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; p
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #17
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit

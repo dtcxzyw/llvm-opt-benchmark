@@ -15,7 +15,7 @@ define hidden void @_ZN4llvh8InitLLVMC2ERiRPPKc(ptr noundef nonnull align 8 dere
 entry:
   %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %this, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Slabs.i, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
@@ -37,7 +37,7 @@ entry:
   store i32 0, ptr %Capacity2.i.i.i.i.i, align 4
   %0 = load i32, ptr %Argc, align 4
   %1 = load ptr, ptr %Argv, align 8
-  tail call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i) #6
+  tail call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #6
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh23PrettyStackTraceProgramE, i64 16), ptr %add.ptr.i.i.i.i.i, align 8
   %ArgC.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %0, ptr %ArgC.i, align 8
@@ -66,7 +66,7 @@ define hidden void @_ZN4llvh8InitLLVMD2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   tail call void @_ZN4llvh13llvm_shutdownEv() #6
   %StackPrinter = getelementptr inbounds i8, ptr %this, i64 120
-  tail call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %StackPrinter) #6
+  tail call void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %StackPrinter) #6
   %Args = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %Args, align 8
   %cmp.i.i.i = icmp eq ptr %0, %StackPrinter

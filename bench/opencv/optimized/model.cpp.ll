@@ -1553,7 +1553,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit: ; preds = %92, %111, %124, 
   %142 = getelementptr inbounds i8, ptr %18, i64 80
   store ptr %142, ptr %141, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
-  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1, i32 noundef 3, i32 noundef 5, ptr noundef nonnull %19, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1, i32 noundef 3, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 noundef 0)
           to label %.noexc unwind label %153
 
 .noexc:                                           ; preds = %129
@@ -11753,7 +11753,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %19, %22
   br label %_ZNK2cv3Mat5beginIfEENS_17MatConstIterator_IT_EEv.exit
 
 30:                                               ; preds = %.noexc
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %5)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %_ZNK2cv3Mat5beginIfEENS_17MatConstIterator_IT_EEv.exit unwind label %.loopexit.split-lp
 
 _ZNK2cv3Mat5beginIfEENS_17MatConstIterator_IT_EEv.exit: ; preds = %29, %30
@@ -11768,7 +11768,7 @@ _ZNK2cv3Mat5beginIfEENS_17MatConstIterator_IT_EEv.exit: ; preds = %29, %30
   br label %_ZNK2cv3Mat3endIfEENS_17MatConstIterator_IT_EEv.exit
 
 33:                                               ; preds = %.noexc21
-  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %5)
+  invoke void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %.noexc22 unwind label %.loopexit.split-lp
 
 .noexc22:                                         ; preds = %33
@@ -14518,7 +14518,7 @@ _ZNKSt8__detail15_Hashtable_baseISt6vectorIiSaIiEESt4pairIKS3_N2cv3dnn25TextReco
   %146 = ptrtoint ptr %144 to i64
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i264.us = icmp eq ptr %144, %145
   br i1 %.not.i.i.i.i.i.i.i.i.i264.us, label %.noexc11.thread.i.us, label %149
 
@@ -15163,7 +15163,7 @@ _ZNKSt8__detail15_Hashtable_baseISt6vectorIiSaIiEESt4pairIKS3_N2cv3dnn25TextReco
   %399 = ptrtoint ptr %397 to i64
   %400 = ptrtoint ptr %398 to i64
   %401 = sub i64 %399, %400
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %396, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %396, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i278 = icmp eq ptr %397, %398
   br i1 %.not.i.i.i.i.i.i.i.i.i278, label %.noexc11.thread.i282, label %405
 
@@ -16099,7 +16099,7 @@ _ZNSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreE
   %836 = load ptr, ptr %835, align 8
   %837 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 16
   %838 = load ptr, ptr %837, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.08.i.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i.i.i.i, i8 0, i64 24, i1 false)
   %839 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 24
   %840 = load i32, ptr %839, align 8
   %.sroa_idx403 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 28
@@ -16166,7 +16166,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt4pairISt6vectorIiSaIiEEN2cv3dnn25Text
   %876 = load ptr, ptr %875, align 8
   store ptr %876, ptr %870, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %868, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0.i, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit.i, label %877
 
 877:                                              ; preds = %871
@@ -17462,7 +17462,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairISt6vect
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.019, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.019, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i, label %.noexc13, label %11
 
@@ -18094,7 +18094,7 @@ define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyINSt8__detail14_No
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.017, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.017, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %.not.i.i.i.i.i.i, label %.noexc8, label %12
 
@@ -18233,7 +18233,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %19, i64 24
   %26 = load i64, ptr %25, align 8
   store ptr %20, ptr %6, align 8
@@ -18300,7 +18300,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 16
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.014, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.014, i8 0, i64 24, i1 false)
   %49 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = load ptr, ptr %0, align 8
@@ -18309,7 +18309,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3
   store ptr %52, ptr %45, align 8
   %53 = load ptr, ptr %36, align 8
   store ptr %53, ptr %47, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %54 = load i64, ptr %37, align 8
   store i64 %54, ptr %49, align 8
   store ptr %44, ptr %5, align 8
@@ -18377,7 +18377,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %.pn26, i64 48
   %16 = load ptr, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013.027, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.027, i8 0, i64 24, i1 false)
   %17 = getelementptr inbounds i8, ptr %.pn26, i64 56
   %18 = load i64, ptr %17, align 8
   %19 = ptrtoint ptr %.sroa.013.027 to i64
@@ -18408,7 +18408,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit.i.i.i.i.i, label %34
 
 34:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -18484,7 +18484,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %20, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %18, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit, label %26
 
 26:                                               ; preds = %.lr.ph
@@ -18528,7 +18528,7 @@ _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaS
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %44, align 8
   %.not.i.i.i.i.i.i25 = icmp eq ptr %42, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i25, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit26, label %50
 
 50:                                               ; preds = %37
@@ -18554,7 +18554,7 @@ _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaS
   %60 = getelementptr inbounds i8, ptr %3, i64 16
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %62 = getelementptr inbounds i8, ptr %6, i64 24
   %63 = getelementptr inbounds i8, ptr %3, i64 24
   %64 = load i64, ptr %63, align 8
@@ -18587,7 +18587,7 @@ _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaS
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %72, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %70, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit.i, label %78
 
 78:                                               ; preds = %68
@@ -18622,7 +18622,7 @@ _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaS
   store ptr %84, ptr %88, align 8
   store ptr %83, ptr %89, align 8
   %.not.i.i.i.i.i.i10.i = icmp eq ptr %87, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i10.i, label %.thread, label %92
 
 .thread:                                          ; preds = %.critedge.i
@@ -18838,7 +18838,7 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
@@ -18867,7 +18867,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt4pairISt6vectorIiSaIiEEN2cv3dnn25Text
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %18, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %16, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit, label %25
 
 25:                                               ; preds = %19
@@ -18903,7 +18903,7 @@ _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEED2
   %36 = load ptr, ptr %8, align 8
   store ptr %36, ptr %18, align 8
   %.not.i.i.i.i.i.i1 = icmp eq ptr %16, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i1, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit2.thread, label %_ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit2
 
 _ZNSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEEaSEOS7_.exit2.thread: ; preds = %33
@@ -18962,7 +18962,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRe
   %.013.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i ], [ %1, %3 ]
   %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.013.i.i.i, i8 0, i64 24, i1 false)
   store float 0xFFF0000000000000, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 28
   store float 0xFFF0000000000000, ptr %20, align 4
@@ -18996,7 +18996,7 @@ _ZNKSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScore
   %.013.i.i.i31 = phi ptr [ %34, %.lr.ph.i.i.i30 ], [ %30, %_ZNKSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEESaIS7_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %33, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorISt4pairIS_IiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEESaIS7_EE12_M_check_lenEmPKc.exit ]
   %31 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.013.i.i.i31, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.013.i.i.i31, i8 0, i64 24, i1 false)
   store float 0xFFF0000000000000, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 28
   store float 0xFFF0000000000000, ptr %32, align 4
@@ -19024,7 +19024,7 @@ _ZSt27__uninitialized_default_n_aIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecogn
   %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !433, !noalias !430
   store ptr %41, ptr %39, align 8, !alias.scope !430, !noalias !433
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !433, !noalias !430
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !433, !noalias !430
   %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
   %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
   %44 = load i64, ptr %43, align 8, !alias.scope !433, !noalias !430
@@ -19095,7 +19095,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %23, i64 24
   %30 = load i64, ptr %29, align 8
   store ptr %24, ptr %5, align 8
@@ -19232,7 +19232,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -16
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %.sroa.0.05, i64 -8
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
@@ -19241,7 +19241,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   store ptr %25, ptr %18, align 8
   %26 = load ptr, ptr %10, align 8
   store ptr %26, ptr %20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %27 = load i64, ptr %11, align 8
   store i64 %27, ptr %22, align 8
   %28 = ptrtoint ptr %16 to i64
@@ -21284,7 +21284,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3dnn28TextDe
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
 
 10:                                               ; preds = %6
@@ -23997,7 +23997,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv3dnn26TextDe
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(244) %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %10 unwind label %19
 
 10:                                               ; preds = %6

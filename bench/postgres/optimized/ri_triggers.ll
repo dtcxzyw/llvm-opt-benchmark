@@ -276,7 +276,7 @@ define internal fastcc void @RI_FKey_check(ptr nocapture noundef readonly %0) un
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %34
   %40 = sext i16 %37 to i32
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.053, i32 noundef %40) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.053, i32 noundef range(i32 -32767, 32768) %40) #11
   %.pre.i = load i32, ptr %28, align 8
   br label %slot_attisnull.exit.i
 
@@ -1835,7 +1835,7 @@ define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture
   br i1 %31, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %25
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %6, i32 noundef %29) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %6, i32 noundef range(i32 -32767, 32768) %29) #11
   %.pre = load i32, ptr %17, align 8
   br label %slot_getattr.exit.i
 
@@ -1891,7 +1891,7 @@ ri_ExtractValues.exit:                            ; preds = %slot_getattr.exit.i
   br i1 %63, label %slot_getsomeattrs.exit.i.i65, label %slot_getattr.exit.i63
 
 slot_getsomeattrs.exit.i.i65:                     ; preds = %57
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %61) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef range(i32 -32767, 32768) %61) #11
   %.pre78 = load i32, ptr %17, align 8
   br label %slot_getattr.exit.i63
 
@@ -1938,7 +1938,7 @@ slot_getattr.exit.i63:                            ; preds = %slot_getsomeattrs.e
   br i1 %90, label %slot_getsomeattrs.exit.i.i72, label %slot_getattr.exit.i70
 
 slot_getsomeattrs.exit.i.i72:                     ; preds = %84
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef %88) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %5, i32 noundef range(i32 -32767, 32768) %88) #11
   %.pre79 = load i32, ptr %17, align 8
   br label %slot_getattr.exit.i70
 
@@ -2668,7 +2668,7 @@ define dso_local noundef zeroext i1 @RI_FKey_pk_upd_check_required(ptr nocapture
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %12
   %18 = sext i16 %15 to i32
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef %18) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %18) #11
   %.pre.i = load i32, ptr %6, align 8
   br label %slot_attisnull.exit.i
 
@@ -2733,7 +2733,7 @@ define internal fastcc range(i32 0, 3) i32 @ri_NullCheck(ptr noundef %0, ptr noc
 
 slot_getsomeattrs.exit.i:                         ; preds = %10
   %16 = sext i16 %13 to i32
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %16) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef range(i32 -32767, 32768) %16) #11
   %.pre = load i32, ptr %4, align 8
   br label %slot_attisnull.exit
 
@@ -2802,7 +2802,7 @@ define internal fastcc noundef zeroext i1 @ri_KeysEqual(ptr noundef %0, ptr noun
   br i1 %31, label %slot_getsomeattrs.exit.i.us, label %slot_getattr.exit.us
 
 slot_getsomeattrs.exit.i.us:                      ; preds = %.lr.ph.split.us
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %29) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef range(i32 -32767, 32768) %29) #11
   br label %slot_getattr.exit.us
 
 slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.exit.i.us, %.lr.ph.split.us
@@ -2825,7 +2825,7 @@ slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.e
   br i1 %45, label %slot_getsomeattrs.exit.i29.us, label %slot_getattr.exit30.us
 
 slot_getsomeattrs.exit.i29.us:                    ; preds = %41
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef %43) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %43) #11
   br label %slot_getattr.exit30.us
 
 slot_getattr.exit30.us:                           ; preds = %slot_getsomeattrs.exit.i29.us, %41
@@ -2873,7 +2873,7 @@ slot_getattr.exit30.us:                           ; preds = %slot_getsomeattrs.e
   br i1 %76, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph.split
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %74) #11
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef range(i32 -32767, 32768) %74) #11
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %.lr.ph.split, %slot_getsomeattrs.exit.i
@@ -2896,7 +2896,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph.split, %slot
   br i1 %90, label %slot_getsomeattrs.exit.i29, label %slot_getattr.exit30
 
 slot_getsomeattrs.exit.i29:                       ; preds = %86
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef %88) #11
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %88) #11
   br label %slot_getattr.exit30
 
 slot_getattr.exit30:                              ; preds = %86, %slot_getsomeattrs.exit.i29
@@ -3079,7 +3079,7 @@ define dso_local noundef zeroext i1 @RI_FKey_fk_upd_check_required(ptr nocapture
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %13
   %19 = sext i16 %16 to i32
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %3, i32 noundef %19) #11
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %3, i32 noundef range(i32 -32767, 32768) %19) #11
   %.pre.i = load i32, ptr %7, align 8
   br label %slot_attisnull.exit.i
 
@@ -3996,7 +3996,7 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr nocapture no
   br i1 %57, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %48
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %3, i32 noundef %51) #11
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %3, i32 noundef range(i32 -32767, 32768) %51) #11
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %48, %slot_getsomeattrs.exit.i

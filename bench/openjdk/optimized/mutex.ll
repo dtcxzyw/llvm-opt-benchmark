@@ -73,18 +73,18 @@ define hidden void @_ZN5Mutex14lock_contendedEP6Thread(ptr noundef nonnull align
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   store volatile i32 10, ptr %12, align 4
-  %14 = call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #7
+  %14 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
   call void @_ZN25ThreadBlockInVMPreprocessI20InFlightMutexReleaseED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #7
   %15 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %18, label %.loopexit
 
 16:                                               ; preds = %2
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #7
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
   br label %.loopexit
 
 18:                                               ; preds = %.split
-  %19 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #7
+  %19 = call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %.split, !llvm.loop !7
 
@@ -133,7 +133,7 @@ define linkonce_odr hidden void @_ZN25ThreadBlockInVMPreprocessI20InFlightMutexR
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #7
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %23) #7
   store ptr null, ptr %21, align 8
   %25 = load ptr, ptr %0, align 8
   %26 = load i8, ptr %5, align 8
@@ -158,7 +158,7 @@ define hidden void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 derefere
   %3 = alloca %class.InFlightMutexRelease, align 8
   %4 = alloca %class.ThreadBlockInVMPreprocess, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #7
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %24, label %8
 
@@ -183,18 +183,18 @@ define hidden void @_ZN5Mutex4lockEP6Thread(ptr noundef nonnull align 8 derefere
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   store volatile i32 10, ptr %16, align 4
-  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #7
+  %17 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   call void @_ZN25ThreadBlockInVMPreprocessI20InFlightMutexReleaseED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #7
   %18 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %21, label %_ZN5Mutex14lock_contendedEP6Thread.exit
 
 19:                                               ; preds = %8
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #7
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   br label %_ZN5Mutex14lock_contendedEP6Thread.exit
 
 21:                                               ; preds = %.split.i
-  %22 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #7
+  %22 = call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %_ZN5Mutex14lock_contendedEP6Thread.exit, label %.split.i, !llvm.loop !7
 
@@ -219,7 +219,7 @@ define hidden void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5Mutex28lock_without_safepoint_checkEP6Thread(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #7
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   store volatile ptr %1, ptr %0, align 8
   ret void
 }
@@ -229,7 +229,7 @@ define hidden void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnul
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #7
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
   store volatile ptr %3, ptr %0, align 8
   ret void
 }
@@ -244,7 +244,7 @@ define hidden noundef zeroext i1 @_ZN5Mutex14try_lock_innerEb(ptr noundef nonnul
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #7
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %8) #7
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
@@ -267,7 +267,7 @@ define hidden noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #7
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN5Mutex14try_lock_innerEb.exit
 
@@ -290,7 +290,7 @@ define hidden noundef zeroext i1 @_ZN5Mutex27try_lock_without_rank_checkEv(ptr n
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #7
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN5Mutex14try_lock_innerEb.exit
 
@@ -306,7 +306,7 @@ _ZN5Mutex14try_lock_innerEb.exit:                 ; preds = %1, %6, %10
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5Mutex21release_for_safepointEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #7
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #7
   ret void
 }
 
@@ -314,7 +314,7 @@ define hidden void @_ZN5Mutex21release_for_safepointEv(ptr noundef nonnull align
 define hidden void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   store volatile ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #7
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #7
   ret void
 }
 

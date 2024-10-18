@@ -1550,7 +1550,7 @@ _ZN17CompilationPolicy8is_staleEllRK12methodHandle.exit: ; preds = %64, %73
 .preheader1.i.i:                                  ; preds = %.preheader1.i.i, %89
   %.0.i.i.i.i1.i.i.i = phi i32 [ %93, %.preheader1.i.i ], [ %91, %89 ]
   %92 = and i32 %.0.i.i.i.i1.i.i.i, -129
-  %93 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %92, i32 %.0.i.i.i.i1.i.i.i, ptr nonnull %90) #12, !srcloc !11
+  %93 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %92, i32 %.0.i.i.i.i1.i.i.i, ptr nonnull align 4 dereferenceable(4) %90) #12, !srcloc !11
   %.not.i.i.i.i2.i.i.i = icmp eq i32 %.0.i.i.i.i1.i.i.i, %93
   br i1 %.not.i.i.i.i2.i.i.i, label %_ZN6Method28clear_queued_for_compilationEv.exit, label %.preheader1.i.i, !llvm.loop !12
 
@@ -1765,7 +1765,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %172
 .preheader1.i.i76:                                ; preds = %.preheader1.i.i76, %196
   %.0.i.i.i.i1.i.i.i77 = phi i32 [ %200, %.preheader1.i.i76 ], [ %198, %196 ]
   %199 = and i32 %.0.i.i.i.i1.i.i.i77, -129
-  %200 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %199, i32 %.0.i.i.i.i1.i.i.i77, ptr nonnull %197) #12, !srcloc !11
+  %200 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %199, i32 %.0.i.i.i.i1.i.i.i77, ptr nonnull align 4 dereferenceable(4) %197) #12, !srcloc !11
   %.not.i.i.i.i2.i.i.i78 = icmp eq i32 %.0.i.i.i.i1.i.i.i77, %200
   br i1 %.not.i.i.i.i2.i.i.i78, label %_ZN6Method28clear_queued_for_compilationEv.exit79, label %.preheader1.i.i76, !llvm.loop !12
 
@@ -2299,7 +2299,7 @@ _ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46: ; preds
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %78, ptr noundef nonnull %72, i32 noundef %3, i32 noundef %70, i1 noundef zeroext false) #12
+  %79 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %78, ptr noundef nonnull align 8 dereferenceable(88) %72, i32 noundef %3, i32 noundef %70, i1 noundef zeroext false) #12
   %.not41 = icmp eq ptr %79, null
   br i1 %.not41, label %83, label %80
 
@@ -2819,7 +2819,7 @@ _ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei.exit53: ; preds = 
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %79, ptr noundef nonnull %73, i32 noundef %.tr56.ph, i32 noundef 1, i1 noundef zeroext false) #12
+  %80 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %79, ptr noundef nonnull align 8 dereferenceable(88) %73, i32 noundef %.tr56.ph, i32 noundef 1, i1 noundef zeroext false) #12
   %.not48 = icmp eq ptr %80, null
   br i1 %.not48, label %tailrecurse, label %81
 
@@ -4454,7 +4454,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i:         ; preds = %_ZN7nmethod14is_deo
   br i1 %68, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i.i.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i.i.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i.i.i:   ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i.i.i, %69, %58, %51
-  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull %0) #12
+  %72 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %45, ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %73 = load ptr, ptr %72, align 8
   %.not.i.i.i9 = icmp eq ptr %73, null
   br i1 %.not.i.i.i9, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i.i.i, label %74
@@ -4580,7 +4580,7 @@ _ZNK5frame7oop_mapEv.exit.thread20:               ; preds = %34, %31
   br label %59
 
 _ZNK5frame7oop_mapEv.exit:                        ; preds = %38, %42
-  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull %1) #12
+  %57 = tail call noundef ptr @_ZN9OopMapSet8find_mapEPK5frame(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   store ptr %57, ptr %28, align 8
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %59, label %_ZNK5frame7oop_mapEv.exit.thread
@@ -4721,7 +4721,7 @@ _ZN7nmethod11is_deopt_pcEPh.exit.i.i:             ; preds = %_ZN7nmethod14is_deo
   br i1 %43, label %_ZNK5frame21get_deopt_original_pcEv.exit.thread.i, label %_ZNK5frame21get_deopt_original_pcEv.exit.i
 
 _ZNK5frame21get_deopt_original_pcEv.exit.i:       ; preds = %_ZN7nmethod11is_deopt_pcEPh.exit.i.i, %44, %33, %26
-  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull %0) #12
+  %47 = tail call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZNK5frame21get_deopt_original_pcEv.exit._ZNK5frame21get_deopt_original_pcEv.exit.thread_crit_edge.i, label %49

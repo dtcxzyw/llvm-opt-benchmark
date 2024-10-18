@@ -1351,7 +1351,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i, label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit, label %200
 
 200:                                              ; preds = %197
-  %201 = invoke noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %201 = invoke noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZN8LightGBM22RegressionQuantilelossC2ERKNS_6ConfigE.exit unwind label %202
 
 202:                                              ; preds = %200
@@ -1376,7 +1376,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i54, label %_ZNSt8functionIFbfEED2Ev.exit55, label %211
 
 211:                                              ; preds = %207
-  %212 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 3)
+  %212 = invoke noundef zeroext i1 %210(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit55 unwind label %213
 
 213:                                              ; preds = %211
@@ -1831,7 +1831,7 @@ define linkonce_odr void @_ZN8LightGBM13BinaryLoglossC2ERKNS_6ConfigESt8function
   br i1 %.not.i.i, label %_ZNSt8functionIFbfEED2Ev.exit, label %19
 
 19:                                               ; preds = %.body
-  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %19
@@ -1878,7 +1878,7 @@ _ZNSt8functionIFbfEED2Ev.exit:                    ; preds = %.body, %19
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFbfEEC2ERKS1_.exit.i, label %43
 
 43:                                               ; preds = %38
-  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 2)
           to label %45 unwind label %49
 
 45:                                               ; preds = %43
@@ -1895,7 +1895,7 @@ _ZNSt8functionIFbfEED2Ev.exit:                    ; preds = %.body, %19
   br i1 %.not.i.i.i, label %.body, label %52
 
 52:                                               ; preds = %49
-  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %53 = invoke noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %.body unwind label %54
 
 54:                                               ; preds = %52
@@ -1909,9 +1909,9 @@ _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %45, %38
   %57 = phi ptr [ null, %38 ], [ %47, %45 ]
   %58 = phi ptr [ null, %38 ], [ %48, %45 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %59 = getelementptr inbounds i8, ptr %0, i64 96
   %60 = load ptr, ptr %59, align 8
@@ -1925,7 +1925,7 @@ _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %45, %38
   br i1 %.not.i.i2.i, label %68, label %63
 
 63:                                               ; preds = %_ZNSt8functionIFbfEEC2ERKS1_.exit.i
-  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+  %64 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %._crit_edge unwind label %65
 
 ._crit_edge:                                      ; preds = %63
@@ -1946,7 +1946,7 @@ _ZNSt8functionIFbfEEC2ERKS1_.exit.i:              ; preds = %45, %38
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbfEEaSIZN8LightGBM13BinaryLoglossC1ERKNS3_6ConfigES1_EUlfE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JfEEEE5valueERS1_E4typeEOSB_.exit, label %70
 
 _ZNSt8functionIFbfEEaSIZN8LightGBM13BinaryLoglossC1ERKNS3_6ConfigES1_EUlfE_EENSt9enable_ifIXsrNS1_9_CallableIT_NS9_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISB_E4typeEE4typeES1_EE5valueESt5decayISB_EE4type4typeESt15__invoke_resultIRSM_JfEEEE5valueERS1_E4typeEOSB_.exit: ; preds = %68
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbfEZN8LightGBM13BinaryLoglossC1ERKNS1_6ConfigESt8functionIS0_EEUlfE_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %59, align 8
   store ptr @_ZNSt17_Function_handlerIFbfEZN8LightGBM13BinaryLoglossC1ERKNS1_6ConfigESt8functionIS0_EEUlfE_E9_M_invokeERKSt9_Any_dataOf, ptr %61, align 8
   br label %70
@@ -2204,7 +2204,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM13BinaryLoglossESt14default_deleteIS2_EESa
   br i1 %.not.i.i, label %_ZNSt8functionIFbfEED2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN8LightGBM13BinaryLoglossESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEEvDpOT_.exit
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit unwind label %48
 
 48:                                               ; preds = %46
@@ -2244,7 +2244,7 @@ _ZNSt8functionIFbfEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt10un
   br i1 %.not.i.i14, label %_ZNSt8functionIFbfEED2Ev.exit15, label %58
 
 58:                                               ; preds = %56
-  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit15 unwind label %60
 
 60:                                               ; preds = %58
@@ -3460,7 +3460,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM16RegressionL1loss15RenewTreeOu
 _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   %51 = getelementptr inbounds i8, ptr %2, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = call noundef double %52(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
+  %53 = call noundef double %52(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -3507,7 +3507,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %65, align 8
-  %75 = invoke noundef double %74(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30)
+  %75 = invoke noundef double %74(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %76 unwind label %.loopexit
 
 76:                                               ; preds = %73
@@ -3740,7 +3740,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit:       ; preds = %.lr.ph.i166, %158
 _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %178
   %188 = getelementptr inbounds i8, ptr %2, i64 24
   %189 = load ptr, ptr %188, align 8
-  %190 = call noundef double %189(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %190 = call noundef double %189(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -3791,7 +3791,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %178
 
 214:                                              ; preds = %203
   %215 = load ptr, ptr %202, align 8
-  %216 = invoke noundef double %215(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %216 = invoke noundef double %215(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %217 unwind label %.loopexit425
 
 217:                                              ; preds = %214
@@ -4024,7 +4024,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit217:    ; preds = %.lr.ph.i212, %299
 _ZNKSt8functionIFdPKfiEEclES1_i.exit221:          ; preds = %320
   %327 = getelementptr inbounds i8, ptr %2, i64 24
   %328 = load ptr, ptr %327, align 8
-  %329 = call noundef double %328(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %329 = call noundef double %328(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -4191,7 +4191,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 403:                                              ; preds = %393
   %404 = getelementptr inbounds i8, ptr %2, i64 24
   %405 = load ptr, ptr %404, align 8
-  %406 = invoke noundef double %405(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  %406 = invoke noundef double %405(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit235 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit235:          ; preds = %403
@@ -4247,7 +4247,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit237:                 ; preds = %.invoke, %443, %430
 430:                                              ; preds = %419
   %431 = getelementptr inbounds i8, ptr %2, i64 24
   %432 = load ptr, ptr %431, align 8
-  %433 = invoke noundef double %432(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %433 = invoke noundef double %432(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %434 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 434:                                              ; preds = %430
@@ -4277,7 +4277,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit237:                 ; preds = %.invoke, %443, %430
 
 443:                                              ; preds = %434
   %444 = load ptr, ptr %431, align 8
-  %445 = invoke noundef double %444(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %445 = invoke noundef double %444(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %446 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 446:                                              ; preds = %443
@@ -4329,7 +4329,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFdP
 _ZNKSt8functionIFdPKfiEEclES1_i.exit252:          ; preds = %458
   %468 = getelementptr inbounds i8, ptr %2, i64 24
   %469 = load ptr, ptr %468, align 8
-  %470 = call noundef double %469(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %470 = call noundef double %469(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -4508,7 +4508,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 554:                                              ; preds = %541
   %555 = getelementptr inbounds i8, ptr %2, i64 24
   %556 = load ptr, ptr %555, align 8
-  %557 = invoke noundef double %556(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %557 = invoke noundef double %556(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit292 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit292:          ; preds = %554
@@ -4568,7 +4568,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit294:                 ; preds = %.invoke485, %602, %
 585:                                              ; preds = %570
   %586 = getelementptr inbounds i8, ptr %2, i64 24
   %587 = load ptr, ptr %586, align 8
-  %588 = invoke noundef double %587(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %588 = invoke noundef double %587(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %589 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 589:                                              ; preds = %585
@@ -4602,7 +4602,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit294:                 ; preds = %.invoke485, %602, %
 
 602:                                              ; preds = %589
   %603 = load ptr, ptr %586, align 8
-  %604 = invoke noundef double %603(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %604 = invoke noundef double %603(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %605 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 605:                                              ; preds = %602
@@ -5406,7 +5406,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   br i1 %.not.i.i, label %_ZNSt8functionIFvimmEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -5450,7 +5450,7 @@ _ZNSt8functionIFvimmEED2Ev.exit:                  ; preds = %24, %26
   br i1 %.not.i.i18, label %_ZNSt8functionIFvimmEED2Ev.exit19, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit19 unwind label %48
 
 48:                                               ; preds = %46
@@ -5635,7 +5635,7 @@ define internal void @_ZN8LightGBM9Threading3ForImEEiT_S2_S2_RKSt8functionIFviS2
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8
-  invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZNKSt8functionIFvimmEEclEimm.exit unwind label %42
 
 _ZNKSt8functionIFvimmEEclEimm.exit:               ; preds = %40
@@ -5723,7 +5723,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:
 
 4:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %5) #11
+  %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, label %7
 
@@ -5763,7 +5763,7 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %9
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit2, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %12
-  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #11
+  %13 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #11
   br label %14
 
 14:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -6342,7 +6342,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
   %31 = getelementptr inbounds i8, ptr %20, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %34 = load ptr, ptr %21, align 8
@@ -6364,7 +6364,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %41 = load ptr, ptr %31, align 8
-  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %43 = fcmp olt double %33, %42
@@ -6405,7 +6405,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
   %.sroa.0.012.i = phi ptr [ %.sroa.0.0.i, %71 ], [ %.pn25, %50 ]
   %.sroa.04.011.i = phi ptr [ %.sroa.0.012.i, %71 ], [ %.sroa.09.026, %50 ]
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %61 = load ptr, ptr %21, align 8
@@ -6427,7 +6427,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %68 = load ptr, ptr %31, align 8
-  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %70 = fcmp olt double %60, %69
@@ -6515,7 +6515,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %41 = getelementptr inbounds i8, ptr %29, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %44 = load ptr, ptr %30, align 8
@@ -6537,7 +6537,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %41, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %53 = fcmp olt double %43, %52
@@ -6601,7 +6601,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %80 = load ptr, ptr %68, align 8
-  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %82 = load ptr, ptr %66, align 8
@@ -6623,7 +6623,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %89 = load ptr, ptr %68, align 8
-  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %91 = fcmp olt double %81, %90
@@ -6690,7 +6690,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %119 = load ptr, ptr %107, align 8
-  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %121 = load ptr, ptr %105, align 8
@@ -6712,7 +6712,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %128 = load ptr, ptr %107, align 8
-  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %130 = fcmp olt double %120, %129
@@ -6981,7 +6981,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %40 = load ptr, ptr %28, align 8
-  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %42 = load ptr, ptr %26, align 8
@@ -7003,7 +7003,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %49 = load ptr, ptr %28, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %51 = fcmp olt double %41, %50
@@ -7095,7 +7095,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %85 = load ptr, ptr %73, align 8
-  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %87 = load ptr, ptr %71, align 8
@@ -7117,7 +7117,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %94 = load ptr, ptr %73, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = fcmp olt double %86, %95
@@ -7184,7 +7184,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %124 = load ptr, ptr %112, align 8
-  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %126 = load ptr, ptr %110, align 8
@@ -7206,7 +7206,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %133 = load ptr, ptr %112, align 8
-  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %135 = fcmp olt double %125, %134
@@ -7399,7 +7399,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -7421,7 +7421,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -7515,7 +7515,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
   %77 = load ptr, ptr %66, align 8
-  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %79 = load ptr, ptr %64, align 8
@@ -7537,7 +7537,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i27: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25
   %86 = load ptr, ptr %66, align 8
-  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %88 = fcmp olt double %78, %87
@@ -7645,7 +7645,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPiN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -7667,7 +7667,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -7761,7 +7761,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
   %79 = load ptr, ptr %68, align 8
-  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %81 = load ptr, ptr %66, align 8
@@ -7783,7 +7783,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i35: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33
   %88 = load ptr, ptr %68, align 8
-  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %90 = fcmp olt double %80, %89
@@ -7903,7 +7903,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %80 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %48 = getelementptr inbounds i8, ptr %46, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %51 = load ptr, ptr %45, align 8
@@ -7925,7 +7925,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %58 = load ptr, ptr %48, align 8
-  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %60 = fcmp olt double %50, %59
@@ -8104,7 +8104,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
   %33 = getelementptr inbounds i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %36 = load ptr, ptr %18, align 8
@@ -8130,7 +8130,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %47 = load ptr, ptr %33, align 8
-  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %49 = fcmp olt double %35, %48
@@ -8223,7 +8223,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %47 = getelementptr inbounds i8, ptr %29, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %50 = load ptr, ptr %30, align 8
@@ -8249,7 +8249,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %61 = load ptr, ptr %47, align 8
-  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %63 = fcmp olt double %49, %62
@@ -8319,7 +8319,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %94 = load ptr, ptr %78, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = load ptr, ptr %76, align 8
@@ -8345,7 +8345,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %107 = load ptr, ptr %78, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %109 = fcmp olt double %95, %108
@@ -8416,7 +8416,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %141 = load ptr, ptr %125, align 8
-  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %143 = load ptr, ptr %123, align 8
@@ -8442,7 +8442,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %154 = load ptr, ptr %125, align 8
-  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %156 = fcmp olt double %142, %155
@@ -8529,7 +8529,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.0.012 = phi ptr [ %.sroa.0.09, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.0, %46 ]
   %.sroa.04.011 = phi ptr [ %0, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.012, %46 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %32 = load ptr, ptr %11, align 8
@@ -8555,7 +8555,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %43 = load ptr, ptr %28, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %45 = fcmp olt double %31, %44
@@ -8691,7 +8691,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
   %46 = load ptr, ptr %31, align 8
-  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %48 = load ptr, ptr %29, align 8
@@ -8717,7 +8717,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %61 = fcmp olt double %47, %60
@@ -8852,7 +8852,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
   %107 = load ptr, ptr %92, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %109 = load ptr, ptr %90, align 8
@@ -8878,7 +8878,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28
   %120 = load ptr, ptr %92, align 8
-  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %122 = fcmp olt double %108, %121
@@ -9014,7 +9014,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %44 = load ptr, ptr %28, align 8
-  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %46 = load ptr, ptr %26, align 8
@@ -9040,7 +9040,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %57 = load ptr, ptr %28, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %59 = fcmp olt double %45, %58
@@ -9138,7 +9138,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %97 = load ptr, ptr %81, align 8
-  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %99 = load ptr, ptr %79, align 8
@@ -9164,7 +9164,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %110 = load ptr, ptr %81, align 8
-  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %112 = fcmp olt double %98, %111
@@ -9235,7 +9235,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %144 = load ptr, ptr %128, align 8
-  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %146 = load ptr, ptr %126, align 8
@@ -9261,7 +9261,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %157 = load ptr, ptr %128, align 8
-  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %159 = fcmp olt double %145, %158
@@ -9445,7 +9445,7 @@ define linkonce_odr noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
   %37 = load ptr, ptr %22, align 8
-  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %39 = load ptr, ptr %16, align 8
@@ -9471,7 +9471,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %50 = load ptr, ptr %22, align 8
-  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %52 = fcmp olt double %38, %51
@@ -9572,7 +9572,7 @@ define linkonce_odr ptr @_ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %38 = load ptr, ptr %23, align 8
-  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %40 = load ptr, ptr %17, align 8
@@ -9598,7 +9598,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %23, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %53 = fcmp olt double %39, %52
@@ -9728,7 +9728,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %92 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %56 = getelementptr inbounds i8, ptr %54, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %59 = load ptr, ptr %53, align 8
@@ -9754,7 +9754,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM16RegressionL1loss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %70 = load ptr, ptr %56, align 8
-  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %72 = fcmp olt double %58, %71
@@ -11004,7 +11004,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   br i1 %.not.i.i, label %_ZNSt8functionIFvimmEED2Ev.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit unwind label %28
 
 28:                                               ; preds = %26
@@ -11048,7 +11048,7 @@ _ZNSt8functionIFvimmEED2Ev.exit:                  ; preds = %24, %26
   br i1 %.not.i.i18, label %_ZNSt8functionIFvimmEED2Ev.exit19, label %46
 
 46:                                               ; preds = %43
-  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+  %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFvimmEED2Ev.exit19 unwind label %48
 
 48:                                               ; preds = %46
@@ -11442,7 +11442,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM22RegressionQuantileloss15Renew
 _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   %51 = getelementptr inbounds i8, ptr %2, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = call noundef double %52(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
+  %53 = call noundef double %52(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -11489,7 +11489,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %65, align 8
-  %75 = invoke noundef double %74(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30)
+  %75 = invoke noundef double %74(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %30)
           to label %76 unwind label %.loopexit
 
 76:                                               ; preds = %73
@@ -11726,7 +11726,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit:       ; preds = %.lr.ph.i166, %162
 _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %182
   %192 = getelementptr inbounds i8, ptr %2, i64 24
   %193 = load ptr, ptr %192, align 8
-  %194 = call noundef double %193(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %194 = call noundef double %193(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -11777,7 +11777,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %182
 
 218:                                              ; preds = %207
   %219 = load ptr, ptr %206, align 8
-  %220 = invoke noundef double %219(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
+  %220 = invoke noundef double %219(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %221 unwind label %.loopexit425
 
 221:                                              ; preds = %218
@@ -12014,7 +12014,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit217:    ; preds = %.lr.ph.i212, %307
 _ZNKSt8functionIFdPKfiEEclES1_i.exit221:          ; preds = %328
   %335 = getelementptr inbounds i8, ptr %2, i64 24
   %336 = load ptr, ptr %335, align 8
-  %337 = call noundef double %336(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %337 = call noundef double %336(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -12184,7 +12184,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 414:                                              ; preds = %404
   %415 = getelementptr inbounds i8, ptr %2, i64 24
   %416 = load ptr, ptr %415, align 8
-  %417 = invoke noundef double %416(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  %417 = invoke noundef double %416(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit235 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit235:          ; preds = %414
@@ -12240,7 +12240,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit237:                 ; preds = %.invoke, %454, %441
 441:                                              ; preds = %430
   %442 = getelementptr inbounds i8, ptr %2, i64 24
   %443 = load ptr, ptr %442, align 8
-  %444 = invoke noundef double %443(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %444 = invoke noundef double %443(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %445 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 445:                                              ; preds = %441
@@ -12270,7 +12270,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit237:                 ; preds = %.invoke, %454, %441
 
 454:                                              ; preds = %445
   %455 = load ptr, ptr %442, align 8
-  %456 = invoke noundef double %455(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %456 = invoke noundef double %455(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %457 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit237
 
 457:                                              ; preds = %454
@@ -12322,7 +12322,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFdP
 _ZNKSt8functionIFdPKfiEEclES1_i.exit252:          ; preds = %469
   %479 = getelementptr inbounds i8, ptr %2, i64 24
   %480 = load ptr, ptr %479, align 8
-  %481 = call noundef double %480(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %481 = call noundef double %480(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit172
@@ -12504,7 +12504,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 568:                                              ; preds = %555
   %569 = getelementptr inbounds i8, ptr %2, i64 24
   %570 = load ptr, ptr %569, align 8
-  %571 = invoke noundef double %570(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %571 = invoke noundef double %570(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit292 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit292:          ; preds = %568
@@ -12564,7 +12564,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit294:                 ; preds = %.invoke485, %616, %
 599:                                              ; preds = %584
   %600 = getelementptr inbounds i8, ptr %2, i64 24
   %601 = load ptr, ptr %600, align 8
-  %602 = invoke noundef double %601(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %602 = invoke noundef double %601(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %603 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 603:                                              ; preds = %599
@@ -12598,7 +12598,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit294:                 ; preds = %.invoke485, %616, %
 
 616:                                              ; preds = %603
   %617 = load ptr, ptr %600, align 8
-  %618 = invoke noundef double %617(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %618 = invoke noundef double %617(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %619 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit294
 
 619:                                              ; preds = %616
@@ -13501,7 +13501,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
   %31 = getelementptr inbounds i8, ptr %20, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %34 = load ptr, ptr %21, align 8
@@ -13523,7 +13523,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %41 = load ptr, ptr %31, align 8
-  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %43 = fcmp olt double %33, %42
@@ -13564,7 +13564,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
   %.sroa.0.012.i = phi ptr [ %.sroa.0.0.i, %71 ], [ %.pn25, %50 ]
   %.sroa.04.011.i = phi ptr [ %.sroa.0.012.i, %71 ], [ %.sroa.09.026, %50 ]
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %61 = load ptr, ptr %21, align 8
@@ -13586,7 +13586,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %68 = load ptr, ptr %31, align 8
-  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %70 = fcmp olt double %60, %69
@@ -13674,7 +13674,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %41 = getelementptr inbounds i8, ptr %29, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %44 = load ptr, ptr %30, align 8
@@ -13696,7 +13696,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %41, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %53 = fcmp olt double %43, %52
@@ -13760,7 +13760,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %80 = load ptr, ptr %68, align 8
-  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %82 = load ptr, ptr %66, align 8
@@ -13782,7 +13782,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %89 = load ptr, ptr %68, align 8
-  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %91 = fcmp olt double %81, %90
@@ -13849,7 +13849,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %119 = load ptr, ptr %107, align 8
-  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %121 = load ptr, ptr %105, align 8
@@ -13871,7 +13871,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %128 = load ptr, ptr %107, align 8
-  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %130 = fcmp olt double %120, %129
@@ -13978,7 +13978,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %40 = load ptr, ptr %28, align 8
-  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %42 = load ptr, ptr %26, align 8
@@ -14000,7 +14000,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %49 = load ptr, ptr %28, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %51 = fcmp olt double %41, %50
@@ -14092,7 +14092,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %85 = load ptr, ptr %73, align 8
-  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %87 = load ptr, ptr %71, align 8
@@ -14114,7 +14114,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %94 = load ptr, ptr %73, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = fcmp olt double %86, %95
@@ -14181,7 +14181,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %124 = load ptr, ptr %112, align 8
-  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %126 = load ptr, ptr %110, align 8
@@ -14203,7 +14203,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %133 = load ptr, ptr %112, align 8
-  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %135 = fcmp olt double %125, %134
@@ -14396,7 +14396,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -14418,7 +14418,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -14512,7 +14512,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
   %77 = load ptr, ptr %66, align 8
-  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %79 = load ptr, ptr %64, align 8
@@ -14534,7 +14534,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i27: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25
   %86 = load ptr, ptr %66, align 8
-  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %88 = fcmp olt double %78, %87
@@ -14642,7 +14642,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPiN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -14664,7 +14664,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -14758,7 +14758,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
   %79 = load ptr, ptr %68, align 8
-  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %81 = load ptr, ptr %66, align 8
@@ -14780,7 +14780,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i35: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33
   %88 = load ptr, ptr %68, align 8
-  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %90 = fcmp olt double %80, %89
@@ -14900,7 +14900,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %80 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %48 = getelementptr inbounds i8, ptr %46, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %51 = load ptr, ptr %45, align 8
@@ -14922,7 +14922,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %58 = load ptr, ptr %48, align 8
-  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %60 = fcmp olt double %50, %59
@@ -15101,7 +15101,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
   %33 = getelementptr inbounds i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %36 = load ptr, ptr %18, align 8
@@ -15127,7 +15127,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %47 = load ptr, ptr %33, align 8
-  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %49 = fcmp olt double %35, %48
@@ -15220,7 +15220,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %47 = getelementptr inbounds i8, ptr %29, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %50 = load ptr, ptr %30, align 8
@@ -15246,7 +15246,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %61 = load ptr, ptr %47, align 8
-  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %63 = fcmp olt double %49, %62
@@ -15316,7 +15316,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %94 = load ptr, ptr %78, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = load ptr, ptr %76, align 8
@@ -15342,7 +15342,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %107 = load ptr, ptr %78, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %109 = fcmp olt double %95, %108
@@ -15413,7 +15413,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %141 = load ptr, ptr %125, align 8
-  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %143 = load ptr, ptr %123, align 8
@@ -15439,7 +15439,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %154 = load ptr, ptr %125, align 8
-  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %156 = fcmp olt double %142, %155
@@ -15526,7 +15526,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.0.012 = phi ptr [ %.sroa.0.09, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.0, %46 ]
   %.sroa.04.011 = phi ptr [ %0, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.012, %46 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %32 = load ptr, ptr %11, align 8
@@ -15552,7 +15552,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %43 = load ptr, ptr %28, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %45 = fcmp olt double %31, %44
@@ -15688,7 +15688,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
   %46 = load ptr, ptr %31, align 8
-  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %48 = load ptr, ptr %29, align 8
@@ -15714,7 +15714,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %61 = fcmp olt double %47, %60
@@ -15849,7 +15849,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
   %107 = load ptr, ptr %92, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %109 = load ptr, ptr %90, align 8
@@ -15875,7 +15875,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28
   %120 = load ptr, ptr %92, align 8
-  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %122 = fcmp olt double %108, %121
@@ -16011,7 +16011,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %44 = load ptr, ptr %28, align 8
-  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %46 = load ptr, ptr %26, align 8
@@ -16037,7 +16037,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %57 = load ptr, ptr %28, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %59 = fcmp olt double %45, %58
@@ -16135,7 +16135,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %97 = load ptr, ptr %81, align 8
-  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %99 = load ptr, ptr %79, align 8
@@ -16161,7 +16161,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %110 = load ptr, ptr %81, align 8
-  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %112 = fcmp olt double %98, %111
@@ -16232,7 +16232,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %144 = load ptr, ptr %128, align 8
-  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %146 = load ptr, ptr %126, align 8
@@ -16258,7 +16258,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %157 = load ptr, ptr %128, align 8
-  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %159 = fcmp olt double %145, %158
@@ -16442,7 +16442,7 @@ define linkonce_odr noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
   %37 = load ptr, ptr %22, align 8
-  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %39 = load ptr, ptr %16, align 8
@@ -16468,7 +16468,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %50 = load ptr, ptr %22, align 8
-  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %52 = fcmp olt double %38, %51
@@ -16569,7 +16569,7 @@ define linkonce_odr ptr @_ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %38 = load ptr, ptr %23, align 8
-  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %40 = load ptr, ptr %17, align 8
@@ -16595,7 +16595,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %23, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %53 = fcmp olt double %39, %52
@@ -16725,7 +16725,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %92 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %56 = getelementptr inbounds i8, ptr %54, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %59 = load ptr, ptr %53, align 8
@@ -16751,7 +16751,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM22RegressionQuantileloss15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %70 = load ptr, ptr %56, align 8
-  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %72 = fcmp olt double %58, %71
@@ -18692,7 +18692,7 @@ define linkonce_odr void @_ZN8LightGBM13BinaryLoglossD2Ev(ptr noundef nonnull al
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -18716,7 +18716,7 @@ define linkonce_odr void @_ZN8LightGBM13BinaryLoglossD0Ev(ptr noundef nonnull al
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN8LightGBM13BinaryLoglossD2Ev.exit unwind label %7
 
 7:                                                ; preds = %4
@@ -19192,7 +19192,7 @@ define internal void @_ZN8LightGBM13BinaryLogloss4InitERKNS_8MetadataEi.omp_outl
 
 36:                                               ; preds = %28
   %37 = load ptr, ptr %26, align 8
-  %38 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %38 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %39 unwind label %.loopexit
 
 39:                                               ; preds = %36
@@ -19385,7 +19385,7 @@ define internal void @_ZNK8LightGBM13BinaryLogloss12GetGradientsEPKdPfS3_.omp_ou
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %24, align 8
-  %37 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %37 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %38 unwind label %.loopexit
 
 38:                                               ; preds = %35
@@ -19511,7 +19511,7 @@ define internal void @_ZNK8LightGBM13BinaryLogloss12GetGradientsEPKdPfS3_.omp_ou
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %24, align 8
-  %38 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %38 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %39 unwind label %.loopexit
 
 39:                                               ; preds = %36
@@ -19651,7 +19651,7 @@ define internal void @_ZNK8LightGBM13BinaryLogloss14BoostFromScoreEi.omp_outline
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %26, align 8
-  %39 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %39 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %40 unwind label %.loopexit
 
 40:                                               ; preds = %37
@@ -19801,7 +19801,7 @@ define internal void @_ZNK8LightGBM13BinaryLogloss14BoostFromScoreEi.omp_outline
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %24, align 8
-  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %35 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %36 unwind label %.loopexit
 
 36:                                               ; preds = %33
@@ -26846,7 +26846,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM18RegressionMAPELOSS15RenewTree
 _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %30
   %37 = getelementptr inbounds i8, ptr %2, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   br label %328
@@ -27014,7 +27014,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 114:                                              ; preds = %104
   %115 = getelementptr inbounds i8, ptr %2, i64 24
   %116 = load ptr, ptr %115, align 8
-  %117 = invoke noundef double %116(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  %117 = invoke noundef double %116(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit78 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit78:           ; preds = %114
@@ -27070,7 +27070,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %154, %141
 141:                                              ; preds = %130
   %142 = getelementptr inbounds i8, ptr %2, i64 24
   %143 = load ptr, ptr %142, align 8
-  %144 = invoke noundef double %143(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %144 = invoke noundef double %143(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
           to label %145 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 145:                                              ; preds = %141
@@ -27100,7 +27100,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.invoke, %154, %141
 
 154:                                              ; preds = %145
   %155 = load ptr, ptr %142, align 8
-  %156 = invoke noundef double %155(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
+  %156 = invoke noundef double %155(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(4) %17)
           to label %157 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 157:                                              ; preds = %154
@@ -27152,7 +27152,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFdP
 _ZNKSt8functionIFdPKfiEEclES1_i.exit93:           ; preds = %169
   %179 = getelementptr inbounds i8, ptr %2, i64 24
   %180 = load ptr, ptr %179, align 8
-  %181 = call noundef double %180(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
+  %181 = call noundef double %180(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %328
@@ -27332,7 +27332,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET_S7_S7_
 266:                                              ; preds = %253
   %267 = getelementptr inbounds i8, ptr %2, i64 24
   %268 = load ptr, ptr %267, align 8
-  %269 = invoke noundef double %268(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %269 = invoke noundef double %268(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZNKSt8functionIFdPKfiEEclES1_i.exit133 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit135
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit133:          ; preds = %266
@@ -27392,7 +27392,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit135:                 ; preds = %.invoke295, %314, %
 297:                                              ; preds = %282
   %298 = getelementptr inbounds i8, ptr %2, i64 24
   %299 = load ptr, ptr %298, align 8
-  %300 = invoke noundef double %299(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %300 = invoke noundef double %299(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %301 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit135
 
 301:                                              ; preds = %297
@@ -27426,7 +27426,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit135:                 ; preds = %.invoke295, %314, %
 
 314:                                              ; preds = %301
   %315 = load ptr, ptr %298, align 8
-  %316 = invoke noundef double %315(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %316 = invoke noundef double %315(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %317 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit135
 
 317:                                              ; preds = %314
@@ -28198,7 +28198,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
   %31 = getelementptr inbounds i8, ptr %20, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %33 = call noundef double %32(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %34 = load ptr, ptr %21, align 8
@@ -28220,7 +28220,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %16
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %41 = load ptr, ptr %31, align 8
-  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %42 = call noundef double %41(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %43 = fcmp olt double %33, %42
@@ -28261,7 +28261,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
   %.sroa.0.012.i = phi ptr [ %.sroa.0.0.i, %71 ], [ %.pn25, %50 ]
   %.sroa.04.011.i = phi ptr [ %.sroa.0.012.i, %71 ], [ %.sroa.09.026, %50 ]
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %61 = load ptr, ptr %21, align 8
@@ -28283,7 +28283,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %50, %71
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %68 = load ptr, ptr %31, align 8
-  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %69 = call noundef double %68(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %70 = fcmp olt double %60, %69
@@ -28371,7 +28371,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %41 = getelementptr inbounds i8, ptr %29, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %43 = call noundef double %42(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %44 = load ptr, ptr %30, align 8
@@ -28393,7 +28393,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %41, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %53 = fcmp olt double %43, %52
@@ -28457,7 +28457,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %80 = load ptr, ptr %68, align 8
-  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %81 = call noundef double %80(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %82 = load ptr, ptr %66, align 8
@@ -28479,7 +28479,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %89 = load ptr, ptr %68, align 8
-  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %90 = call noundef double %89(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %91 = fcmp olt double %81, %90
@@ -28546,7 +28546,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %119 = load ptr, ptr %107, align 8
-  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %120 = call noundef double %119(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %121 = load ptr, ptr %105, align 8
@@ -28568,7 +28568,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %128 = load ptr, ptr %107, align 8
-  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %129 = call noundef double %128(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %130 = fcmp olt double %120, %129
@@ -28675,7 +28675,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %40 = load ptr, ptr %28, align 8
-  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %41 = call noundef double %40(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %42 = load ptr, ptr %26, align 8
@@ -28697,7 +28697,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %49 = load ptr, ptr %28, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %51 = fcmp olt double %41, %50
@@ -28789,7 +28789,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %85 = load ptr, ptr %73, align 8
-  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %86 = call noundef double %85(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %87 = load ptr, ptr %71, align 8
@@ -28811,7 +28811,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %94 = load ptr, ptr %73, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = fcmp olt double %86, %95
@@ -28878,7 +28878,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %124 = load ptr, ptr %112, align 8
-  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %125 = call noundef double %124(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %126 = load ptr, ptr %110, align 8
@@ -28900,7 +28900,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %133 = load ptr, ptr %112, align 8
-  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %134 = call noundef double %133(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %135 = fcmp olt double %125, %134
@@ -29093,7 +29093,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -29115,7 +29115,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -29209,7 +29209,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES2_NS0_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
   %77 = load ptr, ptr %66, align 8
-  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %78 = call noundef double %77(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %79 = load ptr, ptr %64, align 8
@@ -29231,7 +29231,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25:     ; preds = %67
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i27: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i25
   %86 = load ptr, ptr %66, align 8
-  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %87 = call noundef double %86(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %88 = fcmp olt double %78, %87
@@ -29339,7 +29339,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPiN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
   %34 = load ptr, ptr %23, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %36 = load ptr, ptr %21, align 8
@@ -29361,7 +29361,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %43 = load ptr, ptr %23, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.044.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %45 = fcmp olt double %35, %44
@@ -29455,7 +29455,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
   %79 = load ptr, ptr %68, align 8
-  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %80 = call noundef double %79(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %81 = load ptr, ptr %66, align 8
@@ -29477,7 +29477,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33:     ; preds = %69
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiSE_EEbT_T0_.exit.i35: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i33
   %88 = load ptr, ptr %68, align 8
-  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %89 = call noundef double %88(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %90 = fcmp olt double %80, %89
@@ -29597,7 +29597,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %80 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %48 = getelementptr inbounds i8, ptr %46, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %50 = call noundef double %49(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %51 = load ptr, ptr %45, align 8
@@ -29619,7 +29619,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %58 = load ptr, ptr %48, align 8
-  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %59 = call noundef double %58(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %60 = fcmp olt double %50, %59
@@ -29798,7 +29798,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
   %33 = getelementptr inbounds i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %35 = call noundef double %34(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %36 = load ptr, ptr %18, align 8
@@ -29824,7 +29824,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %13
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %47 = load ptr, ptr %33, align 8
-  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %48 = call noundef double %47(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %49 = fcmp olt double %35, %48
@@ -29917,7 +29917,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_ite
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %47 = getelementptr inbounds i8, ptr %29, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %49 = call noundef double %48(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %50 = load ptr, ptr %30, align 8
@@ -29943,7 +29943,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %61 = load ptr, ptr %47, align 8
-  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %62 = call noundef double %61(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %63 = fcmp olt double %49, %62
@@ -30013,7 +30013,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %94 = load ptr, ptr %78, align 8
-  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %95 = call noundef double %94(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %96 = load ptr, ptr %76, align 8
@@ -30039,7 +30039,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %107 = load ptr, ptr %78, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %109 = fcmp olt double %95, %108
@@ -30110,7 +30110,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i52
   %141 = load ptr, ptr %125, align 8
-  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %142 = call noundef double %141(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %143 = load ptr, ptr %123, align 8
@@ -30136,7 +30136,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i58
   %154 = load ptr, ptr %125, align 8
-  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %155 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.063.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %156 = fcmp olt double %142, %155
@@ -30223,7 +30223,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.0.012 = phi ptr [ %.sroa.0.09, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.0, %46 ]
   %.sroa.04.011 = phi ptr [ %0, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.lr.ph ], [ %.sroa.0.012, %46 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %31 = call noundef double %30(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %32 = load ptr, ptr %11, align 8
@@ -30249,7 +30249,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIiNS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %43 = load ptr, ptr %28, align 8
-  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %44 = call noundef double %43(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %45 = fcmp olt double %31, %44
@@ -30385,7 +30385,7 @@ _ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
   %46 = load ptr, ptr %31, align 8
-  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %47 = call noundef double %46(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %48 = load ptr, ptr %29, align 8
@@ -30411,7 +30411,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %32
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %59 = load ptr, ptr %31, align 8
-  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %60 = call noundef double %59(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %61 = fcmp olt double %47, %60
@@ -30546,7 +30546,7 @@ _ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_St6vectorIiSaIiEEEENS1_5_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
   %107 = load ptr, ptr %92, align 8
-  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %108 = call noundef double %107(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %109 = load ptr, ptr %90, align 8
@@ -30572,7 +30572,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28:     ; preds = %93
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i28
   %120 = load ptr, ptr %92, align 8
-  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %121 = call noundef double %120(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.037.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %122 = fcmp olt double %108, %121
@@ -30708,7 +30708,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
   %44 = load ptr, ptr %28, align 8
-  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
+  %45 = call noundef double %44(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   %46 = load ptr, ptr %26, align 8
@@ -30734,7 +30734,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i:       ; preds = %30
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESF_EEbT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i
   %57 = load ptr, ptr %28, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0104.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %59 = fcmp olt double %45, %58
@@ -30832,7 +30832,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i
   %97 = load ptr, ptr %81, align 8
-  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %98 = call noundef double %97(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %99 = load ptr, ptr %79, align 8
@@ -30858,7 +30858,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEES9_EEbT_RT0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i74
   %110 = load ptr, ptr %81, align 8
-  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %111 = call noundef double %110(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %112 = fcmp olt double %98, %111
@@ -30929,7 +30929,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i83
   %144 = load ptr, ptr %128, align 8
-  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %145 = call noundef double %144(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %146 = load ptr, ptr %126, align 8
@@ -30955,7 +30955,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89:     ; preds = %_ZSt7advanceIN9__gn
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIS9_NS_17__normal_iteratorIPiSt6vectorIiSaIiEEEEEEbRT_T0_.exit.i: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.i89
   %157 = load ptr, ptr %128, align 8
-  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %158 = call noundef double %157(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %159 = fcmp olt double %145, %158
@@ -31139,7 +31139,7 @@ define linkonce_odr noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iterat
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
   %37 = load ptr, ptr %22, align 8
-  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %38 = call noundef double %37(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %39 = load ptr, ptr %16, align 8
@@ -31165,7 +31165,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %23
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclINS_17__normal_iteratorIPiSt6vectorIiSaIiEEEESJ_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %50 = load ptr, ptr %22, align 8
-  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %51 = call noundef double %50(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %52 = fcmp olt double %38, %51
@@ -31266,7 +31266,7 @@ define linkonce_odr ptr @_ZSt12__move_mergeIPiN9__gnu_cxx17__normal_iteratorIS0_
 
 _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
   %38 = load ptr, ptr %23, align 8
-  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %39 = call noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %40 = load ptr, ptr %17, align 8
@@ -31292,7 +31292,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %24
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiSE_EEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %51 = load ptr, ptr %23, align 8
-  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %52 = call noundef double %51(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %53 = fcmp olt double %39, %52
@@ -31422,7 +31422,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
   %.sroa.024.035 = phi ptr [ %.sroa.024.1, %92 ], [ %21, %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i.preheader ]
   %56 = getelementptr inbounds i8, ptr %54, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %58 = call noundef double %57(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %59 = load ptr, ptr %53, align 8
@@ -31448,7 +31448,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i:         ; preds = %_ZNKSt8functionIFdP
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK8LightGBM18RegressionMAPELOSS15RenewTreeOutputEdSt8functionIFdPKfiEEPKiSA_iEUliiE0_EclIPiNS_17__normal_iteratorISE_St6vectorIiSaIiEEEEEEbT_T0_.exit: ; preds = %_ZNKSt8functionIFdPKfiEEclES1_i.exit.i.i
   %70 = load ptr, ptr %56, align 8
-  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %71 = call noundef double %70(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %72 = fcmp olt double %58, %71
@@ -33264,7 +33264,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %93 unwind label %58
 
 93:                                               ; preds = %91
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %92, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(64) %92, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM22RegressionQuantilelossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %96
 
 _ZN8LightGBM22RegressionQuantilelossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %93
@@ -33323,7 +33323,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %111 unwind label %58
 
 111:                                              ; preds = %109
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %110, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %110, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %124
 
 .noexc:                                           ; preds = %111
@@ -33410,7 +33410,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %139 unwind label %58
 
 139:                                              ; preds = %137
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %138, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %138, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %142
 
 _ZN8LightGBM18RegressionFairLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %139
@@ -33469,7 +33469,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %157 unwind label %58
 
 157:                                              ; preds = %155
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %156, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %156, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %160
 
 _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %157
@@ -33724,7 +33724,7 @@ _ZN8LightGBM21RegressionPoissonLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt1
           to label %240 unwind label %58
 
 240:                                              ; preds = %238
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %239, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(88) %239, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %244
 
 _ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %240
@@ -33761,7 +33761,7 @@ _ZN8LightGBM18RegressionMAPELOSSC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11ch
           to label %251 unwind label %58
 
 251:                                              ; preds = %249
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %250, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(72) %250, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %254
 
 _ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %251
@@ -33796,7 +33796,7 @@ _ZN8LightGBM19RegressionGammaLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11c
           to label %261 unwind label %58
 
 261:                                              ; preds = %259
-  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(57) %260, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN8LightGBM16RegressionL2lossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %260, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN8LightGBM21RegressionTweedieLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %264
 
 _ZN8LightGBM21RegressionTweedieLossC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit: ; preds = %261
@@ -34302,7 +34302,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.i, label %_ZNSt8functionIFbfEED2Ev.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %61 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFbfEED2Ev.exit unwind label %62
 
 62:                                               ; preds = %60

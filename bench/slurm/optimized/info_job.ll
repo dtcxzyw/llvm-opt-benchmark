@@ -1714,7 +1714,7 @@ _parse_stepid.exit:                               ; preds = %63
   br i1 %.not.i13, label %71, label %70
 
 70:                                               ; preds = %69
-  call fastcc void @_list_pids_one_step(ptr noundef %1, ptr noundef %8)
+  call fastcc void @_list_pids_one_step(ptr noundef %1, ptr noundef nonnull %8)
   br label %_list_pids_all_steps.exit
 
 71:                                               ; preds = %.thread, %69
@@ -2357,7 +2357,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
 
 24:                                               ; preds = %21, %16
   %.1.i = phi i32 [ %23, %21 ], [ %.042.i, %16 ]
-  %25 = tail call i32 @slurm_job_node_ready(i32 noundef %2) #13
+  %25 = tail call i32 @slurm_job_node_ready(i32 noundef range(i32 1, 0) %2) #13
   switch i32 %25, label %26 [
     i32 -2, label %.thread39.i
     i32 -1, label %32
@@ -2403,7 +2403,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_
 .sink.split.i:                                    ; preds = %.thread39.i, %41, %35
   %.str.75.sink.i = phi ptr [ @.str.75, %35 ], [ @.str.76, %41 ], [ @.str.77, %.thread39.i ]
   %.026.ph.i = phi i32 [ 0, %35 ], [ -1, %41 ], [ -1, %.thread39.i ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.75.sink.i, i32 noundef %2) #13
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.75.sink.i, i32 noundef range(i32 1, 0) %2) #13
   br label %_wait_nodes_ready.exit
 
 _wait_nodes_ready.exit:                           ; preds = %.sink.split.i, %.thread39.i, %41, %35, %9, %7, %4

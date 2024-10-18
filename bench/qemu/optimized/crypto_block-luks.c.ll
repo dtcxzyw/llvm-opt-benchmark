@@ -1488,7 +1488,7 @@ for.inc.i:                                        ; preds = %if.then68.i, %for.b
 for.end.i:                                        ; preds = %for.inc.i
   %slots_to_erase_bitmap.val.i = load i64, ptr %slots_to_erase_bitmap.i, align 8
   %and6.i.i = and i64 %slots_to_erase_bitmap.val.i, 255
-  %26 = call range(i64 0, 9) i64 @llvm.ctpop.i64(i64 %and6.i.i)
+  %26 = call range(i64 0, 9) i64 @llvm.ctpop.i64(i64 range(i64 0, 256) %and6.i.i)
   %conv72.i = trunc nuw nsw i64 %26 to i32
   %cmp73.i = icmp eq i64 %and6.i.i, 0
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i

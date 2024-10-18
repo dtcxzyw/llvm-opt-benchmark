@@ -924,7 +924,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %mutex_, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -963,7 +963,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %arrayidx.i.i = getelementptr inbounds [7 x %"class.std::__cxx11::basic_string"], ptr %colors_, i64 0, i64 %conv
   %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   ret void
 
 lpad2:                                            ; preds = %if.then.i
@@ -974,7 +974,7 @@ lpad2:                                            ; preds = %if.then.i
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad2
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad.i ]
-  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -1000,7 +1000,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %mutex_, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1095,7 +1095,7 @@ lpad2:                                            ; preds = %if.then.i, %_ZNSt10
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(288) %formatted) #16
-  %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   resume { ptr, i32 } %21
 
 if.else:                                          ; preds = %land.lhs.true, %invoke.cont3
@@ -1121,7 +1121,7 @@ if.then.i.i32:                                    ; preds = %if.end
 
 _ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %if.end, %if.then.i.i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #16
-  %call1.i.i.i34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   ret void
 }
 
@@ -1183,7 +1183,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13co
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %mutex_, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1195,7 +1195,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %target_file_ = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load ptr, ptr %target_file_, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   ret void
 }
 
@@ -1208,7 +1208,7 @@ entry:
   %agg.tmp8 = alloca %"class.std::unordered_map", align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %mutex_, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1302,7 +1302,7 @@ _ZNSt13unordered_mapIcSt10unique_ptrIN6spdlog21custom_flag_formatterESt14default
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
-  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   ret void
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -1340,7 +1340,7 @@ cleanup.action:                                   ; preds = %lpad2, %ehcleanup
 
 ehcleanup14:                                      ; preds = %cleanup.action, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %cleanup.action ], [ %11, %lpad ]
-  %call1.i.i.i6 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i6 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -1412,7 +1412,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details13co
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 456
   %0 = load ptr, ptr %mutex_, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #16
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -1437,7 +1437,7 @@ _ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNS
   br label %_ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNKSt14default_deleteIN6spdlog9formatterEEclEPS1_.exit.i.i.i.i
-  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #16
+  %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   ret void
 }
 
@@ -3376,7 +3376,7 @@ entry:
   %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -3900,7 +3900,7 @@ if.end8.sink.split.i.i.i.i151:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160: ; preds = %_ZNSt10shared_ptrIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details13console_mutexEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i148, %if.end8.sink.split.i.i.i.i151
-  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   ret void
 
 lpad11:                                           ; preds = %invoke.cont9
@@ -3927,7 +3927,7 @@ ehcleanup16:                                      ; preds = %_ZNSt15__allocated_
 
 ehcleanup17:                                      ; preds = %ehcleanup16, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup16 ], [ %29, %lpad ]
-  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4052,7 +4052,7 @@ entry:
   %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -4576,7 +4576,7 @@ if.end8.sink.split.i.i.i.i151:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160: ; preds = %_ZNSt10shared_ptrIN6spdlog5sinks21ansicolor_stdout_sinkINS0_7details17console_nullmutexEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i148, %if.end8.sink.split.i.i.i.i151
-  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   ret void
 
 lpad11:                                           ; preds = %invoke.cont9
@@ -4603,7 +4603,7 @@ ehcleanup16:                                      ; preds = %_ZNSt15__allocated_
 
 ehcleanup17:                                      ; preds = %ehcleanup16, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup16 ], [ %29, %lpad ]
-  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4648,7 +4648,7 @@ entry:
   %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -5172,7 +5172,7 @@ if.end8.sink.split.i.i.i.i151:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160: ; preds = %_ZNSt10shared_ptrIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details13console_mutexEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i148, %if.end8.sink.split.i.i.i.i151
-  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   ret void
 
 lpad11:                                           ; preds = %invoke.cont9
@@ -5199,7 +5199,7 @@ ehcleanup16:                                      ; preds = %_ZNSt15__allocated_
 
 ehcleanup17:                                      ; preds = %ehcleanup16, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup16 ], [ %29, %lpad ]
-  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -5244,7 +5244,7 @@ entry:
   %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
-  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
 
@@ -5768,7 +5768,7 @@ if.end8.sink.split.i.i.i.i151:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit160: ; preds = %_ZNSt10shared_ptrIN6spdlog5sinks21ansicolor_stderr_sinkINS0_7details17console_nullmutexEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i138, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i148, %if.end8.sink.split.i.i.i.i151
-  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i161 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   ret void
 
 lpad11:                                           ; preds = %invoke.cont9
@@ -5795,7 +5795,7 @@ ehcleanup16:                                      ; preds = %_ZNSt15__allocated_
 
 ehcleanup17:                                      ; preds = %ehcleanup16, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup16 ], [ %29, %lpad ]
-  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %call1) #16
+  %call1.i.i.i.i162 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %call1) #16
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -7939,7 +7939,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8weak_ptrIN6spdlog7details11thread_poolEED2Ev.exit.i.i.i
 
 _ZNSt8weak_ptrIN6spdlog7details11thread_poolEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %entry
-  tail call void @_ZN6spdlog6loggerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %_M_impl.i) #16
+  tail call void @_ZN6spdlog6loggerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %_M_impl.i) #16
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -8265,7 +8265,7 @@ _ZN6spdlog7details10backtracerD2Ev.exit:          ; preds = %invoke.cont.i.i.i, 
 
 if.then.i.i:                                      ; preds = %_ZN6spdlog7details10backtracerD2Ev.exit
   %custom_err_handler_ = getelementptr inbounds i8, ptr %this, i64 72
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %custom_err_handler_, ptr noundef nonnull align 8 dereferenceable(16) %custom_err_handler_, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %custom_err_handler_, ptr noundef nonnull align 8 dereferenceable(32) %custom_err_handler_, i32 noundef 3)
           to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i

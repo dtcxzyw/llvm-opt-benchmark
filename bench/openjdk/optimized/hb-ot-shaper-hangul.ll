@@ -284,7 +284,7 @@ _ZL18is_zero_width_charP9hb_font_tj.exit:         ; preds = %73
 
 _ZN9hb_font_t9has_glyphEj.exit:                   ; preds = %96, %103
   %106 = phi ptr [ %105, %103 ], [ null, %96 ]
-  %107 = call noundef i32 %99(ptr noundef nonnull %2, ptr noundef %100, i32 noundef 9676, ptr noundef nonnull %11, ptr noundef %106)
+  %107 = call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %100, i32 noundef 9676, ptr noundef nonnull %11, ptr noundef %106)
   %.not261 = icmp eq i32 %107, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br i1 %.not261, label %140, label %108
@@ -511,7 +511,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %163, %149, %._crit_
 
 _ZN9hb_font_t9has_glyphEj.exit171:                ; preds = %210, %222
   %225 = phi ptr [ %224, %222 ], [ null, %210 ]
-  %226 = call noundef i32 %218(ptr noundef nonnull %2, ptr noundef %219, i32 noundef %215, ptr noundef nonnull %9, ptr noundef %225)
+  %226 = call noundef i32 %218(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %219, i32 noundef %215, ptr noundef nonnull %9, ptr noundef %225)
   %.not260 = icmp eq i32 %226, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br i1 %.not260, label %253, label %227
@@ -767,7 +767,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit199:           ; preds = %_ZN11hb_buffer_t10n
 
 _ZN9hb_font_t9has_glyphEj.exit201:                ; preds = %352, %359
   %362 = phi ptr [ %361, %359 ], [ null, %352 ]
-  %363 = call noundef i32 %355(ptr noundef nonnull %2, ptr noundef %356, i32 noundef %42, ptr noundef nonnull %8, ptr noundef %362)
+  %363 = call noundef i32 %355(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %356, i32 noundef %42, ptr noundef nonnull %8, ptr noundef %362)
   %364 = icmp ne i32 %363, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %.lhs.trunc277 = trunc nuw i32 %350 to i16
@@ -815,7 +815,7 @@ _ZN9hb_font_t9has_glyphEj.exit201:                ; preds = %352, %359
 
 _ZN9hb_font_t9has_glyphEj.exit203:                ; preds = %381, %390
   %393 = phi ptr [ %392, %390 ], [ null, %381 ]
-  %394 = call noundef i32 %386(ptr noundef nonnull %2, ptr noundef %387, i32 noundef %383, ptr noundef nonnull %7, ptr noundef %393)
+  %394 = call noundef i32 %386(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %387, i32 noundef %383, ptr noundef nonnull %7, ptr noundef %393)
   %.not255 = icmp eq i32 %394, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br i1 %.not255, label %421, label %395
@@ -927,7 +927,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216: ; preds = %395, %.lr.ph.i20
 
 _ZN9hb_font_t9has_glyphEj.exit218:                ; preds = %439, %450
   %453 = phi ptr [ %452, %450 ], [ null, %439 ]
-  %454 = call noundef i32 %446(ptr noundef nonnull %2, ptr noundef %447, i32 noundef %441, ptr noundef nonnull %6, ptr noundef %453)
+  %454 = call noundef i32 %446(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %447, i32 noundef %441, ptr noundef nonnull %6, ptr noundef %453)
   %.not257 = icmp eq i32 %454, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br i1 %.not257, label %558, label %455
@@ -951,7 +951,7 @@ _ZN9hb_font_t9has_glyphEj.exit218:                ; preds = %439, %450
 
 _ZN9hb_font_t9has_glyphEj.exit220:                ; preds = %455, %462
   %465 = phi ptr [ %464, %462 ], [ null, %455 ]
-  %466 = call noundef i32 %458(ptr noundef nonnull %2, ptr noundef %459, i32 noundef %442, ptr noundef nonnull %5, ptr noundef %465)
+  %466 = call noundef i32 %458(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %459, i32 noundef %442, ptr noundef nonnull %5, ptr noundef %465)
   %.not258 = icmp eq i32 %466, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %.not258, label %558, label %467
@@ -978,7 +978,7 @@ _ZN9hb_font_t9has_glyphEj.exit220:                ; preds = %455, %462
 
 _ZN9hb_font_t9has_glyphEj.exit222:                ; preds = %468, %475
   %478 = phi ptr [ %477, %475 ], [ null, %468 ]
-  %479 = call noundef i32 %471(ptr noundef nonnull %2, ptr noundef %472, i32 noundef %443, ptr noundef nonnull %4, ptr noundef %478)
+  %479 = call noundef i32 %471(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %472, i32 noundef %443, ptr noundef nonnull %4, ptr noundef %478)
   %.not259 = icmp eq i32 %479, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %.not259, label %.thread248, label %480

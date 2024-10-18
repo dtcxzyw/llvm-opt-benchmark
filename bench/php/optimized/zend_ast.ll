@@ -1834,7 +1834,7 @@ define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unna
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 3
-  %6 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %4)
+  %6 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 4, 0) %4)
   %7 = icmp samesign ult i32 %6, 2
   %or.cond = select i1 %5, i1 %7, i1 false
   br i1 %or.cond, label %8, label %36
@@ -1882,7 +1882,7 @@ define noundef ptr @zend_ast_list_add(ptr noundef %0, ptr noundef %1) local_unna
 
 zend_ast_realloc.exit:                            ; preds = %24, %26
   %.0.i.i = phi ptr [ %16, %24 ], [ %31, %26 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 range(i64 16, 34359738377) %11, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %36
@@ -3999,7 +3999,7 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %855
   br i1 %.not.i1103, label %.thread1214, label %983
 
 .thread1214:                                      ; preds = %981
-  %982 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef %.0787, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4)
+  %982 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef %.0787, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %4)
   br label %zend_ast_evaluate_ex.exit1111
 
 983:                                              ; preds = %981
@@ -4015,7 +4015,7 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %855
   %.0.i1106 = load i32, ptr %990, align 4
   %991 = zext i32 %.0.i1106 to i64
   store i64 %991, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
-  %992 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef nonnull %.0787, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
+  %992 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef nonnull %.0787, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %4)
   store ptr %984, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
   store i64 %985, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   br label %zend_ast_evaluate_ex.exit1111
@@ -4114,7 +4114,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %983
   %1030 = getelementptr inbounds %struct._zval_struct, ptr %1026, i64 %indvars.iv1265
   %1031 = getelementptr inbounds [1 x ptr], ptr %1028, i64 0, i64 %indvars.iv1265
   %1032 = load ptr, ptr %1031, align 8
-  %1033 = call i32 @zend_ast_evaluate_inner(ptr noundef %1030, ptr noundef %1032, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4)
+  %1033 = call i32 @zend_ast_evaluate_inner(ptr noundef %1030, ptr noundef %1032, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %4)
   %1034 = icmp eq i32 %1033, -1
   br i1 %1034, label %.preheader, label %1035
 
@@ -4140,7 +4140,7 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %983
   %.0.i1115 = load i32, ptr %1046, align 4
   %1047 = zext i32 %.0.i1115 to i64
   store i64 %1047, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
-  %1048 = call i32 @zend_ast_evaluate_inner(ptr noundef %1039, ptr noundef nonnull %1041, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
+  %1048 = call i32 @zend_ast_evaluate_inner(ptr noundef %1039, ptr noundef nonnull %1041, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %4)
   store ptr %.pre, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
   store i64 %.pre1277, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %1049 = icmp eq i32 %1048, -1
@@ -6504,7 +6504,7 @@ tailrecurse.backedge:                             ; preds = %248, %1207, %2002, 
 512:                                              ; preds = %505, %496
   %513 = getelementptr inbounds [1 x ptr], ptr %495, i64 0, i64 %indvars.iv6132
   %514 = load ptr, ptr %513, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %514, i32 noundef 20, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %514, i32 noundef 20, i32 noundef %3)
   %indvars.iv.next6133 = add nuw nsw i64 %indvars.iv6132, 1
   %515 = load i32, ptr %493, align 8
   %516 = zext i32 %515 to i64
@@ -6653,7 +6653,7 @@ tailrecurse.backedge:                             ; preds = %248, %1207, %2002, 
   %indvars.iv = phi i64 [ 0, %.lr.ph5857 ], [ %indvars.iv.next, %582 ]
   %583 = getelementptr inbounds [1 x ptr], ptr %581, i64 0, i64 %indvars.iv
   %584 = load ptr, ptr %583, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %584, i32 noundef 0, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %584, i32 noundef 0, i32 noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %585 = load i32, ptr %579, align 8
   %586 = zext i32 %585 to i64
@@ -8534,7 +8534,7 @@ switch.lookup7083:                                ; preds = %6
   br label %zend_ast_export_name.exit
 
 1450:                                             ; preds = %1426, %1415
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %1423, i32 noundef 0, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %1423, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_name.exit
 
 1451:                                             ; preds = %6
@@ -9532,7 +9532,7 @@ switch.lookup7083:                                ; preds = %6
   br label %zend_ast_export_name.exit
 
 1927:                                             ; preds = %1903, %1898
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %1900, i32 noundef 0, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %1900, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_name.exit
 
 1928:                                             ; preds = %6
@@ -10998,7 +10998,7 @@ switch.lookup7083:                                ; preds = %6
   br label %zend_ast_export_name.exit
 
 2631:                                             ; preds = %2607, %2596
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %2604, i32 noundef 0, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %2604, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_name.exit
 
 2632:                                             ; preds = %6
@@ -12998,7 +12998,7 @@ define internal fastcc void @zend_ast_export_attributes(ptr noundef nonnull %0, 
   br label %zend_ast_export_ns_name.exit
 
 108:                                              ; preds = %53, %48
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %50, i32 noundef 0, i32 noundef %2)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %50, i32 noundef 0, i32 noundef %2)
   br label %zend_ast_export_ns_name.exit
 
 zend_ast_export_ns_name.exit:                     ; preds = %101, %108
@@ -13037,7 +13037,7 @@ zend_ast_export_ns_name.exit:                     ; preds = %101, %108
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   store i64 %.182.i, ptr %125, align 8
   %126 = load ptr, ptr %109, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %126, i32 noundef 0, i32 noundef %2)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %126, i32 noundef 0, i32 noundef %2)
   %127 = load ptr, ptr %0, align 8
   %.not96.i = icmp eq ptr %127, null
   br i1 %.not96.i, label %133, label %128
@@ -14685,7 +14685,7 @@ define internal fastcc void @zend_ast_export_var_list(ptr noundef nonnull %0, pt
   br label %zend_ast_export_name.exit
 
 87:                                               ; preds = %63, %53
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 20, i32 noundef %2)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %60, i32 noundef 20, i32 noundef %2)
   br label %zend_ast_export_name.exit
 
 zend_ast_export_name.exit:                        ; preds = %80, %87
@@ -14802,7 +14802,7 @@ define internal fastcc void @zend_ast_export_name_list_ex(ptr noundef nonnull %0
   br label %zend_ast_export_name.exit
 
 55:                                               ; preds = %31, %26
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %2)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %2)
   br label %zend_ast_export_name.exit
 
 zend_ast_export_name.exit:                        ; preds = %48, %55
@@ -14995,7 +14995,7 @@ zend_ast_valid_var_name.exit.thread:              ; preds = %.lr.ph.i, %16, %9, 
   br label %zend_ast_export_name.exit
 
 90:                                               ; preds = %65, %56
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2)
   br label %zend_ast_export_name.exit
 
 zend_ast_export_name.exit:                        ; preds = %83, %90

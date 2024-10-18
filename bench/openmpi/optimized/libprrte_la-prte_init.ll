@@ -673,7 +673,7 @@ check_pmix_overlap.exit:                          ; preds = %.tail17.thread.i, %
 .lr.ph.i132:                                      ; preds = %234, %.lr.ph.i132
   %240 = phi ptr [ %242, %.lr.ph.i132 ], [ %239, %234 ]
   %.07.i133 = phi ptr [ %241, %.lr.ph.i132 ], [ %238, %234 ]
-  call void %240(ptr noundef %217) #11
+  call void %240(ptr noundef nonnull %217) #11
   %241 = getelementptr inbounds i8, ptr %.07.i133, i64 8
   %242 = load ptr, ptr %241, align 8
   %.not.i134 = icmp eq ptr %242, null
@@ -770,7 +770,7 @@ pmix_obj_run_destructors.exit141:                 ; preds = %.lr.ph.i138, %._cri
 .lr.ph.i145:                                      ; preds = %281, %.lr.ph.i145
   %287 = phi ptr [ %289, %.lr.ph.i145 ], [ %286, %281 ]
   %.07.i146 = phi ptr [ %288, %.lr.ph.i145 ], [ %285, %281 ]
-  call void %287(ptr noundef %264) #11
+  call void %287(ptr noundef nonnull %264) #11
   %288 = getelementptr inbounds i8, ptr %.07.i146, i64 8
   %289 = load ptr, ptr %288, align 8
   %.not.i147 = icmp eq ptr %289, null
@@ -864,7 +864,7 @@ pmix_obj_run_destructors.exit154:                 ; preds = %.lr.ph.i151, %._cri
 .lr.ph.i158:                                      ; preds = %327, %.lr.ph.i158
   %333 = phi ptr [ %335, %.lr.ph.i158 ], [ %332, %327 ]
   %.07.i159 = phi ptr [ %334, %.lr.ph.i158 ], [ %331, %327 ]
-  call void %333(ptr noundef %310) #11
+  call void %333(ptr noundef nonnull %310) #11
   %334 = getelementptr inbounds i8, ptr %.07.i159, i64 8
   %335 = load ptr, ptr %334, align 8
   %.not.i160 = icmp eq ptr %335, null

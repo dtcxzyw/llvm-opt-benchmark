@@ -497,7 +497,7 @@ ensure_bufsize.exit246:                           ; preds = %156
 
 184:                                              ; preds = %176
   %185 = add i64 %.12.ph, 512
-  %186 = call ptr @realloc(ptr noundef %.010.i244.ph, i64 noundef %185) #14
+  %186 = call ptr @realloc(ptr noundef nonnull %.010.i244.ph, i64 noundef %185) #14
   %.not.i248 = icmp eq ptr %186, null
   br i1 %.not.i248, label %ensure_bufsize.exit249.thread, label %.ensure_bufsize.exit249.thread358_crit_edge
 
@@ -511,7 +511,7 @@ ensure_bufsize.exit249.thread:                    ; preds = %184
   %189 = call ptr @strerror(i32 noundef %188) #13
   %190 = load i32, ptr %187, align 4
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %189, i32 noundef %190) #13
-  call void @free(ptr noundef %.010.i244.ph) #13
+  call void @free(ptr noundef nonnull %.010.i244.ph) #13
   br label %.loopexit
 
 ensure_bufsize.exit249:                           ; preds = %176

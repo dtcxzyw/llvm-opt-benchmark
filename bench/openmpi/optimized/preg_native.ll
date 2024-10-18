@@ -1978,7 +1978,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
 
 112:                                              ; preds = %.lr.ph.i.i
   store i8 0, ptr %109, align 1
-  %113 = tail call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %59, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %113 = tail call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.03346.i.i, i32 noundef %59, ptr noundef %.0106.i, ptr noundef nonnull %1)
   switch i32 %113, label %114 [
     i32 0, label %116
     i32 -2, label %regex_parse_value_ranges.exit.i
@@ -2024,7 +2024,7 @@ define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1
   br label %130
 
 130:                                              ; preds = %129, %124, %122
-  %131 = tail call fastcc i32 @regex_parse_value_range(ptr noundef readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %59, ptr noundef %.0106.i, ptr noundef nonnull %1)
+  %131 = tail call fastcc i32 @regex_parse_value_range(ptr noundef nonnull readonly %.0108.i, ptr noundef %.033.lcssa.i.i, i32 noundef %59, ptr noundef %.0106.i, ptr noundef nonnull %1)
   switch i32 %131, label %132 [
     i32 0, label %134
     i32 -2, label %regex_parse_value_ranges.exit.i

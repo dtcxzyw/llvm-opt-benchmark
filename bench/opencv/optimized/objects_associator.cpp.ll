@@ -874,7 +874,7 @@ _ZN2cv4Mat_IfEaSERKf.exit:                        ; preds = %_ZN2cv4Mat_IfE6crea
   br label %415
 
 ._crit_edge289:                                   ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph, %.preheader267
-  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %9)
+  invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %.noexc187 unwind label %371
 
 .noexc187:                                        ; preds = %._crit_edge289
@@ -922,7 +922,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %380
 387:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, %.noexc.i.i.i.i
   %388 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #21
+  call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
   br label %.body188
 
 389:                                              ; preds = %383, %.noexc4.i.thread.i

@@ -5736,7 +5736,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   br i1 %224, label %260, label %.thread.i
 
 260:                                              ; preds = %259
-  %261 = call fastcc i32 @modify_prefix_route(ptr noundef %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext false), !range !86
+  %261 = call fastcc i32 @modify_prefix_route(ptr noundef nonnull %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext false), !range !86
   %262 = icmp eq i32 %261, -2
   br i1 %262, label %.thread.i, label %.thread7.i
 
@@ -5809,7 +5809,7 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
   br i1 %304, label %307, label %305
 
 305:                                              ; preds = %.thread7.i
-  %306 = call fastcc i32 @modify_prefix_route(ptr noundef %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext true), !range !86
+  %306 = call fastcc i32 @modify_prefix_route(ptr noundef nonnull %127, i64 noundef %176, i32 noundef %177, i1 noundef zeroext true), !range !86
   br label %307
 
 307:                                              ; preds = %305, %.thread7.i
@@ -13890,7 +13890,7 @@ define internal fastcc void @addrconf_dad_run(ptr noundef nonnull %0, i1 noundef
 68:                                               ; preds = %66, %62
   %69 = load ptr, ptr @addrconf_wq, align 8
   %70 = getelementptr i8, ptr %8, i64 -120
-  %71 = call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %69, ptr noundef %70, i64 noundef %37) #20
+  %71 = call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %69, ptr noundef %70, i64 noundef range(i64 -2147483648, 4294967296) %37) #20
   br i1 %71, label %72, label %addrconf_mod_dad_work.exit
 
 72:                                               ; preds = %68

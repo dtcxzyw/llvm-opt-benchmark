@@ -162,7 +162,7 @@ define void @_ZNK16TimelineDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11
           to label %_ZNK11QModelIndex4dataEi.exit unwind label %81
 
 34:                                               ; preds = %25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !4
   %35 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %35, align 8, !alias.scope !4
   br label %_ZNK11QModelIndex4dataEi.exit
@@ -659,7 +659,7 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %_ZNK8QPalette10wind
           to label %_ZNK11QModelIndex4dataEi.exit118 unwind label %81
 
 252:                                              ; preds = %246
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 24, i1 false), !alias.scope !7
   %253 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 2, ptr %253, align 8, !alias.scope !7
   br label %_ZNK11QModelIndex4dataEi.exit118
@@ -717,7 +717,7 @@ _ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %260, %_ZN17QArrayDa
   call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %268) #13
   %269 = getelementptr inbounds i8, ptr %8, i64 88
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %269) #13
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #13
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %8) #13
   ret void
 
 270:                                              ; preds = %232
@@ -797,7 +797,7 @@ define linkonce_odr void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull a
           to label %18 unwind label %43
 
 18:                                               ; preds = %11
-  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN12QStyleOptionaSERKS_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %18
@@ -993,7 +993,7 @@ define linkonce_odr void @_ZN16TimelineDelegateD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16TimelineDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #13
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }

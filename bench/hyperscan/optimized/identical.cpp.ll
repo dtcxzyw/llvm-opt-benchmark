@@ -15517,7 +15517,7 @@ invoke.cont69:                                    ; preds = %invoke.cont63
   br i1 %cmp.i.i.i32, label %if.then.i.i.i45, label %if.end.i.i.i33
 
 if.then.i.i.i45:                                  ; preds = %invoke.cont69
-  %call2.i14.i.i47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i30, i64 noundef 0)
+  %call2.i14.i.i47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(80) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i.i30, i64 noundef 0)
           to label %call2.i14.i.i.noexc46 unwind label %lpad62
 
 call2.i14.i.i.noexc46:                            ; preds = %if.then.i.i.i45

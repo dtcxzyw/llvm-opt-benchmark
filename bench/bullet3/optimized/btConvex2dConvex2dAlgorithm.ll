@@ -202,7 +202,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i
   unreachable
 
 _ZN27btConvex2dConvex2dAlgorithmD2Ev.exit:        ; preds = %entry, %if.then.i, %if.then3.i
-  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
+  tail call void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -276,7 +276,7 @@ if.end:                                           ; preds = %if.then, %entry
   store float %mul, ptr %m_maximumDistanceSquared.i, align 4
   %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
   %13 = load ptr, ptr %m_worldTransform.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %13, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -289,7 +289,7 @@ if.end:                                           ; preds = %if.then, %entry
   %m_worldTransform.i13 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
   %14 = load ptr, ptr %m_worldTransform.i13, align 8
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %14, i64 16, i1 false)
   %arrayidx5.i.i14 = getelementptr inbounds i8, ptr %14, i64 16
   %arrayidx7.i.i15 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i15, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i14, i64 16, i1 false)
@@ -474,7 +474,7 @@ lpad20:                                           ; preds = %invoke.cont21
 lpad23:                                           ; preds = %invoke.cont22
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd1) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #14
   br label %eh.resume
 
 if.end41:                                         ; preds = %if.then38, %if.then34
@@ -496,8 +496,8 @@ if.then52:                                        ; preds = %if.end49
 
 invoke.cont64:                                    ; preds = %if.end49, %if.then52, %invoke.cont32
   %resultFraction.0 = phi float [ %21, %if.then52 ], [ 1.000000e+00, %if.end49 ], [ 1.000000e+00, %invoke.cont32 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd1) #14
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere1) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #14
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere1) #14
   %m_collisionShape.i69 = getelementptr inbounds i8, ptr %col1, i64 200
   %25 = load ptr, ptr %m_collisionShape.i69, align 8
   %m_ccdSweptSphereRadius.i70 = getelementptr inbounds i8, ptr %col0, i64 304
@@ -564,7 +564,7 @@ lpad63:                                           ; preds = %invoke.cont64
 lpad67:                                           ; preds = %invoke.cont66
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd165) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd165) #14
   br label %eh.resume
 
 if.end86:                                         ; preds = %if.then83, %if.then78
@@ -586,8 +586,8 @@ if.then97:                                        ; preds = %if.end94
 
 if.end100:                                        ; preds = %if.end94, %if.then97, %invoke.cont76
   %resultFraction.1 = phi float [ %28, %if.then97 ], [ %resultFraction.0, %if.end94 ], [ %resultFraction.0, %invoke.cont76 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd165) #14
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere0) #14
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd165) #14
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0) #14
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end100
@@ -597,7 +597,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 eh.resume:                                        ; preds = %lpad67, %lpad63, %lpad23, %lpad20
   %sphere0.sink = phi ptr [ %sphere1, %lpad20 ], [ %sphere1, %lpad23 ], [ %sphere0, %lpad63 ], [ %sphere0, %lpad67 ]
   %.pn35.pn.pn = phi { ptr, i32 } [ %22, %lpad20 ], [ %23, %lpad23 ], [ %29, %lpad63 ], [ %30, %lpad67 ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere0.sink) #14
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0.sink) #14
   resume { ptr, i32 } %.pn35.pn.pn
 }
 
@@ -625,7 +625,7 @@ entry:
   %3 = load ptr, ptr %m_simplexSolver, align 8
   %m_pdSolver = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_pdSolver, align 8
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(49) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
   store ptr getelementptr inbounds (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %call, align 8
   %m_simplexSolver.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %3, ptr %m_simplexSolver.i, align 8

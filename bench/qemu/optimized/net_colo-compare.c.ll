@@ -1504,7 +1504,7 @@ entry:
   ]
 
 packet_matches_str.exit:                          ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly @.str.56, ptr nonnull readonly %buf, i64 %conv.i)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull @.str.56, ptr nonnull readonly %buf, i64 %conv.i)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.else9
 
@@ -1545,7 +1545,7 @@ if.then3:                                         ; preds = %compare_chr_send.ex
   br label %if.end11
 
 packet_matches_str.exit16:                        ; preds = %entry
-  %bcmp.i14 = tail call i32 @bcmp(ptr nonnull readonly @.str.58, ptr nonnull readonly %buf, i64 %conv.i)
+  %bcmp.i14 = tail call i32 @bcmp(ptr nonnull @.str.58, ptr nonnull readonly %buf, i64 %conv.i)
   %tobool.not.i15 = icmp eq i32 %bcmp.i14, 0
   br i1 %tobool.not.i15, label %if.then8, label %if.else9
 
@@ -2027,11 +2027,11 @@ if.then8.i.i93.i:                                 ; preds = %if.then.i.i90.i
   %call10.i.i95.i = tail call i32 @qemu_get_thread_id() #16
   %50 = load i64, ptr %_now.i.i83.i, align 8
   %51 = load i64, ptr %tv_usec.i.i96.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i95.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i95.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef range(i32 0, 256) %conv.i, i32 noundef range(i32 0, 65536) %conv49.i, i32 noundef range(i32 0, 65536) %conv50.i, i32 noundef range(i32 0, 256) %conv51.i) #16
   br label %trace_colo_compare_tcp_info.exit.i
 
 if.else.i.i92.i:                                  ; preds = %if.then.i.i90.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef %conv.i, i32 noundef %conv49.i, i32 noundef %conv50.i, i32 noundef %conv51.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.33, i32 noundef %40, i32 noundef %41, i32 noundef range(i32 0, 256) %conv.i, i32 noundef range(i32 0, 65536) %conv49.i, i32 noundef range(i32 0, 65536) %conv50.i, i32 noundef range(i32 0, 256) %conv51.i) #16
   br label %trace_colo_compare_tcp_info.exit.i
 
 trace_colo_compare_tcp_info.exit.i:               ; preds = %if.else.i.i92.i, %if.then8.i.i93.i, %land.lhs.true5.i.i87.i, %if.then47.i
@@ -2075,11 +2075,11 @@ if.then8.i.i107.i:                                ; preds = %if.then.i.i104.i
   %call10.i.i109.i = tail call i32 @qemu_get_thread_id() #16
   %62 = load i64, ptr %_now.i.i97.i, align 8
   %63 = load i64, ptr %tv_usec.i.i110.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i109.i, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i109.i, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef range(i32 0, 256) %conv55.i, i32 noundef range(i32 0, 65536) %conv57.i, i32 noundef range(i32 0, 65536) %conv59.i, i32 noundef range(i32 0, 256) %conv61.i) #16
   br label %trace_colo_compare_tcp_info.exit111.i
 
 if.else.i.i106.i:                                 ; preds = %if.then.i.i104.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef %conv55.i, i32 noundef %conv57.i, i32 noundef %conv59.i, i32 noundef %conv61.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.34, i32 noundef %52, i32 noundef %53, i32 noundef range(i32 0, 256) %conv55.i, i32 noundef range(i32 0, 65536) %conv57.i, i32 noundef range(i32 0, 65536) %conv59.i, i32 noundef range(i32 0, 256) %conv61.i) #16
   br label %trace_colo_compare_tcp_info.exit111.i
 
 trace_colo_compare_tcp_info.exit111.i:            ; preds = %if.else.i.i106.i, %if.then8.i.i107.i, %land.lhs.true5.i.i101.i, %trace_colo_compare_tcp_info.exit.i

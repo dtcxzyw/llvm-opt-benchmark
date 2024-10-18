@@ -401,12 +401,12 @@ invoke.cont3:                                     ; preds = %if.then.i15, %entry
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i.i.i, align 8
   %alloc_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %arena, ptr %alloc_.i.i.i.i.i.i, align 8
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %invoke.cont3
   %5 = getelementptr inbounds i8, ptr %from, i64 16
-  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %.noexc1.i unwind label %lpad.i
 
 .noexc1.i:                                        ; preds = %.noexc.i
@@ -415,7 +415,7 @@ invoke.cont3:                                     ; preds = %if.then.i15, %entry
           to label %.noexc2.i unwind label %lpad.i
 
 .noexc2.i:                                        ; preds = %.noexc1.i
-  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %_ZN6google8protobuf6Struct5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc2.i, %.noexc1.i, %.noexc.i, %invoke.cont3
@@ -463,7 +463,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i
 
 _ZN6google8protobuf6Struct10SharedDtorEv.exit:    ; preds = %invoke.cont, %invoke.cont.i.i.i.i.i
   %5 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #24
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i
@@ -576,14 +576,14 @@ define noundef ptr @_ZNK6google8protobuf6Struct18_InternalSerializeEPhPNS0_2io19
 entry:
   %ref.tmp = alloca %"class.google::protobuf::internal::MapSorterPtr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %if.end48, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %is_serialization_deterministic_.i = getelementptr inbounds i8, ptr %stream, i64 58
   %3 = load i8, ptr %is_serialization_deterministic_.i, align 2
   %tobool.i = trunc i8 %3 to i1
@@ -1046,7 +1046,7 @@ if.then.i.i27:                                    ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11ENS0_5ValueEE5WriteEiRKS5_PhPNS0_2io19EpsCopyOutputStreamE.exit: ; preds = %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit, %if.then.i.i27
   %retval.0.i.i30 = phi ptr [ %call.i.i28, %if.then.i.i27 ], [ %retval.i.0.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit ]
   %9 = load atomic i32, ptr %_cached_size_.i.i.i monotonic, align 8
-  %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %value, i32 noundef %9, ptr noundef %retval.0.i.i30, ptr noundef nonnull %stream)
+  %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %value, i32 noundef %9, ptr noundef %retval.0.i.i30, ptr noundef nonnull %stream)
   ret ptr %call2.i
 }
 
@@ -1064,11 +1064,11 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 define noundef i64 @_ZNK6google8protobuf6Struct12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %1, align 8
   %conv.i = zext i32 %2 to i64
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %index_of_first_non_null_.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %index_of_first_non_null_.i.i.i, align 4, !noalias !13
   %num_buckets_.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
@@ -1265,7 +1265,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %3)
   %4 = getelementptr inbounds i8, ptr %this, i64 32
   %5 = getelementptr inbounds i8, ptr %other, i64 32
   %6 = load i32, ptr %4, align 8
@@ -2609,7 +2609,7 @@ for.body.i:                                       ; preds = %sw.bb18, %for.body.
 _ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit: ; preds = %for.body.i, %sw.bb18
   %total_size.0.i.lcssa = phi i64 [ 0, %sw.bb18 ], [ %add9.i, %for.body.i ]
   %_cached_size_.i = getelementptr inbounds i8, ptr %14, i64 40
-  %call11.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %total_size.0.i.lcssa, ptr noundef nonnull %_cached_size_.i)
+  %call11.i = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %total_size.0.i.lcssa, ptr noundef nonnull %_cached_size_.i)
   %conv.i19 = trunc i64 %call11.i to i32
   %or.i.i20 = or i32 %conv.i19, 1
   %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i20, i1 true)
@@ -2639,7 +2639,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  tail call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %from)
+  tail call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %from)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2692,7 +2692,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf9ListValueE, i64 16), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -2722,7 +2722,7 @@ if.then.i12:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %if.then.i12, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 24
   %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
@@ -2760,7 +2760,7 @@ invoke.cont:                                      ; preds = %entry, %if.then.i
   br i1 %cmp.i.not.i.i.i, label %_ZN6google8protobuf9ListValue10SharedDtorEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyProtosEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
           to label %_ZN6google8protobuf9ListValue10SharedDtorEv.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i
@@ -3086,7 +3086,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = getelementptr inbounds i8, ptr %other, i64 16
-  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %3)
   ret void
 }
 
@@ -3342,7 +3342,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
-  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(88) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
+  %call9.i.i = tail call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEii(ptr noundef nonnull align 8 dereferenceable(112) %ctx, i32 noundef %conv.i.i, i32 noundef %0)
   %5 = extractvalue { ptr, i8 } %call9.i.i, 0
   %6 = extractvalue { ptr, i8 } %call9.i.i, 1
   %tobool.i.i = trunc i8 %6 to i1
@@ -3672,7 +3672,7 @@ if.end.i.i:                                       ; preds = %for.body
   %second.i = getelementptr inbounds i8, ptr %9, i64 40
   %second = getelementptr inbounds i8, ptr %__begin0.sroa.0.019, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second)
   br label %_ZN6google8protobuf5ValueaSERKS1_.exit
 
 _ZN6google8protobuf5ValueaSERKS1_.exit:           ; preds = %for.body, %if.end.i.i
@@ -4513,7 +4513,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont.i.i
   unreachable
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEED2Ev.exit: ; preds = %entry, %invoke.cont.i.i
-  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #24
+  tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #24
   ret void
 }
 
@@ -4543,7 +4543,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8int
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE18LookupMapValueImplERKNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_16MapValueConstRefE(ptr noundef nonnull align 8 dereferenceable(16) %self, ptr noundef nonnull align 8 dereferenceable(36) %map_key, ptr noundef %val) #3 comdat align 2 {
 entry:
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %self)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %self)
   %0 = getelementptr inbounds i8, ptr %self, i64 16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key)
   %call.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #24, !noalias !29
@@ -4569,8 +4569,8 @@ return:                                           ; preds = %if.then3, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE18DeleteMapValueImplERNS1_12MapFieldBaseERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(16) %map, ptr noundef nonnull align 8 dereferenceable(36) %map_key) #3 comdat align 2 {
 entry:
-  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(16) %map)
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(16) %map)
+  tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(48) %map)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(48) %map)
   %0 = getelementptr inbounds i8, ptr %map, i64 16
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key)
   %call.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i) #24, !noalias !34
@@ -4626,11 +4626,11 @@ if.end:                                           ; preds = %entry
 
 if.end.i.i.i:                                     ; preds = %if.end
   store i32 9, ptr %type_.i.i.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %key_) #24
   br label %_ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal9SetMapKeyEPNS0_6MapKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end, %if.end.i.i.i
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %key_, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(36) %key_, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %value_ = getelementptr inbounds i8, ptr %map_iter, i64 72
@@ -4688,7 +4688,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE21UnsafeShallowSwapImplERNS1_12MapFieldBaseESC_(ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs) #3 comdat align 2 {
 entry:
-  tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull %rhs)
+  tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(48) %lhs, ptr noundef nonnull %rhs)
   %0 = getelementptr inbounds i8, ptr %lhs, i64 16
   %1 = getelementptr inbounds i8, ptr %rhs, i64 16
   %2 = load i32, ptr %0, align 8
@@ -5287,7 +5287,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.i
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
   %second2.i.i.i = getelementptr inbounds i8, ptr %12, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i
@@ -5427,7 +5427,7 @@ if.then.i.i.i7:                                   ; preds = %for.body.i
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i7
   %second2.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   call void @_ZN6google8protobuf5Value5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i)
-  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %second.i)
+  call void @_ZN6google8protobuf5Value9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %second2.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %second.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE11try_emplaceIRKS7_JRKS8_EEESt4pairINS9_8iteratorEbEOT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i7, %for.body.i
@@ -5543,7 +5543,7 @@ for.body.i:                                       ; preds = %_ZN6google8protobuf
   %kv.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.020.i, i64 8
   %call.i.i = tail call noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %kv.i.i)
   %second.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.020.i, i64 40
-  %call.i4.i = tail call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i)
+  %call.i4.i = tail call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i)
   %sub.i.i = add i64 %size.022.i, -32
   %add.i = add i64 %sub.i.i, %call.i.i
   %add4.i = add i64 %add.i, %call.i4.i

@@ -308,7 +308,7 @@ define void @_ZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanI
           to label %.noexc unwind label %31
 
 .noexc:                                           ; preds = %6
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc7 unwind label %31
 
 .noexc7:                                          ; preds = %.noexc
@@ -318,7 +318,7 @@ define void @_ZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanI
 19:                                               ; preds = %.noexc7
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc7
@@ -642,7 +642,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   store ptr %177, ptr %175, align 8, !noalias !14
   %178 = getelementptr inbounds i8, ptr %143, i64 16
   %179 = getelementptr inbounds i8, ptr %143, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, i8 0, i64 16, i1 false), !noalias !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 16, i1 false), !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %179, align 8, !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %178, align 8, !noalias !14
   %180 = getelementptr inbounds i8, ptr %169, i64 24
@@ -657,7 +657,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   br i1 %.not.i.i.i.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIfEEDaT_EUlSF_T0_E_fEEDaSF_SG_.exit.i", label %185
 
 185:                                              ; preds = %183
-  %186 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %143, i32 noundef 3)
+  %186 = invoke noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %143, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIfEEDaT_EUlSF_T0_E_fEEDaSF_SG_.exit.i" unwind label %187
 
 187:                                              ; preds = %185
@@ -675,7 +675,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   br i1 %.not.i.i2.i.i, label %common.resume, label %193
 
 193:                                              ; preds = %190
-  %194 = invoke noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %143, i32 noundef 3)
+  %194 = invoke noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %143, i32 noundef 3)
           to label %common.resume unwind label %195
 
 195:                                              ; preds = %193
@@ -711,7 +711,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   store ptr %208, ptr %206, align 8, !noalias !17
   %209 = getelementptr inbounds i8, ptr %141, i64 16
   %210 = getelementptr inbounds i8, ptr %141, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false), !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 16, i1 false), !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %210, align 8, !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %209, align 8, !noalias !17
   %211 = getelementptr inbounds i8, ptr %200, i64 24
@@ -726,7 +726,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br i1 %.not.i.i.i11.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIfEEDaT_EUlSF_T0_E0_fEEDaSF_SG_.exit.i", label %216
 
 216:                                              ; preds = %214
-  %217 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %141, i32 noundef 3)
+  %217 = invoke noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIfEEDaT_EUlSF_T0_E0_fEEDaSF_SG_.exit.i" unwind label %218
 
 218:                                              ; preds = %216
@@ -744,7 +744,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br i1 %.not.i.i2.i9.i, label %common.resume, label %224
 
 224:                                              ; preds = %221
-  %225 = invoke noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %141, i32 noundef 3)
+  %225 = invoke noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %141, i32 noundef 3)
           to label %common.resume unwind label %226
 
 226:                                              ; preds = %224
@@ -776,7 +776,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   store ptr %239, ptr %237, align 8, !noalias !20
   %240 = getelementptr inbounds i8, ptr %139, i64 16
   %241 = getelementptr inbounds i8, ptr %139, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false), !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, i8 0, i64 16, i1 false), !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %241, align 8, !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %240, align 8, !noalias !20
   %242 = getelementptr inbounds i8, ptr %231, i64 24
@@ -791,7 +791,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br i1 %.not.i.i.i14.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_.exit.i", label %247
 
 247:                                              ; preds = %245
-  %248 = invoke noundef zeroext i1 %246(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %139, i32 noundef 3)
+  %248 = invoke noundef zeroext i1 %246(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %139, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_.exit.i" unwind label %249
 
 249:                                              ; preds = %247
@@ -809,7 +809,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br i1 %.not.i.i2.i12.i, label %common.resume, label %255
 
 255:                                              ; preds = %252
-  %256 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %139, i32 noundef 3)
+  %256 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %139, i32 noundef 3)
           to label %common.resume unwind label %257
 
 257:                                              ; preds = %255
@@ -881,7 +881,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
           to label %.noexc.i unwind label %283, !noalias !11
 
 .noexc.i:                                         ; preds = %278
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef %279, ptr noundef nonnull align 1 dereferenceable(1) %148)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef %279, ptr noundef nonnull align 1 dereferenceable(1) %148)
           to label %.noexc15.i unwind label %283, !noalias !11
 
 .noexc15.i:                                       ; preds = %.noexc.i
@@ -891,7 +891,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
 280:                                              ; preds = %.noexc15.i
   %281 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %147) #12, !noalias !11
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %147) #12, !noalias !11
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc15.i
@@ -961,7 +961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %300, ptr %298, align 8, !noalias !26
   %301 = getelementptr inbounds i8, ptr %132, i64 16
   %302 = getelementptr inbounds i8, ptr %132, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false), !noalias !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 16, i1 false), !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %302, align 8, !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %301, align 8, !noalias !26
   %303 = getelementptr inbounds i8, ptr %292, i64 24
@@ -976,7 +976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i.i24, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIdEEDaT_EUlSF_T0_E_dEEDaSF_SG_.exit.i", label %308
 
 308:                                              ; preds = %306
-  %309 = invoke noundef zeroext i1 %307(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3)
+  %309 = invoke noundef zeroext i1 %307(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIdEEDaT_EUlSF_T0_E_dEEDaSF_SG_.exit.i" unwind label %310
 
 310:                                              ; preds = %308
@@ -994,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i2.i.i23, label %common.resume, label %316
 
 316:                                              ; preds = %313
-  %317 = invoke noundef zeroext i1 %315(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(16) %132, i32 noundef 3)
+  %317 = invoke noundef zeroext i1 %315(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %132, i32 noundef 3)
           to label %common.resume unwind label %318
 
 318:                                              ; preds = %316
@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %331, ptr %329, align 8, !noalias !29
   %332 = getelementptr inbounds i8, ptr %130, i64 16
   %333 = getelementptr inbounds i8, ptr %130, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, i8 0, i64 16, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 16, i1 false), !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %333, align 8, !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %332, align 8, !noalias !29
   %334 = getelementptr inbounds i8, ptr %323, i64 24
@@ -1041,7 +1041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i11.i22, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIdEEDaT_EUlSF_T0_E0_dEEDaSF_SG_.exit.i", label %339
 
 339:                                              ; preds = %337
-  %340 = invoke noundef zeroext i1 %338(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %130, i32 noundef 3)
+  %340 = invoke noundef zeroext i1 %338(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIdEEDaT_EUlSF_T0_E0_dEEDaSF_SG_.exit.i" unwind label %341
 
 341:                                              ; preds = %339
@@ -1059,7 +1059,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i2.i9.i21, label %common.resume, label %347
 
 347:                                              ; preds = %344
-  %348 = invoke noundef zeroext i1 %346(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %130, i32 noundef 3)
+  %348 = invoke noundef zeroext i1 %346(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(32) %130, i32 noundef 3)
           to label %common.resume unwind label %349
 
 349:                                              ; preds = %347
@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   store ptr %362, ptr %360, align 8, !noalias !32
   %363 = getelementptr inbounds i8, ptr %128, i64 16
   %364 = getelementptr inbounds i8, ptr %128, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, i8 0, i64 16, i1 false), !noalias !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 16, i1 false), !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %364, align 8, !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %363, align 8, !noalias !32
   %365 = getelementptr inbounds i8, ptr %354, i64 24
@@ -1106,7 +1106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i.i14.i20, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_.exit.i", label %370
 
 370:                                              ; preds = %368
-  %371 = invoke noundef zeroext i1 %369(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %128, i32 noundef 3)
+  %371 = invoke noundef zeroext i1 %369(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_.exit.i" unwind label %372
 
 372:                                              ; preds = %370
@@ -1124,7 +1124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br i1 %.not.i.i2.i12.i19, label %common.resume, label %378
 
 378:                                              ; preds = %375
-  %379 = invoke noundef zeroext i1 %377(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %128, i32 noundef 3)
+  %379 = invoke noundef zeroext i1 %377(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %128, i32 noundef 3)
           to label %common.resume unwind label %380
 
 380:                                              ; preds = %378
@@ -1196,7 +1196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %.noexc.i27 unwind label %406, !noalias !23
 
 .noexc.i27:                                       ; preds = %401
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %402, ptr noundef nonnull align 1 dereferenceable(1) %137)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef %402, ptr noundef nonnull align 1 dereferenceable(1) %137)
           to label %.noexc15.i28 unwind label %406, !noalias !23
 
 .noexc15.i28:                                     ; preds = %.noexc.i27
@@ -1206,7 +1206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 403:                                              ; preds = %.noexc15.i28
   %404 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %136) #12, !noalias !23
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #12, !noalias !23
   br label %.body.i25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: ; preds = %.noexc15.i28
@@ -1276,7 +1276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %423, ptr %421, align 8, !noalias !38
   %424 = getelementptr inbounds i8, ptr %121, i64 16
   %425 = getelementptr inbounds i8, ptr %121, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 16, i1 false), !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %425, align 8, !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %424, align 8, !noalias !38
   %426 = getelementptr inbounds i8, ptr %415, i64 24
@@ -1291,7 +1291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i.i.i37, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIeEEDaT_EUlSF_T0_E_eEEDaSF_SG_.exit.i", label %431
 
 431:                                              ; preds = %429
-  %432 = invoke noundef zeroext i1 %430(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %121, i32 noundef 3)
+  %432 = invoke noundef zeroext i1 %430(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIeEEDaT_EUlSF_T0_E_eEEDaSF_SG_.exit.i" unwind label %433
 
 433:                                              ; preds = %431
@@ -1309,7 +1309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i2.i.i36, label %common.resume, label %439
 
 439:                                              ; preds = %436
-  %440 = invoke noundef zeroext i1 %438(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %121, i32 noundef 3)
+  %440 = invoke noundef zeroext i1 %438(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %121, i32 noundef 3)
           to label %common.resume unwind label %441
 
 441:                                              ; preds = %439
@@ -1341,7 +1341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %454, ptr %452, align 8, !noalias !41
   %455 = getelementptr inbounds i8, ptr %119, i64 16
   %456 = getelementptr inbounds i8, ptr %119, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false), !noalias !41
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 16, i1 false), !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %456, align 8, !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %455, align 8, !noalias !41
   %457 = getelementptr inbounds i8, ptr %446, i64 24
@@ -1356,7 +1356,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i.i11.i35, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIeEEDaT_EUlSF_T0_E0_eEEDaSF_SG_.exit.i", label %462
 
 462:                                              ; preds = %460
-  %463 = invoke noundef zeroext i1 %461(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %119, i32 noundef 3)
+  %463 = invoke noundef zeroext i1 %461(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %119, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIeEEDaT_EUlSF_T0_E0_eEEDaSF_SG_.exit.i" unwind label %464
 
 464:                                              ; preds = %462
@@ -1374,7 +1374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i2.i9.i34, label %common.resume, label %470
 
 470:                                              ; preds = %467
-  %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %119, i32 noundef 3)
+  %471 = invoke noundef zeroext i1 %469(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %119, i32 noundef 3)
           to label %common.resume unwind label %472
 
 472:                                              ; preds = %470
@@ -1406,7 +1406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   store ptr %485, ptr %483, align 8, !noalias !44
   %486 = getelementptr inbounds i8, ptr %117, i64 16
   %487 = getelementptr inbounds i8, ptr %117, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false), !noalias !44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 16, i1 false), !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %487, align 8, !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %486, align 8, !noalias !44
   %488 = getelementptr inbounds i8, ptr %477, i64 24
@@ -1421,7 +1421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i.i14.i33, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_.exit.i", label %493
 
 493:                                              ; preds = %491
-  %494 = invoke noundef zeroext i1 %492(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %117, i32 noundef 3)
+  %494 = invoke noundef zeroext i1 %492(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %117, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_.exit.i" unwind label %495
 
 495:                                              ; preds = %493
@@ -1439,7 +1439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br i1 %.not.i.i2.i12.i32, label %common.resume, label %501
 
 501:                                              ; preds = %498
-  %502 = invoke noundef zeroext i1 %500(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %117, i32 noundef 3)
+  %502 = invoke noundef zeroext i1 %500(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %117, i32 noundef 3)
           to label %common.resume unwind label %503
 
 503:                                              ; preds = %501
@@ -1511,7 +1511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
           to label %.noexc.i40 unwind label %529, !noalias !35
 
 .noexc.i40:                                       ; preds = %524
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef %525, ptr noundef nonnull align 1 dereferenceable(1) %126)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef %525, ptr noundef nonnull align 1 dereferenceable(1) %126)
           to label %.noexc15.i41 unwind label %529, !noalias !35
 
 .noexc15.i41:                                     ; preds = %.noexc.i40
@@ -1521,7 +1521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
 526:                                              ; preds = %.noexc15.i41
   %527 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #12, !noalias !35
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #12, !noalias !35
   br label %.body.i38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: ; preds = %.noexc15.i41
@@ -1588,7 +1588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %543, ptr %541, align 8, !noalias !50
   %544 = getelementptr inbounds i8, ptr %113, i64 16
   %545 = getelementptr inbounds i8, ptr %113, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false), !noalias !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 16, i1 false), !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %545, align 8, !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %544, align 8, !noalias !50
   %546 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1603,7 +1603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i.i46, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_.exit.i", label %551
 
 551:                                              ; preds = %549
-  %552 = invoke noundef zeroext i1 %550(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 3)
+  %552 = invoke noundef zeroext i1 %550(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %113, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E_aEEDaSF_SG_.exit.i" unwind label %553
 
 553:                                              ; preds = %551
@@ -1621,7 +1621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i.i45, label %common.resume, label %559
 
 559:                                              ; preds = %556
-  %560 = invoke noundef zeroext i1 %558(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 3)
+  %560 = invoke noundef zeroext i1 %558(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %113, i32 noundef 3)
           to label %common.resume unwind label %561
 
 561:                                              ; preds = %559
@@ -1651,7 +1651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %572, ptr %570, align 8, !noalias !53
   %573 = getelementptr inbounds i8, ptr %111, i64 16
   %574 = getelementptr inbounds i8, ptr %111, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false), !noalias !53
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 16, i1 false), !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %574, align 8, !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %573, align 8, !noalias !53
   %575 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1666,7 +1666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i12.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E0_aEEDaSF_SG_.exit.i", label %580
 
 580:                                              ; preds = %578
-  %581 = invoke noundef zeroext i1 %579(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %111, i32 noundef 3)
+  %581 = invoke noundef zeroext i1 %579(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIaEEDaT_EUlSF_T0_E0_aEEDaSF_SG_.exit.i" unwind label %582
 
 582:                                              ; preds = %580
@@ -1684,7 +1684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i10.i, label %common.resume, label %588
 
 588:                                              ; preds = %585
-  %589 = invoke noundef zeroext i1 %587(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %111, i32 noundef 3)
+  %589 = invoke noundef zeroext i1 %587(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %111, i32 noundef 3)
           to label %common.resume unwind label %590
 
 590:                                              ; preds = %588
@@ -1714,7 +1714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %601, ptr %599, align 8, !noalias !56
   %602 = getelementptr inbounds i8, ptr %109, i64 16
   %603 = getelementptr inbounds i8, ptr %109, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false), !noalias !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, i8 0, i64 16, i1 false), !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %603, align 8, !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %602, align 8, !noalias !56
   %604 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1729,7 +1729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i15.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_.exit.i", label %609
 
 609:                                              ; preds = %607
-  %610 = invoke noundef zeroext i1 %608(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %109, i32 noundef 3)
+  %610 = invoke noundef zeroext i1 %608(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_.exit.i" unwind label %611
 
 611:                                              ; preds = %609
@@ -1747,7 +1747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i13.i, label %common.resume, label %617
 
 617:                                              ; preds = %614
-  %618 = invoke noundef zeroext i1 %616(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %109, i32 noundef 3)
+  %618 = invoke noundef zeroext i1 %616(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3)
           to label %common.resume unwind label %619
 
 619:                                              ; preds = %617
@@ -1777,7 +1777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %630, ptr %628, align 8, !noalias !59
   %631 = getelementptr inbounds i8, ptr %107, i64 16
   %632 = getelementptr inbounds i8, ptr %107, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false), !noalias !59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 0, i64 16, i1 false), !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %632, align 8, !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %631, align 8, !noalias !59
   %633 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1792,7 +1792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i18.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_.exit.i", label %638
 
 638:                                              ; preds = %636
-  %639 = invoke noundef zeroext i1 %637(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef 3)
+  %639 = invoke noundef zeroext i1 %637(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %107, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_.exit.i" unwind label %640
 
 640:                                              ; preds = %638
@@ -1810,7 +1810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i16.i, label %common.resume, label %646
 
 646:                                              ; preds = %643
-  %647 = invoke noundef zeroext i1 %645(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef 3)
+  %647 = invoke noundef zeroext i1 %645(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %107, i32 noundef 3)
           to label %common.resume unwind label %648
 
 648:                                              ; preds = %646
@@ -1840,7 +1840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %659, ptr %657, align 8, !noalias !62
   %660 = getelementptr inbounds i8, ptr %105, i64 16
   %661 = getelementptr inbounds i8, ptr %105, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false), !noalias !62
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 0, i64 16, i1 false), !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %661, align 8, !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %660, align 8, !noalias !62
   %662 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1855,7 +1855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i21.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_.exit.i", label %667
 
 667:                                              ; preds = %665
-  %668 = invoke noundef zeroext i1 %666(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %105, i32 noundef 3)
+  %668 = invoke noundef zeroext i1 %666(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_.exit.i" unwind label %669
 
 669:                                              ; preds = %667
@@ -1873,7 +1873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i19.i, label %common.resume, label %675
 
 675:                                              ; preds = %672
-  %676 = invoke noundef zeroext i1 %674(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %105, i32 noundef 3)
+  %676 = invoke noundef zeroext i1 %674(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3)
           to label %common.resume unwind label %677
 
 677:                                              ; preds = %675
@@ -1903,7 +1903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   store ptr %688, ptr %686, align 8, !noalias !65
   %689 = getelementptr inbounds i8, ptr %103, i64 16
   %690 = getelementptr inbounds i8, ptr %103, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false), !noalias !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 16, i1 false), !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %690, align 8, !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %689, align 8, !noalias !65
   %691 = getelementptr inbounds i8, ptr %.val2, i64 24
@@ -1918,7 +1918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i.i24.i, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_.exit.i", label %696
 
 696:                                              ; preds = %694
-  %697 = invoke noundef zeroext i1 %695(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %103, i32 noundef 3)
+  %697 = invoke noundef zeroext i1 %695(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_.exit.i" unwind label %698
 
 698:                                              ; preds = %696
@@ -1936,7 +1936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
   br i1 %.not.i.i2.i22.i, label %common.resume, label %704
 
 704:                                              ; preds = %701
-  %705 = invoke noundef zeroext i1 %703(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %103, i32 noundef 3)
+  %705 = invoke noundef zeroext i1 %703(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %103, i32 noundef 3)
           to label %common.resume unwind label %706
 
 706:                                              ; preds = %704
@@ -1957,7 +1957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
           to label %.noexc.i49 unwind label %714, !noalias !47
 
 .noexc.i49:                                       ; preds = %709
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef %710, ptr noundef nonnull align 1 dereferenceable(1) %115)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef %710, ptr noundef nonnull align 1 dereferenceable(1) %115)
           to label %.noexc25.i unwind label %714, !noalias !47
 
 .noexc25.i:                                       ; preds = %.noexc.i49
@@ -1967,7 +1967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 711:                                              ; preds = %.noexc25.i
   %712 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %114) #12, !noalias !47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #12, !noalias !47
   br label %.body.i47
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: ; preds = %.noexc25.i
@@ -2031,7 +2031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %728, ptr %726, align 8, !noalias !71
   %729 = getelementptr inbounds i8, ptr %99, i64 16
   %730 = getelementptr inbounds i8, ptr %99, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false), !noalias !71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 16, i1 false), !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %730, align 8, !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %729, align 8, !noalias !71
   %731 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2046,7 +2046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i.i64, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_.exit.i", label %736
 
 736:                                              ; preds = %734
-  %737 = invoke noundef zeroext i1 %735(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 3)
+  %737 = invoke noundef zeroext i1 %735(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E_sEEDaSF_SG_.exit.i" unwind label %738
 
 738:                                              ; preds = %736
@@ -2064,7 +2064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i.i63, label %common.resume, label %744
 
 744:                                              ; preds = %741
-  %745 = invoke noundef zeroext i1 %743(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 3)
+  %745 = invoke noundef zeroext i1 %743(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef 3)
           to label %common.resume unwind label %746
 
 746:                                              ; preds = %744
@@ -2094,7 +2094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %757, ptr %755, align 8, !noalias !74
   %758 = getelementptr inbounds i8, ptr %97, i64 16
   %759 = getelementptr inbounds i8, ptr %97, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false), !noalias !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, i8 0, i64 16, i1 false), !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %759, align 8, !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %758, align 8, !noalias !74
   %760 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2109,7 +2109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i12.i62, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E0_sEEDaSF_SG_.exit.i", label %765
 
 765:                                              ; preds = %763
-  %766 = invoke noundef zeroext i1 %764(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 3)
+  %766 = invoke noundef zeroext i1 %764(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIsEEDaT_EUlSF_T0_E0_sEEDaSF_SG_.exit.i" unwind label %767
 
 767:                                              ; preds = %765
@@ -2127,7 +2127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i10.i61, label %common.resume, label %773
 
 773:                                              ; preds = %770
-  %774 = invoke noundef zeroext i1 %772(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 3)
+  %774 = invoke noundef zeroext i1 %772(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3)
           to label %common.resume unwind label %775
 
 775:                                              ; preds = %773
@@ -2157,7 +2157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %786, ptr %784, align 8, !noalias !77
   %787 = getelementptr inbounds i8, ptr %95, i64 16
   %788 = getelementptr inbounds i8, ptr %95, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false), !noalias !77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 16, i1 false), !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %788, align 8, !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %787, align 8, !noalias !77
   %789 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2172,7 +2172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i15.i60, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_.exit.i", label %794
 
 794:                                              ; preds = %792
-  %795 = invoke noundef zeroext i1 %793(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %95, i32 noundef 3)
+  %795 = invoke noundef zeroext i1 %793(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_.exit.i" unwind label %796
 
 796:                                              ; preds = %794
@@ -2190,7 +2190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i13.i59, label %common.resume, label %802
 
 802:                                              ; preds = %799
-  %803 = invoke noundef zeroext i1 %801(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %95, i32 noundef 3)
+  %803 = invoke noundef zeroext i1 %801(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef 3)
           to label %common.resume unwind label %804
 
 804:                                              ; preds = %802
@@ -2220,7 +2220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %815, ptr %813, align 8, !noalias !80
   %816 = getelementptr inbounds i8, ptr %93, i64 16
   %817 = getelementptr inbounds i8, ptr %93, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false), !noalias !80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 16, i1 false), !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %817, align 8, !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %816, align 8, !noalias !80
   %818 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2235,7 +2235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i18.i58, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_.exit.i", label %823
 
 823:                                              ; preds = %821
-  %824 = invoke noundef zeroext i1 %822(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %93, i32 noundef 3)
+  %824 = invoke noundef zeroext i1 %822(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %93, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_.exit.i" unwind label %825
 
 825:                                              ; preds = %823
@@ -2253,7 +2253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i16.i57, label %common.resume, label %831
 
 831:                                              ; preds = %828
-  %832 = invoke noundef zeroext i1 %830(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %93, i32 noundef 3)
+  %832 = invoke noundef zeroext i1 %830(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %93, i32 noundef 3)
           to label %common.resume unwind label %833
 
 833:                                              ; preds = %831
@@ -2283,7 +2283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %844, ptr %842, align 8, !noalias !83
   %845 = getelementptr inbounds i8, ptr %91, i64 16
   %846 = getelementptr inbounds i8, ptr %91, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false), !noalias !83
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false), !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %846, align 8, !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %845, align 8, !noalias !83
   %847 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2298,7 +2298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i21.i56, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_.exit.i", label %852
 
 852:                                              ; preds = %850
-  %853 = invoke noundef zeroext i1 %851(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %91, i32 noundef 3)
+  %853 = invoke noundef zeroext i1 %851(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %91, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_.exit.i" unwind label %854
 
 854:                                              ; preds = %852
@@ -2316,7 +2316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i19.i55, label %common.resume, label %860
 
 860:                                              ; preds = %857
-  %861 = invoke noundef zeroext i1 %859(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %91, i32 noundef 3)
+  %861 = invoke noundef zeroext i1 %859(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %91, i32 noundef 3)
           to label %common.resume unwind label %862
 
 862:                                              ; preds = %860
@@ -2346,7 +2346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   store ptr %873, ptr %871, align 8, !noalias !86
   %874 = getelementptr inbounds i8, ptr %89, i64 16
   %875 = getelementptr inbounds i8, ptr %89, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false), !noalias !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, i8 0, i64 16, i1 false), !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %875, align 8, !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %874, align 8, !noalias !86
   %876 = getelementptr inbounds i8, ptr %.val4, i64 24
@@ -2361,7 +2361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i.i24.i54, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_.exit.i", label %881
 
 881:                                              ; preds = %879
-  %882 = invoke noundef zeroext i1 %880(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef 3)
+  %882 = invoke noundef zeroext i1 %880(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_.exit.i" unwind label %883
 
 883:                                              ; preds = %881
@@ -2379,7 +2379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
   br i1 %.not.i.i2.i22.i51, label %common.resume, label %889
 
 889:                                              ; preds = %886
-  %890 = invoke noundef zeroext i1 %888(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %89, i32 noundef 3)
+  %890 = invoke noundef zeroext i1 %888(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3)
           to label %common.resume unwind label %891
 
 891:                                              ; preds = %889
@@ -2400,7 +2400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
           to label %.noexc.i67 unwind label %899, !noalias !68
 
 .noexc.i67:                                       ; preds = %894
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %895, ptr noundef nonnull align 1 dereferenceable(1) %101)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef %895, ptr noundef nonnull align 1 dereferenceable(1) %101)
           to label %.noexc25.i68 unwind label %899, !noalias !68
 
 .noexc25.i68:                                     ; preds = %.noexc.i67
@@ -2410,7 +2410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 896:                                              ; preds = %.noexc25.i68
   %897 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #12, !noalias !68
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #12, !noalias !68
   br label %.body.i65
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: ; preds = %.noexc25.i68
@@ -2474,7 +2474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %913, ptr %911, align 8, !noalias !92
   %914 = getelementptr inbounds i8, ptr %85, i64 16
   %915 = getelementptr inbounds i8, ptr %85, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false), !noalias !92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 16, i1 false), !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %915, align 8, !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %914, align 8, !noalias !92
   %916 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2489,7 +2489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i.i83, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_.exit.i", label %921
 
 921:                                              ; preds = %919
-  %922 = invoke noundef zeroext i1 %920(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 3)
+  %922 = invoke noundef zeroext i1 %920(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E_iEEDaSF_SG_.exit.i" unwind label %923
 
 923:                                              ; preds = %921
@@ -2507,7 +2507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i.i82, label %common.resume, label %929
 
 929:                                              ; preds = %926
-  %930 = invoke noundef zeroext i1 %928(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef 3)
+  %930 = invoke noundef zeroext i1 %928(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %common.resume unwind label %931
 
 931:                                              ; preds = %929
@@ -2537,7 +2537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %942, ptr %940, align 8, !noalias !95
   %943 = getelementptr inbounds i8, ptr %83, i64 16
   %944 = getelementptr inbounds i8, ptr %83, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !noalias !95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 16, i1 false), !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %944, align 8, !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %943, align 8, !noalias !95
   %945 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2552,7 +2552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i12.i81, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E0_iEEDaSF_SG_.exit.i", label %950
 
 950:                                              ; preds = %948
-  %951 = invoke noundef zeroext i1 %949(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %83, i32 noundef 3)
+  %951 = invoke noundef zeroext i1 %949(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIiEEDaT_EUlSF_T0_E0_iEEDaSF_SG_.exit.i" unwind label %952
 
 952:                                              ; preds = %950
@@ -2570,7 +2570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i10.i80, label %common.resume, label %958
 
 958:                                              ; preds = %955
-  %959 = invoke noundef zeroext i1 %957(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %83, i32 noundef 3)
+  %959 = invoke noundef zeroext i1 %957(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef 3)
           to label %common.resume unwind label %960
 
 960:                                              ; preds = %958
@@ -2600,7 +2600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %971, ptr %969, align 8, !noalias !98
   %972 = getelementptr inbounds i8, ptr %81, i64 16
   %973 = getelementptr inbounds i8, ptr %81, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false), !noalias !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 16, i1 false), !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %973, align 8, !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %972, align 8, !noalias !98
   %974 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2615,7 +2615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i15.i79, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_.exit.i", label %979
 
 979:                                              ; preds = %977
-  %980 = invoke noundef zeroext i1 %978(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef 3)
+  %980 = invoke noundef zeroext i1 %978(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_.exit.i" unwind label %981
 
 981:                                              ; preds = %979
@@ -2633,7 +2633,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i13.i78, label %common.resume, label %987
 
 987:                                              ; preds = %984
-  %988 = invoke noundef zeroext i1 %986(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %81, i32 noundef 3)
+  %988 = invoke noundef zeroext i1 %986(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %81, i32 noundef 3)
           to label %common.resume unwind label %989
 
 989:                                              ; preds = %987
@@ -2663,7 +2663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1000, ptr %998, align 8, !noalias !101
   %1001 = getelementptr inbounds i8, ptr %79, i64 16
   %1002 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false), !noalias !101
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 16, i1 false), !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1002, align 8, !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1001, align 8, !noalias !101
   %1003 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2678,7 +2678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i18.i77, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_.exit.i", label %1008
 
 1008:                                             ; preds = %1006
-  %1009 = invoke noundef zeroext i1 %1007(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3)
+  %1009 = invoke noundef zeroext i1 %1007(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_.exit.i" unwind label %1010
 
 1010:                                             ; preds = %1008
@@ -2696,7 +2696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i16.i76, label %common.resume, label %1016
 
 1016:                                             ; preds = %1013
-  %1017 = invoke noundef zeroext i1 %1015(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 3)
+  %1017 = invoke noundef zeroext i1 %1015(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3)
           to label %common.resume unwind label %1018
 
 1018:                                             ; preds = %1016
@@ -2726,7 +2726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1029, ptr %1027, align 8, !noalias !104
   %1030 = getelementptr inbounds i8, ptr %77, i64 16
   %1031 = getelementptr inbounds i8, ptr %77, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false), !noalias !104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 16, i1 false), !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1031, align 8, !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1030, align 8, !noalias !104
   %1032 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2741,7 +2741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i21.i75, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_.exit.i", label %1037
 
 1037:                                             ; preds = %1035
-  %1038 = invoke noundef zeroext i1 %1036(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 3)
+  %1038 = invoke noundef zeroext i1 %1036(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_.exit.i" unwind label %1039
 
 1039:                                             ; preds = %1037
@@ -2759,7 +2759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i19.i74, label %common.resume, label %1045
 
 1045:                                             ; preds = %1042
-  %1046 = invoke noundef zeroext i1 %1044(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %77, i32 noundef 3)
+  %1046 = invoke noundef zeroext i1 %1044(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 3)
           to label %common.resume unwind label %1047
 
 1047:                                             ; preds = %1045
@@ -2789,7 +2789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   store ptr %1058, ptr %1056, align 8, !noalias !107
   %1059 = getelementptr inbounds i8, ptr %75, i64 16
   %1060 = getelementptr inbounds i8, ptr %75, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !noalias !107
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 16, i1 false), !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1060, align 8, !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1059, align 8, !noalias !107
   %1061 = getelementptr inbounds i8, ptr %.val6, i64 24
@@ -2804,7 +2804,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i.i24.i73, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_.exit.i", label %1066
 
 1066:                                             ; preds = %1064
-  %1067 = invoke noundef zeroext i1 %1065(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3)
+  %1067 = invoke noundef zeroext i1 %1065(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %75, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_.exit.i" unwind label %1068
 
 1068:                                             ; preds = %1066
@@ -2822,7 +2822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
   br i1 %.not.i.i2.i22.i70, label %common.resume, label %1074
 
 1074:                                             ; preds = %1071
-  %1075 = invoke noundef zeroext i1 %1073(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 3)
+  %1075 = invoke noundef zeroext i1 %1073(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %75, i32 noundef 3)
           to label %common.resume unwind label %1076
 
 1076:                                             ; preds = %1074
@@ -2843,7 +2843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
           to label %.noexc.i86 unwind label %1084, !noalias !89
 
 .noexc.i86:                                       ; preds = %1079
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %1080, ptr noundef nonnull align 1 dereferenceable(1) %87)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef %1080, ptr noundef nonnull align 1 dereferenceable(1) %87)
           to label %.noexc25.i87 unwind label %1084, !noalias !89
 
 .noexc25.i87:                                     ; preds = %.noexc.i86
@@ -2853,7 +2853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 1081:                                             ; preds = %.noexc25.i87
   %1082 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #12, !noalias !89
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #12, !noalias !89
   br label %.body.i84
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: ; preds = %.noexc25.i87
@@ -2917,7 +2917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1098, ptr %1096, align 8, !noalias !113
   %1099 = getelementptr inbounds i8, ptr %71, i64 16
   %1100 = getelementptr inbounds i8, ptr %71, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !noalias !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 16, i1 false), !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1100, align 8, !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1099, align 8, !noalias !113
   %1101 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -2932,7 +2932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i.i102, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_.exit.i", label %1106
 
 1106:                                             ; preds = %1104
-  %1107 = invoke noundef zeroext i1 %1105(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef 3)
+  %1107 = invoke noundef zeroext i1 %1105(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %71, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E_lEEDaSF_SG_.exit.i" unwind label %1108
 
 1108:                                             ; preds = %1106
@@ -2950,7 +2950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i.i101, label %common.resume, label %1114
 
 1114:                                             ; preds = %1111
-  %1115 = invoke noundef zeroext i1 %1113(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef 3)
+  %1115 = invoke noundef zeroext i1 %1113(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %71, i32 noundef 3)
           to label %common.resume unwind label %1116
 
 1116:                                             ; preds = %1114
@@ -2980,7 +2980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1127, ptr %1125, align 8, !noalias !116
   %1128 = getelementptr inbounds i8, ptr %69, i64 16
   %1129 = getelementptr inbounds i8, ptr %69, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false), !noalias !116
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 16, i1 false), !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1129, align 8, !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1128, align 8, !noalias !116
   %1130 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -2995,7 +2995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i12.i100, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E0_lEEDaSF_SG_.exit.i", label %1135
 
 1135:                                             ; preds = %1133
-  %1136 = invoke noundef zeroext i1 %1134(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
+  %1136 = invoke noundef zeroext i1 %1134(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIlEEDaT_EUlSF_T0_E0_lEEDaSF_SG_.exit.i" unwind label %1137
 
 1137:                                             ; preds = %1135
@@ -3013,7 +3013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i10.i99, label %common.resume, label %1143
 
 1143:                                             ; preds = %1140
-  %1144 = invoke noundef zeroext i1 %1142(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 3)
+  %1144 = invoke noundef zeroext i1 %1142(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %69, i32 noundef 3)
           to label %common.resume unwind label %1145
 
 1145:                                             ; preds = %1143
@@ -3043,7 +3043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1156, ptr %1154, align 8, !noalias !119
   %1157 = getelementptr inbounds i8, ptr %67, i64 16
   %1158 = getelementptr inbounds i8, ptr %67, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !noalias !119
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 16, i1 false), !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1158, align 8, !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1157, align 8, !noalias !119
   %1159 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3058,7 +3058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i15.i98, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvElEEDaT_T0_.exit.i", label %1164
 
 1164:                                             ; preds = %1162
-  %1165 = invoke noundef zeroext i1 %1163(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
+  %1165 = invoke noundef zeroext i1 %1163(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvElEEDaT_T0_.exit.i" unwind label %1166
 
 1166:                                             ; preds = %1164
@@ -3076,7 +3076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i13.i97, label %common.resume, label %1172
 
 1172:                                             ; preds = %1169
-  %1173 = invoke noundef zeroext i1 %1171(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %67, i32 noundef 3)
+  %1173 = invoke noundef zeroext i1 %1171(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %67, i32 noundef 3)
           to label %common.resume unwind label %1174
 
 1174:                                             ; preds = %1172
@@ -3106,7 +3106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1185, ptr %1183, align 8, !noalias !122
   %1186 = getelementptr inbounds i8, ptr %65, i64 16
   %1187 = getelementptr inbounds i8, ptr %65, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false), !noalias !122
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 16, i1 false), !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1187, align 8, !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1186, align 8, !noalias !122
   %1188 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3121,7 +3121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i18.i96, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_.exit.i", label %1193
 
 1193:                                             ; preds = %1191
-  %1194 = invoke noundef zeroext i1 %1192(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef 3)
+  %1194 = invoke noundef zeroext i1 %1192(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_.exit.i" unwind label %1195
 
 1195:                                             ; preds = %1193
@@ -3139,7 +3139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i16.i95, label %common.resume, label %1201
 
 1201:                                             ; preds = %1198
-  %1202 = invoke noundef zeroext i1 %1200(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef 3)
+  %1202 = invoke noundef zeroext i1 %1200(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 noundef 3)
           to label %common.resume unwind label %1203
 
 1203:                                             ; preds = %1201
@@ -3169,7 +3169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1214, ptr %1212, align 8, !noalias !125
   %1215 = getelementptr inbounds i8, ptr %63, i64 16
   %1216 = getelementptr inbounds i8, ptr %63, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false), !noalias !125
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 16, i1 false), !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1216, align 8, !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1215, align 8, !noalias !125
   %1217 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3184,7 +3184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i21.i94, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_.exit.i", label %1222
 
 1222:                                             ; preds = %1220
-  %1223 = invoke noundef zeroext i1 %1221(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 3)
+  %1223 = invoke noundef zeroext i1 %1221(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %63, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_.exit.i" unwind label %1224
 
 1224:                                             ; preds = %1222
@@ -3202,7 +3202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i19.i93, label %common.resume, label %1230
 
 1230:                                             ; preds = %1227
-  %1231 = invoke noundef zeroext i1 %1229(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 3)
+  %1231 = invoke noundef zeroext i1 %1229(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %63, i32 noundef 3)
           to label %common.resume unwind label %1232
 
 1232:                                             ; preds = %1230
@@ -3232,7 +3232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   store ptr %1243, ptr %1241, align 8, !noalias !128
   %1244 = getelementptr inbounds i8, ptr %61, i64 16
   %1245 = getelementptr inbounds i8, ptr %61, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false), !noalias !128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 16, i1 false), !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1245, align 8, !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1244, align 8, !noalias !128
   %1246 = getelementptr inbounds i8, ptr %.val8, i64 24
@@ -3247,7 +3247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i.i24.i92, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_.exit.i", label %1251
 
 1251:                                             ; preds = %1249
-  %1252 = invoke noundef zeroext i1 %1250(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef 3)
+  %1252 = invoke noundef zeroext i1 %1250(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_.exit.i" unwind label %1253
 
 1253:                                             ; preds = %1251
@@ -3265,7 +3265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
   br i1 %.not.i.i2.i22.i89, label %common.resume, label %1259
 
 1259:                                             ; preds = %1256
-  %1260 = invoke noundef zeroext i1 %1258(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef 3)
+  %1260 = invoke noundef zeroext i1 %1258(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %61, i32 noundef 3)
           to label %common.resume unwind label %1261
 
 1261:                                             ; preds = %1259
@@ -3286,7 +3286,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
           to label %.noexc.i105 unwind label %1269, !noalias !110
 
 .noexc.i105:                                      ; preds = %1264
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %1265, ptr noundef nonnull align 1 dereferenceable(1) %73)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef %1265, ptr noundef nonnull align 1 dereferenceable(1) %73)
           to label %.noexc25.i106 unwind label %1269, !noalias !110
 
 .noexc25.i106:                                    ; preds = %.noexc.i105
@@ -3296,7 +3296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1266:                                             ; preds = %.noexc25.i106
   %1267 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %72) #12, !noalias !110
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #12, !noalias !110
   br label %.body.i103
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107: ; preds = %.noexc25.i106
@@ -3360,7 +3360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1283, ptr %1281, align 8, !noalias !134
   %1284 = getelementptr inbounds i8, ptr %57, i64 16
   %1285 = getelementptr inbounds i8, ptr %57, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false), !noalias !134
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 16, i1 false), !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1285, align 8, !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1284, align 8, !noalias !134
   %1286 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3375,7 +3375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i.i121, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_.exit.i", label %1291
 
 1291:                                             ; preds = %1289
-  %1292 = invoke noundef zeroext i1 %1290(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef 3)
+  %1292 = invoke noundef zeroext i1 %1290(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E_hEEDaSF_SG_.exit.i" unwind label %1293
 
 1293:                                             ; preds = %1291
@@ -3393,7 +3393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i.i120, label %common.resume, label %1299
 
 1299:                                             ; preds = %1296
-  %1300 = invoke noundef zeroext i1 %1298(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef 3)
+  %1300 = invoke noundef zeroext i1 %1298(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3)
           to label %common.resume unwind label %1301
 
 1301:                                             ; preds = %1299
@@ -3423,7 +3423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1312, ptr %1310, align 8, !noalias !137
   %1313 = getelementptr inbounds i8, ptr %55, i64 16
   %1314 = getelementptr inbounds i8, ptr %55, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false), !noalias !137
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 16, i1 false), !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1314, align 8, !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1313, align 8, !noalias !137
   %1315 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3438,7 +3438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i12.i119, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E0_hEEDaSF_SG_.exit.i", label %1320
 
 1320:                                             ; preds = %1318
-  %1321 = invoke noundef zeroext i1 %1319(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef 3)
+  %1321 = invoke noundef zeroext i1 %1319(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIhEEDaT_EUlSF_T0_E0_hEEDaSF_SG_.exit.i" unwind label %1322
 
 1322:                                             ; preds = %1320
@@ -3456,7 +3456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i10.i118, label %common.resume, label %1328
 
 1328:                                             ; preds = %1325
-  %1329 = invoke noundef zeroext i1 %1327(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef 3)
+  %1329 = invoke noundef zeroext i1 %1327(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %55, i32 noundef 3)
           to label %common.resume unwind label %1330
 
 1330:                                             ; preds = %1328
@@ -3486,7 +3486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1341, ptr %1339, align 8, !noalias !140
   %1342 = getelementptr inbounds i8, ptr %53, i64 16
   %1343 = getelementptr inbounds i8, ptr %53, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false), !noalias !140
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 16, i1 false), !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1343, align 8, !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1342, align 8, !noalias !140
   %1344 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3501,7 +3501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i15.i117, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_.exit.i", label %1349
 
 1349:                                             ; preds = %1347
-  %1350 = invoke noundef zeroext i1 %1348(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
+  %1350 = invoke noundef zeroext i1 %1348(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_.exit.i" unwind label %1351
 
 1351:                                             ; preds = %1349
@@ -3519,7 +3519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i13.i116, label %common.resume, label %1357
 
 1357:                                             ; preds = %1354
-  %1358 = invoke noundef zeroext i1 %1356(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %53, i32 noundef 3)
+  %1358 = invoke noundef zeroext i1 %1356(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %53, i32 noundef 3)
           to label %common.resume unwind label %1359
 
 1359:                                             ; preds = %1357
@@ -3549,7 +3549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1370, ptr %1368, align 8, !noalias !143
   %1371 = getelementptr inbounds i8, ptr %51, i64 16
   %1372 = getelementptr inbounds i8, ptr %51, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false), !noalias !143
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 16, i1 false), !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1372, align 8, !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1371, align 8, !noalias !143
   %1373 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3564,7 +3564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i18.i115, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_.exit.i", label %1378
 
 1378:                                             ; preds = %1376
-  %1379 = invoke noundef zeroext i1 %1377(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef 3)
+  %1379 = invoke noundef zeroext i1 %1377(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_.exit.i" unwind label %1380
 
 1380:                                             ; preds = %1378
@@ -3582,7 +3582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i16.i114, label %common.resume, label %1386
 
 1386:                                             ; preds = %1383
-  %1387 = invoke noundef zeroext i1 %1385(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %51, i32 noundef 3)
+  %1387 = invoke noundef zeroext i1 %1385(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3)
           to label %common.resume unwind label %1388
 
 1388:                                             ; preds = %1386
@@ -3612,7 +3612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1399, ptr %1397, align 8, !noalias !146
   %1400 = getelementptr inbounds i8, ptr %49, i64 16
   %1401 = getelementptr inbounds i8, ptr %49, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !noalias !146
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 16, i1 false), !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1401, align 8, !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1400, align 8, !noalias !146
   %1402 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3627,7 +3627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i21.i113, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_.exit.i", label %1407
 
 1407:                                             ; preds = %1405
-  %1408 = invoke noundef zeroext i1 %1406(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3)
+  %1408 = invoke noundef zeroext i1 %1406(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_.exit.i" unwind label %1409
 
 1409:                                             ; preds = %1407
@@ -3645,7 +3645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i19.i112, label %common.resume, label %1415
 
 1415:                                             ; preds = %1412
-  %1416 = invoke noundef zeroext i1 %1414(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef 3)
+  %1416 = invoke noundef zeroext i1 %1414(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
           to label %common.resume unwind label %1417
 
 1417:                                             ; preds = %1415
@@ -3675,7 +3675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   store ptr %1428, ptr %1426, align 8, !noalias !149
   %1429 = getelementptr inbounds i8, ptr %47, i64 16
   %1430 = getelementptr inbounds i8, ptr %47, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !149
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 16, i1 false), !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1430, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1429, align 8, !noalias !149
   %1431 = getelementptr inbounds i8, ptr %.val10, i64 24
@@ -3690,7 +3690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i.i24.i111, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_.exit.i", label %1436
 
 1436:                                             ; preds = %1434
-  %1437 = invoke noundef zeroext i1 %1435(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %1437 = invoke noundef zeroext i1 %1435(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_.exit.i" unwind label %1438
 
 1438:                                             ; preds = %1436
@@ -3708,7 +3708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
   br i1 %.not.i.i2.i22.i108, label %common.resume, label %1444
 
 1444:                                             ; preds = %1441
-  %1445 = invoke noundef zeroext i1 %1443(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %47, i32 noundef 3)
+  %1445 = invoke noundef zeroext i1 %1443(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 3)
           to label %common.resume unwind label %1446
 
 1446:                                             ; preds = %1444
@@ -3729,7 +3729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
           to label %.noexc.i124 unwind label %1454, !noalias !131
 
 .noexc.i124:                                      ; preds = %1449
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %1450, ptr noundef nonnull align 1 dereferenceable(1) %59)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef %1450, ptr noundef nonnull align 1 dereferenceable(1) %59)
           to label %.noexc25.i125 unwind label %1454, !noalias !131
 
 .noexc25.i125:                                    ; preds = %.noexc.i124
@@ -3739,7 +3739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1451:                                             ; preds = %.noexc25.i125
   %1452 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #12, !noalias !131
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #12, !noalias !131
   br label %.body.i122
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126: ; preds = %.noexc25.i125
@@ -3803,7 +3803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1468, ptr %1466, align 8, !noalias !155
   %1469 = getelementptr inbounds i8, ptr %43, i64 16
   %1470 = getelementptr inbounds i8, ptr %43, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false), !noalias !155
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 16, i1 false), !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1470, align 8, !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1469, align 8, !noalias !155
   %1471 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3818,7 +3818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i.i140, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_.exit.i", label %1476
 
 1476:                                             ; preds = %1474
-  %1477 = invoke noundef zeroext i1 %1475(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 3)
+  %1477 = invoke noundef zeroext i1 %1475(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E_tEEDaSF_SG_.exit.i" unwind label %1478
 
 1478:                                             ; preds = %1476
@@ -3836,7 +3836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i.i139, label %common.resume, label %1484
 
 1484:                                             ; preds = %1481
-  %1485 = invoke noundef zeroext i1 %1483(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 3)
+  %1485 = invoke noundef zeroext i1 %1483(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %43, i32 noundef 3)
           to label %common.resume unwind label %1486
 
 1486:                                             ; preds = %1484
@@ -3866,7 +3866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1497, ptr %1495, align 8, !noalias !158
   %1498 = getelementptr inbounds i8, ptr %41, i64 16
   %1499 = getelementptr inbounds i8, ptr %41, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false), !noalias !158
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 16, i1 false), !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1499, align 8, !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1498, align 8, !noalias !158
   %1500 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3881,7 +3881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i12.i138, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E0_tEEDaSF_SG_.exit.i", label %1505
 
 1505:                                             ; preds = %1503
-  %1506 = invoke noundef zeroext i1 %1504(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %1506 = invoke noundef zeroext i1 %1504(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clItEEDaT_EUlSF_T0_E0_tEEDaSF_SG_.exit.i" unwind label %1507
 
 1507:                                             ; preds = %1505
@@ -3899,7 +3899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i10.i137, label %common.resume, label %1513
 
 1513:                                             ; preds = %1510
-  %1514 = invoke noundef zeroext i1 %1512(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef 3)
+  %1514 = invoke noundef zeroext i1 %1512(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
           to label %common.resume unwind label %1515
 
 1515:                                             ; preds = %1513
@@ -3929,7 +3929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1526, ptr %1524, align 8, !noalias !161
   %1527 = getelementptr inbounds i8, ptr %39, i64 16
   %1528 = getelementptr inbounds i8, ptr %39, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !161
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 16, i1 false), !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1528, align 8, !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1527, align 8, !noalias !161
   %1529 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -3944,7 +3944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i15.i136, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_.exit.i", label %1534
 
 1534:                                             ; preds = %1532
-  %1535 = invoke noundef zeroext i1 %1533(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
+  %1535 = invoke noundef zeroext i1 %1533(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_.exit.i" unwind label %1536
 
 1536:                                             ; preds = %1534
@@ -3962,7 +3962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i13.i135, label %common.resume, label %1542
 
 1542:                                             ; preds = %1539
-  %1543 = invoke noundef zeroext i1 %1541(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef 3)
+  %1543 = invoke noundef zeroext i1 %1541(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %39, i32 noundef 3)
           to label %common.resume unwind label %1544
 
 1544:                                             ; preds = %1542
@@ -3992,7 +3992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1555, ptr %1553, align 8, !noalias !164
   %1556 = getelementptr inbounds i8, ptr %37, i64 16
   %1557 = getelementptr inbounds i8, ptr %37, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false), !noalias !164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 16, i1 false), !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1557, align 8, !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1556, align 8, !noalias !164
   %1558 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4007,7 +4007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i18.i134, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_.exit.i", label %1563
 
 1563:                                             ; preds = %1561
-  %1564 = invoke noundef zeroext i1 %1562(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 3)
+  %1564 = invoke noundef zeroext i1 %1562(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_.exit.i" unwind label %1565
 
 1565:                                             ; preds = %1563
@@ -4025,7 +4025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i16.i133, label %common.resume, label %1571
 
 1571:                                             ; preds = %1568
-  %1572 = invoke noundef zeroext i1 %1570(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %37, i32 noundef 3)
+  %1572 = invoke noundef zeroext i1 %1570(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3)
           to label %common.resume unwind label %1573
 
 1573:                                             ; preds = %1571
@@ -4055,7 +4055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1584, ptr %1582, align 8, !noalias !167
   %1585 = getelementptr inbounds i8, ptr %35, i64 16
   %1586 = getelementptr inbounds i8, ptr %35, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !noalias !167
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 16, i1 false), !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1586, align 8, !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1585, align 8, !noalias !167
   %1587 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4070,7 +4070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i21.i132, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_.exit.i", label %1592
 
 1592:                                             ; preds = %1590
-  %1593 = invoke noundef zeroext i1 %1591(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 3)
+  %1593 = invoke noundef zeroext i1 %1591(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_.exit.i" unwind label %1594
 
 1594:                                             ; preds = %1592
@@ -4088,7 +4088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i19.i131, label %common.resume, label %1600
 
 1600:                                             ; preds = %1597
-  %1601 = invoke noundef zeroext i1 %1599(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 3)
+  %1601 = invoke noundef zeroext i1 %1599(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 3)
           to label %common.resume unwind label %1602
 
 1602:                                             ; preds = %1600
@@ -4118,7 +4118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   store ptr %1613, ptr %1611, align 8, !noalias !170
   %1614 = getelementptr inbounds i8, ptr %33, i64 16
   %1615 = getelementptr inbounds i8, ptr %33, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !noalias !170
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false), !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1615, align 8, !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1614, align 8, !noalias !170
   %1616 = getelementptr inbounds i8, ptr %.val12, i64 24
@@ -4133,7 +4133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i.i24.i130, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_.exit.i", label %1621
 
 1621:                                             ; preds = %1619
-  %1622 = invoke noundef zeroext i1 %1620(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
+  %1622 = invoke noundef zeroext i1 %1620(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_.exit.i" unwind label %1623
 
 1623:                                             ; preds = %1621
@@ -4151,7 +4151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
   br i1 %.not.i.i2.i22.i127, label %common.resume, label %1629
 
 1629:                                             ; preds = %1626
-  %1630 = invoke noundef zeroext i1 %1628(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef 3)
+  %1630 = invoke noundef zeroext i1 %1628(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3)
           to label %common.resume unwind label %1631
 
 1631:                                             ; preds = %1629
@@ -4172,7 +4172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
           to label %.noexc.i143 unwind label %1639, !noalias !152
 
 .noexc.i143:                                      ; preds = %1634
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %1635, ptr noundef nonnull align 1 dereferenceable(1) %45)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef %1635, ptr noundef nonnull align 1 dereferenceable(1) %45)
           to label %.noexc25.i144 unwind label %1639, !noalias !152
 
 .noexc25.i144:                                    ; preds = %.noexc.i143
@@ -4182,7 +4182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1636:                                             ; preds = %.noexc25.i144
   %1637 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #12, !noalias !152
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #12, !noalias !152
   br label %.body.i141
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145: ; preds = %.noexc25.i144
@@ -4246,7 +4246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1653, ptr %1651, align 8, !noalias !176
   %1654 = getelementptr inbounds i8, ptr %29, i64 16
   %1655 = getelementptr inbounds i8, ptr %29, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !noalias !176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 16, i1 false), !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1655, align 8, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1654, align 8, !noalias !176
   %1656 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4261,7 +4261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i.i159, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_.exit.i", label %1661
 
 1661:                                             ; preds = %1659
-  %1662 = invoke noundef zeroext i1 %1660(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %1662 = invoke noundef zeroext i1 %1660(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E_jEEDaSF_SG_.exit.i" unwind label %1663
 
 1663:                                             ; preds = %1661
@@ -4279,7 +4279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i.i158, label %common.resume, label %1669
 
 1669:                                             ; preds = %1666
-  %1670 = invoke noundef zeroext i1 %1668(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef 3)
+  %1670 = invoke noundef zeroext i1 %1668(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %29, i32 noundef 3)
           to label %common.resume unwind label %1671
 
 1671:                                             ; preds = %1669
@@ -4309,7 +4309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1682, ptr %1680, align 8, !noalias !179
   %1683 = getelementptr inbounds i8, ptr %27, i64 16
   %1684 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !noalias !179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 16, i1 false), !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1684, align 8, !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1683, align 8, !noalias !179
   %1685 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4324,7 +4324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i12.i157, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E0_jEEDaSF_SG_.exit.i", label %1690
 
 1690:                                             ; preds = %1688
-  %1691 = invoke noundef zeroext i1 %1689(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %1691 = invoke noundef zeroext i1 %1689(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clIjEEDaT_EUlSF_T0_E0_jEEDaSF_SG_.exit.i" unwind label %1692
 
 1692:                                             ; preds = %1690
@@ -4342,7 +4342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i10.i156, label %common.resume, label %1698
 
 1698:                                             ; preds = %1695
-  %1699 = invoke noundef zeroext i1 %1697(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 3)
+  %1699 = invoke noundef zeroext i1 %1697(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef 3)
           to label %common.resume unwind label %1700
 
 1700:                                             ; preds = %1698
@@ -4372,7 +4372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1711, ptr %1709, align 8, !noalias !182
   %1712 = getelementptr inbounds i8, ptr %25, i64 16
   %1713 = getelementptr inbounds i8, ptr %25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !noalias !182
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 16, i1 false), !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1713, align 8, !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1712, align 8, !noalias !182
   %1714 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4387,7 +4387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i15.i155, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_.exit.i", label %1719
 
 1719:                                             ; preds = %1717
-  %1720 = invoke noundef zeroext i1 %1718(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
+  %1720 = invoke noundef zeroext i1 %1718(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_.exit.i" unwind label %1721
 
 1721:                                             ; preds = %1719
@@ -4405,7 +4405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i13.i154, label %common.resume, label %1727
 
 1727:                                             ; preds = %1724
-  %1728 = invoke noundef zeroext i1 %1726(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef 3)
+  %1728 = invoke noundef zeroext i1 %1726(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %25, i32 noundef 3)
           to label %common.resume unwind label %1729
 
 1729:                                             ; preds = %1727
@@ -4435,7 +4435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1740, ptr %1738, align 8, !noalias !185
   %1741 = getelementptr inbounds i8, ptr %23, i64 16
   %1742 = getelementptr inbounds i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !noalias !185
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 16, i1 false), !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1742, align 8, !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1741, align 8, !noalias !185
   %1743 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4450,7 +4450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i18.i153, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_.exit.i", label %1748
 
 1748:                                             ; preds = %1746
-  %1749 = invoke noundef zeroext i1 %1747(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %1749 = invoke noundef zeroext i1 %1747(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_.exit.i" unwind label %1750
 
 1750:                                             ; preds = %1748
@@ -4468,7 +4468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i16.i152, label %common.resume, label %1756
 
 1756:                                             ; preds = %1753
-  %1757 = invoke noundef zeroext i1 %1755(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 3)
+  %1757 = invoke noundef zeroext i1 %1755(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %common.resume unwind label %1758
 
 1758:                                             ; preds = %1756
@@ -4498,7 +4498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1769, ptr %1767, align 8, !noalias !188
   %1770 = getelementptr inbounds i8, ptr %21, i64 16
   %1771 = getelementptr inbounds i8, ptr %21, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !noalias !188
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 16, i1 false), !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1771, align 8, !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1770, align 8, !noalias !188
   %1772 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4513,7 +4513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i21.i151, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_.exit.i", label %1777
 
 1777:                                             ; preds = %1775
-  %1778 = invoke noundef zeroext i1 %1776(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %1778 = invoke noundef zeroext i1 %1776(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_.exit.i" unwind label %1779
 
 1779:                                             ; preds = %1777
@@ -4531,7 +4531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i19.i150, label %common.resume, label %1785
 
 1785:                                             ; preds = %1782
-  %1786 = invoke noundef zeroext i1 %1784(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 3)
+  %1786 = invoke noundef zeroext i1 %1784(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
           to label %common.resume unwind label %1787
 
 1787:                                             ; preds = %1785
@@ -4561,7 +4561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   store ptr %1798, ptr %1796, align 8, !noalias !191
   %1799 = getelementptr inbounds i8, ptr %19, i64 16
   %1800 = getelementptr inbounds i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !191
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false), !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1800, align 8, !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1799, align 8, !noalias !191
   %1801 = getelementptr inbounds i8, ptr %.val14, i64 24
@@ -4576,7 +4576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i.i24.i149, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_.exit.i", label %1806
 
 1806:                                             ; preds = %1804
-  %1807 = invoke noundef zeroext i1 %1805(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %1807 = invoke noundef zeroext i1 %1805(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_.exit.i" unwind label %1808
 
 1808:                                             ; preds = %1806
@@ -4594,7 +4594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
   br i1 %.not.i.i2.i22.i146, label %common.resume, label %1814
 
 1814:                                             ; preds = %1811
-  %1815 = invoke noundef zeroext i1 %1813(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 3)
+  %1815 = invoke noundef zeroext i1 %1813(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %common.resume unwind label %1816
 
 1816:                                             ; preds = %1814
@@ -4615,7 +4615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
           to label %.noexc.i162 unwind label %1824, !noalias !173
 
 .noexc.i162:                                      ; preds = %1819
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %1820, ptr noundef nonnull align 1 dereferenceable(1) %31)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef %1820, ptr noundef nonnull align 1 dereferenceable(1) %31)
           to label %.noexc25.i163 unwind label %1824, !noalias !173
 
 .noexc25.i163:                                    ; preds = %.noexc.i162
@@ -4625,7 +4625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1821:                                             ; preds = %.noexc25.i163
   %1822 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #12, !noalias !173
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #12, !noalias !173
   br label %.body.i160
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164: ; preds = %.noexc25.i163
@@ -4689,7 +4689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1838, ptr %1836, align 8, !noalias !197
   %1839 = getelementptr inbounds i8, ptr %15, i64 16
   %1840 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !noalias !197
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false), !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1840, align 8, !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1839, align 8, !noalias !197
   %1841 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4704,7 +4704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i.i178, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_.exit.i", label %1846
 
 1846:                                             ; preds = %1844
-  %1847 = invoke noundef zeroext i1 %1845(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %1847 = invoke noundef zeroext i1 %1845(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E_mEEDaSF_SG_.exit.i" unwind label %1848
 
 1848:                                             ; preds = %1846
@@ -4722,7 +4722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i.i177, label %common.resume, label %1854
 
 1854:                                             ; preds = %1851
-  %1855 = invoke noundef zeroext i1 %1853(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 3)
+  %1855 = invoke noundef zeroext i1 %1853(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3)
           to label %common.resume unwind label %1856
 
 1856:                                             ; preds = %1854
@@ -4752,7 +4752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1867, ptr %1865, align 8, !noalias !200
   %1868 = getelementptr inbounds i8, ptr %13, i64 16
   %1869 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !200
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false), !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1869, align 8, !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1868, align 8, !noalias !200
   %1870 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4767,7 +4767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i12.i176, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E0_mEEDaSF_SG_.exit.i", label %1875
 
 1875:                                             ; preds = %1873
-  %1876 = invoke noundef zeroext i1 %1874(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %1876 = invoke noundef zeroext i1 %1874(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clIZZNS1_9AllreduceES4_S7_S9_SA_ENK3$_0clImEEDaT_EUlSF_T0_E0_mEEDaSF_SG_.exit.i" unwind label %1877
 
 1877:                                             ; preds = %1875
@@ -4785,7 +4785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i10.i175, label %common.resume, label %1883
 
 1883:                                             ; preds = %1880
-  %1884 = invoke noundef zeroext i1 %1882(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+  %1884 = invoke noundef zeroext i1 %1882(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %common.resume unwind label %1885
 
 1885:                                             ; preds = %1883
@@ -4815,7 +4815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1896, ptr %1894, align 8, !noalias !203
   %1897 = getelementptr inbounds i8, ptr %11, i64 16
   %1898 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !203
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false), !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1898, align 8, !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1897, align 8, !noalias !203
   %1899 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4830,7 +4830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i15.i174, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_.exit.i", label %1904
 
 1904:                                             ; preds = %1902
-  %1905 = invoke noundef zeroext i1 %1903(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %1905 = invoke noundef zeroext i1 %1903(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_.exit.i" unwind label %1906
 
 1906:                                             ; preds = %1904
@@ -4848,7 +4848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i13.i173, label %common.resume, label %1912
 
 1912:                                             ; preds = %1909
-  %1913 = invoke noundef zeroext i1 %1911(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
+  %1913 = invoke noundef zeroext i1 %1911(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %common.resume unwind label %1914
 
 1914:                                             ; preds = %1912
@@ -4878,7 +4878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1925, ptr %1923, align 8, !noalias !206
   %1926 = getelementptr inbounds i8, ptr %9, i64 16
   %1927 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !206
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1927, align 8, !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1926, align 8, !noalias !206
   %1928 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4893,7 +4893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i18.i172, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_.exit.i", label %1933
 
 1933:                                             ; preds = %1931
-  %1934 = invoke noundef zeroext i1 %1932(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %1934 = invoke noundef zeroext i1 %1932(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_.exit.i" unwind label %1935
 
 1935:                                             ; preds = %1933
@@ -4911,7 +4911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i16.i171, label %common.resume, label %1941
 
 1941:                                             ; preds = %1938
-  %1942 = invoke noundef zeroext i1 %1940(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 3)
+  %1942 = invoke noundef zeroext i1 %1940(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %common.resume unwind label %1943
 
 1943:                                             ; preds = %1941
@@ -4941,7 +4941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1954, ptr %1952, align 8, !noalias !209
   %1955 = getelementptr inbounds i8, ptr %7, i64 16
   %1956 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !209
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false), !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1956, align 8, !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1955, align 8, !noalias !209
   %1957 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -4956,7 +4956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i21.i170, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_.exit.i", label %1962
 
 1962:                                             ; preds = %1960
-  %1963 = invoke noundef zeroext i1 %1961(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %1963 = invoke noundef zeroext i1 %1961(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_.exit.i" unwind label %1964
 
 1964:                                             ; preds = %1962
@@ -4974,7 +4974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i19.i169, label %common.resume, label %1970
 
 1970:                                             ; preds = %1967
-  %1971 = invoke noundef zeroext i1 %1969(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
+  %1971 = invoke noundef zeroext i1 %1969(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %common.resume unwind label %1972
 
 1972:                                             ; preds = %1970
@@ -5004,7 +5004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   store ptr %1983, ptr %1981, align 8, !noalias !212
   %1984 = getelementptr inbounds i8, ptr %5, i64 16
   %1985 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !212
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false), !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1985, align 8, !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1984, align 8, !noalias !212
   %1986 = getelementptr inbounds i8, ptr %.val16, i64 24
@@ -5019,7 +5019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i.i24.i168, label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_.exit.i", label %1991
 
 1991:                                             ; preds = %1989
-  %1992 = invoke noundef zeroext i1 %1990(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %1992 = invoke noundef zeroext i1 %1990(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_.exit.i" unwind label %1993
 
 1993:                                             ; preds = %1991
@@ -5037,7 +5037,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
   br i1 %.not.i.i2.i22.i165, label %common.resume, label %1999
 
 1999:                                             ; preds = %1996
-  %2000 = invoke noundef zeroext i1 %1998(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
+  %2000 = invoke noundef zeroext i1 %1998(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %common.resume unwind label %2001
 
 2001:                                             ; preds = %1999
@@ -5058,7 +5058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
           to label %.noexc.i181 unwind label %2009, !noalias !194
 
 .noexc.i181:                                      ; preds = %2004
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %2005, ptr noundef nonnull align 1 dereferenceable(1) %17)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %2005, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %.noexc25.i182 unwind label %2009, !noalias !194
 
 .noexc25.i182:                                    ; preds = %.noexc.i181
@@ -5068,7 +5068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 2006:                                             ; preds = %.noexc25.i182
   %2007 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #12, !noalias !194
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12, !noalias !194
   br label %.body.i179
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183: ; preds = %.noexc25.i182
@@ -5752,7 +5752,7 @@ _ZSt6copy_nIPKamPaET1_T_T0_S3_.exit:              ; preds = %_ZSt8__copy_nIPKamP
           to label %.noexc unwind label %78
 
 .noexc:                                           ; preds = %73
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %74, ptr noundef nonnull align 1 dereferenceable(1) %17)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %74, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %.noexc11 unwind label %78
 
 .noexc11:                                         ; preds = %.noexc
@@ -5762,7 +5762,7 @@ _ZSt6copy_nIPKamPaET1_T_T0_S3_.exit:              ; preds = %_ZSt8__copy_nIPKamP
 75:                                               ; preds = %.noexc11
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
@@ -5947,7 +5947,7 @@ define linkonce_odr void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_string
 
 8:                                                ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #12, !noalias !221
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #12, !noalias !221
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #12, !noalias !221
   %9 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 0, ptr %9, align 8, !noalias !221
   %10 = getelementptr inbounds i8, ptr %7, i64 40
@@ -17246,7 +17246,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %.noexc6 unwind label %32
 
 .noexc6:                                          ; preds = %.noexc
@@ -17256,7 +17256,7 @@ define linkonce_odr void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef 
 10:                                               ; preds = %.noexc6
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc6
@@ -17282,7 +17282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %22 = getelementptr inbounds i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 9, ptr noundef nonnull @.str.20, i32 noundef %21, i32 noundef %23, i32 noundef %24) #12
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.20, i32 noundef %21, i32 noundef %23, i32 noundef %24) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %6)
@@ -17550,7 +17550,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc32 unwind label %53
 
 .noexc32:                                         ; preds = %.noexc
@@ -17567,7 +17567,7 @@ define linkonce_odr void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind noalia
 19:                                               ; preds = %21, %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   br label %.body
 
 21:                                               ; preds = %.noexc32
@@ -17625,13 +17625,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc33 unwind label %63
 
 .noexc33:                                         ; preds = %40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %.noexc34 unwind label %63
 
 42:                                               ; preds = %.noexc34
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %.body35
 
 .noexc34:                                         ; preds = %.noexc33
@@ -17767,13 +17767,13 @@ _ZNSt10unique_ptrIcPFvPvEED2Ev.exit41:            ; preds = %73, %.critedge
           to label %.noexc42 unwind label %80
 
 .noexc42:                                         ; preds = %74
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %75, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %.noexc43 unwind label %80
 
 76:                                               ; preds = %.noexc43
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #12
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   br label %.body44
 
 .noexc43:                                         ; preds = %.noexc42

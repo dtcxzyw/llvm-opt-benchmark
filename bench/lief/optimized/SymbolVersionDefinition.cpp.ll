@@ -262,7 +262,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %.sroa.019.026, align 8
-  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  invoke void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %.noexc15 unwind label %69
 
 .noexc15:                                         ; preds = %35
@@ -275,7 +275,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_E
 39:                                               ; preds = %.noexc15
   %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #11
+  tail call void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %34) #11
   br label %.body
 
 _ZN4LIEF3ELF16SymbolVersionAuxC2ERKS1_.exit:      ; preds = %.noexc15

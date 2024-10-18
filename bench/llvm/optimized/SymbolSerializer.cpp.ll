@@ -184,7 +184,7 @@ define dso_local void @_ZN4llvm8codeview16SymbolSerializerC2ERNS_20BumpPtrAlloca
   store i8 0, ptr %13, align 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 65432
   %15 = getelementptr inbounds i8, ptr %0, i64 65448
-  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 2) #11
+  tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull %15, i64 noundef 2) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65472
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 65480
@@ -226,7 +226,7 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %3, %10
   store i16 %.0.i, ptr %13, align 2, !noalias !4
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i16 0, ptr %4, align 2, !noalias !4
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr nonnull %4, i64 4) #11
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr nonnull align 1 dereferenceable(4) %4, i64 4) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %14 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %14, null
@@ -358,7 +358,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview16SymbolSerializerD2Ev(ptr nou
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65416
   store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview19SymbolRecordMappingE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65432
-  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %3) #11
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 65448
   %7 = icmp eq ptr %5, %6
@@ -784,7 +784,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream9readBytesEmmR
   %7 = load ptr, ptr %6, align 8, !noalias !13
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8, !noalias !13
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !13
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !13
   %11 = icmp ugt i64 %2, %10
   br i1 %11, label %19, label %12
 
@@ -792,7 +792,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream9readBytesEmmR
   %13 = load ptr, ptr %6, align 8, !noalias !13
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !noalias !13
-  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %6) #11, !noalias !13
+  %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(32) %6) #11, !noalias !13
   %17 = add i64 %3, %2
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %19, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i
@@ -825,7 +825,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream26readLongestC
   %6 = load ptr, ptr %5, align 8, !noalias !19
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !noalias !19
-  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !19
+  %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !19
   %10 = icmp ugt i64 %2, %9
   br i1 %10, label %18, label %11
 
@@ -833,7 +833,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStream26readLongestC
   %12 = load ptr, ptr %5, align 8, !noalias !19
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !19
-  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %5) #11, !noalias !19
+  %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(32) %5) #11, !noalias !19
   %16 = add i64 %2, 1
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %18, label %_ZN4llvm12ErrorSuccessD2Ev.exit.i

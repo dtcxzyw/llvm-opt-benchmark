@@ -419,7 +419,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %103, label %.loopexit112.i, label %124
 
 124:                                              ; preds = %123
-  %125 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2, ptr noundef %4)
+  %125 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %16, i32 noundef range(i32 0, -1) %.2, ptr noundef %4)
   %.not86.i.i = icmp eq i32 %125, 0
   %.pr90.pre106.i.i = load ptr, ptr %4, align 8
   br i1 %.not86.i.i, label %187, label %126
@@ -456,7 +456,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %142, label %143, label %160
 
 143:                                              ; preds = %139
-  %144 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %117, i32 noundef %.2, ptr noundef %4)
+  %144 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %117, i32 noundef range(i32 0, -1) %.2, ptr noundef %4)
   %.not80.i.i = icmp eq i32 %144, 0
   %.pr90.pre104.i.i = load ptr, ptr %4, align 8
   br i1 %.not80.i.i, label %187, label %145
@@ -526,7 +526,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %175, label %171, label %176, !llvm.loop !11
 
 176:                                              ; preds = %171
-  %177 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %.3.i.i, i32 noundef %.2, ptr noundef %4)
+  %177 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %.3.i.i, i32 noundef range(i32 0, -1) %.2, ptr noundef %4)
   %.not78.i.i = icmp eq i32 %177, 0
   %.pr90.pre.i.i = load ptr, ptr %4, align 8
   br i1 %.not78.i.i, label %187, label %178

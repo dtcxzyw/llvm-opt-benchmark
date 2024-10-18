@@ -797,7 +797,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph
   %rw.043 = phi i32 [ %add, %land.lhs.true.lr.ph ], [ %4, %for.cond ]
   %r.042 = phi i32 [ 0, %land.lhs.true.lr.ph ], [ %inc, %for.cond ]
   %3 = load ptr, ptr %m, align 8
-  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %3)
   br i1 %call2.i, label %land.rhs, label %for.end31
 
 land.rhs:                                         ; preds = %land.lhs.true
@@ -831,7 +831,7 @@ for.body12:                                       ; preds = %for.body, %_ZN25dep
   %__begin2.sroa.4.036 = phi i32 [ %__begin2.sroa.4.1, %_ZN25dependent_expr_simplifier8iteratorppEv.exit ], [ %6, %for.body ]
   tail call void @_ZN16propagate_values11process_fmlEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %__begin2.sroa.4.036)
   %12 = load ptr, ptr %m, align 8
-  %call2.i.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  %call2.i.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %12)
   br i1 %call2.i.i, label %lor.lhs.false.i, label %_ZN25dependent_expr_simplifier8iteratorppEv.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body12
@@ -875,7 +875,7 @@ land.lhs.true20:                                  ; preds = %for.end, %for.body2
   %dec40.in = phi i32 [ %dec40, %for.body26 ], [ %call.i, %for.end ]
   %dec40 = add i32 %dec40.in, -1
   %21 = load ptr, ptr %m, align 8
-  %call2.i27 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
+  %call2.i27 = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %21)
   br i1 %call2.i27, label %land.rhs23, label %for.end27
 
 land.rhs23:                                       ; preds = %land.lhs.true20
@@ -1519,7 +1519,7 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #14
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry

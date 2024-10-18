@@ -749,7 +749,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %15, %_ZN2
   br i1 %exitcond.not.i, label %22, label %.preheader.i, !llvm.loop !10
 
 22:                                               ; preds = %._crit_edge.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16424) %13, i8 0, i64 16424, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16432) %13, i8 0, i64 16424, i1 false)
   %23 = load i32, ptr %16, align 4
   %24 = zext i32 %23 to i64
   store i32 0, ptr %16, align 4

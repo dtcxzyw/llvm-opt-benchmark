@@ -678,7 +678,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_l
   %3 = alloca double, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %4, ptr noundef %3, i32 noundef 0)
+  %5 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %3, i32 noundef 0)
   %6 = fcmp olt double %5, 0.000000e+00
   %7 = load double, ptr %3, align 8
   %8 = fadd double %5, %7
@@ -1137,7 +1137,7 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcessesC2Ev(ptr nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8216, i8 noundef zeroext 9, i32 noundef 0) #18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8209) %2, i8 0, i64 17, i1 false)
   store ptr %2, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %3, ptr %2, align 8
@@ -1277,7 +1277,7 @@ define hidden noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr 
   store ptr null, ptr %2, align 8
   store ptr %2, ptr %0, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8216, i8 noundef zeroext 9, i32 noundef 0) #18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3, i8 0, i64 17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8209) %3, i8 0, i64 17, i1 false)
   store ptr %3, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %4, ptr %3, align 8

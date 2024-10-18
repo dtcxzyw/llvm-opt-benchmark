@@ -94,7 +94,7 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr nocapture noundef rea
 12:                                               ; preds = %11
   store i1 true, ptr @estimate_character_width_canonical.warning_already_reported, align 1
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef %9) #15
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef range(i32 0, 256) %9) #15
   br label %15
 
 15:                                               ; preds = %12, %11, %.lr.ph
@@ -304,7 +304,7 @@ agxbsizeof.exit.i.i:                              ; preds = %font_in_list_permis
   br i1 %.not.i.i9, label %71, label %70
 
 70:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef %2, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef nonnull %2, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %64, align 1
   br label %71
 
@@ -405,7 +405,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 

@@ -12645,7 +12645,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120BiasedMatmulSubgrap
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -14473,7 +14473,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptio
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052136AdjustSliceAllOptionalInputsSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -14939,7 +14939,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112GeluSubGraphD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112GeluSubGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -15932,7 +15932,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052125GeluApproximationSu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052125GeluApproximationSubGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -16502,7 +16502,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117LayerNormSubGraphD0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -18284,7 +18284,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118GatherCastSubgraphD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118GatherCastSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -19377,7 +19377,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116UpsampleSubgraphC2E
   %.sink = phi ptr [ %3, %58 ], [ %3, %56 ], [ %5, %62 ], [ %5, %60 ], [ %7, %66 ], [ %7, %64 ], [ %9, %70 ], [ %9, %68 ], [ %11, %74 ], [ %11, %72 ], [ %13, %78 ], [ %13, %76 ], [ %15, %82 ], [ %15, %80 ], [ %17, %86 ], [ %17, %84 ], [ %19, %90 ], [ %19, %88 ]
   %.pn34.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %63, %62 ], [ %61, %60 ], [ %67, %66 ], [ %65, %64 ], [ %71, %70 ], [ %69, %68 ], [ %75, %74 ], [ %73, %72 ], [ %79, %78 ], [ %77, %76 ], [ %83, %82 ], [ %81, %80 ], [ %87, %86 ], [ %85, %84 ], [ %91, %90 ], [ %89, %88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   resume { ptr, i32 } %.pn34.pn
 }
 
@@ -19799,13 +19799,13 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116UpsampleSubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116UpsampleSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -20492,7 +20492,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052121ExtractScalesSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -20920,19 +20920,19 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %51, %53
   %.sink = phi ptr [ %3, %78 ], [ %3, %76 ], [ %5, %108 ], [ %5, %80 ], [ %16, %111 ], [ %16, %109 ], [ %18, %115 ], [ %18, %113 ], [ %20, %119 ], [ %20, %117 ], [ %22, %123 ], [ %22, %121 ], [ %24, %127 ], [ %24, %125 ]
   %.pn45.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %.pn26.pn.pn.pn.pn.pn.pn.pn.pn, %108 ], [ %81, %80 ], [ %112, %111 ], [ %110, %109 ], [ %116, %115 ], [ %114, %113 ], [ %120, %119 ], [ %118, %117 ], [ %124, %123 ], [ %122, %121 ], [ %128, %127 ], [ %126, %125 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   resume { ptr, i32 } %.pn45.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph1D2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph1D0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -21158,19 +21158,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph2C2Ev
   %.sink = phi ptr [ %3, %42 ], [ %3, %40 ], [ %5, %46 ], [ %5, %44 ], [ %7, %50 ], [ %7, %48 ], [ %9, %54 ], [ %9, %52 ], [ %11, %58 ], [ %11, %56 ], [ %13, %62 ], [ %13, %60 ]
   %.pn23.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ], [ %47, %46 ], [ %45, %44 ], [ %51, %50 ], [ %49, %48 ], [ %55, %54 ], [ %53, %52 ], [ %59, %58 ], [ %57, %56 ], [ %63, %62 ], [ %61, %60 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   resume { ptr, i32 } %.pn23.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph2D2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115ResizeSubgraph2D0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -22108,19 +22108,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphC2Ev
   %.sink = phi ptr [ %3, %33 ], [ %3, %31 ], [ %5, %37 ], [ %5, %35 ], [ %7, %41 ], [ %7, %39 ], [ %9, %45 ], [ %9, %43 ], [ %11, %49 ], [ %11, %47 ]
   %.pn21.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %38, %37 ], [ %36, %35 ], [ %42, %41 ], [ %40, %39 ], [ %46, %45 ], [ %44, %43 ], [ %50, %49 ], [ %48, %47 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn21.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052115SoftMaxSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -22965,19 +22965,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2C2E
   %.sink = phi ptr [ %3, %48 ], [ %3, %46 ], [ %5, %52 ], [ %5, %50 ], [ %7, %56 ], [ %7, %54 ], [ %9, %60 ], [ %9, %58 ], [ %11, %68 ], [ %11, %62 ], [ %15, %71 ], [ %15, %69 ], [ %17, %75 ], [ %17, %73 ]
   %.pn32.pn = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %53, %52 ], [ %51, %50 ], [ %57, %56 ], [ %55, %54 ], [ %61, %60 ], [ %59, %58 ], [ %.pn27, %68 ], [ %63, %62 ], [ %72, %71 ], [ %70, %69 ], [ %76, %75 ], [ %74, %73 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn32.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052116SoftMaxSubgraph2D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -23277,19 +23277,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphC
   %.sink = phi ptr [ %3, %53 ], [ %3, %51 ], [ %5, %57 ], [ %5, %55 ], [ %7, %61 ], [ %7, %59 ], [ %9, %65 ], [ %9, %63 ], [ %11, %73 ], [ %11, %67 ], [ %15, %76 ], [ %15, %74 ], [ %17, %80 ], [ %17, %78 ], [ %19, %84 ], [ %19, %82 ]
   %.pn36.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %.pn29, %73 ], [ %68, %67 ], [ %77, %76 ], [ %75, %74 ], [ %81, %80 ], [ %79, %78 ], [ %85, %84 ], [ %83, %82 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn36.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118LogSoftMaxSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -23479,7 +23479,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117HardSwishSubgraphD2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117HardSwishSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -24015,7 +24015,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112CeluSubgraphD2Ev(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052112CeluSubgraphD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -24974,19 +24974,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1C
   %.sink = phi ptr [ %3, %28 ], [ %3, %26 ], [ %5, %32 ], [ %5, %30 ], [ %7, %36 ], [ %7, %34 ], [ %9, %40 ], [ %9, %38 ]
   %.pn16.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %33, %32 ], [ %31, %30 ], [ %37, %36 ], [ %35, %34 ], [ %41, %40 ], [ %39, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn16.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph1D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -25839,19 +25839,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2C
   %.sink = phi ptr [ %3, %43 ], [ %3, %41 ], [ %5, %47 ], [ %5, %45 ], [ %7, %51 ], [ %7, %49 ], [ %9, %55 ], [ %9, %53 ], [ %11, %59 ], [ %11, %57 ], [ %13, %63 ], [ %13, %61 ], [ %15, %67 ], [ %15, %65 ]
   %.pn29.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ], [ %48, %47 ], [ %46, %45 ], [ %52, %51 ], [ %50, %49 ], [ %56, %55 ], [ %54, %53 ], [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn29.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph2D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -26150,19 +26150,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_
   %.sink = phi ptr [ %3, %53 ], [ %3, %51 ], [ %5, %57 ], [ %5, %55 ], [ %7, %61 ], [ %7, %59 ], [ %9, %65 ], [ %9, %63 ], [ %11, %69 ], [ %11, %67 ], [ %13, %73 ], [ %13, %71 ], [ %15, %77 ], [ %15, %75 ], [ %17, %81 ], [ %17, %79 ], [ %19, %85 ], [ %19, %83 ]
   %.pn36.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn36.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052120NormalizeSubgraph2_2D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -26461,19 +26461,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3C
   %.sink = phi ptr [ %3, %53 ], [ %3, %51 ], [ %5, %57 ], [ %5, %55 ], [ %7, %61 ], [ %7, %59 ], [ %9, %65 ], [ %9, %63 ], [ %11, %69 ], [ %11, %67 ], [ %13, %73 ], [ %13, %71 ], [ %15, %77 ], [ %15, %75 ], [ %17, %81 ], [ %17, %79 ], [ %19, %85 ], [ %19, %83 ]
   %.pn36.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn36.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph3D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -26903,7 +26903,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationS
   %.sink = phi ptr [ %3, %94 ], [ %3, %92 ], [ %5, %98 ], [ %5, %96 ], [ %7, %102 ], [ %7, %100 ], [ %9, %106 ], [ %9, %104 ], [ %11, %110 ], [ %11, %108 ], [ %13, %114 ], [ %13, %112 ], [ %15, %118 ], [ %15, %116 ], [ %17, %122 ], [ %17, %120 ], [ %19, %126 ], [ %19, %124 ], [ %21, %130 ], [ %21, %128 ], [ %23, %134 ], [ %23, %132 ], [ %25, %138 ], [ %25, %136 ], [ %27, %142 ], [ %27, %140 ], [ %29, %146 ], [ %29, %144 ]
   %.pn55.pn = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ], [ %99, %98 ], [ %97, %96 ], [ %103, %102 ], [ %101, %100 ], [ %107, %106 ], [ %105, %104 ], [ %111, %110 ], [ %109, %108 ], [ %115, %114 ], [ %113, %112 ], [ %119, %118 ], [ %117, %116 ], [ %123, %122 ], [ %121, %120 ], [ %127, %126 ], [ %125, %124 ], [ %131, %130 ], [ %129, %128 ], [ %135, %134 ], [ %133, %132 ], [ %139, %138 ], [ %137, %136 ], [ %143, %142 ], [ %141, %140 ], [ %147, %146 ], [ %145, %144 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   resume { ptr, i32 } %.pn55.pn
 }
 
@@ -27137,13 +27137,13 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1D2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph1D0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -27156,7 +27156,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052130BatchNormalizationSubgraphBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -27490,19 +27490,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationS
   %.sink = phi ptr [ %3, %74 ], [ %3, %72 ], [ %5, %78 ], [ %5, %76 ], [ %7, %82 ], [ %7, %80 ], [ %9, %86 ], [ %9, %84 ], [ %11, %90 ], [ %11, %88 ], [ %13, %94 ], [ %13, %92 ], [ %15, %98 ], [ %15, %96 ], [ %17, %102 ], [ %17, %100 ], [ %19, %106 ], [ %19, %104 ], [ %21, %110 ], [ %21, %108 ]
   %.pn39.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ], [ %79, %78 ], [ %77, %76 ], [ %83, %82 ], [ %81, %80 ], [ %87, %86 ], [ %85, %84 ], [ %91, %90 ], [ %89, %88 ], [ %95, %94 ], [ %93, %92 ], [ %99, %98 ], [ %97, %96 ], [ %103, %102 ], [ %101, %100 ], [ %107, %106 ], [ %105, %104 ], [ %111, %110 ], [ %109, %108 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   resume { ptr, i32 } %.pn39.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2D2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127BatchNormalizationSubgraph2D0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -27903,7 +27903,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphD0Ev(
   br label %_ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphD2Ev.exit
 
 _ZN2cv3dnn14dnn4_v2024052114ExpandSubgraphD2Ev.exit: ; preds = %1, %4
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -30106,19 +30106,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4C
   %.sink = phi ptr [ %3, %53 ], [ %3, %51 ], [ %5, %57 ], [ %5, %55 ], [ %7, %61 ], [ %7, %59 ], [ %9, %65 ], [ %9, %63 ], [ %11, %69 ], [ %11, %67 ], [ %13, %73 ], [ %13, %71 ], [ %15, %77 ], [ %15, %75 ], [ %17, %81 ], [ %17, %79 ], [ %19, %85 ], [ %19, %83 ]
   %.pn37.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn37.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph4D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -30417,19 +30417,19 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5C
   %.sink = phi ptr [ %3, %53 ], [ %3, %51 ], [ %5, %57 ], [ %5, %55 ], [ %7, %61 ], [ %7, %59 ], [ %9, %65 ], [ %9, %63 ], [ %11, %69 ], [ %11, %67 ], [ %13, %73 ], [ %13, %71 ], [ %15, %77 ], [ %15, %75 ], [ %17, %81 ], [ %17, %79 ], [ %19, %85 ], [ %19, %83 ]
   %.pn37.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ], [ %58, %57 ], [ %56, %55 ], [ %62, %61 ], [ %60, %59 ], [ %66, %65 ], [ %64, %63 ], [ %70, %69 ], [ %68, %67 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %80, %79 ], [ %86, %85 ], [ %84, %83 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #23
-  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   resume { ptr, i32 } %.pn37.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052118NormalizeSubgraph5D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -31741,7 +31741,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphD0
   br label %_ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphD2Ev.exit
 
 _ZN2cv3dnn14dnn4_v2024052117AttentionSubGraphD2Ev.exit: ; preds = %1, %6
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
@@ -33746,7 +33746,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHead
   br label %_ZN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphD2Ev.exit
 
 _ZN2cv3dnn14dnn4_v2024052127AttentionSingleHeadSubGraphD2Ev.exit: ; preds = %1, %6
-  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #23
+  tail call void @_ZN2cv3dnn8SubgraphD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }

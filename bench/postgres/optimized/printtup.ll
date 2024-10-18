@@ -250,7 +250,7 @@ slot_getallattrs.exit:                            ; preds = %printtup_prepare_in
   %106 = add nsw i32 %105, -4
   tail call void @enlargeStringInfo(ptr noundef nonnull %5, i32 noundef 4) #10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %107 = tail call i32 @llvm.bswap.i32(i32 %106)
+  %107 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %106)
   %108 = load ptr, ptr %5, align 8, !alias.scope !13
   %109 = load i32, ptr %68, align 8, !alias.scope !13
   %110 = sext i32 %109 to i64

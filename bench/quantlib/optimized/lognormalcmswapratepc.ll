@@ -3148,7 +3148,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIN8QuantLib20CMSMMDriftCalculatorEE9constructIS1_JS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(280) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__p, ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %__p, ptr noundef nonnull align 8 dereferenceable(280) %__args, i64 32, i1 false)
   %displacements_.i = getelementptr inbounds nuw i8, ptr %__p, i64 32
   %displacements_3.i = getelementptr inbounds nuw i8, ptr %__args, i64 32
   %0 = load ptr, ptr %displacements_3.i, align 8, !tbaa !45

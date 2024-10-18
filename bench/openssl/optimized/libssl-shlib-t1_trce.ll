@@ -1269,7 +1269,7 @@ if.end.i31:                                       ; preds = %if.end4
 
 if.end10.i:                                       ; preds = %if.end.i31
   %add.ptr.i33 = getelementptr inbounds i8, ptr %4, i64 1
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = zext i8 %6 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.55, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %6, 0
@@ -1312,7 +1312,7 @@ if.end.i40:                                       ; preds = %if.then10
 
 if.end10.i44:                                     ; preds = %if.end.i40
   %add.ptr.i45 = getelementptr inbounds i8, ptr %add.ptr12.i, i64 1
-  %call.i.i46 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i46 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i47 = zext i8 %11 to i32
   %call1.i.i48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.56, i32 noundef %conv.i.i47) #3
   %cmp7.not.i.i49 = icmp eq i8 %11, 0
@@ -1538,7 +1538,7 @@ if.end.i4:                                        ; preds = %if.end
 
 if.end10.i:                                       ; preds = %if.end.i4
   %add.ptr.i6 = getelementptr inbounds i8, ptr %msg, i64 3
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = zext i8 %4 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.56, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %4, 0
@@ -1630,7 +1630,7 @@ if.end.i14:                                       ; preds = %land.lhs.true
 
 if.end10.i:                                       ; preds = %if.end.i14
   %add.ptr.i16 = getelementptr inbounds i8, ptr %4, i64 1
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = zext i8 %6 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.55, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %6, 0
@@ -1842,7 +1842,7 @@ if.end.i28:                                       ; preds = %if.then
 
 if.end10.i:                                       ; preds = %if.end.i28
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 2
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.413, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
@@ -1895,7 +1895,7 @@ if.end.i32:                                       ; preds = %sw.bb
 
 if.end10.i40:                                     ; preds = %if.end.i32
   %add.ptr.i41 = getelementptr inbounds i8, ptr %5, i64 2
-  %call.i.i42 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i42 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i43 = trunc nuw nsw i64 %or.i37 to i32
   %call1.i.i44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.414, i32 noundef %conv.i.i43) #3
   %cmp7.not.i.i45 = icmp eq i64 %or.i37, 0
@@ -1932,7 +1932,7 @@ if.end.i60:                                       ; preds = %if.end11
 
 if.end10.i68:                                     ; preds = %if.end.i60
   %add.ptr.i69 = getelementptr inbounds i8, ptr %add.ptr12.i55, i64 2
-  %call.i.i70 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i70 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i71 = trunc nuw nsw i64 %or.i65 to i32
   %call1.i.i72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.415, i32 noundef %conv.i.i71) #3
   %cmp7.not.i.i73 = icmp eq i64 %or.i65, 0
@@ -1974,7 +1974,7 @@ if.end.i88:                                       ; preds = %sw.bb17
 
 if.end10.i96:                                     ; preds = %if.end.i88
   %add.ptr.i97 = getelementptr inbounds i8, ptr %5, i64 2
-  %call.i.i98 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i98 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i99 = trunc nuw nsw i64 %or.i93 to i32
   %call1.i.i100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.416, i32 noundef %conv.i.i99) #3
   %cmp7.not.i.i101 = icmp eq i64 %or.i93, 0
@@ -2011,7 +2011,7 @@ if.end.i116:                                      ; preds = %if.end22
 
 if.end10.i124:                                    ; preds = %if.end.i116
   %add.ptr.i125 = getelementptr inbounds i8, ptr %add.ptr12.i111, i64 2
-  %call.i.i126 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i126 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i127 = trunc nuw nsw i64 %or.i121 to i32
   %call1.i.i128 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.417, i32 noundef %conv.i.i127) #3
   %cmp7.not.i.i129 = icmp eq i64 %or.i121, 0
@@ -2048,7 +2048,7 @@ if.end.i144:                                      ; preds = %if.end27
 
 if.end10.i152:                                    ; preds = %if.end.i144
   %add.ptr.i153 = getelementptr inbounds i8, ptr %add.ptr12.i139, i64 2
-  %call.i.i154 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i154 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i155 = trunc nuw nsw i64 %or.i149 to i32
   %call1.i.i156 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.418, i32 noundef %conv.i.i155) #3
   %cmp7.not.i.i157 = icmp eq i64 %or.i149, 0
@@ -2246,7 +2246,7 @@ if.end.i19:                                       ; preds = %if.then
 
 if.end10.i:                                       ; preds = %if.end.i19
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 2
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.483, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
@@ -2332,7 +2332,7 @@ if.end.i24:                                       ; preds = %if.else
 
 if.end10.i32:                                     ; preds = %if.end.i24
   %add.ptr.i33 = getelementptr inbounds i8, ptr %msg.addr.0, i64 2
-  %call.i.i34 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i34 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i35 = trunc nuw nsw i64 %or.i29 to i32
   %call1.i.i36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.484, i32 noundef %conv.i.i35) #3
   %cmp7.not.i.i37 = icmp eq i64 %or.i29, 0
@@ -2371,7 +2371,7 @@ if.end.i52:                                       ; preds = %sw.bb19
 
 if.end10.i60:                                     ; preds = %if.end.i52
   %add.ptr.i61 = getelementptr inbounds i8, ptr %msg.addr.0, i64 2
-  %call.i.i62 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i62 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i63 = trunc nuw nsw i64 %or.i57 to i32
   %call1.i.i64 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.485, i32 noundef %conv.i.i63) #3
   %cmp7.not.i.i65 = icmp eq i64 %or.i57, 0
@@ -2405,7 +2405,7 @@ if.end.i80:                                       ; preds = %sw.bb25
 
 if.end10.i84:                                     ; preds = %if.end.i80
   %add.ptr.i85 = getelementptr inbounds i8, ptr %msg.addr.0, i64 1
-  %call.i.i86 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i86 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i87 = zext i8 %13 to i32
   %call1.i.i88 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.486, i32 noundef %conv.i.i87) #3
   %cmp7.not.i.i89 = icmp eq i8 %13, 0
@@ -2516,7 +2516,7 @@ if.end.i:                                         ; preds = %land.lhs.true8
 
 if.end10.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 1
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = zext i8 %4 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.489, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %4, 0
@@ -2924,7 +2924,7 @@ if.end.i:                                         ; preds = %if.end, %if.end6
 
 if.end10.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 2
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = trunc nuw nsw i64 %or.i to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.506, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i64 %or.i, 0
@@ -2991,7 +2991,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end10.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 1
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 6, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 6, i32 noundef 80) #3
   %conv.i.i = zext i8 %4 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.536, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %4, 0
@@ -3363,7 +3363,7 @@ if.end.i:                                         ; preds = %if.end32
 
 if.end10.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 9
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i = zext i8 %12 to i32
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.559, i32 noundef %conv.i.i) #3
   %cmp7.not.i.i = icmp eq i8 %12, 0
@@ -3405,7 +3405,7 @@ if.end.i23:                                       ; preds = %if.end57
 
 if.end10.i27:                                     ; preds = %if.end.i23
   %add.ptr.i28 = getelementptr inbounds i8, ptr %14, i64 2
-  %call.i.i29 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
+  %call.i.i29 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) 8, i32 noundef 80) #3
   %conv.i.i30 = trunc nuw nsw i64 %or.i to i32
   %call1.i.i31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.560, i32 noundef %conv.i.i30) #3
   %cmp7.not.i.i32 = icmp eq i64 %or.i, 0
@@ -3548,7 +3548,7 @@ if.then41:                                        ; preds = %if.end25
 
 if.end47:                                         ; preds = %if.end25
   %add.ptr48 = getelementptr inbounds i8, ptr %msg.080, i64 4
-  %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add49, i32 noundef 80) #3
+  %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 8, 11) %add49, i32 noundef 80) #3
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end47
@@ -3571,7 +3571,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 do_ssl_trace_str.exit.i:                          ; preds = %for.inc.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %9, %if.then.i.i ], [ @.str.15, %for.inc.i.i ]
-  %call2.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.564, ptr noundef %retval.0.i.i, i32 noundef %or31, i32 noundef %or37) #3
+  %call2.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.564, ptr noundef %retval.0.i.i, i32 noundef range(i32 0, 65536) %or31, i32 noundef %or37) #3
   %trunc.i = trunc nuw i32 %or31 to i16
   switch i16 %trunc.i, label %sw.default.i [
     i16 27, label %sw.bb.i
@@ -3622,7 +3622,7 @@ while.body.us.i.i:                                ; preds = %do_ssl_trace_str.ex
   %12 = load i8, ptr %arrayidx4.us.i.i, align 1
   %conv5.us.i.i = zext i8 %12 to i32
   %or.us.i.i = or disjoint i32 %shl.us.i.i, %conv5.us.i.i
-  %call.us.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add310.i, i32 noundef 80) #3
+  %call.us.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 6, 13) %add310.i, i32 noundef 80) #3
   br label %for.body.i.us.i.i
 
 for.body.i.us.i.i:                                ; preds = %for.inc.i.us.i.i, %while.body.us.i.i
@@ -3660,7 +3660,7 @@ while.body.i.i:                                   ; preds = %sw.bb11.i, %do_ssl_
   %msglen.addr.014.i.i = phi i64 [ %sub.i.i, %do_ssl_trace_str.exit.i.i ], [ %conv38, %sw.bb11.i ]
   %15 = load i8, ptr %msg.addr.015.i.i, align 1
   %conv.i.i = zext i8 %15 to i32
-  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add310.i, i32 noundef 80) #3
+  %call.i.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 6, 13) %add310.i, i32 noundef 80) #3
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %while.body.i.i
@@ -3710,7 +3710,7 @@ while.body.i198.i:                                ; preds = %if.end29.i, %do_ssl
   %msg.addr.015.i199.i = getelementptr inbounds i8, ptr %msg.addr.015.i199.pn.i, i64 1
   %19 = load i8, ptr %msg.addr.015.i199.i, align 1
   %conv.i201.i = zext i8 %19 to i32
-  %call.i202.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add310.i, i32 noundef 80) #3
+  %call.i202.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 6, 13) %add310.i, i32 noundef 80) #3
   br label %for.body.i.i203.i
 
 for.body.i.i203.i:                                ; preds = %for.inc.i.i207.i, %while.body.i198.i
@@ -3910,7 +3910,7 @@ sw.bb153.i:                                       ; preds = %do_ssl_trace_str.ex
   br i1 %cmp154.not.i, label %if.end52, label %if.then156.i
 
 if.then156.i:                                     ; preds = %sw.bb153.i
-  %call.i232.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add242.i, i32 noundef 80) #3
+  %call.i232.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) %add242.i, i32 noundef 80) #3
   %call1.i.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.560, i32 noundef %or37) #3
   br label %for.body.i234.i
 
@@ -4048,7 +4048,7 @@ for.inc.i253.i:                                   ; preds = %for.body.i249.i
 do_ssl_trace_str.exit260.i:                       ; preds = %for.inc.i253.i, %if.then.i258.i
   %retval.0.i257.i = phi ptr [ %46, %if.then.i258.i ], [ @.str.15, %for.inc.i253.i ]
   %call225.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.568, ptr noundef %retval.0.i257.i, i32 noundef %or208.i) #3
-  %call.i261.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add242.i, i32 noundef 80) #3
+  %call.i261.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) %add242.i, i32 noundef 80) #3
   %conv.i262.i = trunc nuw nsw i64 %or214.i to i32
   %call1.i263.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.569, i32 noundef %conv.i262.i) #3
   %cmp7.not.i264.i = icmp eq i64 %or214.i, 0
@@ -4149,7 +4149,7 @@ while.body.i293.i:                                ; preds = %if.end272.i, %do_ss
   %msg.addr.015.i294.i = getelementptr inbounds i8, ptr %msg.addr.015.i294.pn.i, i64 1
   %54 = load i8, ptr %msg.addr.015.i294.i, align 1
   %conv.i296.i = zext i8 %54 to i32
-  %call.i297.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add310.i, i32 noundef 80) #3
+  %call.i297.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 6, 13) %add310.i, i32 noundef 80) #3
   br label %for.body.i.i298.i
 
 for.body.i.i298.i:                                ; preds = %for.inc.i.i302.i, %while.body.i293.i
@@ -4216,7 +4216,7 @@ if.then305.i:                                     ; preds = %sw.bb303.i
 if.end309.i:                                      ; preds = %if.then305.i
   %61 = load i8, ptr %add.ptr48, align 1
   %conv.i320.i = zext i8 %61 to i32
-  %call.i321.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %add310.i, i32 noundef 80) #3
+  %call.i321.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 6, 13) %add310.i, i32 noundef 80) #3
   br label %for.body.i.i322.i
 
 for.body.i.i322.i:                                ; preds = %for.inc.i.i326.i, %if.end309.i
@@ -4470,7 +4470,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 
 if.end10:                                         ; preds = %if.end6
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %nlen
-  %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %indent, i32 noundef 80) #3
+  %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef range(i32 0, 15) %indent, i32 noundef 80) #3
   %conv.i = trunc nuw nsw i64 %blen.0 to i32
   %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef %name, i32 noundef %conv.i) #3
   %cmp7.not.i = icmp eq i64 %blen.0, 0

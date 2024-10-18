@@ -675,7 +675,7 @@ if.end82:                                         ; preds = %land.lhs.true, %if.
   store float %mul, ptr %m_maximumDistanceSquared.i, align 4
   %m_worldTransform.i243 = getelementptr inbounds i8, ptr %body0Wrap, i64 24
   %68 = load ptr, ptr %m_worldTransform.i243, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %68, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %68, i64 16, i1 false)
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %68, i64 16
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
@@ -688,7 +688,7 @@ if.end82:                                         ; preds = %land.lhs.true, %if.
   %m_worldTransform.i244 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
   %69 = load ptr, ptr %m_worldTransform.i244, align 8
   %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %69, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %69, i64 16, i1 false)
   %arrayidx5.i.i245 = getelementptr inbounds i8, ptr %69, i64 16
   %arrayidx7.i.i246 = getelementptr inbounds i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i246, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i245, i64 16, i1 false)
@@ -1444,7 +1444,7 @@ for.body531.us:                                   ; preds = %for.body531.lr.ph, 
 
 invoke.cont604.us:                                ; preds = %for.body531.us
   %196 = load ptr, ptr %m_worldTransform.i243, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %input, ptr noundef nonnull align 4 dereferenceable(16) %196, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %196, i64 16, i1 false)
   %arrayidx5.i.i530.us = getelementptr inbounds i8, ptr %196, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i530.us, i64 16, i1 false)
   %arrayidx9.i.i532.us = getelementptr inbounds i8, ptr %196, i64 32
@@ -1703,7 +1703,7 @@ invoke.cont568.us:                                ; preds = %for.body531.us
   store float %306, ptr %ref.tmp546.sroa.13.32.arrayidx11.i.i521.sroa_idx, align 4
   store float 0.000000e+00, ptr %ref.tmp546.sroa.14.32.arrayidx11.i.i521.sroa_idx, align 4
   %307 = load ptr, ptr %m_worldTransform.i244, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, ptr noundef nonnull align 4 dereferenceable(16) %307, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %307, i64 16, i1 false)
   %arrayidx5.i.i523.us = getelementptr inbounds i8, ptr %307, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i246, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i523.us, i64 16, i1 false)
   %arrayidx9.i.i525.us = getelementptr inbounds i8, ptr %307, i64 32
@@ -1717,11 +1717,11 @@ invoke.cont611.us:                                ; preds = %invoke.cont568.us, 
   store float 0.000000e+00, ptr %m_closestPointDistanceThreshold.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btPerturbedContactResult, i64 16), ptr %perturbedResultOut, align 8
   store ptr %resultOut, ptr %m_originalManifoldResult.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_transformA.i, ptr noundef nonnull align 4 dereferenceable(16) %input, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_transformA.i, ptr noundef nonnull align 4 dereferenceable(64) %input, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_transformB.i, ptr noundef nonnull align 4 dereferenceable(16) %m_transformB, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_transformB.i, ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx8.i.i2.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i246, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx12.i.i4.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i248, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i5.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i250, i64 16, i1 false)
@@ -2651,7 +2651,7 @@ lpad22:                                           ; preds = %invoke.cont23
 lpad25:                                           ; preds = %invoke.cont24
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd1) #18
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #18
   br label %eh.resume
 
 if.end43:                                         ; preds = %if.then40, %if.then36
@@ -2673,8 +2673,8 @@ if.then54:                                        ; preds = %if.end51
 
 invoke.cont66:                                    ; preds = %if.end51, %if.then54, %invoke.cont34
   %resultFraction.0 = phi float [ %22, %if.then54 ], [ 1.000000e+00, %if.end51 ], [ 1.000000e+00, %invoke.cont34 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd1) #18
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere1) #18
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd1) #18
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere1) #18
   %m_collisionShape.i69 = getelementptr inbounds i8, ptr %col1, i64 200
   %26 = load ptr, ptr %m_collisionShape.i69, align 8
   %m_ccdSweptSphereRadius.i70 = getelementptr inbounds i8, ptr %col0, i64 304
@@ -2741,7 +2741,7 @@ lpad65:                                           ; preds = %invoke.cont66
 lpad69:                                           ; preds = %invoke.cont68
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd167) #18
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd167) #18
   br label %eh.resume
 
 if.end88:                                         ; preds = %if.then85, %if.then80
@@ -2763,8 +2763,8 @@ if.then99:                                        ; preds = %if.end96
 
 if.end102:                                        ; preds = %if.end96, %if.then99, %invoke.cont78
   %resultFraction.1 = phi float [ %29, %if.then99 ], [ %resultFraction.0, %if.end96 ], [ %resultFraction.0, %invoke.cont78 ]
-  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ccd167) #18
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere0) #18
+  call void @_ZN12btConvexCastD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ccd167) #18
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0) #18
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %if.end102
@@ -2774,7 +2774,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 eh.resume:                                        ; preds = %lpad69, %lpad65, %lpad25, %lpad22
   %sphere0.sink = phi ptr [ %sphere1, %lpad22 ], [ %sphere1, %lpad25 ], [ %sphere0, %lpad65 ], [ %sphere0, %lpad69 ]
   %.pn35.pn.pn = phi { ptr, i32 } [ %23, %lpad22 ], [ %24, %lpad25 ], [ %30, %lpad65 ], [ %31, %lpad69 ]
-  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sphere0.sink) #18
+  call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0.sink) #18
   resume { ptr, i32 } %.pn35.pn.pn
 }
 
@@ -2804,7 +2804,7 @@ entry:
   %4 = load i32, ptr %m_numPerturbationIterations, align 8
   %m_minimumPointsPerturbationThreshold = getelementptr inbounds i8, ptr %this, i64 28
   %5 = load i32, ptr %m_minimumPointsPerturbationThreshold, align 4
-  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
+  tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(116) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btConvexConvexAlgorithm, i64 16), ptr %call, align 8
   %m_pdSolver.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %3, ptr %m_pdSolver.i, align 8

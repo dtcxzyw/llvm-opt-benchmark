@@ -222,7 +222,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_info(ptr noundef %0, ptr no
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 520
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %9 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef %8)
+  %9 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %pmix_bfrops_base_print_value.exit
 
@@ -1313,7 +1313,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_pdata(ptr noundef %0, ptr n
   %8 = call i32 @pmix_bfrops_base_print_proc(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i16 zeroext poison)
   %9 = getelementptr inbounds i8, ptr %2, i64 776
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %10 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef %9)
+  %10 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef nonnull %9)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %pmix_bfrops_base_print_value.exit
 

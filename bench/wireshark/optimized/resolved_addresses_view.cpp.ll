@@ -2885,7 +2885,7 @@ _ZN7QStringD2Ev.exit157:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %.not.i.i.i159 = icmp eq ptr %203, null
   %spec.select.i.i.i = select i1 %.not.i.i.i159, ptr @_ZN7QString6_emptyE, ptr %203
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %35, ptr noundef nonnull %17, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %204)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %35, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull %spec.select.i.i.i, i64 noundef %204)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit unwind label %260
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit: ; preds = %201
@@ -3225,7 +3225,7 @@ _ZN7QStringD2Ev.exit208:                          ; preds = %303, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   %.not.i.i.i210 = icmp eq ptr %311, null
   %spec.select.i.i.i211 = select i1 %.not.i.i.i210, ptr @_ZN7QString6_emptyE, ptr %311
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %39, ptr noundef nonnull %17, ptr noundef nonnull %spec.select.i.i.i211, i64 noundef %313)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %39, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull %spec.select.i.i.i211, i64 noundef %313)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit212 unwind label %324
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit212: ; preds = %308
@@ -3466,7 +3466,7 @@ _ZN7QStringD2Ev.exit237:                          ; preds = %394, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %.not.i.i.i239 = icmp eq ptr %399, null
   %spec.select.i.i.i240 = select i1 %.not.i.i.i239, ptr @_ZN7QString6_emptyE, ptr %399
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %47, ptr noundef nonnull %17, ptr noundef nonnull %spec.select.i.i.i240, i64 noundef %400)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %47, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull %spec.select.i.i.i240, i64 noundef %400)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit241 unwind label %412
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit241: ; preds = %397
@@ -3648,7 +3648,7 @@ _ZN7QStringD2Ev.exit266:                          ; preds = %451, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %.not.i.i.i268 = icmp eq ptr %458, null
   %spec.select.i.i.i269 = select i1 %.not.i.i.i268, ptr @_ZN7QString6_emptyE, ptr %458
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %51, ptr noundef nonnull %17, ptr noundef nonnull %spec.select.i.i.i269, i64 noundef %460)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %51, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull %spec.select.i.i.i269, i64 noundef %460)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit270 unwind label %471
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit270: ; preds = %455
@@ -4154,7 +4154,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit300:           ; preds = %625, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %.not.i.i.i353 = icmp eq ptr %632, null
   %spec.select.i.i.i354 = select i1 %.not.i.i.i353, ptr @_ZN7QString6_emptyE, ptr %632
-  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %64, ptr noundef nonnull %17, ptr noundef nonnull %spec.select.i.i.i354, i64 noundef %633)
+  invoke void @_ZN9QtPrivate16QStringList_joinEPK5QListI7QStringEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %64, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull %spec.select.i.i.i354, i64 noundef %633)
           to label %_ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit356 unwind label %645
 
 _ZNK19QListSpecialMethodsI7QStringE4joinERKS0_.exit356: ; preds = %630

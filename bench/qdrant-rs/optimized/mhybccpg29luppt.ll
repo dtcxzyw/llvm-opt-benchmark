@@ -231,7 +231,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hc1bf6c2ae1441d9dE.exit.
   store i64 %72, ptr %70, align 8
   %73 = getelementptr inbounds i8, ptr %11, i64 48
   store i64 %69, ptr %73, align 8
-  invoke void @_ZN4core3ptr19swap_nonoverlapping17h802896ee0d6e9807E(ptr nonnull %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
+  invoke void @_ZN4core3ptr19swap_nonoverlapping17h802896ee0d6e9807E(ptr nonnull align 8 %0, ptr nonnull %.sroa.420.0..sroa_idx.i.i, i64 1)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc3:                                          ; preds = %61

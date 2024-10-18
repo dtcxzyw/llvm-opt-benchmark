@@ -1398,7 +1398,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
           to label %.noexc29 unwind label %113
 
 .noexc29:                                         ; preds = %87
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %89, ptr noundef nonnull align 8 dereferenceable(200) %9)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(204) %89, ptr noundef nonnull align 8 dereferenceable(200) %9)
           to label %92 unwind label %90
 
 90:                                               ; preds = %.noexc29
@@ -5094,7 +5094,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 
 7:                                                ; preds = %3
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %2) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyD1Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_21HdBasisCurvesTopologyEEEED2Ev.exit
 
@@ -5148,7 +5148,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 6:                                                ; preds = %1
   %.pre.i.i = load ptr, ptr %0, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15, !noalias !11
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(200) %.pre.i.i)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(204) %7, ptr noundef nonnull align 8 dereferenceable(200) %.pre.i.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_21HdBasisCurvesTopologyEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit.i.i unwind label %8, !noalias !11
 
 8:                                                ; preds = %6
@@ -5173,7 +5173,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_Coun
 
 17:                                               ; preds = %13
   fence acquire
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %12) #16
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyD1Ev(ptr noundef nonnull align 8 dereferenceable(204) %12) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 208) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_21HdBasisCurvesTopologyEEEED2Ev.exit.i.i
 
@@ -5274,7 +5274,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_21HdBasisCurvesTopologyEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !14
   %5 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15, !noalias !14
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %5, ptr noundef nonnull align 8 dereferenceable(200) %3)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(204) %5, ptr noundef nonnull align 8 dereferenceable(200) %3)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_21HdBasisCurvesTopologyEvE19GetProxiedAsVtValueERKS2_.exit unwind label %6, !noalias !14
 
 6:                                                ; preds = %2

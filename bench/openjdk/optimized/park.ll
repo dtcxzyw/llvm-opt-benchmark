@@ -63,7 +63,7 @@ _ZN9ParkEventnwEm.exit:                           ; preds = %.critedge, %14
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %_ZN9ParkEventnwEm.exit
-  call void @_ZN13PlatformEventC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %19) #6
+  call void @_ZN13PlatformEventC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %19) #6
   %22 = getelementptr inbounds i8, ptr %19, i64 144
   %23 = getelementptr inbounds i8, ptr %19, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)

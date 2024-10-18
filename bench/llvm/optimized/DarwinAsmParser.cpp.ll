@@ -260,7 +260,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm21createDarwinAsmParserEv() local_unnamed_addr #0 {
   %1 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %1) #15
+  tail call void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_115DarwinAsmParserE, i64 16), ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %2, align 8
@@ -280,7 +280,7 @@ define internal void @_ZN12_GLOBAL__N_115DarwinAsmParserD2Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115DarwinAsmParserD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm20MCAsmParserExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) #15
+  tail call void @_ZN4llvm20MCAsmParserExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #16
   ret void
 }
@@ -293,352 +293,352 @@ define internal void @_ZN12_GLOBAL__N_115DarwinAsmParser10InitializeERN4llvm11MC
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr nonnull @.str, i64 10, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectiveAltEntryES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr nonnull @.str, i64 10, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectiveAltEntryES5_S6_EEEEbPS0_S5_S6_) #15
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(34) %8, ptr nonnull @.str.1, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveDescES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(34) %8, ptr nonnull @.str.1, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveDescES5_S6_EEEEbPS0_S5_S6_) #15
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr nonnull @.str.2, i64 16, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseDirectiveIndirectSymbolES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(34) %12, ptr nonnull @.str.2, i64 16, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseDirectiveIndirectSymbolES5_S6_EEEEbPS0_S5_S6_) #15
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(34) %16, ptr nonnull @.str.3, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveLsymES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(34) %16, ptr nonnull @.str.3, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveLsymES5_S6_EEEEbPS0_S5_S6_) #15
   %20 = load ptr, ptr %3, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(34) %20, ptr nonnull @.str.4, i64 24, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseDirectiveSubsectionsViaSymbolsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(34) %20, ptr nonnull @.str.4, i64 24, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseDirectiveSubsectionsViaSymbolsES5_S6_EEEEbPS0_S5_S6_) #15
   %24 = load ptr, ptr %3, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(34) %24, ptr nonnull @.str.5, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDumpOrLoadES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(34) %24, ptr nonnull @.str.5, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDumpOrLoadES5_S6_EEEEbPS0_S5_S6_) #15
   %28 = load ptr, ptr %3, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(34) %28, ptr nonnull @.str.6, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDumpOrLoadES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(34) %28, ptr nonnull @.str.6, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDumpOrLoadES5_S6_EEEEbPS0_S5_S6_) #15
   %32 = load ptr, ptr %3, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(34) %32, ptr nonnull @.str.7, i64 8, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseDirectiveSectionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(34) %32, ptr nonnull @.str.7, i64 8, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseDirectiveSectionES5_S6_EEEEbPS0_S5_S6_) #15
   %36 = load ptr, ptr %3, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(34) %36, ptr nonnull @.str.8, i64 12, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseDirectivePushSectionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(34) %36, ptr nonnull @.str.8, i64 12, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseDirectivePushSectionES5_S6_EEEEbPS0_S5_S6_) #15
   %40 = load ptr, ptr %3, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(34) %40, ptr nonnull @.str.9, i64 11, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectivePopSectionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(34) %40, ptr nonnull @.str.9, i64 11, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectivePopSectionES5_S6_EEEEbPS0_S5_S6_) #15
   %44 = load ptr, ptr %3, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr nonnull @.str.10, i64 9, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectivePreviousES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr nonnull @.str.10, i64 9, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectivePreviousES5_S6_EEEEbPS0_S5_S6_) #15
   %48 = load ptr, ptr %3, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(34) %48, ptr nonnull @.str.11, i64 18, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseDirectiveSecureLogUniqueES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(34) %48, ptr nonnull @.str.11, i64 18, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseDirectiveSecureLogUniqueES5_S6_EEEEbPS0_S5_S6_) #15
   %52 = load ptr, ptr %3, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(34) %52, ptr nonnull @.str.12, i64 17, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseDirectiveSecureLogResetES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(34) %52, ptr nonnull @.str.12, i64 17, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseDirectiveSecureLogResetES5_S6_EEEEbPS0_S5_S6_) #15
   %56 = load ptr, ptr %3, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(34) %56, ptr nonnull @.str.13, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveTBSSES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(34) %56, ptr nonnull @.str.13, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseDirectiveTBSSES5_S6_EEEEbPS0_S5_S6_) #15
   %60 = load ptr, ptr %3, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(34) %60, ptr nonnull @.str.14, i64 9, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectiveZerofillES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(34) %60, ptr nonnull @.str.14, i64 9, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseDirectiveZerofillES5_S6_EEEEbPS0_S5_S6_) #15
   %64 = load ptr, ptr %3, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(34) %64, ptr nonnull @.str.15, i64 12, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDataRegionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(34) %64, ptr nonnull @.str.15, i64 12, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseDirectiveDataRegionES5_S6_EEEEbPS0_S5_S6_) #15
   %68 = load ptr, ptr %3, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(34) %68, ptr nonnull @.str.16, i64 16, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_27parseDirectiveDataRegionEndES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(34) %68, ptr nonnull @.str.16, i64 16, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_27parseDirectiveDataRegionEndES5_S6_EEEEbPS0_S5_S6_) #15
   %72 = load ptr, ptr %3, align 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(34) %72, ptr nonnull @.str.17, i64 4, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseSectionDirectiveBssES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(34) %72, ptr nonnull @.str.17, i64 4, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseSectionDirectiveBssES5_S6_EEEEbPS0_S5_S6_) #15
   %76 = load ptr, ptr %3, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(34) %76, ptr nonnull @.str.18, i64 6, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveConstES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(34) %76, ptr nonnull @.str.18, i64 6, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveConstES5_S6_EEEEbPS0_S5_S6_) #15
   %80 = load ptr, ptr %3, align 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef nonnull align 8 dereferenceable(34) %80, ptr nonnull @.str.19, i64 11, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveConstDataES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(34) %80, ptr nonnull @.str.19, i64 11, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveConstDataES5_S6_EEEEbPS0_S5_S6_) #15
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(34) %84, ptr nonnull @.str.20, i64 12, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveConstructorES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(34) %84, ptr nonnull @.str.20, i64 12, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveConstructorES5_S6_EEEEbPS0_S5_S6_) #15
   %88 = load ptr, ptr %3, align 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(34) %88, ptr nonnull @.str.21, i64 8, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseSectionDirectiveCStringES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %91(ptr noundef nonnull align 8 dereferenceable(34) %88, ptr nonnull @.str.21, i64 8, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_28parseSectionDirectiveCStringES5_S6_EEEEbPS0_S5_S6_) #15
   %92 = load ptr, ptr %3, align 8
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(34) %92, ptr nonnull @.str.22, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDataES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(34) %92, ptr nonnull @.str.22, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDataES5_S6_EEEEbPS0_S5_S6_) #15
   %96 = load ptr, ptr %3, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull align 8 dereferenceable(34) %96, ptr nonnull @.str.23, i64 11, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveDestructorES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %99(ptr noundef nonnull align 8 dereferenceable(34) %96, ptr nonnull @.str.23, i64 11, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveDestructorES5_S6_EEEEbPS0_S5_S6_) #15
   %100 = load ptr, ptr %3, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
-  tail call void %103(ptr noundef nonnull align 8 dereferenceable(34) %100, ptr nonnull @.str.24, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDyldES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %103(ptr noundef nonnull align 8 dereferenceable(34) %100, ptr nonnull @.str.24, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveDyldES5_S6_EEEEbPS0_S5_S6_) #15
   %104 = load ptr, ptr %3, align 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  tail call void %107(ptr noundef nonnull align 8 dereferenceable(34) %104, ptr nonnull @.str.25, i64 13, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveFVMLibInit0ES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %107(ptr noundef nonnull align 8 dereferenceable(34) %104, ptr nonnull @.str.25, i64 13, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveFVMLibInit0ES5_S6_EEEEbPS0_S5_S6_) #15
   %108 = load ptr, ptr %3, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
-  tail call void %111(ptr noundef nonnull align 8 dereferenceable(34) %108, ptr nonnull @.str.26, i64 13, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveFVMLibInit1ES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %111(ptr noundef nonnull align 8 dereferenceable(34) %108, ptr nonnull @.str.26, i64 13, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveFVMLibInit1ES5_S6_EEEEbPS0_S5_S6_) #15
   %112 = load ptr, ptr %3, align 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef nonnull align 8 dereferenceable(34) %112, ptr nonnull @.str.27, i64 20, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_39parseSectionDirectiveLazySymbolPointersES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(34) %112, ptr nonnull @.str.27, i64 20, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_39parseSectionDirectiveLazySymbolPointersES5_S6_EEEEbPS0_S5_S6_) #15
   %116 = load ptr, ptr %3, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  tail call void %119(ptr noundef nonnull align 8 dereferenceable(34) %116, ptr nonnull @.str.28, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseDirectiveLinkerOptionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %119(ptr noundef nonnull align 8 dereferenceable(34) %116, ptr nonnull @.str.28, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseDirectiveLinkerOptionES5_S6_EEEEbPS0_S5_S6_) #15
   %120 = load ptr, ptr %3, align 8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull align 8 dereferenceable(34) %120, ptr nonnull @.str.29, i64 10, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveLiteral16ES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(34) %120, ptr nonnull @.str.29, i64 10, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveLiteral16ES5_S6_EEEEbPS0_S5_S6_) #15
   %124 = load ptr, ptr %3, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8
-  tail call void %127(ptr noundef nonnull align 8 dereferenceable(34) %124, ptr nonnull @.str.30, i64 9, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseSectionDirectiveLiteral4ES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(34) %124, ptr nonnull @.str.30, i64 9, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseSectionDirectiveLiteral4ES5_S6_EEEEbPS0_S5_S6_) #15
   %128 = load ptr, ptr %3, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull align 8 dereferenceable(34) %128, ptr nonnull @.str.31, i64 9, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseSectionDirectiveLiteral8ES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(34) %128, ptr nonnull @.str.31, i64 9, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_29parseSectionDirectiveLiteral8ES5_S6_EEEEbPS0_S5_S6_) #15
   %132 = load ptr, ptr %3, align 8
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8
-  tail call void %135(ptr noundef nonnull align 8 dereferenceable(34) %132, ptr nonnull @.str.32, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveModInitFuncES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %135(ptr noundef nonnull align 8 dereferenceable(34) %132, ptr nonnull @.str.32, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveModInitFuncES5_S6_EEEEbPS0_S5_S6_) #15
   %136 = load ptr, ptr %3, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
-  tail call void %139(ptr noundef nonnull align 8 dereferenceable(34) %136, ptr nonnull @.str.33, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveModTermFuncES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %139(ptr noundef nonnull align 8 dereferenceable(34) %136, ptr nonnull @.str.33, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveModTermFuncES5_S6_EEEEbPS0_S5_S6_) #15
   %140 = load ptr, ptr %3, align 8
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  tail call void %143(ptr noundef nonnull align 8 dereferenceable(34) %140, ptr nonnull @.str.34, i64 24, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_42parseSectionDirectiveNonLazySymbolPointersES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %143(ptr noundef nonnull align 8 dereferenceable(34) %140, ptr nonnull @.str.34, i64 24, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_42parseSectionDirectiveNonLazySymbolPointersES5_S6_EEEEbPS0_S5_S6_) #15
   %144 = load ptr, ptr %3, align 8
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull align 8 dereferenceable(34) %144, ptr nonnull @.str.35, i64 30, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_48parseSectionDirectiveThreadLocalVariablePointersES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(34) %144, ptr nonnull @.str.35, i64 30, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_48parseSectionDirectiveThreadLocalVariablePointersES5_S6_EEEEbPS0_S5_S6_) #15
   %148 = load ptr, ptr %3, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
-  tail call void %151(ptr noundef nonnull align 8 dereferenceable(34) %148, ptr nonnull @.str.36, i64 18, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCCatClsMethES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %151(ptr noundef nonnull align 8 dereferenceable(34) %148, ptr nonnull @.str.36, i64 18, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCCatClsMethES5_S6_EEEEbPS0_S5_S6_) #15
   %152 = load ptr, ptr %3, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
-  tail call void %155(ptr noundef nonnull align 8 dereferenceable(34) %152, ptr nonnull @.str.37, i64 19, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_36parseSectionDirectiveObjCCatInstMethES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %155(ptr noundef nonnull align 8 dereferenceable(34) %152, ptr nonnull @.str.37, i64 19, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_36parseSectionDirectiveObjCCatInstMethES5_S6_EEEEbPS0_S5_S6_) #15
   %156 = load ptr, ptr %3, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
-  tail call void %159(ptr noundef nonnull align 8 dereferenceable(34) %156, ptr nonnull @.str.38, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCCategoryES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %159(ptr noundef nonnull align 8 dereferenceable(34) %156, ptr nonnull @.str.38, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCCategoryES5_S6_EEEEbPS0_S5_S6_) #15
   %160 = load ptr, ptr %3, align 8
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 16
   %163 = load ptr, ptr %162, align 8
-  tail call void %163(ptr noundef nonnull align 8 dereferenceable(34) %160, ptr nonnull @.str.39, i64 11, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveObjCClassES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %163(ptr noundef nonnull align 8 dereferenceable(34) %160, ptr nonnull @.str.39, i64 11, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_30parseSectionDirectiveObjCClassES5_S6_EEEEbPS0_S5_S6_) #15
   %164 = load ptr, ptr %3, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
-  tail call void %167(ptr noundef nonnull align 8 dereferenceable(34) %164, ptr nonnull @.str.40, i64 17, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCClassNamesES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %167(ptr noundef nonnull align 8 dereferenceable(34) %164, ptr nonnull @.str.40, i64 17, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCClassNamesES5_S6_EEEEbPS0_S5_S6_) #15
   %168 = load ptr, ptr %3, align 8
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8
-  tail call void %171(ptr noundef nonnull align 8 dereferenceable(34) %168, ptr nonnull @.str.41, i64 16, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectiveObjCClassVarsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %171(ptr noundef nonnull align 8 dereferenceable(34) %168, ptr nonnull @.str.41, i64 16, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectiveObjCClassVarsES5_S6_EEEEbPS0_S5_S6_) #15
   %172 = load ptr, ptr %3, align 8
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull align 8 dereferenceable(34) %172, ptr nonnull @.str.42, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCClsMethES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %175(ptr noundef nonnull align 8 dereferenceable(34) %172, ptr nonnull @.str.42, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCClsMethES5_S6_EEEEbPS0_S5_S6_) #15
   %176 = load ptr, ptr %3, align 8
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
-  tail call void %179(ptr noundef nonnull align 8 dereferenceable(34) %176, ptr nonnull @.str.43, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCClsRefsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %179(ptr noundef nonnull align 8 dereferenceable(34) %176, ptr nonnull @.str.43, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCClsRefsES5_S6_EEEEbPS0_S5_S6_) #15
   %180 = load ptr, ptr %3, align 8
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8
-  tail call void %183(ptr noundef nonnull align 8 dereferenceable(34) %180, ptr nonnull @.str.44, i64 15, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCInstMethES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %183(ptr noundef nonnull align 8 dereferenceable(34) %180, ptr nonnull @.str.44, i64 15, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCInstMethES5_S6_EEEEbPS0_S5_S6_) #15
   %184 = load ptr, ptr %3, align 8
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 16
   %187 = load ptr, ptr %186, align 8
-  tail call void %187(ptr noundef nonnull align 8 dereferenceable(34) %184, ptr nonnull @.str.45, i64 19, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCInstanceVarsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %187(ptr noundef nonnull align 8 dereferenceable(34) %184, ptr nonnull @.str.45, i64 19, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCInstanceVarsES5_S6_EEEEbPS0_S5_S6_) #15
   %188 = load ptr, ptr %3, align 8
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull align 8 dereferenceable(34) %188, ptr nonnull @.str.46, i64 18, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_36parseSectionDirectiveObjCMessageRefsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %191(ptr noundef nonnull align 8 dereferenceable(34) %188, ptr nonnull @.str.46, i64 18, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_36parseSectionDirectiveObjCMessageRefsES5_S6_EEEEbPS0_S5_S6_) #15
   %192 = load ptr, ptr %3, align 8
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
-  tail call void %195(ptr noundef nonnull align 8 dereferenceable(34) %192, ptr nonnull @.str.47, i64 16, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectiveObjCMetaClassES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %195(ptr noundef nonnull align 8 dereferenceable(34) %192, ptr nonnull @.str.47, i64 16, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectiveObjCMetaClassES5_S6_EEEEbPS0_S5_S6_) #15
   %196 = load ptr, ptr %3, align 8
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
-  tail call void %199(ptr noundef nonnull align 8 dereferenceable(34) %196, ptr nonnull @.str.48, i64 20, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCMethVarNamesES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %199(ptr noundef nonnull align 8 dereferenceable(34) %196, ptr nonnull @.str.48, i64 20, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCMethVarNamesES5_S6_EEEEbPS0_S5_S6_) #15
   %200 = load ptr, ptr %3, align 8
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8
-  tail call void %203(ptr noundef nonnull align 8 dereferenceable(34) %200, ptr nonnull @.str.49, i64 20, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCMethVarTypesES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %203(ptr noundef nonnull align 8 dereferenceable(34) %200, ptr nonnull @.str.49, i64 20, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCMethVarTypesES5_S6_EEEEbPS0_S5_S6_) #15
   %204 = load ptr, ptr %3, align 8
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 16
   %207 = load ptr, ptr %206, align 8
-  tail call void %207(ptr noundef nonnull align 8 dereferenceable(34) %204, ptr nonnull @.str.50, i64 17, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCModuleInfoES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %207(ptr noundef nonnull align 8 dereferenceable(34) %204, ptr nonnull @.str.50, i64 17, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveObjCModuleInfoES5_S6_EEEEbPS0_S5_S6_) #15
   %208 = load ptr, ptr %3, align 8
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 16
   %211 = load ptr, ptr %210, align 8
-  tail call void %211(ptr noundef nonnull align 8 dereferenceable(34) %208, ptr nonnull @.str.51, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCProtocolES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %211(ptr noundef nonnull align 8 dereferenceable(34) %208, ptr nonnull @.str.51, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_33parseSectionDirectiveObjCProtocolES5_S6_EEEEbPS0_S5_S6_) #15
   %212 = load ptr, ptr %3, align 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8
-  tail call void %215(ptr noundef nonnull align 8 dereferenceable(34) %212, ptr nonnull @.str.52, i64 19, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCSelectorStrsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %215(ptr noundef nonnull align 8 dereferenceable(34) %212, ptr nonnull @.str.52, i64 19, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCSelectorStrsES5_S6_EEEEbPS0_S5_S6_) #15
   %216 = load ptr, ptr %3, align 8
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 16
   %219 = load ptr, ptr %218, align 8
-  tail call void %219(ptr noundef nonnull align 8 dereferenceable(34) %216, ptr nonnull @.str.53, i64 19, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCStringObjectES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %219(ptr noundef nonnull align 8 dereferenceable(34) %216, ptr nonnull @.str.53, i64 19, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_37parseSectionDirectiveObjCStringObjectES5_S6_EEEEbPS0_S5_S6_) #15
   %220 = load ptr, ptr %3, align 8
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 16
   %223 = load ptr, ptr %222, align 8
-  tail call void %223(ptr noundef nonnull align 8 dereferenceable(34) %220, ptr nonnull @.str.54, i64 13, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCSymbolsES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %223(ptr noundef nonnull align 8 dereferenceable(34) %220, ptr nonnull @.str.54, i64 13, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveObjCSymbolsES5_S6_EEEEbPS0_S5_S6_) #15
   %224 = load ptr, ptr %3, align 8
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 16
   %227 = load ptr, ptr %226, align 8
-  tail call void %227(ptr noundef nonnull align 8 dereferenceable(34) %224, ptr nonnull @.str.55, i64 15, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectivePICSymbolStubES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %227(ptr noundef nonnull align 8 dereferenceable(34) %224, ptr nonnull @.str.55, i64 15, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_34parseSectionDirectivePICSymbolStubES5_S6_EEEEbPS0_S5_S6_) #15
   %228 = load ptr, ptr %3, align 8
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 16
   %231 = load ptr, ptr %230, align 8
-  tail call void %231(ptr noundef nonnull align 8 dereferenceable(34) %228, ptr nonnull @.str.56, i64 13, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveStaticConstES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %231(ptr noundef nonnull align 8 dereferenceable(34) %228, ptr nonnull @.str.56, i64 13, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_32parseSectionDirectiveStaticConstES5_S6_EEEEbPS0_S5_S6_) #15
   %232 = load ptr, ptr %3, align 8
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 16
   %235 = load ptr, ptr %234, align 8
-  tail call void %235(ptr noundef nonnull align 8 dereferenceable(34) %232, ptr nonnull @.str.57, i64 12, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveStaticDataES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %235(ptr noundef nonnull align 8 dereferenceable(34) %232, ptr nonnull @.str.57, i64 12, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveStaticDataES5_S6_EEEEbPS0_S5_S6_) #15
   %236 = load ptr, ptr %3, align 8
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8
-  tail call void %239(ptr noundef nonnull align 8 dereferenceable(34) %236, ptr nonnull @.str.58, i64 12, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveSymbolStubES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %239(ptr noundef nonnull align 8 dereferenceable(34) %236, ptr nonnull @.str.58, i64 12, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_31parseSectionDirectiveSymbolStubES5_S6_EEEEbPS0_S5_S6_) #15
   %240 = load ptr, ptr %3, align 8
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 16
   %243 = load ptr, ptr %242, align 8
-  tail call void %243(ptr noundef nonnull align 8 dereferenceable(34) %240, ptr nonnull @.str.59, i64 6, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveTDataES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %243(ptr noundef nonnull align 8 dereferenceable(34) %240, ptr nonnull @.str.59, i64 6, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveTDataES5_S6_EEEEbPS0_S5_S6_) #15
   %244 = load ptr, ptr %3, align 8
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 16
   %247 = load ptr, ptr %246, align 8
-  tail call void %247(ptr noundef nonnull align 8 dereferenceable(34) %244, ptr nonnull @.str.60, i64 5, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveTextES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %247(ptr noundef nonnull align 8 dereferenceable(34) %244, ptr nonnull @.str.60, i64 5, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_25parseSectionDirectiveTextES5_S6_EEEEbPS0_S5_S6_) #15
   %248 = load ptr, ptr %3, align 8
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 16
   %251 = load ptr, ptr %250, align 8
-  tail call void %251(ptr noundef nonnull align 8 dereferenceable(34) %248, ptr nonnull @.str.61, i64 17, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveThreadInitFuncES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %251(ptr noundef nonnull align 8 dereferenceable(34) %248, ptr nonnull @.str.61, i64 17, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_35parseSectionDirectiveThreadInitFuncES5_S6_EEEEbPS0_S5_S6_) #15
   %252 = load ptr, ptr %3, align 8
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 16
   %255 = load ptr, ptr %254, align 8
-  tail call void %255(ptr noundef nonnull align 8 dereferenceable(34) %252, ptr nonnull @.str.62, i64 4, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseSectionDirectiveTLVES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %255(ptr noundef nonnull align 8 dereferenceable(34) %252, ptr nonnull @.str.62, i64 4, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_24parseSectionDirectiveTLVES5_S6_EEEEbPS0_S5_S6_) #15
   %256 = load ptr, ptr %3, align 8
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
-  tail call void %259(ptr noundef nonnull align 8 dereferenceable(34) %256, ptr nonnull @.str.63, i64 6, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveIdentES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %259(ptr noundef nonnull align 8 dereferenceable(34) %256, ptr nonnull @.str.63, i64 6, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_26parseSectionDirectiveIdentES5_S6_EEEEbPS0_S5_S6_) #15
   %260 = load ptr, ptr %3, align 8
   %261 = load ptr, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
-  tail call void %263(ptr noundef nonnull align 8 dereferenceable(34) %260, ptr nonnull @.str.64, i64 20, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseWatchOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %263(ptr noundef nonnull align 8 dereferenceable(34) %260, ptr nonnull @.str.64, i64 20, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_22parseWatchOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
   %264 = load ptr, ptr %3, align 8
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 16
   %267 = load ptr, ptr %266, align 8
-  tail call void %267(ptr noundef nonnull align 8 dereferenceable(34) %264, ptr nonnull @.str.65, i64 17, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_19parseTvOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %267(ptr noundef nonnull align 8 dereferenceable(34) %264, ptr nonnull @.str.65, i64 17, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_19parseTvOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
   %268 = load ptr, ptr %3, align 8
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 16
   %271 = load ptr, ptr %270, align 8
-  tail call void %271(ptr noundef nonnull align 8 dereferenceable(34) %268, ptr nonnull @.str.66, i64 16, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseIOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %271(ptr noundef nonnull align 8 dereferenceable(34) %268, ptr nonnull @.str.66, i64 16, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_18parseIOSVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
   %272 = load ptr, ptr %3, align 8
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 16
   %275 = load ptr, ptr %274, align 8
-  tail call void %275(ptr noundef nonnull align 8 dereferenceable(34) %272, ptr nonnull @.str.67, i64 19, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseMacOSXVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %275(ptr noundef nonnull align 8 dereferenceable(34) %272, ptr nonnull @.str.67, i64 19, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseMacOSXVersionMinES5_S6_EEEEbPS0_S5_S6_) #15
   %276 = load ptr, ptr %3, align 8
   %277 = load ptr, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 16
   %279 = load ptr, ptr %278, align 8
-  tail call void %279(ptr noundef nonnull align 8 dereferenceable(34) %276, ptr nonnull @.str.68, i64 14, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %279(ptr noundef nonnull align 8 dereferenceable(34) %276, ptr nonnull @.str.68, i64 14, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_) #15
   %280 = load ptr, ptr %3, align 8
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 16
   %283 = load ptr, ptr %282, align 8
-  tail call void %283(ptr noundef nonnull align 8 dereferenceable(34) %280, ptr nonnull @.str.69, i64 11, ptr nonnull %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_23parseDirectiveCGProfileES5_S6_EEEEbPS0_S5_S6_) #15
+  tail call void %283(ptr noundef nonnull align 8 dereferenceable(34) %280, ptr nonnull @.str.69, i64 11, ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_23parseDirectiveCGProfileES5_S6_EEEEbPS0_S5_S6_) #15
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %284, align 8
   ret void
@@ -1612,7 +1612,7 @@ _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %101
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef nonnull align 8 dereferenceable(2432) ptr %129(ptr noundef nonnull align 8 dereferenceable(34) %126) #15
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %131) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %131) #15
   %132 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %133, i64 24, i1 false)
@@ -1766,7 +1766,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmneENS_9Stri
   %196 = getelementptr inbounds i8, ptr %195, i64 168
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull align 8 dereferenceable(288) %186, ptr noundef %194, i32 noundef 0) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #15
   br label %_ZN4llvm5ErrorD2Ev.exit35.thread
 
 _ZN4llvm5ErrorD2Ev.exit35.thread:                 ; preds = %122, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %96
@@ -3942,7 +3942,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %11 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, i64 noundef 4) #15
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %11, i64 noundef 4) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -4072,7 +4072,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit47.i:              ; preds = %44
 86:                                               ; preds = %75, %.thread.i, %_ZN4llvmplERKNS_5TwineES2_.exit17.i
   %.1.i = phi i1 [ %28, %_ZN4llvmplERKNS_5TwineES2_.exit17.i ], [ false, %75 ], [ %.2.ph.i, %.thread.i ]
   %87 = load ptr, ptr %5, align 8
-  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #15
   %.not4.i.i.i = icmp eq i64 %88, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
@@ -6708,7 +6708,7 @@ _ZN12_GLOBAL__N_115DarwinAsmParser17parseBuildVersionEN4llvm9StringRefENS1_5SMLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_23parseDirectiveCGProfileES5_S6_EEEEbPS0_S5_S6_(ptr noundef nonnull %0, ptr %1, i64 %2, ptr %3) #0 align 2 {
-  %5 = tail call noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirectiveCGProfileENS_9StringRefENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr %1, i64 %2, ptr %3) #15
+  %5 = tail call noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirectiveCGProfileENS_9StringRefENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3) #15
   ret i1 %5
 }
 

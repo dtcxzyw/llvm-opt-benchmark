@@ -204,7 +204,7 @@ define noalias ptr @png_malloc_array(ptr noalias noundef %0, i32 noundef %1, i64
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 %8)
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 1, 0) %2, i64 %8)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %png_malloc_array_checked.exit, label %9
 
@@ -266,7 +266,7 @@ define noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readon
 15:                                               ; preds = %13
   %16 = add nuw nsw i32 %3, %2
   %17 = zext nneg i32 %16 to i64
-  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %4, i64 %17)
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 1, 0) %4, i64 %17)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %png_malloc_array_checked.exit.thread, label %18
 

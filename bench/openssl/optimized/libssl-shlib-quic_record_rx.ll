@@ -1130,7 +1130,7 @@ if.end118.i.i.i.i:                                ; preds = %if.end105.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nonce.i)
   store i32 0, ptr %l.i, align 4
   store i32 0, ptr %l2.i, align 4
-  %call.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef %retval.0.i90.i.i.i.i, i32 noundef 1) #12
+  %call.i = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set.i.i.i.i, i32 noundef range(i32 0, 4) %retval.0.i90.i.i.i.i, i32 noundef 1) #12
   %51 = or i64 %48, %sub.ptr.sub110.i.i.i.i
   %or.cond.not.i = icmp ugt i64 %51, 2147483647
   %cmp2.not.i = icmp eq ptr %call.i, null

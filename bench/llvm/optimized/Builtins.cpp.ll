@@ -2171,7 +2171,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %56, %_ZNK4llvm9Stri
   %.sroa.4.0 = phi i64 [ %58, %56 ], [ %61, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ], [ %58, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %62 = phi i1 [ false, %56 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %63 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.051.0, i64 %.sroa.4.0) #13
-  %64 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.051.0, i64 %.sroa.4.0, i32 noundef %63) #13
+  %64 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %.sroa.051.0, i64 %.sroa.4.0, i32 noundef %63) #13
   %65 = icmp eq i32 %64, -1
   %66 = load i32, ptr %55, align 8
   %67 = zext i32 %66 to i64
@@ -2699,7 +2699,7 @@ _ZNK5clang7Builtin7Context9getRecordEj.exit.i:    ; preds = %21, %13, %7
   %.0.i.i = phi ptr [ %8, %7 ], [ %20, %13 ], [ %25, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr @strpbrk(ptr noundef %27, ptr noundef nonnull readonly @.str.28) #14
+  %28 = tail call noundef ptr @strpbrk(ptr noundef %27, ptr noundef nonnull @.str.28) #14
   %.not.i = icmp ne ptr %28, null
   br i1 %.not.i, label %29, label %_ZNK5clang7Builtin7Context6isLikeEjRjRbPKc.exit
 
@@ -2756,7 +2756,7 @@ _ZNK5clang7Builtin7Context9getRecordEj.exit.i:    ; preds = %21, %13, %7
   %.0.i.i = phi ptr [ %8, %7 ], [ %20, %13 ], [ %25, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr @strpbrk(ptr noundef %27, ptr noundef nonnull readonly @.str.29) #14
+  %28 = tail call noundef ptr @strpbrk(ptr noundef %27, ptr noundef nonnull @.str.29) #14
   %.not.i = icmp ne ptr %28, null
   br i1 %.not.i, label %29, label %_ZNK5clang7Builtin7Context6isLikeEjRjRbPKc.exit
 

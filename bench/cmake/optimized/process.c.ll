@@ -322,7 +322,7 @@ uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef %.096171, i32 noundef %75)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.096171, i32 noundef %75)
   unreachable
 
 91:                                               ; preds = %87

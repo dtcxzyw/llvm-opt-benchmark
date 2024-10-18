@@ -442,7 +442,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %conv.i = zext i32 %1 to i64
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %conv.i) #29
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef range(i64 1, 4294967296) %conv.i) #29
   unreachable
 
 index_pos_to_insert_pos.exit.i:                   ; preds = %if.then.i
@@ -1602,7 +1602,7 @@ xsize_t.exit:                                     ; preds = %sw.bb1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_write_index.sb.87, i64 24, i1 false)
   %name.i8 = getelementptr inbounds i8, ptr %ce, i64 108
-  %call.i9 = call i32 @strbuf_readlink(ptr noundef nonnull %sb.i, ptr noundef nonnull %name.i8, i64 noundef %6) #28
+  %call.i9 = call i32 @strbuf_readlink(ptr noundef nonnull %sb.i, ptr noundef nonnull %name.i8, i64 noundef range(i64 0, -9223372036854775808) %6) #28
   %tobool.not.i10 = icmp eq i32 %call.i9, 0
   br i1 %tobool.not.i10, label %if.end.i, label %ce_compare_link.exit.thread
 
@@ -5756,30 +5756,30 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb.i:                                          ; preds = %while.body
-  %call.i = tail call ptr @cache_tree_read(ptr noundef nonnull %add.ptr8, i64 noundef %or11.i) #28
+  %call.i = tail call ptr @cache_tree_read(ptr noundef nonnull %add.ptr8, i64 noundef range(i64 0, 4294967296) %or11.i) #28
   %cache_tree.i = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %call.i, ptr %cache_tree.i, align 8
   br label %if.end
 
 sw.bb11.i:                                        ; preds = %while.body
-  %call12.i = tail call ptr @resolve_undo_read(ptr noundef nonnull %add.ptr8, i64 noundef %or11.i) #28
+  %call12.i = tail call ptr @resolve_undo_read(ptr noundef nonnull %add.ptr8, i64 noundef range(i64 0, 4294967296) %or11.i) #28
   %resolve_undo.i = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %call12.i, ptr %resolve_undo.i, align 8
   br label %if.end
 
 sw.bb13.i:                                        ; preds = %while.body
-  %call14.i = tail call i32 @read_link_extension(ptr noundef %10, ptr noundef nonnull %add.ptr8, i64 noundef %or11.i) #28
+  %call14.i = tail call i32 @read_link_extension(ptr noundef %10, ptr noundef nonnull %add.ptr8, i64 noundef range(i64 0, 4294967296) %or11.i) #28
   %tobool.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then
 
 sw.bb15.i:                                        ; preds = %while.body
-  %call16.i = tail call ptr @read_untracked_extension(ptr noundef nonnull %add.ptr8, i64 noundef %or11.i) #28
+  %call16.i = tail call ptr @read_untracked_extension(ptr noundef nonnull %add.ptr8, i64 noundef range(i64 0, 4294967296) %or11.i) #28
   %untracked.i = getelementptr inbounds i8, ptr %10, i64 200
   store ptr %call16.i, ptr %untracked.i, align 8
   br label %if.end
 
 sw.bb17.i:                                        ; preds = %while.body
-  %call18.i = tail call i32 @read_fsmonitor_extension(ptr noundef %10, ptr noundef nonnull %add.ptr8, i64 noundef %or11.i) #28
+  %call18.i = tail call i32 @read_fsmonitor_extension(ptr noundef %10, ptr noundef nonnull %add.ptr8, i64 noundef range(i64 0, 4294967296) %or11.i) #28
   br label %if.end
 
 sw.bb20.i:                                        ; preds = %while.body
@@ -7454,7 +7454,7 @@ if.then38:                                        ; preds = %if.end36
 if.then.i:                                        ; preds = %if.then38
   %conv = zext i32 %16 to i64
   %17 = load ptr, ptr %istate, align 8
-  call void @qsort(ptr noundef %17, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @cmp_cache_name_compare) #28
+  call void @qsort(ptr noundef %17, i64 noundef range(i64 0, 4294967296) %conv, i64 noundef 8, ptr noundef nonnull @cmp_cache_name_compare) #28
   br label %if.end41thread-pre-split
 
 if.end41thread-pre-split:                         ; preds = %if.end36, %if.then.i
@@ -8859,7 +8859,7 @@ land.lhs.true.i.preheader:                        ; preds = %for.cond.preheader.
 if.then9.i:                                       ; preds = %if.end.i180
   %ce_namelen10.i = getelementptr inbounds i8, ptr %35, i64 64
   %57 = load i32, ptr %ce_namelen10.i, align 8
-  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef %ondisk, ptr noundef nonnull %35)
+  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %ondisk, ptr noundef nonnull %35)
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %ondisk, i32 noundef %conv7.i) #28
   %name.i184 = getelementptr inbounds i8, ptr %35, i64 108
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %name.i184, i32 noundef %57) #28
@@ -8900,7 +8900,7 @@ for.end.i:                                        ; preds = %for.inc.i, %land.lh
   %conv33.i = sub i32 %.pre56.i, %common.0.lcssa.i
   %conv34.i = sext i32 %conv33.i to i64
   %call.i183 = call i32 @encode_varint(i64 noundef %conv34.i, ptr noundef nonnull %to_remove_vi.i) #28
-  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef %ondisk, ptr noundef nonnull %35)
+  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %ondisk, ptr noundef nonnull %35)
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %ondisk, i32 noundef %conv7.i) #28
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %to_remove_vi.i, i32 noundef %call.i183) #28
   %add.ptr.i = getelementptr inbounds i8, ptr %name15.i, i64 %idxprom.lcssa.i

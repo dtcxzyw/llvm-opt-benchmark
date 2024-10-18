@@ -3851,7 +3851,7 @@ define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1295) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
-  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %11)
+  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %11)
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %parse_VENDOR_MANAGEMENT.exit, label %37
 
@@ -3878,7 +3878,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %33, %37
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.1296) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
-  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %10)
+  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %10)
   %.not.i128 = icmp eq i32 %47, 0
   br i1 %.not.i128, label %parse_APPLICATION_MANAGEMENT.exit, label %48
 
@@ -3912,7 +3912,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %44, %48
   %60 = load ptr, ptr %59, align 8
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.1297) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
-  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %9)
+  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %9)
   %.not.i129 = icmp eq i32 %61, 0
   br i1 %.not.i129, label %parse_RESERVED_MANAGEMENT.exit, label %62
 
@@ -4744,7 +4744,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 202:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_SLtoVLMappingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_SLtoVLMappingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 203:                                              ; preds = %parse_RID.exit.i
@@ -4752,15 +4752,15 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 204:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_LinearForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_LinearForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 205:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_RandomForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_RandomForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 206:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_MulticastForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_MulticastForwardingTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 207:                                              ; preds = %parse_RID.exit.i
@@ -4841,7 +4841,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 252:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_P_KeyTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_P_KeyTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 253:                                              ; preds = %parse_RID.exit.i
@@ -4910,7 +4910,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   br label %parse_SUBA_Attribute.exit
 
 313:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_VLArbitrationTable(ptr noundef %98, ptr noundef %2, ptr noundef %6)
+  call fastcc void @parse_VLArbitrationTable(ptr noundef %98, ptr noundef %2, ptr noundef nonnull %6)
   br label %parse_SUBA_Attribute.exit
 
 314:                                              ; preds = %parse_RID.exit.i

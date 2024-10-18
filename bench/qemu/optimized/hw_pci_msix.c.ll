@@ -808,7 +808,7 @@ entry:
   %narrow = tail call i32 @llvm.umax.i32(i32 %add8, i32 4096)
   %bar_size.0 = zext nneg i32 %narrow to i64
   %sub.i = add nsw i64 %bar_size.0, -1
-  %0 = tail call range(i64 43, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 true)
+  %0 = tail call range(i64 43, 65) i64 @llvm.ctlz.i64(i64 range(i64 4095, 1056752) %sub.i, i1 true)
   %sub2.i = add nuw nsw i64 %0, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i

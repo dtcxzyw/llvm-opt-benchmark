@@ -319,7 +319,7 @@ _ZN16JvmtiEnvIteratorC2Ev.exit:                   ; preds = %_ZN9OopHandleC2EP10
 
 41:                                               ; preds = %39
   %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 9, i32 noundef 0) #14
-  tail call void @_ZN19JvmtiEnvThreadStateC1EP16JvmtiThreadStateP12JvmtiEnvBase(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull %0, ptr noundef nonnull %.029) #14
+  tail call void @_ZN19JvmtiEnvThreadStateC1EP16JvmtiThreadStateP12JvmtiEnvBase(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %.029) #14
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 844
   %45 = load volatile i32, ptr %44, align 4
@@ -496,7 +496,7 @@ define hidden void @_ZN16JvmtiThreadStateD2Ev(ptr noundef nonnull align 8 derefe
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call void @_ZN26GrowableArrayWithAllocatorIP5Klass13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %_ZN13GrowableArrayIP5KlassED2Ev.exit
 
 _ZN13GrowableArrayIP5KlassED2Ev.exit:             ; preds = %4, %8
@@ -790,7 +790,7 @@ define hidden void @_ZN27JvmtiVTMSTransitionDisabler31VTMS_transition_disable_fo
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 21:                                               ; preds = %9
-  %22 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 8, i32 noundef 0) #14
+  %22 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %21
@@ -1109,7 +1109,7 @@ define hidden void @_ZN27JvmtiVTMSTransitionDisabler30VTMS_transition_enable_for
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 21:                                               ; preds = %9
-  %22 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef 8, i32 noundef 0) #14
+  %22 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %21
@@ -1264,7 +1264,7 @@ _ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit.thread: ; preds =
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 26:                                               ; preds = %14
-  %27 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef 8, i32 noundef 0) #14
+  %27 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %16, i64 noundef 8, i32 noundef 0) #14
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26

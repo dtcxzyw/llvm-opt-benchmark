@@ -466,18 +466,18 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %161 = call i32 @fclose(ptr noundef nonnull %63)
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.97, i32 noundef %61) #11
+  %162 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.97, i32 noundef range(i32 0, 65535) %61) #11
   %163 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.6)
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %.preheader31.i
 
 165:                                              ; preds = %160
-  %166 = call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %61, ptr noundef nonnull @.str.47)
+  %166 = call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 0, 65535) %61, ptr noundef nonnull @.str.47)
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %_cpu_freq_cpu_avail.exit.thread, label %168
 
 168:                                              ; preds = %165
-  %169 = call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %61, ptr noundef nonnull @.str.46)
+  %169 = call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 0, 65535) %61, ptr noundef nonnull @.str.46)
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %_cpu_freq_cpu_avail.exit.thread, label %171
 
@@ -1526,7 +1526,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
 20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef %1, ptr noundef nonnull @.str.102) #11
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull @.str.102) #11
   %22 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %23 = icmp eq i32 %22, 0
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
@@ -1546,7 +1546,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
 
 25:                                               ; preds = %24, %.thread.i, %18
   %.str.103.sink.i = phi ptr [ @.str.103, %24 ], [ @.str.102, %18 ], [ @.str.102, %.thread.i ]
-  %26 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %1, ptr noundef nonnull %.str.103.sink.i)
+  %26 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull %.str.103.sink.i)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_cpu_freq_current_state.exit.thread, label %28
 
@@ -1554,7 +1554,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   %29 = load ptr, ptr @cpufreq, align 8
   %30 = getelementptr inbounds %struct.cpu_freq_data, ptr %29, i64 %14, i32 6
   store i32 %26, ptr %30, align 4
-  %31 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %1, ptr noundef nonnull @.str.47)
+  %31 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull @.str.47)
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_cpu_freq_current_state.exit.thread, label %33
 
@@ -1562,7 +1562,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   %34 = load ptr, ptr @cpufreq, align 8
   %35 = getelementptr inbounds %struct.cpu_freq_data, ptr %34, i64 %14, i32 8
   store i32 %31, ptr %35, align 4
-  %36 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %1, ptr noundef nonnull @.str.46)
+  %36 = tail call fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %1, ptr noundef nonnull @.str.46)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %_cpu_freq_current_state.exit.thread, label %38
 
@@ -1572,7 +1572,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   store i32 %36, ptr %40, align 4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.104, i32 noundef %1) #11
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.104, i32 noundef range(i32 -2147483648, 65535) %1) #11
   %42 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.6)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -2900,7 +2900,7 @@ define void @cpu_freq_reset(ptr nocapture noundef readonly %0) local_unnamed_add
 38:                                               ; preds = %33, %28
   %39 = load ptr, ptr @slurmd_spooldir, align 8
   %40 = trunc nuw nsw i64 %indvars.iv to i32
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.112, ptr noundef %39, i32 noundef %40) #11
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.112, ptr noundef %39, i32 noundef range(i32 -2147483648, 65535) %40) #11
   %42 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 384) #11
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %.preheader42.i
@@ -2925,7 +2925,7 @@ define void @cpu_freq_reset(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %51
 
 51:                                               ; preds = %49, %.preheader42.i
-  %52 = call i32 @fd_get_write_lock(i32 noundef %42) #11
+  %52 = call i32 @fd_get_write_lock(i32 noundef range(i32 0, -2147483648) %42) #11
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.lr.ph.i.preheader, label %54
 
@@ -3081,7 +3081,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %105
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.120, ptr noundef nonnull @__func__._test_cpu_owner_lock, i32 noundef %40, i32 noundef %104, i32 noundef %29) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.120, ptr noundef nonnull @__func__._test_cpu_owner_lock, i32 noundef range(i32 -2147483648, 65535) %40, i32 noundef %104, i32 noundef %29) #11
   br label %109
 
 109:                                              ; preds = %108, %105
@@ -3095,7 +3095,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %111
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.121, ptr noundef nonnull @__func__._test_cpu_owner_lock, i32 noundef %40, i32 noundef %29) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.121, ptr noundef nonnull @__func__._test_cpu_owner_lock, i32 noundef range(i32 -2147483648, 65535) %40, i32 noundef %29) #11
   br label %120
 
 116:                                              ; preds = %71, %.split58.i, %68, %.split.us.i, %65, %.split61.i
@@ -4066,7 +4066,7 @@ define internal fastcc noundef i32 @_set_cpu_owner_lock(i32 noundef range(i32 -2
   br label %22
 
 22:                                               ; preds = %20, %.preheader
-  %23 = tail call i32 @fd_get_write_lock(i32 noundef %16) #11
+  %23 = tail call i32 @fd_get_write_lock(i32 noundef range(i32 0, -2147483648) %16) #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.lr.ph.split.us.preheader, label %25
 

@@ -264,7 +264,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
   br i1 %.not.i56, label %.lr.ph68.split.i, label %.lr.ph65.us.preheader.i
 
 .lr.ph65.us.preheader.i:                          ; preds = %.lr.ph68.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %.139, i32 2)
+  %smax.i = tail call i32 @llvm.smax.i32(i32 range(i32 1, 0) %.139, i32 2)
   br label %.lr.ph65.us.i
 
 .lr.ph65.us.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph65.us.preheader.i
@@ -321,7 +321,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
   br label %.lr.ph95
 
 .lr.ph74.preheader.i:                             ; preds = %.preheader.i55
-  %121 = tail call i32 @llvm.smax.i32(i32 %.139, i32 2)
+  %121 = tail call i32 @llvm.smax.i32(i32 range(i32 1, 0) %.139, i32 2)
   %122 = add nsw i32 %121, -2
   br label %.lr.ph74.i
 

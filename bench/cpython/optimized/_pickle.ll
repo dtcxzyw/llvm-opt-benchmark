@@ -1486,7 +1486,7 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
   br i1 %cmp.i11.i, label %if.end5.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i64 @PyLong_AsLong(ptr noundef %protocol.031) #11
+  %call.i.i = call i64 @PyLong_AsLong(ptr noundef nonnull %protocol.031) #11
   %cmp1.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else6.i.i
 
@@ -1695,7 +1695,7 @@ if.end.i:                                         ; preds = %skip_optional_kwonl
   br i1 %cmp.i10.i, label %if.end5.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i64 @PyLong_AsLong(ptr noundef %protocol.030) #11
+  %call.i.i = call i64 @PyLong_AsLong(ptr noundef nonnull %protocol.030) #11
   %cmp1.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else6.i.i
 
@@ -7962,7 +7962,7 @@ if.end.i43.i:                                     ; preds = %while.body.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i43.i, %while.body.i
-  %call18.i = tail call fastcc i32 @save(ptr noundef readonly %state, ptr noundef %self, ptr noundef nonnull %62, i32 noundef 0)
+  %call18.i = tail call fastcc i32 @save(ptr noundef readonly %state, ptr noundef nonnull %self, ptr noundef nonnull %62, i32 noundef 0)
   %64 = load i64, ptr %62, align 8
   %65 = and i64 %64, 2147483648
   %cmp.i57.not.i = icmp eq i64 %65, 0
@@ -9442,7 +9442,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i35.i
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.end23.i
 
 if.end5.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i35.i
-  %call6.i.i = call fastcc ptr @get_deep_attribute(ptr noundef %15, ptr noundef readonly %call.i, ptr noundef null)
+  %call6.i.i = call fastcc ptr @get_deep_attribute(ptr noundef %15, ptr noundef nonnull readonly %call.i, ptr noundef null)
   %cmp7.i.i = icmp eq ptr %call6.i.i, null
   br i1 %cmp7.i.i, label %if.end23.i, label %if.end9.i.i
 
@@ -9563,7 +9563,7 @@ land.lhs.true.i43.i:                              ; preds = %if.end.i39.i
   br i1 %tobool3.not.i45.i, label %if.end5.i47.i, label %if.end43.i
 
 if.end5.i47.i:                                    ; preds = %land.lhs.true.i43.i, %if.end.i39.i
-  %call6.i48.i = call fastcc ptr @get_deep_attribute(ptr noundef nonnull %call36.i, ptr noundef readonly %call.i, ptr noundef null)
+  %call6.i48.i = call fastcc ptr @get_deep_attribute(ptr noundef nonnull %call36.i, ptr noundef nonnull readonly %call.i, ptr noundef null)
   %cmp7.i49.i = icmp eq ptr %call6.i48.i, null
   br i1 %cmp7.i49.i, label %if.end43.i, label %if.end9.i50.i
 
@@ -19405,7 +19405,7 @@ if.then1.i34.i:                                   ; preds = %if.end.i21.i2099
   br label %while.end
 
 if.end2.i24.i:                                    ; preds = %if.end.i21.i2099
-  %call3.i25.i = call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i.i2092)
+  %call3.i25.i = call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %.x.0.i.i2092)
   %cmp4.i26.i = icmp slt i64 %call3.i25.i, 0
   br i1 %cmp4.i26.i, label %while.end, label %if.end7.i27.i
 
@@ -19747,7 +19747,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i
-  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv)
+  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv)
   %cmp4.i = icmp slt i64 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end7.i
 
@@ -19846,7 +19846,7 @@ if.then1.i44:                                     ; preds = %if.end.i31
   br label %return
 
 if.end2.i34:                                      ; preds = %if.end.i31
-  %call3.i35 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv19)
+  %call3.i35 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv19)
   %cmp4.i36 = icmp slt i64 %call3.i35, 0
   br i1 %cmp4.i36, label %return, label %if.end7.i37
 
@@ -19975,7 +19975,7 @@ if.then1.i22:                                     ; preds = %if.end.i21
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i21
-  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv)
+  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv)
   %cmp4.i = icmp slt i64 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end7.i
 
@@ -20148,7 +20148,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i
-  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv)
+  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv)
   %cmp4.i = icmp slt i64 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end7.i
 
@@ -20233,7 +20233,7 @@ if.then1.i45:                                     ; preds = %if.end.i32
   br label %return
 
 if.end2.i35:                                      ; preds = %if.end.i32
-  %call3.i36 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i)
+  %call3.i36 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %.x.0.i)
   %cmp4.i37 = icmp slt i64 %call3.i36, 0
   br i1 %cmp4.i37, label %return, label %if.end7.i38
 
@@ -20375,7 +20375,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i
-  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv)
+  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv)
   %cmp4.i = icmp slt i64 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end7.i
 
@@ -20459,7 +20459,7 @@ if.then1.i40:                                     ; preds = %if.end.i27
   br label %return
 
 if.end2.i30:                                      ; preds = %if.end.i27
-  %call3.i31 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %.x.0.i)
+  %call3.i31 = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %.x.0.i)
   %cmp4.i32 = icmp slt i64 %call3.i31, 0
   br i1 %cmp4.i32, label %return, label %if.end7.i33
 
@@ -21073,7 +21073,7 @@ if.then1.i62:                                     ; preds = %if.end.i61
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i61
-  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef %conv)
+  %call3.i = tail call fastcc i64 @_Unpickler_ReadFromFile(ptr noundef nonnull %self, i64 noundef range(i64 0, -9223372036854775808) %conv)
   %cmp4.i = icmp slt i64 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end7.i
 

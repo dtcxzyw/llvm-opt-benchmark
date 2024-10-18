@@ -1858,7 +1858,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
   store ptr %18, ptr %2, align 8
-  %19 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
+  %19 = tail call fastcc i32 @lzma_486248(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %lzma_4862e0.exit.thread, label %21
 
@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   store ptr %35, ptr %2, align 8
-  %36 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
+  %36 = tail call fastcc i32 @lzma_486248(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %lzma_4862e0.exit.thread, label %38
 
@@ -1932,7 +1932,7 @@ define internal fastcc range(i32 -1, 1) i32 @lzma_4863da(i32 noundef %0, ptr noc
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
   store ptr %52, ptr %2, align 8
-  %53 = tail call fastcc i32 @lzma_486248(ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %6)
+  %53 = tail call fastcc i32 @lzma_486248(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %6)
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %lzma_4862e0.exit.thread, label %55
 

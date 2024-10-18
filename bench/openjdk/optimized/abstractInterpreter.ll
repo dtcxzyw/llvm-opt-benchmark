@@ -421,7 +421,7 @@ define hidden void @_ZN19AbstractInterpreter18set_entry_for_kindENS_10MethodKind
 define hidden noundef zeroext i1 @_ZN19AbstractInterpreter14is_not_reachedERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.BytecodeStream, align 8
   %4 = alloca %class.constantPoolHandle, align 8
-  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
